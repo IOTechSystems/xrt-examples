@@ -91,7 +91,7 @@ The configuration files generated from the tool are as follows:
 
 `java -jar ModbusPal.jar`
 
-* Use the "Load" button and select the damocles.xmpp file. This provides a simulation of a simple Modbus devices with 4 binary inputs and two binary outputs.
+* Use the "Load" button and select the [damocles.xmpp](damocles.xmpp) file. This provides a simulation of a simple Modbus devices with 4 binary inputs and two binary outputs.
 * Start the simulator with the "Run" button.
 Configuring XRT for use with Guardian 100 or Modbus simulator
 In order to deploy the example application and enable it connect to the Modbus simulator (or a real Damocles2 Mini device)  then you must configure the following config files for the XRT Modbus Device Service component and the Azure Sphere manifest to use the IP address of your PC.
