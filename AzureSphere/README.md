@@ -30,14 +30,20 @@ The development process flow follows a standard sequence of steps:
 
 Step 1:
 *	Install the XRT for Azure Sphere package on either a Windows or Linux (Ubuntu) host PC and then install the Azure Sphere demo project into Visual Studio.
+
 Step 2:
 *	Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/) create a <Device Profile>.json configuration file representing the IoT device type. For example in this tutorial we will create a Device Profile for the [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini) Modbus device. Using the same device definition DCT can also be used to generate a Digital Twins Definition Language (DTDL) file representation for use with Azure IoT Hub.
+
 Step 3:
 *	Configure the appropriate <Device Service>.json specifying the device instance(s) that the XRT Device Service (e.g. Modbus) component will create at runtime based on the <Device Profile>.json created in the previous step. Also configure the  <Azure Export>.json file to specify the endpoint information need by the XRT Azure Sphere export send data to and accept command from IoT Hub.  
+
 Step 4:
 *	Using Visual Studio (or cmake from the command line) build the XRT Azure Application.
+
 Step 5:
 *	From Visual Studio using the azsphere utility  deploy the XRT Azure Application onto the Azure Shere hardware module (e.g. Guardian 100)
+
+Step 6:
 * Visualize the data on Azure IoT Hub and optionally send commands back to the connected IoT device. **TO BE COMPLETED**
 
 Each of the above steps are covered in detail in the subsequent parts of this tutorial.
