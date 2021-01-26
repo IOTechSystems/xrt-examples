@@ -91,17 +91,17 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 * Edit app_manifest.json and replace 10.0.0.1 with the IP address of your PC
 
-![Application Manifest](AppManifest.jpg)
+![Application Manifest](AppManifest.svg)
 
 * Edit config/modbus.json replace 10.0.0.1 with the IP address of your PC
 
-![Device Service Config](DeviceServiceConfig.jpg)  
+![Device Service Config](DeviceServiceConfig.svg)  
 
 To connect the example to your IoT Hub endpoint you must also configure Azure Export Service component.
 
 * Edit config/azue.json and replace TO BE COMPLETED
 
-![Azure Export Config](AzureExportConfig.jpg)
+![Azure Export Config](AzureExportConfig.svg)
 
 ### Building The Application
 
