@@ -1,0 +1,53 @@
+{
+  "@id": "dtmi:com:hw_group:damocles2_mini;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Damocles2 Mini",
+  "description": "Damocles2 Mini",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "BinaryInput1",
+      "schema": "boolean",
+      "description": "Current value of binary input 1"
+    },
+    {
+      "@type": "Property",
+      "name": "BinaryInput2",
+      "schema": "boolean",
+      "description": "Current value of binary input 2"
+    },
+    {
+      "@type": "Property",
+      "name": "BinaryInput3",
+      "schema": "boolean",
+      "description": "Current value of binary input 3"
+    },
+    {
+      "@type": "Property",
+      "name": "BinaryInput4",
+      "schema": "boolean",
+      "description": "Current value of binary input 4"
+    },
+    {
+      "@type": "Property",
+      "name": "BinaryOutput1",
+      "schema": "boolean",
+      "description": "Current value of output 1",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "BinaryOutput2",
+      "schema": "boolean",
+      "description": "Current value of output 2",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "device_twin_id",
+      "schema": "string",
+      "description": "Device digital twin ID"
+    }
+  ]
+}

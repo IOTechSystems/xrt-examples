@@ -1,0 +1,371 @@
+{
+  "name": "Damocles2 Mini",
+  "manufacturer": "HW group",
+  "model": "Damocles2 Mini",
+  "description": "Damocles2 Mini",
+  "labels": [
+    "HW group",
+    "Damocles2",
+    "Mini"
+  ],
+  "deviceResources": [
+    {
+      "name": "BinaryInput1",
+      "description": "Current value of binary input 1",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "100"
+      }
+    },
+    {
+      "name": "BinaryInput2",
+      "description": "Current value of binary input 2",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "101"
+      }
+    },
+    {
+      "name": "BinaryInput3",
+      "description": "Current value of binary input 3",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "102"
+      }
+    },
+    {
+      "name": "BinaryInput4",
+      "description": "Current value of binary input 4",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "103"
+      }
+    },
+    {
+      "name": "BinaryOutput1",
+      "description": "Current value of output 1",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "primaryTable": "COILS",
+        "startingAddress": "200"
+      }
+    },
+    {
+      "name": "BinaryOutput2",
+      "description": "Current value of output 2",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "primaryTable": "COILS",
+        "startingAddress": "201"
+      }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "BinaryInputs",
+      "get": [
+        {
+          "index": "1",
+          "operation": "get",
+          "object": "BinaryInput1",
+          "deviceResource": "BinaryInput1",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "get",
+          "object": "BinaryInput2",
+          "deviceResource": "BinaryInput2",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "3",
+          "operation": "get",
+          "object": "BinaryInput3",
+          "deviceResource": "BinaryInput3",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "4",
+          "operation": "get",
+          "object": "BinaryInput4",
+          "deviceResource": "BinaryInput4",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BinaryOutputs",
+      "get": [
+        {
+          "index": "1",
+          "operation": "get",
+          "object": "BinaryOutput1",
+          "deviceResource": "BinaryOutput1",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "get",
+          "object": "BinaryOutput2",
+          "deviceResource": "BinaryOutput2",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        }
+      ],
+      "set": [
+        {
+          "index": "1",
+          "operation": "set",
+          "object": "BinaryOutput1",
+          "deviceResource": "BinaryOutput1",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "set",
+          "object": "BinaryOutput2",
+          "deviceResource": "BinaryOutput2",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InputsAndOutputs",
+      "get": [
+        {
+          "index": "1",
+          "operation": "get",
+          "object": "BinaryInput1",
+          "deviceResource": "BinaryInput1",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "get",
+          "object": "BinaryInput2",
+          "deviceResource": "BinaryInput2",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "3",
+          "operation": "get",
+          "object": "BinaryInput3",
+          "deviceResource": "BinaryInput3",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "4",
+          "operation": "get",
+          "object": "BinaryInput4",
+          "deviceResource": "BinaryInput4",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "5",
+          "operation": "get",
+          "object": "BinaryOutput1",
+          "deviceResource": "BinaryOutput1",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        },
+        {
+          "index": "6",
+          "operation": "get",
+          "object": "BinaryOutput2",
+          "deviceResource": "BinaryOutput2",
+          "mappings": {
+            "false": "open",
+            "true": "close"
+          }
+        }
+      ]
+    }
+  ],
+  "coreCommands": [
+    {
+      "name": "BinaryInputs",
+      "get": {
+        "path": "/api/v1/device/{deviceId}/BinaryInputs",
+        "responses": [
+          {
+            "code": "200",
+            "description": "Get the Binary Input values",
+            "expectedValues": [
+              "BinaryInput1",
+              "BinaryInput2",
+              "BinaryInput3",
+              "BinaryInput4"
+            ]
+          },
+          {
+            "code": "503",
+            "description": "service unavailable"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BinaryOutputs",
+      "get": {
+        "path": "/api/v1/device/{deviceId}/BinaryOutputs",
+        "responses": [
+          {
+            "code": "200",
+            "description": "Get the binary outputs",
+            "expectedValues": [
+              "BinaryOutput1",
+              "BinaryOutput2"
+            ]
+          },
+          {
+            "code": "500",
+            "description": "service unavailable"
+          }
+        ]
+      },
+      "put": {
+        "path": "/api/v1/device/{deviceId}/BinaryOutputs",
+        "responses": [
+          {
+            "code": "204",
+            "description": "Set the binary outputs"
+          },
+          {
+            "code": "500",
+            "description": "service unavailable"
+          }
+        ],
+        "parameterNames": [
+          "BinaryOutput1",
+          "BinaryOutput2"
+        ]
+      }
+    },
+    {
+      "name": "InputsAndOutputs",
+      "get": {
+        "path": "/api/v1/device/{deviceId}/InputsAndOutputs",
+        "responses": [
+          {
+            "code": "200",
+            "description": "Get the Binary Input values",
+            "expectedValues": [
+              "BinaryInput1",
+              "BinaryInput2",
+              "BinaryInput3",
+              "BinaryInput4",
+              "BinaryOutput1",
+              "BinaryOutput2"
+            ]
+          },
+          {
+            "code": "503",
+            "description": "service unavailable"
+          }
+        ]
+      }
+    }
+  ]
+}
