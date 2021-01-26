@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE modbuspal_project SYSTEM "modbuspal.dtd">
+<modbuspal_project>
+<idgen  value="1"/>
+<links selected="TCP/IP" >
+<tcpip port="1502" />
+<serial com="COM 1" baudrate="9600" parity="even" stops="1" >
+<flowcontrol xonxoff="false" rtscts="false" />
+</serial>
+</links>
+<automation name="Inputs" step="1.0" loop="true" init="0.0">
+<generator class="LinearGenerator" duration="8.0">
+<start value="0.0" relative="false"/>
+<end value="2.0" relative="false"/>
+</generator>
+</automation>
+<slave id="2" enabled="true" name="Damocles2" implementation="modbus">
+<holding_registers>
+</holding_registers>
+<coils>
+<coil address="99" value="0" name="Input 1">
+</coil>
+<coil address="100" value="0" name="Input 2">
+</coil>
+<coil address="101" value="0" name="Input 3">
+</coil>
+<coil address="102" value="0" name="Input 4">
+</coil>
+<coil address="199" value="0" name="Output 1"/>
+<coil address="200" value="1" name="Output 2"/>
+</coils>
+<tuning>
+<reply_delay min="0" max="0" />
+<error_rates no_reply="0.0" />
+</tuning>
+</slave>
+</modbuspal_project>

@@ -1,0 +1,29 @@
+{
+  "Scheduler":"scheduler",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Name":"modbus_device_service",
+  "Topic":"device/output",
+  "RequestTopic":"device/input",
+  "Devices":{
+    "damocles-virt1":{
+      "profile":"Damocles2 Mini",
+      "protocols":{
+        "modbus-tcp":{
+          "Address": "10.0.0.1",
+          "Port": "1502",
+          "UnitID": "2"
+        }
+      }
+    }
+  },
+  "Schedules":[
+    {
+      "device": "damocles-virt1",
+      "resource": "BinaryInputs",
+      "interval": 2000000
+    }
+  ],
+  "ProfileDir":"config/profiles"
+}
