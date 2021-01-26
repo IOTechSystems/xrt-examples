@@ -38,6 +38,7 @@ Step 4:
 *	Using Visual Studio (or cmake from the command line) build the XRT Azure Application.
 Step 5:
 *	From Visual Studio using the azsphere utility  deploy the XRT Azure Application onto the Azure Shere hardware module (e.g. Guardian 100)
+* Visualize the data on Azure IoT Hub and optionally send commands back to the connected IoT device. **TO BE COMPLETED**
 
 Each of the above steps are covered in detail in the subsequent parts of this tutorial.
 
@@ -79,7 +80,7 @@ The configuration files generated from the tool are as follows:
 
 ### Running the ModbusPal Simulator
 
-* Download the [ModbusPal jar file](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar).
+* Download the ModbusPal jar file.
 * Run the simulator with the command:
 
 `java -jar ModbusPal.jar`
@@ -126,28 +127,5 @@ In gdb issue the commands:
 `continue`
 
 Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
-
-### Change Modbus Device Input Values
-
-Press the button with the "eye" icon and then select the "Coils" tab
-in the dialog that appears.
-
-Change the value of "Input 1" by double clicking in the table value
-entry and entering a value of "1".
-
-Observe the debug output to see the new value being read from the
-simulated Modbus device and then published to the Azure Cloud.
-
-### Changing the Modbus Device Outputs
-
-The script update.sh can be used to update device resources the Azure
-IOT hub to invoke a device method.
-  
-To set the resource BinaryOutput1 to true issue the command (replace
-HubName with the name of your IOT hub):
-
-`./update.sh HubName BinaryOutput1 true`
-
-Observe that "Output 1" value in the simulator change to "1".
 
 ## Tutorial Part 2 – Setting Up Digital Twins
