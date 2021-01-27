@@ -154,7 +154,21 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 To connect the example to your IoT Hub endpoint you must also configure Azure Export Service component.
 
-* Edit [config/azure.json](config/azure.json) and replace TO BE COMPLETED
+* Edit [config/azure.json](config/azure.json) and the value for the "HostName", "DeviceID" and "ScopeID" values.
+
+* The DeviceID can be found for a USB connected device with the command:
+
+`azsphere device list-attached`
+
+* The HostName is the IOT Hub host name and can be found using the
+  [Azure Portal](https://portal.azure.com/) or using the command:
+
+`az iot hub show --name IOTechHub | grep hostName`
+
+* The Device Provisioning Service ID Scope can be found using the
+  portal or the command:
+  
+`az iot dps show --name IOTechDPS | grep idScope`
 
 ![Azure Export Config](AzureExportConfig.svg)
 
