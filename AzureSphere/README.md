@@ -140,9 +140,14 @@ The configuration files generated from the tool are as follows:
 `java -jar ModbusPal.jar`
 
 * Use the "Load" button and select the [damocles.xmpp](damocles.xmpp) file. This provides a simulation of a simple Modbus devices with 4 binary inputs and two binary outputs.
+
+![ModbusPal Load](ModbusPalLoad.svg)
+
 * Start the simulator with the "Run" button.
 Configuring XRT for use with Guardian 100 or Modbus simulator
 In order to deploy the example application and enable it connect to the Modbus simulator (or a real Damocles2 Mini device)  then you must configure the following config files for the XRT Modbus Device Service component and the Azure Sphere manifest to use the IP address of your PC.
+
+![ModbusPal Run](ModbusPalRun.svg)
 
 * Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC
 
@@ -161,14 +166,16 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 `azsphere device list-attached`
 
 * The HostName is the IOT Hub host name and can be found using the
-  [Azure Portal](https://portal.azure.com/) or using the command:
+  [Azure Portal](https://portal.azure.com/) or using the command (replace
+  HubName with the name of your IOT hub):
 
-`az iot hub show --name IOTechHub | grep hostName`
+`az iot hub show --name HubName | grep hostName`
 
 * The Device Provisioning Service ID Scope can be found using the
-  portal or the command:
+  portal or the command (replace DPSName with the name of your Device
+  Provisioning Service):
   
-`az iot dps show --name IOTechDPS | grep idScope`
+`az iot dps show --name DPSName | grep idScope`
 
 ![Azure Export Config](AzureExportConfig.svg)
 
@@ -195,5 +202,32 @@ In gdb issue the commands:
 `continue`
 
 Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
+
+### Change Modbus Device Input Values
+
+* Open the Slave Editor by pressing the button with the "eye" icon and
+  then select the "Coils" tab in the dialog that appears.
+  
+![Open Slave Editor](ModbusPalEye.svg)
+
+![Select Coils](ModbusPalCoils.svg)
+
+* Change the value of "Input 1" by double clicking in the table value
+  entry and entering a value of "1".
+
+![Change Value](ModbusPalChangeValue.svg)
+
+* Observe the debug output to see the new value being read from the
+  simulated Modbus device and then published to the Azure Cloud.
+
+### Changing the Modbus Device Outputs
+
+The script update.sh can be used to update device resources the Azure
+IOT hub to invoke a device method.
+  
+* To set the resource BinaryOutput1 to true issue the command (replace
+  HubName with the name of your IOT hub):
+
+`./update.sh HubName BinaryOutput1 true`
 
 ## Tutorial Part 2 – Setting Up Digital Twins
