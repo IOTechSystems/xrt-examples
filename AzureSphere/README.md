@@ -53,8 +53,44 @@ Each of the above steps are covered in detail in the subsequent parts of this tu
 
 ### Installing the  XRT Package on Ubuntu
 
+To install XRT Azure Sphere, complete the following steps:
+1. Download and install the auth.conf authorization file from the IOTech support portal,
+using the following command:
+
+`cp auth.conf /etc/apt/auth.conf`
+
+2. Install the packages, using the following command:
+
+`apt install lsb-release apt-transport-https curl gnupg2`
+
+3. Add the key for the IOTech repository, using the following command:
+
+`curl -fsSL https://iotech.jfrog.io/artifactory/api/gpg/key/public | apt-key add - `
+
+4. Register the IOTech repository, using the following command:
+
+`echo "deb https://iotech.jfrog.io/iotech/debian-release $(lsb_release -cs) main" | tee
+-a /etc/apt/sources.list.d/iotech.list`
+
 
 ## Installing the XRT Package on Windows
+
+To install XRT Azure Sphere, as root, complete the following steps:
+
+1. Install the Azure Sphere SDK. For further information on installing the Azure SDK on Windows 10, refer to the [Windows installation quickstart](https://docs.microsoft.com/en-gb/azure-sphere/install/install-sdk?pivots=visual-studio) section of the Azure Sphere documentation
+
+2. Obtain an account name and password from IOTech Support
+
+3. Download the XRT .zip package from the IOTech repository, using the following command, where <user> is the username obtained from IOTech support and <password> is the associated password:
+
+`curl -L -u "<user>:<password>" -O "https://iotech.jfrog.io/artifactory/genericrelease/iotech-xrt-1.1.0.zip"`
+
+4. Open Windows File Explorer
+
+5. Select the downloaded .zip package and extract the files to the following location:
+
+`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
+
 
 1.	Downloading and install XRT package on Dev Host (Ubuntu and Windows ?)
 2.	Visual Studio project installation Steve
