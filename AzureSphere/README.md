@@ -98,7 +98,7 @@ To install XRT Azure Sphere, as root, complete the following steps:
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
 
-#### Visual Studio Setup
+#### Visual Studio Setup (TO BE COMPLETED BY STEVE)
 
 
 ### Example Application
