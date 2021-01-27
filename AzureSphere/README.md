@@ -6,7 +6,7 @@ This tutorial shows how to build a connected IoT application using IOTech Edge X
 
 1.	All hands-on and setup are based on either Windows and Visual Studio or Linux (Ubuntu 20.4) and [Visual Studio Code](https://code.visualstudio.com/download})
 2.	Up to date Visual Studio and [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/install-sdk?pivots=visual-studio#azure-sphere-sdk-for-visual-studio) for Visual Studio are installed on your host PC
-3.	Either [ModbusPal](http://modbuspal.sourceforge.net/) Java Modbus simulator installed on your Windows or Linux host PC, or a  Damocles2 Mini connected by wired EtherNet to Guardian 100 module
+3.	Either [ModbusPal jar file](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) Java Modbus simulator installed on your Windows or Linux host PC, or a  Damocles2 Mini connected by wired EtherNet to Guardian 100 module
 4.	Azure IoT Hub setup (see instructions, attached pdf ?)
 5.	Guardian 100 module hardware claimed by AzureSphere Cloud Tenant
 
@@ -122,7 +122,8 @@ The configuration files generated from the tool are as follows:
 
 ### Running the ModbusPal Simulator
 
-* Download the ModbusPal jar file.
+* Download the [ModbusPal jar file](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
+
 * Run the simulator with the command:
 
 `java -jar ModbusPal.jar`
