@@ -2,7 +2,7 @@
 
 This tutorial shows how to build a connected IoT application using IOTech Edge XRT deployed on an Azure Sphere Guardian 100 module. For this tutorial the XRT application is used to communicate with a Modus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)), reading data values which are then sent to its digital twin running on Azure IoT Hub. Via the digital twin commands can also be sent back to the Modbus Device connected to the Guardian Module.
 
-The tutorial is split into two parts. Part 1 describes how to create an XRT application that can send data from the Modbus device connected to the Guardian 100 to Azure IoT Hub and receive commands in the reverse direction. Part two show how to interact with wthe Modbus Device via Azure Digital Twins.
+The tutorial is split into two parts. Part 1 describes how to create an XRT application that can send data from the Modbus device connected to the Guardian 100 to Azure IoT Hub and receive commands in the reverse direction. Part two shows how to interact with wthe Modbus Device via Azure Digital Twins.
 
 ## Part 1
 
@@ -39,7 +39,7 @@ Step 2:
 *	Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/) create a *Device Profile.json* configuration file representing the IoT device type. For example in this tutorial we will create a Device Profile for the [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini) Modbus device. Using the same device definition, DCT can also be used to generate a Digital Twins Definition Language (DTDL) file representation for use with Azure IoT Hub.
 
 Step 3:
-*	Configure the appropriate *Device Service.json* (e.g. [modbus.json](config/modbus.json)) file specifying the device instance(s) that the XRT Device Service (e.g. Modbus) component will create at runtime based on the *Device Profile.json* file (e.g. [Damocles2-Mini.json](Damocles2-Mini.json)) created in the previous step. Also configure the *Azure Export Service.json* file (e.g [azure.json](azure.json)) to specify the endpoint information needed by the XRT Azure Sphere Export Service to send data to and accept commands from IoT Hub. Finally Configure an a *Azure Apllication Manifest.json* (e.g [app_manifest.json](app_manifest.json)) file that describes the resources, also called application capabilities, that an application requires. Every application has an application manifest.
+*	Configure the appropriate *Device Service.json* (e.g. [modbus.json](config/modbus.json)) file specifying the device instance(s) that the XRT Device Service (e.g. Modbus) component will create at runtime based on the *Device Profile.json* file (e.g. [Damocles2-Mini.json](Damocles2-Mini.json)) created in the previous step. Also configure the *Azure Export Service.json* file (e.g [azure.json](config/azure.json)) to specify the endpoint information needed by the XRT Azure Sphere Export Service to send data to and accept commands from IoT Hub. Finally Configure an a *Azure Apllication Manifest.json* (e.g [app_manifest.json](app_manifest.json)) file that describes the resources, also called application capabilities, that an application requires. Every application has an application manifest.
 
 Step 4:
 *	Using Visual Studio (or cmake from the command line) build the XRT Azure Application.
@@ -53,9 +53,9 @@ Step 6:
 Each of the above steps are covered in detail in the subsequent parts of this tutorial.
 
 
-## Development Host Setup
+### Development Host Setup
 
-### Installing the  XRT Package on Ubuntu
+#### Installing the  XRT Package on Ubuntu
 
 To install XRT Azure Sphere, complete the following steps.
 
@@ -81,8 +81,7 @@ To install XRT Azure Sphere, complete the following steps.
 `apt-get install iotech-xrt-azsphere7`
 
 
-
-### Installing the XRT Package on Windows
+#### Installing the XRT Package on Windows
 
 To install XRT Azure Sphere, as root, complete the following steps:
 
@@ -99,7 +98,7 @@ To install XRT Azure Sphere, as root, complete the following steps:
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
 
-### Visual Studio Setup
+#### Visual Studio Setup
 
 
 ### Example Application
@@ -159,19 +158,19 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 
 ![Azure Export Config](AzureExportConfig.svg)
 
-### Building The Application
+#### Building The Application
 
 Issue the command:
 
 `make`
 
-### Deploying the Application
+#### Deploying the Application
 
 In another shell issue the command:
 
 `/opt/azurespheresdk/Sysroots/7/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out`
 
-### Debugging the Application
+#### Debugging the Application
 
 In gdb issue the commands:
 
