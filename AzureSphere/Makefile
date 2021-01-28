@@ -14,19 +14,19 @@ build:
 
 # Deploy as a sideloaded application
 deploy: build/xrt-app.imagepackage connect
-	azsphere_v1 device sideload delete
-	azsphere_v1 device sideload deploy --imagepackage build/xrt-app.imagepackage
+	azsphere device sideload delete
+	azsphere device sideload deploy --imagepackage build/xrt-app.imagepackage
 
 # Start the application in debug mode
 debug:  deploy
-	azsphere_v1 device app stop --componentid ${CID}
-	azsphere_v1 device app start --debug --componentid ${CID}
+	azsphere device app stop --componentid ${CID}
+	azsphere device app start --debug --componentid ${CID}
 
 # Ensure the Guardian 100 is connected via USB. If not connected it
 # will attempt to connect. Connect command is run using 'sudo' and
 # may prompt for password entry.
 connect:
-	azsphere_v1 device show || sudo /opt/azurespheresdk/DeviceConnection/azsphere_connect.sh
+	azsphere device show || sudo /opt/azurespheresdk/DeviceConnection/azsphere_connect.sh
 
 # Uses telnet to observe log output from the application
 monitor: debug
