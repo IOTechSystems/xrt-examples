@@ -2,7 +2,7 @@
 
 This tutorial shows how to build a connected IoT application using IOTech Edge XRT deployed on an Azure Sphere Guardian 100 module. For this tutorial the XRT application is used to communicate with a Modus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)), reading data values which are then sent to its digital twin running on Azure IoT Hub. Via the digital twin commands can also be sent back to the Modbus Device connected to the Guardian Module.
 
-The tutorial is split into two parts. Part 1 describes how to create an XRT application that can send data from the Modbus device connected to the Guardian 100 to Azure IoT Hub and receive commands in the reverse direction. Part two shows how to interact with wthe Modbus Device via Azure Digital Twins.
+The tutorial is split into two parts. Part 1 describes how to create an XRT application that can send data from the Modbus device connected to the Guardian 100 to Azure IoT Hub and receive commands in the reverse direction. Part two shows how to interact with the Modbus Device via Azure Digital Twins.
 
 ## Part 1
 
@@ -187,7 +187,7 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 * The Device Provisioning Service ID Scope can be found using the
   portal or the command (replace DPSName with the name of your Device
   Provisioning Service):
-  
+
 `az iot dps show --name DPSName | grep idScope`
 
 ![Azure Export Config](AzureExportConfig.svg)
@@ -220,7 +220,7 @@ Observe the debug output in the terminal where the make command was issued. The 
 
 * Open the Slave Editor by pressing the button with the "eye" icon and
   then select the "Coils" tab in the dialog that appears.
-  
+
 ![Open Slave Editor](ModbusPalEye.svg)
 
 ![Select Coils](ModbusPalCoils.svg)
@@ -237,7 +237,7 @@ Observe the debug output in the terminal where the make command was issued. The 
 
 The script update.sh can be used to update device resources the Azure
 IOT hub to invoke a device method.
-  
+
 * To set the resource BinaryOutput1 to true issue the command (replace
   HubName with the name of your IOT hub):
 
