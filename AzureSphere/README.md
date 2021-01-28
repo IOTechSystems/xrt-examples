@@ -69,7 +69,7 @@ To install XRT Azure Sphere, complete the following steps.
 
 3. Register the IOTech repository, using the following command:
 
-`eecho "deb https://iotech.jfrog.io/iotech/debian-release $(lsb_release -cs) main" | tee
+`echo "deb https://iotech.jfrog.io/iotech/debian-release $(lsb_release -cs) main" | tee
 -a /etc/apt/sources.list.d/iotech.list`
 
 4.  Update the repositories, using the following command:
@@ -98,8 +98,18 @@ To install XRT Azure Sphere, as root, complete the following steps:
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
 
-#### Visual Studio Setup (TO BE COMPLETED BY STEVE)
+#### Visual Studio Setup
 
+1. Open Visual Studio and install Visual Studio Extensions for Azure Sphere
+
+2. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
+
+3. In the generated project directory from this directory:
+
+* Copy the config directory
+* Overrite CMakeLists.txt, app_manifest.json and main.c
+* Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant
+* Build the application
 
 ### Example Application
 

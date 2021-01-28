@@ -1,9 +1,15 @@
 cmake_minimum_required (VERSION 3.10)
 project (xrt-app C)
 
-azsphere_configure_tools (TOOLS_REVISION "20.11")
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  set (SDK_ROOT "C:/Program Files (x86)/Microsoft Azure Sphere SDK")
+else
+  set (SDK_ROOT "/opt/azurespheresdk")
+endif ()
+
+azsphere_configure_tools (TOOLS_REVISION "20.10")
 azsphere_configure_api (TARGET_API_SET "${AZURE_SPHERE_TARGET_API_SET}")
-set (SYSROOT "/opt/azurespheresdk/Sysroots/${AZURE_SPHERE_TARGET_API_SET}")
+set (SYSROOT "${SDK_ROOT}/Sysroots/${AZURE_SPHERE_TARGET_API_SET}")
 
 add_executable (${PROJECT_NAME} main.c)
 
@@ -31,5 +37,5 @@ target_link_libraries (${PROJECT_NAME} ${DRIVER} applibs azureiot curl pthread g
 target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/xrt/include/)
 target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/iot/include/)
 
-azsphere_target_hardware_definition (${PROJECT_NAME} TARGET_DIRECTORY "/opt/azurespheresdk/HardwareDefinitions" TARGET_DEFINITION ${TARGET_CONFIG})
+azsphere_target_hardware_definition (${PROJECT_NAME} TARGET_DIRECTORY "${SDK_ROOT}/HardwareDefinitions" TARGET_DEFINITION ${TARGET_CONFIG})
 azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/lua.json" "config/transform.lua" ${DEVICE_CONFIG} "config/profiles/profiles.json")

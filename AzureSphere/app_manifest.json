@@ -9,7 +9,7 @@
     "Gpio": [ "$MT3620_GPIO8", "$MT3620_GPIO9", "$MT3620_GPIO10" ],
     "AllowedTcpServerPorts": [ 22222 ],
     "NetworkConfig" : true,
-    "DeviceAuthentication": "457d3018-e029-4d55-9ad9-f9e9ce6f9474"
+    "DeviceAuthentication": "<tenant uuid identifier>"
   },
   "ApplicationType": "Default"
 }
