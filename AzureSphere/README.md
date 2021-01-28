@@ -123,7 +123,7 @@ Command Prompt.
 
 #### Building Using Visual Studio Command Prompt
 
-Run the build.bat batch file. This should build the application image in a build subdirectory.
+Run the build.bat batch file. This should build the application image in a build sub directory.
 
 ### Example Application
 
