@@ -112,7 +112,7 @@ If the Damocles hardware is used then it must be connected to the Guardian 100 m
 
 If the simulator is used it can be installed on a PC (e.g. the host running Visual Studio) and accessed via either wired Ethernet or WiFi.
 
-![Azure Sphere Modbus Example](AzureSphereModbusExample.jpg)
+![Azure Sphere Modbus Example](images/AzureSphereModbusExample.jpg)
 
 The Damocles2 mini is a smart I/O controller used for remote monitoring and control of sensors and devices. It provides 4 digital dry contact inputs and 2 digital relay outputs that can be accessed via a Modbus interface.
 
