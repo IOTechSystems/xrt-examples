@@ -197,13 +197,11 @@ Command Prompt.
 
 Run the build.bat batch file. This should build the application image in a build sub directory.
 
-##### Building on Ubuntu
+##### Building and Deploying from Ubuntu
 
 Issue the command:
 
 `make`
-
-#### Deploying the Application
 
 ##### Running the ModbusPal Simulator
 
@@ -223,13 +221,11 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](ModbusPalRun.svg)
 
-##### Deploying the application from Ubuntu
+##### Debugging the Application from Ubuntu
 
 In another shell issue the command:
 
 `/opt/azurespheresdk/Sysroots/7/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out`
-
-#### Debugging the Application from Ubuntu
 
 In gdb issue the commands:
 
