@@ -100,19 +100,30 @@ To install XRT Azure Sphere, complete the following steps:
 
 #### Visual Studio Setup
 
-1. Open Visual Studio and install Visual Studio Extensions for Azure Sphere
-
-2. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
-
-3. In the generated project directory from this example:
-
-* Copy the config directory
-* Overwrite CMakeLists.txt, app_manifest.json and main.c
+* Open Visual Studio and install Visual Studio Extensions for Azure Sphere
 * Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant. This can be found by:
 
 `azsphere tenant list`
 
-* Build the application
+From this point the Application can be built either from within the Visual Studio or via the Visual Studio
+Command Prompt.
+
+#### Building Using Visual Studio
+
+1. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
+
+2. In the generated project directory from this example:
+
+* Copy the config directory
+* Overwrite CMakeLists.txt, app_manifest.json and main.c
+* Edit CMakeSettings.json and set "AZURE_SPHERE_TARGET_API_SET" to "7"
+
+3. Create the CMake build configuration
+4. Build the application with the "Build" menu
+
+#### Building Using Visual Studio Command Prompt
+
+Run the build.bat batch file. This should build the application image in a build subdirectory.
 
 ### Example Application
 
