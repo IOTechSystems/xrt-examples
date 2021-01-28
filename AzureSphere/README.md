@@ -109,7 +109,9 @@ To install XRT Azure Sphere, as root, complete the following steps:
 * Copy the config directory
 * Overwrite CMakeLists.txt, app_manifest.json and main.c
 * Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant. This can be found by:
+
 `azsphere tenant list`
+
 * Build the application
 
 ### Example Application
