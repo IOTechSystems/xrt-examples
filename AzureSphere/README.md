@@ -20,7 +20,7 @@ This tutorial can be used with the Avnet Guardian 100 Azure Sphere module.
 
 The Guardian 100 is a wireless edge module that uses Azure Sphere to deliver secure connectivity to devices. It includes Avnet Azure Sphere MT3620 module and connects to existing equipment via Ethernet or USB. Guardian-enabled devices also receive automatic security updates through the Azure Sphere Security Service.
 
-![Guardian 100](Guardian100.png)
+![Guardian 100](images/Guardian100.png)
 
 ### XRT for Azure Sphere Development Process
 
@@ -28,7 +28,7 @@ XRT enables users to create connected Azure Sphere applications for a range of i
 
 The process for creating a connected Azure Sphere IoT application using XRT is illustrated in the following graphic.
 
-![Azure Development Process](AzureDevProcess.jpg)  
+![Azure Development Process](images/AzureDevProcess.jpg)  
 
 The development process flow follows a standard sequence of steps:
 
@@ -140,11 +140,11 @@ The configuration files generated from the tool are as follows:
 
 `azsphere tenant list`
 
-![Application Manifest](AppManifest.svg)
+![Application Manifest](images/AppManifest.svg)
 
 * Edit the [config/modbus.json](config/modbus.json) file and  replace 10.0.0.1 with the IP address of your PC
 
-![Device Service Config](DeviceServiceConfig.svg)  
+![Device Service Config](images/DeviceServiceConfig.svg)  
 
 To connect the example to your IoT Hub endpoint you must also configure Azure Export Service component.
 
@@ -166,7 +166,7 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 
 `az iot dps show --name DPSName | grep idScope`
 
-![Azure Export Config](AzureExportConfig.svg)
+![Azure Export Config](images/AzureExportConfig.svg)
 
 #### Building The Application
 
@@ -213,13 +213,13 @@ Issue the command:
 
 * Use the "Load" button and select the [damocles.xmpp](damocles.xmpp) file. This provides a simulation of a simple Modbus devices with 4 binary inputs and two binary outputs.
 
-![ModbusPal Load](ModbusPalLoad.svg)
+![ModbusPal Load](images/ModbusPalLoad.svg)
 
 * Start the simulator with the "Run" button.
 Configuring XRT for use with Guardian 100 or Modbus simulator
 In order to deploy the example application and enable it connect to the Modbus simulator (or a real Damocles2 Mini device)  then you must configure the following config files for the XRT Modbus Device Service component and the Azure Sphere manifest to use the IP address of your PC.
 
-![ModbusPal Run](ModbusPalRun.svg)
+![ModbusPal Run](images/ModbusPalRun.svg)
 
 ##### Debugging the Application from Ubuntu
 
@@ -242,14 +242,14 @@ Observe the debug output in the terminal where the make command was issued. The 
 * Open the Slave Editor by pressing the button with the "eye" icon and
   then select the "Coils" tab in the dialog that appears.
 
-![Open Slave Editor](ModbusPalEye.svg)
+![Open Slave Editor](images/ModbusPalEye.svg)
 
-![Select Coils](ModbusPalCoils.svg)
+![Select Coils](images/ModbusPalCoils.svg)
 
 * Change the value of "Input 1" by double clicking in the table value
   entry and entering a value of "1".
 
-![Change Value](ModbusPalChangeValue.svg)
+![Change Value](images/ModbusPalChangeValue.svg)
 
 * Observe the debug output to see the new value being read from the
   simulated Modbus device and then published to the Azure Cloud.
