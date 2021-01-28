@@ -134,7 +134,7 @@ The configuration files generated from the tool are as follows:
 *	[Damocles2 Mini Device Profile](Damocles2-Mini.json)
 *	[Damocles2 Mini DTDL file](Damocles2-Mini.dtdl)
 
-#### configuring the Application
+#### Configuring the Application
 
 * Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC and set DeviceAuthentication with your tenant id:
 
