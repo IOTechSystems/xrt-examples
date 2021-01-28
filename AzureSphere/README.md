@@ -97,34 +97,6 @@ To install XRT Azure Sphere, complete the following steps:
 
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
-
-#### Visual Studio Setup
-
-* Open Visual Studio and install Visual Studio Extensions for Azure Sphere
-* Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant. This can be found by:
-
-`azsphere tenant list`
-
-From this point the Application can be built either from within the Visual Studio or via the Visual Studio
-Command Prompt.
-
-#### Building Using Visual Studio
-
-1. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
-
-2. In the generated project directory from this example:
-
-* Copy the config directory
-* Overwrite CMakeLists.txt, app_manifest.json and main.c
-* Edit CMakeSettings.json and set "AZURE_SPHERE_TARGET_API_SET" to "7"
-
-3. Create the CMake build configuration
-4. Build the application with the "Build" menu
-
-#### Building Using Visual Studio Command Prompt
-
-Run the build.bat batch file. This should build the application image in a build sub directory.
-
 ### Example Application
 
 The Azure Sphere example application demonstrates how to use XRT to communicate with a Modus TCP/IP Device (Damocles2 Mini) or alternatively if you do not have access to a physical device a Java Modbus simulator (ModbusPal) can be used instead of the real hardware.
@@ -204,6 +176,35 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 ![Azure Export Config](AzureExportConfig.svg)
 
 #### Building The Application
+
+##### Visual Studio Setup
+
+* Open Visual Studio and install Visual Studio Extensions for Azure Sphere
+* Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant. This can be found by:
+
+`azsphere tenant list`
+
+From this point the Application can be built either from within the Visual Studio or via the Visual Studio
+Command Prompt.
+
+##### Building Using Visual Studio
+
+1. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
+
+2. In the generated project directory from this example:
+
+* Copy the config directory
+* Overwrite CMakeLists.txt, app_manifest.json and main.c
+* Edit CMakeSettings.json and set "AZURE_SPHERE_TARGET_API_SET" to "7"
+
+3. Create the CMake build configuration
+4. Build the application with the "Build" menu
+
+##### Building Using Visual Studio Command Prompt
+
+Run the build.bat batch file. This should build the application image in a build sub directory.
+
+##### Building on Ubuntu
 
 Issue the command:
 
