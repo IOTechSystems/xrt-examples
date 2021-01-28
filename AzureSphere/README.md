@@ -83,11 +83,11 @@ To install XRT Azure Sphere, complete the following steps.
 
 #### Installing the XRT Package on Windows
 
-To install XRT Azure Sphere, as root, complete the following steps:
+To install XRT Azure Sphere, complete the following steps:
 
 1. Install the Azure Sphere SDK. For further information on installing the Azure SDK on Windows 10, refer to the [Windows installation quickstart](https://docs.microsoft.com/en-gb/azure-sphere/install/install-sdk?pivots=visual-studio) section of the Azure Sphere documentation
 
-2. Download the XRT .zip package from the IOTech repository, using the following command, where <user> is the username obtained from IOTech support and <password> is the associated password:
+2. Download the XRT .zip package from the IOTech repository, using the following command:
 
 `curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-1.1.0.zip`
 
@@ -104,7 +104,7 @@ To install XRT Azure Sphere, as root, complete the following steps:
 
 2. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
 
-3. In the generated project directory from this directory:
+3. In the generated project directory from this example:
 
 * Copy the config directory
 * Overwrite CMakeLists.txt, app_manifest.json and main.c
