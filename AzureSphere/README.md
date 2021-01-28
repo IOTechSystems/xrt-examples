@@ -59,7 +59,7 @@ Each of the above steps are covered in detail in the subsequent parts of this tu
 
 To install XRT Azure Sphere, complete the following steps.
 
-1. Install the packages, using the following command:
+1. Install package dependencies:
 
 `apt-get install lsb-release apt-transport-https curl gnupg2`
 
@@ -69,10 +69,9 @@ To install XRT Azure Sphere, complete the following steps.
 
 3. Register the IOTech repository, using the following command:
 
-`echo "deb https://iotech.jfrog.io/iotech/debian-release $(lsb_release -cs) main" | tee
--a /etc/apt/sources.list.d/iotech.list`
+`echo "deb https://iotech.jfrog.io/iotech/debian-release $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/iotech.list`
 
-4.  Update the repositories, using the following command:
+4. Update package information:
 
 `apt update`
 
