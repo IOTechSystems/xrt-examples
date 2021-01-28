@@ -97,9 +97,6 @@ To install XRT Azure Sphere, complete the following steps:
 
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
-<<<<<<< HEAD
-=======
-
 #### Visual Studio Setup
 
 * Open Visual Studio and install Visual Studio Extensions for Azure Sphere
@@ -107,24 +104,6 @@ To install XRT Azure Sphere, complete the following steps:
 From this point after the Application has been configured (see later) it can be built either from within Visual Studio
 or via the Visual Studio Command Prompt.
 
-#### Building Using Visual Studio
-
-1. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
-
-2. In the generated project directory from this example:
-
-* Copy the config directory
-* Overwrite CMakeLists.txt, app_manifest.json and main.c
-* Edit CMakeSettings.json and set "AZURE_SPHERE_TARGET_API_SET" to "7"
-
-3. Create the CMake build configuration
-4. Build the application with the "Build" menu
-
-#### Building Using Visual Studio Command Prompt
-
-Run the build.bat batch file. This should build the application image in a build sub directory.
-
->>>>>>> 7f56c629130b52398774604658e83af2b8f765d5
 ### Example Application
 
 The Azure Sphere example application demonstrates how to use XRT to communicate with a Modus TCP/IP Device (Damocles2 Mini) or alternatively if you do not have access to a physical device a Java Modbus simulator (ModbusPal) can be used instead of the real hardware.
@@ -155,23 +134,7 @@ The configuration files generated from the tool are as follows:
 *	[Damocles2 Mini Device Profile](Damocles2-Mini.json)
 *	[Damocles2 Mini DTDL file](Damocles2-Mini.dtdl)
 
-#### Running the ModbusPal Simulator
-
-* Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
-
-* Run the simulator with the command:
-
-`java -jar ModbusPal.jar`
-
-* Use the "Load" button and select the [damocles.xmpp](damocles.xmpp) file. This provides a simulation of a simple Modbus devices with 4 binary inputs and two binary outputs.
-
-![ModbusPal Load](ModbusPalLoad.svg)
-
-* Start the simulator with the "Run" button.
-Configuring XRT for use with Guardian 100 or Modbus simulator
-In order to deploy the example application and enable it connect to the Modbus simulator (or a real Damocles2 Mini device)  then you must configure the following config files for the XRT Modbus Device Service component and the Azure Sphere manifest to use the IP address of your PC.
-
-![ModbusPal Run](ModbusPalRun.svg)
+#### configuring the Application
 
 * Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC and set DeviceAuthentication with your tenant id:
 
@@ -241,6 +204,24 @@ Issue the command:
 `make`
 
 #### Deploying the Application
+
+#### Running the ModbusPal Simulator
+
+* Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
+
+* Run the simulator with the command:
+
+`java -jar ModbusPal.jar`
+
+* Use the "Load" button and select the [damocles.xmpp](damocles.xmpp) file. This provides a simulation of a simple Modbus devices with 4 binary inputs and two binary outputs.
+
+![ModbusPal Load](ModbusPalLoad.svg)
+
+* Start the simulator with the "Run" button.
+Configuring XRT for use with Guardian 100 or Modbus simulator
+In order to deploy the example application and enable it connect to the Modbus simulator (or a real Damocles2 Mini device)  then you must configure the following config files for the XRT Modbus Device Service component and the Azure Sphere manifest to use the IP address of your PC.
+
+![ModbusPal Run](ModbusPalRun.svg)
 
 In another shell issue the command:
 
