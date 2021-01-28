@@ -1,10 +1,10 @@
 cmake_minimum_required (VERSION 3.10)
 project (xrt-app C)
 
-if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-  set (SDK_ROOT "C:/Program Files (x86)/Microsoft Azure Sphere SDK")
-else
+if (IS_DIRECTORY "/opt/azurespheresdk")
   set (SDK_ROOT "/opt/azurespheresdk")
+else ()
+  set (SDK_ROOT "C:/Program Files (x86)/Microsoft Azure Sphere SDK")
 endif ()
 
 azsphere_configure_tools (TOOLS_REVISION "20.10")
