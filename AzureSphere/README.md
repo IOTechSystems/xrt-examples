@@ -1,6 +1,6 @@
 # XRT Azure Sphere Tutorial
 
-This tutorial shows how to build a connected IoT application using IOTech Edge XRT deployed on an Azure Sphere Guardian 100 module. For this tutorial the XRT application is used to communicate with a Modus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)), reading data values which are then sent to its digital twin running on Azure IoT Hub. Via the digital twin commands can also be sent back to the Modbus Device connected to the Guardian Module.
+This tutorial shows how to build a connected IoT application using IOTech's Edge XRT deployed on an Azure Sphere Guardian 100 module. For this tutorial the XRT application is used to communicate with a Modus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)), reading data values which are then sent to its digital twin running on Azure IoT Hub. Via the digital twin commands can also be sent back to the Modbus Device connected to the Guardian Module.
 
 The tutorial is split into two parts. Part 1 describes how to create an XRT application that can send data from the Modbus device connected to the Guardian 100 to Azure IoT Hub and receive commands in the reverse direction. Part two shows how to interact with the Modbus Device via Azure Digital Twins.
 
