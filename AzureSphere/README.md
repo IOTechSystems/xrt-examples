@@ -97,6 +97,34 @@ To install XRT Azure Sphere, complete the following steps:
 
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
+<<<<<<< HEAD
+=======
+
+#### Visual Studio Setup
+
+* Open Visual Studio and install Visual Studio Extensions for Azure Sphere
+
+From this point after the Application has been configured (see later) it can be built either from within Visual Studio
+or via the Visual Studio Command Prompt.
+
+#### Building Using Visual Studio
+
+1. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
+
+2. In the generated project directory from this example:
+
+* Copy the config directory
+* Overwrite CMakeLists.txt, app_manifest.json and main.c
+* Edit CMakeSettings.json and set "AZURE_SPHERE_TARGET_API_SET" to "7"
+
+3. Create the CMake build configuration
+4. Build the application with the "Build" menu
+
+#### Building Using Visual Studio Command Prompt
+
+Run the build.bat batch file. This should build the application image in a build sub directory.
+
+>>>>>>> 7f56c629130b52398774604658e83af2b8f765d5
 ### Example Application
 
 The Azure Sphere example application demonstrates how to use XRT to communicate with a Modus TCP/IP Device (Damocles2 Mini) or alternatively if you do not have access to a physical device a Java Modbus simulator (ModbusPal) can be used instead of the real hardware.
@@ -145,7 +173,9 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](ModbusPalRun.svg)
 
-* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC
+* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC and set DeviceAuthentication with your tenant id:
+
+`azsphere tenant list`
 
 ![Application Manifest](AppManifest.svg)
 
