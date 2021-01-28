@@ -172,9 +172,6 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 ##### Visual Studio Setup
 
 * Open Visual Studio and install Visual Studio Extensions for Azure Sphere
-* Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant. This can be found by:
-
-`azsphere tenant list`
 
 From this point the Application can be built either from within the Visual Studio or via the Visual Studio
 Command Prompt.
