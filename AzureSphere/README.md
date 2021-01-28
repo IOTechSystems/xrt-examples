@@ -101,12 +101,9 @@ To install XRT Azure Sphere, complete the following steps:
 #### Visual Studio Setup
 
 * Open Visual Studio and install Visual Studio Extensions for Azure Sphere
-* Edit app_manifest.json and set "DeviceAuthentication" to the UUID of your Tenant. This can be found by:
 
-`azsphere tenant list`
-
-From this point the Application can be built either from within the Visual Studio or via the Visual Studio
-Command Prompt.
+From this point after the Application has been configured (see later) it can be built either from within Visual Studio
+or via the Visual Studio Command Prompt.
 
 #### Building Using Visual Studio
 
@@ -173,7 +170,9 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](ModbusPalRun.svg)
 
-* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC
+* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC and set DeviceAuthentication with your tenant id:
+
+`azsphere tenant list`
 
 ![Application Manifest](AppManifest.svg)
 
