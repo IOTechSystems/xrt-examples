@@ -258,7 +258,7 @@ Observe the debug output in the terminal where the make command was issued. The 
 * Observe the debug output to see the new value being read from the
   simulated Modbus device and then published to the Azure Cloud.
 
-### Changing the Modbus Device Outputs
+##### Changing the Modbus Device Outputs
 
 The script update.sh can be used to update device resources the Azure
 IOT hub to invoke a device method.
