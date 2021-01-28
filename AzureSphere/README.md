@@ -205,7 +205,7 @@ Issue the command:
 
 #### Deploying the Application
 
-#### Running the ModbusPal Simulator
+##### Running the ModbusPal Simulator
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
@@ -223,11 +223,13 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](ModbusPalRun.svg)
 
+##### Deploying the application from Ubuntu
+
 In another shell issue the command:
 
 `/opt/azurespheresdk/Sysroots/7/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out`
 
-#### Debugging the Application
+#### Debugging the Application from Ubuntu
 
 In gdb issue the commands:
 
@@ -239,7 +241,7 @@ In gdb issue the commands:
 
 Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
 
-### Change Modbus Device Input Values
+##### Change Modbus Device Input Values
 
 * Open the Slave Editor by pressing the button with the "eye" icon and
   then select the "Coils" tab in the dialog that appears.
