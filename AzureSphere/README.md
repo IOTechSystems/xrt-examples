@@ -8,8 +8,8 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 ### Prerequisites
 
-1. For Windows and [Visual Studio](https://visualstudio.microsoft.com/downloads/) or Linux (Ubuntu 20.04) and [Visual Studio Code](https://code.visualstudio.com/download})
-2. The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview) as appropriate for the target environment.
+1. For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download})
+2. The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview) as appropriate for the target environment
 3. The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) with the azure-iot extension installed
 
 `az extension add --name azure-iot`
