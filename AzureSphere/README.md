@@ -241,6 +241,10 @@ In gdb issue the commands:
 
 Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
 
+##### Debugging the Application from Windows
+
+The easiset way to debug the application is using [Visual Studio](https://docs.microsoft.com/en-us/azure-sphere/install/qs-blink-application?tabs=linux%2Ccliv1&pivots=visual-studio). This supports loading an image onto the target device, connecting it to the debugger and reporting diagnostic logging.
+
 ##### Change Modbus Device Input Values
 
 * Open the Slave Editor by pressing the button with the "eye" icon and

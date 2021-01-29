@@ -6,5 +6,6 @@
   "azure":"XRT::AzureSphereExporter",
   "logexport":"XRT::LogExporter",
   "modbus":"XRT::ModbusDeviceService",
-  "lua":"XRT::LuaTransform"
+  "lua":"XRT::LuaTransform",
+  "mt3620":"XRT::MT3620Device"
 }
