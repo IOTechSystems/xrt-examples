@@ -197,11 +197,11 @@ Command Prompt.
 
 Run the build.bat batch file. This should build the application image in a build sub directory.
 
-##### Building and Deploying from Ubuntu
+##### Building Using Ubuntu
 
 Issue the command:
 
-`make`
+`make build`
 
 ##### Running the ModbusPal Simulator
 
@@ -222,6 +222,10 @@ In order to deploy the example application and enable it connect to the Modbus s
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
 ##### Debugging the Application from Ubuntu
+
+Issue the command:
+
+`make monitor`
 
 In another shell issue the command:
 
