@@ -21,6 +21,8 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 `azsphere device claim`
 `azsphere device edv`
 
+7. Ensure that Telnet is installed on Ubuntu or enabled on Windows
+
 ### Hardware
 This tutorial can be used with the Avnet Guardian 100 Azure Sphere module.
 
@@ -223,9 +225,9 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-##### Debugging the Application from Ubuntu
+##### Deploying and Debugging the Application from Ubuntu
 
-Issue the command:
+Issue the following command to deploy the application and initiate a Telnet session:
 
 `make monitor`
 
