@@ -14,7 +14,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 `az extension add --name azure-iot`
 
-4. Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) Java Modbus simulator installed on your Windows or Linux host PC, or a Damocles2 Mini connected by wired EtherNet to Guardian 100 module
+4. Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) Java Modbus simulator installed on your Windows or Linux host PC, or a Damocles2 Mini connected by wired EtherNet to a Guardian 100 module
 5. Azure IoT Hub setup (insert link to XRT Azure Sphere User Guide)
 6. Guardian 100 module hardware claimed by Azure Sphere Cloud Tenant
 
