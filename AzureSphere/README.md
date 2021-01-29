@@ -19,6 +19,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 6. Guardian 100 module hardware claimed by Azure Sphere Cloud Tenant and enabled for developmnent (connected by USB cable to host).
 
 `azsphere device claim`
+
 `azsphere device edv`
 
 7. Ensure that Telnet is installed on Ubuntu or enabled on Windows
