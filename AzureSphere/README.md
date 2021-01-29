@@ -17,6 +17,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 4. Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) Java Modbus simulator installed on your Windows or Linux host PC, or a Damocles2 Mini connected by wired EtherNet to a Guardian 100 module
 5. Azure IoT Hub setup (insert link to XRT Azure Sphere User Guide)
 6. Guardian 100 module hardware claimed by Azure Sphere Cloud Tenant
+7. Ensure that Telnet is installed on Ubuntu or enables on Windows
 
 
 ### Hardware
@@ -221,9 +222,9 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-##### Debugging the Application from Ubuntu
+##### Deploying and Debugging the Application from Ubuntu
 
-Issue the command:
+Issue the following command to deploy the application and initiate a Telnet session:
 
 `make monitor`
 
