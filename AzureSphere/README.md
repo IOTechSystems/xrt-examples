@@ -266,7 +266,7 @@ The application can then be started via gdb:
 
 `(gdb) target remote 192.168.35.2:2345`
 
-`(gdb) c`
+`(gdb) continue`
 
 ##### Change Modbus Device Input Values
 
