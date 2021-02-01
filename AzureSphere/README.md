@@ -210,7 +210,7 @@ Issue the command:
 
 `make build`
 
-#### Running the ModbusPal Simulator
+### Running the ModbusPal Simulator
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
@@ -228,7 +228,9 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-#### Deploying and Debugging the Application from Ubuntu
+### Deploying and Debugging the Application
+
+#### Deploying and Debugging from Ubuntu
 
 Issue the following command to deploy the application and initiate a Telnet session:
 
@@ -248,11 +250,11 @@ In gdb issue the commands:
 
 Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
 
-#### Debugging the Application from Visual Studio
+#### Deploying and Debugging from Visual Studio
 
 The easiset way to debug the application is using [Visual Studio](https://docs.microsoft.com/en-us/azure-sphere/install/qs-blink-application?tabs=linux%2Ccliv1&pivots=visual-studio). This supports loading an image onto the target device, connecting it to the debugger and reporting diagnostic logging.
 
-#### Debugging the Application from Visual Studio Command Prompt
+#### Deploying and Debugging from Visual Studio Command Prompt
 
 The deployd.bat batch script will deploy the built application onto the target device, put the application into debug mode and attach the gdb debugger:
 
@@ -270,7 +272,9 @@ The application can then be started via gdb:
 
 `(gdb) continue`
 
-#### Change Modbus Device Input Values
+### Change Modbus Device Values
+
+#### Changing Modbus Device Inputs
 
 * Open the Slave Editor by pressing the button with the "eye" icon and
   then select the "Coils" tab in the dialog that appears.
@@ -287,7 +291,7 @@ The application can then be started via gdb:
 * Observe the debug output to see the new value being read from the
   simulated Modbus device and then published to the Azure Cloud.
 
-#### Changing the Modbus Device Outputs
+#### Changing Modbus Device Outputs
 
 The script update.sh can be used to update device resources in the Azure
 IOT hub to invoke a device method.
