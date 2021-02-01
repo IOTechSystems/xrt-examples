@@ -4,9 +4,9 @@ This tutorial shows how to build a connected IoT application using IOTech's Edge
 
 The tutorial is split into two parts. Part 1 describes how to create an XRT application that can send data from the Modbus device connected to the Guardian 100 to Azure IoT Hub and receive commands in the reverse direction. Part two shows how to interact with the Modbus Device via Azure Digital Twins.
 
-## Part 1
+# Part 1
 
-### Prerequisites
+## Prerequisites
 
 1. For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download})
 2. The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview) as appropriate for the target environment
@@ -16,7 +16,9 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 4. Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) Java Modbus simulator, or a Damocles2 Mini connected by wired EtherNet to a Guardian 100 module
 5. Azure IoT Hub setup (insert link to XRT Azure Sphere User Guide)
-6. Guardian 100 module hardware claimed by Azure Sphere Cloud Tenant and enabled for developmnent (connected by USB cable to host).
+6. Guardian 100 module hardware claimed by Azure Sphere Cloud Tenant and enabled for development
+
+    - Connected to host via micro-USB cable where the port is only accessible by taking the top casing off
 
 `azsphere device claim`
 
@@ -24,14 +26,14 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 7. Telnet is installed on Ubuntu or enabled on Windows (unless debugging via Visual Studio).
 
-### Hardware
+## Hardware
 This tutorial can be used with the Avnet Guardian 100 Azure Sphere module.
 
 The Guardian 100 is a wireless edge module that uses Azure Sphere to deliver secure connectivity to devices. It includes Avnet Azure Sphere MT3620 module and connects to existing equipment via Ethernet or USB. Guardian-enabled devices also receive automatic security updates through the Azure Sphere Security Service.
 
 ![Guardian 100](images/Guardian100.png)
 
-### XRT for Azure Sphere Development Process
+## XRT for Azure Sphere Development Process
 
 XRT enables users to create connected Azure Sphere applications for a range of industrial protocols (e.g. Modbus, BACNet, OPC UA etc). XRT provides users with the ability to create IoT applications by easily configuring a set of “deployment ready” components. XRT application development is supported by the IOTech Device Configuration Tool (DCT) which is a graphical tool that enables the definition and creation configuration files called Device Profiles which are used to define new OT device endpoint types and their properties. The tool can be accessed as an online service at [Device Configuration Tool](https://dct.iotechsys.com/).
 
@@ -62,9 +64,9 @@ Step 6:
 Each of the above steps are covered in detail in the subsequent parts of this tutorial.
 
 
-### Development Host Setup
+## Development Host Setup
 
-#### Installing the  XRT Package on Ubuntu
+### Installing the  XRT Package on Ubuntu
 
 To install XRT Azure Sphere, complete the following steps.
 
@@ -89,7 +91,7 @@ To install XRT Azure Sphere, complete the following steps.
 `apt-get install iotech-xrt-azsphere7`
 
 
-#### Installing the XRT Package on Windows
+### Installing the XRT Package on Windows
 
 To install XRT Azure Sphere, complete the following steps:
 
@@ -105,14 +107,14 @@ To install XRT Azure Sphere, complete the following steps:
 
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
-#### Visual Studio Setup
+### Visual Studio Setup
 
 * Open Visual Studio and install Visual Studio Extensions for Azure Sphere
 
 From this point after the Application has been configured (see later) it can be built either from within Visual Studio
 or via the Visual Studio Command Prompt.
 
-### Example Application
+## Example Application
 
 The Azure Sphere example application demonstrates how to use XRT to communicate with a Modus TCP/IP Device (Damocles2 Mini) or alternatively if you do not have access to a physical device a Java Modbus simulator (ModbusPal) can be used instead of the real hardware.
 
@@ -134,15 +136,15 @@ In Part 2 of this tutorial we show how to use a Damocles2 Mini digital twin inst
 
 Note the digital outputs on the device are wired to the digital inputs on the device. In this way output values are automatically mirrored by the digital inputs.   
 
-#### Creating a Modbus Device Profile and DTDL generation using the DCT
+### Creating a Modbus Device Profile and DTDL generation using the DCT
 
 As described in the previous section (Step 2) to connect to a new device via XRT you must first create a Device Profile for the specific device type and in the case of this example a corresponding DTDL file.
 Device Profiles and DTDL files can created using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/). A video showing you how to do this can for the Damocles2 Mini device can be accessed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1hC7S4uE4).
-The configuration files generated from the tool are as follows:
+The configuration files generated from the tool are provided as follows:
 *	[Damocles2 Mini Device Profile](Damocles2-Mini.json)
 *	[Damocles2 Mini DTDL file](Damocles2-Mini.dtdl)
 
-#### Configuring the Application
+### Configuring the Application
 
 * Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC and set DeviceAuthentication with your tenant id:
 
@@ -176,16 +178,16 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 
 ![Azure Export Config](images/AzureExportConfig.svg)
 
-#### Building The Application
+### Building The Application
 
-##### Visual Studio Setup
+#### Visual Studio Setup
 
 * Open Visual Studio and install Visual Studio Extensions for Azure Sphere
 
 From this point the Application can be built either from within the Visual Studio or via the Visual Studio
 Command Prompt.
 
-##### Building Using Visual Studio
+#### Building Using Visual Studio
 
 1. Create a new Project. Search for the "azure sphere" template, then select "Azure Sphere Blink"
 
@@ -198,17 +200,17 @@ Command Prompt.
 3. Create the CMake build configuration
 4. Build the application with the "Build" menu
 
-##### Building Using Visual Studio Command Prompt
+#### Building Using Visual Studio Command Prompt
 
 Run the build.bat batch file. This should build the application image in a build sub directory.
 
-##### Building Using Ubuntu
+#### Building Using Ubuntu
 
 Issue the command:
 
 `make build`
 
-##### Running the ModbusPal Simulator
+#### Running the ModbusPal Simulator
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
@@ -226,7 +228,7 @@ In order to deploy the example application and enable it connect to the Modbus s
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-##### Deploying and Debugging the Application from Ubuntu
+#### Deploying and Debugging the Application from Ubuntu
 
 Issue the following command to deploy the application and initiate a Telnet session:
 
@@ -246,11 +248,11 @@ In gdb issue the commands:
 
 Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
 
-##### Debugging the Application from Visual Studio
+#### Debugging the Application from Visual Studio
 
 The easiset way to debug the application is using [Visual Studio](https://docs.microsoft.com/en-us/azure-sphere/install/qs-blink-application?tabs=linux%2Ccliv1&pivots=visual-studio). This supports loading an image onto the target device, connecting it to the debugger and reporting diagnostic logging.
 
-##### Debugging the Application from Visual Studio Command Prompt
+#### Debugging the Application from Visual Studio Command Prompt
 
 The deployd.bat batch script will deploy the built application onto the target device, put the application into debug mode and attach the gdb debugger:
 
@@ -268,7 +270,7 @@ The application can then be started via gdb:
 
 `(gdb) continue`
 
-##### Change Modbus Device Input Values
+#### Change Modbus Device Input Values
 
 * Open the Slave Editor by pressing the button with the "eye" icon and
   then select the "Coils" tab in the dialog that appears.
@@ -285,9 +287,9 @@ The application can then be started via gdb:
 * Observe the debug output to see the new value being read from the
   simulated Modbus device and then published to the Azure Cloud.
 
-##### Changing the Modbus Device Outputs
+#### Changing the Modbus Device Outputs
 
-The script update.sh can be used to update device resources the Azure
+The script update.sh can be used to update device resources in the Azure
 IOT hub to invoke a device method.
 
 * To set the resource BinaryOutput1 to true issue the command (replace
@@ -295,4 +297,4 @@ IOT hub to invoke a device method.
 
 `./update.sh HubName BinaryOutput1 true`
 
-## Tutorial Part 2 – Setting Up Digital Twins
+# Tutorial Part 2 – Setting Up Digital Twins
