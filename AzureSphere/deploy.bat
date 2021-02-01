@@ -1,2 +1,2 @@
 azsphere device sideload delete
-azsphere device sideload deploy --imagepackage build/xrt-app.imagepackage
+azsphere device sideload deploy --image-package build/xrt-app.imagepackage

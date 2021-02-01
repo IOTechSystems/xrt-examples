@@ -22,7 +22,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 `azsphere device edv`
 
-7. Ensure that Telnet is installed on Ubuntu or enabled on Windows
+7. Telnet is installed on Ubuntu or enabled on Windows (unless debugging via Visual Studio).
 
 ### Hardware
 This tutorial can be used with the Avnet Guardian 100 Azure Sphere module.
