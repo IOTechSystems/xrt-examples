@@ -272,9 +272,9 @@ The application can then be started via gdb:
 
 `(gdb) continue`
 
-### Change Modbus Device Values
+### Change the Modbus Device Values
 
-#### Changing Modbus Device Inputs
+#### Changing the Modbus Device Inputs
 
 * Open the Slave Editor by pressing the button with the "eye" icon and
   then select the "Coils" tab in the dialog that appears.
@@ -291,7 +291,7 @@ The application can then be started via gdb:
 * Observe the debug output to see the new value being read from the
   simulated Modbus device and then published to the Azure Cloud.
 
-#### Changing Modbus Device Outputs
+#### Changing the Modbus Device Outputs
 
 The script update.sh can be used to update device resources in the Azure
 IOT hub to invoke a device method.
