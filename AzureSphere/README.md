@@ -263,7 +263,9 @@ To monitor the log output from the application, from another command window, con
 The application can then be started via gdb:
 
 `(gdb) set sysroot "C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7"`
+
 `(gdb) target remote 192.168.35.2:2345`
+
 `(gdb) c`
 
 ##### Change Modbus Device Input Values
