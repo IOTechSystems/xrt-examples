@@ -59,7 +59,7 @@ Step 5:
 *	From Visual Studio using the azsphere utility  deploy the XRT Azure Application onto the Azure Sphere hardware module (e.g. Guardian 100)
 
 Step 6:
-* Visualize the data on Azure IoT Hub and optionally send commands back to the connected IoT device. **TO BE COMPLETED**
+* Visualize the data on Azure IoT Hub and optionally send commands back to the connected IoT device. 
 
 Each of the above steps are covered in detail in the subsequent parts of this tutorial.
 
