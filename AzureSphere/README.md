@@ -193,8 +193,8 @@ Command Prompt.
 
 2. In the generated project directory from this example:
 
-* Copy the config directory
-* Overwrite CMakeLists.txt, app_manifest.json and main.c
+* Copy the provided config directory into the project
+* Overwrite CMakeLists.txt, app_manifest.json and main.c with the files provided
 * Edit CMakeSettings.json and set "AZURE_SPHERE_TARGET_API_SET" to "7"
 
 3. Create the CMake build configuration
