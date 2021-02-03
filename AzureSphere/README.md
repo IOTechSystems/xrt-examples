@@ -214,7 +214,7 @@ Issue the command:
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
-* Run the simulator with the command:
+* Run the simulator by clicking on download (Windows) or with the command:
 
 `java -jar ModbusPal.jar`
 
