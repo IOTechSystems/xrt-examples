@@ -18,7 +18,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 5. Azure IoT Hub setup (insert link to XRT Azure Sphere User Guide)
 6. Guardian 100 module hardware claimed by Azure Sphere Cloud Tenant and enabled for development
 
-    - Connected to host via micro-USB cable where the port is only accessible by taking the top casing off
+    - Connected to host via a micro-USB cable. Note to access this port the top casing must be removed.
 
 `azsphere device claim`
 
