@@ -152,7 +152,7 @@ The configuration files generated from the tool are provided as follows:
 
 ### Configuring the Application
 
-* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC and set DeviceAuthentication with your tenant id:
+* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC, set DeviceAuthentication to your tenant id and replace IOTechHub with your IoT Hub name in AllowedConnections:
 
 `azsphere tenant list`
 
