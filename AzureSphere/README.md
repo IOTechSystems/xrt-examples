@@ -27,7 +27,11 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 7. Telnet is installed on Ubuntu or enabled on Windows (unless debugging via Visual Studio).
 
 ## Hardware
-This tutorial can be used with the Avnet Guardian 100 Azure Sphere module.
+This tutorial can be used with:
+
+* The Avnet Guardian 100 Azure Sphere module.
+* The Avnet Azure Sphere Starter Kit (Cannot use a real device without Rev2 of the board and the addition of an ETH Click board)
+* The Seeed Azure Sphere Development Kit (Cannot use a real device without the addition of an Ethernet Shield)
 
 The Guardian 100 is a wireless edge module that uses Azure Sphere to deliver secure connectivity to devices. It includes Avnet Azure Sphere MT3620 module and connects to existing equipment via Ethernet or USB. Guardian-enabled devices also receive automatic security updates through the Azure Sphere Security Service.
 
