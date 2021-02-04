@@ -8,7 +8,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 ## Prerequisites
 
-1. For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download})
+1. For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download}). Once installed open Visual Studio and install Visual Studio Extensions for Azure Sphere
 2. The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview) as appropriate for the target environment
 3. The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) with the azure-iot extension installed
 
@@ -63,7 +63,7 @@ Step 5:
 *	From Visual Studio using the azsphere utility  deploy the XRT Azure Application onto the Azure Sphere hardware module (e.g. Guardian 100)
 
 Step 6:
-* Visualize the data on Azure IoT Hub and optionally send commands back to the connected IoT device. 
+* Visualize the data on Azure IoT Hub and optionally send commands back to the connected IoT device.
 
 Each of the above steps are covered in detail in the subsequent parts of this tutorial.
 
@@ -185,13 +185,6 @@ To connect the example to your IoT Hub endpoint you must also configure Azure Ex
 ![Azure Export Config](images/AzureExportConfig.svg)
 
 ### Building The Application
-
-#### Visual Studio Setup
-
-* Open Visual Studio and install Visual Studio Extensions for Azure Sphere
-
-From this point the Application can be built either from within the Visual Studio or via the Visual Studio
-Command Prompt.
 
 #### Building Using Visual Studio
 
