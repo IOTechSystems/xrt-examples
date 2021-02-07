@@ -113,6 +113,13 @@ To install XRT Azure Sphere, complete the following steps:
 
 `C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
 
+#### Install an XRT License File
+
+Now install the attached the [XRT License File ](Xrt_Azure_Sphere_Test_License.lic).  You must ensure that XRT can locate the license in one of the following ways:
+* Set the XRT_LICENSE_FILE environment variable to the absolute path to the license file, using the following command, where <path> is the full path to your license file:
+o	export XRT_LICENSE_FILE=<path>/license.json
+* Place the license file in the default installation location; that is, the /opt/iotech/xrt directory
+
 ### Visual Studio Setup
 
 * Open Visual Studio and install Visual Studio Extensions for Azure Sphere
@@ -145,7 +152,7 @@ Note the digital outputs on the device are wired to the digital inputs on the de
 ### Creating a Modbus Device Profile and DTDL generation using the DCT
 
 As described in the previous section (Step 2) to connect to a new device via XRT you must first create a Device Profile for the specific device type and in the case of this example a corresponding DTDL file.
-Device Profiles and DTDL files can created using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/). A video showing you how to do this can for the Damocles2 Mini device can be accessed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1hC7S4uE4).
+Device Profiles and DTDL files can created using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/). A video showing you how to do this can for the Damocles2 Mini device can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1hC7S4uE4).
 The configuration files generated from the tool are provided as follows:
 *	[Damocles2 Mini Device Profile](Damocles2-Mini.json)
 *	[Damocles2 Mini DTDL file](Damocles2-Mini.dtdl)
@@ -301,3 +308,19 @@ IOT hub to invoke a device method.
 `./update.sh HubName BinaryOutput1 true`
 
 # Tutorial Part 2 – Setting Up Digital Twins
+
+In Part 1 of this tutorial we described how to create an Azure Sphere XRT application that can send data which has been read from a Modbus device to Azure IoT Hub and receive commands in the reverse direction .
+
+Part 2 of the tutorial two shows how to interact with the same Modbus Device via Azure Digital Twins.
+
+For this part of the tutorial you should refer to the XRT for Azure Sphere Guide (XRTAzureSphereUserGuide.pdf). The guide is included in the XRT package that you downloaded and installed in Part 1.
+
+Refer to the guide and complete the following steps:
+1.	Setup Azure Cloud for Digital Twins – Create a Function App
+2.	Setup Azure Cloud for Digital Twins – Create an Event Grid System Topic
+3.	Create and Manage Digital Twins – Create Digital Twins Instance
+4.	Create and Manage Digital Twins – Export Digital Twins Changes
+5.	Create and Manage Digital Twins – Send Digital Twin Changes to IoT Hub
+6.	Create and Manage Digital Twins – Add a Digital Twin
+
+A video showing how to create a digital twin using the Explorer Tool as described Step 7 above can be viewed at [Create a Digital Twin using the Explorer Tool](https://www.youtube.com/watch?v=CqTDkRXtsUU&feature=youtu.be).
