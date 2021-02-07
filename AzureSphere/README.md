@@ -309,11 +309,11 @@ IOT hub to invoke a device method.
 
 # Tutorial Part 2 – Setting Up Digital Twins
 
-In Part 1 of this tutorial we described how to create an Azure Sphere XRT application that can send data which has been read from a Modbus device to Azure IoT Hub and receive commands in the reverse direction .
+In Part 1 of this tutorial we described how to create an Azure Sphere XRT application that can send data from a Modbus device to Azure IoT Hub and receive commands in the reverse direction .
 
-Part 2 of the tutorial two shows how to interact with the same Modbus Device via Azure Digital Twins.
+Part 2 of the tutorial two shows how to interact with the same Modbus Device via an Azure Digital Twin.
 
-For this part of the tutorial you should refer to the XRT for Azure Sphere Guide (XRTAzureSphereUserGuide.pdf). The guide is included in the XRT package that you downloaded and installed in Part 1.
+For this part of the tutorial you should refer to the XRT for Azure Sphere Guide (**XRTAzureSphereUserGuide.pdf**). The guide is included in the XRT package that you downloaded and installed in Part 1.
 
 Refer to the guide and complete the following steps:
 1.	Setup Azure Cloud for Digital Twins – Create a Function App
@@ -323,4 +323,4 @@ Refer to the guide and complete the following steps:
 5.	Create and Manage Digital Twins – Send Digital Twin Changes to IoT Hub
 6.	Create and Manage Digital Twins – Add a Digital Twin
 
-A video showing how to create a digital twin using the Explorer Tool as described Step 7 above can be viewed at [Create a Digital Twin using the Explorer Tool](https://www.youtube.com/watch?v=CqTDkRXtsUU&feature=youtu.be).
+A video showing how to create a digital twin using the Explorer Tool as described in Step 7 above can be viewed at [Create a Digital Twin using the Explorer Tool](https://www.youtube.com/watch?v=CqTDkRXtsUU&feature=youtu.be).
