@@ -159,7 +159,7 @@ The configuration files generated from the tool are provided as follows:
 
 ![Application Manifest](images/AppManifest.svg)
 
-* Edit the [config/modbus.json](config/modbus.json) file and  replace 10.0.0.1 with the IP address of your PC
+* Edit the [config/modbus.json](config/modbus.json) file and replace 10.0.0.1 with the IP address of your PC (if using ModbusPal) or the address of the Damocles unit if using actual hardware.
 
 ![Device Service Config](images/DeviceServiceConfig.svg)  
 
