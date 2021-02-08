@@ -117,7 +117,9 @@ To install XRT Azure Sphere, complete the following steps:
 
 Now install the attached the [XRT License File ](Xrt_Azure_Sphere_Test_License.lic).  You must ensure that XRT can locate the license in one of the following ways:
 * Set the XRT_LICENSE_FILE environment variable to the absolute path to the license file, using the following command, where <path> is the full path to your license file:
-o	export XRT_LICENSE_FILE=<path>/license.json
+
+`export XRT_LICENSE_FILE=<path>/license.json`
+
 * Place the license file in the default installation location; that is, the /opt/iotech/xrt directory
 
 ### Visual Studio Setup
