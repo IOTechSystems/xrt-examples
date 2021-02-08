@@ -4,13 +4,22 @@
 # sideloading for development and debugging.
 CID=4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f
 
+DEVICE?=modbus
+
 # Default action will build, sideload and debug the example application
 all: monitor
 
 # Build the application in a 'build' directory
 build:
 	if [ ! -d build ]; then mkdir build; fi
-	(cd build && cmake -G "Ninja" -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" -DAZURE_SPHERE_TARGET_API_SET="7" -DCMAKE_BUILD_TYPE="Debug" .. && ninja)
+	cp config/profiles/profiles-$(DEVICE).json config/profiles/profiles.json; \
+	cp config/main-$(DEVICE).json config/main.json; \
+	(cd build && cmake -G "Ninja" \
+        -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
+        -DAZURE_SPHERE_TARGET_API_SET="7" \
+        -DCMAKE_BUILD_TYPE="Debug" \
+        -DDEVICE=$(DEVICE) \
+	.. && ninja)
 
 # Deploy as a sideloaded application
 deploy: build/xrt-app.imagepackage connect

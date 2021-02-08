@@ -1,0 +1,11 @@
+{
+  "logger":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "scheduler":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "azure":"XRT::AzureSphereExporter",
+  "logexport":"XRT::LogExporter",
+  "modbus":"XRT::ModbusDeviceService",
+  "lua":"XRT::LuaTransform",
+  "mt3620":"XRT::MT3620Device"
+}
