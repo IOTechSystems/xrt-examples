@@ -153,7 +153,7 @@ The configuration files generated from the tool are provided as follows:
 
 ### Configuring the Application
 
-* Edit the [app_manifest.json](app_manifest.json) file and replace 10.0.0.1 with the IP address of your PC, set DeviceAuthentication to your tenant id and replace IOTechHub with your IoT Hub name in AllowedConnections:
+* Edit the [app_manifest.json](app_manifest.json) file and set DeviceAuthentication to your tenant id and replace IOTechHub with your IoT Hub name in AllowedConnections. Also replace 10.0.0.1 with either the IP address of your PC (if running ModbusPal) or the address of the Damocles unit if using actual hardware, this entry allows the Sphere unit to connect to the ModBus device:
 
 `azsphere tenant list`
 
