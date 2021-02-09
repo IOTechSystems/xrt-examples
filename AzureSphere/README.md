@@ -216,9 +216,8 @@ Issue the command:
 
 * On Windows to allow access to the server:
 
-** Disable Windows Firewall
-
-** Open TCP port 1502 in Firewall Settings
+   * Disable Windows Firewall
+   * Open TCP port 1502 in Firewall Settings
 
 * Run the simulator by clicking on download (Windows) or with the command:
 
