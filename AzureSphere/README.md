@@ -216,8 +216,15 @@ Issue the command:
 
 * On Windows to allow access to the server:
 
-   * Disable Windows Firewall
-   * Open TCP port 1502 in Firewall Settings
+   * Disable Windows Firewall (not recommended)
+   * Open TCP port 1502 in Firewall Settings:
+      * Find "Firewall & network protection"
+      * Select "Advanced settings"
+      * Right click "Inbound Rules" and select "New Rule"
+      * Select "Port" and click "Next"
+      * Select "TCP", set port number to 1502 and click "Next"
+      * Select "Allow the connection" and click "Next"
+      * Set Name to "ModbusPal" and click "Finish"
 
 * Run the simulator by clicking on download (Windows) or with the command:
 
