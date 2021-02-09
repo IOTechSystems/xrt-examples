@@ -1,0 +1,4 @@
+To Invoke methiod from Azure Cloud on Device Twin:
+
+method: publish
+payload: {"device":"damocles-virt1", "values": {"DigitalOutput1": true}}
