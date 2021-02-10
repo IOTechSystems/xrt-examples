@@ -8,12 +8,12 @@ Device.
 ## AzureSphere Hardware
 
 The Virtual Device works on all XRT supported AzureSphere
-hardware, thats listed on the main [readme](../readme.md).
+hardware, thats listed on the main [readme](../README.md).
 
 ## Prerequisites 
 
 Virtaul doesn't require any prerequisites apart from the
-ones listed on the main [readme](../readme.md) page.
+ones listed on the main [readme](../README.md) page.
 
 ## Configuration 
 

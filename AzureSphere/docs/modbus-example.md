@@ -72,7 +72,7 @@ Ethernet or WiFi.
 ## Prerequisites
 
 *Note - The prerequisites found on the main
-[readme.md](../readme.md) are also required for this example.*
+[readme.md](../README.md) are also required for this example.*
 
 * Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar)
   Java Modbus simulator, or a Damocles2 Mini connected by
