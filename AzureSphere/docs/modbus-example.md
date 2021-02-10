@@ -83,9 +83,10 @@ Ethernet or WiFi.
 
     - Connected to host via a micro-USB cable. Note to access this port the top casing must be removed
 
-`azsphere device claim`
-
-`azsphere device edv`
+```bash
+azsphere device claim
+azsphere device edv
+```
 
 * Telnet is installed on Ubuntu or enabled on Windows
   (unless debugging via Visual Studio)
@@ -130,19 +131,25 @@ configure Azure Export Service component.
 * The DeviceID can be found for a USB connected device with
   the command:
 
-`azsphere device list-attached`
+```bash
+azsphere device list-attached
+```
 
 * The HostName is the IOT Hub host name and can be found using
   the [Azure Portal](https://portal.azure.com/) or using the
   command (replace HubName with the name of your IOT hub):
 
-`az iot hub show --name HubName | grep hostName`
+```bash
+az iot hub show --name HubName | grep hostName
+```
 
 * The Device Provisioning Service ID Scope can be found using
   the portal or the command (replace DPSName with the name of
   your Device Provisioning Service):
 
-`az iot dps show --name DPSName | grep idScope`
+```bash
+az iot dps show --name DPSName | grep idScope
+```
 
 ![Azure Export Config](images/AzureExportConfig.svg)
 
@@ -153,7 +160,9 @@ configure Azure Export Service component.
   DeviceAuthentication to your tenant id and replace
   IOTechHub with your IoT Hub name in AllowedConnections:
 
-`azsphere tenant list`
+```bash
+azsphere tenant list
+```
 
 ![Application Manifest](images/AppManifest.svg)
 
@@ -174,7 +183,9 @@ configure Azure Export Service component.
 * Run the simulator by clicking on download (Windows) or
   with the command:
 
-`java -jar ModbusPal.jar`
+```bash
+java -jar ModbusPal.jar
+```
 
 * Use the "Load" button and select the [damocles.xmpp](damocles.xmpp)
   file. This provides a simulation of a simple Modbus
@@ -219,4 +230,6 @@ IoT hub to invoke a device method.
 * To set the resource BinaryOutput1 to true issue the command (replace
   HubName with the name of your IoT hub):
 
-`./update.sh HubName BinaryOutput1 true`
+```bash
+./update.sh HubName BinaryOutput1 true
+```

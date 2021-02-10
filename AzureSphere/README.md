@@ -7,11 +7,18 @@ supported Azure Sphere hardware.
 ## Prerequisites
 
 * For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download}). Once installed open Visual Studio and install Visual Studio Extensions for Azure Sphere
-* The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview) as appropriate for the target environment
-* The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) with the azure-iot extension installed
+  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download}).
+  Once installed open Visual Studio and install Visual
+  Studio Extensions for Azure Sphere
+* The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview)
+  as appropriate for the target environment
+* The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+  with the azure-iot extension installed
 
-`az extension add --name azure-iot`
+You can install azure-iot extension with the following:
+```bash
+az extension add --name azure-iot
+```
 
 *Note - Examples might have prerequisites of there own.*
 

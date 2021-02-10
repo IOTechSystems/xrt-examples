@@ -2,5 +2,7 @@
 
 Issue the command:
 
-`make build`
+```bash
+make build
+```
 

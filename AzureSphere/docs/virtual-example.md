@@ -41,27 +41,35 @@ be able to send values to the IoT Hub. You will need:
 * DeviceID, can be found for a USB connected device with
   the command:
 
-`azsphere device list-attached`
+```bash
+azsphere device list-attached
+```
 
 * HostName, is the IOT Hub host name and can be found
   using the [Azure Portal](https://portal.azure.com/) or
   using the command (replace HubName with the name of your
   IOT hub):
 
-`az iot hub show --name <HubName> | grep hostName`
+```bash
+az iot hub show --name <HubName> | grep hostName
+```
 
 * ScopeID, The Device Provisioning Service ID Scope can be found
   using the portal or the command (replace DPSName with
   the name of your Device Provisioning Service):
 
-`az iot dps show --name <DPSName> | grep idScope`
+```bash
+az iot dps show --name <DPSName> | grep idScope
+```
 
 ### App Manifest (Required)
 * Edit the [app_manifest.json](app_manifest.json) file and
   set DeviceAuthentication to your tenant id and replace
   IOTechHub with your IoT Hub name in AllowedConnections:
 
-`azsphere tenant list`
+```bash
+azsphere tenant list
+```
 
 ## Building The Application
 
