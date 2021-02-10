@@ -72,7 +72,7 @@ Ethernet or WiFi.
 ## Prerequisites
 
 *Note - The prerequisites found on the main
-[readme.md](readme.md) are also required for this example.*
+[readme.md](../readme.md) are also required for this example.*
 
 * Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar)
   Java Modbus simulator, or a Damocles2 Mini connected by
@@ -105,8 +105,8 @@ can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1
 
 The configuration files generated from the tool are provided
 as follows:
-*	[Damocles2 Mini Device Profile](Damocles2-Mini.json)
-*	[Damocles2 Mini DTDL file](Damocles2-Mini.dtdl)
+*	[Damocles2 Mini Device Profile](../config/profiles/Damocles2-Mini.json)
+*	[Damocles2 Mini DTDL file](../Damocles2-Mini.dtdl)
 
 ## Configuration
 
@@ -115,7 +115,7 @@ to edit some of the configurations listed below.
 
 ### Device Service
 
-* Edit the [config/modbus.json](config/modbus.json) file and 
+* Edit the [config/modbus.json](../config/modbus.json) file and 
   replace 10.0.0.1 with the IP address of your PC
 
 ![Device Service Config](images/DeviceServiceConfig.svg)  
@@ -125,7 +125,7 @@ to edit some of the configurations listed below.
 To connect the example to your IoT Hub endpoint you must also
 configure Azure Export Service component.
 
-* Edit [config/azure.json](config/azure.json) and the value
+* Edit [config/azure.json](../config/azure.json) and the value
   for the "HostName", "DeviceID" and "ScopeID" values.
 
 * The DeviceID can be found for a USB connected device with
@@ -155,7 +155,7 @@ az iot dps show --name DPSName | grep idScope
 
 ### App Manifest 
 
-* Edit the [app_manifest.json](app_manifest.json) file and
+* Edit the [app_manifest.json](../app_manifest.json) file and
   replace 10.0.0.1 with the IP address of your PC, set
   DeviceAuthentication to your tenant id and replace
   IOTechHub with your IoT Hub name in AllowedConnections:
@@ -168,13 +168,13 @@ azsphere tenant list
 
 ## Building The Application
 
-* [Building On Windows]()
-* [Building On Ubuntu]()
+* [Building On Windows](windows-build.md)
+* [Building On Ubuntu](ubuntu-build.md)
 
 ## Deploying and Debugging the Application
 
-* [Deploy and Debug with Windows]()
-* [Deploy and Debug with Ubuntu]()
+* [Deploy and Debug with Windows](windows-deploy-debug.md)
+* [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
 
 ## Running the ModbusPal Simulator
 

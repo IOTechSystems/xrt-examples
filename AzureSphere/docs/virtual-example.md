@@ -8,12 +8,12 @@ Device.
 ## AzureSphere Hardware
 
 The Virtual Device works on all XRT supported AzureSphere
-hardware, thats listed on the main [readme](readme.md).
+hardware, thats listed on the main [readme](../readme.md).
 
 ## Prerequisites 
 
 Virtaul doesn't require any prerequisites apart from the
-ones listed on the main [readme](readme.md) page.
+ones listed on the main [readme](../readme.md) page.
 
 ## Configuration 
 
@@ -63,7 +63,7 @@ az iot dps show --name <DPSName> | grep idScope
 ```
 
 ### App Manifest (Required)
-* Edit the [app_manifest.json](app_manifest.json) file and
+* Edit the [app_manifest.json](../app_manifest.json) file and
   set DeviceAuthentication to your tenant id and replace
   IOTechHub with your IoT Hub name in AllowedConnections:
 
@@ -75,14 +75,14 @@ azsphere tenant list
 
 You can build the Virtual Device following the links below:
 
-* [Building On Windows]()
-* [Building On Ubuntu]()
+* [Building On Windows](windows-build.md)
+* [Building On Ubuntu](ubuntu-build.md)
 
 ## Deploying and Debugging the Application
 
 You can deploy and debug the Virtual Device following the
 links below:
 
-* [Deploy and Debug with Windows]()
-* [Deploy and Debug with Ubuntu]()
+* [Deploy and Debug with Windows](windows-deploy-debug.md)
+* [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
 
