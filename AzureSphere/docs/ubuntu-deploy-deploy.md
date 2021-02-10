@@ -1,6 +1,7 @@
 # Deploying and Debugging from Ubuntu
 
-Issue the following command to deploy the application and initiate a Telnet session:
+Issue the following command to deploy the application and
+initiate a Telnet session:
 
 `make monitor`
 
@@ -16,5 +17,7 @@ In gdb issue the commands:
 
 `continue`
 
-Observe the debug output in the terminal where the make command was issued. The simulated Modbus device inputs are read at an interval specified in the Modbus device service configuration.
-
+Observe the debug output in the terminal where the make
+command was issued. The simulated Modbus device inputs
+are read at an interval specified in the Modbus device
+service configuration.

@@ -23,4 +23,3 @@ To install XRT Azure Sphere, complete the following steps.
 5. Install XRT using the following command:
 
 `sudo apt-get install iotech-xrt-azsphere7`
-

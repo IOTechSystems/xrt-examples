@@ -67,8 +67,6 @@ be able to send values to the IoT Hub. You will need:
 
 You can build the Virtual Device following the links below:
 
-## Building The Application
-
 * [Building On Windows]()
 * [Building On Ubuntu]()
 
