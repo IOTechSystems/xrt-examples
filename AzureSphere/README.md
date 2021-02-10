@@ -22,7 +22,7 @@ The tutorial is split into two parts. Part 1 describes how to create an XRT appl
 
 `azsphere device claim`
 
-`azsphere device edv`
+`azsphere device enable-development`
 
 7. Telnet is installed on Ubuntu or enabled on Windows (unless debugging via Visual Studio).
 
