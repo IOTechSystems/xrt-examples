@@ -20,7 +20,7 @@ You can install azure-iot extension with the following:
 az extension add --name azure-iot
 ```
 
-*Note - Examples might have prerequisites of there own.*
+*Note - [Examples](#examples) might have prerequisites of there own.*
 
 ## Supported Hardware
 The examples currently support the following hardware:
