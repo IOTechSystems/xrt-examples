@@ -1,7 +1,8 @@
-# XRT Azure Sphere
+# Azure Sphere
 
-This document describes how to build a connected IoT application using 
-IOTech's Edge XRT deployed on supported Azure Sphere hardware.
+This document describes, and gives examples on how to build a
+connected IoT application using IOTech's Edge XRT deployed on
+supported Azure Sphere hardware.
 
 ## Prerequisites
 
@@ -12,8 +13,7 @@ IOTech's Edge XRT deployed on supported Azure Sphere hardware.
 
 `az extension add --name azure-iot`
 
-*Note - Examples might have prerequisites of there own, please check
-there readme.md with in there directory* 
+*Note - Examples might have prerequisites of there own.*
 
 ## Supported Hardware
 The examples currently support the following hardware:
@@ -24,7 +24,7 @@ The examples currently support the following hardware:
 * The Seed Azure Sphere Development Kit (Cannot use a real device
   without the addition of an Ethernet Shield)
 
-## XRT for Azure Sphere Development Process
+## Azure Sphere Development Process
 
 The process for creating a connected Azure Sphere IoT application using
 XRT is illustrated in the following graphic.
@@ -34,7 +34,7 @@ XRT is illustrated in the following graphic.
 The development process flow follows a standard sequence of steps:
 
 * Install the XRT for Azure Sphere package on either a Windows or
-  Linux (Ubuntu) host PC and then install the Azure Sphere demo project
+  Linux (Ubuntu) host PC and then install the Azure Sphere example project
   into Visual Studio.
 
 * Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
