@@ -29,7 +29,7 @@ to interact with the Modbus Device via Azure Digital Twins.
 ## Prerequisites
 
 *Note - The prerequisites found on the main
-[readme.md](readme.md) are also required for this example* 
+[readme.md](readme.md) are also required for this example.*
 
 * Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar)
   Java Modbus simulator, or a Damocles2 Mini connected by
@@ -159,13 +159,13 @@ configure Azure Export Service component.
 
 ## Building The Application
 
-### Building On Windows 
-### Building On Ubuntu
+* [Building On Windows]()
+* [Building On Ubuntu]()
 
 ## Deploying and Debugging the Application
 
-### Deploy and Debug with Windows
-### Deploy and Debug with Ubuntu 
+* [Deploy and Debug with Windows]()
+* [Deploy and Debug with Ubuntu]()
 
 ## Running the ModbusPal Simulator
 

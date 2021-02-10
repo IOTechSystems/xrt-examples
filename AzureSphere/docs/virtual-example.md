@@ -67,14 +67,16 @@ be able to send values to the IoT Hub. You will need:
 
 You can build the Virtual Device following the links below:
 
-## Building On Windows 
-## Building On Ubuntu
+## Building The Application
+
+* [Building On Windows]()
+* [Building On Ubuntu]()
 
 ## Deploying and Debugging the Application
 
 You can deploy and debug the Virtual Device following the
 links below:
 
-### Deploy and Debug with Windows
-### Deploy and Debug with Ubuntu 
+* [Deploy and Debug with Windows]()
+* [Deploy and Debug with Ubuntu]()
 

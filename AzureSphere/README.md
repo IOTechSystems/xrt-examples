@@ -54,13 +54,13 @@ Each of the above steps are covered in detail in the subsequent parts for each e
 Before being able to build a example, you will need to install XRT
 onto your host machine:
 
-[Installing the XRT Package on Ubuntu](docs/windows-installation.md)
-[Installing the XRT Package on Windows](docs/ubuntu-installation.md)
+* [Installing the XRT Package on Ubuntu](docs/windows-installation.md)
+* [Installing the XRT Package on Windows](docs/ubuntu-installation.md)
 
 ## Examples
 
-[Modbus Device](docs/modbus-example.md)
-[Virtual Device](docs/virtual-example.md)
+* [Modbus Device](docs/modbus-example.md)
+* [Virtual Device](docs/virtual-example.md)
 
 # Tutorial Part 2 – Setting Up Digital Twins
 
