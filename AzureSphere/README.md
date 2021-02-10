@@ -27,7 +27,7 @@ IOTech Device Configuration Tool (DCT) is a graphical tool that enables the defi
 
 The process for creating a connected Azure Sphere IoT application using XRT is illustrated in the following graphic.
 
-![Azure Development Process](images/AzureDevProcess.jpg)  
+![Azure Development Process](docs/images/AzureDevProcess.jpg)
 
 The development process flow follows a standard sequence of steps:
 
