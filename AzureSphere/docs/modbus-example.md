@@ -1,73 +1,15 @@
 # Modbus Example
 
-This example uses the Guardian 100 Azure Sphere Hardware.
-The Guardian 100 is a wireless edge module that uses
-Azure Sphere to deliver secure connectivity to devices.
-It includes Avnet Azure Sphere MT3620 module and connects
-to existing equipment via Ethernet or USB. Guardian-enabled
-devices also receive automatic security updates through the
-Azure Sphere Security Service.
-
-![Guardian 100](images/Guardian100.png)
-## AzureSphere Hardware
-
-This example shows how to build a connected IoT application
-using IOTech's Edge XRT deployed on an Azure Sphere Guardian
-100 module. In this example the XRT application is used to
-communicate with a Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)),
-reading data values which are then sent to its digital twin
-running on Azure IoT Hub. Via the digital twin commands can
-also be sent back to the Modbus Device connected to the
-Guardian Module.
-
-The example is split into two parts. Part 1 describes how to
-create an XRT application that can send data from the Modbus
-device connected to the Guardian 100 to Azure IoT Hub and
-receive commands in the reverse direction. Part 2 shows how
-to interact with the Modbus Device via Azure Digital Twins.
-
-## Prerequisites
-
-*Note - The prerequisites found on the main
-[readme.md](readme.md) are also required for this example.*
-
-* Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar)
-  Java Modbus simulator, or a Damocles2 Mini connected by
-  wired EtherNet to a Guardian 100 module
-* Azure IoT Hub setup (installed in SDK Sysroots/7/opt/iotech/xrt/docs)
-* Guardian 100 module hardware claimed by Azure Sphere
-  Cloud Tenant and enabled for development
-
-    - Connected to host via a micro-USB cable. Note to access this port the top casing must be removed
-
-`azsphere device claim`
-
-`azsphere device edv`
-
-* Telnet is installed on Ubuntu or enabled on Windows
-  (unless debugging via Visual Studio)
-
-The Modbus Azure Sphere example application demonstrates how
-to use XRT to communicate with a Modus TCP/IP Device
-(Damocles2 Mini) or alternatively if you do not have access
-to a physical device a Java Modbus simulator (ModbusPal) can
-be used instead of the real hardware.
-
-If the Damocles hardware is used then it must be connected to
-the Guardian 100 module via a wired Ethernet connection.
-
-If the simulator is used it can be installed on a PC (e.g. the
-host running Visual Studio) and accessed via either wired
-Ethernet or WiFi.
+In this example the XRT application is used to
+communicate with a Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
+or Modbus Simulator),
+reading data values which are then sent to its device twin
+running on Azure IoT Hub. Via the device twin, commands can
+also be sent back to the Modbus Device.
 
 ![Azure Sphere Modbus Example](images/AzureSphereModbusExample.jpg)
 
-The Damocles2 mini is a smart I/O controller used for remote
-monitoring and control of sensors and devices. It provides 4
-digital dry contact inputs and 2 digital relay outputs that
-can be accessed via a Modbus interface.
-
-The Azure Sphere example application reads the digital input
+The example application reads the digital input
 from the Modbus device via the Modbus Device Service component
 and publishes the data onto the internal XRT bus. A Lua
 Scripting component subscribes to these values and checks for
@@ -93,6 +35,61 @@ Note the digital outputs on the device are wired to the digital
 inputs on the device. In this way output values are automatically
 mirrored by the digital inputs.
 
+## Hardware
+
+### AzureSphere
+
+This example uses the Guardian 100 Azure Sphere Hardware.
+The Guardian 100 is a wireless edge module that uses
+Azure Sphere to deliver secure connectivity to devices.
+
+It includes Avnet Azure Sphere MT3620 module and connects
+to existing equipment via Ethernet or USB. Guardian-enabled
+devices also receive automatic security updates through the
+Azure Sphere Security Service.
+
+![Guardian 100](images/Guardian100.png)
+
+### Modbus Device
+
+The [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
+is a smart I/O controller used for remote monitoring and
+control of sensors and devices. It provides 4 digital dry
+contact inputs and 2 digital relay outputs that can be
+accessed via a Modbus interface.
+
+If you do not have access to a physical device a Java
+Modbus simulator (ModbusPal) can be used instead of the
+real hardware.
+
+If the Damocles hardware is used then it must be connected to
+the Guardian 100 module via a wired Ethernet connection.
+
+If the simulator is used it can be installed on a PC (e.g. the
+host running Visual Studio) and accessed via either wired
+Ethernet or WiFi.
+
+## Prerequisites
+
+*Note - The prerequisites found on the main
+[readme.md](readme.md) are also required for this example.*
+
+* Either [ModbusPal](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar)
+  Java Modbus simulator, or a Damocles2 Mini connected by
+  wired EtherNet to a Guardian 100 module
+* Azure IoT Hub setup (installed in SDK Sysroots/7/opt/iotech/xrt/docs)
+* Guardian 100 module hardware claimed by Azure Sphere
+  Cloud Tenant and enabled for development
+
+    - Connected to host via a micro-USB cable. Note to access this port the top casing must be removed
+
+`azsphere device claim`
+
+`azsphere device edv`
+
+* Telnet is installed on Ubuntu or enabled on Windows
+  (unless debugging via Visual Studio)
+
 ## Creating a Modbus Device Profile and DTDL generation using the DCT
 
 As described in the previous section (Step 2) to connect to a new
@@ -111,6 +108,9 @@ as follows:
 *	[Damocles2 Mini DTDL file](Damocles2-Mini.dtdl)
 
 ## Configuration
+
+In-order for the Modbus Example to work, you will need
+to edit some of the configurations listed below.
 
 ### Device Service
 
@@ -220,4 +220,3 @@ IoT hub to invoke a device method.
   HubName with the name of your IoT hub):
 
 `./update.sh HubName BinaryOutput1 true`
-
