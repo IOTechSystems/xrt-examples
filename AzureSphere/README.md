@@ -12,13 +12,21 @@ supported Azure Sphere hardware.
   Studio Extensions for Azure Sphere
 * The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview)
   as appropriate for the target environment
-* The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-  with the azure-iot extension installed
+* You must have your Azure Sphere module claimed to your Azure
+  Sphere Cloud Tenant in order for a XRT example to communicate
+  with your Azure Cloud Resources. You can claim your device with the
+  following [guide](https://docs.microsoft.com/en-gb/azure-sphere/install/claim-device?tabs=cliv1).
+  You will also need to enable development on the
+  Azure Sphere Model with:
+  ```bash
+  azsphere device enable-development
+  ```
 
-You can install azure-iot extension with the following:
-```bash
-az extension add --name azure-iot
-```
+* The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+  with the azure-iot extension installed. You can install azure-iot extension with the following:
+  ```bash
+  az extension add --name azure-iot
+  ```
 
 *Note - [Examples](#examples) might have prerequisites of there own.*
 

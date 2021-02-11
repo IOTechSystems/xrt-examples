@@ -1,6 +1,6 @@
-# Virtaul Device Example
+# Virtual Device Example
 
-The Virtaul Device allows you to genrate random numbers that
+The Virtual Device allows you to generate random numbers that
 can be pushed up to Azure IoT Hub. Values can also be sent
 from the Azure IoT Hub and store them within the Virtual
 Device.
@@ -8,17 +8,17 @@ Device.
 ## AzureSphere Hardware
 
 The Virtual Device works on all XRT supported AzureSphere
-hardware, thats listed on the main [readme](../README.md).
+hardware, that's listed on the main [readme](../README.md).
 
 ## Prerequisites 
 
-Virtaul doesn't require any prerequisites apart from the
+Virtual Example doesn't require any prerequisites apart from the
 ones listed on the main [readme](../README.md) page.
 
 ## Configuration 
 
 In-order for the Virtual Example to work, you will need
-to edit some of the configurations. The configuations
+to edit some of the configurations. The configurations
 that are required to be edited will have "(required)"
 within there title.
 
@@ -27,7 +27,7 @@ within there title.
 Virtual Device profile can be found at: 
 configs/profiles/virtual-device.json
 
-The Device Profile contains a config differnt
+The Device Profile contains a config different
 deviceResources can to be sent or received from the Azure
 IoT Hub.
 
