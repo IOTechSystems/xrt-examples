@@ -214,28 +214,27 @@ Issue the command:
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
-For both Windows and Ubuntu the Firewall may need to be disabled or rules added to allow incoming TCP connections to the simulator:
+For both Windows and Ubuntu the Firewall may need to be disabled or rules added to allow incoming TCP connections on port 1502 to the simulator:
 
-* On Windows to allow access to the server:
+  * On Windows 
+    * Find "Firewall & network protection"
+    * Select "Advanced settings"
+    * Right click "Inbound Rules" and select "New Rule"
+    * Select "Port" and click "Next"
+    * Select "TCP", set port number to 1502 and click "Next"
+    * Select "Allow the connection" and click "Next"
+    * Set Name to "ModbusPal" and click "Finish"
 
-   * Open TCP port 1502 in Firewall Settings:
-      * Find "Firewall & network protection"
-      * Select "Advanced settings"
-      * Right click "Inbound Rules" and select "New Rule"
-      * Select "Port" and click "Next"
-      * Select "TCP", set port number to 1502 and click "Next"
-      * Select "Allow the connection" and click "Next"
-      * Set Name to "ModbusPal" and click "Finish"
-
-   * On Ubuntu run the Firewall Configuration UI
-     * Select "Rules" and add a new rule with "+"
-     * Select "Simple"
-     * Set "Name" to "ModbusPal"
-     * Set "Policy" to "Allow"
-     * Set "Direction" to "In"
-     * Set "Protocol" to "TCP"
-     * Set "Port" to "1502"
-     * Select "+Add"
+  * On Ubuntu 
+    * Run the Firewall Configuration UI
+    * Select "Rules" and add a new rule with "+"
+    * Select "Simple"
+    * Set "Name" to "ModbusPal"
+    * Set "Policy" to "Allow"
+    * Set "Direction" to "In"
+    * Set "Protocol" to "TCP"
+    * Set "Port" to "1502"
+    * Select "+Add"
 
 * Run the simulator by clicking on download (Windows) or with the command:
 
