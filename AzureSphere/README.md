@@ -214,6 +214,8 @@ Issue the command:
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
+For both Windows and Ubuntu the Firewall may need to be disabled or rules added to allow incoming TCP connections to the simulator:
+
 * On Windows to allow access to the server:
 
    * Disable Windows Firewall (not recommended)
