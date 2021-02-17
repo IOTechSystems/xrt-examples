@@ -144,7 +144,7 @@ configure Azure Export Service component.
 
 ### App Manifest
 
-You will need to edit app manifest file [app_manifest.json](../app_manifest.json)
+You will need to edit the app manifest file at [mt3620-g100/app_manifest.json](../mt3620-g100/app_manifest.json)
 with the following:
 
 * In AllowedConnections, replace IOTechHub with the name of
