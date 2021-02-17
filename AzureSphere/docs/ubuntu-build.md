@@ -1,8 +1,16 @@
 # Building On Ubuntu
 
-Issue the command:
+* Set the `BOARD` variable, in-order to build for your targeted
+  Azure Sphere Module, for modbus example `BOARD` will be set to
+  `BOARD=mt3620-g100`
+* Set the `DEVICE` variable to the intended Device Service,
+  for  modbus example `DEVICE` should be set to `DEVICE=modbus`
+
+Issue the command to build XRT:
 
 ```bash
-make build
+make build \
+DEVICE=<modbus or virtual> \
+BOARD=<mt3620-g100, mt3620-dk or mt3620-sk>
 ```
 
