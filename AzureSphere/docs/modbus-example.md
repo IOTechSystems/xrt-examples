@@ -165,12 +165,36 @@ with the following:
 
 ![Application Manifest](images/AppManifest.svg)
 
-## Using A ModbusPal Simulator With The Example
+## Using ModbusPal Simulator With The Example
 
  To use ModbusPal Simulator with this example you will
  need to:
 
 * Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
+
+For both Windows and Ubuntu the Firewall may need to be disabled
+or a new rule needs to be added to allow incoming TCP connections
+on port 1502 to the simulator:
+
+* For Windows add a new rule following the steps below:
+    * Find "Firewall & network protection"
+    * Select "Advanced settings"
+    * Right click "Inbound Rules" and select "New Rule"
+    * Select "Port" and click "Next"
+    * Select "TCP", set port number to 1502 and click "Next"
+    * Select "Allow the connection" and click "Next"
+    * Set Name to "ModbusPal" and click "Finish"
+
+* For Ubuntu add a new rule following the steps below:
+    * Run the Firewall Configuration UI
+    * Select "Rules" and add a new rule with "+"
+    * Select "Simple"
+    * Set "Name" to "ModbusPal"
+    * Set "Policy" to "Allow"
+    * Set "Direction" to "In"
+    * Set "Protocol" to "TCP"
+    * Set "Port" to "1502"
+    * Select "+Add"
 
 * Run the simulator by clicking on downloaded ModbusPal.jar file 
   (Windows) or by running it via the command line:
