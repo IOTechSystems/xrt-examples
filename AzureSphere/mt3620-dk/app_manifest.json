@@ -1,0 +1,23 @@
+{
+  "SchemaVersion": 1,
+  "Name": "xrt-app",
+  "ComponentId": "afac40db-2dcb-4c3d-96eb-79944d5a659e",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [],
+  "Capabilities": {
+    "AllowedConnections" : [ "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "Gpio": [
+      "$MT3620_RDB_LED1_RED", "$MT3620_RDB_LED1_GREEN", "$MT3620_RDB_LED1_BLUE",
+      "$MT3620_RDB_LED2_RED", "$MT3620_RDB_LED2_GREEN", "$MT3620_RDB_LED2_BLUE",
+      "$MT3620_RDB_LED3_RED", "$MT3620_RDB_LED3_GREEN", "$MT3620_RDB_LED3_BLUE",
+      "$MT3620_RDB_LED4_RED", "$MT3620_RDB_LED4_GREEN", "$MT3620_RDB_LED4_BLUE",
+      "$MT3620_RDB_BUTTON_A", "$MT3620_RDB_BUTTON_B"
+    ],
+    "Adc": ["$MT3620_RDB_ADC_CONTROLLER0"],
+    "I2cMaster": ["$MT3620_RDB_HEADER4_ISU2_I2C"],
+    "AllowedTcpServerPorts": [ 22222 ],
+    "NetworkConfig" : true,
+    "DeviceAuthentication": "<tenant-uuid-identifier>"
+  },
+  "ApplicationType": "Default"
+}

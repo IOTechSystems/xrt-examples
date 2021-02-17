@@ -4,6 +4,7 @@
 # sideloading for development and debugging.
 CID=4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f
 
+BOARD?=mt3620-g100
 DEVICE?=modbus
 
 # Default action will build, sideload and debug the example application
@@ -14,10 +15,12 @@ build:
 	if [ ! -d build ]; then mkdir build; fi
 	cp config/profiles/profiles-$(DEVICE).json config/profiles/profiles.json; \
 	cp config/main-$(DEVICE).json config/main.json; \
+	cp $(BOARD)/app_manifest.json app_manifest.json; \
 	(cd build && cmake -G "Ninja" \
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
         -DAZURE_SPHERE_TARGET_API_SET="7" \
         -DCMAKE_BUILD_TYPE="Debug" \
+        -DBOARD=$(BOARD) \
         -DDEVICE=$(DEVICE) \
 	.. && ninja)
 

@@ -19,8 +19,18 @@ target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-log-
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-transform.a)
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-lua-transform.a lua)
 
-target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-mt3620-g100-device.a)
-set (TARGET_CONFIG "mt3620.json")
+message (STATUS "Building for ${BOARD} with ${DEVICE} device service")
+
+if (${BOARD} STREQUAL "mt3620-g100")
+  target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-mt3620-g100-device.a)
+  set (TARGET_CONFIG "mt3620.json")
+elseif (${BOARD} STREQUAL "mt3620-dk")
+  target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-mt3620-dk-device.a)
+  set (TARGET_CONFIG "mt3620_rdb.json")
+elseif (${BOARD} STREQUAL "mt3620-sk")
+  target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-mt3620-sk-device.a)
+  set (TARGET_CONFIG "avnet_mt3620_sk.json")
+endif ()
 
 if (${DEVICE} STREQUAL "modbus")
   target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-modbus-device-service.a)
