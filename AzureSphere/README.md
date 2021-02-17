@@ -38,7 +38,7 @@ steps:
   [modbus.json](config/modbus.json)) file specifying the device
   instance(s) that the XRT Device Service (e.g. Modbus) component
   will create at runtime based on the *Device Profile.json* file
-  (e.g. [Damocles2-Mini.json](Damocles2-Mini.json)) created in
+  (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json)) created in
   the previous step.
 
 * Configure the *Azure Export Service.json* file
