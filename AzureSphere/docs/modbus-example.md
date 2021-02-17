@@ -207,8 +207,8 @@ links below:
 ## Inputs & Outputs With A Modbus Device
 
 This section explains how to change:
-* Change the Output states from the IoT Hub in the Cloud
-* Change the Input states of a simulated device with ModbusPal.
+* Change the Output values from the IoT Hub in the Cloud
+* Change the Input values of a simulated device with ModbusPal
 
 With a real Modbus Device, the input values will be changed by the
 device, then pushed up to the IoT Hub in the Cloud. However, if your
@@ -219,7 +219,7 @@ sent up to the IoT Hub in the Cloud.
 Make sure that you've deployed XRT to Azure Sphere hardware to
 see changes taking place with the IoT Hub in the Cloud.
 
-#### Changing A Modbus Device Output State
+#### Changing A Modbus Device Output Values
 
 This section applies to a simulated device and a real device.
 
@@ -233,7 +233,7 @@ IotHub-Name with the name of your IoT Hub):
 ./update.sh <IotHub-Name> BinaryOutput1 true
 ```
 
-#### Changing A Modbus Device Input State On ModbusPal Simulator
+#### Changing A Modbus Device Input Values On ModbusPal Simulator
 
 *Note - Only follow this section if your using ModbusPal Simulator
 and not an actual Modbus Device.*  
