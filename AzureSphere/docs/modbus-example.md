@@ -247,14 +247,18 @@ see changes taking place with the IoT Hub in the Cloud.
 
 This section applies to a simulated device and a real device.
 
-The script update.sh can be used to update device resources in the Azure
-IoT hub to invoke a device method on a Device Twin.
+The script update.sh can be used to send a payload of data
+to Azure IoT hub to invoke a device method on a Device Twin. The
+IoT Hub will send the payload to XRT which will be picked up by
+the Azure component and push to the Modbus Device Service
+via an XRT Bus.
 
-To set the resource BinaryOutput1 to true issue the method (replace
-IotHub-Name with the name of your IoT Hub):
+To set the device resource `BinaryOutput1` to true on the
+`damocles-virt1` device, issue the method (replace IotHub-Name
+with the name of your IoT Hub):
 
 ```bash
-./update.sh <IotHub-Name> BinaryOutput1 true
+./update.sh <IotHub-Name> damocles-virt1 BinaryOutput1 true
 ```
 
 #### Changing A Modbus Device Input Values On ModbusPal Simulator

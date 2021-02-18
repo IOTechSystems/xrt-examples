@@ -86,3 +86,18 @@ links below:
 * [Deploy and Debug with Windows](windows-deploy-debug.md)
 * [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
 
+#### Changing A Virtual Device Output Values
+
+The script update.sh can be used to send a payload of data
+to Azure IoT hub to invoke a device method on a Device Twin. The
+IoT Hub will send the payload to XRT which will be picked up by the
+Azure component and push to the Virtual Device Service via an
+XRT Bus.
+
+To set the device resource `OutputBool` to true on the `device-virtual`
+device, issue the method (replace IotHub-Name with the name of your
+IoT Hub):
+
+```bash
+./update.sh <IotHub-Name> device-virtual OutputBool true
+```
