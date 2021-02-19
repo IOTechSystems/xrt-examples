@@ -7,7 +7,7 @@ else ()
   set (SDK_ROOT "C:/Program Files (x86)/Microsoft Azure Sphere SDK")
 endif ()
 
-azsphere_configure_tools (TOOLS_REVISION "21.01")
+azsphere_configure_tools (TOOLS_REVISION "${AZURE_SPHERE_TARGET_TOOLS_REVISION}")
 azsphere_configure_api (TARGET_API_SET "${AZURE_SPHERE_TARGET_API_SET}")
 set (SYSROOT "${SDK_ROOT}/Sysroots/${AZURE_SPHERE_TARGET_API_SET}")
 
