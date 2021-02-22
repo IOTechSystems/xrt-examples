@@ -4,8 +4,8 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Name":"virtual_device_service",
-  "Topic":"device/virtual/output",
-  "RequestTopic":"device/virtual/input",
+  "Topic":"device/output",
+  "RequestTopic":"device/input",
   "Devices":{
     "device-virtual":{
       "profile":"device-virtual",
