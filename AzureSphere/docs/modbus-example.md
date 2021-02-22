@@ -113,8 +113,8 @@ as follows:
 To connect the example to your IoT Hub endpoint you must also
 configure Azure Export Service component.
 
-* Edit [config/azure.json](../config/azure.json) and the value
-  for the "HostName", "DeviceID" and "ScopeID" values.
+* Edit [config/azure-modbus.json](../config/azure-modbus.json) and the
+  value for the "HostName", "DeviceID" and "ScopeID" values.
 
 * The DeviceID can be found for a USB connected device with
   the command:
