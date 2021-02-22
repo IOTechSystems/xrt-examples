@@ -9,6 +9,6 @@
   "ScopeID":"0ne0017479D",
   "Interface":"wlan0",
   "Devices": [
-    { "Name":"damocles-virt1", "Topic":"device/input", "Pattern":"transform/lua/filtered-output", "Format":"Device", "Resource":"BinaryInputs" }
+    { "Name":"damocles-virt1", "Topic":"device/input", "Pattern":"device/out", "Format":"Device", "Resource":"BinaryInputs" }
   ]
 }
