@@ -1,4 +1,3 @@
-
 {
   "Bus":"bus",
   "Logger":"logger",
@@ -9,6 +8,7 @@
   "ScopeID":"0ne0017479D",
   "Interface":"wlan0",
   "Devices": [
+    { "Name":"mt3620", "Topic":"device/mt3620/input", "Pattern":"device/mt3620/output", "Format":"Raw" },
     { "Name":"damocles-virt1", "Topic":"device/input", "Pattern":"device/out", "Format":"Device", "Resource":"BinaryInputs" }
   ]
 }

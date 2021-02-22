@@ -8,6 +8,7 @@
   "ScopeID":"0ne0017479D",
   "Interface":"wlan0",
   "Devices": [
+    { "Name":"mt3620", "Topic":"device/mt3620/input", "Pattern":"device/mt3620/output", "Format":"Raw" },
     { "Name":"device-virtual", "Topic":"device/input", "Pattern":"device/output", "Format":"Device" }
   ]
 }
