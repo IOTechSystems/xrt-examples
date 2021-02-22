@@ -15,6 +15,7 @@ build:
 	if [ ! -d build ]; then mkdir build; fi
 	cp config/profiles/profiles-$(DEVICE).json config/profiles/profiles.json; \
 	cp config/main-$(DEVICE).json config/main.json; \
+	cp config/azure-$(DEVICE).json config/azure.json; \
 	cp $(BOARD)/app_manifest.json app_manifest.json; \
 	(cd build && cmake -G "Ninja" \
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
