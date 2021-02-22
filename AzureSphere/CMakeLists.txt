@@ -54,4 +54,4 @@ target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/xrt/in
 target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/iot/include/)
 
 azsphere_target_hardware_definition (${PROJECT_NAME} TARGET_DIRECTORY "${SDK_ROOT}/HardwareDefinitions" TARGET_DEFINITION ${TARGET_CONFIG})
-azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/lua.json" "config/transform.lua" ${DEVICE_CONFIG} "config/profiles/profiles.json")
+azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" ${DEVICE_CONFIG} "config/profiles/profiles.json")

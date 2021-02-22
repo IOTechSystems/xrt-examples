@@ -6,7 +6,6 @@
     { "Topic": "device/mt3620/input", "ThreadPool": "pool" },
     { "Topic": "device/mt3620/output", "ThreadPool": "pool" },
     { "Topic": "device/input", "ThreadPool": "pool" },
-    { "Topic": "device/output", "ThreadPool": "pool" },
-    { "Topic": "transform/lua/filtered-output", "ThreadPool": "pool" }
+    { "Topic": "device/output", "ThreadPool": "pool", "FilterDuplicates": true }
   ]
 }
