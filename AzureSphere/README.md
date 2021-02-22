@@ -38,17 +38,17 @@ steps:
   [modbus.json](config/modbus.json)) file specifying the device
   instance(s) that the XRT Device Service (e.g. Modbus) component
   will create at runtime based on the *Device Profile.json* file
-  (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json)) created in
-  the previous step.
+  (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json)) created
+  in the previous step.
 
 * Configure the *Azure Export Service.json* file
-  (e.g [azure.json](config/azure.json)) to specify the endpoint
-  information needed by the XRT Azure Sphere Export Service to
+  (e.g [config/azure-modbus.json](config/azure-modbus.json)) to specify the
+  endpoint information needed by the XRT Azure Sphere Export Service to
   send data to and from Azure IoT Hub.
 
 * Configure an a *Azure Application Manifest.json*
-  (e.g [app_manifest.json](app_manifest.json)) file that
-  describes the resources, also called application capabilities,
+  (e.g [mt3620-g100/app_manifest.json](mt3620-g100/app_manifest.json))
+  file that describes the resources, also called application capabilities,
   that an application requires. Every application has an
   application manifest.
 
