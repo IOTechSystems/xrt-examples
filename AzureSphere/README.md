@@ -38,19 +38,19 @@ steps:
   [modbus.json](config/modbus.json)) file specifying the device
   instance(s) that the XRT Device Service (e.g. Modbus) component
   will create at runtime based on the *Device Profile.json* file
-  (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json)) created
-  in the previous step.
+  (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json))
+  created in the previous step.
 
 * Configure the *Azure Export Service.json* file
-  (e.g [config/azure-modbus.json](config/azure-modbus.json)) to specify the
+  (e.g [azure-modbus.json](config/azure-modbus.json)) to specify the
   endpoint information needed by the XRT Azure Sphere Export Service to
   send data to and from Azure IoT Hub.
 
 * Configure an a *Azure Application Manifest.json*
   (e.g [mt3620-g100/app_manifest.json](mt3620-g100/app_manifest.json))
-  file that describes the resources, also called application capabilities,
-  that an application requires. Every application has an
-  application manifest.
+  file that describes the resources, also called application
+  capabilities, that an application requires. Every application has
+  an application manifest.
 
 * Build the XRT Azure Application with Visual Studio on Windows
   or using cmake from the command line.
@@ -105,3 +105,27 @@ build the examples:
 
 * [Modbus Device](docs/modbus-example.md)
 * [Virtual Device](docs/virtual-example.md)
+
+## Using Azure Digital Twins With XRT Examples
+
+You should refer to the XRT for Azure Sphere Guide
+(XRTAzureSphereUserGuide.pdf). To setup the correct
+cloud infrastructure. The guide is included with the
+[XRT package](#install-xrt-on-a-development-machine).
+
+Refer to the guide and complete the following steps:
+
+* Setup Azure Cloud for Digital Twins – Create a Function App
+* Setup Azure Cloud for Digital Twins – Create an Event Grid
+  System Topic
+* Create and Manage Digital Twins – Create Digital Twins
+  Instance
+* Create and Manage Digital Twins – Export Digital Twins
+  Changes
+* Create and Manage Digital Twins – Send Digital Twin Changes
+  to IoT Hub
+* Create and Manage Digital Twins – Add a Digital Twin
+
+A video showing how to create a digital twin using the Explorer
+Tool as described in "Add a Digital Twin" above can be viewed at
+[Create a Digital Twin using the Explorer Tool](https://www.youtube.com/watch?v=CqTDkRXtsUU&feature=youtu.be).
