@@ -2,22 +2,52 @@
 
 ## Building Using Visual Studio
 
-1. Create a new Project. Search for the "azure sphere"
-   template, then select "Azure Sphere Blink"
+* Open Visual Studio
+* Create a new Project 
+* Search for the "azure sphere"template, then select
+  "Azure Sphere Blink" template and name the project
+  "xrt-app"
 
-2. In the generated project directory from this example:
+* In the new created Visual Studio Project:
 
-* Copy the provided config directory into the project
-* Overwrite CMakeLists.txt, app_manifest.json and main.c
-  with the files provided
-* Edit CMakeSettings.json and set
-  "AZURE_SPHERE_TARGET_API_SET" to "7"
+  * Copy the provided [config/](../config/) directory
+    and [CMakeSettings.json](../CMakeSettings.json) 
+    into the Visual Studio project
+  * Copy and overwrite CMakeLists.txt,
+    (board)/app_manifest.json,
+    CMakeSettings.json and main.c with the files
+    provided in the example to the Visual Studio project
+  * In CMakeSettings.json, set "BOARD" to match your
+    target board, e.g "mt3620-dk", "mt3620-g100" or
+    "mt3520-sk"
+  * In CMakeSettings.json, set "DEVICE" to match your
+    target device service, e.g "modbus" or "virtual"
 
-3. Create the CMake build configuration
-4. Build the application with the "Build" menu
+* Build the application with the "Build" menu
 
 ## Building Using Visual Studio Command Prompt
 
-Run the build.bat batch file. This should build the
-application image in a build sub directory.
+You will need to first follow the steps to build
+xrt with Visual Studio from the last section, after
+that you'll be able to build from the command line
+within Visual Studio.
 
+* Open Visual Studio
+* Open xrt-app project
+* Open Developer Command Prompt by going to
+  **Tools -> Command Line -> Developer Command
+  Prompt** from the Menu bar
+* With the Developer Command Prompt, cd into xrt-app
+  directory:
+  ```bat
+  cd xrt-app
+  ```
+* Run the build.bat batch file, with the specify
+  target device service (e.g modbus) and AzureSphere
+  board (e.g mt3620-g100)
+  ```bat
+  build.bat modbus mt3620-g100
+  ```  
+
+This will build the xrt-app application image in a
+sub directory called build. 
