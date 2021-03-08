@@ -1,7 +1,0 @@
-{
-  "Library":"libxrt-lua-transform.so",
-  "Factory":"xrt_lua_transform_factory",
-  "Bus":"bus",
-  "Logger":"logger",
-  "ScriptFile":"config/transform.lua"
-}

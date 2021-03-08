@@ -1,0 +1,71 @@
+{
+  "environments": [ { "environment": "AzureSphere" } ],
+  "configurations": [
+    {
+      "name": "XRT-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "AzureSphere" ],
+      "buildRoot": "${projectDir}\\out\\${name}",
+      "installRoot": "${projectDir}\\out\\${name}",
+      "cmakeToolchain": "${env.AzureSphereDefaultSDKDir}CMakeFiles\\AzureSphereToolchain.cmake",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "AZURE_SPHERE_TARGET_TOOLS_REVISION",
+          "value": "21.01",
+          "type": "STRING"
+        },
+        {
+          "name": "AZURE_SPHERE_TARGET_API_SET",
+          "value": "8",
+          "type": "STRING"
+        },
+        {
+          "name": "DEVICE",
+          "value": "modbus",
+          "type": "STRING"
+        },
+        {
+          "name": "BOARD",
+          "value": "mt3620-dk",
+          "type": "STRING"
+        }
+      ]
+    },
+    {
+      "name": "XRT-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "inheritEnvironments": [ "AzureSphere" ],
+      "buildRoot": "${projectDir}\\out\\${name}",
+      "installRoot": "${projectDir}\\out\\${name}",
+      "cmakeToolchain": "${env.AzureSphereDefaultSDKDir}CMakeFiles\\AzureSphereToolchain.cmake",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "AZURE_SPHERE_TARGET_TOOLS_REVISION",
+          "value": "21.01",
+          "type": "STRING"
+        },
+        {
+          "name": "AZURE_SPHERE_TARGET_API_SET",
+          "value": "8",
+          "type": "STRING"
+        },
+        {
+          "name": "DEVICE",
+          "value": "modbus",
+          "type": "STRING"
+        },
+        {
+          "name": "BOARD",
+          "value": "mt3620-dk",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+}

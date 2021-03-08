@@ -10,7 +10,9 @@
 #ifdef DEVICE_MODBUS
 #include "xrt/modbus_device_service.h"
 #endif
-
+#ifdef DEVICE_VIRTUAL
+#include "xrt/virtual_device_service.h"
+#endif
 /* Shutdown TERM signal handling */
 
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -39,10 +41,14 @@ int main (void)
   iot_component_factory_add (iot_scheduler_factory ());
   iot_component_factory_add (xrt_bus_factory ());
   iot_component_factory_add (xrt_log_exporter_factory ());
+  iot_component_factory_add (xrt_mt3620_device_factory ());
   iot_component_factory_add (xrt_azuresphere_exporter_factory ());
   iot_component_factory_add (xrt_lua_transform_factory ());
 #ifdef DEVICE_MODBUS
   iot_component_factory_add (xrt_modbus_device_service_factory ());
+#endif
+#ifdef DEVICE_VIRTUAL
+  iot_component_factory_add (xrt_virtual_device_service_factory ());
 #endif
 
   iot_container_init (container);

@@ -1,5 +1,5 @@
 {
   "Bus":"bus",
   "Logger":"logger",
-  "Pattern":"transform/lua/filtered-output"
+  "Pattern":"device/output"
 }
