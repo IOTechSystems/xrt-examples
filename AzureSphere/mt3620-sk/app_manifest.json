@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
   "Name": "xrt-app",
-  "ComponentId": "1689d8b2-c835-2e27-27ad-e894d6d15fa9",
+  "ComponentId": "4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f",
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
