@@ -14,12 +14,12 @@
       "variables": [
         {
           "name": "AZURE_SPHERE_TARGET_TOOLS_REVISION",
-          "value": "20.10",
+          "value": "21.01",
           "type": "STRING"
         },
         {
           "name": "AZURE_SPHERE_TARGET_API_SET",
-          "value": "7",
+          "value": "8",
           "type": "STRING"
         },
         {
@@ -47,12 +47,12 @@
       "variables": [
         {
           "name": "AZURE_SPHERE_TARGET_TOOLS_REVISION",
-          "value": "20.10",
+          "value": "21.01",
           "type": "STRING"
         },
         {
           "name": "AZURE_SPHERE_TARGET_API_SET",
-          "value": "7",
+          "value": "8",
           "type": "STRING"
         },
         {
