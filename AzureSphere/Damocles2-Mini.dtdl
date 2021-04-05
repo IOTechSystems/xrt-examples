@@ -1,5 +1,5 @@
 {
-  "@id": "dtmi:com:hw_group:damocles2_mini;2",
+  "@id": "dtmi:com:iotechsys:damocles2_mini;2",
   "@type": "Interface",
   "@context": "dtmi:dtdl:context;2",
   "displayName": "Damocles2 Mini",
