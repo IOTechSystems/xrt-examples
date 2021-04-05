@@ -19,7 +19,7 @@ build:
 	cp $(BOARD)/app_manifest.json app_manifest.json; \
 	(cd build && cmake -G "Ninja" \
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
-        -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.01" \
+        -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.02" \
         -DAZURE_SPHERE_TARGET_API_SET="8" \
         -DCMAKE_BUILD_TYPE="Debug" \
         -DBOARD=$(BOARD) \
