@@ -30,7 +30,7 @@ static bool example_init (void *impl, struct iot_logger_t *lc, const iot_data_t 
   const iot_data_t *seedconf = iot_data_string_map_get (config, "Seed");
   if (seedconf)
   {
-    driver->rndseed = iot_data_ui64 (seedconf);
+    driver->rndseed = iot_data_i64 (seedconf);
   }
   else
   {
