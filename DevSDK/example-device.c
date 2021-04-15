@@ -326,7 +326,6 @@ static void example_stop(void *impl, bool force)
 static devsdk_callbacks exampleImpls =
 {
   example_init,         /* Initialize */
-  NULL,                 /* Reconfigure */
   NULL,                 /* Discovery */
   example_get_handler,  /* Get */
   example_put_handler,  /* Put */
