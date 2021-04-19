@@ -10,13 +10,13 @@ make monitor
 In another shell issue the command:
 
 ```bash
-/opt/azurespheresdk/Sysroots/7/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out
+/opt/azurespheresdk/Sysroots/8/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out
 ```
 
 In gdb issue the commands:
 
 ```
-(gdb) set sysroot /opt/azurespheresdk/Sysroots/7
+(gdb) set sysroot /opt/azurespheresdk/Sysroots/8
 (gdb) target remote 192.168.35.2:2345
 (gdb) continue
 ```
