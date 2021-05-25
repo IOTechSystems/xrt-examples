@@ -124,7 +124,6 @@
 	  "operation": "get",
 	  "deviceResource": "AnalogInput0"
 	},
-
 	{
 	  "index": "2",
 	  "operation": "get",
