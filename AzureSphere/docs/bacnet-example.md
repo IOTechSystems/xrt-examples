@@ -187,7 +187,7 @@ re-run ifconfig and compare the current ifconfig output with the
 previous unplugged adaptor ifconfig output to deduce the
 interface name):
 
-``bash
+```bash
 ifconfig
 ```
 
