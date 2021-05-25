@@ -165,7 +165,7 @@ needed later in this section of the example. Use the following
 in the command-line to obtain the MAC Address:
 
 ```bash
-ifconfig | grep eth0
+ifconfig | grep eth0 -A 3
 ```
 
 Shutdown the Raspberry Pi and disconnect it from your local network.
