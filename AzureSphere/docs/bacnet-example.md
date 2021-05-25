@@ -244,7 +244,7 @@ sudo systemctl restart isc-dhcp-server.service
 SSH to the Raspberry Pi with the following command
 
 ```bash
-ssh pi@192.168.4.11
+ssh pi@192.168.4.12
 ```
 
 Create a bacnet-simulator directory
@@ -257,7 +257,7 @@ Lua script found in the bacnet-simulator directory of this
 repository:
 
 ```bash
-scp bacnet-simulator/example.lua pi@192.168.4.11:~/bacnet-simulator
+scp bacnet-simulator/example.lua pi@192.168.4.12:~/bacnet-simulator
 ```
 
 Close this terminal and go back to the command-line terminal
