@@ -1,0 +1,136 @@
+{
+  "labels": [],
+  "name": "bacnet-simulator",
+  "deviceResources": [
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "0"
+      },
+      "name": "AnalogInput0",
+      "properties": {
+        "value": {
+          "readWrite": "R",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "1"
+      },
+      "name": "AnalogOutput0",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "2"
+      },
+      "name": "AnalogValue0",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "3"
+      },
+      "name": "BinaryInput0",
+      "properties": {
+        "value": {
+          "readWrite": "R",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "4"
+      },
+      "name": "BinaryOutput0",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "5"
+      },
+      "name": "BinaryValue0",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "48"
+      },
+      "name": "PositiveIntegerValue0",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "23"
+      },
+      "name": "Accumulator0",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "InputsValues",
+      "get": [
+	{
+	  "index": "1",
+	  "operation": "get",
+	  "deviceResource": "AnalogInput0"
+	},
+
+	{
+	  "index": "2",
+	  "operation": "get",
+	  "deviceResource": "BinaryInput0"
+	}
+      ]
+    }
+  ]
+}
