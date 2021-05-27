@@ -16,7 +16,8 @@
     ],
     "Adc": [ "$AVNET_MT3620_SK_ADC_CONTROLLER0" ],
     "I2cMaster": ["$AVNET_MT3620_SK_ISU2_I2C"],
-    "AllowedTcpServerPorts": [ 22222 ],
+    "AllowedTcpServerPorts": [ 22222, 47808 ],
+    "AllowedUdpServerPorts": [ 47808 ],
     "DeviceAuthentication": "<tenant-uuid-identifier>"
   },
   "ApplicationType": "Default"
