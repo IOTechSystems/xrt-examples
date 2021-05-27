@@ -77,9 +77,21 @@ az iot dps show --name <DPSName> | grep idScope
   set DeviceAuthentication to your tenant id and replace
   IOTechHub with your IoT Hub name in AllowedConnections:
 
-```bash
-azsphere tenant list
-```
+  ```bash
+  azsphere tenant list
+  ```
+
+* Add the ip address of any BACnet devices, that will be
+  communicating with XRT, to the `AllowedConnections` JSON
+  array, and add the BACnet boardcast ip address of the
+  subnet. For example, when using the subnet 192.168.4.0,
+  the broadcast ip would be 192.168.4.255
+
+  ```json
+  ...
+  "AllowedConnections" : [ <bacnet-device-ip>, "192.168.4.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+  ...
+  ```
 
 ## Building The Application
 
@@ -132,6 +144,11 @@ be used in the Driver section of the config file, for example
 }
 ...
 ```
+
+Also, the ip address of the machine running the simluator and
+the BACnet broadcast ip should be included in the `AllowedConnections`
+JSON array, as part of the app_manifest configuration as described
+[here](#App Manifest (Required))
 
 ### Connecting To BACnet Over Ethernet
 
@@ -268,6 +285,16 @@ Simulator with the following:
 docker run --rm --name=bacnet-server -e RUN_MODE=IP -e BACNET_IFACE=eth0 \
 --network host -it --privileged -v $(pwd)/bacnet-simulator:/docker-lua-script/ \
 iotechsys/bacnet-server:1.8.3.dev --script /docker-lua-script/example.lua --instance 2749
+```
+
+Make sure to add the ip address of the BACnet devices (in this case
+the Raspberry Pi) and the BACnet broadcast ip to the app_manifest
+configuration file as follows:
+
+```json
+...
+"AllowedConnections" : [ "192.168.4.12", "192.168.4.2", "192.168.4.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+...
 ```
 
 You'll now be able to connect the BACnet Simulator once XRT has
