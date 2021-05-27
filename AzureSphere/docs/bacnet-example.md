@@ -115,7 +115,7 @@ controlled via Lua script. The Lua script for this example
 can be found in the [bacnet-simulator](../bacnet-simulator)
 directory.
 
-### Connecting to BACnet over WI-FI
+### Connecting To BACnet Over WI-FI
 
 You will need to make sure to mount the bacnet-simulator
 directory as a volume to the Docker Container running the
