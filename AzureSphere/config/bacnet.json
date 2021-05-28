@@ -32,7 +32,7 @@
   "Bus":"bus",
   "Driver":{
     "NetworkInterface":"eth0",
-    "APDU_Timeout":"8000",
-    "APDU_Retries":"1"
+    "APDU_Timeout": 5000,
+    "APDU_Retries": 2
   }
 }
