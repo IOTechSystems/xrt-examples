@@ -27,7 +27,7 @@ telnet 192.168.35.2 2342
 The application can then be started via gdb:
 
 ```
-(gdb) set sysroot "C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7"
+(gdb) set sysroot "C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\8"
 (gdb) target remote 192.168.35.2:2345
 (gdb) continue
 ```
