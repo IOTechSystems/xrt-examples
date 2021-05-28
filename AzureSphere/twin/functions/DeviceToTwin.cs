@@ -70,6 +70,8 @@ namespace iotech.demo
           // Iterate set of readings and create change set for twin
 
           JObject readings = (JObject) body ["readings"];
+
+          bool deviceSentPatch = false;
           var uou = new UpdateOperationsUtility ();
 
           JObject telemetryData = new JObject();
@@ -86,6 +88,8 @@ namespace iotech.demo
 
             if (contentsType == "Property")
             {
+              bool supportedType = true;
+
               switch(type.ToLower())
               {
                 case "bool":
@@ -114,7 +118,13 @@ namespace iotech.demo
                   break;
                 default:
                   log.LogWarning($"{key} using {type} type isn't supported");
+                  supportedType = false;
                   break;
+              }
+
+              if(deviceSentPatch == false && supportedType == true)
+              {
+                deviceSentPatch = true;
               }
             }
             else if (contentsType == "Telemetry")
@@ -124,14 +134,15 @@ namespace iotech.demo
           }
 
           // Update digital twin
+
           string digitalTwinPatch = uou.Serialize ();
           if (telemetryData.Count > 0)
           {
-            log.LogInformation ($"Updating twin: with patch {telemetryData.ToString()}");
+            log.LogInformation ($"Sending Telemetry to twin: {twinId} with data {telemetryData.ToString()}");
             await client.PublishTelemetryAsync (twinId, telemetryData.ToString());
           }
 
-          if (digitalTwinPatch != "{}")
+          if (deviceSentPatch == true)
           {
             log.LogInformation ($"Updating twin: {twinId} with patch {digitalTwinPatch}");
             await client.UpdateDigitalTwinAsync (twinId, digitalTwinPatch);
