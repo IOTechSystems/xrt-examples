@@ -1,0 +1,36 @@
+{
+  "name": "device-virtual",
+  "manufacturer": "IOTech",
+  "model": "Device-Virtual-01",
+  "labels": [
+    "device-virtual-example"
+  ],
+  "description": "Example of Device-Virtual",
+  "deviceResources": [
+    {
+      "name": "RandomInt8", "description": "Generate random int8 value",
+      "attributes": { "sequenceType": "random", "minimum": "-128", "maximum": "127" },
+      "properties": {
+        "value": { "type": "Int8", "readWrite": "R" },
+        "units": { "defaultValue": "random int8 value"
+        }
+      }
+    },
+    {
+      "name": "RandomUint8", "description": "Generate random uint8 value",
+      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "255" },
+      "properties": {
+        "value": { "type": "Uint8", "readWrite": "R" },
+        "units": { "defaultValue": "random uint8 value" }
+      }
+    },
+    {
+      "name": "Sinewave", "description": "Value which traces a sinewave",
+      "attributes": { "sequenceType": "waveform", "period": "8", "amplitude": "4" },
+      "properties": {
+        "value": { "type": "Float64", "readWrite": "R" },
+        "units": { "defaultValue": "amount" }
+      }
+    }
+  ]
+}
