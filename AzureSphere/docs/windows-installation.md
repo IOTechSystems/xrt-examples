@@ -19,7 +19,7 @@ curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-1.1.1.
 4. Select the downloaded .zip package and extract the files
    to the following location:
 
-`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\7`
+`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\8`
 
 ## Visual Studio Setup
 

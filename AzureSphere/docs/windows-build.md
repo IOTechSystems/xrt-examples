@@ -4,7 +4,7 @@
 
 * Open Visual Studio
 * Create a new Project 
-* Search for the "azure sphere"template, then select
+* Search for the "azure sphere" template, then select
   "Azure Sphere Blink" template and name the project
   "xrt-app"
 
@@ -21,7 +21,7 @@
     target board, e.g "mt3620-dk", "mt3620-g100" or
     "mt3520-sk"
   * In CMakeSettings.json, set "DEVICE" to match your
-    target device service, e.g "modbus" or "virtual"
+    target device service, e.g "modbus", "bacnet" or "virtual"
 
 * Build the application with the "Build" menu
 
@@ -43,7 +43,8 @@ within Visual Studio.
   cd xrt-app
   ```
 * Run the build.bat batch file, with the specify
-  target device service (e.g modbus) and AzureSphere
+  target device service (e.g modbus, bacnet or virtual)
+  and AzureSphere
   board (e.g mt3620-g100)
   ```bat
   build.bat modbus mt3620-g100

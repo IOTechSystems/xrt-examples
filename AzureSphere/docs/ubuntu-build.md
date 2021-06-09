@@ -10,7 +10,7 @@ Issue the command to build XRT:
 
 ```bash
 make build \
-DEVICE=<modbus or virtual> \
+DEVICE=<modbus, bacnet or virtual> \
 BOARD=<mt3620-g100, mt3620-dk or mt3620-sk>
 ```
 
