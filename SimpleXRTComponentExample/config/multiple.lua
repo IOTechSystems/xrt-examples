@@ -1,24 +1,24 @@
+CHANGE = 10
+
 function sub_callback(data)
 
-  local device1_data_to_pub = 0
-  local device1_data_to_pub_array = {}
+  -- access the values of Random-Device1 and Random-Device2
+  local original_value_device1 = data.readings.RandomInt8.value
+  local original_value_device2 = data.readings.RandomInt8.value
 
-  -- 1/ access the value of Random-Device1
-  device1_value = data.readings.RandomInt8.value
-  print(device1_value)
+  if (original_value_device1 ~= nil and original_value_device2 ~= nil) then
+    -- update the values
+    new_value_device1 = data.readings.RandomInt8.value * CHANGE
+    new_value_device2 = data.readings.RandomInt8.value * CHANGE
 
-  -- 2/ update the value of Random-Device1
---  device1_data_to_pub.values.RandomInt8 = device1_value * 10
-  
-  device1_data_to_pub = device1_value * 10
---  device1_data_to_pub_array.values.RandomInt8 = device1_data_to_pub
---  print(device1_data_to_pub_array)
-  
-  -- 3/ publish the updated value of Random-Device1
-  -- FIXME publish does not seem to work this way
-  publish(pub, device1_data_to_pub)
+    -- overwrite the values in the data structure
+    data.readings.RandomInt8.value = new_value_device1
+    data.readings.RandomInt8.value = new_value_device2
+  end
 
+  -- publish the updated data values back to the bus
+  publish(pub, data)
 end
 
 sub = sub or sub_alloc(iot_bus, sub_callback, "virtual_device_service/data")
-pub = pub or pub_alloc(iot_bus, "device/transformed_data")
+pub = pub or pub_alloc(iot_bus, "virtual_device_service/transformed_data")
