@@ -1,5 +1,5 @@
 {
-  "name": "device-virtual",
+  "name": "device-virtual2",
   "manufacturer": "IOTech",
   "model": "Device-Virtual-01",
   "labels": [
@@ -23,7 +23,7 @@
         "value": { "type": "Uint8", "readWrite": "RW" },
         "units": { "defaultValue": "random uint8 value" }
       }
-    },    
+    },
     {
       "name": "Sinewave", "description": "Value which traces a sinewave",
       "attributes": { "sequenceType": "waveform", "period": "8", "amplitude": "4" },
