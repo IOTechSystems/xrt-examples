@@ -1,0 +1,28 @@
+{
+  "Library": "libmycomponent.so",
+  "Factory": "xrt_mycomponent_factory",
+  "Name": "mycomponent",
+  "Topic": "device/result",
+  "Devices": {
+    "Random-Device1":{
+      "profile":"device-virtual",
+      "protocols":{
+        "Other":{
+        "Address":"device-virtual-01"
+        }
+      }
+    }
+  },
+  "Schedules":[
+    {
+    "device": "Random-Device1",
+    "resource": "RandomInt8",
+    "interval": 2000000
+    }
+  ],
+  "ProfileDir":"config/profiles",
+  "Scheduler":"sched",
+  "Logger":"logger_info",
+  "ThreadPool":"pool",
+  "Bus":"bus"
+}
