@@ -1,0 +1,26 @@
+{
+  "Library": "libxrt-mqtt-exporter.so",
+  "Factory": "xrt_mqtt_exporter_factory",
+  "MQTTConfig":
+  {
+    "ServerURI": "127.0.0.1",
+    "ClientID": "mqtt_exporter",
+    "MQTTInstance": 0,
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 0,
+      "MQTTVersion": 5,
+      "Reliable": true,
+      "ConnectTimeout": 0,
+      "CleanSession": false,
+      "CleanStart": false
+    }
+  },
+  "Bus": "bus",
+  "Logger": "logger_debug",
+  "Pattern": "virtual_device_service/#",
+  "Topic": "device/result",
+  "QueueSize": 4
+}
+
