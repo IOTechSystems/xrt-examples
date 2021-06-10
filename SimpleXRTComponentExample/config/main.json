@@ -8,5 +8,6 @@
   "virtual_device_service":"XRT::VirtualDeviceService",  
   "lua":"XRT::LuaTransform",
   "data_log_exporter":"XRT::LogExporter",
-  "mqtt_exporter": "XRT::MQTTExporter"
+  "mqtt_exporter": "XRT::MQTTExporter",
+  "mycomponent":"XRT::MyComponent"
 }
