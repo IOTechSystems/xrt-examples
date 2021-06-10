@@ -9,9 +9,10 @@
 extern "C" {
 #endif
 
-#define MY_COMPONENT_TYPE "IOT::MyComponent"
+// name of MyComponent has to match in the mycomponent.json and main.json files
+#define MY_COMPONENT_TYPE "XRT::MyComponent"
 
-extern const iot_component_factory_t * mycomponent_factory (void);
+extern const iot_component_factory_t * my_component_factory (void);
 
 #ifdef __cplusplus
 }
