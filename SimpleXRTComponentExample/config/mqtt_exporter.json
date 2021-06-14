@@ -19,8 +19,8 @@
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Pattern": "virtual_device_service/#",
-  "Topic": "device/result",
+  "Pattern": "virtual_device_service/transformed_data",
+  "Topic": "virtual_device_service/result",
   "QueueSize": 4
 }
 
