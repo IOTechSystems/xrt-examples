@@ -105,7 +105,7 @@ static iot_component_t * my_component_config (iot_container_t * cont, const iot_
 }
 
 /**
- * Callback function which subscribes to the request topic
+ * Callback function which subscribes to the request topic stream
  * filters the values from the readings of Random-Device1 and Random-Device2
  * adds the random generated values from the two channels together
  * re-publishes the result back to the bus
@@ -115,7 +115,7 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
   my_component_t * mycomp = (my_component_t*) self;
   iot_log_trace (mycomp->logger, "my_component_add_callback (Pattern: %s)", match);
 
-  // filter out the device values from the RequestTopic data stream
+  // filter out the devices and their corresponding values from the RequestTopic data stream
   const iot_data_t * device = iot_data_string_map_get (data, "device");
   const iot_data_t * device_data = iot_data_string_map_get (iot_data_string_map_get (iot_data_string_map_get (data, "readings"), "RandomInt8"), "value");
 
@@ -126,23 +126,19 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
 
   int64_t device1_value = 0;
   int64_t device2_value = 0;
-  // accumulate the results in sum
   static int64_t sum = 0;
 
   if (strcmp(json_device, device1_name) == 0)
   {
     iot_log_info (mycomp->logger, "---Device: %s", json_device);
     iot_log_info (mycomp->logger, "---Device_data: %s", json_device_data);
-    // FIXME, conversion is broken if int8_t type is used, why is int64_t default?
     device1_value = iot_data_i64(device_data);
-    iot_log_info (mycomp->logger, "---current dev1---: %d, ---current dev2---: %d", device1_value, device2_value);
   }
   else if (strcmp(json_device, device2_name) == 0)
   {
     iot_log_info (mycomp->logger, "---Device: %s", json_device);
     iot_log_info (mycomp->logger, "---Device_data: %s", json_device_data);
     device2_value = iot_data_i64(device_data);
-    iot_log_info (mycomp->logger, "---current dev1---: %d, ---current dev2---: %d", device1_value, device2_value);
   }
   else
   {
@@ -150,7 +146,7 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
   }
 
   sum += device1_value + device2_value;
-  printf("\ndev1: %ld, dev2: %ld, sum: %ld\n", device1_value, device2_value, sum);
+//  printf("\ndev1: %ld, dev2: %ld, sum: %ld\n", device1_value, device2_value, sum);
 
   // data has to be iot_data_t * type
   iot_data_t * result = iot_data_alloc_i64(sum);
