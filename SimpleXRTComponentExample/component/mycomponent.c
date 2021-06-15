@@ -9,7 +9,6 @@
 
 #include "mycomponent.h"
 #include "xrt/bus.h"
-//#include "iot/config.h"
 
 /* Implementation struct, first member must be the base component type iot_component_t */
 struct my_component_t
@@ -27,7 +26,6 @@ typedef struct my_component_t my_component_t;
 extern void my_component_start (my_component_t * mycomp);
 extern void my_component_stop (my_component_t * mycomp);
 static void my_component_add_callback (iot_data_t * data, void * self, const char * match);
-long long int my_atoi(const char *c);
 
 /* Allocation function, takes as arguments all required component attributes */
 extern my_component_t * my_component_alloc (xrt_bus_t * bus, const char * request_topic, const char * reply_topic)
@@ -146,11 +144,15 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
   }
 
   sum += device1_value + device2_value;
-//  printf("\ndev1: %ld, dev2: %ld, sum: %ld\n", device1_value, device2_value, sum);
 
-  // data has to be iot_data_t * type
-  iot_data_t * result = iot_data_alloc_i64(sum);
-  xrt_bus_pub_push(mycomp->pub, result, true);
+  // data has to be put back to the map and will be published on the specified reply topic
+  iot_data_t * map = iot_data_alloc_map (IOT_DATA_STRING);
+  iot_data_string_map_add (map, "Result", iot_data_alloc_i64 (sum));
+/*
+  char * json = iot_data_to_json (map);
+  iot_log_info (mycomp->logger, "Data to publish: %s", json);
+*/
+  xrt_bus_pub_push(mycomp->pub, map, true);
 }
 
 /* Function to return static component factory. Used by container. */
