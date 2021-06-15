@@ -284,7 +284,7 @@ Simulator with the following:
 ```bash
 docker run --rm --name=bacnet-server -e RUN_MODE=IP -e BACNET_IFACE=eth0 \
 --network host -it --privileged -v $(pwd)/bacnet-simulator:/docker-lua-script/ \
-iotechsys/bacnet-server:1.8.3.dev --script /docker-lua-script/example.lua --instance 2749
+iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance 2749
 ```
 
 Make sure to add the ip address of the BACnet devices (in this case
