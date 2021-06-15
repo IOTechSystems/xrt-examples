@@ -49,6 +49,7 @@ This function provides the possibility to configure and access each individual f
   
 For example:
 `const char * request_topic = iot_config_string (map, "RequestTopic", false, logger);`
+
 In the above scenario the function `iot_config_string` is used to query the content of specified field: RequestTopic.
 
 > **Note:** The `config` function gathers the information from the json file and will be used to allocate memory for each component.

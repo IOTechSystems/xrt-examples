@@ -8,16 +8,15 @@
 /* Custom component boilerplate function implementations */
 
 #include "mycomponent.h"
-#include "xrt/bus.h"
 
 /* Implementation struct, first member must be the base component type iot_component_t */
 struct my_component_t
 {
   iot_component_t component;       /**< Base component */
   iot_logger_t * logger;           /**< Logger (optional) */
-  xrt_bus_t * bus;                 /**< Bus to which transform is connected */
-  xrt_bus_sub_t * sub;             /**< Bus subscriber from which data to transform is received */
-  xrt_bus_pub_t * pub;             /**< Bus publisher to which transformed data is published */
+  xrt_bus_t * bus;                 /**< Bus to which my_component is connected to */
+  xrt_bus_sub_t * sub;             /**< Bus subscriber which data to my_component is received from */
+  xrt_bus_pub_t * pub;             /**< Bus publisher to which my_component data is published to */
 };
 
 /** Typedef for base data my_component struct */
@@ -30,20 +29,16 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
 /* Allocation function, takes as arguments all required component attributes */
 extern my_component_t * my_component_alloc (xrt_bus_t * bus, const char * request_topic, const char * reply_topic)
 {
-  printf("my_component_alloc\n");
   my_component_t * mycomp = calloc (1, sizeof (*mycomp));
+  iot_log_trace (mycomp->logger, "my_component_alloc()");
   iot_component_init (&mycomp->component, my_component_factory (), (iot_component_start_fn_t) my_component_start, (iot_component_stop_fn_t) my_component_stop);
 
   mycomp->logger = iot_logger_alloc ("MyLogger", IOT_LOG_INFO, true);
-  iot_log_trace (mycomp->logger, "my_component_alloc()");
-
   mycomp->bus = bus;
   mycomp->sub = xrt_bus_sub_alloc (bus, request_topic, mycomp, XRT_BUS_NULL_COOKIE, my_component_add_callback, 0);
   xrt_bus_sub_disable (mycomp->sub);
-
   mycomp->pub = xrt_bus_pub_alloc (bus, reply_topic, mycomp, 0, NULL, 0);
   xrt_bus_pub_disable (mycomp->pub);
-
   return mycomp;
 }
 
@@ -67,7 +62,6 @@ extern void my_component_free (my_component_t * mycomp)
 /* Start component and update state */
 extern void my_component_start (my_component_t * mycomp)
 {
-  printf("my_component_start\n");
   iot_log_trace (mycomp->logger, "my_component_start()");
   iot_component_set_running (&mycomp->component);
 
@@ -88,7 +82,6 @@ extern void my_component_stop (my_component_t * mycomp)
 /* Component creation and configuration function, called from factory. */
 static iot_component_t * my_component_config (iot_container_t * cont, const iot_data_t * map)
 {
-  printf("my_component_config\n");
   iot_component_t * mycomp = NULL;
   iot_logger_t * logger = (iot_logger_t*) iot_container_find_component (cont, iot_data_string_map_get_string (map, "Logger"));
   xrt_bus_t * bus = (xrt_bus_t*) iot_config_component (map, "Bus", cont, logger);
@@ -98,6 +91,7 @@ static iot_component_t * my_component_config (iot_container_t * cont, const iot_
   if (bus && request_topic && reply_topic)
   {
     mycomp = (iot_component_t *) my_component_alloc (bus, request_topic, reply_topic);
+    iot_log_trace (logger, "my_component_config()");
   }
   return mycomp;
 }
