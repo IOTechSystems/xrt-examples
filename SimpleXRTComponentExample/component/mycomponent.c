@@ -27,36 +27,32 @@ extern void my_component_stop (my_component_t * mycomp);
 static void my_component_add_callback (iot_data_t * data, void * self, const char * match);
 
 /* Allocation function, takes as arguments all required component attributes */
-extern my_component_t * my_component_alloc (xrt_bus_t * bus, const char * request_topic, const char * reply_topic)
+extern my_component_t * my_component_alloc (xrt_bus_t * bus, const char * request_topic, const char * reply_topic, iot_logger_t * logger)
 {
   my_component_t * mycomp = calloc (1, sizeof (*mycomp));
+  mycomp->logger = logger;
   iot_log_trace (mycomp->logger, "my_component_alloc()");
   iot_component_init (&mycomp->component, my_component_factory (), (iot_component_start_fn_t) my_component_start, (iot_component_stop_fn_t) my_component_stop);
-
-  mycomp->logger = iot_logger_alloc ("MyLogger", IOT_LOG_INFO, true);
   mycomp->bus = bus;
   mycomp->sub = xrt_bus_sub_alloc (bus, request_topic, mycomp, XRT_BUS_NULL_COOKIE, my_component_add_callback, 0);
   xrt_bus_sub_disable (mycomp->sub);
   mycomp->pub = xrt_bus_pub_alloc (bus, reply_topic, mycomp, 0, NULL, 0);
   xrt_bus_pub_disable (mycomp->pub);
+
   return mycomp;
 }
 
 /* Component free function,  Only actually free if reference count is zero. */
 extern void my_component_free (my_component_t * mycomp)
 {
-  if (mycomp && iot_component_dec_ref (&mycomp->component))
-  {
     iot_log_trace (mycomp->logger, "my_component_free()");
-    iot_logger_free (mycomp->logger);    
-
+    iot_logger_free (mycomp->logger);
+    xrt_bus_free (mycomp->bus);
     xrt_bus_sub_free (mycomp->sub);
     xrt_bus_pub_free (mycomp->pub);
-    xrt_bus_free (mycomp->bus);
+  
     iot_component_fini (&mycomp->component);
-
     free (mycomp);
-  }
 }
 
 /* Start component and update state */
@@ -64,7 +60,6 @@ extern void my_component_start (my_component_t * mycomp)
 {
   iot_log_trace (mycomp->logger, "my_component_start()");
   iot_component_set_running (&mycomp->component);
-
   xrt_bus_sub_enable (mycomp->sub);
   xrt_bus_pub_enable (mycomp->pub);
 }
@@ -74,7 +69,6 @@ extern void my_component_stop (my_component_t * mycomp)
 {
   iot_log_trace (mycomp->logger, "my_component_stop()");
   iot_component_set_stopped (&mycomp->component);
-
   xrt_bus_sub_disable (mycomp->sub);
   xrt_bus_pub_disable (mycomp->pub);
 }
@@ -90,7 +84,7 @@ static iot_component_t * my_component_config (iot_container_t * cont, const iot_
 
   if (bus && request_topic && reply_topic)
   {
-    mycomp = (iot_component_t *) my_component_alloc (bus, request_topic, reply_topic);
+    mycomp = (iot_component_t *) my_component_alloc (bus, request_topic, reply_topic, logger);
     iot_log_trace (logger, "my_component_config()");
   }
   return mycomp;
@@ -104,8 +98,9 @@ static iot_component_t * my_component_config (iot_container_t * cont, const iot_
  */
 static void my_component_add_callback (iot_data_t * data, void * self, const char * match)
 {
+
   my_component_t * mycomp = (my_component_t*) self;
-  iot_log_trace (mycomp->logger, "my_component_add_callback (Pattern: %s)", match);
+  iot_log_trace (mycomp->logger, "my_component_add_callback");
 
   // filter out the devices and their corresponding values from the RequestTopic data stream
   const iot_data_t * device = iot_data_string_map_get (data, "device");
@@ -113,8 +108,8 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
 
   char * json_device = iot_data_to_json (device);
   char * json_device_data = iot_data_to_json (device_data);
-  char * device1_name = "\"Random-Device1\"";
-  char * device2_name = "\"Random-Device2\"";
+  const char * device1_name = "\"Random-Device1\"";
+  const char * device2_name = "\"Random-Device2\"";
 
   int64_t device1_value = 0;
   int64_t device2_value = 0;
@@ -139,14 +134,12 @@ static void my_component_add_callback (iot_data_t * data, void * self, const cha
 
   sum += device1_value + device2_value;
 
-  // data has to be put back to the map and will be published on the specified reply topic
+  // data has to be put back to the map and will be published on the reply topic specified in the json config
   iot_data_t * map = iot_data_alloc_map (IOT_DATA_STRING);
   iot_data_string_map_add (map, "Result", iot_data_alloc_i64 (sum));
-/*
-  char * json = iot_data_to_json (map);
-  iot_log_info (mycomp->logger, "Data to publish: %s", json);
-*/
-  xrt_bus_pub_push(mycomp->pub, map, true);
+  xrt_bus_pub_push(mycomp->pub, map, true);  // publish takes ownership over map
+  free(json_device);
+  free(json_device_data);
 }
 
 /* Function to return static component factory. Used by container. */
