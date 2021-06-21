@@ -61,7 +61,7 @@ The custom component json in this example has the below unique lines:
 ### callback
 The **callback** function in this example is implemented in a way that it subscribes to the request topic stream, filters the values from the readings of Random-Device1 and Random-Device2, adds them together and re-publishes the result back to the bus.
 
-> **Note:** The device data has to be filtered out from a **map**. After the data has been processed, it has to be added back to the map and the map itself will have be published back to the bus under the specified reply topic.
+> **Note:** The device data has to be filtered out from a **map**. After the data has been processed, it has to be added back to it and the **map** itself will have to be published back to the bus under the specified reply topic.
 
 ### factory
-A component is made available to a container using the associated factory. In this example, the component is dynamically loaded, therefore the mycomponent.json has the **Library** and **Factory** fields defined.
+In this example, the component is dynamically loaded, therefore the mycomponent.json has the **Library** and **Factory** fields defined.
