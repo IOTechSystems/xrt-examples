@@ -1,4 +1,4 @@
-# Example XRT appication component
+# Example XRT application component
 
 This example uses the **Virtual Device Service** to generate some random data (Int8). The data is published under `"virtual_device_service/data"` topic to the bus.
 A Lua component is attached which subscribes to both data streams and transforms the data (multiplies each data value by 10) before re-publishing the new values under the topic `"virtual_device_service/transformed_data"`. There is also a custom application component attached which subscribes to the topic `"virtual_device_service/transformed_data"`, adds the two random values together before re-publishing the final result back to the XRT bus under the topic `"virtual_device_service/result"`. Lastly, an MQTT exporter component is attached which re-publishes the result on `"virtual_device_service/final_result"` (using Mosquitto) so that the data can be accessed by any client subscribed to that MQTT topic on the broker.
