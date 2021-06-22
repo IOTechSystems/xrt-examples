@@ -1,7 +1,7 @@
-build: libmycomponent.so
+build: libapp-component.so
 
-libmycomponent.so: component/mycomponent.c component/mycomponent.h
-	gcc -I${IOT_DIR}/include -I${XRT_DIR}/include -L${IOT_DIR}/lib -L${XRT_DIR}/lib -fpic -shared component/mycomponent.c -liot -o component/libmycomponent.so
+libapp-component.so: app-component/app-component.c app-component/app-component.h
+	gcc -I${IOT_DIR}/include -I${XRT_DIR}/include -L${IOT_DIR}/lib -L${XRT_DIR}/lib -fpic -shared app-component/app-component.c -liot -o app-component/libapp-component.so
 
 clean:
-	rm libmycomponent.so
+	rm libapp-component.so
