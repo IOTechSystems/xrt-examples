@@ -1,0 +1,42 @@
+{
+  "name": "DevSDK-Example-Device",
+  "manufacturer": "IOTech",
+  "model": "DevSDK-01",
+  "description": "Sample profile for DevSDK example",
+  "deviceResources":
+  [
+    {
+      "name": "Value_Bool",
+      "description": "A read/writable boolean value",
+      "properties":
+      {
+        "value": { "type": "Bool", "readWrite": "RW", "defaultValue": "true" },
+        "units": { "defaultValue": "bool value" }
+      }
+    },
+    {
+      "name": "Value_Float32",
+      "description": "A read/writable float32 value",
+      "properties":
+      {
+        "value": { "type": "Float32", "readWrite": "RW" },
+        "units": { "defaultValue": "float32 value" }
+      }
+    },
+    {
+      "name": "RandomValue_Int32",
+      "description": "Generate random int32 value",
+      "attributes":
+      {
+        "sequenceType": "random",
+        "minimum": "-10000",
+        "maximum": "10000"
+      },
+      "properties":
+      {
+        "value": { "type": "Int32", "readWrite": "R" },
+        "units": { "defaultValue": "random int32 value" }
+      }
+    }
+  ]
+}
