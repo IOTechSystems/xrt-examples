@@ -1,0 +1,9 @@
+{
+  "Library": "app-component/libapp-component.so",
+  "Factory": "app_component_factory",
+  "Name": "ApplicationComponent",
+  "Bus":"bus",
+  "Logger":"logger_info",
+  "RequestTopic":"virtual_device_service/transformed_data",
+  "ReplyTopic": "virtual_device_service/result"
+}

@@ -1,0 +1,24 @@
+{
+  "SchemaVersion": 1,
+  "Name": "xrt-app",
+  "ComponentId": "4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [],
+  "Capabilities": {
+    "AllowedConnections" : [ "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "Gpio": [
+      "$AVNET_MT3620_SK_USER_LED_BLUE",
+      "$AVNET_MT3620_SK_USER_LED_RED",
+      "$AVNET_MT3620_SK_USER_LED_GREEN",
+      "$AVNET_MT3620_SK_APP_STATUS_LED_YELLOW",
+      "$AVNET_MT3620_SK_USER_BUTTON_A",
+      "$AVNET_MT3620_SK_USER_BUTTON_B"
+    ],
+    "Adc": [ "$AVNET_MT3620_SK_ADC_CONTROLLER0" ],
+    "I2cMaster": ["$AVNET_MT3620_SK_ISU2_I2C"],
+    "AllowedTcpServerPorts": [ 22222, 47808 ],
+    "AllowedUdpServerPorts": [ 47808 ],
+    "DeviceAuthentication": "<tenant-uuid-identifier>"
+  },
+  "ApplicationType": "Default"
+}

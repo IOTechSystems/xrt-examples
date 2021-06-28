@@ -10,7 +10,13 @@
 #ifdef DEVICE_MODBUS
 #include "xrt/modbus_device_service.h"
 #endif
-
+#ifdef DEVICE_BACNET
+#include "xrt/bacnet_ip_device_service.h"
+extern void bip_debug_enable (void);
+#endif
+#ifdef DEVICE_VIRTUAL
+#include "xrt/virtual_device_service.h"
+#endif
 /* Shutdown TERM signal handling */
 
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -22,7 +28,7 @@ static void termination_handler (int signal)
 
 int main (void)
 {
-  iot_container_config_t config = { iot_file_config_loader, "config" };
+  iot_container_config_t config = { .load = iot_file_config_loader, .uri = "config", .save = NULL };
 
   pthread_mutex_lock (&mutex);
   struct sigaction action;
@@ -39,10 +45,17 @@ int main (void)
   iot_component_factory_add (iot_scheduler_factory ());
   iot_component_factory_add (xrt_bus_factory ());
   iot_component_factory_add (xrt_log_exporter_factory ());
+  iot_component_factory_add (xrt_mt3620_device_factory ());
   iot_component_factory_add (xrt_azuresphere_exporter_factory ());
   iot_component_factory_add (xrt_lua_transform_factory ());
 #ifdef DEVICE_MODBUS
   iot_component_factory_add (xrt_modbus_device_service_factory ());
+#endif
+#ifdef DEVICE_BACNET
+  iot_component_factory_add (xrt_bacnet_ip_device_service_factory ());
+#endif
+#ifdef DEVICE_VIRTUAL
+  iot_component_factory_add (xrt_virtual_device_service_factory ());
 #endif
 
   iot_container_init (container);

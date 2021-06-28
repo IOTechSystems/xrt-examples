@@ -1,0 +1,38 @@
+{
+  "Name":"bacnet_device_service",
+  "Topic":"device/output",
+  "RequestTopic":"device/input",
+  "Devices":{
+    "bacnet-simulator":{
+      "profile":"bacnet-simulator",
+      "protocols":{
+        "BACnet-IP":{
+          "DeviceInstance":"2749",
+          "Port":"47808"
+        },
+        "BACnetSupportedServices":{
+          "DS-RPM-B": "true",
+          "DS-WPM-B": "true"
+        }
+      }
+    }
+  },
+  "Schedules":[
+    {
+      "device": "bacnet-simulator",
+      "resource": "InputsValues",
+      "interval": 40000000
+    }
+  ],
+  "DiscoveryInterval": 10,
+  "ProfileDir":"config/profiles",
+  "Scheduler":"scheduler",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Driver":{
+    "NetworkInterface":"eth0",
+    "APDU_Timeout": 5000,
+    "APDU_Retries": 2
+  }
+}
