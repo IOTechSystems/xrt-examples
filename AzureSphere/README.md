@@ -68,7 +68,7 @@ parts for each example.
 ## Prerequisites
 
 * For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download}).
+  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download).
   Once installed open Visual Studio and install Visual
   Studio Extensions for Azure Sphere
 * The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview)

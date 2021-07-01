@@ -203,7 +203,7 @@ on port 1502 to the simulator:
   java -jar ModbusPal.jar
   ```
 
-* Use the "Load" button and select the [damocles.xmpp](damocles.xmpp)
+* Use the "Load" button and select the [damocles.xmpp](../damocles.xmpp)
   file. This provides a simulation of a Damocles 2 Mini Modbus
   Device with 4 binary inputs and 2 binary outputs.
 
