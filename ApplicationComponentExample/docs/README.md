@@ -46,7 +46,7 @@ Start/stop/free the component and to update its state.
 > **Note:** A component is made available to a container using the associated factory. It's up to you when and where you want to enable publish/subscribe functionality. It's good practice to enable it when the component starts and disable it upon stop.
 
 ### config
-Provides the possibility to configure and access each individual field that has been set in the [`app_component.json`](https://github.com/IOTechSystems/xrt-examples/blob/XRT-633-branch/SimpleXRTComponentExample/config/app_component.json) file.
+Provides the possibility to configure and access each individual field that has been set in the [`app_component.json`](../config/app_component.json) file.
   
 For example:
 `const char * request_topic = iot_config_string (map, "RequestTopic", false, logger);`
