@@ -127,7 +127,7 @@ mount the bacnet-simulator directory:
 ```bash
 docker run -it --rm --name=bacnet-server -e RUN_MODE=IP \
 --network host \
--v $(pwd)/bacnet-simulator:docker-lua-script/ \
+-v $(pwd)/bacnet-simulator:/docker-lua-script/ \
 iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance 2749
 ```
 
