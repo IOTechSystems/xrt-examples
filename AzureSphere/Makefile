@@ -6,7 +6,7 @@ CID=4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f
 
 BOARD?=mt3620-g100
 DEVICE?=modbus
-BUILD_TYPE?=Debug
+BUILD_TYPE?=Release
 
 # Default action will build, sideload and debug the example application
 all: monitor

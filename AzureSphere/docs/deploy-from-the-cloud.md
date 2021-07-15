@@ -18,7 +18,6 @@ the correct options for your setup:
 
 ```bash
 make build \
-BUILD_TYPE=Release \
 DEVICE=<modbus, bacnet or virtual> \
 BOARD=<mt3620-g100, mt3620-dk or mt3620-sk>
 ```
