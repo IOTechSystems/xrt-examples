@@ -26,6 +26,6 @@ Now the image has been built, an image file can be found in
 the build/ directory in your current directory, called
 `xrt-app.imagepackage`
 
-To deploy the image from the cloud, follow the [Create a deployment](https://docs.microsoft.com/en-us/azure-sphere/deployment/create-a-deployment?tabs=cliv2beta)
+To deploy the image from the cloud, follow the [Create A Deployment](https://docs.microsoft.com/en-us/azure-sphere/deployment/create-a-deployment?tabs=cliv2beta)
 guide.
 
