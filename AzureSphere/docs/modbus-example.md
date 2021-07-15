@@ -228,6 +228,13 @@ links below:
 * [Deploy and Debug with Windows](windows-deploy-debug.md)
 * [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
 
+## Deploying From The Cloud
+
+You can also deploy the Modbus Example from the cloud with
+the link below:
+
+[Deploy From The Cloud](deploy-from-the-cloud.md)
+
 ## Inputs & Outputs With A Modbus Device
 
 This section explains how to change:

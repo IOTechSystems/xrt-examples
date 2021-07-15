@@ -108,6 +108,13 @@ links below:
 * [Deploy and Debug with Windows](windows-deploy-debug.md)
 * [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
 
+## Deploying From The Cloud
+
+You can also deploy the BACnet Example from the cloud with
+the link below:
+
+[Deploy From The Cloud](deploy-from-the-cloud.md)
+
 ## BACnet Simulator
 
 The BACnet Simulator, simulates a BACnet device, which is

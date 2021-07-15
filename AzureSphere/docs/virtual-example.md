@@ -86,6 +86,13 @@ links below:
 * [Deploy and Debug with Windows](windows-deploy-debug.md)
 * [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
 
+## Deploying From The Cloud
+
+You can also deploy the Virtual Device Example from the cloud with
+the link below:
+
+[Deploy From The Cloud](deploy-from-the-cloud.md)
+
 #### Changing A Virtual Device Output Values
 
 The script update.sh can be used to send a payload of data
