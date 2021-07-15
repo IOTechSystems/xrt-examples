@@ -225,8 +225,8 @@ You can build the Modbus Example with following the links below:
 You can deploy and debug the Modbus Example following the
 links below:
 
-* [Deploy and Debug with Windows](windows-deploy-debug.md)
-* [Deploy and Debug with Ubuntu](ubuntu-deploy-debug.md)
+* [Deploy And Debug With Windows](windows-deploy-debug.md)
+* [Deploy And Debug With Ubuntu](ubuntu-deploy-debug.md)
 
 ## Deploying From The Cloud
 

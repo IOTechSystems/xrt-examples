@@ -1,4 +1,4 @@
-# Deploying And Debugging On Ubuntu
+# Deploy And Debug With Ubuntu
 
 Issue the following command to deploy the application and
 initiate a Telnet session:
