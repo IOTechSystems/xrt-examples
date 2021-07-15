@@ -1,4 +1,4 @@
-# Deploying and Debugging from Visual Studio
+# Deploy And Debug With Windows
 
 The easiset way to debug the application is 
 using [Visual Studio](https://docs.microsoft.com/en-us/azure-sphere/install/qs-blink-application?tabs=linux%2Ccliv1&pivots=visual-studio).
