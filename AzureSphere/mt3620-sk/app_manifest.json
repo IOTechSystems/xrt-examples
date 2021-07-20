@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "192.168.0.201", "192.168.0.150", "192.168.0.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [
       "$AVNET_MT3620_SK_USER_LED_BLUE",
       "$AVNET_MT3620_SK_USER_LED_RED",
@@ -18,7 +18,7 @@
     "I2cMaster": ["$AVNET_MT3620_SK_ISU2_I2C"],
     "AllowedTcpServerPorts": [ 22222, 47808 ],
     "AllowedUdpServerPorts": [ 47808 ],
-    "DeviceAuthentication": "<tenant-uuid-identifier>"
+    "DeviceAuthentication": "457d3018-e029-4d55-9ad9-f9e9ce6f9474"
   },
   "ApplicationType": "Default"
 }

@@ -2,8 +2,8 @@
   "Bus":"bus",
   "Logger":"logger",
   "Pattern":"device/mt3620/input",
-  "Interface":"eth0",
-  "Address":"192.168.4.2",
+  "Interface":"wlan0",
+  "Address":"192.168.0.150",
   "SubnetMask":"255.255.255.0",
   "Gateway":"0.0.0.0"
 }

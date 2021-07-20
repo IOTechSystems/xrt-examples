@@ -21,7 +21,7 @@
     {
       "device": "bacnet-simulator",
       "resource": "InputsValues",
-      "interval": 40000000
+      "interval": 5000000
     }
   ],
   "DiscoveryInterval": 10,
@@ -31,7 +31,7 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver":{
-    "NetworkInterface":"eth0",
+    "NetworkInterface":"wlan0",
     "APDU_Timeout": 5000,
     "APDU_Retries": 2
   }
