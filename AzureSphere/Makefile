@@ -6,6 +6,7 @@ CID=4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f
 
 BOARD?=mt3620-g100
 DEVICE?=modbus
+BUILD_TYPE?=Release
 
 # Default action will build, sideload and debug the example application
 all: monitor
@@ -21,7 +22,7 @@ build:
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
         -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.02" \
         -DAZURE_SPHERE_TARGET_API_SET="8" \
-        -DCMAKE_BUILD_TYPE="Debug" \
+        -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
         -DBOARD=$(BOARD) \
         -DDEVICE=$(DEVICE) \
 	.. && ninja)

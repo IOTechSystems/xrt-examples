@@ -8,17 +8,19 @@ Below an illustration of the scenario described above:
 ![XRT application component example illustration](XRT_Application_Component_Example.jpg)
 
 ## Prerequisites
-  XRT dev must be installed and environment variables must be set via env.sh
+  XRT dev must be installed. Verify with the command:
+  
+  `dpkg -l | grep iotech`
+
   * iotech-iot-dev     1.2.1    amd64    IOT C Framework
   * iotech-thrift-dev  1.0.1    amd64    Embedded Thrift C Version
   * iotech-xrt-dev     1.1.1    amd64    XRT C RealTime Framework
 
+  Environment variables must be set as usual with the command:
+  `source /opt/iotech/xrt/bin/env.sh`
+
 ## Build
 Open a terminal window in the directory containing the example. Run
-
-`. ./envs.sh`
-
-to set up the environment, then
 
 `make`
 

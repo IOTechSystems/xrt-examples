@@ -105,8 +105,15 @@ You can build the BACnet Example following the links below:
 You can deploy and debug the BACnet Example following the
 links below:
 
-* [Deploy and Debug with Windows](windows-deploy-debug.md)
-* [Deploy and Debug with Ubuntu](ubuntu-deploy-deploy.md)
+* [Deploy And Debug With Windows](windows-deploy-debug.md)
+* [Deploy And Debug With Ubuntu](ubuntu-deploy-debug.md)
+
+## Deploying From The Cloud
+
+You can also deploy the BACnet Example from the cloud with
+the link below:
+
+[Deploy From The Cloud](deploy-from-the-cloud.md)
 
 ## BACnet Simulator
 
