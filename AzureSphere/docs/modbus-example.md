@@ -9,16 +9,14 @@ the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 ![Azure Sphere Modbus Example](images/AzureSphereModbusExample.jpg)
 
 The example reads the digital inputs from a Modbus Device via
-the Modbus Device Service component and publishes the data onto
-an internal XRT bus.
+the Modbus Device Service component and publishes the data onto the
+[internal XRT bus with duplicates filter turn on](../config/bus.json).
 
-A Lua Scripting component subscribes to these values and check
-to see if the current value now different from the previous one. When
-the new value is different from the previous value, it will be pushed
-to the Azure IoT Hub via a Azure Export component, However, if the value
-hasn't changed, the value won't be pushed to the Azure IoT Hub. The
-reason for this method to stop an unchanged value being repeatedly
-sent to the IoT Hub.
+If a new data value is the same as the previous value then the
+duplicates filter will prevent the unchanged data value from being
+published onto the bus and sent to the Azure IoT Hub via the
+Azure Export component. Otherwise all new data values are
+automatically sent to Azure IoT Hub.
 
 From the Azure IoT Hub methods can be called on Device Twins
 to send values back down to XRT running on the Azure Sphere
