@@ -10,7 +10,7 @@ the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 
 The example reads the digital inputs from a Modbus Device via
 the Modbus Device Service component and publishes the data onto
-an [internal XRT bus with duplicates filter turn on](../config/bus.json)
+an [internal XRT bus with duplicates filter turn on](../config/bus.json).
 
 The duplicates filter for the XRT bus, lets a new value that's
 different from the previous value, be pushed on to the bus and
