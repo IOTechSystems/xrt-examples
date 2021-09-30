@@ -17,9 +17,8 @@
     (board)/app_manifest.json,
     CMakeSettings.json and main.c with the files
     provided in the example to the Visual Studio project
-  * In CMakeSettings.json, set "BOARD" to match your
-    target board, e.g "mt3620-dk", "mt3620-g100" or
-    "mt3520-sk"
+  * In CMakeSettings.json, set "BOARD" to match your target board,
+    e.g "mt3620-dk", "mt3620-g100", "mt3520-sk" or "mt3520-sr620"
   * In CMakeSettings.json, set "DEVICE" to match your
     target device service, e.g "modbus", "bacnet" or "virtual"
 
