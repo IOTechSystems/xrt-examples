@@ -1,4 +1,3 @@
 {
-  "LDS":{"profile":"LDS_profile","protocols":{"OPC-UA":{"Address":"localhost:4840","Security":"None","ApplicationUri":""}},"name":"LDS"},
-  "ProsysServer":{"profile":"ExampleProsysProfile","protocols":{"OPC-UA":{"Address":"localhost:53530/OPCUA/SimulationServer","Security":"None"}},"name":"ProsysServer"}
+  "LDS":{"profile":"LDS_profile","protocols":{"OPC-UA":{"Address":"${OPCUA_LDS_ADDRESS}","Security":"None","ApplicationUri":""}},"name":"LDS"}
 }

@@ -2,24 +2,24 @@
 
 This document is to help you run the example opc-ua XRT config.
 
-## Running with the Prosys Server
+## Example
 
-You must have a locally installed version of the Prosys Simulation Server,
-found at https://downloads.prosysopc.com/opc-ua-simulation-server-downloads.php.
-
-This example assumes that v5 of the Prosys Simulation Server is installed and is running. 
-To perform discovery: all servers should be registered with a local discovery server and in state/devices.json "${OPCUA_LDS_ADDRESS}"
-should be replaced with the address and port of the LDS e.g 0.0.0.0:4840. This can also be set as an environment variable and xrt will subsitute this in.
-
-"${PROSYS_SIM_ADDRESS}" should also be set in a similar fashion.
+This example uses an Local Discovery Server (LDS) to perform the discovery and profile generation of an opc-ua server.
+In this example we use the iotech LDS and test server.
 
 ## Steps
 
-Run the LDS and Prosys Sim
+**Run the LDS and test server:**
 
-Run XRT with the config folder:
-
+```bash
+docker run --rm -d --name opc-ua-sim -e RUN_LDS=true -p 49947 -p 4840 iotechsys/dev-edgexpert-opc-ua-test-server:1.8.6.dev-x86_64
 ```
-$ cd opc-ua
-$ xrt config
+
+This will start the LDS server and the test server in the same container.
+
+**Run XRT with the config folder:**
+
+```bash
+cd opc-ua
+xrt config
 ```
