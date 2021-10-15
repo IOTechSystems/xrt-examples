@@ -19,22 +19,34 @@ This will start the LDS server and the test server in the same container.
 
 **Set Environment Variables**
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g:
+XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
 export XRT_PROFILE_DIR=/path/to/examples/DeviceServices/opc-ua/config/profiles/
 ```
 
-XRT_STATE_DIR - This should be the path to the state directory e.g:
+XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
 export XRT_PROFILE_DIR=/path/to/examples/DeviceServices/opc-ua/state/
 ```
 
-MQTT_SERVER_URI - This should be the server uri of the mqtt broker e.g:
+XRT_MQTT_BROKER - This should be the server uri of the mqtt broker e.g
 
 ```bash
-export MQTT_SERVER_URI=tcp://0.0.0.0:1883
+export XRT_MQTT_BROKER=tcp://0.0.0.0:1883
+```
+
+XRT_MQTT_USERNAME - Username for the above MQTT broker e.g
+
+```bash
+export XRT_MQTT_USERNAME=test
+```
+
+XRT_MQTT_PASSWORD - Password for the above MQTT broker
+
+```bash
+export XRT_MQTT_PASSWORD=tube
 ```
 
 **Run XRT with the config folder:**
