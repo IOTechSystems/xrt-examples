@@ -41,24 +41,6 @@ XRT_STATE_DIR - This should be the path to the state directory e.g
 export XRT_STATE_DIR=/path/to/examples/DeviceServices/opc-ua/state/
 ```
 
-XRT_MQTT_BROKER - This should be the server uri of the mqtt broker e.g
-
-```bash
-export XRT_MQTT_BROKER=tcp://0.0.0.0:1883
-```
-
-XRT_MQTT_USERNAME - Username for the above MQTT broker e.g
-
-```bash
-export XRT_MQTT_USERNAME=test
-```
-
-XRT_MQTT_PASSWORD - Password for the above MQTT broker e.g
-
-```bash
-export XRT_MQTT_PASSWORD=tube
-```
-
 **Run XRT with the config folder:**
 
 This is assuming that the following pre-requisites are satisfied:
