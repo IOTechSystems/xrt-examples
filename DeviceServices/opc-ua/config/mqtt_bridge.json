@@ -9,7 +9,7 @@
   "MQTTPatterns": [ "xrt/+/opc_ua_device_service/request" ],
   "MQTTConfig":
   {
-    "ServerURI": "tcp://0.0.0.0:1883",
+    "ServerURI": "${MQTT_SERVER_URI}",
     "ClientID": "xrt",
     "QoS": 1,
     "ClientConfig": {"Username":"test","Password": "tube","KeepAliveInterval": 10, "MQTTVersion": 5, "Reliable": true},
@@ -17,7 +17,7 @@
     "RetryInterval": 5
   },
   "Cookie": 125,
-  "Bus": "bus",
   "QueueSize": 5,
+  "Bus": "bus",
   "Logger": "logger"
 }

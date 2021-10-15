@@ -1,3 +1,0 @@
-{
-  "LDS":{"profile":"LDS_profile","protocols":{"OPC-UA":{"Address":"${OPCUA_LDS_ADDRESS}","Security":"None","ApplicationUri":""}},"name":"LDS"}
-}
