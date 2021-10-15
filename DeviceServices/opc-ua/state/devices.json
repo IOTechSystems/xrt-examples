@@ -1,3 +1,22 @@
 {
-  "LDS":{"profile":"LDS_profile","protocols":{"OPC-UA":{"Address":"${OPCUA_LDS_ADDRESS}","Security":"None"}},"name":"LDS"}
+  "LDS": {
+    "name": "LDS",
+    "profile": "LDS_profile",
+    "protocols": {
+      "OPC-UA": {
+        "Address": "${OPCUA_LDS_ADDRESS}",
+        "Security": "None"
+      }
+    }
+  },
+  "opc-ua-sim-device": {
+    "name": "opc-ua-sim-device",
+    "profile": "opc-ua-sim",
+    "protocols": {
+      "OPC-UA": {
+        "Address": "${OPCUA_SIM_ADDRESS}",
+        "Security": "None"
+      }
+    }
+  }
 }
