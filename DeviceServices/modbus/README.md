@@ -3,7 +3,7 @@
 This document is to help you run the example XRT configs provided which will allow
 you to communicate with a Modbus simulator via TCP or RTU. Note that you'll need a shared library file generated from an XRT build to proceed with this example.
 
-First navigate to `src/c/examples/xrt-examples/DeviceServices`
+First, navigate to `src/c/examples/xrt-examples/DeviceServices`
 
 ## Modbus
 
