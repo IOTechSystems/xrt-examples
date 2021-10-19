@@ -72,9 +72,9 @@ If done correctly, this will start a loop in which readings are obtained over re
 
 To use the containerised version of the service, simply run the following command: 
 
-`docker run --rm --name xrt-modbus --network=host -v $XRT_LICENSE_FILE:/license.json --env XRT_LICENSE_FILE=/license.json -v ${PWD}/modbus/config:/opt/iotech/xrt/config/modbus-device-service --entrypoint=/bin/ash -it iotechsys/xrt:eval-1.1.36`
-<!--todo: check opt/iotech-->
-If `XRT_LICENSE_FILE` is set correctly, this script should launch an interactive container with configurations that can be loaded in to start the service. 
+`docker run --rm --name xrt-modbus --network=host -v $XRT_LICENSE_FILE:/license.json --env XRT_LICENSE_FILE=/license.json --env XRT_PROFILE_DIR=/opt/iotech/xrt/config/modbus/config/profiles --env XRT_STATE_DIR=/opt/iotech/xrt/config/modbus/state -v ${PWD}/modbus:/opt/iotech/xrt/config/modbus --entrypoint=/bin/ash -it iotechsys/xrt:eval-1.1.36`
+
+If `XRT_LICENSE_FILE` is set correctly, this script should launch an interactive container with configurations that can be loaded in to start the service.
 
 An example of a command that could be used once inside the container (i.e. after running the aforementioned script and staying in the same terminal) is provided below:
 
