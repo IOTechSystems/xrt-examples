@@ -10,7 +10,8 @@ The examples currently support the following hardware:
 
 * The Avnet Guardian 100 Azure Sphere Module
 * The Avnet Azure Sphere Starter Kit
-* The Seed Azure Sphere Development Kit
+* The Seeed Azure Sphere Development Kit
+* The AILink SR620 Guardian Gateway
 
 ## Azure Sphere Development Process
 

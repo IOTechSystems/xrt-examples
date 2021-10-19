@@ -19,7 +19,7 @@ the correct options for your setup:
 ```bash
 make build \
 DEVICE=<modbus, bacnet or virtual> \
-BOARD=<mt3620-g100, mt3620-dk or mt3620-sk>
+BOARD=<mt3620-g100, mt3620-dk, mt3620-sk or mt3620-sr620>
 ```
 
 Now the image has been built and can be deployed to the cloud.

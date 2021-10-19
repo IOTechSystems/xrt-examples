@@ -1,7 +1,7 @@
 # Modbus Example
 
 In this example, XRT is used to communicate with a Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
-or a [simulated Modbus device](#using-a-modbuspal-simulator-with-the-example)),
+or a [simulated Modbus device](#using-modbuspal-simulator-with-the-example)),
 values read from the Modbus Device are then sent to its
 Azure IoT Hub Device Twin in the Cloud. Methods can also be sent back from
 the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
@@ -9,16 +9,14 @@ the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 ![Azure Sphere Modbus Example](images/AzureSphereModbusExample.jpg)
 
 The example reads the digital inputs from a Modbus Device via
-the Modbus Device Service component and publishes the data onto
-an internal XRT bus.
+the Modbus Device Service component and publishes the data onto the
+[internal XRT bus with duplicates filter turn on](../config/bus.json).
 
-A Lua Scripting component subscribes to these values and check
-to see if the current value now different from the previous one. When
-the new value is different from the previous value, it will be pushed
-to the Azure IoT Hub via a Azure Export component, However, if the value
-hasn't changed, the value won't be pushed to the Azure IoT Hub. The
-reason for this method to stop an unchanged value being repeatedly
-sent to the IoT Hub.
+If a new data value is the same as the previous value then the
+duplicates filter will prevent the unchanged data value from being
+published onto the bus and sent to the Azure IoT Hub via the
+Azure Export component. Otherwise all new data values are
+automatically sent to Azure IoT Hub.
 
 From the Azure IoT Hub methods can be called on Device Twins
 to send values back down to XRT running on the Azure Sphere
@@ -55,7 +53,7 @@ contact inputs and 2 digital relay outputs that can be
 accessed via a Modbus interface.
 
 If you do not have access to a physical device, a Java
-[Modbus simulator](#using-a-modbuspal-simulator-with-the-example)
+[Modbus simulator](#using-modbuspal-simulator-with-the-example)
 called ModbusPal, can be used instead of the real hardware.
 
 If the Damocles hardware is used then it must be connected to
@@ -69,7 +67,7 @@ Wired Ethernet or WiFi can be used to communicate with XRT.
 *Note - The prerequisites found on the main
 [readme.md](../README.md) are also required for this example.*
 
-* The ModbusPal Java [Modbus simulator](#using-a-modbuspal-simulator-with-the-example),
+* The ModbusPal Java [Modbus simulator](#using-modbuspal-simulator-with-the-example),
   or a Damocles2 Mini connected by wired EtherNet to a Guardian 100 module
 * Azure IoT Hub setup using the same tenant as your claimed Azure Sphere
   Module
@@ -154,7 +152,7 @@ with the following:
   ```bash
   az iot hub show --name <iothub-name> | grep hostName
   ```
-* If your using the [Modbus Simulator](#using-a-modbuspal-simulator-with-the-example)
+* If your using the [Modbus Simulator](#using-modbuspal-simulator-with-the-example)
   you will need to replace 10.0.0.1 in AllowedConnections with
   the IP address of your PC running the Modbus Simulator,
   otherwise 10.0.0.1 can be removed from AllowedConnections
