@@ -1,0 +1,28 @@
+{
+  "Library": "libxrt-opcua-device-service.so",
+  "Factory": "xrt_opcua_device_service_factory",
+  "Name": "opc_ua_device_service",
+  "Topic": "xrt/device/opc_ua_device_service/data",
+  "RequestTopic": "xrt/device/opc_ua_device_service/request",
+  "ReplyTopic": "xrt/device/opc_ua_device_service/reply",
+  "DiscoveryRequestTopic": "xrt/discovery/opc_ua_device_service/request",
+  "DiscoveryReplyTopic": "xrt/discovery/opc_ua_device_service/reply",
+  "DiscoveryTopic": "xrt/discovery/opc_ua_device_service/devices",
+  "ProfileRequestTopic": "xrt/profile/opc_ua_device_service/request",
+  "ProfileReplyTopic": "xrt/profile/opc_ua_device_service/reply",
+  "ScheduleRequestTopic": "xrt/schedule/opc_ua_device_service/request",
+  "ScheduleReplyTopic": "xrt/schedule/opc_ua_device_service/reply",  
+  "AutoRegister": false,
+  "DiscoveryInterval": 300,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Driver":{
+    "LDSName":"LDS"
+  }
+}

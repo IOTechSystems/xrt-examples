@@ -1,0 +1,188 @@
+{
+    "labels": [],
+    "name": "opc-ua-sim",
+    "deviceResources": [
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "DateTime Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=DateTime Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "int64"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "String Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=String Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "string"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Double Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Double Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "float64"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Float Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Float Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "float32"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "UInt64 Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=UInt64 Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "uint64"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Int64 Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Int64 Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "int64"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "UInt32 Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=UInt32 Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "uint32"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Int32 Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Int32 Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "int32"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "UInt16 Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=UInt16 Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "uint16"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Int16 Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Int16 Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "int16"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Byte Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Byte Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "uint8"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Sbyte Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Sbyte Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "int8"
+                }
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Boolean Test",
+                "nsIndex": "1"
+            },
+            "name": "ns=1;s=Boolean Test",
+            "properties": {
+                "value": {
+                    "readWrite": "RW",
+                    "type": "bool"
+                }
+            }
+        }
+    ]
+}
