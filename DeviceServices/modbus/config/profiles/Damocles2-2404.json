@@ -1,0 +1,1104 @@
+{
+  "name": "Damocles2 2404",
+  "manufacturer": "HW group",
+  "model": "Damocles2 2404",
+  "labels": [
+    "HW group",
+    "Damocles2",
+    "2404"
+  ],
+  "description": "Damocles2 2404",
+  "deviceResources": [
+    {
+      "name": "BinaryInput1",
+      "description": "Current value of binary input 1",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "100"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput2",
+      "description": "Current value of binary input 2",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "101"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput3",
+      "description": "Current value of binary input 3",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "102"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput4",
+      "description": "Current value of binary input 4",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "103"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput5",
+      "description": "Current value of binary input 5",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "104"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput6",
+      "description": "Current value of binary input 6",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "105"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput7",
+      "description": "Current value of binary input 7",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "106"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput8",
+      "description": "Current value of binary input 8",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "107"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput9",
+      "description": "Current value of binary input 9",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "108"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput10",
+      "description": "Current value of binary input 10",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "109"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput11",
+      "description": "Current value of binary input 11",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "110"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput12",
+      "description": "Current value of binary input 12",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "111"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput13",
+      "description": "Current value of binary input 13",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "112"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput14",
+      "description": "Current value of binary input 14",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "113"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput15",
+      "description": "Current value of binary input 15",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "114"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput16",
+      "description": "Current value of binary input 16",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "115"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput17",
+      "description": "Current value of binary input 17",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "116"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput18",
+      "description": "Current value of binary input 18",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "117"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput19",
+      "description": "Current value of binary input 19",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "118"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput20",
+      "description": "Current value of binary input 20",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "119"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput21",
+      "description": "Current value of binary input 21",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "120"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput22",
+      "description": "Current value of binary input 22",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "121"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput23",
+      "description": "Current value of binary input 23",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "122"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryInput24",
+      "description": "Current value of binary input 24",
+      "attributes": {
+        "primaryTable": "DISCRETES_INPUT",
+        "startingAddress": "123"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "R"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryOutput1",
+      "description": "Current value of binary output 1",
+      "attributes": {
+        "primaryTable": "COILS",
+        "startingAddress": "200"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryOutput2",
+      "description": "Current value of binary output 2",
+      "attributes": {
+        "primaryTable": "COILS",
+        "startingAddress": "201"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryOutput3",
+      "description": "Current value of binary output 3",
+      "attributes": {
+        "primaryTable": "COILS",
+        "startingAddress": "202"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    },
+    {
+      "name": "BinaryOutput4",
+      "description": "Current value of binary output 4",
+      "attributes": {
+        "primaryTable": "COILS",
+        "startingAddress": "203"
+      },
+      "properties": {
+        "value": {
+          "type": "BOOL",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "BinaryInputs",
+      "get": [
+        {
+          "index": "1",
+          "operation": "get",
+          "deviceResource": "BinaryInput1",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "get",
+          "deviceResource": "BinaryInput2",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "3",
+          "operation": "get",
+          "deviceResource": "BinaryInput3",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "4",
+          "operation": "get",
+          "deviceResource": "BinaryInput4",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "5",
+          "operation": "get",
+          "deviceResource": "BinaryInput5",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "6",
+          "operation": "get",
+          "deviceResource": "BinaryInput6",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "7",
+          "operation": "get",
+          "deviceResource": "BinaryInput7",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "8",
+          "operation": "get",
+          "deviceResource": "BinaryInput8",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "9",
+          "operation": "get",
+          "deviceResource": "BinaryInput9",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "10",
+          "operation": "get",
+          "deviceResource": "BinaryInput10",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "11",
+          "operation": "get",
+          "deviceResource": "BinaryInput11",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "12",
+          "operation": "get",
+          "deviceResource": "BinaryInput12",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "13",
+          "operation": "get",
+          "deviceResource": "BinaryInput13",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "14",
+          "operation": "get",
+          "deviceResource": "BinaryInput14",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "15",
+          "operation": "get",
+          "deviceResource": "BinaryInput15",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "16",
+          "operation": "get",
+          "deviceResource": "BinaryInput16",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "17",
+          "operation": "get",
+          "deviceResource": "BinaryInput17",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "18",
+          "operation": "get",
+          "deviceResource": "BinaryInput18",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "19",
+          "operation": "get",
+          "deviceResource": "BinaryInput19",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "20",
+          "operation": "get",
+          "deviceResource": "BinaryInput20",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "21",
+          "operation": "get",
+          "deviceResource": "BinaryInput21",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "22",
+          "operation": "get",
+          "deviceResource": "BinaryInput22",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "23",
+          "operation": "get",
+          "deviceResource": "BinaryInput23",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "24",
+          "operation": "get",
+          "deviceResource": "BinaryInput24",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BinaryOutputs",
+      "get": [
+        {
+          "index": "1",
+          "operation": "get",
+          "deviceResource": "BinaryOutput1",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "get",
+          "deviceResource": "BinaryOutput2",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "3",
+          "operation": "get",
+          "deviceResource": "BinaryOutput3",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "4",
+          "operation": "get",
+          "deviceResource": "BinaryOutput4",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        }
+      ],
+      "set": [
+        {
+          "index": "1",
+          "operation": "set",
+          "deviceResource": "BinaryOutput1",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "set",
+          "deviceResource": "BinaryOutput2",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "3",
+          "operation": "set",
+          "deviceResource": "BinaryOutput3",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "4",
+          "operation": "set",
+          "deviceResource": "BinaryOutput4",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InputsAndOutputs",
+      "get": [
+        {
+          "index": "1",
+          "operation": "get",
+          "deviceResource": "BinaryInput1",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "2",
+          "operation": "get",
+          "deviceResource": "BinaryInput2",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "3",
+          "operation": "get",
+          "deviceResource": "BinaryInput3",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "4",
+          "operation": "get",
+          "deviceResource": "BinaryInput4",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "5",
+          "operation": "get",
+          "deviceResource": "BinaryInput5",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "6",
+          "operation": "get",
+          "deviceResource": "BinaryInput6",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "7",
+          "operation": "get",
+          "deviceResource": "BinaryInput7",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "8",
+          "operation": "get",
+          "deviceResource": "BinaryInput8",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "9",
+          "operation": "get",
+          "deviceResource": "BinaryInput9",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "10",
+          "operation": "get",
+          "deviceResource": "BinaryInput10",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "11",
+          "operation": "get",
+          "deviceResource": "BinaryInput11",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "12",
+          "operation": "get",
+          "deviceResource": "BinaryInput12",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "13",
+          "operation": "get",
+          "deviceResource": "BinaryInput13",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "14",
+          "operation": "get",
+          "deviceResource": "BinaryInput14",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "15",
+          "operation": "get",
+          "deviceResource": "BinaryInput15",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "16",
+          "operation": "get",
+          "deviceResource": "BinaryInput16",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "17",
+          "operation": "get",
+          "deviceResource": "BinaryInput17",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "18",
+          "operation": "get",
+          "deviceResource": "BinaryInput18",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "19",
+          "operation": "get",
+          "deviceResource": "BinaryInput19",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "20",
+          "operation": "get",
+          "deviceResource": "BinaryInput20",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "21",
+          "operation": "get",
+          "deviceResource": "BinaryInput21",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "22",
+          "operation": "get",
+          "deviceResource": "BinaryInput22",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "23",
+          "operation": "get",
+          "deviceResource": "BinaryInput23",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "24",
+          "operation": "get",
+          "deviceResource": "BinaryInput24",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "25",
+          "operation": "get",
+          "deviceResource": "BinaryOutput1",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "26",
+          "operation": "get",
+          "deviceResource": "BinaryOutput2",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "27",
+          "operation": "get",
+          "deviceResource": "BinaryOutput3",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        },
+        {
+          "index": "28",
+          "operation": "get",
+          "deviceResource": "BinaryOutput4",
+          "mappings": {
+            "true": "close",
+            "false": "open"
+          }
+        }
+      ]
+    }
+  ]
+}

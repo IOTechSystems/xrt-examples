@@ -1,0 +1,12 @@
+{
+  "Library": "libxrt-modbus-device-service.so",
+  "Factory": "xrt_modbus_device_service_factory",
+  "Name":"modbus_device_service",
+  "Topic":"modbus_device_service/data",
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger_debug",
+  "ThreadPool":"pool",
+  "Bus":"bus"
+}
