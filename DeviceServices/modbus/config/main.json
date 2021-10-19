@@ -6,6 +6,7 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "modbus_device_service":"XRT::ModbusDeviceService",
+  "mqtt_bridge": "XRT::MQTTBridge",
   "log_exporter":"XRT::LogExporter",
   "device_server": "XRT::DeviceServer"
 }
