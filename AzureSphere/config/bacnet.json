@@ -20,11 +20,10 @@
   "Schedules":[
     {
       "device": "bacnet-simulator",
-      "resource": "InputsValues",
+      "resource": "BinaryInput0",
       "interval": 5000000
     }
   ],
-  "DiscoveryInterval": 10,
   "ProfileDir":"config/profiles",
   "Scheduler":"scheduler",
   "Logger":"logger",

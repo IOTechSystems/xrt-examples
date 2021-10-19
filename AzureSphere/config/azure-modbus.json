@@ -3,7 +3,7 @@
   "Logger":"logger",
   "ConnectionType":"DPS",
   "HostName":"IOTechHub.azure-devices.net",
-  "DeviceID":"6c5454c69f8e61039fb744e215012bb50c7e815ab44f074c0ef69b92de90c644b7ebb253220685511d65ef53eee72c25a7248a41abd36c79f40e4e52a5192e85",
+  "DeviceID":"48c009bc75a97527a60e3829f7cc2b266199d10f8199ee5477d87159b11f6106ff45d6897ea4c9e3b0b7dfc5f22d9facbb2c7ff32e4d3051f10a87a1328c786d",
   "ModelID":"guardian-100",
   "ScopeID":"0ne0017479D",
   "Interface":"wlan0",

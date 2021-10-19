@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "192.168.0.201", "192.168.0.150", "192.168.0.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "192.168.100.201", "192.168.100.150", "192.168.100.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [
       "$AVNET_MT3620_SK_USER_LED_BLUE",
       "$AVNET_MT3620_SK_USER_LED_RED",

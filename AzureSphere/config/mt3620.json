@@ -3,7 +3,7 @@
   "Logger":"logger",
   "Pattern":"device/mt3620/input",
   "Interface":"wlan0",
-  "Address":"192.168.0.150",
+  "Address":"192.168.100.150",
   "SubnetMask":"255.255.255.0",
-  "Gateway":"0.0.0.0"
+  "Gateway":"192.168.100.1"
 }

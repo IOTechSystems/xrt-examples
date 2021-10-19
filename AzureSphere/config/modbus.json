@@ -11,7 +11,7 @@
       "profile":"Damocles2 Mini",
       "protocols":{
         "modbus-tcp":{
-          "Address": "10.0.0.1",
+          "Address": "192.168.100.201",
           "Port": "1502",
           "UnitID": "2"
         }
