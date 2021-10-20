@@ -1,0 +1,33 @@
+{
+  "Library": "libxrt-bacnet-ip-device-service.so",
+  "Factory": "xrt_bacnet_ip_device_service_factory",
+  "Name":"bacnet_device_service",
+  "Topic": "xrt/device/bacnet_ip_device_service/data",
+  "RequestTopic": "xrt/device/bacnet_ip_device_service/request",
+  "ReplyTopic": "xrt/device/bacnet_ip_device_service/reply",
+  "DiscoveryRequestTopic": "xrt/discovery/bacnet_ip_device_service/request",
+  "DiscoveryReplyTopic": "xrt/discovery/bacnet_ip_device_service/reply",
+  "DiscoveryTopic": "xrt/discovery/bacnet_ip_device_service/devices",
+  "ProfileRequestTopic": "xrt/profile/bacnet_ip_device_service/request",
+  "ProfileReplyTopic": "xrt/profile/bacnet_ip_device_service/reply",
+  "ScheduleRequestTopic": "xrt/schedule/bacnet_ip_device_service/request",
+  "ScheduleReplyTopic": "xrt/schedule/bacnet_ip_device_service/reply",
+  "QueueMax": 100,
+  "AutoRegister": false,
+  "DiscoveryInterval": 600,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Driver":{
+    "Port": 47808,
+    "APDUTimeout": 4000,
+    "APDURetries": 2,
+    "MultiBatchSize": 15,
+    "DefaultDiscoveryMode": "All"
+  }
+}
