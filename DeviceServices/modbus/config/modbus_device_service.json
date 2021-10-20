@@ -2,11 +2,20 @@
   "Library": "libxrt-modbus-device-service.so",
   "Factory": "xrt_modbus_device_service_factory",
   "Name":"modbus_device_service",
-  "Topic":"modbus_device_service/data",
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}",
   "Scheduler":"sched",
-  "Logger":"logger_debug",
+  "Logger":"logger",
   "ThreadPool":"pool",
-  "Bus":"bus"
+  "Bus":"bus",
+  "Topic":"modbus_device_service/data",
+  "RequestTopic": "xrt/device/modbus_device_service/request",
+  "ReplyTopic": "xrt/device/modbus_device_service/reply",
+  "DiscoveryRequestTopic": "xrt/discovery/modbus_device_service/request",
+  "DiscoveryReplyTopic": "xrt/discovery/modbus_device_service/reply",
+  "DiscoveryTopic": "xrt/discovery/modbus_device_service/devices",
+  "ProfileRequestTopic": "xrt/profile/modbus_device_service/request",
+  "ProfileReplyTopic": "xrt/profile/modbus_device_service/reply",
+  "ScheduleRequestTopic": "xrt/schedule/modbus_device_service/request",
+  "ScheduleReplyTopic": "xrt/schedule/modbus_device_service/reply"
 }
