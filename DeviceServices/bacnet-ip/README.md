@@ -17,6 +17,21 @@ docker run --rm -d --name=bacnet-sim -e RUN_MODE=IP -v /path/to/xrt-examples/Dev
 
 This will start the bacnet simulator.
 
+**Find the IP address of the server**
+
+```bash
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim
+```
+
+Add the following entries to the Driver options in the `bacnet_device_service.jsonfile`:
+```json
+ "Driver":{
+    ...     
+    "BBMDAddress":"<BACNET_SIM_IP_ADDRESS>",
+    "BBMDPort": 47808
+  }
+```
+
 **Set Environment Variables**
 
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
