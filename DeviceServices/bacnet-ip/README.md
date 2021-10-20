@@ -1,4 +1,4 @@
-# Bacnet Device Service Example
+# Bacnet IP Device Service Example
 
 ## Example
 
@@ -22,13 +22,13 @@ This will start the bacnet simulator.
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/opc-ua/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/bacnet-ip/config/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/opc-ua/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/bacnet-ip/state/
 ```
 
 **Run XRT with the config folder:**
