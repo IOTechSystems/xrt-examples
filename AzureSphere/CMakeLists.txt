@@ -15,6 +15,7 @@ add_executable (${PROJECT_NAME} main.c)
 
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-azure-exporter.a)
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-log-exporter.a)
+target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-influxdb-exporter.a)
 
 message (STATUS "Building for ${BOARD} with ${DEVICE} device service")
 
@@ -57,5 +58,5 @@ target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/xrt/in
 target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/iot/include/)
 
 azsphere_target_hardware_definition (${PROJECT_NAME} TARGET_DIRECTORY "${SDK_ROOT}/HardwareDefinitions" TARGET_DEFINITION ${TARGET_CONFIG})
-azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/mt3620.json" ${DEVICE_CONFIG} "config/profiles/profiles.json")
+azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/mt3620.json" ${DEVICE_CONFIG} "config/profiles/profiles.json" "config/influxdb_exporter.json")
 
