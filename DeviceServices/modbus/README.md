@@ -42,6 +42,10 @@ export XRT_LICENSE_FILE=/home/peter/license.json
   - Example for a locally-hosted Modbus RTU simulator: `export MODBUS_DEVICE_ADDRESS=/dev/tty/usb0`
   - Example for Modbus TCP device hosted at another IP address: `export MODBUS_DEVICE_ADDRESS=192.168.10.100`
 
+- `MODBUS_DEVICE_PORT`
+    - This is an environment variable denoting the port used by the target modbus device.
+    - It is typically port 502 or 1502 if running a simulated device, although any available port will work with ModbusPal when configured through the GUI
+
 - `XRT_PROFILE_DIR`
     - This is an environment variable pointing towards the directory containing device profiles to be used.
     - For the default example configuration, this should be set using `export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/modbus/config/profiles`
