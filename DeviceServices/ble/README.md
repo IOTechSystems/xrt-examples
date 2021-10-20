@@ -2,9 +2,8 @@
 
 ## Example
 
-This example uses a the ble device service to connect to the iotech ble device simulator.
+This example uses the ble device service to connect to the iotech ble device simulator.
 Additionally, a complete profile for the ble simulator is provided with a schedule to read all of its resources every 3 seconds.
-In this example, we use the iotech LDS and test server.
 
 ## Steps
 
