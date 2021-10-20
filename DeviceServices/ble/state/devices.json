@@ -3,7 +3,7 @@
     "name": "ble-sim-device",
     "profile": "BLESIMTest",
     "protocols": {
-      "OPC-UA": {
+      "BLE": {
         "MAC": "00:AA:01:01:00:24"
       }
     }
