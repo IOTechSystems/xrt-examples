@@ -1,0 +1,16 @@
+{
+  "Library": "libxrt-influxdb-exporter.so",
+  "Factory": "xrt_influxdb_exporter_factory",
+  "ServerURI": "http://192.168.100.201:8086",
+  "DBName" : "mmm",
+  "AuthEnabled": true,
+  "UserName": "admin",
+  "Password": "admin",
+  "SelectData": [
+    { "Pattern": "device/output", "Format": "Device"}
+  ],
+  "Bus": "bus",
+  "Logger": "logger",
+  "ConnectTimeout": 4000,
+  "Timeout": 1500
+}
