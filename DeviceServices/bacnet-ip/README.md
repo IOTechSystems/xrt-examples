@@ -11,7 +11,7 @@ Additionally, a complete bacnet device profile for the test server is provided w
 
 ```bash
 docker run --rm -d --name=bacnet-sim -e RUN_MODE=IP -v /path/to/xrt-examples/DeviceServices/bacnet-ip/bacnet-simulator/:/docker-lua-script/ \
-        iotechsys/bacnet-server:2.0.dev --script /docker-lua-script/example.lua --instance 1234 --name BacnetSimulator
+        iotechsys/bacnet-server:2.0 --script /docker-lua-script/example.lua --instance 1234 --name BacnetSimulator
 ```
 
 This will start the bacnet simulator.
