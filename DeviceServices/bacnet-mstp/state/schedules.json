@@ -1,0 +1,1 @@
+{"schedule1":{"device":"BacnetSimulator","resource":[".*"],"interval":3000000,"name":"schedule1"}}

@@ -1,0 +1,1 @@
+{"BacnetSimulator":{"profile":"bacnet-simulator","protocols":{"BACnet-MSTP":{"DeviceInstance":"1234"}},"name":"BacnetSimulator"}}
