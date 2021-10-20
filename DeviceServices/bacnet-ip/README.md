@@ -4,7 +4,6 @@
 
 This example uses the bacnet device service to connect to the iotech bacnet simulator.
 Additionally, a complete bacnet device profile for the test server is provided with a schedule to read all of its resources every 3 seconds.
-In this example, we use the iotech LDS and test server.
 
 ## Steps
 
