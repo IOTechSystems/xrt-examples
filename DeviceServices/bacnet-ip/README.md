@@ -4,7 +4,6 @@
 
 This example uses the bacnet device service to connect to the iotech bacnet simulator.
 Additionally, a complete bacnet device profile for the test server is provided with a schedule to read all of its resources every 3 seconds.
-In this example, we use the iotech LDS and test server.
 
 ## Steps
 
@@ -12,7 +11,7 @@ In this example, we use the iotech LDS and test server.
 
 ```bash
 docker run --rm -d --name=bacnet-sim -e RUN_MODE=IP -v /path/to/xrt-examples/DeviceServices/bacnet-ip/bacnet-simulator/:/docker-lua-script/ \
-        iotechsys/bacnet-server:2.0.dev --script /docker-lua-script/example.lua --instance 1234 --name BacnetSimulator
+        iotechsys/bacnet-server:2.0 --script /docker-lua-script/example.lua --instance 1234 --name BacnetSimulator
 ```
 
 This will start the bacnet simulator.
