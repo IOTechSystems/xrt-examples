@@ -1,0 +1,13 @@
+{
+  "Network-Power-Meter-Simulation": {
+    "profile": "Network Power Meter",
+    "protocols": {
+      "modbus-tcp": {
+        "Address": "${MODBUS_DEVICE_ADDRESS}",
+        "Port": "${MODBUS_DEVICE_PORT}",
+        "UnitID": "1"
+      }
+    },
+    "name": "Network-Power-Meter-Simulation"
+  }
+}
