@@ -23,7 +23,7 @@ This will start the bacnet simulator.
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim
 ```
 
-Add the following entries to the Driver options in the `bacnet_device_service.jsonfile`:
+Add the following entries to the Driver options in the `bacnet_device_service.json` file:
 ```json
  "Driver":{
     ...     
