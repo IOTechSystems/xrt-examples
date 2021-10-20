@@ -1,0 +1,9 @@
+{
+  "logger":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "sched":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "log_exporter":"XRT::LogExporter",
+  "influxdb_exporter":"XRT::InfluxDBExporter",
+  "virtual_device_service":"XRT::VirtualDeviceService"
+}
