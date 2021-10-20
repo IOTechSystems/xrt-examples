@@ -19,6 +19,12 @@ This will start the bacnet simulator.
 
 **Setup Socat Link to the sim**
 
+Find the IP of the BACnet Simulator:
+
+```bash
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim
+```
+
 ```bash
 socat pty,link=/tmp/virtualport,raw,echo=0 tcp:${BACNET_MSTP_DEVICE_ADDRESS}:55000
 ```
