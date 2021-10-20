@@ -42,6 +42,14 @@ export XRT_LICENSE_FILE=/home/peter/license.json
   - Example for a locally-hosted Modbus RTU simulator: `export MODBUS_DEVICE_ADDRESS=/dev/tty/usb0`
   - Example for Modbus TCP device hosted at another IP address: `export MODBUS_DEVICE_ADDRESS=192.168.10.100`
 
+- `XRT_PROFILE_DIR`
+    - This is an environment variable pointing towards the directory containing device profiles to be used.
+    - For the default example configuration, this should be set using `export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/modbus/config/profiles`
+
+- `XRT_STATE_DIR`
+    - This is an environment variable pointing towards the directory containing state information to be used.
+    - For the default example configuration, this should be set using `export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/modbus/state`
+
 ### Run XRT
 
 ```
