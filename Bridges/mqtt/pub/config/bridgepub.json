@@ -1,0 +1,28 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [ "test/data" ],
+  "MQTTPatterns": [ "bridge/data" ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "mqtt_pub",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 30,
+      "MQTTVersion": 5,
+      "Reliable": true,
+      "ConnectTimeout": 0,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "CleanSession": false,
+      "CleanStart": false,
+      "SessionExpiry": 30
+    }
+  },
+  "Cookie": 125,
+  "Bus": "bus",
+  "QueueSize": 4,
+  "Logger": "logger_debug"
+}
