@@ -2,7 +2,7 @@
 
 ## Example
 
-This example uses the MQTT bridge component to demonstrate the publishing/subscription model used.
+This example uses the MQTT bridge component in conjunction with the virtual device service to demonstrate the publishing/subscription model used.
 
 **Required Environment Variables**
 
