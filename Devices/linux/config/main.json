@@ -3,6 +3,5 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "linux_device":"XRT::LinuxDevice",
-  "log_exporter":"XRT::LogExporter" 
+  "linux_device":"XRT::LinuxDevice"
 }
