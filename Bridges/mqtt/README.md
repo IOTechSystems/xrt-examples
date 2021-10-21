@@ -29,6 +29,6 @@ This is assuming that the following pre-requisites are satisfied:
 * XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
-$ /path/to/xrt/executable/xrt /path/to/xrt-examples/Bridges/mqtt/pub/config
+$ xrt /path/to/xrt-examples/Bridges/mqtt/pub/config
 ```
 
