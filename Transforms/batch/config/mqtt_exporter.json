@@ -1,0 +1,26 @@
+{
+  "Library": "libxrt-mqtt-exporter.so",
+  "Factory": "xrt_mqtt_exporter_factory",
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "mqtt_exporter",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 0,
+      "MQTTVersion": 4,
+      "Reliable": true,
+      "ConnectTimeout": 0,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "CleanSession": false,
+      "CleanStart": false
+    }
+  },
+  "Bus": "bus",
+  "Logger": "logger",
+  "Pattern": "data/export",
+  "Topic": "test",
+  "QueueSize": 4
+}
