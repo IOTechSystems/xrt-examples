@@ -1,0 +1,14 @@
+{
+  "Library": "libxrt-thrift-bridge.so",
+  "Factory": "xrt_thrift_bridge_factory",
+  "ServerIP":"127.0.0.1",
+  "ServerPort":9999,
+  "ClientIP":"127.0.0.1",
+  "ClientPort":9989,
+  "Patterns":[ "test/data", "bridge/data" ],
+  "Cookie":125,
+  "PubBus": "bus",
+  "SubBus": "bus",
+  "QueueSize": 4,
+  "Logger": "logger"
+}
