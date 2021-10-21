@@ -2,7 +2,7 @@
 
 ## Example
 
-These examples use the virtual device service to produce readings to be exported by an REST exporter to post readings to a REST endpoint.
+These examples use the virtual device service to produce readings to be exported by a REST exporter to post readings to a REST endpoint.
 
 ## Steps
 
@@ -11,13 +11,13 @@ These examples use the virtual device service to produce readings to be exported
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/rest/config/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/rest/state/
 ```
 
 XRT_REST_ENDPOINT - The address of the rest endpoint the readings are exported to e.g
