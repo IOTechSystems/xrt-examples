@@ -16,7 +16,7 @@ XRT_STATE_DIR - This should be the path to the state directory e.g.
 export XRT_STATE_DIR=/path/to/xrt-examples/Bridges/thrift/pub/state/
 ```
 
-PUB_SERVER_ADDRESS - The IP address of the server used, e.g.
+PUB_SERVER_ADDRESS - The IP address of the server, e.g.
 ```bash
 export PUB_SERVER_ADDRESS="127.0.0.1"
 ```
@@ -26,12 +26,12 @@ PUB_CLIENT_ADDRESS - The IP address of the client device, e.g.
 export PUB_CLIENT_ADDRESS="127.0.0.1"
 ```
 
-PUB_SERVER_PORT - The port used by the server used, e.g.
+PUB_SERVER_PORT - The port used by the server, e.g.
 ```bash
 export PUB_SERVER_PORT=99999
 ```
 
-PUB_CLIENT_PORT - The port used by the server used, e.g.
+PUB_CLIENT_PORT - The port used by the server, e.g.
 ```bash
 export PUB_CLIENT_PORT=9998
 ```
