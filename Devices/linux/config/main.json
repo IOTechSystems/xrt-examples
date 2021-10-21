@@ -1,0 +1,7 @@
+{
+  "logger":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "sched":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "linux_device":"XRT::LinuxDevice"
+}
