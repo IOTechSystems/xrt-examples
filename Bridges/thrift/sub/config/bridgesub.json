@@ -4,7 +4,7 @@
   "ServerIP":"${SUB_SERVER_ADDRESS}",
   "ServerPort":"${SUB_SERVER_PORT}",
   "ClientIP":"${SUB_CLIENT_ADDRESS}",
-  "ClientPort":",${SUB_CLIENT_PORT}",
+  "ClientPort":"${SUB_CLIENT_PORT}",
   "Patterns":[ "bridge/data", "test/data" ],
   "Cookie":126,
   "PubBus": "bus",
