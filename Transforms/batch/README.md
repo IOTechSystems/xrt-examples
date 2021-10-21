@@ -11,13 +11,13 @@ You will need to set the following environment variables prior to running the ex
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Transforms/batch_transform/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Transforms/batch/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Transforms/batch_transform/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Transforms/batch/state/
 ```
 
 **Run XRT with the config folder:**
@@ -29,6 +29,6 @@ This is assuming that the following pre-requisites are satisfied:
 * XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
-$ xrt /path/to/xrt-examples/Transforms/batch_transform/config
+$ xrt /path/to/xrt-examples/Transforms/batch/config
 ```
 
