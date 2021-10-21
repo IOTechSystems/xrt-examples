@@ -1,0 +1,15 @@
+{
+  "Library": "libxrt-linux-device.so",
+  "Factory": "xrt_linux_device_factory",
+  "Bus": "bus",
+  "Scheduler":"sched",
+  "ThreadPool":"pool",
+  "Schedules": [
+    { "Interval": 250, "Metrics": ["CPU", "Memory"], "Topic": "device/metrics1", "SeparateEvents": false, "Sync": true},
+    { "Interval": 500, "Metrics": ["NetworkIO", "CPU"], "Topic": "device/metrics2", "SeparateEvents": true},
+    { "Interval": 1000, "Metrics": ["DiskIO"], "Topic": "device/metrics3", "SeparateEvents": false, "Sync": true},
+    { "Interval": 5000, "Metrics": ["NetworkInterface"], "Topic": "device/metrics4", "SeparateEvents": false},
+    { "Interval": 10000, "Metrics": ["Memory", "CPU", "DiskIO"], "Topic": "device/metrics5", "SeparateEvents": true}
+  ],
+  "Logger":"logger"
+}
