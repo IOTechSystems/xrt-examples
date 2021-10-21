@@ -1,0 +1,6 @@
+{
+  "Threads":2,
+  "MaxJobs":10,
+  "ShutdownDelay":500,
+  "Logger":"logger"
+}
