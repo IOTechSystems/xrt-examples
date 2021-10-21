@@ -1,0 +1,13 @@
+{
+  "Library":"libxrt-batch-transform.so",
+  "Factory":"xrt_batch_transform_factory",
+  "Bus":"bus",
+  "Scheduler":"sched",
+  "ThreadPool":"pool",
+  "Logger":"logger_debug",
+  "Pattern":"device/data",
+  "Topic":"data/export",
+  "Metadata":{"MQTT_TOPIC":"demo"},
+  "BufferSize":5,
+  "Timeout":3600000
+}
