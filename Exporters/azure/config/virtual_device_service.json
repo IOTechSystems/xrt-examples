@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-virtual-device-service.so",
+  "Factory": "xrt_virtual_device_service_factory",
+  "Scheduler":"scheduler",
+  "Logger":"logger_debug",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Name":"virtual_device_service",
+  "Topic":"device/virtual/output",
+  "RequestTopic":"device/virtual/input",
+  "StateDir":"${XRT_STATE_DIR}",
+  "ProfileDir":"${XRT_PROFILE_DIR}"
+}

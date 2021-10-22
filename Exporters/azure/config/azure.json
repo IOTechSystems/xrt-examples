@@ -1,0 +1,17 @@
+{
+  "Library": "libxrt-azure-iot-exporter.so",
+  "Factory": "xrt_azure_exporter_factory",
+  "Bus":"bus",
+  "Logger":"logger_debug",
+  "ConnectionType":"DPS",
+  "HostName":"${AZURE_EXPORTER_HOSTNAME}",
+  "DeviceID":"${AZURE_EXPORTER_DEVICE_ID}",
+  "ScopeID":"0ne0017479D",
+  "Certificate": "${AZURE_EXPORTER_CERTIFICATE}",
+  "Key": "${AZURE_EXPORTER_KEY}",
+  "Devices": [
+    {
+      "Name":"device-virtual", "Topic":"device/virtual/input", "Pattern":"device/virtual/output", "Format":"Device"
+    }
+  ]
+}

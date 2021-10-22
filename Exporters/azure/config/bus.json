@@ -1,0 +1,9 @@
+{
+  "Scheduler":"scheduler",
+  "ThreadPool":"pool",
+  "Logger":"logger",
+  "Topics":[
+    { "Topic": "device/virtual/input", "ThreadPool": "pool" },
+    { "Topic": "device/virtual/output", "ThreadPool": "pool", "FilterDuplicates": true }
+  ]
+}
