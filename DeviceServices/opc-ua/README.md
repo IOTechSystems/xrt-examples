@@ -11,7 +11,7 @@ In this example, we use the iotech LDS and test server.
 **Run the LDS and test server:**
 
 ```bash
-docker run --rm -d --name opc-ua-sim -e RUN_LDS=true -p 49947 -p 4840 iotechsys/dev-edgexpert-opc-ua-test-server:1.8.6.dev-x86_64
+docker run --rm -d --name opc-ua-sim -e RUN_LDS=true -p 49947 -p 4840 iotechsys/opc-ua-sim:1.0.dev
 ```
 
 This will start the LDS server and the test server in the same container.
