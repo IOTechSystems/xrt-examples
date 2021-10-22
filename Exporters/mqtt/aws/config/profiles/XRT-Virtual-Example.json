@@ -1,0 +1,42 @@
+{
+  "name": "XRT-Virtual-Example",
+  "deviceResources":[
+    {
+      "name": "Origin",
+      "attributes": { "firstValue": "Sensor55" },
+      "properties":
+      {
+        "value": { "type": "String", "readWrite": "R" },
+        "units": { "defaultValue": "" }
+      }
+    },
+    {
+      "name": "Temp",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": "345", "difference": "-1" },
+      "properties":
+      {
+        "value": { "type": "UInt32", "readWrite": "R" },
+        "units": { "defaultValue": "degC" }
+      }
+    },
+    {
+      "name": "Uptime",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": "67891", "difference": "1" },
+      "properties":
+      {
+        "value": { "type": "Uint64", "readWrite": "R" },
+        "units": { "defaultValue": "seconds" }
+      }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "SensorOne",
+      "get": [
+        { "deviceResource": "Origin" },
+        { "deviceResource": "Temp" },
+        { "deviceResource": "Uptime" }
+      ]
+    }
+  ]
+}
