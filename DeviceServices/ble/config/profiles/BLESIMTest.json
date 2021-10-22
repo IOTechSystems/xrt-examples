@@ -1,0 +1,104 @@
+{
+  "name": "BLESIMTest",
+  "manufacturer": "IoTech",
+  "model": "0.0.1",
+  "description": "A Simulated BLE device",
+  "labels": [
+    "BLE"
+  ],
+  "deviceResources": [
+    {
+      "name": "CharOneData",
+      "description": "A simple integer value",
+      "properties": {
+        "value": {
+          "type": "uint32",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "NA"
+        }
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe1"
+      }
+    },
+    {
+      "name": "CharOneNotification",
+      "description": "CharacteristicOne Notification",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "Notification"
+        }
+      },
+      "attributes": {
+        "deviceResource": "CharOneData",
+        "isNotification": "true"
+      }
+    },
+    {
+      "name": "CharTwoFirstData",
+      "description": "first 4 bytes of characteristic 2  ",
+      "properties": {
+        "value": {
+          "type": "Uint32",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "A number"
+        }
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe2",
+        "startByte": "0"
+      }
+    },
+    {
+      "name": "CharTwoSecondData",
+      "description": "Second 8 bytes of characteristic 2",
+      "properties": {
+        "value": {
+          "type": "Uint64",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "A number"
+        }
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe2",
+        "startByte": "4"
+      }
+    },
+    {
+      "name": "CharThreeData",
+      "description": "boolean value ",
+      "properties": {
+        "value": {
+          "type": "Bool",
+          "readWrite": "RW"
+        },
+        "units": {
+          "type": "String",
+          "readWrite": "R",
+          "defaultValue": "value"
+        }
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe3"
+      }
+    }
+  ]
+}

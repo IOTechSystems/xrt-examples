@@ -1,0 +1,1 @@
+{"schedule1":{"device":"ble-sim-device","resource":[".*"],"interval":3000000,"name":"schedule1"}}
