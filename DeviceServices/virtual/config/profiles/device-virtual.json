@@ -1,0 +1,118 @@
+{
+  "name": "device-virtual",
+  "manufacturer": "IOTech",
+  "model": "Device-Virtual-01",
+  "labels": [
+    "device-virtual-example"
+  ],
+  "description": "Example of Device-Virtual",
+  "deviceResources": [
+    {
+      "name": "RandomInt8", "description": "Generate random int8 value",
+      "attributes": { "sequenceType": "random", "minimum": "-128", "maximum": "127" },
+      "properties": {
+        "value": { "type": "Int8", "readWrite": "R" },
+        "units": { "defaultValue": "random int8 value"
+        }
+      }
+    },
+    {
+      "name": "RandomInt16", "description": "Generate random int16 value",
+      "attributes": { "sequenceType": "random", "minimum": "-32767", "maximum": "32767" },
+      "properties": {
+        "value": { "type": "Int16", "readWrite": "R" },
+        "units": { "defaultValue": "random int16 value"
+        }
+      }
+    },
+    {
+      "name": "RandomInt32", "description": "Generate random int32 value",
+      "attributes": { "sequenceType": "random", "minimum": "-2147483645", "maximum": "2147483645" },
+      "properties": {
+        "value": { "type": "Int32", "readWrite": "R" },
+        "units": { "defaultValue": "random int32 value" }
+      }
+    },
+    {
+      "name": "RandomInt64", "description": "Generate random int64 value",
+      "attributes": { "sequenceType": "random", "minimum": "-9223372036854775807", "maximum": "9223372036854775807" },
+      "properties": {
+        "value": { "type": "Int64", "readWrite": "R" },
+        "units": { "defaultValue": "random int64 value" }
+      }
+    },
+    {
+      "name": "RandomInt64", "description": "Generate random int64 value",
+      "attributes": { "sequenceType": "random", "minimum": "-1", "maximum": "1" },
+      "properties": {
+        "value": { "type": "Int64", "readWrite": "R" },
+        "units": { "defaultValue": "random int64 value" }
+      }
+    },
+    {
+      "name": "RandomUint8", "description": "Generate random uint8 value",
+      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "255" },
+      "properties": {
+        "value": { "type": "Uint8", "readWrite": "R" },
+        "units": { "defaultValue": "random uint8 value" }
+      }
+    },
+    {
+      "name": "RandomUint16", "description": "Generate random uint16 value",
+      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "65535" },
+      "properties": {
+        "value": { "type": "Uint16", "readWrite": "R" },
+        "units": { "defaultValue": "random uint16 value" }
+      }
+    },
+    {
+      "name": "RandomUint32", "description": "Generate random uint32 value",
+      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "4294967295" },
+      "properties": {
+        "value": { "type": "Uint32", "readWrite": "R" },
+        "units": { "defaultValue": "random uint32 value" }
+      }
+    },
+    {
+      "name": "RandomUint64", "description": "Generate random uint64 value",
+      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "18446744073709551615" },
+      "properties": {
+        "value": { "type": "Uint64", "readWrite": "R"
+        },
+        "units": { "defaultValue": "random uint64 value" }
+      }
+    },
+    {
+      "name": "RandomFloat32", "description": "Generate random float32 value",
+      "attributes": { "sequenceType": "random", "minimum": "-3.4E+38", "maximum": "3.4E+38" },
+      "properties": {
+        "value": { "type": "Float32", "readWrite": "R" },
+        "units": { "defaultValue": "random float32 value" }
+      }
+    },
+    {
+      "name": "RandomFloat64", "description": "Generate random float64 value",
+      "attributes": { "sequenceType": "random", "minimum": "-1.7E+308", "maximum": "1.7E+308" },
+      "properties": {
+        "value": { "type": "Float64", "readWrite": "R" },
+        "units": { "defaultValue": "random float64 value" }
+      }
+    },
+    {
+      "name": "CountingUInt32", "description": "Integer value which counts upward",
+      "attributes": { "firstValue": "10", "sequenceType": "arithmetic" },
+      "properties": {
+        "value": { "type": "Int32", "readWrite": "R" },
+        "units": { "defaultValue": "things" }
+      }
+    },
+    {
+      "name": "Sinewave", "description": "Value which traces a sinewave",
+      "attributes": { "sequenceType": "waveform", "period": "8", "amplitude": "4" },
+      "properties": {
+        "value": { "type": "Float64", "readWrite": "R" },
+        "units": { "defaultValue": "amount" }
+      }
+    }
+  ]
+}
