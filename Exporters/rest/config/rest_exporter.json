@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-rest-exporter.so",
+  "Factory": "xrt_rest_exporter_factory",
+  "Endpoint":"${XRT_REST_ENDPOINT}",
+  "ConnectTimeout": 5000,
+  "Timeout": 1000,
+  "Pattern": "device/#",
+  "Headers":["Content-Type: application/json"],
+  "SSLConfig": {"CAFile": "${REST_EXPORTER_CA_FILE}","SSLCert": "${REST_EXPORTER_SSL_CERT}", "SSLKey": "${REST_EXPORTER_SSL_KEY}"},
+  "Bus": "bus",
+  "QueueSize": 2,
+  "Logger": "logger_debug"
+}
