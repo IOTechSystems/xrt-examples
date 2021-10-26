@@ -1,8 +1,0 @@
-{
-  "logger":"IOT::Logger",
-  "pool":"IOT::ThreadPool",
-  "sched":"IOT::Scheduler",
-  "bus":"XRT::Bus",
-  "ble_device_service": "XRT::BLEDeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge"
-}
