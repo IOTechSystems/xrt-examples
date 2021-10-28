@@ -1,20 +1,20 @@
 # Ethernet-IP Device
 
-In this Ethernet-IP exammple, XRT connects to a Allen Bradley PLC that is assumed to have preprogrammed tags. Values are read from the PLC and pushed to a Azure IoT Hub.
+In this Ethernet-IP example, XRT connects to a Allen Bradley PLC that is assumed to have preprogrammed tags. Values are read from the PLC and pushed to a Azure IoT Hub.
 
 An example of connecting to the Allen Bradley PLC using wired Ethernet is given in this guide.
 
 ## AzureSphere Hardware
 
-## Prerequesits
+## Prerequisites
 
-*Note - The prerequisitses found on the main [readme.md](https://github.com/IOTechSystems/xrt-examples/blob/master/AzureSphere/README.md) are requered for this example*
+*Note - The prerequisites found on the main [readme.md](https://github.com/IOTechSystems/xrt-examples/blob/master/AzureSphere/README.md) are required for this example*
 
-- Allen Bradly PLC or other EIP device
+- Allen Bradley PLC or other EIP device
 
 ## Configuration
 
-In-order for the Ethernet-IP Example to work, you will need to edit some of the configurations. The configurations that are requred to be edited will have "(required)" within there title.
+In-order for the Ethernet-IP Example to work, you will need to edit some of the configurations. The configurations that are required to be edited will have "(required)" within their title.
 
 ### Device Profile
 
@@ -22,13 +22,13 @@ A sample Ethernet-IP device profile for an Allen Bradley PLC can be found at: co
 
 The Device profile contains a config of different deviceResources that can be sent or received from the Azure IoT Hub.
 
-Edit this file with the corrisponding tag names you wish to read/write to within the desired PLC
+Edit this file with the corresponding tag names you wish to read/write to within the desired PLC
 
 ### Azure (Required)
 
 The Azure config file can be found at: configs/azure-ethernetip.json
 
-You will need to configer some values in azure.json to be able to send values to the IoT Hub. You will need:
+You will need to configure some values in azure.json to be able to send values to the IoT Hub. You will need:
 
 - DeviceID, can be found for a USB connected device with the command:
 
@@ -36,7 +36,7 @@ You will need to configer some values in azure.json to be able to send values to
   - azsphere device list-attached
   ```
 
-  HostName, Is the IOT Hub host name and can be found using the Azure Portal or using the command (replace HubName with the anme of your IOT hub):
+  HostName, Is the IOT Hub host name and can be found using the Azure Portal or using the command (replace HubName with the name of your IOT hub):
 
 - ```
   az iot hub show --name <HubName> | grep hostName
@@ -48,7 +48,7 @@ You will need to configer some values in azure.json to be able to send values to
   - az iot dps show --name <DPSName> | grep idScope
   ```
 
-  App Manifest (Required)
+### App Manifest (Required)
 
 - Edit the [mt3620-g100/app_manifest.json](../mt3620-g100/app_manifest.json) file and set DeviceAuthentication to your tenant id and replace IOTechHub with your IoT Hub name in AllowedConnections:
 
@@ -58,11 +58,11 @@ You will need to configer some values in azure.json to be able to send values to
 
 - Add the ip address of the Allen Bradley PLC device that will be communicating with XRT, to the `AllowedConnections` JSON array.
 
-pool.json (Optional)
+### pool.json (Optional)
 
-- If you find with many schedules set that the application crashes please edit the [pool.json](../config/pool.json) file and set maxjobs to a lower number and reduce threads to 1.
+- If you find with many schedules set that the application crashes, please edit the [pool.json](../config/pool.json) file and set maxjobs to a lower number and reduce threads to 1.
 
-## Building The Applicaiton
+## Building The Application
 
 You can build the EthernetIP Example following the links below:
 
@@ -71,7 +71,7 @@ You can build the EthernetIP Example following the links below:
 
 ## Ethernet/IP Azure Driver Options
 
-The Azure version of the Ethernet/IP device service has some extra driver options that need to be configuired before deploying and running on the Azure device:
+The Azure version of the Ethernet/IP device service has some extra driver options that need to be configured before deploying and running on the Azure device:
 
 ```
 "Driver": {
@@ -83,15 +83,15 @@ The Azure version of the Ethernet/IP device service has some extra driver option
 ```
 
 - **NetworkInterface** - The wired network interface on the azure device - can be found using `azsphere device network list-interfaces` 
-- **MacAddress** - The mac adress of the chosen network interface on the azure device - can be found using `azsphere device network list-interfaces` 
-- **FullDuplex** - State if the device is full-duplex or not - Can usually be found from the http webpage of the PLC or other device that is connected to the same network - see image bellow.
-- **NetworkSpeed** - The network speed of which the device is connected to - can be found from the http webpage of the PLC or other device that is connected to the same network - see image bellow.
+- **MacAddress** - The mac address of the chosen network interface on the azure device - can be found using `azsphere device network list-interfaces` 
+- **FullDuplex** - State if the device is full-duplex or not - Can usually be found from the http webpage of the PLC or other device that is connected to the same network - see image below.
+- **NetworkSpeed** - The network speed of which the device is connected to - can be found from the http webpage of the PLC or other device that is connected to the same network - see image below.
 
 ![Logix](images/Logix.png)
 
 ## Adding Devices
 
-To provision a device on XRT with the Ethernet/IP device service two things are needed
+To provision a device on XRT with the Ethernet/IP device service, two things are needed
 
 - The Device Profile
 - The IP Adress of the device
@@ -113,7 +113,7 @@ These are added to the ethernetip.json config file under "Devices":
 
  ## Setting Up Schedules
 
-Schedules have to be setup before deplying and running XRT, schedules require 3 parameters:
+Schedules have to be setup before deploying and running XRT, schedules require 3 parameters:
 
 - The Device name
 - The Desired Resource
@@ -130,4 +130,3 @@ These are added to the ethernetip.json config file under "Schedules":
         }
   ]
 ```
-
