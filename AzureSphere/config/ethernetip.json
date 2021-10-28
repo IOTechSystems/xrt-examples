@@ -1,0 +1,53 @@
+{
+    "Name": "ethernet_ip_device_service",
+    "Topic": "device/output",
+    "RequestTopic": "device/input",
+    "Driver": {
+        "NetworkInterface": "eth0",
+        "MacAddress": "02:aa:2b:e7:b7:6e",
+        "FullDuplex": true,
+        "NetworkSpeed": 100
+    },
+    "Devices":{
+        "Allen-Bradley-Azure": {
+            "profile": "Allen-Bradley-Azure",
+            "protocols": {
+                "IP": {
+                    "Address": "192.168.4.18"
+                }
+            }
+        }
+    },
+    "Schedules": [
+        {
+            "device": "Allen-Bradley-Azure",
+            "resource": "DINT_ARRAY",
+            "interval": 1000000
+        },
+        {
+            "device": "Allen-Bradley-Azure",
+            "resource": "DINT_ARRAY[0]",
+            "interval": 1000000
+        },
+        {
+            "device": "Allen-Bradley-Azure",
+            "resource": "DINT_ARRAY[1]",
+            "interval": 1000000
+        },
+        {
+            "device": "Allen-Bradley-Azure",
+            "resource": "DINT_ARRAY[2]",
+            "interval": 1000000
+        },
+        {
+            "device": "Allen-Bradley-Azure",
+            "resource": "DINT_ARRAY[3]",
+            "interval": 1000000
+        }
+    ],
+    "ProfileDir": "config/profiles",
+    "Scheduler": "scheduler",
+    "Logger": "logger",
+    "ThreadPool": "pool",
+    "Bus": "bus"
+}
