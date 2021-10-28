@@ -1,0 +1,24 @@
+{
+    "Bus": "bus",
+    "Logger": "logger",
+    "ConnectionType": "DPS",
+    "HostName": "IOTechHub.azure-devices.net",
+    "DeviceID": "6c66155558322ad3dd74147edafc6e005b5efe236dd08bab3c1b5a7bcc347e24203bd5d06b1bdd0bff044dcdf64c2c1b82b4f44def6024e11d47e0a2114f8b02",
+    "ModelID": "SR620",
+    "ScopeID": "0ne0017479D",
+    "Interface": "wlan0",
+    "Devices": [
+        {
+            "Name": "mt3620",
+            "Topic": "device/mt3620/input",
+            "Pattern": "device/mt3620/output",
+            "Format": "Raw"
+        },
+        {
+            "Name": "Allen-Bradley-Azure",
+            "Topic": "device/input",
+            "Pattern": "device/output",
+            "Format": "Device"
+        }
+    ]
+}

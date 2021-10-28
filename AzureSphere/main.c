@@ -17,6 +17,9 @@ extern void bip_debug_enable (void);
 #ifdef DEVICE_VIRTUAL
 #include "xrt/virtual_device_service.h"
 #endif
+#ifdef DEVICE_ETHERNETIP
+#include "xrt/ethernet_ip_device_service.h"
+#endif
 /* Shutdown TERM signal handling */
 
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -56,6 +59,10 @@ int main (void)
 #ifdef DEVICE_VIRTUAL
   iot_component_factory_add (xrt_virtual_device_service_factory ());
 #endif
+#ifdef DEVICE_ETHERNETIP
+  iot_component_factory_add(xrt_ethernet_ip_device_service_factory());
+#endif
+
 
   iot_container_init (container);
   iot_container_start (container);
