@@ -60,7 +60,7 @@ You will need to configure some values in azure.json to be able to send values t
 
 ### pool.json (Optional)
 
-- If you find with many schedules set that the application crashes, please edit the [pool.json](../config/pool.json) file and set maxjobs to a lower number and reduce threads to 1.
+- If many scheduels have been set it will be a good idea to edit the [pool.json](../config/pool.json) file and set maxjobs to a lower number and reduce threads to 1 to avoid crashes and memoy issues.
 
 ## Building The Application
 
