@@ -107,7 +107,8 @@ The example main.c includes a remote logging component sent publish logging
 message over UDP. This needs to be configured by editing
 [configs/udp-logger.json](../config/azure-bacnet.json)
 and changing the "To:" value to use the IP address of the host PC.
-If the Linux socat program is installed.
+The Makefile contains an example of using the socat command to monitor
+the log output.
 
 ### App Manifest (Required)
 
