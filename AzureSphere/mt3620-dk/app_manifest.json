@@ -19,7 +19,7 @@
     "MutableStorage": { "SizeKB": 32 },
     "PowerControls": ["ForceReboot"],
     "NetworkConfig" : true,
-    "DeviceAuthentication": "457d3018-e029-4d55-9ad9-f9e9ce6f9474"
+    "DeviceAuthentication": "<tenant-uuid-identifier>"
   },
   "ApplicationType": "Default"
 }
