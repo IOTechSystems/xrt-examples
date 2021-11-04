@@ -71,6 +71,36 @@ az iot hub show --name <HubName> | grep hostName
 az iot dps show --name <DPSName> | grep idScope
 ```
 
+### Device Twin (Required)
+
+The configuration files compiled into the application are only used
+for initial connection to Azure. The "desired" properties setting on
+the device twin are automaticallly downloaded and persisted to the
+Azure Sphere device. An example set of "desired" properties can be
+found at:
+[twin/desired.json](../twin/desired.json)
+
+The Microsoft Azure Device Twin corresponding to the Azure Sphere
+development board will need updating to include the same "azure"
+component settings. This is found in the JSON at "desired" /
+"Components" / "azure".
+
+The device twin "main" has the bacnet component referenced and the
+properties for "desired" / "Components" / "bacnet" must be configured
+to match the actual deployment.
+
+The configuration for the BACnet device service are found under
+"desired" / "Services" / "bacnet_device_service".
+
+The Azure Sphere board on first boot will wait indefinitely until a
+complete configuration update is received from the device twin. The
+board will then reboot. After reconnecting to Azure Sphere the device
+service will start processing any configured schedules and publish
+the data to Azure.
+
+If the desired properties are changed then the Azure Sphere board will
+reboot after receiving notification of the change.
+
 ### Remote Logging (Optional)
 
 The example main.c includes a remote logging component sent publish logging
