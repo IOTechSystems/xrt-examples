@@ -71,6 +71,14 @@ az iot hub show --name <HubName> | grep hostName
 az iot dps show --name <DPSName> | grep idScope
 ```
 
+### Remote Logging (Optional)
+
+The example main.c includes a remote logging component sent publish logging
+message over UDP. This needs to be configured by editing
+[configs/udp-logger.json](../config/azure-bacnet.json)
+and changing the "To:" value to use the IP address of the host PC.
+If the Linux socat program is installed.
+
 ### App Manifest (Required)
 
 * Edit the [app_manifest.json](../app_manifest.json) file and
@@ -92,6 +100,8 @@ az iot dps show --name <DPSName> | grep idScope
   "AllowedConnections" : [ <bacnet-device-ip>, "192.168.4.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
   ...
   ```
+  
+* Optionally add the IP address of a PC to receive XRT logging output sent over UDP.
 
 ## Building The Application
 
