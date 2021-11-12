@@ -2,8 +2,6 @@
 
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 
-echo $SCRIPT_DIR
-
 export OPCUA_SIM_ADDRESS=localhost:49947
 export OPCUA_LDS_ADDRESS=localhost:4840
 

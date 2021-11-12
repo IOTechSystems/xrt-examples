@@ -37,16 +37,16 @@ simulation_folder = ObjectNode.newRootFolder("Simulation", ns3)
 Server.addObjectNode (simulation_folder)
 
 --initialise each node
-counter = VariableNode.newNumeric(1001, "Counter", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
-random = VariableNode.newNumeric(1002, "Random", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
-sawtooth = VariableNode.newNumeric(1003, "Sawtooth", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
-sinusoid = VariableNode.newNumeric(1004, "Sinusoid", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
-square = VariableNode.newNumeric(1005, "Square", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
-triangle = VariableNode.newNumeric(1006, "Triangle", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
+counter = VariableNode.newString("Counter", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
+random = VariableNode.newString("Random", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
+sawtooth = VariableNode.newString("Sawtooth", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
+sinusoid = VariableNode.newString("Sinusoid", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
+square = VariableNode.newString("Square", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
+triangle = VariableNode.newString("Triangle", ns3, simulation_folder:getNodeId(), 0, DataType.DOUBLE, AccessLevel.READ)
 
-writeable_1 = VariableNode.newString("WritableInt64", ns, folder:simulation_folder(), 0, DataType.INT64, AccessLevel.READ | AccessLevel.WRITE)
-writeable_2 = VariableNode.newString("WritableFloat", ns, folder:simulation_folder(), 0.0, DataType.FLOAT, AccessLevel.READ | AccessLevel.WRITE)
-writeable_3 = VariableNode.newString("WritableString", ns, folder:simulation_folder(), "", DataType.STRING, AccessLevel.READ | AccessLevel.WRITE)
+writeable_1 = VariableNode.newString("WritableInt64", ns, simulation_folder:getNodeId(), 0, DataType.INT64, AccessLevel.READ | AccessLevel.WRITE)
+writeable_2 = VariableNode.newString("WritableFloat", ns, simulation_folder:getNodeId(), 0.0, DataType.FLOAT, AccessLevel.READ | AccessLevel.WRITE)
+writeable_3 = VariableNode.newString("WritableString", ns, simulation_folder:getNodeId(), "", DataType.STRING, AccessLevel.READ | AccessLevel.WRITE)
 
 --add the nodes to the server
 Server.addVariableNode (counter)
