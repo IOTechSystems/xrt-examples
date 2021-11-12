@@ -73,33 +73,115 @@ az iot dps show --name <DPSName> | grep idScope
 
 ### Device Twin (Required)
 
-The configuration files compiled into the application are only used
-for initial connection to Azure. The "desired" properties setting on
-the device twin are automaticallly downloaded and persisted to the
-Azure Sphere device. An example set of "desired" properties can be
-found at:
-[twin/desired.json](../twin/desired.json)
+The default configuration files found for this BACnet example that are
+compiled into the application are only used for initial connection to Azure.
+To update the Azure Sphere Device configurations to work with BACnet you must
+use the Azure IoT Hub Device Twin that corresponds to the Azure Sphere Device.
+
+The Azure Sphere Device on first boot will wait indefinitely until a
+complete configuration update is received from the device twin. The
+board will then reboot. After xrt reconnects to Azure IoT Hub the BACnet Device
+Service will start processing any configured schedules and publish the data
+to the IoT Hub.
+
+If the desired properties are changed again then the Azure Sphere Device will
+reboot after receiving notification of the change.
+
+#### Update XRT Configurations Via Iot Hub
+
+Using your web browser, open your IoT Hub on the Azure Portal, then navigate to
+the Devices under Device Management and select the Azure Sphere Device as
+shown below.
+
+![IoT Hub](docs/images/iothub.png)
+
+You can find out the Device Id of the Azure Sphere Device by first
+connecting it to your machine via USB and running the following command.
+
+```bash
+azsphere device list-attached
+```
+
+The Azure Sphere Device Id will match the Azure Device Id on the IoT Hub.
+For example, if your Device Id was `6c5454c69f8e61039fb744e215012b...`
+your IoT Hub will look as the following.
+
+![IoT Hub](docs/images/iothub.png)
+
+Select the Device Id from the UI, in this example `6c5454c69f8e61039fb744e215012b...`,
+then click on the Device Twin button within the sub-menu as shown below.
+
+![IoT Hub](docs/images/iothub-device.png)
+
+As you can see from the image below, the default `desired` properties
+don't include any xrt configurations.
+
+![IoT Hub](docs/images/iothub-device-twin.png)
+
+To add the xrt configurations, make a local copy of the example config for
+BACnet found at [twin/desired.json](../twin/desired.json),
+
+You will need to make sure the Azure Configuration in the Device Twin
+example, [../twin/desired.json#L219-L223](found here) and shown below.
+Match the settings with your edited version of config/azure.json
+with the your provided Azure information (e.g Hostname, ScopeId, ...),
+using the steps found in the [#Azure (Required)](Azure Section).
+
+```json
+...
+"azure": {
+  "Bus": "bus",
+  "Logger": "logger",
+  "ConnectionType": "DPS",
+  "HostName": "IOTechHub.azure-devices.net",
+  "DeviceID": "6c5454c69f8e61039fb744e215012b...",
+  "ModelID": "virtual_dev_1",
+  "ScopeID": "0ne0017479D",
+  "Interface": "wlan0",
+  "Devices": [
+    {
+      "Name": "mt3620",
+      "Topic": "device/mt3620/input",
+      "Pattern": "device/mt3620/output",
+      "Format": "Raw",
+      "TwinID": "6c5454c69f8e61039fb744e215012b..."
+    },
+    {
+      "Name": "demo",
+      "Topic": "device/input",
+      "Pattern": "device/output",
+      "Format": "Device"
+    }
+  ],
+  "WorkPeriod": 10
+},
+...
+```
+
+The `azure` configuration infomation in Device Twin desired properties
+is required to reconnect with IoT Hub once the new configuration been sent
+to the Azure Sphere Device.
 
 The Microsoft Azure Device Twin corresponding to the Azure Sphere
 development board will need updating to include the same "azure"
 component settings. This is found in the JSON at "desired" /
-"Components" / "azure".
+"Components" / "azure". [../twin/desired.json#L219-L223](Found Here)
 
 The device twin "main" has the bacnet component referenced and the
 properties for "desired" / "Components" / "bacnet" must be configured
-to match the actual deployment.
+to match the actual deployment, [../twin/desired.json#L255-L271](found here)
 
 The configuration for the BACnet device service are found under
 "desired" / "Services" / "bacnet_device_service".
 
-The Azure Sphere board on first boot will wait indefinitely until a
-complete configuration update is received from the device twin. The
-board will then reboot. After reconnecting to Azure Sphere the device
-service will start processing any configured schedules and publish
-the data to Azure.
+Now simply copy your edit version of the [twin/desired.json](../twin/desired.json) example
+contents into the `desired` section of the JSON within your web
+browser to match the image shown below and click Save.
 
-If the desired properties are changed then the Azure Sphere board will
-reboot after receiving notification of the change.
+![IoT Hub](docs/images/iothub-update-device-twin.png)
+
+The "desired" properties setting on the device twin will then be automatically
+send and persisted to the Azure Sphere device.
 
 ### Remote Logging (Optional)
 
