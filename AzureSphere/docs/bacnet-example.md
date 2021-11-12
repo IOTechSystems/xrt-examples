@@ -93,7 +93,7 @@ Using your web browser, open your IoT Hub on the Azure Portal, then navigate to
 the Devices under Device Management and select the Azure Sphere Device as
 shown below.
 
-![IoT Hub](docs/images/iothub.png)
+![IoT Hub](images/iothub.png)
 
 You can find out the Device Id of the Azure Sphere Device by first
 connecting it to your machine via USB and running the following command.
@@ -106,17 +106,17 @@ The Azure Sphere Device Id will match the Azure Device Id on the IoT Hub.
 For example, if your Device Id was `6c5454c69f8e61039fb744e215012b...`
 your IoT Hub will look as the following.
 
-![IoT Hub](docs/images/iothub.png)
+![IoT Hub](images/iothub.png)
 
 Select the Device Id from the UI, in this example `6c5454c69f8e61039fb744e215012b...`,
 then click on the Device Twin button within the sub-menu as shown below.
 
-![IoT Hub](docs/images/iothub-device.png)
+![IoT Hub](images/iothub-device.png)
 
 As you can see from the image below, the default `desired` properties
 don't include any xrt configurations.
 
-![IoT Hub](docs/images/iothub-device-twin.png)
+![IoT Hub](images/iothub-device-twin.png)
 
 To add the xrt configurations, make a local copy of the example config for
 BACnet found at [twin/desired.json](../twin/desired.json),
@@ -178,7 +178,7 @@ Now simply copy your edit version of the [twin/desired.json](../twin/desired.jso
 contents into the `desired` section of the JSON within your web
 browser to match the image shown below and click Save.
 
-![IoT Hub](docs/images/iothub-update-device-twin.png)
+![IoT Hub](images/iothub-update-device-twin.png)
 
 The "desired" properties setting on the device twin will then be automatically
 send and persisted to the Azure Sphere device.
