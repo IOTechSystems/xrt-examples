@@ -19,13 +19,10 @@ apt-get install mosquitto-clients
 
 ## Setup
 
-Let's start with a clean slate: first remove the existing device and it's profile from xrt:
+Let's start with a clean slate: first remove the existing device from xrt:
 
 ```bash
 ./remove_device.sh
-```
-```bash
-./remove_device_profile.sh
 ```
 
 ## Trigger Discovery
@@ -46,6 +43,32 @@ We can use the information received above to create a new add device request.
 ```
 If you inspect this script, you will see that the protocol information matches one of the discovered devices that we received from our discovery request. Notice that we have omitted the device profile from this add device request. This is because the device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated.  
 
+Since there is already a profile that matches in this case, xrt will use this. We can perform a get request to verify that the device has matched correctly:
+
+```bash
+./get_request.sh
+```
+
+**Extra**
+
+To generate a profile for the device instead of using the exsiting one, we can follow the above steps but additionally delete the existing profile: 
+
+```bash
+./remove_device.sh
+```
+
+```bash
+./remove_device_profile.sh
+```
+
+Then add our device:
+
+```bash
+./add_discovered_device.sh
+```
+
+If you take a look in `profiles` you should notice that there is a new `json` file named with an uuid. This file is the newly generated profile.
+
 ## Additional information
 
-If the device service config option `AutoRegister` was set to `true`, any device discovered will automatically have a profile generated for them and will be automatically added to the device service.
+If the device service config option `AutoRegister` was set to `true`, any device discovered will automatically have a profile matched/generated for them and will be automatically added to the device service.
