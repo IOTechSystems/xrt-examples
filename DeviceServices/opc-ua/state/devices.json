@@ -9,7 +9,7 @@
       }
     }
   },
-  "opc-ua-sim-device": {
+  "opc-ua-sim": {
     "name": "opc-ua-sim",
     "profile": "opc-ua-sim-profile",
     "protocols": {

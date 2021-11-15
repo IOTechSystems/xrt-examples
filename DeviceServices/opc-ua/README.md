@@ -82,11 +82,24 @@ mosquitto_sub -t xrt/#
 
 ### Basic Operations 
 
-For basic device service operations see the basic operations walkthrough guide: [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md).
+For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
 
 ### Subscriptions
 
+**Create a subscription to a resource**
+
+We can setup a subscription to a monitored resource using auto events. This will produce a reading every time the value we have subscribed to changes.
+
+```bash
+./add_subscription.sh
+```
+
+**Remove the subscription to the resource**
+
+```bash
+./remove_subscription.sh
+```
 
 ### Discovery
 
-
+For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
