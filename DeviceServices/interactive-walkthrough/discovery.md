@@ -63,7 +63,7 @@ Then add our device:
 
 If you take a look in `profiles` you should notice that there is a new `json` file named with an uuid. This file is the newly generated profile.
 
-Profile management related requests and replies will be seen on the `ProfileRequestTopic` and `ProfileReplyTopic` topics, respectively. Similar to previous topics the names of these topics can be seen and set in the device service configuratin file. 
+Profile management related requests and replies will be seen on the `ProfileRequestTopic` and `ProfileReplyTopic` topics, respectively. Similar to previous topics the names of these topics can be seen and set in the device service configuration file. 
 
 ## Additional information
 
