@@ -18,9 +18,9 @@ cd ~/xrt-examples/DeviceServices/opc-ua/commands
 apt-get install mosquitto-clients
 ```
 
-## Request and Reply Topics
+## Topics
 
-Different requests and replies with xrt are made on different topics depending on the type of request or data being posted on them. The names of these topics can be seen and set in the device service configuration file. 
+Requests and replies with xrt are made on different topics depending on the type of request or data being posted on them. There are also topics that xrt can publish data to that are not in response to any direct user requests. The names of these topics can be seen and set in the device service configuration file. 
 
 ## Device Management
 
