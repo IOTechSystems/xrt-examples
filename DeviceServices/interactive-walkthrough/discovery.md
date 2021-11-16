@@ -21,14 +21,12 @@ Let's start with a clean slate: first remove the existing device from xrt:
 
 ## Trigger Discovery
 
-Discovery requests will be made on the `DiscoveryRequestTopic`, a reply if the request is successful or not will be received on the `DiscoveryReplyTopic`, and a list of discovered devices will be received on the `DiscoveryTopic`. These values can be seen and set in the device service configuration file.
+Discovery requests will be made on the `DiscoveryRequestTopic`, a reply if the request is successful or not will be received on the `DiscoveryReplyTopic`, and a list of discovered devices will be received on the `DiscoveryTopic`. The names of these topics can be seen and set in the device service configuration file.
 
 We can trigger discovery to recieve information about available devices.
 ```bash
 ./trigger_discovery.sh
 ```
-
-On the xrt reply topic we have subscribed to, we should see information and protocol properties about devices that have been discovered.
 
 ## Adding a discovered device
 
@@ -64,6 +62,8 @@ Then add our device:
 ```
 
 If you take a look in `profiles` you should notice that there is a new `json` file named with an uuid. This file is the newly generated profile.
+
+Profile management related requests and replies will be seen on the `ProfileRequestTopic` and `ProfileReplyTopic` topics, respectively. Similar to previous topics the names of these topics can be seen and set in the device service configuratin file. 
 
 ## Additional information
 

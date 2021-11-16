@@ -39,8 +39,8 @@ export OPCUA_LDS_ADDRESS=localhost:4840
 
 An explanation for the setting of common device service environment variables can be found [here.](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup)
 
-### **Common device service setup**
-**Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.**
+### **Common Device Service Setup**
+Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
 
 
 ### **Run XRT with the config folder:**
@@ -63,6 +63,8 @@ xrt config
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
 
 ### Subscriptions
+
+OPC-UA subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
 
 **Create a subscription to a resource**
 

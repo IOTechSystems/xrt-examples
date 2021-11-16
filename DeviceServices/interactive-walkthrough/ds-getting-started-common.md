@@ -1,6 +1,6 @@
 # Device Service Getting Started Common Setps
 
-### Setup MQTT Broker
+## Setup MQTT Broker
 
 *Ensure the Mosquitto MQTT broker is installed and running*
 
@@ -17,6 +17,8 @@ mosquitto_sub -t xrt/#
 
 ## XRT MQTT Bridge configuration
 
+*Note: the script `set_env_vars.sh` will set these environment variables for you.*
+
 `XRT_MQTT_BROKER` - This should be the address of the MQTT Broker: 
 ```bash
 export XRT_MQTT_BROKER=tcp://localhost:1883
@@ -32,7 +34,9 @@ export XRT_MQTT_USERNAME=test
 export XRT_MQTT_PASSWORD=tube
 ```
 
-## Device service configuration setup
+## Device Service Configuration Setup
+
+*Note: the script `set_env_vars.sh` will set these environment variables for you.*
 
 `XRT_PROFILE_DIR` - This should be the path to the profile directory e.g
 
