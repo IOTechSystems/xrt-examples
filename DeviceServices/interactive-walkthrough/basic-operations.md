@@ -18,9 +18,13 @@ cd ~/xrt-examples/DeviceServices/opc-ua/commands
 apt-get install mosquitto-clients
 ```
 
+## Request and Reply Topics
+
+Different requests and replies with xrt are made on different topics depending on the type of request or data being posted on them. The names of these topics can be seen and set in the device service configuration file. 
+
 ## Device Management
 
-Device management requests will be made on the `RequestTopic` and the response to the request indicating the success of the operation will be received on the `ReplyTopic`. The names of these topics can be seen and set in the device service configuration file.
+Device management requests will be made on the `RequestTopic` and the response to the request indicating the success of the operation will be received on the `ReplyTopic`. 
 
 ### Remove the device
 Since, with the example, a device has already been added to the device service with a schedule running we will first remove the device to give ourselves a clean slate.
@@ -38,7 +42,7 @@ Lets add the device back with a profile field defined. This will match the newly
 
 ## Reading 
 
-Reading requests will be made on the `RequestTopic`. The response indicating success or failure will be received on the `ReplyTopic`. If the request was successful the readings and other relevant infomation will be included.
+Reading requests will be made on the `RequestTopic`. The response indicating success or failure will be received on the `ReplyTopic`. If the request was successful the readings and other relevant infomation will be included in the reply.
 
 ### Get request
 Let's read a single resource from the device profile:
@@ -77,7 +81,7 @@ Similarly to the multi get request, we can also write to multiple resources in o
 
 Schedules can be set up to automatically perform get or put requests on an defined interval.
 
-Schedule requests will be made on the `ScheduleRequestTopic` and the response indicating the success of the request will be received on the `ScheduleReplyTopic`. Furthermore, the data from the schedule is recieved on the topic `Topic`. The names of these topics can be seen and set in the device service configuration file.
+Schedule requests will be made on the `ScheduleRequestTopic` and the response indicating the success of the request will be received on the `ScheduleReplyTopic`. Furthermore, the data from the schedule is received on the topic `Topic`. 
 
 ### Set up schedule
 Let's add our own schedule:
