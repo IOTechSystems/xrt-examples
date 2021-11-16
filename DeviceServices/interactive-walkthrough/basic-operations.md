@@ -90,7 +90,7 @@ Let's add our own schedule:
 ```
 
 ### Delete schedule
-Once we have recieved a few readings we can then remove the schedule:
+Once we have received a few readings we can then remove the schedule:
 ```bash
 ./remove_schedule.sh
 ```

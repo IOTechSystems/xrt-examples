@@ -23,7 +23,7 @@ Let's start with a clean slate: first remove the existing device from xrt:
 
 Discovery requests will be made on the `DiscoveryRequestTopic`, a reply if the request is successful or not will be received on the `DiscoveryReplyTopic`, and a list of discovered devices will be received on the `DiscoveryTopic`.
 
-We can trigger discovery to recieve information about available devices.
+We can trigger discovery to receive information about available devices.
 ```bash
 ./trigger_discovery.sh
 ```
