@@ -11,12 +11,6 @@ This page provides a walkthrough of a device service's device discovery features
 cd ~/xrt-examples/DeviceServices/opc-ua/commands
 ```
 
-* Mosquitto clients are installed:
-
-```bash
-apt-get install mosquitto-clients
-```
-
 ## Setup
 
 Let's start with a clean slate: first remove the existing device from xrt:
@@ -26,6 +20,8 @@ Let's start with a clean slate: first remove the existing device from xrt:
 ```
 
 ## Trigger Discovery
+
+Discovery requests will be made on the `DiscoveryRequestTopic`, a reply if the request is successful or not will be received on the `DiscoveryReplyTopic`, and a list of discovered devices will be received on the `DiscoveryTopic`. These values can be seen and set in the device service configuration file.
 
 We can trigger discovery to recieve information about available devices.
 ```bash
