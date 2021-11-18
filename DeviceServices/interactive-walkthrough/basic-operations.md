@@ -22,6 +22,10 @@ apt-get install mosquitto-clients
 
 Requests and replies with xrt are made on different topics depending on the type of request or data being posted on them. There are also topics that xrt can publish data to that are not in response to any direct user requests. The names of these topics can be seen and set in the device service configuration file. 
 
+## Requests and Replies
+
+Each request we make will have a unique identifier, this means that we can match the reply to the request. In the terminal that you used `mosquitto` to subscribe to all xrt topics: you will be able to see the requests that you make, and the replies to each of these requests. 
+
 ## Device Management
 
 Device management requests will be made on the `RequestTopic` and the response to the request indicating the success of the operation will be received on the `ReplyTopic`. 
@@ -33,12 +37,16 @@ Since, with the example, a device has already been added to the device service w
 ./remove_device.sh
 ```
 
+In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed. 
+
 ### Add a new device
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
 
 ```bash
 ./add_device.sh
 ```
+
+Again, you should be able to see the 'add request' message and it's reponse indicating that the device was successfully added. 
 
 ## Reading 
 
@@ -50,7 +58,7 @@ Let's read a single resource from the device profile:
 ```bash
 ./get_request.sh
 ```
-This will perfom a reading on one of the resources defined in the newly added device's profile. 
+This will perfom a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of the device that the request is being performed on and the name of the resource that being requested. In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
 
 ### Multi get request
 We also can read multiple resources in one operation:
@@ -69,6 +77,8 @@ Now let's write some data to our device with a put command:
 ```bash
 ./put_request.sh
 ```
+
+ In the request message you should see the name of the device that the request is being performed on, and the name of the resource that we are writing to, along with the value we are writing. In the reply you should be able to see a message indicating that the put request was successful. 
 
 ### Multi put request
 Similarly to the multi get request, we can also write to multiple resources in one operation.
@@ -89,8 +99,12 @@ Let's add our own schedule:
 ./add_schedule.sh
 ```
 
+In the request, you should be able to see information about the schedule we are wanting to add, such as the name, the name of the device, the resource, and the interval we are wanting to read this resource at. The reply should indicate if the put request was sucessful or not. You should then also start to see readings being published in a similar format to a the get request reply.
+
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
 ```bash
 ./remove_schedule.sh
 ```
+
+In the 'delete schedule' request, you can see that we include the name of the schedule that we are wanting to remove. The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.

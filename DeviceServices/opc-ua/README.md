@@ -2,9 +2,9 @@
 
 ## Overview
 
-This example uses a Local Discovery Server (LDS) to perform the discovery of an opc-ua server.
-Additionally, a complete opc-ua profile for the test server is provided with a schedule to read all of its resources every 3 seconds.
-In this example, we use the iotech LDS and test server.
+This page shows you how to setup and run the OPC-UA device service example. 
+
+For more information about the Device Service please review the [OPC-UA Device Service](https://www.link.to.opc-ua.device.service.docs) documentation. 
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ export OPCUA_SIM_ADDRESS=localhost:49947
 export OPCUA_LDS_ADDRESS=localhost:4840
 ```
 
-An explanation for the setting of common device service environment variables can be found [here.](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup)
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
 
 ### **Common Device Service Setup**
 Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
@@ -45,11 +45,7 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 
 ### **Run XRT with the config folder:**
 
-This is assuming that the following pre-requisites are satisfied:
-
-* XRT is installed
-* `LD_LIBRARY_PATH` has been correctly set
-* Environment variable `XRT_LICENSE_FILE` has been set to the location of the xrt license 
+See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
 cd opc-ua
@@ -63,6 +59,8 @@ xrt config
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
 
 ### Subscriptions
+
+Subscriptions are specific to the OPC-UA device service. You can read more about them [here](https://www.link-to-opc-ua-subscriptions.documentation).
 
 OPC-UA subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
 
