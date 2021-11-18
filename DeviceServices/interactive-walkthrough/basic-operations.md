@@ -99,7 +99,7 @@ Let's add our own schedule:
 ./add_schedule.sh
 ```
 
-In the request, you should be able to see information about the schedule we are wanting to add, such as the name, the name of the device, the resource, and the interval we are wanting to read this resource at. The reply should indicate if the put request was sucessful or not. You should then also start to see readings being published in a similar format to a the get request reply.
+In the request, you should be able to see information about the schedule we are wanting to add, such as the name, the name of the device, the resource, and the interval we are wanting to read this resource at. The reply should indicate if the put request was sucessful or not. You should then also start to see readings being published in a similar format to a get request reply.
 
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
