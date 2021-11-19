@@ -20,11 +20,8 @@ apt-get install mosquitto-clients
 
 ## Topics
 
-Requests and replies with xrt are made on different topics depending on the type of request or data being posted on them. There are also topics that xrt can publish data to that are not in response to any direct user requests. The names of these topics can be seen and set in the device service configuration file. 
+In our `device_service.json` file we have configured each topic that XRT will receive it's requests and post it's replies on. For more about these topics please see [XRT Device service Topics](https://www.link.to.documentation.about.topics).   
 
-## Requests and Replies
-
-Each request we make will have a unique identifier, this means that we can match the reply to the request. In the terminal that you used `mosquitto` to subscribe to all xrt topics: you will be able to see the requests that you make, and the replies to each of these requests. 
 
 ## Device Management
 

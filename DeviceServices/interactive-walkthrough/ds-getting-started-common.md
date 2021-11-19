@@ -24,14 +24,18 @@ mosquitto_sub -t xrt/#
 export XRT_MQTT_BROKER=tcp://localhost:1883
 ```
 
-`XRT_MQTT_USERNAME` - The username to use in authentication and authorisation
+*Note: since we did not start our MQTT broker to require a password or username, these environment variables do not have an effect, as authentication is not required.
+However, since the file `mqtt_bridge.json` expects both of these environment variables we should provide some value for them. Alternatively, we could remove the Username and Password 
+options from the client config in the `mqtt_bridge.json` configuration file.
+
+`XRT_MQTT_USERNAME` - The username to use in authentication and authorisation with the MQTT Broker
 ```bash
-export XRT_MQTT_USERNAME=test
+export XRT_MQTT_USERNAME=""
 ```
 
-`XRT_MQTT_PASSWORD` - The password to use in authentication and authorisation
+`XRT_MQTT_PASSWORD` - The password to use in authentication and authorisation with the MQTT Broker
 ```bash
-export XRT_MQTT_PASSWORD=tube
+export XRT_MQTT_PASSWORD=""
 ```
 
 ## Device Service Configuration Setup

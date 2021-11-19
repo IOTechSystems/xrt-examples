@@ -15,4 +15,6 @@ export XRT_LICENSE_FILE=<path>/license.lic
 source /opt/iotech/xrt/bin/env.sh
 ```
 
+This script will update your `$PATH` environment variable to include the xrt executable. `$LD_LIBRARY_PATH` will also be updated so that XRT can find it's dynamically linked libraries.
+
 *Note that this only sets the environment variables for the current session, to persist these environment variables you can add the above commands to .bash_profile or .bashrc (or similar).*
