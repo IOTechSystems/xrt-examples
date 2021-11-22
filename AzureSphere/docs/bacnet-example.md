@@ -101,6 +101,20 @@ the data to Azure.
 If the desired properties are changed then the Azure Sphere board will
 reboot after receiving notification of the change.
 
+#### Python Script
+
+A Python example can be found at [twin/device-twin.py](../twin/device-twin.py)
+which shows how to use the Azure Iot SDK, to alter a device twin on
+an IoT Hub. You will need a connection string for the
+[IoT Hub connection/auth](https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest)
+and the device id of the device you wish to use. Both of these
+will need to set as environment variable like showen below.
+
+```bash
+export IOTHUB_CONNECTION_STRING=<connection_string>
+export IOTHUB_DEVICE_ID=<device_id>
+```
+
 ### Remote Logging (Optional)
 
 The example main.c includes a remote logging component sent publish logging
