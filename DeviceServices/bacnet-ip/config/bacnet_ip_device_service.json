@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-bacnet-ip-device-service.so",
   "Factory": "xrt_bacnet_ip_device_service_factory",
-  "Name":"bacnet_device_service",
+  "Name": "bacnet_ip_device_service",
   "Topic": "xrt/device/bacnet_ip_device_service/data",
   "RequestTopic": "xrt/device/bacnet_ip_device_service/request",
   "ReplyTopic": "xrt/device/bacnet_ip_device_service/reply",
@@ -12,9 +12,8 @@
   "ProfileReplyTopic": "xrt/profile/bacnet_ip_device_service/reply",
   "ScheduleRequestTopic": "xrt/schedule/bacnet_ip_device_service/request",
   "ScheduleReplyTopic": "xrt/schedule/bacnet_ip_device_service/reply",
-  "QueueMax": 100,
   "AutoRegister": false,
-  "DiscoveryInterval": 600,
+  "DiscoveryInterval": 300,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
   "ProfileDir":"${XRT_PROFILE_DIR}",
@@ -23,11 +22,16 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
-  "Driver":{
+  "Driver": {
     "Port": 47808,
-    "APDUTimeout": 4000,
-    "APDURetries": 2,
-    "MultiBatchSize": 15,
+    "APDUTimeout": 3000,
+    "APDURetries": 3,
+    "MultiBatchSize": 25,
+    "DisableMultiRead": false,
+    "DisableMultiWrite": false,
+    "BBMDAddress": "${BACNET_SIM_ADDRESS}",
+    "BBMDPort": 47808,
+    "BBMDTimeToLive": 60000,
     "DefaultDiscoveryMode": "All"
   }
 }
