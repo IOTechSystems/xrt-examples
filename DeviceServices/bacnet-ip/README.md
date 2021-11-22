@@ -1,78 +1,59 @@
-# BACnet/IP Device Service Example
+# Bacnet IP Device Service Example
 
-## Overview
+## Example
 
-This page shows you how to setup and run the BACnet/IP device service example.
+This example uses the bacnet device service to connect to the iotech bacnet simulator.
+Additionally, a complete bacnet device profile for the test server is provided with a schedule to read all of its resources every 3 seconds.
 
-For more information about the Device Service please review the [BACnet Device Service](https://www.link.to.opc-ua.device.service.docs) documentation.
+## Steps
 
-## Getting Started
-
-### **Run the simulator**
-
-*For more information about the BACnet device simulator, see [BACnet Simulator](https://www.fixthislink.please).*
+**Run Bacnet sim:**
 
 ```bash
-./commands/start_device_sim.sh
+docker run --rm -d --name=bacnet-sim -e RUN_MODE=IP -v /path/to/xrt-examples/DeviceServices/bacnet-ip/bacnet-simulator/:/docker-lua-script/ \
+        iotechsys/bacnet-server:2.0 --script /docker-lua-script/example.lua --instance 1234 --name BacnetSimulator
 ```
 
-### **Set Environment Variables**
+This will start the bacnet simulator.
 
-We have provided a script to easily set these environment variables. Run:
-```bash
-. ./commands/set_env_vars.sh
-```
-*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
-
-**To set them manually:**
-
-`BACNET_SIM_ADDRESS` - The address of the simulation server
+**Find the IP address of the server**
 
 ```bash
-export BACNET_SIM_ADDRESS=localhost:49947
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim
 ```
 
-An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
+Add the following entries to the Driver options in the `bacnet_device_service.json` file:
+```json
+ "Driver":{
+    ...     
+    "BBMDAddress":"<BACNET_SIM_IP_ADDRESS>",
+    "BBMDPort": 47808
+  }
+```
 
-### **Common Device Service Setup**
-Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
+**Set Environment Variables**
 
-
-### **Run XRT with the config folder:**
-
-See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
+XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-cd opc-ua
+export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/bacnet-ip/config/profiles/
+```
+
+XRT_STATE_DIR - This should be the path to the state directory e.g
+
+```bash
+export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/bacnet-ip/state/
+```
+
+**Run XRT with the config folder:**
+
+This is assuming that the following pre-requisites are satisfied:
+
+* XRT is installed
+* LD_LIBRARY_PATH has been correctly set
+* XRT_LICENSE_FILE has been set to the location of the xrt license 
+
+```bash
+cd bacnet-ip
 xrt config
 ```
-
-## Walkthrough
-
-### Basic Operations
-
-For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
-
-### Change of Value Subscriptions
-
-Change of Value (COV) Subscriptions are specific to the BACnet device service. You can read more about them [here](https://www.link-to-bacnet-cov-subscriptions.documentation).
-
-BACnet COV subscription requests are made on the same topic as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
-
-**Create a COV subscription to a resource**
-
-We can setup a COV subscription to a monitored resource using auto events. This will produce a reading every time the value we have subscribed to changes.
-
-```bash
-./add_cov_subscription.sh
-```
-
-**Remove the subscription to the resource**
-
-```bash
-./remove_cov_subscription.sh
-```
-
-### Discovery
-
-For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
