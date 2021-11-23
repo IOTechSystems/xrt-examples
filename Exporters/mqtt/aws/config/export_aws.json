@@ -1,6 +1,6 @@
 {
-  "Library": "libxrt-mqtt-exporter.so",
-  "Factory": "xrt_mqtt_exporter_factory",
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
   "MQTTConfig":
   {
     "ServerURI": "${MQTT_EXPORTER_AWS_SERVER_URI}",
