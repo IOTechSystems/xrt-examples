@@ -16,12 +16,12 @@
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
       "CleanSession": false,
-      "CleanStart": false,
+      "CleanStart": false
     }
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Pattern": "device/#",
+  "Patterns": ["device/#"],
   "Topic": "test",
   "QueueSize": 4
 }

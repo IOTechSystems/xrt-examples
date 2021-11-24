@@ -27,7 +27,7 @@
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Pattern": "device/#",
+  "Patterns": ["device/#"],
   "Topic": "test/data",
   "QueueSize": 4
 }
