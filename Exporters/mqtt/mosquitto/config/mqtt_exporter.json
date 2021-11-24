@@ -1,6 +1,6 @@
 {
-  "Library": "libxrt-mqtt-exporter.so",
-  "Factory": "xrt_mqtt_exporter_factory",
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
@@ -16,12 +16,12 @@
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
       "CleanSession": false,
-      "CleanStart": false,
+      "CleanStart": false
     }
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Pattern": "device/#",
+  "Patterns": ["device/#"],
   "Topic": "test",
   "QueueSize": 4
 }

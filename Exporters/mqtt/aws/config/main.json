@@ -6,6 +6,6 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "log_exporter":"XRT::LogExporter",
-  "export_aws": "XRT::MQTTExporter",
+  "export_aws": "XRT::MQTTBridge",
   "virtual_device_service":"XRT::VirtualDeviceService"
 }

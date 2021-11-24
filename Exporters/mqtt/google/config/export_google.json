@@ -1,6 +1,6 @@
 {
-  "Library": "libxrt-mqtt-exporter.so",
-  "Factory": "xrt_mqtt_exporter_factory",
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
   "MQTTConfig":
   {
     "ServerURI": "ssl://mqtt.googleapis.com:8883", "ClientID": "${MQTT_EXPORTER_GOOGLE_CLIENT_ID}",
@@ -28,7 +28,7 @@
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Pattern": "device/#",
+  "Patterns": ["device/#"],
   "Topic": "${MQTT_EXPORTER_GOOGLE_PUB_TOPIC}",
   "QueueSize": 4
 }
