@@ -8,10 +8,17 @@
     "MQTTPatterns": [ "xrt/+/ethernet_ip_device_service/request" ],
     "MQTTConfig":
     {
-      "ServerURI": "tcp://0.0.0.0:1883",
+      "ServerURI": "${XRT_MQTT_BROKER}",
       "ClientID": "xrt",
       "QoS": 1,
-      "ClientConfig": {"Username":"test","Password": "tube","KeepAliveInterval": 10, "MQTTVersion": 5, "Reliable": true},
+      "ClientConfig": 
+      {
+          "Username":"${XRT_MQTT_USERNAME}",
+          "Password":"${XRT_MQTT_PASSWORD}",
+          "KeepAliveInterval": 10, 
+          "MQTTVersion": 5, 
+          "Reliable": true
+      },
       "RetryCount": 5,
       "RetryInterval": 5
     },
