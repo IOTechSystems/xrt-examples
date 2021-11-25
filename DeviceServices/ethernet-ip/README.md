@@ -3,13 +3,13 @@
 ## Overview
 This page shows you how to setup and run the EtherNet/IP Device Service Example.
 
-For more information about the Device Service please review the [EtherNet/IP Device Service](link.to.ethernetip.docs) documentation.
+For more information about the Device Service please review the [EtherNet/IP Device Service](https://www.link.to.ethernetip.docs) documentation.
 
 ## Getting Started
 
 ### Run the simulator
 
-*for more information about the EtherNet/IP device simulator, see [EtherNet/IP Simulator](link.to.sim).*
+*for more information about the EtherNet/IP device simulator, see [EtherNet/IP Simulator](https://www.link.to.sim).*
 
 ```
 ./commands/start_device_sim.sh
@@ -38,7 +38,7 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 
 ### Run XRT with the config folder:
 
-see [Setup XRT](../interactive-walkthrough/setup-xrt.md)
+See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```
 cd ethernet-ip
