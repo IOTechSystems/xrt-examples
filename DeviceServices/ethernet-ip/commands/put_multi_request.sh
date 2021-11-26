@@ -8,6 +8,7 @@ mosquitto_pub -t xrt/device/ethernet_ip_device_service/request -m \
   "values": {
     "DI1": false,
     "DI2": true,
-    "Reset": 0
+    "DI3": true,
+    "DI4": true
   },
 }'

@@ -6,6 +6,6 @@ mosquitto_pub -t xrt/device/ethernet_ip_device_service/request -m \
   "op": "device:put",
   "device": "ethernetip-sim",
   "values": {
-    "DO1": true,
+    "DO1": true
   },
 }'

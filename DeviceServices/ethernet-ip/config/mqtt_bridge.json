@@ -1,30 +1,29 @@
 {
-    "Library": "libxrt-mqtt-bridge.so",
-    "Factory": "xrt_mqtt_bridge_factory",
-    "Patterns": [
-      "xrt/device/ethernet_ip_device_service/data",
-      "xrt/+/ethernet_ip_device_service/reply"
-    ],
-    "MQTTPatterns": [ "xrt/+/ethernet_ip_device_service/request" ],
-    "MQTTConfig":
-    {
-      "ServerURI": "${XRT_MQTT_BROKER}",
-      "ClientID": "xrt",
-      "QoS": 1,
-      "ClientConfig": 
-      {
-          "Username":"${XRT_MQTT_USERNAME}",
-          "Password":"${XRT_MQTT_PASSWORD}",
-          "KeepAliveInterval": 10, 
-          "MQTTVersion": 5, 
-          "Reliable": true
-      },
-      "RetryCount": 5,
-      "RetryInterval": 5
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [
+    "xrt/device/ethernet_ip_device_service/data",
+    "xrt/+/ethernet_ip_device_service/reply"
+  ],
+  "MQTTPatterns": [
+    "xrt/+/ethernet_ip_device_service/request"
+  ],
+  "MQTTConfig": {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig": {
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "KeepAliveInterval": 10,
+      "MQTTVersion": 5,
+      "Reliable": true
     },
-    "Cookie": 125,
-    "Bus": "bus",
-    "QueueSize": 5,
-    "Logger": "logger"
+    "RetryCount": 5,
+    "RetryInterval": 5
+  },
+  "Cookie": 125,
+  "Bus": "bus",
+  "QueueSize": 5,
+  "Logger": "logger"
 }
-  
