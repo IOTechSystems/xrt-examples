@@ -1,13 +1,11 @@
 {
-    "client": "example",
-    "request_id": "1040",
-    "op": "schedule:add",
-    "schedule": {
-        "name": "ethernetip-sim-sched1",
-        "device": "ethernetip-sim",
-        "resource": [
-            "DI0"
-        ],
-        "interval": 1000000
-    }
+  "client": "example",
+  "request_id": "1040",
+  "op": "schedule:add",
+  "schedule": {
+    "name": "ethernetip-sim-sched1",
+    "device": "ethernetip-sim",
+    "resource": ["DI0"],
+    "interval": 1000000
+  }
 }

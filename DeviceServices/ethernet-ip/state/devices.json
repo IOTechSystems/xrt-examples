@@ -1,23 +1,23 @@
 {
-    "ethernetip-sim": {
-        "name": "ethernetip-sim",
-        "profile": "ethernetip-sim-profile",
-        "protocols": {
-            "IP": {
-                "Address": "${ETHERNETIP_SIM_ADDRESS}"
-            },
-            "O2T": {
-                "ConnectionType": "p2p",
-                "Ownership": "exclusive",
-                "Priority": "low",
-                "RPI": "10"
-            },
-            "T2O": {
-                "ConnectionType": "p2p",
-                "Ownership": "exclusive",
-                "Priority": "low",
-                "RPI": "10"
-            }
+  "ethernetip-sim": {
+    "name": "ethernetip-sim",
+    "profile": "ethernetip-sim-profile",
+    "protocols": {
+      "IP": {
+        "Address": "${ETHERNETIP_SIM_ADDRESS}"
+        },
+      "O2T": {
+        "ConnectionType": "p2p",
+        "Ownership": "exclusive",
+        "Priority": "low",
+        "RPI": "10"
+        },
+      "T2O": {
+        "ConnectionType": "p2p",
+        "Ownership": "exclusive",
+        "Priority": "low",
+        "RPI": "10"
         }
+      }
     }
 }
