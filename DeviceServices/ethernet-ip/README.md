@@ -49,7 +49,3 @@ xrt config
 
 ### Basic Operations
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
-
-
-### Discovery
-Currently EtherNet/IP does not support discovery, this is a feature that is to be added in the future.

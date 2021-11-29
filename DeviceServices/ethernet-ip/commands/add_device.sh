@@ -10,7 +10,7 @@ mosquitto_pub -t xrt/device/ethernet_ip_device_service/request -m \
     "profile": "ethernetip-sim-profile",
     "protocols":{
         "IP":{
-            "Address": "172.17.0.2"
+            "Address": "${ETHERNETIP_SIM_ADDRESS}"
             },
         "O2T":{
             "ConnectionType": "p2p",

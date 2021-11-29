@@ -10,5 +10,5 @@ mosquitto_pub -t xrt/device/ethernet_ip_device_service/request -m \
     "DI2": true,
     "DI3": true,
     "DI4": true
-  },
+  }
 }'
