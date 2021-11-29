@@ -487,6 +487,23 @@
       }
     },
     {
+      "name": "AssemblyGet",
+      "description": "Get Attribute Single Command to Attribute Within Assembly Object Instance",
+      "attributes": {
+        "type": "EM",
+        "objClass": "0x04",
+        "instID": "100",
+        "attrID": "3",
+        "serviceCode": "0x0E"
+      },
+      "properties": {
+        "value": {
+          "type": "Uint32",
+          "readWrite": "R"
+        }
+      }
+    },
+    {
       "name": "Reset",
       "description": "Triggers the device to emulate a power cycle",
       "attributes": {
