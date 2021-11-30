@@ -10,5 +10,5 @@
   "PubBus": "bus",
   "SubBus": "bus",
   "QueueSize": 4,
-  "Logger": "logger"
+  "Logger": "logger_debug"
 }

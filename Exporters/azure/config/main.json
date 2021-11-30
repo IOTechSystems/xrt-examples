@@ -1,11 +1,9 @@
 {
   "logger":"IOT::Logger",
-  "logger_info":"IOT::Logger",
   "logger_debug":"IOT::Logger",
   "pool":"IOT::ThreadPool",
   "scheduler":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "azure":"XRT::AzureExporter",
-  "log_exporter":"XRT::LogExporter",
   "virtual_device_service":"XRT::VirtualDeviceService"
 }

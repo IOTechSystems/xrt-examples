@@ -10,7 +10,7 @@
     { "Pattern": "device/data", "Format": "Device"}
   ],
   "Bus": "bus",
-  "Logger": "logger",
+  "Logger": "logger_debug",
   "ConnectTimeout": 4000,
   "Timeout": 1500
 }
