@@ -4,7 +4,7 @@
   "MQTTConfig":
   {
     "ServerURI": "127.0.0.1",
-    "ClientID": "mqtt_exporter",
+    "ClientID": "mqtt_export",
     "MQTTInstance": 0,
     "QoS": 1,
     "ClientConfig":

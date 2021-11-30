@@ -4,7 +4,7 @@
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
-    "ClientID": "mqtt_exporter",
+    "ClientID": "mqtt_export",
     "MQTTInstance": 0,
     "QoS": 1,
     "ClientConfig":
