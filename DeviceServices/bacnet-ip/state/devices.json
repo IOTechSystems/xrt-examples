@@ -1,1 +1,11 @@
-{"BacnetSimulator":{"profile":"bacnet-simulator","protocols":{"BACnet-IP":{"DeviceInstance":"1234"}},"name":"BacnetSimulator"}}
+{
+  "bacnet-ip-sim": {
+    "name": "bacnet-ip-sim",
+    "profile": "bacnet-ip-sim-profile",
+    "protocols": {
+      "BACnet-IP": {
+        "DeviceInstance": "1234"
+      }
+    }
+  }
+}

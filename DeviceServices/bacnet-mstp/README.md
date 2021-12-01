@@ -1,56 +1,72 @@
-# Bacnet MSTP Device Service Example
+# BACnet/MSTP Device Service Example
 
-## Example
+## Overview
 
-This example uses the bacnet device service to connect to the iotech bacnet simulator.
-Additionally, a complete bacnet device profile for the test server is provided with a schedule to read all of its resources every 3 seconds.
+This page shows you how to setup and run the BACnet/MSTP device service example.
 
-## Steps
+For more information about the Device Service please review the [BACnet Device Service](https://www.link.to.bacnet.device.service.docs) documentation.
 
-**Run Bacnet sim:**
+## Getting Started
 
-```bash
-docker run --rm -d --name=bacnet-sim -e RUN_MODE=MSTP -v /path/to/xrt-examples/DeviceServices/bacnet-mstp/bacnet-simulator/:/docker-lua-script/ \
-        iotechsys/bacnet-server:2.0 --script /docker-lua-script/example.lua --instance 1234 --name BacnetSimulator
-```
+### **Run the simulator**
 
-This will start the bacnet simulator.
-
-**Setup Socat Link to the sim**
-
-Find the IP of the BACnet Simulator:
+*For more information about the BACnet device simulator, see [BACnet Simulator](https://www.fixthislink.please).*
 
 ```bash
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim
+./commands/start_device_sim.sh
 ```
 
+### **Set Environment Variables**
+
+We have provided a script to easily set these environment variables. Run:
 ```bash
-socat pty,link=/tmp/virtualport,raw,echo=0 tcp:${BACNET_MSTP_DEVICE_ADDRESS}:55000
+. ./commands/set_env_vars.sh
 ```
+*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
 
-**Set Environment Variables**
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
+### **Common Device Service Setup**
+Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
 
-```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/bacnet-mstp/config/profiles/
-```
 
-XRT_STATE_DIR - This should be the path to the state directory e.g
+### **Run XRT with the config folder:**
 
-```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/bacnet-mstp/state/
-```
-
-**Run XRT with the config folder:**
-
-This is assuming that the following pre-requisites are satisfied:
-
-* XRT is installed
-* LD_LIBRARY_PATH has been correctly set
-* XRT_LICENSE_FILE has been set to the location of the xrt license 
+See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
 cd bacnet-mstp
 xrt config
 ```
+
+## Walkthrough
+
+### Basic Operations
+
+For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
+
+### Change of Value Subscriptions
+
+Change of Value (COV) subscriptions are specific to the BACnet device service. You can read more about them [here](https://www.link-to-bacnet-covs.documentation).
+
+COV subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
+
+**Create a COV subscription to a resource**
+
+We can setup a COV subscriptions to monitored resources using auto events. When the value of a monitored property changes, if the delta is larger than the COV Increment 
+property value then the device will send the device service a notification which includes this new value.
+
+
+```bash
+./add_cov.sh
+```
+
+**Remove the COV subscription to the resource**
+
+```bash
+./remove_cov.sh
+```
+
+### Discovery
+
+For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
