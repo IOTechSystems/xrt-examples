@@ -1,1 +1,1 @@
-{"schedule1":{"device":"bacnet-mstp-sim","resource":[".*"],"interval":3000000,"name":"bacnet-mstp-sim-schedule0"}}
+{"schedule1":{"device":"bacnet-mstp-sim","interval":3000000,"name":"schedule1","resource":[".*"]}}

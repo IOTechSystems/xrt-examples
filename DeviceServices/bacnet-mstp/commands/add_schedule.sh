@@ -9,6 +9,6 @@ mosquitto_pub -t xrt/schedule/bacnet_mstp_device_service/request -m \
     "name":"bacnet-mstp-sim-schedule1",
     "device":"bacnet-mstp-sim",
     "resource":["analog_input_0:present-value","analog_input_1:present-value"],
-    "interval": 1000000
+    "interval": 2000000
   }
 }'

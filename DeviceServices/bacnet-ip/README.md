@@ -66,20 +66,20 @@ property value then the device will send the device service a notification which
 
 
 ```bash
-./add_cov.sh
+./commands/add_cov.sh
 ```
 
 **Remove the COV subscription to the resource**
 
 ```bash
-./remove_cov.sh
+./commands/remove_cov.sh
 ```
 
 ### Discovery
 
 For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
 
-### External Devices
+### Additional Information
 
 To communicate with devices on your local network, remove the `BBMDAddress` and `BBMDPort` driver options in the `bacnet_ip_device_service.json` file.
 
