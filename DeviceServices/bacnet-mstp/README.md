@@ -57,7 +57,7 @@ We can setup a COV subscriptions to monitored resources using auto events. When 
 property value then the device will send the device service a notification which includes this new value.
 
 
-```bash
+``bash
 ./add_cov.sh
 ```
 
@@ -70,3 +70,8 @@ property value then the device will send the device service a notification which
 ### Discovery
 
 For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
+
+### External Devices
+
+To communicate with externally connected serial devices, update the driver option `SerialInterface` in the 
+`bacnet_mstp_device_service.json` file to the path of the RS-485 connection on your host.

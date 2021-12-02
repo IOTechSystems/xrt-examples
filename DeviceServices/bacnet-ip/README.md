@@ -78,3 +78,9 @@ property value then the device will send the device service a notification which
 ### Discovery
 
 For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
+
+### External Devices
+
+To communicate with devices on your local network, remove the `BBMDAddress` and `BBMDPort` driver options in the `bacnet_ip_device_service.json` file.
+
+If you have multiple network interfaces, add the driver option `NetworkInterface` to specify the name of the interface to use.
