@@ -1,0 +1,1959 @@
+{
+  "deviceResources": [
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "75",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "77",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "79",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "112",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:system-status",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "121",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:vendor-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "120",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:vendor-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "70",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:model-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "44",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:firmware-revision",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "12",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:application-software-version",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "98",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:protocol-version",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "139",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:protocol-revision",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "97",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:protocol-services-supported",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "96",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:protocol-object-types-supported",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "76",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:object-list",
+      "properties": {
+        "value": {
+          "readWrite": "R",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "62",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:max-apdu-length-accepted",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "107",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:segmentation-supported",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "11",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:apdu-timeout",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "73",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:number-of-APDU-retries",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "30",
+        "raw": "true",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:device-address-binding",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "155",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:database-revision",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "28",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:description",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "57",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:local-time",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "119",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:utc-offset",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "int32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "56",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:local-date",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "24",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:daylight-savings-status",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "58",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:location",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "152",
+        "raw": "true",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:active-cov-subscriptions",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "116",
+        "raw": "true",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:time-synchronization-recipients",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "204",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:time-synchronization-interval",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "193",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:align-intervals",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "4194303",
+        "property": "195",
+        "type": "8"
+      },
+      "name": "BacnetSimulator:interval-offset",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "75",
+        "type": "0"
+      },
+      "name": "analog_input_0:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "77",
+        "type": "0"
+      },
+      "name": "analog_input_0:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "79",
+        "type": "0"
+      },
+      "name": "analog_input_0:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "0"
+      },
+      "name": "analog_input_0:present-value",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "111",
+        "type": "0"
+      },
+      "name": "analog_input_0:status-flags",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "36",
+        "type": "0"
+      },
+      "name": "analog_input_0:event-state",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "81",
+        "type": "0"
+      },
+      "name": "analog_input_0:out-of-service",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "117",
+        "type": "0"
+      },
+      "name": "analog_input_0:units",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "22",
+        "type": "0"
+      },
+      "name": "analog_input_0:cov-increment",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "28",
+        "type": "0"
+      },
+      "name": "analog_input_0:description",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "103",
+        "type": "0"
+      },
+      "name": "analog_input_0:reliability",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "113",
+        "type": "0"
+      },
+      "name": "analog_input_0:time-delay",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "17",
+        "type": "0"
+      },
+      "name": "analog_input_0:notification-class",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "45",
+        "type": "0"
+      },
+      "name": "analog_input_0:high-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "59",
+        "type": "0"
+      },
+      "name": "analog_input_0:low-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "25",
+        "type": "0"
+      },
+      "name": "analog_input_0:deadband",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "52",
+        "type": "0"
+      },
+      "name": "analog_input_0:limit-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "35",
+        "type": "0"
+      },
+      "name": "analog_input_0:event-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "0",
+        "type": "0"
+      },
+      "name": "analog_input_0:acked-transitions",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "72",
+        "type": "0"
+      },
+      "name": "analog_input_0:notify-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "130",
+        "raw": "true",
+        "type": "0"
+      },
+      "name": "analog_input_0:event-time-stamps",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "9997",
+        "type": "0"
+      },
+      "name": "analog_input_0:9997",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "9998",
+        "type": "0"
+      },
+      "name": "analog_input_0:9998",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "9999",
+        "type": "0"
+      },
+      "name": "analog_input_0:9999",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "int32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "75",
+        "type": "0"
+      },
+      "name": "analog_input_1:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "77",
+        "type": "0"
+      },
+      "name": "analog_input_1:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "79",
+        "type": "0"
+      },
+      "name": "analog_input_1:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "85",
+        "type": "0"
+      },
+      "name": "analog_input_1:present-value",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "111",
+        "type": "0"
+      },
+      "name": "analog_input_1:status-flags",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "36",
+        "type": "0"
+      },
+      "name": "analog_input_1:event-state",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "81",
+        "type": "0"
+      },
+      "name": "analog_input_1:out-of-service",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "117",
+        "type": "0"
+      },
+      "name": "analog_input_1:units",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "22",
+        "type": "0"
+      },
+      "name": "analog_input_1:cov-increment",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "28",
+        "type": "0"
+      },
+      "name": "analog_input_1:description",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "103",
+        "type": "0"
+      },
+      "name": "analog_input_1:reliability",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "113",
+        "type": "0"
+      },
+      "name": "analog_input_1:time-delay",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "17",
+        "type": "0"
+      },
+      "name": "analog_input_1:notification-class",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "45",
+        "type": "0"
+      },
+      "name": "analog_input_1:high-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "59",
+        "type": "0"
+      },
+      "name": "analog_input_1:low-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "25",
+        "type": "0"
+      },
+      "name": "analog_input_1:deadband",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "52",
+        "type": "0"
+      },
+      "name": "analog_input_1:limit-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "35",
+        "type": "0"
+      },
+      "name": "analog_input_1:event-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "0",
+        "type": "0"
+      },
+      "name": "analog_input_1:acked-transitions",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "72",
+        "type": "0"
+      },
+      "name": "analog_input_1:notify-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "130",
+        "raw": "true",
+        "type": "0"
+      },
+      "name": "analog_input_1:event-time-stamps",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "9997",
+        "type": "0"
+      },
+      "name": "analog_input_1:9997",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "9998",
+        "type": "0"
+      },
+      "name": "analog_input_1:9998",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "9999",
+        "type": "0"
+      },
+      "name": "analog_input_1:9999",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "int32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "75",
+        "type": "1"
+      },
+      "name": "analog_output_0:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "77",
+        "type": "1"
+      },
+      "name": "analog_output_0:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "79",
+        "type": "1"
+      },
+      "name": "analog_output_0:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "1"
+      },
+      "name": "analog_output_0:present-value",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "111",
+        "type": "1"
+      },
+      "name": "analog_output_0:status-flags",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "36",
+        "type": "1"
+      },
+      "name": "analog_output_0:event-state",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "81",
+        "type": "1"
+      },
+      "name": "analog_output_0:out-of-service",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "117",
+        "type": "1"
+      },
+      "name": "analog_output_0:units",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "87",
+        "type": "1"
+      },
+      "name": "analog_output_0:priority-array",
+      "properties": {
+        "value": {
+          "readWrite": "R",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "104",
+        "type": "1"
+      },
+      "name": "analog_output_0:relinquish-default",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "75",
+        "type": "1"
+      },
+      "name": "analog_output_1:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "77",
+        "type": "1"
+      },
+      "name": "analog_output_1:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "79",
+        "type": "1"
+      },
+      "name": "analog_output_1:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "85",
+        "type": "1"
+      },
+      "name": "analog_output_1:present-value",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "111",
+        "type": "1"
+      },
+      "name": "analog_output_1:status-flags",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "36",
+        "type": "1"
+      },
+      "name": "analog_output_1:event-state",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "81",
+        "type": "1"
+      },
+      "name": "analog_output_1:out-of-service",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "117",
+        "type": "1"
+      },
+      "name": "analog_output_1:units",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "87",
+        "type": "1"
+      },
+      "name": "analog_output_1:priority-array",
+      "properties": {
+        "value": {
+          "readWrite": "R",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "104",
+        "type": "1"
+      },
+      "name": "analog_output_1:relinquish-default",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "75",
+        "type": "2"
+      },
+      "name": "analog_value_0:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "77",
+        "type": "2"
+      },
+      "name": "analog_value_0:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "79",
+        "type": "2"
+      },
+      "name": "analog_value_0:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "85",
+        "type": "2"
+      },
+      "name": "analog_value_0:present-value",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "111",
+        "type": "2"
+      },
+      "name": "analog_value_0:status-flags",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "36",
+        "type": "2"
+      },
+      "name": "analog_value_0:event-state",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "81",
+        "type": "2"
+      },
+      "name": "analog_value_0:out-of-service",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "117",
+        "type": "2"
+      },
+      "name": "analog_value_0:units",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "22",
+        "type": "2"
+      },
+      "name": "analog_value_0:cov-increment",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "28",
+        "type": "2"
+      },
+      "name": "analog_value_0:description",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "113",
+        "type": "2"
+      },
+      "name": "analog_value_0:time-delay",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "17",
+        "type": "2"
+      },
+      "name": "analog_value_0:notification-class",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "45",
+        "type": "2"
+      },
+      "name": "analog_value_0:high-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "59",
+        "type": "2"
+      },
+      "name": "analog_value_0:low-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "25",
+        "type": "2"
+      },
+      "name": "analog_value_0:deadband",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "52",
+        "type": "2"
+      },
+      "name": "analog_value_0:limit-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "35",
+        "type": "2"
+      },
+      "name": "analog_value_0:event-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "0",
+        "type": "2"
+      },
+      "name": "analog_value_0:acked-transitions",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "72",
+        "type": "2"
+      },
+      "name": "analog_value_0:notify-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "0",
+        "property": "130",
+        "raw": "true",
+        "type": "2"
+      },
+      "name": "analog_value_0:event-time-stamps",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "75",
+        "type": "2"
+      },
+      "name": "analog_value_1:object-identifier",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "77",
+        "type": "2"
+      },
+      "name": "analog_value_1:object-name",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "79",
+        "type": "2"
+      },
+      "name": "analog_value_1:object-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "85",
+        "type": "2"
+      },
+      "name": "analog_value_1:present-value",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "111",
+        "type": "2"
+      },
+      "name": "analog_value_1:status-flags",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "36",
+        "type": "2"
+      },
+      "name": "analog_value_1:event-state",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "81",
+        "type": "2"
+      },
+      "name": "analog_value_1:out-of-service",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "bool"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "117",
+        "type": "2"
+      },
+      "name": "analog_value_1:units",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "22",
+        "type": "2"
+      },
+      "name": "analog_value_1:cov-increment",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "28",
+        "type": "2"
+      },
+      "name": "analog_value_1:description",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "113",
+        "type": "2"
+      },
+      "name": "analog_value_1:time-delay",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "17",
+        "type": "2"
+      },
+      "name": "analog_value_1:notification-class",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint64"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "45",
+        "type": "2"
+      },
+      "name": "analog_value_1:high-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "59",
+        "type": "2"
+      },
+      "name": "analog_value_1:low-limit",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "25",
+        "type": "2"
+      },
+      "name": "analog_value_1:deadband",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "float32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "52",
+        "type": "2"
+      },
+      "name": "analog_value_1:limit-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "35",
+        "type": "2"
+      },
+      "name": "analog_value_1:event-enable",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "0",
+        "type": "2"
+      },
+      "name": "analog_value_1:acked-transitions",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "72",
+        "type": "2"
+      },
+      "name": "analog_value_1:notify-type",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "uint32"
+        }
+      }
+    },
+    {
+      "attributes": {
+        "instance": "1",
+        "property": "130",
+        "raw": "true",
+        "type": "2"
+      },
+      "name": "analog_value_1:event-time-stamps",
+      "properties": {
+        "value": {
+          "readWrite": "RW",
+          "type": "binary"
+        }
+      }
+    }
+  ],
+  "labels": [],
+  "name": "bacnet-ip-sim-profile"
+}
