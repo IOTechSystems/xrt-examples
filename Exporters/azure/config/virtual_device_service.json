@@ -2,7 +2,7 @@
   "Library": "libxrt-virtual-device-service.so",
   "Factory": "xrt_virtual_device_service_factory",
   "Scheduler":"scheduler",
-  "Logger":"logger_debug",
+  "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
   "Name":"virtual_device_service",
