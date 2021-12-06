@@ -9,9 +9,9 @@
       }
     }
   },
-  "opc-ua-sim-device": {
-    "name": "opc-ua-sim-device",
-    "profile": "opc-ua-sim",
+  "opc-ua-sim": {
+    "name": "opc-ua-sim",
+    "profile": "opc-ua-sim-profile",
     "protocols": {
       "OPC-UA": {
         "Address": "${OPCUA_SIM_ADDRESS}",
