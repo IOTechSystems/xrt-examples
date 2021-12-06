@@ -1,4 +1,4 @@
-### Running Publication
+### Running Subscription
 
 **Required Environment Variables**
 
@@ -7,33 +7,33 @@ You will need to set the following environment variables prior to running the ex
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g.
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Bridges/thrift/pub/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Bridge/thrift/sub/config/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g.
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Bridges/thrift/pub/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Bridge/thrift/sub/state/
 ```
 
-PUB_SERVER_ADDRESS - The IP address of the server, e.g.
+SUB_SERVER_ADDRESS - The IP address of the server, e.g.
 ```bash
-export PUB_SERVER_ADDRESS="127.0.0.1"
+export SUB_SERVER_ADDRESS="127.0.0.1"
 ```
 
-PUB_CLIENT_ADDRESS - The IP address of the client device, e.g.
+SUB_CLIENT_ADDRESS - The IP address of the client device, e.g.
 ```bash
-export PUB_CLIENT_ADDRESS="127.0.0.1"
+export SUB_CLIENT_ADDRESS="127.0.0.1"
 ```
 
-PUB_SERVER_PORT - The port used by the server, e.g.
+SUB_SERVER_PORT - The port used by the server, e.g.
 ```bash
-export PUB_SERVER_PORT=99999
+export SUB_SERVER_PORT=99999
 ```
 
-PUB_CLIENT_PORT - The port used by the server, e.g.
+SUB_CLIENT_PORT - The port used by the server, e.g.
 ```bash
-export PUB_CLIENT_PORT=9998
+export SUB_CLIENT_PORT=9998
 ```
 
 **Run XRT with the config folder:**
@@ -45,5 +45,5 @@ This is assuming that the following pre-requisites are satisfied:
 * XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
-$ xrt /path/to/xrt-examples/Bridges/thrift/pub/config
+$ xrt /path/to/xrt-examples/Bridge/thrift/sub/config
 ```
