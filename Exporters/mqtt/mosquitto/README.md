@@ -1,4 +1,4 @@
-# MQTT exporter Mosquitto example
+#An example that use MQTT Bridge to export data over MQTT
 
 ## Example
 

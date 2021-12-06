@@ -1,4 +1,4 @@
-# MQTT exporter AWS example
+# AWS example that use MQTT Bridge to export data over MQTT
 
 ## Example
 
@@ -20,34 +20,34 @@ XRT_STATE_DIR - This should be the path to the state directory e.g
 export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/aws/state/
 ```
 
-MQTT_EXPORTER_AWS_SERVER_URI - The uri of your amazon mqtt server e.g
+MQTT_EXPORT_AWS_SERVER_URI - The uri of your amazon mqtt server e.g
 
 ```bash
-  export MQTT_EXPORTER_AWS_SERVER_URI=ssl://server-uri.us-east-1.amazonaws.com:8883
+  export MQTT_EXPORT_AWS_SERVER_URI=ssl://server-uri.us-east-1.amazonaws.com:8883
 ```
 
-MQTT_EXPORTER_AWS_CLIENT_ID - Your AWS client ID e.g
+MQTT_EXPORT_AWS_CLIENT_ID - Your AWS client ID e.g
 
 ```bash
-  export MQTT_EXPORTER_AWS_CLIENT_ID=client_id
+  export MQTT_EXPORT_AWS_CLIENT_ID=client_id
 ```
 
-MQTT_EXPORTER_AWS_TRUST_STORE - Your AWS trust store file e.g
+MQTT_EXPORT_AWS_TRUST_STORE - Your AWS trust store file e.g
 
 ```bash
-  export MQTT_EXPORTER_AWS_TRUST_STORE=/path/to/your/AWSTrustStore.pem
+  export MQTT_EXPORT_AWS_TRUST_STORE=/path/to/your/AWSTrustStore.pem
 ```
 
-MQTT_EXPORTER_AWS_KEY_STORE - Your AWS key store certificate e.g
+MQTT_EXPORT_AWS_KEY_STORE - Your AWS key store certificate e.g
 
 ```bash
-  export MQTT_EXPORTER_AWS_KEY_STORE=/path/to/your/AWSKeyStore.pem.crt
+  export MQTT_EXPORT_AWS_KEY_STORE=/path/to/your/AWSKeyStore.pem.crt
 ```
 
-MQTT_EXPORTER_AWS_PRIVATE_KEY - Your AWS private key e.g
+MQTT_EXPORT_AWS_PRIVATE_KEY - Your AWS private key e.g
 
 ```bash
-  export MQTT_EXPORTER_AWS_PRIVATE_KEY=/path/to/your/AWSPrivateKey.pem.key
+  export MQTT_EXPORT_AWS_PRIVATE_KEY=/path/to/your/AWSPrivateKey.pem.key
 ```
 
 **Run XRT with the config folder:**

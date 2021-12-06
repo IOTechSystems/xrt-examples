@@ -3,9 +3,9 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "MQTTConfig":
   {
-    "ServerURI": "ssl://mqtt.googleapis.com:8883", "ClientID": "${MQTT_EXPORTER_GOOGLE_CLIENT_ID}",
+    "ServerURI": "ssl://mqtt.googleapis.com:8883", "ClientID": "${MQTT_EXPORT_GOOGLE_CLIENT_ID}",
     "MQTTInstance": 1,
-    "ProjectID": "${MQTT_EXPORTER_GOOGLE_PROJECT_ID}",
+    "ProjectID": "${MQTT_EXPORT_GOOGLE_PROJECT_ID}",
     "Algorithm": "XRT_ALG_RS256",
     "QoS": 1,
     "ClientConfig":
@@ -19,8 +19,8 @@
       {
         "EnableServerCertAuth": true,
         "SSLVersion": 3,
-        "TrustStore": "${MQTT_EXPORTER_GOOGLE_TRUST_STORE}",
-        "PrivateKey": "${MQTT_EXPORTER_GOOGLE_PRIVATE_KEY}",
+        "TrustStore": "${MQTT_EXPORT_GOOGLE_TRUST_STORE}",
+        "PrivateKey": "${MQTT_EXPORT_GOOGLE_PRIVATE_KEY}",
         "EnabledCipherSuites" : "ALL",
         "PrivateKeyPasswd": " "
       }
@@ -29,6 +29,6 @@
   "Bus": "bus",
   "Logger": "logger_debug",
   "Patterns": ["device/#"],
-  "Topic": "${MQTT_EXPORTER_GOOGLE_PUB_TOPIC}",
+  "Topic": "${MQTT_EXPORT_GOOGLE_PUB_TOPIC}",
   "QueueSize": 4
 }

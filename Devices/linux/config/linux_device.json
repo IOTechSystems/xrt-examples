@@ -11,5 +11,5 @@
     { "Interval": 5000, "Metrics": ["NetworkInterface"], "Topic": "device/metrics4", "SeparateEvents": false},
     { "Interval": 10000, "Metrics": ["Memory", "CPU", "DiskIO"], "Topic": "device/metrics5", "SeparateEvents": true}
   ],
-  "Logger":"logger"
+  "Logger":"logger_debug"
 }

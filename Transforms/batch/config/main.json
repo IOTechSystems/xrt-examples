@@ -1,9 +1,10 @@
 {
   "logger":"IOT::Logger",
+  "logger_debug":"IOT::Logger",
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "mqtt_exporter":"XRT::MQTTBridge",
+  "mqtt_bridge":"XRT::MQTTBridge",
   "batch":"XRT::BatchTransform",
   "virtual_device_service":"XRT::VirtualDeviceService"
 }
