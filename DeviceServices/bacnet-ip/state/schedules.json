@@ -1,1 +1,1 @@
-{"schedule1":{"device":"BacnetSimulator","resource":[".*"],"interval":3000000,"name":"schedule1"}}
+{"schedule1":{"device":"bacnet-ip-sim","interval":3000000,"name":"schedule1","resource":[".*"]}}
