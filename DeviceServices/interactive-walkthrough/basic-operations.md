@@ -6,10 +6,10 @@ We encourage you to look at the scripts in the `commands` folder in your device 
 ## Prerequisites
 
 * The "Getting Started" section for your respective device service has been followed 
-* Your present working directory is your chosen device service's commands folder e.g:
+* Your present working directory is your chosen device service example folder e.g:
 
 ```bash
-cd ~/xrt-examples/DeviceServices/opc-ua/commands
+cd ~/xrt-examples/DeviceServices/opc-ua
 ```
 
 * Mosquitto clients are installed:
@@ -31,7 +31,7 @@ Device management requests will be made on the `RequestTopic` and the response t
 Since, with the example, a device has already been added to the device service with a schedule running we will first remove the device to give ourselves a clean slate.
 
 ```bash
-./remove_device.sh
+./commands/remove_device.sh
 ```
 
 In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed. 
@@ -40,7 +40,7 @@ In your other terminal window, you should see the request message that was sent 
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
 
 ```bash
-./add_device.sh
+./commands/add_device.sh
 ```
 
 Again, you should be able to see the 'add request' message and it's reponse indicating that the device was successfully added. 
@@ -53,7 +53,7 @@ Reading requests will be made on the `RequestTopic`. The response indicating suc
 Let's read a single resource from the device profile:
 
 ```bash
-./get_request.sh
+./commands/get_request.sh
 ```
 This will perfom a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of the device that the request is being performed on and the name of the resource that being requested. In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
 
@@ -61,7 +61,7 @@ This will perfom a reading on one of the resources defined in the newly added de
 We also can read multiple resources in one operation:
 
 ```bash
-./get_multi_request.sh
+./commands/get_multi_request.sh
 ```
 
 ## Writing
@@ -72,7 +72,7 @@ Writing requests will be made on the `RequestTopic` and a response indicating th
 Now let's write some data to our device with a put command:
 
 ```bash
-./put_request.sh
+./commands/put_request.sh
 ```
 
  In the request message you should see the name of the device that the request is being performed on, and the name of the resource that we are writing to, along with the value we are writing. In the reply you should be able to see a message indicating that the put request was successful. 
@@ -81,7 +81,7 @@ Now let's write some data to our device with a put command:
 Similarly to the multi get request, we can also write to multiple resources in one operation.
 
 ```bash
-./put_multi_request.sh
+./commands/put_multi_request.sh
 ```
 
 ## Schedule Management
@@ -93,7 +93,7 @@ Schedule requests will be made on the `ScheduleRequestTopic` and the response in
 ### Set up schedule
 Let's add our own schedule:
 ```bash
-./add_schedule.sh
+./commands/add_schedule.sh
 ```
 
 In the request, you should be able to see information about the schedule we are wanting to add, such as the name, the name of the device, the resource, and the interval we are wanting to read this resource at. The reply should indicate if the put request was sucessful or not. You should then also start to see readings being published in a similar format to a get request reply.
@@ -101,7 +101,7 @@ In the request, you should be able to see information about the schedule we are 
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
 ```bash
-./remove_schedule.sh
+./commands/remove_schedule.sh
 ```
 
 In the 'delete schedule' request, you can see that we include the name of the schedule that we are wanting to remove. The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.

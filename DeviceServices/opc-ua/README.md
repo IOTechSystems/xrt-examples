@@ -69,13 +69,13 @@ OPC-UA subscription requests are made on the same topics as Schedules. See [Sche
 We can setup a subscription to a monitored resource using auto events. This will produce a reading every time the value we have subscribed to changes.
 
 ```bash
-./add_subscription.sh
+./commands/add_subscription.sh
 ```
 
 **Remove the subscription to the resource**
 
 ```bash
-./remove_subscription.sh
+./commands/remove_subscription.sh
 ```
 
 ### Discovery

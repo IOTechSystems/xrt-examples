@@ -5,10 +5,10 @@ This page provides a walkthrough of a device service's device discovery features
 ## Prerequisites
 
 * The "Getting Started" section for your respective device service has been followed 
-* Your present working directory is your chosen device service's commands folder e.g:
+* Your present working directory is your chosen device service example folder e.g:
 
 ```bash
-cd ~/xrt-examples/DeviceServices/opc-ua/commands
+cd ~/xrt-examples/DeviceServices/opc-ua
 ```
 
 ## Setup
@@ -16,7 +16,7 @@ cd ~/xrt-examples/DeviceServices/opc-ua/commands
 Let's start with a clean slate: first remove the existing device from xrt:
 
 ```bash
-./remove_device.sh
+./commands/remove_device.sh
 ```
 
 ## Trigger Discovery
@@ -25,7 +25,7 @@ Discovery requests will be made on the `DiscoveryRequestTopic`, a reply to the r
 
 We can trigger discovery to receive information about available devices.
 ```bash
-./trigger_discovery.sh
+./commands/trigger_discovery.sh
 ```
 
 On your mqtt message subscription, you will be able to see the discovery request, a message indicating the success of the request, and then subsequently a list of devices, and their properties, that the device service has discovered. 
@@ -35,14 +35,14 @@ On your mqtt message subscription, you will be able to see the discovery request
 We can use the information received above to create a new add device request.
 
 ```bash
-./add_discovered_device.sh
+./commands/add_discovered_device.sh
 ```
 If you inspect this script, you will see that the protocol information matches one of the discovered devices that we received from our discovery request. Notice that we have omitted the device profile from this add device request. This is because the device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated.  
 
 In this case there is already a profile that matches, so xrt will use this. We can perform a get request to show that the device has matched to this profile:
 
 ```bash
-./get_request.sh
+./commands/get_request.sh
 ```
 
 **Extra**
@@ -50,17 +50,17 @@ In this case there is already a profile that matches, so xrt will use this. We c
 To generate a profile for the device instead of using the exsiting one, we can follow the above steps but additionally delete the existing profile: 
 
 ```bash
-./remove_device.sh
+./commands/remove_device.sh
 ```
 
 ```bash
-./remove_device_profile.sh
+./commands/remove_device_profile.sh
 ```
 
 Then add our device:
 
 ```bash
-./add_discovered_device.sh
+./commands/add_discovered_device.sh
 ```
 
 If you take a look in `profiles` you should notice that there is a new `json` file named with an uuid. This file is the newly generated profile.
