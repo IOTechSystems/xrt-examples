@@ -1,0 +1,25 @@
+{
+  "Library": "libxrt-ethernet-ip-device-service.so",
+  "Factory": "xrt_ethernet_ip_device_service_factory",
+  "Name": "ethernet_ip_device_service",
+  "Topic": "xrt/device/ethernet_ip_device_service/data",
+  "RequestTopic": "xrt/device/ethernet_ip_device_service/request",
+  "ReplyTopic": "xrt/device/ethernet_ip_device_service/reply",
+  "ProfileRequestTopic": "xrt/profile/ethernet_ip_device_service/request",
+  "DiscoveryTopic": "xrt/discovery/ethernet_ip_device_service/devices",
+  "ProfileReplyTopic": "xrt/profile/ethernet_ip_device_service/reply",
+  "ScheduleRequestTopic": "xrt/schedule/ethernet_ip_device_service/request",
+  "ScheduleReplyTopic": "xrt/schedule/ethernet_ip_device_service/reply",
+  "AutoRegister": false,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir": "${XRT_PROFILE_DIR}",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Scheduler": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
+  "Driver": {
+    "NetworkInterface": "docker0"
+  }
+}

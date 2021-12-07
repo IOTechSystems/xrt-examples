@@ -1,0 +1,5 @@
+{
+  "Scheduler": "sched",
+  "ThreadPool": "pool",
+  "Logger": "logger"
+}
