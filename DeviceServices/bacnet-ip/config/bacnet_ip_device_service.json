@@ -23,6 +23,7 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver":{
+    "NetworkID": 0,
     "Port": 47808,
     "APDUTimeout": 3000,
     "APDURetries": 3,

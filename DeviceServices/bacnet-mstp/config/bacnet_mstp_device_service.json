@@ -23,6 +23,7 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver":{
+    "NetworkID": 0,
     "SerialInterface": "/tmp/virtualport",
     "APDUTimeout": 10000,
     "APDURetries": 3,
