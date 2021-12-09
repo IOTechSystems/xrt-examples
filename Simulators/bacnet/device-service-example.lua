@@ -24,7 +24,7 @@ function Update()
     for instanceType, instance in pairs(instances) do
       if instance.total > 0 and instance.update == true then
         for instanceIterator = 0, instance.total - 1 do
-          local value = math.random(0,1000)
+          local value = math.random(0,500)
           bacnet["set" .. instanceType .. "PresentValue"](instanceIterator, value, priority)
         end
       end
@@ -32,4 +32,3 @@ function Update()
     lastUpdate = os.time()
   end
 end
-
