@@ -1,5 +1,6 @@
 
 local instances = {}
+local priority = 1
 
 instances["AnalogInput"] = {total = 2, update = true}
 instances["AnalogValue"] = {total = 2, update = true}
@@ -24,7 +25,7 @@ function Update()
       if instance.total > 0 and instance.update == true then
         for instanceIterator = 0, instance.total - 1 do
           local value = math.random(0,1000)
-          bacnet["set" .. instanceType .. "PresentValue"](instanceIterator, value, 1)
+          bacnet["set" .. instanceType .. "PresentValue"](instanceIterator, value, priority)
         end
       end
     end
