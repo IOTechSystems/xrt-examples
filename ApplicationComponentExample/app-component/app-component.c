@@ -34,10 +34,8 @@ extern app_component_t * app_component_alloc (xrt_bus_t * bus, const char * requ
   iot_log_trace (app_comp->logger, "app_component_alloc()");
   iot_component_init (&app_comp->component, app_component_factory (), (iot_component_start_fn_t) app_component_start, (iot_component_stop_fn_t) app_component_stop);
   app_comp->bus = bus;
-  app_comp->sub = xrt_bus_sub_alloc (bus, request_topic, app_comp, XRT_BUS_NULL_COOKIE, app_component_add_callback, 0);
-  xrt_bus_sub_disable (app_comp->sub);
-  app_comp->pub = xrt_bus_pub_alloc (bus, reply_topic, app_comp, 0, NULL, 0);
-  xrt_bus_pub_disable (app_comp->pub);
+  app_comp->sub = xrt_bus_sub_alloc (bus, request_topic, app_comp, XRT_BUS_NULL_COOKIE, app_component_add_callback, 0u, false);
+  app_comp->pub = xrt_bus_pub_alloc (bus, reply_topic, app_comp, 0, NULL, 0u, false);
 
   return app_comp;
 }
