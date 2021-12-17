@@ -20,12 +20,14 @@ apt-get install mosquitto-clients
 
 ## Topics
 
-In our `device_service.json` file we have configured each topic that XRT will receive it's requests and post it's replies on. For more about these topics please see [XRT Device service Topics](https://www.link.to.documentation.about.topics).   
+In our `device_service.json` file we have configured each topic that XRT will receive it's requests, post its replies, post telemetry data and post discovered devices on. 
+For more about these topics please see [XRT Device service Topics](https://www.link.to.documentation.about.topics).   
+
+All requests to an XRT Device Service are made through the `RequestTopic` and responses received on the `ReplyTopic` indicating success or failure.
+Readings will also be included in this reply if a reading request was made.
 
 
 ## Device Management
-
-Device management requests will be made on the `RequestTopic` and the response to the request indicating the success of the operation will be received on the `ReplyTopic`. 
 
 ### Remove the device
 Since, with the example, a device has already been added to the device service with a schedule running we will first remove the device to give ourselves a clean slate.
@@ -47,15 +49,16 @@ Again, you should be able to see the 'add request' message and it's reponse indi
 
 ## Reading 
 
-Reading requests will be made on the `RequestTopic`. The response indicating success or failure will be received on the `ReplyTopic`. If the request was successful the readings and other relevant infomation will be included in the reply.
-
 ### Get request
 Let's read a single resource from the device profile:
 
 ```bash
 ./commands/get_request.sh
 ```
-This will perfom a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of the device that the request is being performed on and the name of the resource that being requested. In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
+This will perform a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of 
+the device that the request is being performed on and the name of the resource that being requested. 
+
+In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
 
 ### Multi get request
 We also can read multiple resources in one operation:
@@ -66,8 +69,6 @@ We also can read multiple resources in one operation:
 
 ## Writing
 
-Writing requests will be made on the `RequestTopic` and a response indicating the success of the put request will be received on the `ReplyTopic`.
-
 ### Put request
 Now let's write some data to our device with a put command:
 
@@ -75,7 +76,10 @@ Now let's write some data to our device with a put command:
 ./commands/put_request.sh
 ```
 
- In the request message you should see the name of the device that the request is being performed on, and the name of the resource that we are writing to, along with the value we are writing. In the reply you should be able to see a message indicating that the put request was successful. 
+In the request message you should be able to see the name of the device that the request is being performed on, 
+and the name of the resource that we are writing to, along with the value we are writing. 
+
+In the reply you should be able to see a message indicating that the put request was successful. 
 
 ### Multi put request
 Similarly to the multi get request, we can also write to multiple resources in one operation.
@@ -86,9 +90,7 @@ Similarly to the multi get request, we can also write to multiple resources in o
 
 ## Schedule Management
 
-Schedules can be set up to automatically perform get or put requests on an defined interval.
-
-Schedule requests will be made on the `ScheduleRequestTopic` and the response indicating the success of the request will be received on the `ScheduleReplyTopic`. Furthermore, the data from the schedule is received on the topic `Topic`. 
+Schedules can be set up to automatically perform get or put operations on a defined interval.
 
 ### Set up schedule
 Let's add our own schedule:
@@ -96,7 +98,11 @@ Let's add our own schedule:
 ./commands/add_schedule.sh
 ```
 
-In the request, you should be able to see information about the schedule we are wanting to add, such as the name, the name of the device, the resource, and the interval we are wanting to read this resource at. The reply should indicate if the put request was sucessful or not. You should then also start to see readings being published in a similar format to a get request reply.
+In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
+the resource, and the interval we are wanting to read this resource at. 
+
+The reply should indicate if the schedule add request was successful or not. 
+You should then also start to see readings being published in a similar format to a get request reply but on the `TelemetryTopic`.
 
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
@@ -104,4 +110,6 @@ Once we have received a few readings we can then remove the schedule:
 ./commands/remove_schedule.sh
 ```
 
-In the 'delete schedule' request, you can see that we include the name of the schedule that we are wanting to remove. The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.
+In the request message you should see that we include the name of the schedule that we are wanting to remove. 
+
+The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.
