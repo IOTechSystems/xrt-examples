@@ -1,6 +1,7 @@
 {
   "logger":"IOT::Logger",
   "logger_debug":"IOT::Logger",
+  "log_exporter":"XRT::LogExporter",
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
