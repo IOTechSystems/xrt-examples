@@ -1,8 +1,8 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/discovery/bacnet_mstp_device_service/request -m \
+mosquitto_pub -t xrt/devices/bacnet_mstp/request -m \
 '{
   "client":"example",
-  "request_id": "1060",
+  "request_id": 1060,
   "op": "discovery:trigger"
 }'
