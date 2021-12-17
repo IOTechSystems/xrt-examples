@@ -55,8 +55,8 @@ Let's read a single resource from the device profile:
 ```bash
 ./commands/get_request.sh
 ```
-This will perform a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of the device 
-that the request is being performed on and the name of the resource that being requested. 
+This will perform a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of 
+the device that the request is being performed on and the name of the resource that being requested. 
 
 In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
 
