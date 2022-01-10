@@ -2,11 +2,11 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [ 
-    "xrt/device/opc_ua_device_service/data",
-    "xrt/+/opc_ua_device_service/reply",
-    "xrt/discovery/opc_ua_device_service/devices"
+    "xrt/devices/opc_ua/telemetry",
+    "xrt/devices/opc_ua/reply",
+    "xrt/devices/opc_ua/discovery"
   ],
-  "MQTTPatterns": [ "xrt/+/opc_ua_device_service/request" ],
+  "MQTTPatterns": ["xrt/devices/opc_ua/request"],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

@@ -1,5 +1,5 @@
 #!/bin/sh
-mosquitto_pub -t xrt/device/opc_ua_device_service/request -m \
+mosquitto_pub -t xrt/devices/opc_ua/request -m \
 '{
   "client": "example",
   "request_id": "1030",
