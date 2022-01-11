@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-opcua-device-service.so",
   "Factory": "xrt_opcua_device_service_factory",
-  "Name": "opc_ua_device_service",
+  "Name": "opc_ua",
   "TelemetryTopic": "xrt/devices/opc_ua/telemetry",
   "RequestTopic": "xrt/devices/opc_ua/request",
   "ReplyTopic": "xrt/devices/opc_ua/reply",

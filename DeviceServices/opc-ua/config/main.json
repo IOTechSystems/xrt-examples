@@ -3,6 +3,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "opcua_device_service":"XRT::OPCUADeviceService",
+  "opc_ua":"XRT::OPCUADeviceService",
   "mqtt_bridge": "XRT::MQTTBridge"
 }
