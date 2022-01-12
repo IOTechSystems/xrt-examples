@@ -1,0 +1,10 @@
+{
+  "schedule1": {
+    "device": "GPS-Device",
+    "resource": [
+      "LatitudeAndLongitude"
+    ],
+    "interval": 2000000,
+    "name": "schedule1"
+  }
+}
