@@ -37,11 +37,11 @@ export OPCUA_SIM_ADDRESS=localhost:49947
 export OPCUA_LDS_ADDRESS=localhost:4840
 ```
 
-An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
 ### **Common Device Service Setup**
-Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
 
+Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
 
 ### **Run XRT with the config folder:**
 
@@ -49,7 +49,7 @@ See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
 cd opc-ua
-xrt config
+xrt deployment/config
 ```
 
 ## Walkthrough
