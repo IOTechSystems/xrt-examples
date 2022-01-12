@@ -1,0 +1,122 @@
+{
+  "description": "Global Positioning System", 
+  "deviceCommands": [
+    {
+      "get": [
+        {
+          "deviceResource": "Latitude", 
+          "operation": "get"
+        }, 
+        {
+          "deviceResource": "Longitude", 
+          "operation": "get"
+        }
+      ], 
+      "name": "LatitudeAndLongitude"
+    }
+  ], 
+  "deviceResources": [
+    {
+      "description": "Get the current time from the GPS module", 
+      "name": "Time", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }, 
+    {
+      "description": "Get the current date & time from the GPS module", 
+      "name": "Date", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "String"
+        }
+      }
+    }, 
+    {
+      "description": "Course over ground, degrees from true north", 
+      "name": "Track", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }, 
+    {
+      "description": "Get the vertical speed in Meters/Sec", 
+      "name": "Climb", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }, 
+    {
+      "description": "Get the altitude in Meters", 
+      "name": "Altitude", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }, 
+    {
+      "description": "Get the speed over ground in Meters/Sec", 
+      "name": "Speed", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }, 
+    {
+      "description": "Get the latitude in Degrees", 
+      "name": "Latitude", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }, 
+    {
+      "description": "Get the longitude in Degrees", 
+      "name": "Longitude", 
+      "properties": {
+        "value": {
+          "defaultValue": "0.0", 
+          "floatEncoding": "eNotation", 
+          "readWrite": "R", 
+          "type": "Float64"
+        }
+      }
+    }
+  ], 
+  "labels": [
+    "GPS Coordinates"
+  ], 
+  "manufacturer": "", 
+  "model": "", 
+  "name": "GPS-Device"
+}

@@ -1,0 +1,23 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [
+    "xrt/device/gps_device_service/data",
+    "xrt/+/gps_device_service/reply",
+    "xrt/discovery/gps_device_service/devices"
+  ],
+  "MQTTPatterns": [ "xrt/+/gps_device_service/request" ],
+  "MQTTConfig":
+  {
+    "ServerURI": "tcp://0.0.0.0:1883",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig": {"Username":"test","Password": "tube","KeepAliveInterval": 10, "MQTTVersion": 5, "Reliable": true},
+    "RetryCount": 5,
+    "RetryInterval": 5
+  },
+  "Cookie": 125,
+  "Bus": "bus",
+  "QueueSize": 5,
+  "Logger": "logger"
+}

@@ -1,0 +1,26 @@
+{
+  "Library": "libxrt-gps-device-service.so",
+  "Factory": "xrt_gps_device_service_factory",
+  "Name":"gps_device_service",
+  "Topic":"xrt/device/gps_device_service/data",
+  "RequestTopic": "xrt/device/gps_device_service/request",
+  "ReplyTopic": "xrt/device/gps_device_service/reply",
+  "ProfileRequestTopic": "xrt/profile/gps_device_service/request",
+  "ProfileReplyTopic": "xrt/profile/gps_device_service/reply",
+  "ScheduleRequestTopic": "xrt/schedule/gps_device_service/request",
+  "ScheduleReplyTopic": "xrt/schedule/gps_device_service/reply",
+  "AutoRegister": true,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir":"./config/profiles",
+  "StateDir":"./state",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Driver":{
+    "GpsdHostname": "0.0.0.0",
+    "GpsdPort": 2947,
+    "GpsdMode": "poll"
+  }
+}
