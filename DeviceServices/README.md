@@ -26,3 +26,4 @@ Additionally, a number of example scripts are provided that can be used to inter
 * [OPC-UA](opc-ua)
 * [Virtual](virtual)
 * [EtherNet/IP](ethernet-ip)
+* [GPS](gps)
