@@ -1,9 +1,9 @@
-# GPS Example
+# GPS Device Service Example
 
 ## Overview
-This page shows you how to setup and run the GPS example.
+This page details how to setup and run the GPS example.
 
-For more informatioin about the Device Service please review the GPS Device Service documentation.
+For more information about the Device Service please view the GPS Device Service documentation.
 
 ## Getting Started
 
@@ -16,17 +16,17 @@ One of the following is needed before running the GPS component:
 When one of the above conditions has been met the following Driver options should be updated:
 
 * GpsdHostname : Updated to either the IP address of the GPSD instance or the container name
-* GpsdPort : The default port is 2947 however if changed this should be updated to match
+* GpsdPort : The default port for GPSD is 2947 however if changed this should be updated to match
 * GpsdMode : Default is "poll" with "nopoll" being the other option
 
 ### Setting environment variables
 
-XRT_PROFILE_DIR - This shoukld be the path to the proile directory for example:
+XRT_PROFILE_DIR - This should be the path to the proile directory, for example:
 ```
 export XRT_PROFILE_DIR=/path/to/examples/DeviceServices/gps/config/profiles/
 ```
 
-XRT_STATE_DIR - This should be the path to the state directory for example:
+XRT_STATE_DIR - This should be the path to the state directory, for example:
 ```
 export XRT_STATE_DIR=/path/to/examples/DeviceServices/gps/state
 ```
