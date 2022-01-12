@@ -3,7 +3,7 @@
 mosquitto_pub -t xrt/devices/bacnet_ip/request -m \
 '{
   "client": "example",
-  "request_id": 1030,
+  "request_id": "1031",
   "op": "device:put",
   "device": "bacnet-ip-sim",
   "values": {

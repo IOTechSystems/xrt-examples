@@ -3,6 +3,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "bacnet_mstp_device_service":"XRT::BACnetMSTPDeviceService",
+  "bacnet_mstp":"XRT::BACnetMSTPDeviceService",
   "mqtt_bridge": "XRT::MQTTBridge"
 }
