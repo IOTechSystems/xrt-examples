@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-bacnet-mstp-device-service.so",
   "Factory": "xrt_bacnet_mstp_device_service_factory",
-  "Name": "bacnet_device_service",
+  "Name": "bacnet_mstp",
   "TelemetryTopic": "xrt/devices/bacnet_mstp/telemetry",
   "RequestTopic": "xrt/devices/bacnet_mstp/request",
   "ReplyTopic": "xrt/devices/bacnet_mstp/reply",

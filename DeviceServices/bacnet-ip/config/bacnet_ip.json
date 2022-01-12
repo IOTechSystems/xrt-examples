@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-bacnet-ip-device-service.so",
   "Factory": "xrt_bacnet_ip_device_service_factory",
-  "Name": "bacnet_device_service",
+  "Name": "bacnet_ip",
   "TelemetryTopic": "xrt/devices/bacnet_ip/telemetry",
   "RequestTopic": "xrt/devices/bacnet_ip/request",
   "ReplyTopic": "xrt/devices/bacnet_ip/reply",
