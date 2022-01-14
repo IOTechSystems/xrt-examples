@@ -10,7 +10,7 @@ the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 
 The example reads the digital inputs from a Modbus Device via
 the Modbus Device Service component and publishes the data onto the
-[internal XRT bus with duplicates filter turn on](../config/bus.json).
+[internal XRT bus with duplicates filter turn on](../deployment/config/bus.json).
 
 If a new data value is the same as the previous value then the
 duplicates filter will prevent the unchanged data value from being
@@ -93,12 +93,12 @@ can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1
 
 The configuration files generated from the tool are provided
 as follows:
-*	[Damocles2 Mini Device Profile](../config/profiles/Damocles2-Mini.json)
+*	[Damocles2 Mini Device Profile](../deployment/profiles/Damocles2-Mini.json)
 *	[Damocles2 Mini DTDL file](../Damocles2-Mini.dtdl)
 
 ### Device Service
 
-* Edit the [config/modbus.json](../config/modbus.json) file and 
+* Edit the [config/modbus.json](../deployment/config/modbus.json) file and 
   replace 10.0.0.1 with the IP address of your Modbus Device
   (If your using ModbusPal Simulator, this should be the
   IP Address of your PC currently running the
@@ -111,7 +111,7 @@ as follows:
 To connect the example to your IoT Hub endpoint you must also
 configure Azure Export Service component.
 
-* Edit [config/azure-modbus.json](../config/azure-modbus.json) and the
+* Edit [config/azure-modbus.json](../deployment/config/azure-modbus.json) and the
   value for the "HostName", "DeviceID" and "ScopeID" values.
 
 * The DeviceID can be found for a USB connected device with

@@ -10,7 +10,7 @@
 
 * In the new created Visual Studio Project:
 
-  * Copy the provided [config/](../config/) directory
+  * Copy the provided [config/](../deployment/config/) directory
     and [CMakeSettings.json](../CMakeSettings.json) 
     into the Visual Studio project
   * Copy and overwrite CMakeLists.txt,

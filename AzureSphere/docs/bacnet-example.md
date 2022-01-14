@@ -42,7 +42,7 @@ IoT Hub.
 ### Azure (Required)
 
 The Azure config file can be found at:
-[configs/azure-bacnet.json](../config/azure-bacnet.json)
+[configs/azure-bacnet.json](../deployment/config/azure-bacnet.json)
 
 You will need to configure some values in azure.json to
 be able to send values to the IoT Hub. You will need:
@@ -138,7 +138,7 @@ docker run -it --rm --name=bacnet-server -e RUN_MODE=IP \
 iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance 2749
 ```
 
-Within the [config/bacnet.json](../config/bacnet.json), make sure
+Within the [config/bacnet.json](../deployment/config/bacnet.json), make sure
 to set `NetworkInterface` option to the WI-FI interface which will
 be used in the Driver section of the config file, for example
 

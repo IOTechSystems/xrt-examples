@@ -11,7 +11,7 @@ These examples use the virtual device service to produce readings to be exported
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/sitewise/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/sitewise/deployment/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g

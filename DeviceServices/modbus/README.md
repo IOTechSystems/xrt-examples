@@ -48,11 +48,11 @@ export XRT_LICENSE_FILE=/home/peter/license.json
 
 - `XRT_PROFILE_DIR`
     - This is an environment variable pointing towards the directory containing device profiles to be used.
-    - For the default example configuration, this should be set using `export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/modbus/config/profiles`
+    - For the default example configuration, this should be set using `export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/modbus/deployment/profiles`
 
 - `XRT_STATE_DIR`
     - This is an environment variable pointing towards the directory containing state information to be used.
-    - For the default example configuration, this should be set using `export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/modbus/state`
+    - For the default example configuration, this should be set using `export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/modbus/deployment/state`
 
 ### Run XRT
 
