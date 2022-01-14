@@ -25,5 +25,5 @@
       "interval": 2000000
     }
   ],
-  "ProfileDir":"config/profiles"
+  "ProfileDir":"deployment/profiles"
 }

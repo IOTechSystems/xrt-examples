@@ -25,7 +25,7 @@
     }
   ],
   "DiscoveryInterval": 10,
-  "ProfileDir":"config/profiles",
+  "ProfileDir":"deployment/profiles",
   "Scheduler":"scheduler",
   "Logger":"logger",
   "ThreadPool":"pool",

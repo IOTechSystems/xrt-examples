@@ -28,13 +28,13 @@ export XRT_INFLUXDB_PASSWORD=admin
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/influxdb/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/influxdb/deployment/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/influxdb/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/influxdb/deployment/state/
 ```
 
 **Run InfluxDB**
@@ -52,5 +52,5 @@ This is assuming that the following pre-requisites are satisfied:
 
 ```bash
 cd influxdb
-xrt config
+xrt deployment/config
 ```

@@ -11,13 +11,13 @@ These examples use the virtual device service to produce readings to be exported
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/azure/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/azure/deployment/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/azure/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/azure/deployment/state/
 ```
 
 AZURE_EXPORTER_HOSTNAME 
@@ -46,7 +46,7 @@ export AZURE_EXPORTER_KEY=/path/to/device-42.key.pem
 **Run XRT with the config folder:**
 
 ```bash 
-cd azure/
-xrt config
+cd azure
+xrt deployment/config
 ```
 

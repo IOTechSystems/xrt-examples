@@ -33,7 +33,7 @@ to build the example component.
 A configuration is provided which sets up one device with three accessible
 values. Run
 
-`xrt config`
+`xrt deployment/config`
 
 to start the XRT instance with the example component. The logs should indicate
 a value being published every two seconds.

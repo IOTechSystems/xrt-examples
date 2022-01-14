@@ -29,6 +29,6 @@ This is assuming that the following pre-requisites are satisfied:
 * XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
-$ xrt /path/to/xrt-examples/Container/config
+$ xrt deployment/config
 ```
 

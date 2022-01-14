@@ -12,13 +12,13 @@ These examples use the virtual device service to produce readings to be exported
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/google/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/google/deployment/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/google/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/google/deployment/state/
 ```
 
 MQTT_EXPORT_GOOGLE_TRUST_STORE - Your Google Trust Store file e.g
@@ -54,6 +54,6 @@ export MQTT_EXPORT_GOOGLE_CLIENT_ID=projects/light-trail-249010/locations/europe
 
 ```bash 
 cd mqtt/google/
-xrt config
+xrt deployment/config
 ```
 

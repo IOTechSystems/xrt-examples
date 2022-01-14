@@ -46,5 +46,5 @@ export AWS_SITEWISE_ACCESS_SECRET_KEY=[AWS_ACCESS_SECRET_KEY]
 
 ```bash 
 cd sitewise/
-xrt config
+xrt deployment/config
 ```

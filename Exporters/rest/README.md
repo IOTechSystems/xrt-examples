@@ -11,13 +11,13 @@ These examples use the virtual device service to produce readings to be exported
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/rest/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/rest/deployment/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/rest/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/rest/deployment/state/
 ```
 
 XRT_REST_ENDPOINT - The address of the rest endpoint the readings are exported to e.g
@@ -46,5 +46,5 @@ export REST_EXPORTER_SSL_KEY=/path/to/client.key
 
 ```bash 
 cd rest/
-xrt config
+xrt deployment/config
 ```

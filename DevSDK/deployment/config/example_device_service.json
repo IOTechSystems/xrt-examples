@@ -20,7 +20,7 @@
       "interval": 2000000
     }
   ],
-  "ProfileDir":"config/profiles",
+  "ProfileDir":"deployment/profiles",
   "Scheduler":"sched",
   "Logger":"logger",
   "ThreadPool":"pool",

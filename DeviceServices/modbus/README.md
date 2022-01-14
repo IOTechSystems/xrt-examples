@@ -57,7 +57,7 @@ export XRT_LICENSE_FILE=/home/peter/license.json
 ### Run XRT
 
 ```
-$ xrt modbus/config
+$ xrt deployment/config
 ```
 where 'xrt' is the shared library outputted following a build of XRT. 
 If done correctly, this will start a loop in which readings are obtained over regular intervals from registers specified in the profile. Note that the values returned from the simulator will be default '0' readings, unless updated in the simulator via a GUI like the one bundled with ModbusPal. 
