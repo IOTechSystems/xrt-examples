@@ -32,4 +32,3 @@ This is assuming that the following pre-requisites are satisfied:
 cd Transforms/batch
 xrt deployment/config
 ```
-
