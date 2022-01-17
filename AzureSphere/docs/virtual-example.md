@@ -33,7 +33,7 @@ IoT Hub.
 
 ### Azure (Required)
 The Azure config file can be found at:
-[deployment/configs/azure-virtual.json](../deployment/config/azure-virtual.json)
+[deployment/config/azure-virtual.json](../deployment/config/azure-virtual.json)
 
 You will need to configure some values in azure.json to
 be able to send values to the IoT Hub. You will need:

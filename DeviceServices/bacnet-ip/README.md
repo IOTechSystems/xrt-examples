@@ -81,6 +81,6 @@ For a walkthrough on device discovery and profile generation see the [Discovery]
 
 ### Additional Information
 
-To communicate with devices on your local network, remove the `BBMDAddress` and `BBMDPort` driver options in the `bacnet_ip_device_service.json` file.
+To communicate with devices on your local network, remove the `BBMDAddress` and `BBMDPort` driver options in the `bacnet_ip.json` file.
 
 If you have multiple network interfaces, add the driver option `NetworkInterface` to specify the name of the interface to use.

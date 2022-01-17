@@ -1,9 +1,9 @@
 set device=%1
 set board=%2
 
-copy deployment\profiles\profiles-%device%.json profiles\profiles.json /y
-copy deployment\config\main-%device%.json config\main.json /y
-copy deployment\config\azure-%device%.json config\azure.json /y
+copy deployment\profiles\profiles-%device%.json deployment\profiles\profiles.json /y
+copy deployment\config\main-%device%.json deployment\config\main.json /y
+copy deployment\config\azure-%device%.json deployment\config\azure.json /y
 copy %board%\app_manifest.json app_manifest.json /y
 
 mkdir build

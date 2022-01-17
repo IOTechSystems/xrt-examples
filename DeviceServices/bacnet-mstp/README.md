@@ -75,4 +75,4 @@ For a walkthrough on device discovery and profile generation see the [Discovery]
 ### Additional Information
 
 To communicate with externally connected serial devices, update the driver option `SerialInterface` in the 
-`bacnet_mstp_device_service.json` file to the path of the RS-485 connection on your host.
+`bacnet_mstp.json` file to the path of the RS-485 connection on your host.
