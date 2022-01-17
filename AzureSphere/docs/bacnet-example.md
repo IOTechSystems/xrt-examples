@@ -138,7 +138,7 @@ docker run -it --rm --name=bacnet-server -e RUN_MODE=IP \
 iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance 2749
 ```
 
-Within the [config/bacnet.json](../deployment/config/bacnet.json), make sure
+Within the [deployment/config/bacnet.json](../deployment/config/bacnet.json), make sure
 to set `NetworkInterface` option to the WI-FI interface which will
 be used in the Driver section of the config file, for example
 

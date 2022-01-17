@@ -98,7 +98,7 @@ as follows:
 
 ### Device Service
 
-* Edit the [config/modbus.json](../deployment/config/modbus.json) file and 
+* Edit the [deployment/config/modbus.json](../deployment/config/modbus.json) file and 
   replace 10.0.0.1 with the IP address of your Modbus Device
   (If your using ModbusPal Simulator, this should be the
   IP Address of your PC currently running the
@@ -111,7 +111,7 @@ as follows:
 To connect the example to your IoT Hub endpoint you must also
 configure Azure Export Service component.
 
-* Edit [config/azure-modbus.json](../deployment/config/azure-modbus.json) and the
+* Edit [deployment/config/azure-modbus.json](../deployment/config/azure-modbus.json) and the
   value for the "HostName", "DeviceID" and "ScopeID" values.
 
 * The DeviceID can be found for a USB connected device with
