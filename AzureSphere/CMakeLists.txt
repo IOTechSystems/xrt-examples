@@ -34,17 +34,17 @@ endif ()
 
 if (${DEVICE} STREQUAL "modbus")
   target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-modbus-device-service.a)
-  set (DEVICE_CONFIG "config/modbus.json" "config/profiles/Damocles2-Mini.json")
+  set (DEVICE_CONFIG "deployment/config/modbus.json" "deployment/config/profiles/Damocles2-Mini.json")
   set (DRIVER modbus)
   add_definitions ("-DDEVICE_MODBUS")
 elseif (${DEVICE} STREQUAL "bacnet")
   target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-bacnet-ip-device-service.a)
-  set (DEVICE_CONFIG "config/bacnet.json" "config/profiles/bacnet-simulator.json")
+  set (DEVICE_CONFIG "deployment/config/bacnet.json" "deployment/config/profiles/bacnet-simulator.json")
   set (DRIVER bacnet-ip)
   add_definitions ("-DDEVICE_BACNET")
 elseif (${DEVICE} STREQUAL "virtual")
   target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-virtual-device-service.a)
-  set (DEVICE_CONFIG "config/virtual.json" "config/profiles/device-virtual.json")
+  set (DEVICE_CONFIG "deployment/config/virtual.json" "deployment/config/profiles/device-virtual.json")
   add_definitions ("-DDEVICE_VIRTUAL")
 endif ()
 
@@ -57,5 +57,5 @@ target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/xrt/in
 target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/iot/include/)
 
 azsphere_target_hardware_definition (${PROJECT_NAME} TARGET_DIRECTORY "${SDK_ROOT}/HardwareDefinitions" TARGET_DEFINITION ${TARGET_CONFIG})
-azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/mt3620.json" ${DEVICE_CONFIG} "config/profiles/profiles.json")
+azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "deployment/config/main.json" "deployment/config/azure.json" "deployment/config/logger.json" "deployment/config/pool.json" "deployment/config/scheduler.json" "deployment/config/bus.json" "deployment/config/logexport.json" "deployment/config/mt3620.json" ${DEVICE_CONFIG} "deployment/profiles/profiles.json")
 

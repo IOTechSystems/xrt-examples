@@ -28,7 +28,7 @@ static void termination_handler (int signal)
 
 int main (void)
 {
-  iot_container_config_t config = { .load = iot_file_config_loader, .uri = "config", .save = NULL };
+  iot_container_config_t config = { .load = iot_file_config_loader, .uri = "deployment/config", .save = NULL };
 
   pthread_mutex_lock (&mutex);
   struct sigaction action;

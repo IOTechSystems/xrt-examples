@@ -48,16 +48,16 @@ export XRT_LICENSE_FILE=/home/peter/license.json
 
 - `XRT_PROFILE_DIR`
     - This is an environment variable pointing towards the directory containing device profiles to be used.
-    - For the default example configuration, this should be set using `export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/modbus/config/profiles`
+    - For the default example configuration, this should be set using `export XRT_PROFILE_DIR=/path/to/xrt-examples/DeviceServices/modbus/deployment/profiles`
 
 - `XRT_STATE_DIR`
     - This is an environment variable pointing towards the directory containing state information to be used.
-    - For the default example configuration, this should be set using `export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/modbus/state`
+    - For the default example configuration, this should be set using `export XRT_STATE_DIR=/path/to/xrt-examples/DeviceServices/modbus/deployment/state`
 
 ### Run XRT
 
 ```
-$ xrt modbus/config
+$ xrt deployment/config
 ```
 where 'xrt' is the shared library outputted following a build of XRT. 
 If done correctly, this will start a loop in which readings are obtained over regular intervals from registers specified in the profile. Note that the values returned from the simulator will be default '0' readings, unless updated in the simulator via a GUI like the one bundled with ModbusPal. 

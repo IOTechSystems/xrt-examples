@@ -4,7 +4,6 @@
 
 These examples use the virtual device service to produce readings to be exported by an mqtt exporter to post readings to a Mosquitto MQTT broker.
 
-
 ## Steps
 
 **Set Environment Variables:**
@@ -12,13 +11,13 @@ These examples use the virtual device service to produce readings to be exported
 XRT_PROFILE_DIR - This should be the path to the profile directory e.g
 
 ```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/config/profiles/
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/deployment/profiles/
 ```
 
 XRT_STATE_DIR - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/state/
+export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/deployment/state/
 ```
 XRT_MQTT_BROKER - The Server URI of the Mosquitto broker e.g
 
@@ -40,8 +39,5 @@ export XRT_MQTT_PASSWORD=password
 
 ```bash 
 cd mqtt/mosquitto/
-xrt config
+xrt deployment/config
 ```
-
-
-

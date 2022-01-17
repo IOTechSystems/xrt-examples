@@ -31,7 +31,7 @@ We have provided a script to easily set these environment variables. Run:
  export ETHERNETIP_SIM_ADDRESS=<IP-Address>
  ```
 
- An explanation for the setting of common device service enviroment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
+ An explanation for the setting of common device service enviroment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
 ### Common Device Service Setup
 Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
@@ -42,7 +42,7 @@ See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```
 cd ethernet-ip
-xrt config
+xrt deployment/config
 ```
 
 ## Walkthrough

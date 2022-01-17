@@ -47,11 +47,11 @@ export XRT_MQTT_PASSWORD=""
 *Assuming you are in a DeviceServices example folder e.g `xrt-examples/DeviceServices/opc-ua`*:
 
 ```bash
-export XRT_PROFILE_DIR=$(pwd)/profiles/
+export XRT_PROFILE_DIR=$(pwd)/deployment/profiles/
 ```
 
 `XRT_STATE_DIR` - This should be the path to the state directory e.g
 
 ```bash
-export XRT_STATE_DIR=$(pwd)/state/
+export XRT_STATE_DIR=$(pwd)/deployment/state/
 ```
