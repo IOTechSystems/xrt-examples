@@ -1,0 +1,68 @@
+{
+  "name": "ble-sim-profile",
+  "apiVersion": "v2",
+  "description": "A Simulated BLE device",
+  "labels": [
+    "BLE"
+  ],
+  "deviceResources": [
+    {
+      "name": "CharOneData",
+      "description": "A simple integer value",
+      "properties": {
+        "valueType": "uint32",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe1"
+      }
+    },
+    {
+      "name": "CharOneNotification",
+      "description": "CharacteristicOne Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "CharOneData",
+        "isNotification": "true"
+      }
+    },
+    {
+      "name": "CharTwoFirstData",
+      "description": "first 4 bytes of characteristic 2",
+      "properties": {
+        "valueType": "Uint32",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe2",
+        "startByte": "0"
+      }
+    },
+    {
+      "name": "CharTwoSecondData",
+      "description": "Second 8 bytes of characteristic 2",
+      "properties": {
+        "valueType": "Uint64",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe2",
+        "startByte": "4"
+      }
+    },
+    {
+      "name": "CharThreeData",
+      "description": "boolean value ",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe3"
+      }
+    }
+  ]
+}
