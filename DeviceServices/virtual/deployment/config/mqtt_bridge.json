@@ -2,11 +2,11 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [ 
-    "xrt/device/virtual_device_service/data",
-    "xrt/+/virtual_device_service/reply",
-    "xrt/discovery/virtual_device_service/devices"
+    "xrt/devices/virtual/telemetry",
+    "xrt/devices/virtual/reply",
+    "xrt/devices/virtual/discovery"
   ],
-  "MQTTPatterns": [ "xrt/+/virtual_device_service/request"],
+  "MQTTPatterns": [ "xrt/devices/virtual/request"],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
