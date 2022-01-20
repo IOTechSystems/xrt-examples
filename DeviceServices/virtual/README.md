@@ -1,35 +1,38 @@
 # Virtual Device Service Example
 
-## Example
+## Overview
 
-This example starts the virtual device service.
-Additionally, a complete virtual device profile for the virtual device is provided with a schedule to read all of its resources every 3 seconds.
+This page shows you how to set up and run the virtual device service example.
 
-## Steps
+For more information about the Device Service please review the [Virtual Device Service](https://www.link.to.virtual.device.service.docs) documentation.
 
-**Set Environment Variables**
+## Getting Started
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
+### **Set Environment Variables**
 
+We have provided a script to easily set these environment variables. Run:
 ```bash
-export XRT_PROFILE_DIR=/path/to/examples/DeviceServices/virtual/deployment/profiles
+. ./commands/set_env_vars.sh
 ```
+*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
 
-XRT_STATE_DIR - This should be the path to the state directory e.g
+An explanation for the manual setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
 
-```bash
-export XRT_STATE_DIR=/path/to/examples/DeviceServices/virtual/deployment/state
-```
+### **Common Device Service Setup**
+Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
 
-**Run XRT with the config folder:**
 
-This is assuming that the following pre-requisites are satisfied:
+### **Run XRT with the config folder:**
 
-* XRT is installed
-* LD_LIBRARY_PATH has been correctly set
-* XRT_LICENSE_FILE has been set to the location of the xrt license 
+See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
 cd virtual
 xrt deployment/config
 ```
+
+## Walkthrough
+
+### Basic Operations
+
+For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
