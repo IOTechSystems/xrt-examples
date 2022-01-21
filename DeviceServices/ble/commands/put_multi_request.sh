@@ -6,8 +6,7 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "op": "device:put",
   "device": "ble-sim",
   "values": {
-    "CharOneData": 43,
-    "CharTwoFirstData": 123456,
-    "CharTwoSecondData": 987654321
+    "Static": 43,
+    "Static2": 123456
   },
 }'

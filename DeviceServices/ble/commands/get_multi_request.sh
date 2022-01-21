@@ -7,9 +7,13 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
   "op": "device:get",
   "device": "opc-ua-sim",
   "resource": [
-      "CharOneData",
-      "CharTwoFirstData",
-      "CharTwoSecondData",
-      "CharThreeData",
+      "Counter",
+      "Random",
+      "Sawtooth",
+      "Sinusoid",
+      "Square",
+      "Triangle",
+      "Static",
+      "Static2"
     ]
 }'
