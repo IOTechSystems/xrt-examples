@@ -1,5 +1,6 @@
 {
   "name": "MotorSim",
+  "apiVersion": "v2",
   "manufacturer": "IoTech",
   "model": "1",
   "description": "Motor simulation for AWS Sitewise",
@@ -7,90 +8,24 @@
     {
       "name": "MachineSpeed",
       "description": "Reads the machines rotational speed",
-      "properties": {
-        "value": {
-          "type": "Float32",
-          "readWrite": "R",
-          "floatEncoding": "eNotation"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "rpm"
-        }
-      },
-      "attributes": {
-        "amplitude": "-20",
-        "offset": "200",
-        "period": "15",
-        "sequenceType": "waveform",
-        "shape": "sawtooth"
-      }
+      "properties": { "valueType": "Float32", "readWrite": "R", "units": "rpm" },
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "amplitude": -20, "offset": 200, "period": 15 }
     },
     {
       "name": "MachineTemp",
       "description": "Reads the temperature in the motor windings",
-      "properties": {
-        "value": {
-          "type": "Float32",
-          "readWrite": "R",
-          "floatEncoding": "eNotation"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "degC"
-        }
-      },
-      "attributes": {
-        "amplitude": "4",
-        "offset": "35",
-        "period": "15",
-        "phase": "8",
-        "sequenceType": "waveform",
-        "shape": "triangle"
-      }
+      "properties": { "valueType": "Float32", "readWrite": "R", "units": "degC" },
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "amplitude": 4, "offset": 35, "period": 15, "phase": 8 }
     }
   ],
   "deviceCommands": [
     {
       "name": "MachineState",
-      "get": [
-        {
-          "index": "1",
-          "operation": "get",
-          "object": "MachineSpeed",
-          "deviceResource": "MachineSpeed"
-        },
-        {
-          "index": "2",
-          "operation": "get",
-          "object": "MachineTemp",
-          "deviceResource": "MachineTemp"
-        }
+      "readWrite": "R",
+      "resourceOperations": [
+        { "deviceResource": "MachineSpeed" },
+        { "deviceResource": "MachineTemp" }
       ]
-    }
-  ],
-  "coreCommands": [
-    {
-      "name": "MachineState",
-      "get": {
-        "path": "/api/v1/device/{deviceId}/MachineState",
-        "responses": [
-          {
-            "code": "200",
-            "description": "Success",
-            "expectedValues": [
-              "MachineSpeed",
-              "MachineTemp"
-            ]
-          },
-          {
-            "code": "500",
-            "description": "Failed transaction"
-          }
-        ]
-      }
     }
   ]
 }
