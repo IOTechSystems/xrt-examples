@@ -57,7 +57,6 @@ service:addCharacteristic (sinusoid)
 service:addCharacteristic (square)
 service:addCharacteristic (triangle)
 service:addCharacteristic (static)
-service:addCharacteristic (static2)
 
 counter:addDescriptor (counter_desc)
 random:addDescriptor (random_desc)
