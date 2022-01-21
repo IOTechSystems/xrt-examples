@@ -1,38 +1,29 @@
 {
   "name": "XRT-Virtual-Example",
+  "apiVersion": "v2",
   "deviceResources":[
     {
       "name": "Origin",
       "attributes": { "firstValue": "Sensor55" },
-      "properties":
-      {
-        "value": { "type": "String", "readWrite": "R" },
-        "units": { "defaultValue": "" }
-      }
+      "properties": { "valueType": "String", "readWrite": "R" }
     },
     {
       "name": "Temp",
       "attributes": { "sequenceType": "arithmetic", "firstValue": "345", "difference": "-1" },
-      "properties":
-      {
-        "value": { "type": "UInt32", "readWrite": "R" },
-        "units": { "defaultValue": "degC" }
-      }
+      "properties": { "valueType": "UInt32", "readWrite": "R", "units": "degC" }
     },
     {
       "name": "Uptime",
       "attributes": { "sequenceType": "arithmetic", "firstValue": "67891", "difference": "1" },
-      "properties":
-      {
-        "value": { "type": "Uint64", "readWrite": "R" },
-        "units": { "defaultValue": "seconds" }
-      }
+      "properties": { "valueType": "Uint64", "readWrite": "R", "units": "seconds" }
     }
   ],
   "deviceCommands": [
     {
       "name": "SensorOne",
-      "get": [
+      "readWrite": "R",
+      "resourceOperations":
+      [
         { "deviceResource": "Origin" },
         { "deviceResource": "Temp" },
         { "deviceResource": "Uptime" }
