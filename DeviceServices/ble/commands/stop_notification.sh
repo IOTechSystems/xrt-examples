@@ -7,6 +7,6 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "op": "device:put",
   "device": "ble-sim",
   "values": {
-    "Counter": false,
+    "RandomNotification": false,
   },
 }'

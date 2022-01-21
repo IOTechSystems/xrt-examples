@@ -78,7 +78,7 @@ sinusoid:notifying(true)
 square:notifying(true)
 triangle:notifying(true)
 
-static:setValue({0xde,0xad,0xbe,0xef,0xca,0xfe,0xba,0xbe}, DataType.UINT8)
+static:setValue({0xde,0xad,0xbe,0xef}, DataType.UINT8)
 
 counter_val = 0
 
