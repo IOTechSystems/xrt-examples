@@ -1,0 +1,19 @@
+#!/bin/sh
+
+mosquitto_pub -t xrt/devices/modbus/request -m \
+'{
+  "client":"example",
+  "request_id": "1050",
+  "op": "schedule:add",
+  "schedule": {
+    "name":"modbus-sim-subscription1",
+    "device":"modbus-sim",
+    "resource":["ns=3;s=Counter"],
+    "interval": 1000000,
+    "options" : {
+      "Subscription" : {
+        "Interval" : 0
+      }
+    }
+  }
+}'

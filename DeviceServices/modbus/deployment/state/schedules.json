@@ -1,6 +1,6 @@
 {
   "schedule1": {
-    "device": "Network-Power-Meter-Simulation",
+    "device": "modbus-sim",
     "resource": [
       "Current"
     ],
