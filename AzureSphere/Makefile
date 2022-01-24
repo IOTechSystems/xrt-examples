@@ -21,7 +21,7 @@ build:
 	(cd build && cmake -G "Ninja" \
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
         -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.10" \
-        -DAZURE_SPHERE_TARGET_API_SET="10" \
+        -DAZURE_SPHERE_TARGET_API_SET="11" \
         -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
         -DBOARD=$(BOARD) \
         -DDEVICE=$(DEVICE) \
