@@ -1,16 +1,11 @@
 --setup devices & their properties
-TST_SRVC1 = "0000180d-0000-1000-8000-00805f9b34fb"
-TST_CHR1 = "00002a38-0000-1000-8000-00805f9b34fb"
-TST_CHR2 = "00002a39-0000-1000-8000-00805f9b34fb"
-TST_DESC1 = "12345678-1234-5678-1234-56789abcdef2"
-TST_DESC2 = "12345678-1234-5678-1234-56789abcdef3"
 
 dev1 = ble.createDevice ("lua-test-dev-1")
-srvc1 = ble.createService (TST_SRVC1)
-char1 = ble.createCharacteristic (TST_CHR1)
-char2 = ble.createCharacteristic (TST_CHR2)
-desc1 = ble.createDescriptor (TST_DESC1)
-desc2 = ble.createDescriptor (TST_DESC2)
+srvc1 = ble.createService ("0000180d-0000-1000-8000-00805f9b34fb")
+char1 = ble.createCharacteristic ("00002a38-0000-1000-8000-00805f9b34fb")
+char2 = ble.createCharacteristic ("00002a39-0000-1000-8000-00805f9b34fb")
+desc1 = ble.createDescriptor ("12345678-1234-5678-1234-56789abcdef2")
+desc2 = ble.createDescriptor ("12345678-1234-5678-1234-56789abcdef3")
 
 dev1:addService (srvc1)
 srvc1:addCharacteristic (char1)
