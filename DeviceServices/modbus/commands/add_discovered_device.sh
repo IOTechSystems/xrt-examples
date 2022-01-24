@@ -3,11 +3,10 @@
 mosquitto_pub -t xrt/devices/modbus/request -m \
 '{
   "client": "example",
-  "request_id":"1010",
+  "request_id":"1060",
   "op": "device:add",
   "device": "modbus-sim",
   "device_info":  {
-    "profileName": "modbus-sim-profile",
     "protocols":{
       "Modbus":{
         "Address": "localhost:1502",

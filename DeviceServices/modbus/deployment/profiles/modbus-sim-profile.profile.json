@@ -1,5 +1,5 @@
 {
-  "name": "Network Power Meter",
+  "name": "modbus-sim-profile",
   "manufacturer": "Dent Instruments",
   "model": "PS3037",
   "description": "Power Scout Meter",
@@ -16,15 +16,9 @@
         "startingAddress": "9"
       },
       "properties": {
-        "value": {
-          "type": "UINT16",
-          "scale": "1"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "min"
-        }
+        "valueType": "UINT16",
+        "units": "min"
+        //todo: read/write access?
       }
     },
     {
@@ -35,15 +29,8 @@
         "startingAddress": "4001"
       },
       "properties": {
-        "value": {
-          "type": "FLOAT32",
-          "scale": "1"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "min"
-        }
+        "valueType": "FLOAT32",
+        "units": "min"
       }
     },
     {
@@ -54,15 +41,8 @@
         "startingAddress": "4003"
       },
       "properties": {
-        "value": {
-          "type": "UINT16",
-          "scale": "1"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "min"
-        }
+        "valueType": "UINT16",
+        "units": "min"
       }
     },
     {
@@ -73,15 +53,8 @@
         "startingAddress": "4017"
       },
       "properties": {
-        "value": {
-          "type": "UINT16",
-          "scale": "1"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "min"
-        }
+        "valueType": "UINT16",
+        "units": "min"
       }
     },
     {
@@ -92,16 +65,9 @@
         "startingAddress": "4603"
       },
       "properties": {
-        "value": {
-          "type": "UINT16",
-          "readWrite": "R",
-          "scale": "1"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "min"
-        }
+        "valueType": "UINT16",
+        "readWrite": "R",
+        "units": "min"
       }
     },
     {
@@ -112,16 +78,9 @@
         "startingAddress": "4609"
       },
       "properties": {
-        "value": {
-          "type": "UINT16",
-          "readWrite": "R",
-          "scale": "1"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Hz"
-        }
+        "valueType": "UINT16",
+        "readWrite": "R",
+        "units": "Hz"
       }
     }
   ]
