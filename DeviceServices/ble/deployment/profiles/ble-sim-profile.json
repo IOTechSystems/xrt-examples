@@ -1,0 +1,160 @@
+{
+  "name": "ble-sim-profile",
+  "apiVersion": "v2",
+  "description": "A Simulated BLE device",
+  "labels": [
+    "BLE"
+  ],
+  "deviceResources": [
+    {
+      "name": "Counter",
+      "description": "An Increasing value",
+      "properties": {
+        "valueType": "uint32",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe1"
+      }
+    },
+    {
+      "name": "CounterNotification",
+      "description": "CharacteristicOne Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "Counter",
+        "isNotification": true
+      }
+    },
+    {
+      "name": "Random",
+      "description": "An Random value",
+      "properties": {
+        "valueType": "float64",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe2"
+      }
+    },
+    {
+      "name": "RandomNotification",
+      "description": "Random Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "Random",
+        "isNotification": true
+      }
+    },
+    {
+      "name": "Sawtooth",
+      "description": "",
+      "properties": {
+        "valueType": "float64",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe3"
+      }
+    },
+    {
+      "name": "SawtoothNotification",
+      "description": "Sawtooth Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "Sawtooth",
+        "isNotification": true
+      }
+    },
+    {
+      "name": "Sinusoid",
+      "description": "",
+      "properties": {
+        "valueType": "float64",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe4"
+      }
+    },
+    {
+      "name": "SinusoidNotification",
+      "description": "Sinusoid Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "Sinusoid",
+        "isNotification": true
+      }
+    },
+    {
+      "name": "Square",
+      "description": "",
+      "properties": {
+        "valueType": "float64",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe5"
+      }
+    },
+    {
+      "name": "SquareNotification",
+      "description": "Square Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "Square",
+        "isNotification": true
+      }
+    },
+    {
+      "name": "Triangle",
+      "description": "",
+      "properties": {
+        "valueType": "float64",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe6"
+      }
+    },
+    {
+      "name": "TriangleNotification",
+      "description": "Triangle Notification",
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "deviceResource": "Triangle",
+        "isNotification": true
+      }
+    },
+    {
+      "name": "Static",
+      "description": "",
+      "properties": {
+        "valueType": "uint32",
+        "readWrite": "RW"
+      },
+      "attributes": {
+        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe7",
+        "startByte": 0
+      }
+    }
+  ]
+}

@@ -1,3 +1,4 @@
 #!/bin/sh
-
-docker run --rm -d --name opc-ua-sim -e RUN_LDS=true --network=host -p 49947 -p 4840 iotechsys/opc-ua-sim:1.0.dev -l /example-scripts/device-service-example.lua
+OPC_UA_SIM=iotechsys/opc-ua-sim:1.0.dev
+docker pull $OPC_UA_SIM
+docker run --rm -d --name opc-ua-sim -e RUN_LDS=true --network=host -p 49947 -p 4840 $OPC_UA_SIM -l /example-scripts/device-service-example.lua
