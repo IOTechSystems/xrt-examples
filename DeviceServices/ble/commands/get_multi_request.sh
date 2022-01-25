@@ -13,7 +13,6 @@ mosquitto_pub -t xrt/devices/ble/request -m \
       "Sinusoid",
       "Square",
       "Triangle",
-      "Static",
-      "Static2"
+      "Static"
     ]
 }'

@@ -7,6 +7,6 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "device": "ble-sim",
   "values": {
     "Static": 43,
-    "Static2": 123456
+    "Random": 0
   },
 }'
