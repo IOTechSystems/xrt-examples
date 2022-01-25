@@ -1,6 +1,6 @@
 {
   "logger":"IOT::Logger",
-  "udp-logger":"XRT::UDPLogger",
+  "udp-logger":"IOT::Logger",
   "pool":"IOT::ThreadPool",
   "scheduler":"IOT::Scheduler",
   "bus":"XRT::Bus",

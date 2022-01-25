@@ -1,6 +1,6 @@
 {
   "Name":"udp-logger",
   "Level":"Trace",
-  "To":"10.0.0.95:1999",
+  "To":"udp:10.0.0.95:1999",
   "Start":true
 }

@@ -29,12 +29,12 @@ build:
 # Deploy as a sideloaded application
 deploy: build/xrt-app.imagepackage connect
 	azsphere device sideload delete
-	azsphere device sideload deploy --imagepackage build/xrt-app.imagepackage
+	azsphere device sideload deploy --image-package build/xrt-app.imagepackage
 
 # Start the application in debug mode
 debug:  deploy
-	azsphere device app stop --componentid ${CID}
-	azsphere device app start --debug --componentid ${CID}
+	azsphere device app stop --component-id ${CID}
+	azsphere device app start --debug-mode --component-id ${CID}
 
 # Ensure the Guardian 100 is connected via USB. If not connected it
 # will attempt to connect. Connect command is run using 'sudo' and
