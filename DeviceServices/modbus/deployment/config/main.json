@@ -3,6 +3,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "modbus_device_service":"XRT::ModbusDeviceService",
+  "modbus":"XRT::ModbusDeviceService",
   "mqtt_bridge": "XRT::MQTTBridge"
 }

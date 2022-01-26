@@ -2,11 +2,11 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
-    "xrt/device/modbus/data",
-    "xrt/+/modbus/reply",
-    "xrt/discovery/modbus/devices"
+    "xrt/devices/modbus/telemetry",
+    "xrt/devices/modbus/reply",
+    "xrt/devices/modbus/discovery"
   ],
-  "MQTTPatterns": [ "xrt/+/modbus/request" ],
+  "MQTTPatterns": [ "xrt/devices/modbus/request" ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

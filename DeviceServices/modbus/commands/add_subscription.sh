@@ -8,7 +8,7 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
   "schedule": {
     "name":"modbus-sim-subscription1",
     "device":"modbus-sim",
-    "resource":["ns=3;s=Counter"],
+    "resource":["Current"],
     "interval": 1000000,
     "options" : {
       "Subscription" : {

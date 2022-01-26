@@ -6,9 +6,9 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
   "request_id": "1040",
   "op": "schedule:add",
   "schedule": {
-    "name":"modbus-sim-schedule1",
+    "name":"modbus-example-schedule1",
     "device":"modbus-sim",
-    "resource":["ns=3;s=Random"], //todo: update
+    "resource":["Current"],
     "interval": 1000000
   }
 }'

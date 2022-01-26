@@ -1,4 +1,5 @@
 {
+  "apiVersion": "v2",
   "name": "modbus-sim-profile",
   "manufacturer": "Dent Instruments",
   "model": "PS3037",
@@ -13,12 +14,11 @@
       "description": "Average current of all phases",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": "9"
+        "startingAddress": 9
       },
       "properties": {
         "valueType": "UINT16",
         "units": "min"
-        //todo: read/write access?
       }
     },
     {
@@ -26,7 +26,7 @@
       "description": "System Total True Energy",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": "4001"
+        "startingAddress": 4001
       },
       "properties": {
         "valueType": "FLOAT32",
@@ -38,7 +38,7 @@
       "description": "System Total True Power ",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": "4003"
+        "startingAddress": 4003
       },
       "properties": {
         "valueType": "UINT16",
@@ -50,7 +50,7 @@
       "description": "Voltage Line to line (Volts) Average",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": "4017"
+        "startingAddress": 4017
       },
       "properties": {
         "valueType": "UINT16",
@@ -62,7 +62,7 @@
       "description": "Demand window size in minutes; default is 15 min",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": "4603"
+        "startingAddress": 4603
       },
       "properties": {
         "valueType": "UINT16",
@@ -75,7 +75,7 @@
       "description": "Line frequency setting for metering: 50=50 Hz, 60=60Hz",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": "4609"
+        "startingAddress": 4609
       },
       "properties": {
         "valueType": "UINT16",

@@ -1,17 +1,18 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/devices/opc_ua/request -m \
+mosquitto_pub -t xrt/devices/modbus/request -m \
 '{
   "client": "example",
   "request_id":"1010",
   "op": "device:add",
-  "device": "opc-ua-sim",
+  "device": "modbus-sim",
   "device_info":  {
-    "profileName": "opc-ua-sim-profile",
+    "profileName": "modbus-sim-profile",
     "protocols":{
-      "OPC-UA":{
-        "Address": "localhost:49947",
-        "Security": "None"
+      "modbus-tcp":{
+        "Address": "localhost",
+        "Port": "1502",
+        "UnitID": 1
       }
     }
   }

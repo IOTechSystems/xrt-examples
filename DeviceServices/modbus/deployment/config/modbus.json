@@ -8,10 +8,7 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
-  "TelemetryTopic":"modbus/data",
-  "RequestTopic": "xrt/device/modbus/request",
-  "ReplyTopic": "xrt/device/modbus/reply",
-  "DiscoveryTopic": "xrt/discovery/modbus/devices",
-  "ScheduleRequestTopic": "xrt/schedule/modbus/request",
-  "ScheduleReplyTopic": "xrt/schedule/modbus/reply"
+  "TelemetryTopic":"xrt/devices/modbus/telemetry",
+  "RequestTopic": "xrt/devices/modbus/request",
+  "ReplyTopic": "xrt/devices/modbus/reply"
 }

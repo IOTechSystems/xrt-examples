@@ -1,4 +1,5 @@
 #!/bin/sh
+
 mosquitto_pub -t xrt/devices/modbus/request -m \
 '{
   "client": "example",
@@ -6,8 +7,8 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
   "op": "device:put",
   "device": "modbus-sim",
   "values": {
-    "ns=2;s=WritableInt64": 42,
-    "ns=2;s=WritableFloat": 123.456,
-    "ns=2;s=WritableString": "Example string",
+    "Current": 100,
+    "Power": 50,
+    "Voltage": 30,
   },
 }'

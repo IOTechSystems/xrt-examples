@@ -1,10 +1,1 @@
-{
-  "schedule1": {
-    "device": "modbus-sim",
-    "resource": [
-      "Current"
-    ],
-    "interval": 2000000,
-    "name": "schedule1"
-  }
-}
+{"modbus-sim-subscription1":{"device":"modbus-sim","interval":1000000,"name":"modbus-sim-subscription1","options":{"Subscription":{"Interval":0}},"resource":["Current"]}}

@@ -7,10 +7,8 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
   "op": "device:get",
   "device": "modbus-sim",
   "resource": [
-      "ns=3;s=Counter",
-      "ns=3;s=Random",
-      "ns=3;s=Sawtooth",
-      "ns=3;s=Triangle", 
-      "ns=3;s=Sinusoid" 
+      "Current",
+      "Power"
+      "Voltage"
     ]
 }'

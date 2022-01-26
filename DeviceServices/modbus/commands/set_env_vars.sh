@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export OPCUA_SIM_ADDRESS=localhost:49947
-export OPCUA_LDS_ADDRESS=localhost:4840
+export MODBUS_DEVICE_ADDRESS=localhost
+export MODBUS_DEVICE_PORT=1502
 
 export XRT_PROFILE_DIR=$PWD/deployment/profiles/
 export XRT_STATE_DIR=$PWD/deployment/state/

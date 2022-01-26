@@ -7,6 +7,6 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
   "op": "device:put",
   "device": "modbus-sim",
   "values": {
-    "ns=2;s=WritableInt64": 42,
+    "Current": 30,
   },
 }'
