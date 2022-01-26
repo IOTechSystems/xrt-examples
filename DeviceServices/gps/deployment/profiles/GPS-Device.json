@@ -1,0 +1,89 @@
+{
+  "name": "GPS-Device",
+  "manufacturer": "", 
+  "model": "", 
+  "description": "Global Positioning System", 
+  "apiVersion": "v2",
+    "labels": [],
+  "deviceCommands": [
+    {
+      "get": [
+        {
+          "deviceResource": "Latitude", 
+          "operation": "get"
+        }, 
+        {
+          "deviceResource": "Longitude", 
+          "operation": "get"
+        }
+      ], 
+      "name": "LatitudeAndLongitude"
+    }
+  ], 
+  "deviceResources": [
+    {
+      "description": "Get the current time from the GPS module", 
+      "name": "Time", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the current date & time from the GPS module", 
+      "name": "Date", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "String"
+      }
+    }, 
+    {
+      "description": "Course over ground, degrees from true north", 
+      "name": "Track", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the vertical speed in Meters/Sec", 
+      "name": "Climb", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the altitude in Meters", 
+      "name": "Altitude", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the speed over ground in Meters/Sec", 
+      "name": "Speed", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the latitude in Degrees", 
+      "name": "Latitude", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the longitude in Degrees", 
+      "name": "Longitude", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }
+  ]
+}
