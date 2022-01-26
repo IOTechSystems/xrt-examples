@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker kill modbus-sim
+docker kill bacnet-ip-sim
