@@ -8,15 +8,6 @@ For more information about the Device Service please review the [BLE Device Serv
 
 ## Getting Started
 
-### **Start Bluez**
-
-The device service requires the linux blueooth module 'bluez'. Please ensure this is installed and running:
-
-```console
-apt-get install bluez
-systemctl start bluetooth
-```
-
 ### **Run the simulator**
 
 *For more information about the BLE device simulator, see [BLE Simulator](https://www.fixthislink.please).*
