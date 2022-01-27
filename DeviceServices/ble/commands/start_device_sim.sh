@@ -11,4 +11,3 @@ docker run --rm -it --name=ble-sim \
       --mount type=bind,source=/proc/1/ns/,target=/rootns \
       $BLE_SIM \
       --script /example-scripts/device-service-example.lua \
-      
