@@ -9,5 +9,6 @@ docker run --rm -d --name=ble-sim \
       --privileged \
       -v /var/run/dbus/system_bus_socket/:/var/run/dbus/system_bus_socket/ \
       --mount type=bind,source=/proc/1/ns/,target=/rootns \
+      -v /etc/dbus-1/system.d/:/etc/dbus-1/system.d/ \
       $BLE_SIM \
       --script /example-scripts/device-service-example.lua \
