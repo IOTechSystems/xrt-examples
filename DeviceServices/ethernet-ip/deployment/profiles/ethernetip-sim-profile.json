@@ -275,7 +275,7 @@
       },
       "properties": {
         "readWrite": "R",
-        "valueType": "Binary"
+        "valueType": "Uint8array"
       }
     },
     {
@@ -289,7 +289,7 @@
       },
       "properties": {
         "readWrite": "R",
-        "valueType": "Binary"
+        "valueType": "Uint8array"
       }
     },
     {
@@ -319,7 +319,7 @@
       },
       "properties": {
         "readWrite": "R",
-        "valueType": "Binary"
+        "valueType": "Uint8array"
       }
     },
     {
@@ -409,7 +409,7 @@
       },
       "properties": {
         "readWrite": "R",
-        "valueType": "Binary"
+        "valueType": "Uint8array"
       }
     },
     {
