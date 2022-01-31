@@ -11,7 +11,7 @@
   "Key": "${AZURE_EXPORTER_KEY}",
   "Devices": [
     {
-      "Name":"device-virtual", "Topic":"device/virtual/input", "Pattern":"device/virtual/output", "Format":"Device"
+      "Name":"device-virtual", "Topic":"device/virtual/input", "Pattern":"device/#", "Format":"Device"
     }
   ]
 }
