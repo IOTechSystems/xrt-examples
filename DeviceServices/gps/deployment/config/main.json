@@ -3,6 +3,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "gps_device_service":"XRT::GPSDeviceService",
+  "gps":"XRT::GPSDeviceService",
   "mqtt_bridge": "XRT::MQTTBridge"
 }
