@@ -6,5 +6,5 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "request_id": "1020",
   "op": "device:get",
   "device": "ble-sim",
-  "resource": ["CharOneNotification"]
+  "resource": ["Square"]
 }'
