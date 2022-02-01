@@ -6,8 +6,9 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Name":"virtual_device_service",
-  "Topic":"device/virtual/output",
-  "RequestTopic":"device/virtual/input",
+  "ReplyTopic":"xrt/devices/virtual/reply",
+  "RequestTopic":"xrt/devices/virtual/request",
+  "TelemetryTopic":"xrt/devices/virtual/telemetry",
   "StateDir":"${XRT_STATE_DIR}",
   "ProfileDir":"${XRT_PROFILE_DIR}"
 }

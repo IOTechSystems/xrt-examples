@@ -7,7 +7,7 @@
   "UserName": "${XRT_INFLUXDB_USERNAME}",
   "Password": "${XRT_INFLUXDB_PASSWORD}",
   "SelectData": [
-    { "Pattern": "device/data", "Format": "Device"}
+    { "Pattern": "device/#", "Format": "Device"}
   ],
   "Bus": "bus",
   "Logger": "logger_debug",
