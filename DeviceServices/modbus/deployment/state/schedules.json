@@ -3,11 +3,6 @@
     "device": "modbus-sim",
     "interval": 1000000,
     "name": "modbus-sim-schedule",
-    "options": {
-      "Subscription": {
-        "Interval": 0
-      }
-    },
     "resource": [
       "Current"
     ]

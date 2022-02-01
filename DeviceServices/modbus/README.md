@@ -10,8 +10,6 @@ For more information about the Device Service please review the [Modbus Device S
 
 ### **Run the simulator**
 
-*For more information about the Modbus device simulator, see [Modbus Simulator](https://www.fixthislink.please).*
-
 ```bash
 ./commands/start_device_sim.sh
 ```
