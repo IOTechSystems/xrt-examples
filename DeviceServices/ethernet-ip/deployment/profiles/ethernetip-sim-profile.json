@@ -242,8 +242,8 @@
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x01,
+        "objClass": "0x01",
+        "serviceCode": "0x01",
         "type": "EM"
       },
       "properties": {
@@ -256,8 +256,8 @@
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x01,
+        "objClass": "0x01",
+        "serviceCode": "0x01",
         "type": "EM"
       },
       "properties": {
@@ -270,8 +270,8 @@
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 0xF6,
-        "serviceCode": 0x01,
+        "objClass": "0xF6",
+        "serviceCode": "0x01",
         "type": "EM"
       },
       "properties": {
@@ -285,8 +285,8 @@
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -300,8 +300,8 @@
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -315,8 +315,8 @@
       "attributes": {
         "attrID": 2,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -330,8 +330,8 @@
       "attributes": {
         "attrID": 3,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -345,8 +345,8 @@
       "attributes": {
         "attrID": 4,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -360,8 +360,8 @@
       "attributes": {
         "attrID": 5,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -375,8 +375,8 @@
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -390,8 +390,8 @@
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -405,8 +405,8 @@
       "attributes": {
         "attrID": 7,
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x0E,
+        "objClass": "0x01",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -420,8 +420,8 @@
       "attributes": {
         "attrID": 3,
         "instID": 100,
-        "objClass": 0x04,
-        "serviceCode": 0x0E,
+        "objClass": "0x04",
+        "serviceCode": "0x0E",
         "type": "EM"
       },
       "properties": {
@@ -434,8 +434,8 @@
       "description": "Triggers the device to emulate a power cycle",
       "attributes": {
         "instID": 1,
-        "objClass": 0x01,
-        "serviceCode": 0x05,
+        "objClass": "0x01",
+        "serviceCode": "0x05",
         "type": "EM"
       },
       "properties": {
