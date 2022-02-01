@@ -1,24 +1,11 @@
 {
+  "name": "ethernetip-sim-profile",
   "manufacturer": "n/a",
   "model": "rta-server",
-  "name": "ethernetip-sim-profile",
   "apiVersion": "v2",
   "description": "Serverside code for rta-stack",
   "labels": [],
   "deviceResources": [
-    {
-      "attributes": {
-        "arraySize": 10,
-        "tagName": "TestInt",
-        "type": "logixTag"
-      },
-      "description": "structure of all output data",
-      "name": "TestInt",
-      "properties": {
-        "readWrite": "RW",
-        "valueType": "Uint16Array"
-      }
-    },
     {
       "name": "Implicit O2T Settings",
       "description": "Settings for Originator to Target Implicit Data Exchange",
@@ -48,8 +35,8 @@
       }
     },
     {
-      "description": "Digital Output 0",
       "name": "DO0",
+      "description": "Digital Output 0",
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
@@ -61,8 +48,8 @@
       }
     },
     {
-      "description": "Digital Output 1",
       "name": "DO1",
+      "description": "Digital Output 1",
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
@@ -74,8 +61,8 @@
       }
     },
     {
-      "description": "Digital Output 2",
       "name": "DO2",
+      "description": "Digital Output 2",
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
@@ -87,8 +74,8 @@
       }
     },
     {
-      "description": "Digital Output 3",
       "name": "DO3",
+      "description": "Digital Output 3",
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
@@ -100,8 +87,8 @@
       }
     },
     {
-      "description": "Digital Output 4",
       "name": "DO4",
+      "description": "Digital Output 4",
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
@@ -113,8 +100,8 @@
       }
     },
     {
-      "description": "Digital Output 5",
       "name": "DO5",
+      "description": "Digital Output 5",
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
@@ -126,8 +113,8 @@
       }
     },
     {
-      "description": "Digital Output 6",
       "name": "DO6",
+      "description": "Digital Output 6",
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
@@ -139,8 +126,8 @@
       }
     },
     {
-      "description": "Digital Input 0",
       "name": "DI0",
+      "description": "Digital Input 0",
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
@@ -153,8 +140,8 @@
       }
     },
     {
-      "description": "Digital Input 1",
       "name": "DI1",
+      "description": "Digital Input 1",
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
@@ -167,8 +154,8 @@
       }
     },
     {
-      "description": "Digital Input 2",
       "name": "DI2",
+      "description": "Digital Input 2",
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
@@ -181,8 +168,8 @@
       }
     },
     {
-      "description": "Digital Input 3",
       "name": "DI3",
+      "description": "Digital Input 3",
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
@@ -195,8 +182,8 @@
       }
     },
     {
-      "description": "Digital Input 4",
       "name": "DI4",
+      "description": "Digital Input 4",
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
@@ -209,8 +196,8 @@
       }
     },
     {
-      "description": "Digital Input 5",
       "name": "DI5",
+      "description": "Digital Input 5",
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
@@ -223,8 +210,8 @@
       }
     },
     {
-      "description": "Digital Input 6",
       "name": "DI6",
+      "description": "Digital Input 6",
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
@@ -237,8 +224,8 @@
       }
     },
     {
-      "description": "Digital Input 7",
       "name": "DI7",
+      "description": "Digital Input 7",
       "attributes": {
         "offsetBits": 7,
         "offsetBytes": 0,
@@ -251,12 +238,12 @@
       }
     },
     {
-      "description": "Get Attributes All Command to Identity Object Instance",
       "name": "IdentityClass",
+      "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x01",
+        "objClass": 0x01,
+        "serviceCode": 0x01,
         "type": "EM"
       },
       "properties": {
@@ -265,26 +252,12 @@
       }
     },
     {
-      "description": "Get Attributes All Command to Identity Object Instance",
       "name": "IdentityClass_bytes",
-      "attributes": {
-        "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x01",
-        "type": "EM"
-      },
-      "properties": {
-        "readWrite": "R",
-        "valueType": "Uint8array"
-      }
-    },
-    {
       "description": "Get Attributes All Command to Identity Object Instance",
-      "name": "EtherNetLinkClass_bytes",
       "attributes": {
         "instID": 1,
-        "objClass": "0xF6",
-        "serviceCode": "0x01",
+        "objClass": 0x01,
+        "serviceCode": 0x01,
         "type": "EM"
       },
       "properties": {
@@ -293,13 +266,27 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "name": "EtherNetLinkClass_bytes",
+      "description": "Get Attributes All Command to Identity Object Instance",
+      "attributes": {
+        "instID": 1,
+        "objClass": 0xF6,
+        "serviceCode": 0x01,
+        "type": "EM"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8array"
+      }
+    },
+    {
       "name": "VendorID",
+      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -308,13 +295,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "name": "VendorID_bytes",
+      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -323,13 +310,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
       "name": "DeviceType",
+      "description": "Get Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 2,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -338,13 +325,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
       "name": "ProductCode",
+      "description": "Get Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 3,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -353,13 +340,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to Revision Attribute Within the Identity Object Instance",
       "name": "Revision",
+      "description": "Get Attribute Single Command to Revision Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 4,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -368,13 +355,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to Status Attribute Within the Identity Object Instance",
       "name": "Status",
+      "description": "Get Attribute Single Command to Status Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 5,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -383,13 +370,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "name": "SerialNumber",
+      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -398,13 +385,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "name": "SerialNumber_bytes",
+      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -418,8 +405,8 @@
       "attributes": {
         "attrID": 7,
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x0E",
+        "objClass": 0x01,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -428,13 +415,13 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to Attribute Within Assembly Object Instance",
       "name": "AssemblyGet",
+      "description": "Get Attribute Single Command to Attribute Within Assembly Object Instance",
       "attributes": {
         "attrID": 3,
         "instID": 100,
-        "objClass": "0x04",
-        "serviceCode": "0x0E",
+        "objClass": 0x04,
+        "serviceCode": 0x0E,
         "type": "EM"
       },
       "properties": {
@@ -443,18 +430,31 @@
       }
     },
     {
-      "description": "Triggers the device to emulate a power cycle",
       "name": "Reset",
+      "description": "Triggers the device to emulate a power cycle",
       "attributes": {
         "instID": 1,
-        "objClass": "0x01",
-        "serviceCode": "0x05",
+        "objClass": 0x01,
+        "serviceCode": 0x05,
         "type": "EM"
       },
       "properties": {
         "readWrite": "W",
         "valueType": "Uint8"
       }
-    }
+    },
+    {
+      "name": "TestInt",
+      "attributes": {
+        "arraySize": 10,
+        "tagName": "TestInt",
+        "type": "logixTag"
+      },
+      "description": "structure of all output data",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Uint16Array"
+      }
+    },
   ]
 }
