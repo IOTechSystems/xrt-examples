@@ -1,0 +1,14 @@
+{
+  "Bus":"bus",
+  "Logger":"logger",
+  "ConnectionType":"DPS",
+  "HostName":"IOTechHub.azure-devices.net",
+  "DeviceID":"a9b1ad5a820298de504ef8973b3b1ba50fc761a2c5d87e6f30b4c8562c1b288d22a02ab6be57d377bb0f628afc8cf3d8c0d62167545e098cb73ba6ad2843137a",
+  "ModelID":"guardian-100",
+  "ScopeID":"0ne0017479D",
+  "Interface":"wlan0",
+  "Devices": [
+    { "Name":"mt3620", "Topic":"device/mt3620/input", "Pattern":"device/mt3620/output", "Format":"Raw" },
+    { "Name":"bacnet-simulator", "Topic":"device/input", "Pattern":"device/output", "Format":"Device" }
+  ]
+}

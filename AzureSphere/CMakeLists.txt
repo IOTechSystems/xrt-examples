@@ -11,6 +11,24 @@ azsphere_configure_tools (TOOLS_REVISION "${AZURE_SPHERE_TARGET_TOOLS_REVISION}"
 azsphere_configure_api (TARGET_API_SET "${AZURE_SPHERE_TARGET_API_SET}")
 set (SYSROOT "${SDK_ROOT}/Sysroots/${AZURE_SPHERE_TARGET_API_SET}")
 
+#########################################
+# Copying of Device Specific Config JSON
+#########################################
+set(DEVICE_CONFIGS_DIR "${CMAKE_SOURCE_DIR}/config")
+
+##############################################
+# Copying of Board Specific App Manifest JSON
+##############################################
+set(BOARD_APP_MANIFEST_FILENAME "app_manifest.json")
+set(BOARD_APP_MANIFEST_SRC_DIR "${CMAKE_SOURCE_DIR}/${BOARD}/${BOARD_APP_MANIFEST_FILENAME}")
+set(BOARD_APP_MANIFEST_DST_DIR "${CMAKE_SOURCE_DIR}/${BOARD_APP_MANIFEST_FILENAME}")
+
+add_custom_command(OUTPUT ${BOARD_APP_MANIFEST_DST_DIR}
+    PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BOARD_APP_MANIFEST_SRC_DIR} ${BOARD_APP_MANIFEST_DST_DIR}
+    COMMENT "=================== Generating ${BOARD_APP_MANIFEST_FILENAME} file ..."
+)
+
 add_executable (${PROJECT_NAME} main.c)
 
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-azure-exporter.a)
@@ -32,11 +50,7 @@ elseif (${BOARD} STREQUAL "mt3620-sr620")
   set (TARGET_CONFIG "ailink_wfm620rsc1.json")
 endif ()
 
-if (${DEVICE} STREQUAL "ethernetip")
-  target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-ethernet-ip-device-service.a)
-  set (DRIVER ethernet-ip)
-  add_definitions ("-DDEVICE_ETHERNETIP")
-elseif (${DEVICE} STREQUAL "modbus")
+if (${DEVICE} STREQUAL "modbus")
   target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-modbus-device-service.a)
   set (DRIVER modbus)
   add_definitions ("-DDEVICE_MODBUS")
@@ -58,4 +72,5 @@ target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/xrt/in
 target_include_directories (${PROJECT_NAME} PRIVATE ${SYSROOT}/opt/iotech/iot/include/)
 
 azsphere_target_hardware_definition (${PROJECT_NAME} TARGET_DIRECTORY "${SDK_ROOT}/HardwareDefinitions" TARGET_DEFINITION ${TARGET_CONFIG})
-azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/azure.json" "config/logger.json" "config/udp-logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/mt3620.json" "config/profiles/profiles.json")
+azsphere_target_add_image_package (${PROJECT_NAME} RESOURCE_FILES "config/main.json" "config/logger.json" "config/pool.json" "config/scheduler.json" "config/bus.json" "config/logexport.json" "config/mt3620.json" "config/azure.json" "config/udp-logger.json")
+
