@@ -4,7 +4,6 @@
   "Patterns": [
     "xrt/devices/ethernet_ip/telemetry",
     "xrt/devices/ethernet_ip/reply",
-    "xrt/devices/ethernet_ip/discovery"
   ],
   "MQTTPatterns": [ "xrt/devices/ethernet_ip/request" ],
   "MQTTConfig":
