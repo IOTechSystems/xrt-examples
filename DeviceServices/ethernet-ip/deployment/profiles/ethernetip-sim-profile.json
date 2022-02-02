@@ -2,6 +2,7 @@
   "name": "ethernetip-sim-profile",
   "manufacturer": "n/a",
   "model": "rta-server",
+  "apiVersion": "v2",
   "description": "Serverside code for rta-stack",
   "labels": [],
   "deviceResources": [
@@ -10,15 +11,13 @@
       "description": "Settings for Originator to Target Implicit Data Exchange",
       "attributes": {
         "type": "O2TSettings",
-        "assemblyID": "112",
-        "size": "496",
-        "includeHeader32bit": "true"
+        "assemblyID": 112,
+        "size": 496,
+        "includeHeader32bit": true
       },
       "properties": {
-        "value": {
-          "type": "String",
+          "valueType": "String",
           "readWrite": "R"
-        }
       }
     },
     {
@@ -26,498 +25,436 @@
       "description": "Settings for Target to Originator Implicit Data Exchange",
       "attributes": {
         "type": "T2OSettings",
-        "assemblyID": "100",
-        "size": "496",
-        "includeHeader32bit": "false"
+        "assemblyID": 100,
+        "size": 496,
+        "includeHeader32bit": false
       },
       "properties": {
-        "value": {
-          "type": "String",
+          "valueType": "String",
           "readWrite": "R"
-        }
-      }
-    },
-    {
-      "name": "Implicit Configuration Settings",
-      "description": "Settings for Configuration of Implicit Data Exchange",
-      "attributes": {
-        "type": "ConfigSettings",
-        "assemblyID": "100",
-        "size": "0"
-      },
-      "properties": {
-        "value": {
-          "type": "String",
-          "readWrite": "R"
-        }
       }
     },
     {
       "name": "DO0",
       "description": "Digital Output 0",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "0"
+        "offsetBits": 0,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DO1",
       "description": "Digital Output 1",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "1"
+        "offsetBits": 1,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DO2",
       "description": "Digital Output 2",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "2"
+        "offsetBits": 2,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DO3",
       "description": "Digital Output 3",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "3"
+        "offsetBits": 3,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DO4",
       "description": "Digital Output 4",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "4"
+        "offsetBits": 4,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DO5",
       "description": "Digital Output 5",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "5"
+        "offsetBits": 5,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DO6",
       "description": "Digital Output 6",
       "attributes": {
-        "type": "O2T",
-        "offsetBytes": "0",
-        "offsetBits": "6"
+        "offsetBits": 6,
+        "offsetBytes": 0,
+        "type": "O2T"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        }
+        "readWrite": "RW",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI0",
       "description": "Digital Input 0",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "0",
-        "readOnChange": "true"
+        "offsetBits": 0,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI1",
       "description": "Digital Input 1",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "1",
-        "readOnChange": "true"
+        "offsetBits": 1,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI2",
       "description": "Digital Input 2",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "2",
-        "readOnChange": "true"
+        "offsetBits": 2,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI3",
       "description": "Digital Input 3",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "3",
-        "readOnChange": "true"
+        "offsetBits": 3,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI4",
       "description": "Digital Input 4",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "4",
-        "readOnChange": "true"
+        "offsetBits": 4,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI5",
       "description": "Digital Input 5",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "5",
-        "readOnChange": "true"
+        "offsetBits": 5,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI6",
       "description": "Digital Input 6",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "6",
-        "readOnChange": "true"
+        "offsetBits": 6,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "DI7",
       "description": "Digital Input 7",
       "attributes": {
-        "type": "T2O",
-        "offsetBytes": "0",
-        "offsetBits": "7",
-        "readOnChange": "true"
+        "offsetBits": 7,
+        "offsetBytes": 0,
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
       "name": "IdentityClass",
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "serviceCode": "0x01"
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 1,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "String",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "String"
       }
     },
     {
       "name": "IdentityClass_bytes",
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "serviceCode": "0x01"
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 1,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Binary",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint8array"
       }
     },
     {
       "name": "EtherNetLinkClass_bytes",
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0xF6",
-        "instID": "1",
-        "serviceCode": "0x01"
+        "instID": 1,
+        "objClass": 246,
+        "serviceCode": 1,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Binary",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint8array"
       }
     },
     {
       "name": "VendorID",
       "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "1",
-        "serviceCode": "0x0E"
+        "attrID": 1,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint16"
       }
     },
     {
       "name": "VendorID_bytes",
       "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "1",
-        "serviceCode": "0x0E"
+        "attrID": 1,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Binary",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint8array"
       }
     },
     {
       "name": "DeviceType",
       "description": "Get Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "2",
-        "serviceCode": "0x0E"
+        "attrID": 2,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint16"
       }
     },
     {
       "name": "ProductCode",
       "description": "Get Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "3",
-        "serviceCode": "0x0E"
+        "attrID": 3,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint16"
       }
     },
     {
       "name": "Revision",
       "description": "Get Attribute Single Command to Revision Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "4",
-        "serviceCode": "0x0E"
+        "attrID": 4,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint16"
       }
     },
     {
       "name": "Status",
       "description": "Get Attribute Single Command to Status Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "5",
-        "serviceCode": "0x0E"
+        "attrID": 5,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint16"
       }
     },
     {
       "name": "SerialNumber",
       "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "6",
-        "serviceCode": "0x0E"
+        "attrID": 6,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint32",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint32"
       }
     },
     {
       "name": "SerialNumber_bytes",
       "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "6",
-        "serviceCode": "0x0E"
+        "attrID": 6,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Binary",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint8array"
       }
     },
     {
-      "name": "ProductName",
       "description": "Get Attribute Single Command to ProductName Attribute Within the Identity Object Instance",
+      "name": "ProductName",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "attrID": "7",
-        "serviceCode": "0x0E"
+        "attrID": 7,
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "String",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "String"
       }
     },
     {
       "name": "AssemblyGet",
       "description": "Get Attribute Single Command to Attribute Within Assembly Object Instance",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x04",
-        "instID": "100",
-        "attrID": "3",
-        "serviceCode": "0x0E"
+        "attrID": 3,
+        "instID": 100,
+        "objClass": 4,
+        "serviceCode": 14,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint32",
-          "readWrite": "R"
-        }
+        "readWrite": "R",
+        "valueType": "Uint32"
       }
     },
     {
       "name": "Reset",
       "description": "Triggers the device to emulate a power cycle",
       "attributes": {
-        "type": "EM",
-        "objClass": "0x01",
-        "instID": "1",
-        "serviceCode": "0x05"
+        "instID": 1,
+        "objClass": 1,
+        "serviceCode": 5,
+        "type": "EM"
       },
       "properties": {
-        "value": {
-          "type": "Uint8",
-          "readWrite": "W"
-        }
+        "readWrite": "W",
+        "valueType": "Uint8"
       }
-    }
+    },
+    {
+      "name": "TestInt",
+      "attributes": {
+        "arraySize": 10,
+        "tagName": "TestInt",
+        "type": "logixTag"
+      },
+      "description": "structure of all output data",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Uint16Array"
+      }
+    },
   ]
 }

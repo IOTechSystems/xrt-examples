@@ -10,13 +10,13 @@
         "ConnectionType": "p2p",
         "Ownership": "exclusive",
         "Priority": "low",
-        "RPI": "10"
+        "RPI": 10
         },
       "T2O": {
         "ConnectionType": "p2p",
         "Ownership": "exclusive",
         "Priority": "low",
-        "RPI": "10"
+        "RPI": 10
         }
       }
     }
