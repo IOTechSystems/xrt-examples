@@ -5,7 +5,6 @@
   "TelemetryTopic": "xrt/devices/ethernet_ip/telemetry",
   "RequestTopic": "xrt/devices/ethernet_ip/request",
   "ReplyTopic": "xrt/devices/ethernet_ip/reply",
-  "DiscoveryTopic": "xrt/devices/ethernet_ip/discovery",
   "AutoRegister": false,
   "DiscoveryInterval": 0,
   "PublishRegisteredDevices": true,
