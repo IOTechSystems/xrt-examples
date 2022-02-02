@@ -23,11 +23,6 @@ function sign(x)
   return x>0 and 1 or x<0 and -1 or 0
 end
 
---rounds to n decimal places
-function round(x, n)
- return tonumber(string.format("%." .. (n or 0) .. "f", x))
-end
-
 --create the namespaces
 ns = Server.addNamespace("SimulationServer") --creates namespace 2
 ns3 = Server.addNamespace("SimulationNodes") --creates namespace 3
@@ -100,7 +95,6 @@ event_origin_node:setEventNotifier(true) --For an Object node to be able to prod
 Server.addObjectTypeNode(event_type_node)
 Server.addObjectNode(event_origin_node)
 
-
 --update the nodes values every 1 second
 function Update()
 
@@ -108,27 +102,26 @@ function Update()
     return
   end
   t = t + 5
-
   --counter
   local counter_val = counter:getValue()
   counter_val = counter_val + 1
   counter:updateValue(counter_val)
   --random
-  local random_val = round(math.random(-20000,20000) / 10000, 8)
+  local random_val = math.random(-20000,20000) / 10000
   random:updateValue(random_val)
   --sawtooth
-  local sawtooth_val = round(2 * (t % (2*math.pi) * 1/math.pi - 1), 8)
+  local sawtooth_val = 2 * (t % (2*math.pi) * 1/math.pi - 1)
   sawtooth:updateValue(sawtooth_val)
   --sinusoid
-  local sinusoid_val = round(2 * math.sin(t), 8)
+  local sinusoid_val = 2 * math.sin(t)
   sinusoid:updateValue(sinusoid_val)
   --square
   local square_val = sign(math.sin(t)) * 2
   square:updateValue(square_val)
   --triangle
-  local triangle_val = round(2 * math.abs((t-math.pi/2) % (2*math.pi) * 1/math.pi - 1) - 1, 8)
+  local triangle_val = 2 * math.abs((t-math.pi/2) % (2*math.pi) * 1/math.pi - 1) - 1
   triangle:updateValue(triangle_val)
 
-  Server.triggerEvent(event_type_node, event_origin_node, 100, "AN EVENT MESSAGE", "Simulator")
-  
+  Server.triggerEvent(event_type_node, event_origin_node, 100, "AN EVENT MESSAGE", "Lua script")
+
 end
