@@ -14,6 +14,14 @@ For more information about the Device Service please review the [Modbus Device S
 ./commands/start_device_sim.sh
 ```
 
+If you want to use Modbus-RTU rather than the default option of Modbus-TCP, simply add the argument '-rtu' to the end of this command, like so: 
+
+```bash
+./commands/start_device_sim.sh -rtu
+```
+
+This will run an RTU simulator with the adddress `/dev/ttyUSB0`. Any subsequent calls to the other scripts will also use RTU communication until the simulator is restarted. 
+
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
@@ -21,21 +29,6 @@ We have provided a script to easily set these environment variables. Run:
 . ./commands/set_env_vars.sh
 ```
 *Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
-
-**To set them manually:**
-
-- `MODBUS_DEVICE_ADDRESS`
-    - This variable contains the IP or serial address of the target modbus device. This could be a simulator or a physical device that supports modbus. This environment variable is used to update `devices.json` in the `state` directory of the example configs - without it, the device service won't be able to find the target modbus device.
-      - Example for a locally-hosted Modbus TCP simulator (default for this example): `export MODBUS_DEVICE_ADDRESS=127.0.0.1`
-      - Example for a locally-hosted Modbus RTU simulator: `export MODBUS_DEVICE_ADDRESS=/dev/tty/usb0`
-      - Example for Modbus TCP device hosted at another IP address: `export MODBUS_DEVICE_ADDRESS=192.168.10.100`
-
-
-
-- `MODBUS_DEVICE_PORT`
-  - This is an environment variable denoting the port used by the target modbus device.
-  - It is typically port 502 or 1502 if running a simulated device. By default, the simulator will start on port 1502. 
-    - Example: `export MODBUS_DEVICE_PORT=1502`
 
 An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
