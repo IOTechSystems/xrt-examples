@@ -7,22 +7,27 @@
     "labels": [],
   "deviceCommands": [
     {
-      "get": [
+      "name": "LatitudeAndLongitude",
+      "readWrite": "R",
+      "resourceOperations":
+      [
         {
-          "deviceResource": "Latitude", 
-          "operation": "get"
-        }, 
+          "deviceResource": "Latitude",
+          "defaultValue": "0"
+        },
         {
-          "deviceResource": "Longitude", 
-          "operation": "get"
+          "deviceResource": "Longitude",
+          "defaultValue": "0"
         }
-      ], 
-      "name": "LatitudeAndLongitude"
+      ]
     }
   ], 
   "deviceResources": [
     {
-      "description": "Get the current time from the GPS module", 
+      "description": "Get the current time from the GPS module",
+      "attributes": {
+        "Data": "Time"
+      },
       "name": "Time", 
       "properties": {
         "readWrite": "R",
@@ -30,7 +35,10 @@
       }
     }, 
     {
-      "description": "Get the current date & time from the GPS module", 
+      "description": "Get the current date & time from the GPS module",
+      "attributes": {
+        "Data": "Date"
+      },
       "name": "Date", 
       "properties": {
         "readWrite": "R",
@@ -38,7 +46,10 @@
       }
     }, 
     {
-      "description": "Course over ground, degrees from true north", 
+      "description": "Course over ground, degrees from true north",
+      "attributes": {
+        "Data": "Track"
+      },
       "name": "Track", 
       "properties": {
         "readWrite": "R",
@@ -46,7 +57,10 @@
       }
     }, 
     {
-      "description": "Get the vertical speed in Meters/Sec", 
+      "description": "Get the vertical speed in Meters/Sec",
+      "attributes": {
+        "Data": "Climb"
+      },
       "name": "Climb", 
       "properties": {
         "readWrite": "R",
@@ -54,7 +68,10 @@
       }
     }, 
     {
-      "description": "Get the altitude in Meters", 
+      "description": "Get the altitude in Meters",
+      "attributes": {
+        "Data": "Altitude"
+      },
       "name": "Altitude", 
       "properties": {
         "readWrite": "R",
@@ -62,7 +79,10 @@
       }
     }, 
     {
-      "description": "Get the speed over ground in Meters/Sec", 
+      "description": "Get the speed over ground in Meters/Sec",
+      "attributes": {
+        "Data": "Speed"
+      },
       "name": "Speed", 
       "properties": {
         "readWrite": "R",
@@ -70,7 +90,10 @@
       }
     }, 
     {
-      "description": "Get the latitude in Degrees", 
+      "description": "Get the latitude in Degrees",
+      "attributes": {
+        "Data": "Latitude"
+      },
       "name": "Latitude", 
       "properties": {
         "readWrite": "R",
@@ -78,7 +101,10 @@
       }
     }, 
     {
-      "description": "Get the longitude in Degrees", 
+      "description": "Get the longitude in Degrees",
+      "attributes": {
+        "Data": "Longitude"
+      },
       "name": "Longitude", 
       "properties": {
         "readWrite": "R",
