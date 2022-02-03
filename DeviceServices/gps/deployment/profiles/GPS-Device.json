@@ -1,0 +1,115 @@
+{
+  "name": "GPS-Device",
+  "manufacturer": "", 
+  "model": "", 
+  "description": "Global Positioning System", 
+  "apiVersion": "v2",
+    "labels": [],
+  "deviceCommands": [
+    {
+      "name": "LatitudeAndLongitude",
+      "readWrite": "R",
+      "resourceOperations":
+      [
+        {
+          "deviceResource": "Latitude",
+          "defaultValue": "0"
+        },
+        {
+          "deviceResource": "Longitude",
+          "defaultValue": "0"
+        }
+      ]
+    }
+  ], 
+  "deviceResources": [
+    {
+      "description": "Get the current time from the GPS module",
+      "attributes": {
+        "Data": "Time"
+      },
+      "name": "Time", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the current date & time from the GPS module",
+      "attributes": {
+        "Data": "Date"
+      },
+      "name": "Date", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "String"
+      }
+    }, 
+    {
+      "description": "Course over ground, degrees from true north",
+      "attributes": {
+        "Data": "Track"
+      },
+      "name": "Track", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the vertical speed in Meters/Sec",
+      "attributes": {
+        "Data": "Climb"
+      },
+      "name": "Climb", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the altitude in Meters",
+      "attributes": {
+        "Data": "Altitude"
+      },
+      "name": "Altitude", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the speed over ground in Meters/Sec",
+      "attributes": {
+        "Data": "Speed"
+      },
+      "name": "Speed", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the latitude in Degrees",
+      "attributes": {
+        "Data": "Latitude"
+      },
+      "name": "Latitude", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }, 
+    {
+      "description": "Get the longitude in Degrees",
+      "attributes": {
+        "Data": "Longitude"
+      },
+      "name": "Longitude", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float64"
+      }
+    }
+  ]
+}
