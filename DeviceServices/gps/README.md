@@ -1,44 +1,44 @@
 # GPS Device Service Example
 
 ## Overview
-This page details how to setup and run the GPS example.
 
-For more information about the Device Service please view the GPS Device Service documentation.
+This page shows you how to setup and run the GPS example.
+
+For more information about the Device Service please review the [GPS Device Service](https://www.link-needs-updated.blah)
 
 ## Getting Started
 
-### Before running GPS
+### **Setup**
 
 One of the following is needed before running the GPS component:
-* An instance of GPSD connected to a GPS module 
+
+* An instance of GPSD connected to a GPS module
 * A GPS simulator running (locally or in a container)
 
-When one of the above conditions has been met the following Driver options should be updated:
+### **Set Environment Variables**
 
-* `GpsdHostname` : Updated to either the IP address of the GPSD instance or the container name
-* `GpsdPort` : The default port for GPSD is 2947 however if changed this should be updated to match
-* `GpsdMode` : Default is "poll" with "nopoll" being the other option
-
-### Setting environment variables
-
-`XRT_PROFILE_DIR` - This should be the path to the proile directory, for example:
+We have provided a script to easily set these environment variables. Run:
+```bash
+. ./commands/set_env_vars.sh
 ```
-export XRT_PROFILE_DIR=/path/to/examples/DeviceServices/gps/deployment/profiles/
-```
+*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
 
-`XRT_STATE_DIR` - This should be the path to the state directory, for example:
-```
-export XRT_STATE_DIR=/path/to/examples/DeviceServices/gps/deployment/state
-```
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
-### Running GPS
+### **Common Device Service Setup**
 
-The following is required for running XRT:
-* XRT is installed
-* `LD_LIBRARY_PATH` has been set correctly
-* `XRT_LICENSE_FILE` has been set to the location of the xrt license
+Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
 
-The GPS component can be run using the following command:
+### **Run XRT with the config folder:**
+
+See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
+
+```bash
+cd gps
+xrt deployment/config
 ```
-xrt gps/deployment/config
-```
+## Walkthrough
+
+### Basic Operations 
+
+For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
