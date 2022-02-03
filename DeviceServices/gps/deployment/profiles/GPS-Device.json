@@ -12,12 +12,10 @@
       "resourceOperations":
       [
         {
-          "deviceResource": "Latitude",
-          "defaultValue": 0
+          "deviceResource": "Latitude"
         },
         {
-          "deviceResource": "Longitude",
-          "defaultValue": 0
+          "deviceResource": "Longitude"
         }
       ]
     }
