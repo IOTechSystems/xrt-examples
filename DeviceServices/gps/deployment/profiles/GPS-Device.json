@@ -13,11 +13,11 @@
       [
         {
           "deviceResource": "Latitude",
-          "defaultValue": "0"
+          "defaultValue": 0
         },
         {
           "deviceResource": "Longitude",
-          "defaultValue": "0"
+          "defaultValue": 0
         }
       ]
     }
@@ -26,7 +26,7 @@
     {
       "description": "Get the current time from the GPS module",
       "attributes": {
-        "Data": "Time"
+        "data": "time"
       },
       "name": "Time", 
       "properties": {
@@ -37,7 +37,7 @@
     {
       "description": "Get the current date & time from the GPS module",
       "attributes": {
-        "Data": "Date"
+        "data": "date"
       },
       "name": "Date", 
       "properties": {
@@ -48,7 +48,7 @@
     {
       "description": "Course over ground, degrees from true north",
       "attributes": {
-        "Data": "Track"
+        "data": "track"
       },
       "name": "Track", 
       "properties": {
@@ -59,7 +59,7 @@
     {
       "description": "Get the vertical speed in Meters/Sec",
       "attributes": {
-        "Data": "Climb"
+        "data": "climb"
       },
       "name": "Climb", 
       "properties": {
@@ -70,7 +70,7 @@
     {
       "description": "Get the altitude in Meters",
       "attributes": {
-        "Data": "Altitude"
+        "data": "altitude"
       },
       "name": "Altitude", 
       "properties": {
@@ -81,7 +81,7 @@
     {
       "description": "Get the speed over ground in Meters/Sec",
       "attributes": {
-        "Data": "Speed"
+        "data": "speed"
       },
       "name": "Speed", 
       "properties": {
@@ -92,7 +92,7 @@
     {
       "description": "Get the latitude in Degrees",
       "attributes": {
-        "Data": "Latitude"
+        "data": "latitude"
       },
       "name": "Latitude", 
       "properties": {
@@ -103,7 +103,7 @@
     {
       "description": "Get the longitude in Degrees",
       "attributes": {
-        "Data": "Longitude"
+        "data": "longitude"
       },
       "name": "Longitude", 
       "properties": {
