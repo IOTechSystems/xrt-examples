@@ -3,7 +3,7 @@
     "profileName": "modbus-sim-profile",
     "protocols": {
       "modbus-tcp": {
-        "Address": "127.0.0.1",
+        "Address": "${MODBUS_SIM_ADDRESS}",
         "Port": 1502,
         "UnitID": 1
       }

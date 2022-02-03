@@ -3,7 +3,7 @@
     "profileName": "modbus-sim-profile",
     "protocols": {
       "modbus-rtu": {
-        "Address": "/dev/ttyUSB0",
+        "Address": "${MODBUS_SIM_ADDRESS}",
         "BaudRate": 9600,
         "DataBits": 8,
         "Parity": "N",
