@@ -2,8 +2,8 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
-    "xrt/devices/gps/telemtry",
-    "xrt/devices/gps/reply",
+    "xrt/devices/gps/telemetry",
+    "xrt/devices/gps/reply"
   ],
   "MQTTPatterns": [ "xrt/devices/gps/request" ],
   "MQTTConfig":
