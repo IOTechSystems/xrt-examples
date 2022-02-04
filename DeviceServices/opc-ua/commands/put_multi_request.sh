@@ -6,8 +6,8 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
   "op": "device:put",
   "device": "opc-ua-sim",
   "values": {
-    "ns=2;s=WritableInt64": 42,
-    "ns=2;s=WritableFloat": 123.456,
-    "ns=2;s=WritableString": "Example string",
+    "ns=3;s=Int64": 42,
+    "ns=3;s=Float": 123.456,
+    "ns=3;s=String": "Example string",
   },
 }'
