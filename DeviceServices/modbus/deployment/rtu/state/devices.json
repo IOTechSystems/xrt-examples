@@ -3,7 +3,7 @@
     "profileName": "modbus-sim-profile",
     "protocols": {
       "modbus-rtu": {
-        "Address": "${MODBUS_SIM_ADDRESS}",
+        "Address": "dev/stdin",
         "BaudRate": 9600,
         "DataBits": 8,
         "Parity": "N",
