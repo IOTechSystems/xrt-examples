@@ -455,6 +455,6 @@
         "readWrite": "RW",
         "valueType": "Uint16Array"
       }
-    },
+    }
   ]
 }
