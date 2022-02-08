@@ -3,8 +3,8 @@
     "profileName": "modbus-sim-profile",
     "protocols": {
       "modbus-rtu": {
-        "Address": "dev/stdin",
-        "BaudRate": 9600,
+        "Address": "tty/USB0",
+        "BaudRate": 19200,
         "DataBits": 8,
         "Parity": "N",
         "StopBits": 1,
