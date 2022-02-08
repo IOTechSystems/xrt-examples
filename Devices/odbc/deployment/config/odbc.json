@@ -3,6 +3,7 @@
   "Factory": "xrt_odbc_factory",
   "Topic": "xrt/device/odbc",
   "Pattern" : "xrt/device/odbc/request",
+  "Scheduler":"sched",
   "Bus": "bus",
   "Logger":"logger",
   "ServerName" : "MSSQLTest",
