@@ -1,10 +1,10 @@
 {
   "Library": "libxrt-odbc.so",
   "Factory": "xrt_odbc_factory",
-  "Topic": "xrt/device/odbc/data",
+  "Topic": "xrt/device/odbc",
+  "Pattern" : "xrt/device/odbc/request",
   "Bus": "bus",
   "Logger":"logger",
-  "Pattern" : "odbc/#",
   "ServerName" : "MSSQLTest",
   "Username" : "sa",
   "Authentication" : "Qwerty123@"

@@ -3,5 +3,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
+  "mqtt_bridge": "XRT::MQTTBridge",
   "odbc":"XRT::ODBC"
 }
