@@ -5,7 +5,7 @@
   "schedule": {
     "name": "ethernetip-sim-sched1",
     "device": "ethernetip-sim",
-    "resource": ["DI0"],
+    "resource": ["TestInt"],
     "interval": 1000000
   }
 }
