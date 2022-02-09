@@ -6,6 +6,6 @@
     "name": "ethernetip-sim-sched1",
     "device": "ethernetip-sim",
     "resource": ["TestInt"],
-    "interval": 100000
+    "interval": 1000000
   }
 }
