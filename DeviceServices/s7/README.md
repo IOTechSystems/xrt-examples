@@ -1,37 +1,47 @@
-# XRT Config Examples
+# S7 Device Service Example
 
-This document is to help you run the example XRT config that is provided.
+## Overview
 
-First navigate to device-s7-c/xrt/example-configs/
+This page shows you how to setup and run the S7 device service example.
 
-Run XRT with the config folder:
+For more information about the Device Service please review the [S7 Device Service](https://www.link.to.s7.device.service.docs) documentation. 
 
-```
-$ xrt s7-device-service/config
-```
-## Running S7 Server
-Start the S7 Server:
-```shell script
-docker run --rm --name=s7-server iotechsys/dev-edgexpert-s7-test-server:1.8.dev
-```
+## Getting Started
 
-Find the IP of the server:
-```shell script
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' s7-server
+### **Run the simulator**
+
+```bash
+./commands/start_device_sim.sh
 ```
 
-Use this IP address in the Device Protocols for example:
-```shell script
-{
-  "S7-Server":{
-    "profile":"Server",
-    "protocols":{
-      "S7":{
-        "IP" : <s7-server-IP-address>,
-        "Rack" : 0,
-        "Slot" : 2
-      }
-    }
-  }
-}
+### **Set Environment Variables**
+
+We have provided a script to easily set these environment variables. Run:
+```bash
+. ./commands/set_env_vars.sh
 ```
+*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
+
+**To set them manually**
+
+`export S7_SIM_ADDRESS=<ip-of-sim>`
+
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
+
+### **Common Device Service Setup**
+
+Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-getting-started-common.md) for the common device service example setup steps.
+
+### **Run XRT with the config folder:**
+
+See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
+
+```bash
+cd s7
+xrt deployment/config
+```
+## Walkthrough
+
+### Basic Operations
+
+For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
