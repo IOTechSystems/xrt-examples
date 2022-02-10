@@ -1,9 +1,1 @@
-{
-  "ethernetip-sim-sched1":
-  {
-    "device":"ethernetip-sim",
-    "interval":1000000,
-    "name":"ethernetip-sim-sched1",
-    "resource":["DO0"]
-  }
-}
+{"schedule1":{"device":"ethernetip-sim","interval":1000000,"name":"schedule1","resource":["DO0"]}}
