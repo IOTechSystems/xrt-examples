@@ -13,7 +13,7 @@ Will run the simulator with 2 instances of the objects Analog Input, Analog Outp
 The present value properties of Analog Input and Analog Value objects will update every 5 seconds with a random value
 between 1 and 500.
 
-[**Tutorial Script**](tutorial.lua) 
+[**Incrementing Present Values**](tutorial-present-values.lua) 
 
 Used as a worked example script in the simulator lua scripting tutorial documentation, see [BACnet Simulator Lua Scripting Tutorial](https://www.link.to.bacnet-lua-scripting-tutorial.docs).
 
@@ -23,3 +23,10 @@ Every second a value will be incremented by 1, setting the present value of inst
 around to 1 again. As lua does not provide a standard sleep function, one must be included.
 
 Everytime the present value of Analog Output instance 0 is changed by a client, this change will be mirrored in the present value of Analog Input instance 0.
+
+[**Generating Events**](tutorial-generate-events.lua)
+
+Used as a worked example script in the simulator lua scripting tutorial documentation, see [BACnet Simulator Lua Scripting Tutorial](https://www.link.to.bacnet-lua-scripting-tutorial.docs).
+
+One instance of the Notification Class object is created and a BACnet client with ID 101 is registered in the recipient list.
+Every 15 seconds mock events are generated for every supported event type.
