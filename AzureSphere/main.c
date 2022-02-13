@@ -108,10 +108,6 @@ int main (void)
   iot_component_factory_add (xrt_log_exporter_factory ());
   iot_component_factory_add (xrt_azuresphere_exporter_factory ());
 
-#ifndef DEVICE_ETHERNETIP
-  iot_component_factory_add (xrt_lua_transform_factory ());
-#endif
-
 #ifdef DEVICE_MODBUS
   iot_component_factory_add (xrt_modbus_device_service_factory ());
 #endif

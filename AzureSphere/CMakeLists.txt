@@ -67,7 +67,6 @@ elseif (${DEVICE} STREQUAL "virtual")
   add_definitions ("-DDEVICE_VIRTUAL")
 endif ()
 
-target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-lua-transform.a)
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt-devsdk.a)
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/xrt/lib/libxrt.a)
 target_link_libraries (${PROJECT_NAME} ${SYSROOT}/opt/iotech/iot/lib/libiot.a)
