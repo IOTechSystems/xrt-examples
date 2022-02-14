@@ -42,7 +42,7 @@ IoT Hub.
 ### Azure (Required)
 
 The Azure config file can be found at:
-[configs/azure-bacnet.json](../config/azure-bacnet.json)
+[configs/azure-bacnet.json](../config/azure.json)
 
 You will need to configure some values in azure.json to
 be able to send values to the IoT Hub. You will need:
@@ -78,7 +78,7 @@ for initial connection to Azure. The "desired" properties setting on
 the device twin are automaticallly downloaded and persisted to the
 Azure Sphere device. An example set of "desired" properties can be
 found at:
-[twin/desired.json](../twin/desired.json)
+[twin/desired-bacnet.json](../twin/desired-bacnet.json)
 
 The Microsoft Azure Device Twin corresponding to the Azure Sphere
 development board will need updating to include the same "azure"
@@ -119,7 +119,7 @@ export IOTHUB_DEVICE_ID=<device_id>
 
 The example main.c includes a remote logging component sent publish logging
 message over UDP. This needs to be configured by editing
-[configs/udp-logger.json](../config/azure-bacnet.json)
+[configs/udp-logger.json](../config/udp-logger.json)
 and changing the "To:" value to use the IP address of the host PC.
 The Makefile contains an example of using the socat command to monitor
 the log output.
@@ -127,8 +127,9 @@ the log output.
 ### App Manifest (Required)
 
 * Edit the [app_manifest.json](../app_manifest.json) file and
-  set DeviceAuthentication to your tenant id and replace
-  IOTechHub with your IoT Hub name in AllowedConnections:
+  replace the DeviceAuthentication value \<tenant-uuid-identifier\> with
+  your tenant id and replace <IOTHub> with your IoT Hub name
+  in AllowedConnections
 
   ```bash
   azsphere tenant list
@@ -142,7 +143,7 @@ the log output.
 
   ```json
   ...
-  "AllowedConnections" : [ <bacnet-device-ip>, "192.168.4.255", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+  "AllowedConnections" : [ "<bacnet-device-ip>", "<bacnet-broadcast-ip>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
   ...
   ```
   

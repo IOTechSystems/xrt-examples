@@ -1,5 +1,9 @@
 # Building On Windows
 
+## Build Using Visual Studio Code
+
+See *Insert path to docs*.
+
 ## Building Using Visual Studio
 
 * Open Visual Studio

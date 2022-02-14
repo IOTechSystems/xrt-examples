@@ -104,9 +104,7 @@ build the examples:
 
 ## Examples
 
-* [Modbus Device](docs/modbus-example.md)
 * [BACnet Device](docs/bacnet-example.md)
-* [Virtual Device](docs/virtual-example.md)
 * [Ethernet/IP Device](docs/ethernetip-example.md)
 
 ## Using Azure Digital Twins With XRT Examples

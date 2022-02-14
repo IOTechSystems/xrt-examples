@@ -8,7 +8,7 @@ An example of connecting to the Allen Bradley PLC using wired Ethernet is given 
 
 ## Prerequisites
 
-*Note - The prerequisites found on the main [readme.md](https://github.com/IOTechSystems/xrt-examples/blob/master/AzureSphere/README.md) are required for this example*
+*Note - The prerequisites found on the main [readme.md](https://github.com/IOTechSystems/xrt-examples/blob/v1.1-branch/AzureSphere/README.md) are required for this example*
 
 - Allen Bradley PLC or other EIP device
 
@@ -26,7 +26,7 @@ Edit this file with the corresponding tag names you wish to read/write to within
 
 ### Azure (Required)
 
-The Azure config file can be found at: configs/azure-ethernetip.json
+The Azure config file can be found at: configs/azure.json
 
 You will need to configure some values in azure.json to be able to send values to the IoT Hub. You will need:
 
@@ -60,14 +60,14 @@ You will need to configure some values in azure.json to be able to send values t
 
 ### pool.json (Optional)
 
-- If many scheduels have been set it will be a good idea to edit the [pool.json](../config/pool.json) file and set maxjobs to a lower number and reduce threads to 1 to avoid crashes and memoy issues.
+- If many schedules have been set it will be a good idea to edit the [pool.json](../config/pool.json) file and set maxjobs to a lower number and reduce threads to 1 to avoid crashes and memoy issues.
 
 ## Building The Application
 
 You can build the EthernetIP Example following the links below:
 
-- [Building on Windows](https://github.com/IOTechSystems/xrt-examples/blob/master/AzureSphere/docs/windows-deploy-debug.md)
-- [Building on Ubuntu](https://github.com/IOTechSystems/xrt-examples/blob/master/AzureSphere/docs/ubuntu-build.md)
+- [Building on Windows](https://github.com/IOTechSystems/xrt-examples/blob/v1.1-branch/AzureSphere/docs/windows-deploy-debug.md)
+- [Building on Ubuntu](https://github.com/IOTechSystems/xrt-examples/blob/v1.1-branch/AzureSphere/docs/ubuntu-build.md)
 
 ## Ethernet/IP Azure Driver Options
 
