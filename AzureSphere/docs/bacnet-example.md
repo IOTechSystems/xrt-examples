@@ -167,7 +167,7 @@ the link below:
 ## BACnet Simulator
 
 The BACnet Simulator, simulates a BACnet device, which is
-controlled via Lua script. The Lua script for this example
+controlled via a Lua script. The Lua script for this example
 can be found in the [bacnet-simulator](../bacnet-simulator)
 directory. The simulator is supplied as a Docker image.
 
@@ -176,7 +176,7 @@ directory. The simulator is supplied as a Docker image.
 You will need to make sure to mount the bacnet-simulator
 directory as a volume to the Docker Container running the
 BACnet Simulator Docker Image. Make sure your current
-directory set to xrt-examples/AzureSphere. Run the
+directory is set to xrt-examples/AzureSphere. Run the
 following command to start the BACnet Simulator and
 mount the bacnet-simulator directory:
 
@@ -188,7 +188,7 @@ iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance
 ```
 
 Within the Device twin desired properties make sure
-to set `NetworkInterface` option to the WI-FI interface which will
+to set the `NetworkInterface` option to the WI-FI interface which will
 be used in the Driver section of the config file, for example
 
 ```json
@@ -201,9 +201,9 @@ be used in the Driver section of the config file, for example
 ...
 ```
 
-Also, the ip address of the machine running the simluator and
-the BACnet broadcast ip should be included in the `AllowedConnections`
-JSON array, as part of the app_manifest configuration as described
+Also, the IP address of the machine running the simluator and
+the BACnet broadcast IP should be included in the `AllowedConnections`
+JSON array, as part of the app manifest configuration as described
 [here](#App Manifest (Required))
 
 ### Connecting To BACnet Over Ethernet
