@@ -14,13 +14,13 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
             },
         "O2T":{
             "ConnectionType": "p2p",
-            "RPI": "10",
+            "RPI": 10,
             "Priority": "low",
             "Ownership": "exclusive"
             },
         "T2O": {
             "ConnectionType": "p2p",
-            "RPI": "10",
+            "RPI": 10,
             "Priority": "low",
             "Ownership": "exclusive"
             }
