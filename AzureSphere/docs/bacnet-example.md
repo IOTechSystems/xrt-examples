@@ -204,7 +204,7 @@ be used in the Driver section of the config file, for example
 Also, the ip address of the machine running the simluator and
 the BACnet broadcast ip should be included in the `AllowedConnections`
 JSON array, as part of the app_manifest configuration as described
-[here](#App Manifest (Required))
+[here](#app-manifest-required).
 
 ### Connecting To BACnet Over Ethernet
 
