@@ -256,11 +256,11 @@ ifconfig | grep eth0 -A 3
 
 Shutdown the Raspberry Pi and disconnect it from your local network.
 
-The USB to Ethernet Adapter now needs to be plugged into your
+The USB to Ethernet Adapter now needs to be plugged into your development
 machine. The Raspberry Pi and the Azure Sphere hardware
 should be connected to the Ethernet Switch using Ethernet cables. A
 Ethernet cable should be connnected from the switch to the
-USB to Ethernet Adapter connected to your machine.
+USB to Ethernet Adapter connected to your development machine.
 
 Turn the Ethernet Switch on to give power to the USB to Ethernet
 Adapter, the machine should now pick up on the Adapter as a new
