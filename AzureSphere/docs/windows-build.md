@@ -62,3 +62,10 @@ To build XRT applications using Visual Studio on Windows, complete the following
 
     * Select the VSCode CMake view in the Activity Bar (left most column).
     * Click the "Build" button in the Status Bar (bottom of window).
+    
+11. Deploy and Debug the application.
+
+    * Select the VSCode Run and Debug view in the Activity Bar (left
+      most column).
+    * Press F5. The application will be downloaded to your Azure Sphere board
+      and the application started under control of the debugger.
