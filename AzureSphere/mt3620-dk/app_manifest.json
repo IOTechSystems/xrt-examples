@@ -1,12 +1,12 @@
 {
   "SchemaVersion": 1,
   "Name": "xrt-app",
-  "ComponentId": "4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f",
+  "ComponentId": "495c9398-a6af-49cd-84af-82eaf63fd929",
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
-    "Gpio": [
+    "AllowedConnections" : [ "<broadcast-ip-address>", "<target-device-ip-address>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net", "prod.time.sphere.azure.net", "time.sphere.azure.net"],
+    "Gpio": [ 
       "$MT3620_RDB_LED1_RED", "$MT3620_RDB_LED1_GREEN", "$MT3620_RDB_LED1_BLUE",
       "$MT3620_RDB_LED2_RED", "$MT3620_RDB_LED2_GREEN", "$MT3620_RDB_LED2_BLUE",
       "$MT3620_RDB_LED3_RED", "$MT3620_RDB_LED3_GREEN", "$MT3620_RDB_LED3_BLUE",
@@ -15,8 +15,9 @@
     ],
     "Adc": ["$MT3620_RDB_ADC_CONTROLLER0"],
     "I2cMaster": ["$MT3620_RDB_HEADER4_ISU2_I2C"],
-    "AllowedTcpServerPorts": [ 22222, 47808 ],
-    "AllowedUdpServerPorts": [ 47808 ],
+    "AllowedUdpServerPorts": [ 47808, 1999 ],
+    "MutableStorage": { "SizeKB": 32 },
+    "PowerControls": ["ForceReboot"],
     "NetworkConfig" : true,
     "DeviceAuthentication": "<tenant-uuid-identifier>"
   },

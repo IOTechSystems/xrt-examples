@@ -8,17 +8,19 @@ Below an illustration of the scenario described above:
 ![XRT application component example illustration](XRT_Application_Component_Example.jpg)
 
 ## Prerequisites
-  XRT dev must be installed and environment variables must be set via env.sh
+  XRT dev must be installed. Verify with the command:
+  
+  `dpkg -l | grep iotech`
+
   * iotech-iot-dev     1.2.1    amd64    IOT C Framework
   * iotech-thrift-dev  1.0.1    amd64    Embedded Thrift C Version
   * iotech-xrt-dev     1.1.1    amd64    XRT C RealTime Framework
 
+  Environment variables must be set as usual with the command:
+  `source /opt/iotech/xrt/bin/env.sh`
+
 ## Build
 Open a terminal window in the directory containing the example. Run
-
-`. ./envs.sh`
-
-to set up the environment, then
 
 `make`
 
@@ -46,7 +48,7 @@ Start/stop/free the component and to update its state.
 > **Note:** A component is made available to a container using the associated factory. It's up to you when and where you want to enable publish/subscribe functionality. It's good practice to enable it when the component starts and disable it upon stop.
 
 ### config
-Provides the possibility to configure and access each individual field that has been set in the [`app_component.json`](https://github.com/IOTechSystems/xrt-examples/blob/XRT-633-branch/SimpleXRTComponentExample/config/app_component.json) file.
+Provides the possibility to configure and access each individual field that has been set in the [`app_component.json`](../config/app_component.json) file.
   
 For example:
 `const char * request_topic = iot_config_string (map, "RequestTopic", false, logger);`

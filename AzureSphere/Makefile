@@ -2,26 +2,26 @@
 # new UUID if you wish to deploy the application from the cloud. The
 # value does not need to be changed if you are only doing local
 # sideloading for development and debugging.
-CID=4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f
+CID=495c9398-a6af-49cd-84af-82eaf63fd929
 
 BOARD?=mt3620-g100
-DEVICE?=modbus
+DEVICE?=bacnet
+BUILD_TYPE?=Release
 
 # Default action will build, sideload and debug the example application
-all: monitor
+all: monitor-udp
 
 # Build the application in a 'build' directory
 build:
 	if [ ! -d build ]; then mkdir build; fi
 	cp config/profiles/profiles-$(DEVICE).json config/profiles/profiles.json; \
-	cp config/main-$(DEVICE).json config/main.json; \
 	cp config/azure-$(DEVICE).json config/azure.json; \
 	cp $(BOARD)/app_manifest.json app_manifest.json; \
 	(cd build && cmake -G "Ninja" \
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
-        -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.02" \
-        -DAZURE_SPHERE_TARGET_API_SET="8" \
-        -DCMAKE_BUILD_TYPE="Debug" \
+        -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.10" \
+        -DAZURE_SPHERE_TARGET_API_SET="11" \
+        -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
         -DBOARD=$(BOARD) \
         -DDEVICE=$(DEVICE) \
 	.. && ninja)
@@ -45,6 +45,9 @@ connect:
 # Uses telnet to observe log output from the application
 monitor: debug
 	telnet 192.168.35.2 2342
+
+monitor-udp: deploy
+	socat -u UDP-RECV:1999 STDOUT
 
 build/xrt-app.imagepackage: build
 

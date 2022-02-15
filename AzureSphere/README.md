@@ -10,7 +10,8 @@ The examples currently support the following hardware:
 
 * The Avnet Guardian 100 Azure Sphere Module
 * The Avnet Azure Sphere Starter Kit
-* The Seed Azure Sphere Development Kit
+* The Seeed Azure Sphere Development Kit
+* The AILink SR620 Guardian Gateway
 
 ## Azure Sphere Development Process
 
@@ -68,7 +69,7 @@ parts for each example.
 ## Prerequisites
 
 * For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download}).
+  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download).
   Once installed open Visual Studio and install Visual
   Studio Extensions for Azure Sphere
 * The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview)
@@ -103,9 +104,8 @@ build the examples:
 
 ## Examples
 
-* [Modbus Device](docs/modbus-example.md)
 * [BACnet Device](docs/bacnet-example.md)
-* [Virtual Device](docs/virtual-example.md)
+* [Ethernet/IP Device](docs/ethernetip-example.md)
 
 ## Using Azure Digital Twins With XRT Examples
 

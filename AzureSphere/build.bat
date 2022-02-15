@@ -2,7 +2,6 @@ set device=%1
 set board=%2
 
 copy config\profiles\profiles-%device%.json config\profiles\profiles.json /y
-copy config\main-%device%.json config\main.json /y
 copy config\azure-%device%.json config\azure.json /y
 copy %board%\app_manifest.json app_manifest.json /y
 

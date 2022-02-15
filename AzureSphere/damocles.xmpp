@@ -8,24 +8,14 @@
 <flowcontrol xonxoff="false" rtscts="false" />
 </serial>
 </links>
-<automation name="Inputs" step="1.0" loop="true" init="0.0">
-<generator class="LinearGenerator" duration="8.0">
-<start value="0.0" relative="false"/>
-<end value="2.0" relative="false"/>
-</generator>
-</automation>
 <slave id="2" enabled="true" name="Damocles2" implementation="modbus">
 <holding_registers>
 </holding_registers>
 <coils>
-<coil address="99" value="0" name="Input 1">
-</coil>
-<coil address="100" value="0" name="Input 2">
-</coil>
-<coil address="101" value="0" name="Input 3">
-</coil>
-<coil address="102" value="0" name="Input 4">
-</coil>
+<coil address="99" value="0" name="Input 1"/>
+<coil address="100" value="0" name="Input 2"/>
+<coil address="101" value="0" name="Input 3"/>
+<coil address="102" value="0" name="Input 4"/>
 <coil address="199" value="0" name="Output 1"/>
 <coil address="200" value="1" name="Output 2"/>
 </coils>

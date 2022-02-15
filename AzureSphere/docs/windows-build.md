@@ -1,54 +1,71 @@
-# Building On Windows
+# Building, Deploying and Debugging on Windows
 
-## Building Using Visual Studio
+You can use Visual Studio Code to configure, build and debug AzureSphere XRT applications.
 
-* Open Visual Studio
-* Create a new Project 
-* Search for the "azure sphere" template, then select
-  "Azure Sphere Blink" template and name the project
-  "xrt-app"
+## Install and Configure Visual Studio Code
 
-* In the new created Visual Studio Project:
+To build XRT applications using Visual Studio on Windows, complete the following steps:
 
-  * Copy the provided [config/](../config/) directory
-    and [CMakeSettings.json](../CMakeSettings.json) 
-    into the Visual Studio project
-  * Copy and overwrite CMakeLists.txt,
-    (board)/app_manifest.json,
-    CMakeSettings.json and main.c with the files
-    provided in the example to the Visual Studio project
-  * In CMakeSettings.json, set "BOARD" to match your
-    target board, e.g "mt3620-dk", "mt3620-g100" or
-    "mt3520-sk"
-  * In CMakeSettings.json, set "DEVICE" to match your
-    target device service, e.g "modbus", "bacnet" or "virtual"
+1. Install Visual Studio Code, if not already installed. See <https://code.visualstudio.com/>.
 
-* Build the application with the "Build" menu
+2. Install Build Tools.
 
-## Building Using Visual Studio Command Prompt
+    * Install Cmake. See <https://cmake.org/download/>.
 
-You will need to first follow the steps to build
-xrt with Visual Studio from the last section, after
-that you'll be able to build from the command line
-within Visual Studio.
+    * Download Ninja. See <https://github.com/ninja-build/ninja/releases>.
 
-* Open Visual Studio
-* Open xrt-app project
-* Open Developer Command Prompt by going to
-  **Tools -> Command Line -> Developer Command
-  Prompt** from the Menu bar
-* With the Developer Command Prompt, cd into xrt-app
-  directory:
-  ```bat
-  cd xrt-app
-  ```
-* Run the build.bat batch file, with the specify
-  target device service (e.g modbus, bacnet or virtual)
-  and AzureSphere
-  board (e.g mt3620-g100)
-  ```bat
-  build.bat modbus mt3620-g100
-  ```  
+    * Extract the Ninja executable into C:\\Program Files\\CMake\\bin
 
-This will build the xrt-app application image in a
-sub directory called build. 
+3. Install the following extensions:
+
+    * Azure Sphere
+    * CMake Extensions
+   
+4. Install ncat (part of Nmap) (optional). See <https://nmap.org/download>.
+   
+5. Navigate to the Azure Sphere example in the VS Code explorer.
+
+    Open .vscode/settings.json
+    
+    * Ensure the value of the "DEVICE" configuration is set to the required device service
+    e.g. "bacnet" or "ethernet-ip".
+    * Ensure the value of the "BOARD" configuration is set to the required board type.
+    The options are "mt3620-dk", "mt3620-g100", "mt3620-sk" or "mt3620-sr620".
+
+6. Configure the Application Manifest.
+
+    Open the app\_manifest.json in the directory matching the board type
+    e.g. mt3620-dk/app\_manifest.json
+    
+    * Follow the instructions for the [BACNet][7] or [EthernetIP][8] example
+      to configure the example application in the example Git repo.
+      See [Use the Example Code][6].
+	
+7. Attach your Azure Sphere development board to your PC with the USB cable.
+
+8. Start a UDP listener (optional). This allow application logging output
+   to be viewed as log messages are created.
+
+    * Open a command window or PowerShell.
+
+    * Issue the command:
+   PC running ncat.
+
+    ```console
+    ncat -l 1999 --keep-open --udp --recv-only
+
+    ```
+
+9. Configure the digital twin. See [Configuring XRT Using a Device Twin][9].
+
+10. Build the application.
+
+    * Select the VSCode CMake view in the Activity Bar (left most column).
+    * Click the "Build" button in the Status Bar (bottom of window).
+    
+11. Deploy and Debug the application.
+
+    * Select the VSCode Run and Debug view in the Activity Bar (left
+      most column).
+    * Press F5. The application will be downloaded to your Azure Sphere board
+      and the application started under control of the debugger.
