@@ -8,7 +8,7 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
   "schedule": {
     "name":"ethernetip-sim-sched1",
     "device":"ethernetip-sim",
-    "resource":["DI1"],
+    "resource":["DO1"],
     "interval": 1000000
   }
 }'

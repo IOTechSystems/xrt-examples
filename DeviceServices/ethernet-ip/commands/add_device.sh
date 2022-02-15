@@ -7,7 +7,7 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
   "op": "device:add",
   "device": "ethernetip-sim",
   "device_info":{
-    "profile": "ethernetip-sim-profile",
+    "profileName": "ethernetip-sim-profile",
     "protocols":{
         "IP":{
             "Address": "${ETHERNETIP_SIM_ADDRESS}"

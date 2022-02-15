@@ -7,8 +7,8 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
   "op": "device:get",
   "device": "ethernetip-sim",
   "resource": [
-      "DI1",
-      "DI2",
+      "DO1",
+      "DO2",
       "DO1",
       "DO2", 
       "VendorID",

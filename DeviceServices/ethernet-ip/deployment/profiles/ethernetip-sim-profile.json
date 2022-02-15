@@ -40,10 +40,11 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -53,10 +54,11 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -66,10 +68,11 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -79,10 +82,11 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -92,10 +96,11 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -105,10 +110,11 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -118,10 +124,11 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "type": "O2T"
+        "readOnChange": true,
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -131,11 +138,10 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -145,11 +151,10 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -159,11 +164,10 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -173,11 +177,10 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -187,11 +190,10 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -201,11 +203,10 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -215,11 +216,10 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -229,11 +229,10 @@
       "attributes": {
         "offsetBits": 7,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -455,6 +454,6 @@
         "readWrite": "RW",
         "valueType": "Uint16Array"
       }
-    },
+    }
   ]
 }
