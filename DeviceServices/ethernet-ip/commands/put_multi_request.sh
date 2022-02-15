@@ -7,9 +7,9 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
   "op": "device:put",
   "device": "ethernetip-sim",
   "values": {
-    "DO1": false,
-    "DO2": true,
-    "DO3": true,
-    "DO4": true
+    "DI1": false,
+    "DI2": true,
+    "DI3": true,
+    "DI4": false
   }
 }'
