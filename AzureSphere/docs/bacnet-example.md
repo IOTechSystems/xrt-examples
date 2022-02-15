@@ -18,8 +18,7 @@ hardware, that's listed on the main [readme](../README.md).
 
 ## Prerequisites
 
-!!! Note
-The prerequisites found on the main [readme.md](../README.md) are also required for this example.
+Note: The prerequisites found on the main [readme.md](../README.md) are also required for this example.
 
 * BACnet Simulator (Docker)
 
@@ -33,7 +32,7 @@ within there title.
 ### Device Profile
 
 BACnet Device profile can be found at:
-configs/profiles/bacnet-simulator.json
+[configs/profiles/bacnet-simulator.json](../config/profiles/bacnet-simulator.json)
 
 The Device Profile contains a config of different
 deviceResources that can to be sent or received from the Azure
@@ -213,7 +212,7 @@ JSON array, as part of the app manifest configuration as described
 The following hardware will be required in order to
 run the BACnet simulator and connect to it over Ethernet:
 
-* Raspberry Pi
+* Raspberry Pi (used to host simulator)
 * Ethernet Switch
 * USB to Ethernet Adapter
 
@@ -227,7 +226,7 @@ Raspberry Pi with:
 sudo apt-get install docker.io
 ```
 
-After Docker been installed, pull the BACnet Simulator image with:
+After docker has been installed, pull the BACnet Simulator image with:
 
 ```bash
 docker pull iotechsys/bacnet-server:1.8.3
@@ -244,9 +243,9 @@ ifconfig | grep eth0 -A 3
 Shutdown the Raspberry Pi and disconnect it from your local network.
 
 The USB to Ethernet Adapter now needs to be plugged into your
-machine via USB. The Raspberry Pi and the Azure Sphere hardware
-should be connect to the Ethernet Switch via Ethernet cables. A
-Ethernet cable should be connnect from the switch to the
+machine. The Raspberry Pi and the Azure Sphere hardware
+should be connected to the Ethernet Switch using Ethernet cables. A
+Ethernet cable should be connnected from the switch to the
 USB to Ethernet Adapter connected to your machine.
 
 Turn the Ethernet Switch on to give power to the USB to Ethernet
@@ -265,10 +264,8 @@ ifconfig
 ```
 
 After you've found the USB Adapter interface name, create a
-config file in the following path `/etc/netplan/99-usb-eth-config.yaml`
-
-With the following contents, inserting the interface name with
-the <USB To Ethernet Adapter interface name> place mark.
+config file at `/etc/netplan/99-usb-eth-config.yaml`
+with the following contents, inserting the interface name where indicated.
 
 ```conf
 network:
@@ -325,17 +322,14 @@ Create a bacnet-simulator directory
 mkdir bacnet-simulator
 ```
 
-From an other command-line terminal, scp over the BACnet Simulator
-Lua script found in the bacnet-simulator directory of this
-repository:
+From another command-line terminal, copy over the BACnet Simulator
+Lua script found in the bacnet-simulator directory of using scp:
 
 ```bash
 scp bacnet-simulator/example.lua pi@192.168.4.12:~/bacnet-simulator
 ```
 
-Close this terminal and go back to the command-line terminal
-that you ssh into the Raspberry Pi and start the BACnet
-Simulator with the following:
+On the terminal with the ssh connection to the Rasberry Pi start the BACnet Simulator with the following command:
 
 ```bash
 docker run --rm --name=bacnet-server -e RUN_MODE=IP -e BACNET_IFACE=eth0 \
@@ -343,9 +337,8 @@ docker run --rm --name=bacnet-server -e RUN_MODE=IP -e BACNET_IFACE=eth0 \
 iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance 2749
 ```
 
-Make sure to add the ip address of the BACnet devices (in this case
-the Raspberry Pi) and the BACnet broadcast ip to the app_manifest
-configuration file as follows:
+Make sure to add the IP address of the BACnet devices (in this case
+the Raspberry Pi) and the BACnet broadcast IP are added to the app_manifest configuration file as follows:
 
 ```json
 ...
@@ -361,14 +354,13 @@ been deployed.
 The script update.sh can be used to send a payload of data
 to Azure IoT hub to invoke a device method on a Device Twin.
 The IoT Hub will send the payload to XRT which will be
-picked up by the Azure component and push to the BACnet
+picked up by the Azure component and pushed to the BACnet
 Device Service via an XRT Bus.
 
-To set the device resource `AnalogOutput0` to 1.0 on the
+To set the device resource `AnalogOutput0` to the value 1.0 on the
 `bacnet-simulator` device, issue the method (replace
 IotHub-Name with the name of your IoT Hub):
 
 ```bash
 ./update.sh <IotHub-Name> bacnet-simulator AnalogOutput0 1.0
 ```
-
