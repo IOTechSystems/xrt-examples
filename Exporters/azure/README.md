@@ -26,19 +26,25 @@ AZURE_EXPORTER_HOSTNAME
 export AZURE_EXPORTER_HOSTNAME=IOTechHub.azure-devices.net
 ```
 
-AZURE_EXPORTER_DEVICE_ID - Your Azure Device ID e.g
+AZURE_EXPORTER_DEVICE_ID - Azure Device ID - A device identifier used during the creation of CA certificates e.g
 
-```bash 
+```bash
 export AZURE_EXPORTER_DEVICE_ID=device-42
 ```
 
-AZURE_EXPORTER_CERTIFICATE - Your Azure Device Certificate e.g
+AZURE_EXPORTER_SCOPE_ID - Azure ID scope to a Device Provisioning Service used to uniquely identify the specific provisioning service the device with register through e.g
+
+```bash
+export AZURE_EXPORTER_SCOPE_ID=0ne0017479D
+```
+
+AZURE_EXPORTER_CERTIFICATE - Azure Full chain Device Certificate e.g
 
 ```bash 
 export AZURE_EXPORTER_CERTIFICATE=/path/to/device-42.cert.pem
 ```
 
-AZURE_EXPORTER_KEY - Your Azure Device Key e.g
+AZURE_EXPORTER_KEY - Azure Device Key e.g
 ```bash 
 export AZURE_EXPORTER_KEY=/path/to/device-42.key.pem
 ```

@@ -6,7 +6,7 @@
   "ConnectionType":"DPS",
   "HostName":"${AZURE_EXPORTER_HOSTNAME}",
   "DeviceID":"${AZURE_EXPORTER_DEVICE_ID}",
-  "ScopeID":"0ne0017479D",
+  "ScopeID":"${AZURE_EXPORTER_SCOPE_ID}",
   "Certificate": "${AZURE_EXPORTER_CERTIFICATE}",
   "Key": "${AZURE_EXPORTER_KEY}",
   "Devices": [
