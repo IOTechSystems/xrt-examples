@@ -9,8 +9,8 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
   "resource": [
       "DO1",
       "DO2",
-      "DO1",
-      "DO2", 
+      "DO3",
+      "DO4", 
       "VendorID",
       "DeviceType" 
     ]
