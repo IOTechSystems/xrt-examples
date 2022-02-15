@@ -1,0 +1,8 @@
+{
+  "schedule1": {
+    "device": "Server",
+    "resource": ["DB_1_I64"],
+    "interval": 2000000,
+    "name": "schedule1"
+  }
+}
