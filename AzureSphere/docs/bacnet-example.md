@@ -3,7 +3,7 @@
 In this BACnet example, XRT connects to a BACnet simulator that
 simulates a BACnet device. A Lua script controls the logic
 of the simulated BACnet device on the simulator side. Values
-are read from the simulated BACnet device and pushed to a Azure
+are read from the simulated BACnet device and pushed to Azure
 IoT Hub, values can also be sent from Azure IoT Hub to the
 simulated BACnet device via XRT.
 
@@ -18,14 +18,14 @@ hardware, that's listed on the main [readme](../README.md).
 
 ## Prerequisites
 
-*Note - The prerequisites found on the main
-[readme.md](../README.md) are also required for this example.*
+!!! Note
+The prerequisites found on the main [readme.md](../README.md) are also required for this example.
 
 * BACnet Simulator (Docker)
 
 ## Configuration
 
-In-order for the BACnet Example to work, you will need
+In-order for the BACnet example to work, you will need
 to edit some of the configurations. The configurations
 that are required to be edited will have "(required)"
 within there title.
@@ -45,7 +45,7 @@ The Azure config file can be found at:
 [configs/azure-bacnet.json](../config/azure.json)
 
 You will need to configure some values in azure.json to
-be able to send values to the IoT Hub. You will need:
+be able to send values to Azure IoT Hub. You will need:
 
 * DeviceID, can be found for a USB connected device with
   the command:
@@ -54,7 +54,7 @@ be able to send values to the IoT Hub. You will need:
 azsphere device list-attached
 ```
 
-* HostName, is the IOT Hub host name and can be found
+* HostName, is the Azure IoT Hub host name and can be found
   using the [Azure Portal](https://portal.azure.com/) or
   using the command (replace HubName with the name of your
   IOT hub):
@@ -82,21 +82,22 @@ found at:
 
 The Microsoft Azure Device Twin corresponding to the Azure Sphere
 development board will need updating to include the same "azure"
-component settings. This is found in the JSON at "desired" /
-"Components" / "azure".
+component settings. This is found in the Device twin JSON at
+"properties" / "desired" / "Components" / "azure". This is can be
+accessed via the Azure portal.
 
 The device twin "main" has the bacnet component referenced and the
-properties for "desired" / "Components" / "bacnet" must be configured
-to match the actual deployment.
+properties for "properties" / "desired" / "Components" / "bacnet" must
+be configured to match the actual deployment.
 
-The configuration for the BACnet device service are found under
-"desired" / "Services" / "bacnet_device_service".
+The configuration for the BACnet device service is found under
+"properties" / "desired" / "Services" / "bacnet_device_service".
 
 The Azure Sphere board on first boot will wait indefinitely until a
 complete configuration update is received from the device twin. The
-board will then reboot. After reconnecting to Azure Sphere the device
-service will start processing any configured schedules and publish
-the data to Azure.
+board will then reboot. After reconnecting to the Azure cloud service
+the device service will start processing any configured schedules and
+publish the data to Azure.
 
 If the desired properties are changed then the Azure Sphere board will
 reboot after receiving notification of the change.
@@ -104,11 +105,11 @@ reboot after receiving notification of the change.
 #### Python Script
 
 A Python example can be found at [twin/device-twin.py](../twin/device-twin.py)
-which shows how to use the Azure Iot SDK, to alter a device twin on
+which shows how to use the Azure IoT SDK, to alter a device twin on
 an IoT Hub. You will need a connection string for the
-[IoT Hub connection/auth](https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest)
+[Azure IoT Hub connection/auth](https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest)
 and the device id of the device you wish to use. Both of these
-will need to set as environment variable like showen below.
+will need to be set as environment variables as shown below.
 
 ```bash
 export IOTHUB_CONNECTION_STRING=<connection_string>
@@ -117,8 +118,8 @@ export IOTHUB_DEVICE_ID=<device_id>
 
 ### Remote Logging (Optional)
 
-The example main.c includes a remote logging component sent publish logging
-message over UDP. This needs to be configured by editing
+The example main.c includes a remote logging component to publish logging
+messages over UDP. This needs to be configured by editing
 [configs/udp-logger.json](../config/udp-logger.json)
 and changing the "To:" value to use the IP address of the host PC.
 The Makefile contains an example of using the socat command to monitor
@@ -137,7 +138,7 @@ the log output.
 
 * Add the ip address of any BACnet devices, that will be
   communicating with XRT, to the `AllowedConnections` JSON
-  array, and add the BACnet boardcast ip address of the
+  array, and add the BACnet broadcast ip address of the
   subnet. For example, when using the subnet 192.168.4.0,
   the broadcast ip would be 192.168.4.255
 
@@ -149,20 +150,12 @@ the log output.
   
 * Optionally add the IP address of a PC to receive XRT logging output sent over UDP.
 
-## Building The Application
+## Building and Debugging The Application
 
 You can build the BACnet Example following the links below:
 
-* [Building On Windows](windows-build.md)
-* [Building On Ubuntu](ubuntu-build.md)
-
-## Deploying and Debugging the Application
-
-You can deploy and debug the BACnet Example following the
-links below:
-
-* [Deploy And Debug With Windows](windows-deploy-debug.md)
-* [Deploy And Debug With Ubuntu](ubuntu-deploy-debug.md)
+* [Building, Deploying and Debugging on Windows](windows-build.md)
+* [Building, Deploying and Debugging On Ubuntu](ubuntu-build.md)
 
 ## Deploying From The Cloud
 
@@ -176,7 +169,7 @@ the link below:
 The BACnet Simulator, simulates a BACnet device, which is
 controlled via Lua script. The Lua script for this example
 can be found in the [bacnet-simulator](../bacnet-simulator)
-directory.
+directory. The simulator is supplied as a Docker image.
 
 ### Connecting To BACnet Over WI-FI
 
@@ -194,7 +187,7 @@ docker run -it --rm --name=bacnet-server -e RUN_MODE=IP \
 iotechsys/bacnet-server:1.8.3 --script /docker-lua-script/example.lua --instance 2749
 ```
 
-Within the [config/bacnet.json](../config/bacnet.json), make sure
+Within the Device twin desired properties make sure
 to set `NetworkInterface` option to the WI-FI interface which will
 be used in the Driver section of the config file, for example
 
