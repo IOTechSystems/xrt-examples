@@ -28,7 +28,7 @@ To build XRT applications using Visual Studio on Windows, complete the following
     Open .vscode/settings.json
     
     * Ensure the value of the "DEVICE" configuration is set to the required device service
-    e.g. "bacnet" or "ethernet-ip".
+    e.g. "bacnet", "modbus", or "ethernet-ip".
     * Ensure the value of the "BOARD" configuration is set to the required board type.
     The options are "mt3620-dk", "mt3620-g100", "mt3620-sk" or "mt3620-sr620".
 
@@ -37,7 +37,7 @@ To build XRT applications using Visual Studio on Windows, complete the following
     Open the app\_manifest.json in the directory matching the board type
     e.g. mt3620-dk/app\_manifest.json
     
-    * Follow the instructions for the [BACNet][7] or [EthernetIP][8] example
+    * Follow the instructions for the [BACNet](bacnet-example.md), [Modbus](modbus-example.md) or [EthernetIP](ethernetip-example.md) example
       to configure the example application in the example Git repo.
       See [Use the Example Code][6].
 	
