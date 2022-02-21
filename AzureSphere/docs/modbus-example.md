@@ -34,7 +34,7 @@ mirrored by the digital inputs.*
 ## AzureSphere Hardware
 
 The Modbus Example works on all XRT supported AzureSphere
-hardware, that's listed on the main [readme](../README.md).
+hardware. See [readme](../README.md).
 
 ### Modbus Device
 
@@ -68,8 +68,7 @@ Wired Ethernet or WiFi can be used to communicate with XRT.
 
 ## Configuration
 
-In-order for the Modbus Example to work, you will need
-to the configurations listed below.
+The following section describes the configuration used by the Modbus example.
 
 ### Device Profile
 
@@ -180,7 +179,7 @@ The Makefile contains an example of using the socat command to monitor
 the log output.
 
 
-### App Manifest
+### App Manifest (required)
 
 You will need to edit the app manifest file at [mt3620-g100/app_manifest.json](../mt3620-g100/app_manifest.json)
 with the following:
