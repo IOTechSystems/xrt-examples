@@ -1,6 +1,6 @@
 {
   "schedule1": {
-    "device": "GPS-Device",
+    "device": "gps-sim",
     "resource": [
       "LatitudeAndLongitude"
     ],

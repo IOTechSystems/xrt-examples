@@ -15,7 +15,7 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver":{
-    "GpsdHostname": "0.0.0.0",
+    "GpsdHostname": "${GPS_SIM_ADDRESS}",
     "GpsdPort": 2947,
     "GpsdMode": "poll"
   }
