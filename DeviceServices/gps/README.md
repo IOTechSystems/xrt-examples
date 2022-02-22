@@ -15,6 +15,12 @@ One of the following is needed before running the GPS component:
 * An instance of GPSD connected to a GPS module
 * A GPS simulator running (locally or in a container)
 
+### **Run the Simulator**
+
+```bash
+./commands/start_device_sim.sh
+```
+
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
