@@ -16,7 +16,7 @@
   "Bus":"bus",
   "Driver":{
     "GpsdHostname": "${GPS_SIM_ADDRESS}",
-    "GpsdPort": 2947,
+    "GpsdPort": "2947",
     "GpsdMode": "poll"
   }
 }
