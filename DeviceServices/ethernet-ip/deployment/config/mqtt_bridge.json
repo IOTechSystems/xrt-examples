@@ -3,7 +3,7 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
     "xrt/devices/ethernet_ip/telemetry",
-    "xrt/devices/ethernet_ip/reply",
+    "xrt/devices/ethernet_ip/reply"
   ],
   "MQTTPatterns": [ "xrt/devices/ethernet_ip/request" ],
   "MQTTConfig":
@@ -15,7 +15,6 @@
     {
       "KeepAliveInterval": 10,
       "MQTTVersion": 5,
-      "Reliable": true,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}"
     },
