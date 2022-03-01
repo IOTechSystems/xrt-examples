@@ -33,7 +33,7 @@ found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-serv
 ### **Run the simulator**
 
 ```bash
-./commands/start_device_sim.sh
+. ./commands/start_device_sim.sh
 ```
 
 This will run either a TCP or RTU simulator, depending on the argument provided to `set_env_vars.sh`. For this reason, it should be noted that `set_env_vars.sh`
