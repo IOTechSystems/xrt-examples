@@ -13,7 +13,7 @@ then
         'protocols': {
          'modbus-rtu': {
              'Address': '${MODBUS_SIM_ADDRESS}',
-             'BaudRate': 9600,
+             'BaudRate': 19200,
              'DataBits': 8,
              'Parity': 'N',
              'StopBits': 1,

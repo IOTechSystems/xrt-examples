@@ -3,7 +3,7 @@
     "profileName": "modbus-sim-profile",
     "protocols": {
       "modbus-rtu": {
-        "Address": "tty/USB0",
+        "Address": "/tmp/virtualport",
         "BaudRate": 19200,
         "DataBits": 8,
         "Parity": "N",
