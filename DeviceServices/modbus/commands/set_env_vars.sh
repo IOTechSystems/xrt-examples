@@ -7,6 +7,8 @@ then
   export RTU_MODE=true
   export XRT_STATE_DIR=$PWD/deployment/rtu/state/
 else 
+  export MODBUS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' modbus-sim)
+  export MODBUS_SIM_PORT=1502
   export RTU_MODE=false
   export XRT_STATE_DIR=$PWD/deployment/tcp/state/
 fi
