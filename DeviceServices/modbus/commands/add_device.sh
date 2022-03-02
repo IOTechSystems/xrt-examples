@@ -12,7 +12,7 @@ then
         'profileName': 'modbus-sim-profile',
         'protocols': {
          'modbus-rtu': {
-             'Address': '${MODBUS_SIM_ADDRESS}',
+             'Address': '/tmp/virtualport',
              'BaudRate': 19200,
              'DataBits': 8,
              'Parity': 'N',
@@ -33,7 +33,7 @@ else
         'profileName': 'modbus-sim-profile',
         'protocols':{
           'modbus-tcp':{
-            'Address': '/tmp/virtualport',
+            'Address': '${MODBUS_SIM_ADDRESS}',
             'Port': 1502,
             'UnitID': 1
           }
