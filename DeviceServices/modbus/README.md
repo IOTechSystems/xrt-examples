@@ -8,6 +8,26 @@ For more information about the Device Service please review the [Modbus Device S
 
 ## Getting Started
 
+### **Run the simulator**
+
+```bash
+./commands/start_device_sim.sh
+```
+
+If the RTU version of the simulator is required, add 'rtu' to the end of the command, as shown below: 
+
+```bash
+./commands/start_device_sim.sh rtu
+```
+
+This will run either a TCP or RTU simulator, depending on the argument provided. This argument should also be used when stopping the simulator if it uses RTU: 
+
+```bash
+./commands/stop_device_sim.sh rtu
+```
+
+If not using RTU mode, no argument is required for the scripts to run in TCP mode. 
+
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
@@ -29,16 +49,6 @@ RTU options is set as one of the environment variables inside the script.
 
 An explanation for the setting of common device service environment variables can be
 found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
-
-### **Run the simulator**
-
-```bash
-./commands/start_device_sim.sh
-```
-
-This will run either a TCP or RTU simulator, depending on the argument provided to `set_env_vars.sh`. For this reason, it should be noted that `set_env_vars.sh`
-must be run before `start_device_sim.sh`. Any subsequent calls to the other scripts will also use the designated form of communication until the simulator is
-restarted.
 
 ### **Common Device Service Setup**
 

@@ -33,7 +33,7 @@ else
         'profileName': 'modbus-sim-profile',
         'protocols':{
           'modbus-tcp':{
-            'Address': '${MODBUS_SIM_ADDRESS}',
+            'Address': '/tmp/virtualport',
             'Port': 1502,
             'UnitID': 1
           }
