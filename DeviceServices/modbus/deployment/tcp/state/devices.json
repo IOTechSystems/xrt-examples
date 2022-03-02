@@ -3,8 +3,8 @@
     "profileName": "modbus-sim-profile",
     "protocols": {
       "modbus-tcp": {
-        "Address": "${MODBUS_DEVICE_ADDRESS}",
-        "Port": "${MODBUS_DEVICE_PORT}",
+        "Address": "${MODBUS_SIM_ADDRESS}",
+        "Port": 1502,
         "UnitID": 1
       }
     },
