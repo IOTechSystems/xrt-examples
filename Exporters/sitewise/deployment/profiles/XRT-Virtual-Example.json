@@ -1,0 +1,26 @@
+{
+  "name": "XRT-Virtual-Example",
+  "apiVersion": "v2",
+  "deviceResources":[
+    {
+      "name": "Voltage",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": "100", "difference": "-1" },
+      "properties": { "valueType": "Float64", "readWrite": "R", "units": "V" }
+    },
+    {
+      "name": "Current",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": "123", "difference": "1" },
+      "properties": { "valueType": "Float64", "readWrite": "R", "units": "A" }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "SensorOne",
+      "readWrite": "R",
+      "resourceOperations": [
+        { "deviceResource": "Voltage" },
+        { "deviceResource": "Current" }
+      ]
+    }
+  ]
+}

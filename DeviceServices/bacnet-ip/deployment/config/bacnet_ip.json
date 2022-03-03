@@ -1,0 +1,32 @@
+{
+  "Library": "libxrt-bacnet-ip-device-service.so",
+  "Factory": "xrt_bacnet_ip_device_service_factory",
+  "Name": "bacnet_ip",
+  "TelemetryTopic": "xrt/devices/bacnet_ip/telemetry",
+  "RequestTopic": "xrt/devices/bacnet_ip/request",
+  "ReplyTopic": "xrt/devices/bacnet_ip/reply",
+  "DiscoveryTopic": "xrt/devices/bacnet_ip/discovery",
+  "AutoRegister": false,
+  "DiscoveryInterval": 0,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Driver":{
+    "NetworkID": 101,
+    "Port": 47808,
+    "APDUTimeout": 3000,
+    "APDURetries": 3,
+    "MultiBatchSize": 20,
+    "DisableMultiRead": false,
+    "DisableMultiWrite": false,
+    "CancelStaleCOV": true,
+    "DefaultDiscoveryMode": "All",
+    "BBMDAddress": "${BACNET_IP_SIM_ADDRESS}",
+    "BBMDPort": 47808
+  }
+}

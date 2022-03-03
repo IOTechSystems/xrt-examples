@@ -1,0 +1,30 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [
+    "xrt/devices/bacnet_mstp/telemetry",
+    "xrt/devices/bacnet_mstp/reply",
+    "xrt/devices/bacnet_mstp/discovery"
+  ],
+  "MQTTPatterns": [ "xrt/devices/bacnet_mstp/request" ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 10,
+      "MQTTVersion": 5,
+      "Reliable": true,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}"
+    },
+    "RetryCount": 5,
+    "RetryInterval": 5
+  },
+  "Cookie": 125,
+  "QueueSize": 5,
+  "Bus": "bus",
+  "Logger": "logger"
+}

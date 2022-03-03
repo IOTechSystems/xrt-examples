@@ -1,0 +1,512 @@
+{
+  "name": "Server",
+  "manufacturer": "",
+  "description": "S7 Server Example",
+  "labels": ["s7"],
+  "apiVersion": "v2",
+  "deviceResources": [
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_Bool",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_I8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int8"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_I16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int16"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_I32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int32"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_I64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int64"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_UI8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt8"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_UI16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt16"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_UI32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt32"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_UI64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt64"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_F32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float32"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_F64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float64"
+      }
+    },
+    {
+      "attributes": {
+        "DB_number": 1,
+        "size": 20,
+        "start": 30,
+        "type": "DB"
+      },
+      "name": "DB_1_String_Test",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "String"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_Bool",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_I8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int8"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_I16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int16"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_I32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int32"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_I64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int64"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_UI8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt8"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_UI16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt16"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_UI32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt32"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_UI64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt64"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_F32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float32"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPU"
+      },
+      "name": "IPU_1_F64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float64"
+      }
+    },
+    {
+      "attributes": {
+        "size": 20,
+        "start": 30,
+        "type": "IPU"
+      },
+      "name": "IPU_1_String_Test",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "String"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_Bool",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_I8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int8"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_I16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int16"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_I32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int32"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_I64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int64"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_UI8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt8"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_UI16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt16"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_UI32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt32"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_UI64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UInt64"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_F32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float32"
+      }
+    },
+    {
+      "attributes": {
+        "start": 0,
+        "type": "IPI"
+      },
+      "name": "IPI_1_F64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float64"
+      }
+    },
+    {
+      "attributes": {
+        "size": 20,
+        "start": 30,
+        "type": "IPI"
+      },
+      "name": "IPI_1_String_Test",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "String"
+      }
+    },
+    {
+      "name": "PLC_status",
+      "description": "Get the PLC State",
+      "attributes": {
+        "type": "PLC",
+        "operation": "state"
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Job_result",
+      "description": "Returns either success if the last job executed successfully or the error message",
+      "attributes": {
+        "type": "MISC",
+        "operation": "job_res"
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Log_error_code",
+      "description": "Convert an error code to an error message and log the message",
+      "attributes": {
+        "type": "MISC",
+        "operation": "err_text"
+      },
+      "properties": {
+        "valueType": "Int32",
+        "readWrite": "W"
+      }
+    },
+    {
+      "name": "Conn_state",
+      "description": "Get the connection state",
+      "attributes": {
+        "type": "MISC",
+        "operation": "conn_state"
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R"
+      }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "DB-Test",
+      "readWrite": "R",
+      "resourceOperations": [
+        {
+          "deviceResource": "DB_1_Bool"
+        },
+        {
+          "deviceResource": "DB_1_I8"
+        },
+        {
+          "deviceResource": "DB_1_I16"
+        },
+        {
+          "deviceResource": "DB_1_I32"
+        },
+        {
+          "deviceResource": "DB_1_I64"
+        },
+        {
+          "deviceResource": "DB_1_UI8"
+        },
+        {
+          "deviceResource": "DB_1_UI16"
+        },
+        {
+          "deviceResource": "DB_1_UI32"
+        },
+        {
+          "deviceResource": "DB_1_UI64"
+        },
+        {
+          "deviceResource": "DB_1_F32"
+        },
+        {
+          "deviceResource": "DB_1_F64"
+        },
+        {
+          "deviceResource": "DB_1_String_Test"
+        }
+      ]
+    }
+  ]
+}

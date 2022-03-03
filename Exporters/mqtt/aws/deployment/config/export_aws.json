@@ -1,0 +1,33 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "MQTTConfig":
+  {
+    "ServerURI": "${MQTT_EXPORT_AWS_SERVER_URI}",
+    "ClientID": "${MQTT_EXPORT_AWS_CLIENT_ID}",
+    "MQTTInstance": 0,
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 10,
+      "MQTTVersion": 4,
+      "Reliable": true,
+      "ConnectTimeout": 30,
+      "CleanSession":true,
+      "SSLConfig":
+      {
+        "EnableServerCertAuth": true,
+        "SSLVersion": 3,
+        "TrustStore": "${MQTT_EXPORT_AWS_TRUST_STORE}",
+        "KeyStore": "${MQTT_EXPORT_AWS_KEY_STORE}",
+        "PrivateKey": "${MQTT_EXPORT_AWS_PRIVATE_KEY}",
+        "EnabledCipherSuites" : "ALL"
+      }
+    }
+  },
+  "Bus": "bus",
+  "Logger": "logger_debug",
+  "Patterns": ["device/#"],
+  "Topic": "test/data",
+  "QueueSize": 4
+}

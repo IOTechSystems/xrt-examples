@@ -1,0 +1,9 @@
+{
+  "logger":"IOT::Logger",
+  "logger_debug":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "sched":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "rest_exporter":"XRT::RESTExporter",
+  "virtual_device_service":"XRT::VirtualDeviceService"
+}

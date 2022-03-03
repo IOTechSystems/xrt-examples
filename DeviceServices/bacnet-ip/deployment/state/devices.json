@@ -1,0 +1,11 @@
+{
+  "bacnet-ip-sim": {
+    "name": "bacnet-ip-sim",
+    "profileName": "bacnet-ip-sim-profile",
+    "protocols": {
+      "BACnet-IP": {
+        "DeviceInstance": 1234
+      }
+    }
+  }
+}

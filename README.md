@@ -14,5 +14,6 @@ More infomation about XRT can be found on the [IOTech website](https://www.iotec
 ## Examples
 
 * [AzureSphere](AzureSphere/)
-* [Application Component](ApplicationComponentExample/)
+* [Application Component](ApplicationComponent/)
 * [Device SDK](DevSDK/)
+* [Device Services](DeviceServices/)

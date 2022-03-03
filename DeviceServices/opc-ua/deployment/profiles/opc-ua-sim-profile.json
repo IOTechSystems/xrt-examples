@@ -1,0 +1,1747 @@
+{
+    "apiVersion": "v2",
+    "deviceResources": [
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2035",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2035",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "int32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11714",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11714",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11710",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11710",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11711",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11711",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11705",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11705",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11712",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11712",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11707",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11707",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11713",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11713",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11709",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11709",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2035",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2035",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "int32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2051",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2051",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint16"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2045",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2045",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "string"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2269",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2269",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "string"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2735",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2735",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint16"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2737",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2737",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint16"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2736",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2736",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint16"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2294",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2294",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "bool"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "3709",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=3709",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "int32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11572",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11572",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11570",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11570",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11565",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11565",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11574",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11574",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11571",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11571",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11569",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11569",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11567",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11567",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "11573",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=11573",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Bool",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Bool",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "bool"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "SByte",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=SByte",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "int8"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Byte",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Byte",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "uint8"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Int16",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Int16",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "int16"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "UInt16",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=UInt16",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "uint16"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Int32",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Int32",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "int32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "UInt32",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=UInt32",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "uint32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Int64",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Int64",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "int64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "UInt64",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=UInt64",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "uint64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Float",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Float",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float32"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Double",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Double",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "String",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=String",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "string"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Datetime",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Datetime",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "int64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Counter",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Counter",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Random",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Random",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Sawtooth",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Sawtooth",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Sinusoid",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Sinusoid",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Square",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Square",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "STRING",
+                "nodeID": "Triangle",
+                "nsIndex": 3
+            },
+            "name": "ns=3;s=Triangle",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2267",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2267",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "uint8"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2255",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2255",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "string"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2254",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2254",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "string"
+            }
+        },
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": "2994",
+                "nsIndex": 0
+            },
+            "name": "ns=0;i=2994",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "bool"
+            }
+        }
+    ],
+    "labels": [],
+    "name": "opc-ua-sim-profile"
+}

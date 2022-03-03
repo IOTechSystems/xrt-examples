@@ -1,0 +1,13 @@
+{
+  "logger":"IOT::Logger",
+  "logger_info":"IOT::Logger",
+  "logger_debug":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "sched":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "virtual_device_service":"XRT::VirtualDeviceService",  
+  "lua":"XRT::LuaTransform",
+  "data_log_exporter":"XRT::LogExporter",
+  "mqtt_bridge": "XRT::MQTTBridge",
+  "app_component":"XRT::ApplicationComponent"
+}

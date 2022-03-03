@@ -1,0 +1,34 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "MQTTConfig":
+  {
+    "ServerURI": "ssl://mqtt.googleapis.com:8883", "ClientID": "${MQTT_EXPORT_GOOGLE_CLIENT_ID}",
+    "MQTTInstance": 1,
+    "ProjectID": "${MQTT_EXPORT_GOOGLE_PROJECT_ID}",
+    "Algorithm": "XRT_ALG_RS256",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 4,
+      "Reliable": true,
+      "ConnectTimeout": 30,
+      "Username": "ignored",
+      "SSLConfig":
+      {
+        "EnableServerCertAuth": true,
+        "SSLVersion": 3,
+        "TrustStore": "${MQTT_EXPORT_GOOGLE_TRUST_STORE}",
+        "PrivateKey": "${MQTT_EXPORT_GOOGLE_PRIVATE_KEY}",
+        "EnabledCipherSuites" : "ALL",
+        "PrivateKeyPasswd": " "
+      }
+    }
+  },
+  "Bus": "bus",
+  "Logger": "logger_debug",
+  "Patterns": ["device/#"],
+  "Topic": "${MQTT_EXPORT_GOOGLE_PUB_TOPIC}",
+  "QueueSize": 4
+}

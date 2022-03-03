@@ -1,0 +1,24 @@
+{
+    "apiVersion": "v2",
+    "description": "OPC-UA Example",
+    "deviceResources": [
+        {
+            "attributes": {
+                "IDType": "NUMERIC",
+                "nodeID": 2259,
+                "nsIndex": 0
+            },
+            "description": "The Server State",
+            "name": "ServerState",
+            "properties": {
+                "readWrite": "R",
+                "valueType": "Int32"
+            }
+        }
+    ],
+    "labels": [
+        "opc-ua"
+    ],
+    "manufacturer": "Prosys",
+    "name": "LDS_profile"
+}

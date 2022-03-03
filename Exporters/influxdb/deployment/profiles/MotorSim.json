@@ -1,0 +1,31 @@
+{
+  "name": "MotorSim",
+  "apiVersion": "v2",
+  "manufacturer": "IoTech",
+  "model": "1",
+  "description": "Motor simulation for AWS Sitewise",
+  "deviceResources": [
+    {
+      "name": "MachineSpeed",
+      "description": "Reads the machines rotational speed",
+      "properties": { "valueType": "Float32", "readWrite": "R", "units": "rpm" },
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "amplitude": -20, "offset": 200, "period": 15 }
+    },
+    {
+      "name": "MachineTemp",
+      "description": "Reads the temperature in the motor windings",
+      "properties": { "valueType": "Float32", "readWrite": "R", "units": "degC" },
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "amplitude": 4, "offset": 35, "period": 15, "phase": 8 }
+    }
+  ],
+  "deviceCommands": [
+    {
+      "name": "MachineState",
+      "readWrite": "R",
+      "resourceOperations": [
+        { "deviceResource": "MachineSpeed" },
+        { "deviceResource": "MachineTemp" }
+      ]
+    }
+  ]
+}

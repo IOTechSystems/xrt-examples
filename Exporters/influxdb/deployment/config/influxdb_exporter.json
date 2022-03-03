@@ -1,0 +1,16 @@
+{
+  "Library": "libxrt-influxdb-exporter.so",
+  "Factory": "xrt_influxdb_exporter_factory",
+  "ServerURI": "${XRT_INFLUXDB_SERVICE}",
+  "DBName" : "db1",
+  "AuthEnabled": true,
+  "UserName": "${XRT_INFLUXDB_USERNAME}",
+  "Password": "${XRT_INFLUXDB_PASSWORD}",
+  "SelectData": [
+    { "Pattern": "device/#", "Format": "Device"}
+  ],
+  "Bus": "bus",
+  "Logger": "logger_debug",
+  "ConnectTimeout": 4000,
+  "Timeout": 1500
+}

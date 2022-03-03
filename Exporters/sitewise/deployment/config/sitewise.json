@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-sitewise-exporter.so",
+  "Factory": "xrt_sitewise_factory",
+  "Endpoint":"${AWS_SITEWISE_ENDPOINT}",
+  "Pattern": "device/#",
+  "AliasStem":"IoTech/demos/aws",
+  "AccessKey": "${AWS_SITEWISE_ACCESS_KEY}",
+  "SecretAccessKey": "${AWS_SITEWISE_ACCESS_SECRET_KEY}",
+  "Region": "${AWS_SITEWISE_REGION}",
+  "Bus": "bus",
+  "QueueSize": 2,
+  "Logger": "logger_debug"
+}

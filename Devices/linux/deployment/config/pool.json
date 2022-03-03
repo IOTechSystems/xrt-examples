@@ -1,0 +1,5 @@
+{
+  "Logger":"logger",
+  "Threads": 4,
+  "MaxJobs": 1000
+}
