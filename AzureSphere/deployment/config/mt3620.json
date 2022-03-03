@@ -3,7 +3,8 @@
   "Logger":"logger",
   "Pattern":"device/mt3620/input",
   "Interface":"eth0",
-  "Address":"192.168.4.2",
+  "Address":"192.168.4.6",
   "SubnetMask":"255.255.255.0",
-  "Gateway":"0.0.0.0"
+  "Gateway":"0.0.0.0",
+  "DNS": "192.168.4.3"
 }

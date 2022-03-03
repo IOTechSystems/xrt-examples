@@ -1,0 +1,104 @@
+{
+    "name": "Allen-Bradley-Azure",
+    "labels": [],
+    "deviceResources": [
+        {
+            "name": "test_dint",
+            "description": "Double Int value",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "test_dint"
+            },
+            "properties": {
+                "value": {
+                    "type": "Int32",
+                    "readWrite": "R"
+                }
+            }
+        },
+        {
+            "name": "test_bool",
+            "description": "Boolean Value",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "test_bool"
+            },
+            "properties": {
+                "value": {
+                    "type": "Bool",
+                    "readWrite": "R"
+                }
+            }
+        },
+        {
+            "name": "test_sint",
+            "description": "Small Int value",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "test_sint"
+            },
+            "properties": {
+                "value": {
+                    "type": "Int8",
+                    "readWrite": "R"
+                }
+            }
+        },
+        {
+            "name": "test_real",
+            "description": "Floating point value",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "test_real"
+            },
+            "properties": {
+                "value": {
+                    "type": "Float32",
+                    "readWrite": "R"
+                }
+            }
+        },
+        {
+            "name": "test_string",
+            "description": "String Value",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "test_string"
+            },
+            "properties": {
+                "value": {
+                    "type": "String",
+                    "readWrite": "R"
+                }
+            }
+        },
+        {
+            "name": "test_int",
+            "description": "String Value",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "test_int"
+            },
+            "properties": {
+                "value": {
+                    "type": "Int16",
+                    "readWrite": "R"
+                }
+            }
+        },
+        {
+            "name": "Local:1:O.Data",
+            "description": "Local:1:O output data",
+            "attributes": {
+                "type": "logixTag",
+                "tagName": "Local:1:O.Data"
+            },
+            "properties": {
+                "value": {
+                    "type": "Uint8Array",
+                    "readWrite": "R"
+                }
+            }
+        }
+    ]
+}
