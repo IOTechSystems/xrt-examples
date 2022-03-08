@@ -8,5 +8,5 @@ mosquitto_pub -t xrt/devices/ethercat/request -m \
   "values": {
     "Enable micro increments": false,
     "Reversion of rotation": true
-  },
+  }
 }'

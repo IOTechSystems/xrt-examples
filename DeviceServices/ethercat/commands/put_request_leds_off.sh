@@ -14,5 +14,5 @@ mosquitto_pub -t xrt/devices/ethercat/request -m \
     "OUT_GEN_BIT6": false,
     "OUT_GEN_BIT7": false,
     "OUT_GEN_BIT8": false
-  },
+  }
 }'

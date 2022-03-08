@@ -3,8 +3,7 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [ 
     "xrt/devices/ethercat/telemetry",
-    "xrt/devices/ethercat/reply",
-    "xrt/devices/ethercat/discovery"
+    "xrt/devices/ethercat/reply"
   ],
   "MQTTPatterns": [ "xrt/devices/ethercat/request"],
   "MQTTConfig":

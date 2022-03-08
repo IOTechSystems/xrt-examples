@@ -5,7 +5,6 @@
   "TelemetryTopic":"xrt/devices/ethercat/telemetry",
   "RequestTopic":"xrt/devices/ethercat/request",
   "ReplyTopic":"xrt/devices/ethercat/reply",
-  "DiscoveryTopic": "xrt/devices/ethercat/discovery",
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}",
   "Scheduler":"sched",

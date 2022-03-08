@@ -7,6 +7,6 @@ mosquitto_pub -t xrt/devices/ethercat/request -m \
   "op": "device:put",
   "device": "EL7037",
   "values": {
-    "Enable - STM Control - PDO": true,
-  },
+    "Enable - STM Control - PDO": true
+  }
 }'

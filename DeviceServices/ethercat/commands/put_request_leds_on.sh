@@ -10,5 +10,5 @@ mosquitto_pub -t xrt/devices/ethercat/request -m \
     "OUT_GEN_BIT3": true,
     "OUT_GEN_BIT5": true,
     "OUT_GEN_BIT7": true
-  },
+  }
 }'
