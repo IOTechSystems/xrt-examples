@@ -40,7 +40,6 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
@@ -54,7 +53,6 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
@@ -68,7 +66,6 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
@@ -82,7 +79,6 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
@@ -96,7 +92,6 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
@@ -110,7 +105,6 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
@@ -124,7 +118,6 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "readOnChange": true,
         "type": "T2O"
       },
       "properties": {
