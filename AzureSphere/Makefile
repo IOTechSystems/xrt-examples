@@ -2,7 +2,7 @@
 # new UUID if you wish to deploy the application from the cloud. The
 # value does not need to be changed if you are only doing local
 # sideloading for development and debugging.
-CID=495c9398-a6af-49cd-84af-82eaf63fd929
+CID=4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f
 
 BOARD?=mt3620-g100
 DEVICE?=bacnet
