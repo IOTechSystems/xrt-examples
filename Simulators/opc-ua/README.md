@@ -4,21 +4,11 @@ This folder contains a number of examples showcasing some of the functionality t
 
 ## Examples
 
-[**Data types**](datatypes.lua) 
+[**Simulation**](simulation.lua) 
 
-Creates a variable node for each of the supported datatypes.
-
-[**Prosys**](prosys.lua) 
-
-Mimics the default nodes found on the popular prosys OPC-UA simulator. Device profiles for the Prosys simulator should be re-usable when this script is running.
-
-[**Multi Device**](multi-devices.lua) 
-
-Nodes are added to the server to mimic the addition of 5 instances of the same device, which share the same profile.
-
-[**Node Types**](nodetypes.lua) 
-
-Creates a variable node for each of the supported node types. 
+- Creates a scalar and array variable node for each of the supported datatypes.
+- Mimics the simulation nodes found on the popular prosys OPC-UA simulator.
+- Creates a variable node for each of the supported node types. 
 
 [**Method Node Example**](methodnodes.lua) 
 
