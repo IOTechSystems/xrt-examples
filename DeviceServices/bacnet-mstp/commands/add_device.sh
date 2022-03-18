@@ -10,7 +10,7 @@ mosquitto_pub -t xrt/devices/bacnet_mstp/request -m \
     "profileName": "bacnet-mstp-sim-profile",
     "protocols":{
       "BACnet-MSTP":{
-        "DeviceInstance": "1234"
+        "DeviceInstance": 1234
       }
     }
   }

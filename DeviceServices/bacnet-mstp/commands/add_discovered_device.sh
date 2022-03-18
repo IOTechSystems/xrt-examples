@@ -9,7 +9,7 @@ mosquitto_pub -t xrt/devices/bacnet_mstp/request -m \
   "device_info":  {
     "protocols":{
       "BACnet-MSTP":{
-        "DeviceInstance": "1234"
+        "DeviceInstance": 1234
       }
     }
   }

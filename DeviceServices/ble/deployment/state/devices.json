@@ -1,7 +1,7 @@
 {
   "ble-sim" : {
     "name": "ble-sim",
-    "profile" : "ble-sim-profile",
+    "profileName" : "ble-sim-profile",
     "protocols": {
       "BLE": {
         "MAC": "00:AA:01:01:00:24"

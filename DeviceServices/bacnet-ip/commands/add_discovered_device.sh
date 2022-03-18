@@ -9,7 +9,7 @@ mosquitto_pub -t xrt/devices/bacnet_ip/request -m \
   "device_info":  {
     "protocols":{
       "BACnet-IP":{
-        "DeviceInstance": "1234"
+        "DeviceInstance": 1234
       }
     }
   }
