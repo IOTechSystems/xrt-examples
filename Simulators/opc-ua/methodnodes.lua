@@ -14,7 +14,7 @@ output1 = Argument.newStandardType("output1", DataType.INT32, ValueRank.SCALAR, 
 function node_square_method (inputs, outputs)
   local val = inputs[1]:getScalar() --get the value of input 1
   val = val ^ 2
-  outputs[1]:setScalar(val, DataType.INT32) --set the output value to the square of input one
+  outputs[1]:setScalar(val) --set the output value to the square of input one
 end
 --Create our Square method node
 node_square = MethodNode.new("Square", ns, folder:getNodeId(), node_square_method, {input1}, {output1})
@@ -22,7 +22,7 @@ node_square = MethodNode.new("Square", ns, folder:getNodeId(), node_square_metho
 function node_add_method (inputs, outputs)
   local a = inputs[1]:getScalar()
   local b = inputs[2]:getScalar()
-  outputs[1]:setScalar(a + b, DataType.INT32)
+  outputs[1]:setScalar(a + b)
 end
 node_add = MethodNode.new("Add", ns, folder:getNodeId(), node_add_method, {input1, input2}, {output1})
 
@@ -30,7 +30,7 @@ function node_concat_strings (inputs, outputs)
   local a = inputs[1]:getScalar()
   local b = inputs[2]:getScalar()
   local c = a .. b --concatenate the two strings
-  outputs[1]:setScalar(c, DataType.STRING)
+  outputs[1]:setScalar(c)
 end
 --Define the Arguments to the string concatenate function
 str_input1 = Argument.newStandardType("string input1", DataType.STRING, ValueRank.SCALAR, nil)
@@ -47,7 +47,7 @@ function node_add_array_method (inputs, outputs)
     out[k] = v + delta
   end
 
-  outputs[1]:setArray(out, DataType.INT32)
+  outputs[1]:setArray(out)
 end
 
 --Define the add array method inputs
