@@ -1,7 +1,7 @@
 {
   "LDS": {
     "name": "LDS",
-    "profile": "LDS_profile",
+    "profileName": "LDS_profile",
     "protocols": {
       "OPC-UA": {
         "Address": "${OPCUA_LDS_ADDRESS}",
@@ -11,7 +11,7 @@
   },
   "opc-ua-sim": {
     "name": "opc-ua-sim",
-    "profile": "opc-ua-sim-profile",
+    "profileName": "opc-ua-sim-profile",
     "protocols": {
       "OPC-UA": {
         "Address": "${OPCUA_SIM_ADDRESS}",

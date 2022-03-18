@@ -1,7 +1,7 @@
 {
   "ethernetip-sim": {
     "name": "ethernetip-sim",
-    "profile": "ethernetip-sim-profile",
+    "profileName": "ethernetip-sim-profile",
     "protocols": {
       "IP": {
         "Address": "${ETHERNETIP_SIM_ADDRESS}"
