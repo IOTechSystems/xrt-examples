@@ -10,7 +10,8 @@
     "AllowedTcpServerPorts": [ 22222, 47808 ],
     "AllowedUdpServerPorts": [ 47808 ],
     "NetworkConfig" : true,
-    "MutableStorage": { "SizeKB": 64 },
+    "MutableStorage": { "SizeKB": 32 },
+    "PowerControls": ["ForceReboot"],
     "DeviceAuthentication": "<tenant-uuid-identifier>"
   },
   "ApplicationType": "Default"

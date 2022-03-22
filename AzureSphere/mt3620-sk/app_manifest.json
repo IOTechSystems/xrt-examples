@@ -18,6 +18,8 @@
     "I2cMaster": ["$AVNET_MT3620_SK_ISU2_I2C"],
     "AllowedTcpServerPorts": [ 22222, 47808 ],
     "AllowedUdpServerPorts": [ 47808 ],
+    "MutableStorage": { "SizeKB": 32 },
+    "PowerControls": ["ForceReboot"],
     "NetworkConfig": true,
     "DeviceAuthentication": "<tenant-uuid-identifier>"
   },
