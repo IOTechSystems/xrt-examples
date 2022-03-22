@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "10.0.0.1", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "<target-device-ip-address>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [ "$MT3620_GPIO0", "$MT3620_GPIO1", "$MT3620_GPIO43", "$MT3620_GPIO43" ],
     "AllowedTcpServerPorts": [ 22222, 47808 ],
     "AllowedUdpServerPorts": [ 47808 ],
