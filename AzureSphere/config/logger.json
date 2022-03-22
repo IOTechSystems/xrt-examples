@@ -1,6 +1,6 @@
 {
   "Name":"console",
-  "Level":"Debug",
+  "Level":"Trace",
   "Next":"udp-logger",
   "Start":true
 }
