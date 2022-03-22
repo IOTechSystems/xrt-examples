@@ -47,6 +47,9 @@ connect:
 monitor: debug
 	telnet 192.168.35.2 2342
 
+monitor-udp: deploy
+	socat -u UDP-RECV:1999 STDOUT
+	
 build/xrt-app.imagepackage: build
 
 clean:

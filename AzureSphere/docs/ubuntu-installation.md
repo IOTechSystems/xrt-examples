@@ -31,5 +31,5 @@ sudo apt update
 5. Install XRT using the following command:
 
 ```bash
-sudo apt-get install iotech-xrt-azsphere8
+sudo apt-get install iotech-xrt-azsphere8-wipro
 ```

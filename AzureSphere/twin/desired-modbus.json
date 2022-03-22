@@ -1,0 +1,323 @@
+"Services": {
+    "modbus_device_service": {
+        "Profiles": [
+            {
+                "name": "Damocles2 Mini",
+                "manufacturer": "HW group",
+                "model": "Damocles2 Mini",
+                "labels": [
+                  "HW group",
+                  "Damocles2",
+                  "Mini"
+                ],
+                "description": "Damocles2 Mini",
+                "deviceResources": [
+                  {
+                    "name": "BinaryInput1",
+                    "description": "Current value of binary input 1",
+                    "attributes": {
+                      "primaryTable": "DISCRETES_INPUT",
+                      "startingAddress": "100"
+                    },
+                    "properties": {
+                      "value": {
+                        "type": "BOOL",
+                        "readWrite": "R"
+                      },
+                      "units": {
+                        "type": "String",
+                        "readWrite": "R",
+                        "defaultValue": "value"
+                      }
+                    }
+                  },
+                  {
+                    "name": "BinaryInput2",
+                    "description": "Current value of binary input 2",
+                    "attributes": {
+                      "primaryTable": "DISCRETES_INPUT",
+                      "startingAddress": "101"
+                    },
+                    "properties": {
+                      "value": {
+                        "type": "BOOL",
+                        "readWrite": "R"
+                      },
+                      "units": {
+                        "type": "String",
+                        "readWrite": "R",
+                        "defaultValue": "value"
+                      }
+                    }
+                  },
+                  {
+                    "name": "BinaryInput3",
+                    "description": "Current value of binary input 3",
+                    "attributes": {
+                      "primaryTable": "DISCRETES_INPUT",
+                      "startingAddress": "102"
+                    },
+                    "properties": {
+                      "value": {
+                        "type": "BOOL",
+                        "readWrite": "R"
+                      },
+                      "units": {
+                        "type": "String",
+                        "readWrite": "R",
+                        "defaultValue": "value"
+                      }
+                    }
+                  },
+                  {
+                    "name": "BinaryInput4",
+                    "description": "Current value of binary input 4",
+                    "attributes": {
+                      "primaryTable": "DISCRETES_INPUT",
+                      "startingAddress": "103"
+                    },
+                    "properties": {
+                      "value": {
+                        "type": "BOOL",
+                        "readWrite": "R"
+                      },
+                      "units": {
+                        "type": "String",
+                        "readWrite": "R",
+                        "defaultValue": "value"
+                      }
+                    }
+                  },
+                  {
+                    "name": "BinaryOutput1",
+                    "description": "Current value of output 1",
+                    "attributes": {
+                      "primaryTable": "COILS",
+                      "startingAddress": "200"
+                    },
+                    "properties": {
+                      "value": {
+                        "type": "BOOL",
+                        "readWrite": "RW"
+                      },
+                      "units": {
+                        "type": "String",
+                        "readWrite": "R",
+                        "defaultValue": "value"
+                      }
+                    }
+                  },
+                  {
+                    "name": "BinaryOutput2",
+                    "description": "Current value of output 2",
+                    "attributes": {
+                      "primaryTable": "COILS",
+                      "startingAddress": "201"
+                    },
+                    "properties": {
+                      "value": {
+                        "type": "BOOL",
+                        "readWrite": "RW"
+                      },
+                      "units": {
+                        "type": "String",
+                        "readWrite": "R",
+                        "defaultValue": "value"
+                      }
+                    }
+                  }
+                ],
+                "deviceCommands": [
+                  {
+                    "name": "BinaryInputs",
+                    "get": [
+                      {
+                        "index": "1",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput1"
+                      },
+                      {
+                        "index": "2",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput2"
+                      },
+                      {
+                        "index": "3",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput3"
+                      },
+                      {
+                        "index": "4",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput4"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "InputsAndOutputs",
+                    "get": [
+                      {
+                        "index": "1",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput1"
+                      },
+                      {
+                        "index": "2",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput2"
+                      },
+                      {
+                        "index": "3",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput3"
+                      },
+                      {
+                        "index": "4",
+                        "operation": "get",
+                        "deviceResource": "BinaryInput4"
+                      },
+                      {
+                        "index": "5",
+                        "operation": "get",
+                        "deviceResource": "BinaryOutput1"
+                      },
+                      {
+                        "index": "6",
+                        "operation": "get",
+                        "deviceResource": "BinaryOutput2"
+                      }
+                    ]
+                  }
+                ]
+              }
+        ],
+        "Devices":{
+            "damocles-virt1":{
+              "profile":"Damocles2 Mini",
+              "protocols":{
+                "modbus-tcp":{
+                  "Address": "192.168.4.6",
+                  "Port": "1502",
+                  "UnitID": "2"
+                }
+            }
+        }
+    },
+        "Schedules":[
+            {
+              "device": "damocles-virt1",
+              "resource": "BinaryInputs",
+              "interval": 2000000,
+              "name": "schedule1"
+            }
+        ]
+    }
+  },
+  "Components": {
+    "main": {
+        "logger":"IOT::Logger",
+        "pool":"IOT::ThreadPool",
+        "scheduler":"IOT::Scheduler",
+        "bus":"XRT::Bus",
+        "azure":"XRT::AzureSphereExporter",
+        "logexport":"XRT::LogExporter",
+        "modbus":"XRT::ModbusDeviceService",
+        "mt3620":"XRT::MT3620Device",
+        "udp-logger":"IOT::Logger"
+    },
+    "logger": {
+        "Name": "console",
+        "Level": "Debug",
+        "Start": true,
+        "Next": "udp-logger"
+    },
+    "pool": {
+        "Threads": 4,
+        "MaxJobs": 10,
+        "ShutdownDelay": 500,
+        "Logger": "logger"
+    },
+    "scheduler": {
+        "Logger": "logger"
+    },
+    "bus": {
+        "Scheduler": "scheduler",
+        "ThreadPool": "pool",
+        "Logger": "logger",
+        "Topics": [
+            {
+                "Topic": "device/mt3620/input",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/mt3620/output",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/input",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/output",
+                "ThreadPool": "pool",
+                "FilterDuplicates": true
+            }
+        ]
+    },
+    "azure": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "ConnectionType": "DPS",
+        "HostName": "IOTechHub.azure-devices.net",
+        "DeviceID": "dec7aa469e920434734fd391858b0142da0e51fd07b598cbdfeb2038416ef629d8447294626d4cb5a74db794c0abe813789169be1c2876d6d0bdef0677638ba8",
+        "ModelID": "virtual_dev_1",
+        "ScopeID": "0ne0017479D",
+        "Interface": "wlan0",
+        "Devices": [
+            {
+                "Name": "mt3620",
+                "Topic": "device/mt3620/input",
+                "Pattern": "device/mt3620/output",
+                "Format": "Raw",
+                "TwinID": "a9b1ad5a820298de504ef8973b3b1ba50fc761a2c5d87e6f30b4c8562c1b288d22a02ab6be57d377bb0f628afc8cf3d8c0d62167545e098cb73ba6ad2843137a"
+            },
+            {
+                "Name": "demo",
+                "Topic": "device/input",
+                "Pattern": "device/output",
+                "Format": "Device"
+            }
+        ],
+        "WorkPeriod": 10
+    },
+    "logexport": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "transform/lua/filtered-output"
+    },
+    "mt3620": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "device/mt3620/input",
+        "Interface": "eth0",
+        "Address": "192.168.4.9",
+        "SubnetMask": "255.255.255.0",
+        "Gateway": "0.0.0.0"
+    },
+    "modbus": {
+        "Name": "modbus_device_service",
+        "Topic": "device/output",
+        "RequestTopic": "device/input",
+        "Scheduler": "scheduler",
+        "Logger": "logger",
+        "ThreadPool": "pool",
+        "Bus": "bus"
+    },
+    "udp-logger": {
+        "Name": "udp-logger",
+        "Level": "Trace",
+        "To": "udp:10.0.0.95:1999"
+        "Start": true
+    }
+  },
+  
