@@ -108,7 +108,7 @@ For first time configuration setup (right after cloning), run the setup_configs.
 
 ```bash
 cd AzureSphere
-./set_configs.sh
+./setup_configs.sh
 ```
 
 and follow on screen instructions
