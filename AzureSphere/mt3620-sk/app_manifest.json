@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "<target-device-ip-address>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "<target-device-ip-address>", "<host-ip>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [
       "$AVNET_MT3620_SK_USER_LED_BLUE",
       "$AVNET_MT3620_SK_USER_LED_RED",
@@ -17,7 +17,7 @@
     "Adc": [ "$AVNET_MT3620_SK_ADC_CONTROLLER0" ],
     "I2cMaster": ["$AVNET_MT3620_SK_ISU2_I2C"],
     "AllowedTcpServerPorts": [ 22222, 47808 ],
-    "AllowedUdpServerPorts": [ 47808 ],
+    "AllowedUdpServerPorts": [ 47808, 1999 ],
     "MutableStorage": { "SizeKB": 32 },
     "PowerControls": ["ForceReboot"],
     "NetworkConfig": true,

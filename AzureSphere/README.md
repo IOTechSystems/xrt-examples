@@ -102,6 +102,17 @@ build the examples:
 * [Installing the XRT Package on Windows](docs/windows-installation.md)
 * [Installing the XRT Package on Ubuntu](docs/ubuntu-installation.md)
 
+## First time configuration setup
+
+For first time configuration setup (right after cloning), run the setup_configs.sh script within the AazureSphere Directory:
+
+```bash
+cd AzureSphere
+./set_configs.sh
+```
+
+and follow on screen instructions
+
 ## Examples
 
 * [BACnet Device](docs/bacnet-example.md)
