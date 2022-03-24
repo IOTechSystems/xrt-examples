@@ -5,7 +5,7 @@
       "GPS": {
         "GpsdConnTimeoutMS": 2000,
         "GpsdConnTimeoutS": 3,
-        "GpsdHostname": "0.0.0.0",
+        "GpsdHostname": "${GPS_SIM_ADDRESS}",
         "GpsdMode": "poll",
         "GpsdPort": 2947,
         "GpsdRequestTimeout": 5000,
