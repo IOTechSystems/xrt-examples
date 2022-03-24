@@ -6,5 +6,21 @@
     ],
     "interval": 2000000,
     "name": "schedule1"
+  },
+  "schedule2": {
+    "device": "gps-sim",
+    "resource": [
+      "Longitude"
+    ],
+    "interval": 2000000,
+    "name": "schedule2"
+  },
+  "schedule3": {
+    "device": "gps-sim",
+    "resource": [
+      "Date"
+    ],
+    "interval": 2000000,
+    "name": "schedule3"
   }
 }
