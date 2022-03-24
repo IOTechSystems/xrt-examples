@@ -1,0 +1,4 @@
+/home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/out/XRT-Debug/CMakeFiles/rebuild_cache.dir
+/home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/out/XRT-Debug/CMakeFiles/edit_cache.dir
+/home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/out/XRT-Debug/CMakeFiles/MakeImage.dir
+/home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/out/XRT-Debug/CMakeFiles/xrt-app.dir

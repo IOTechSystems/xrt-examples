@@ -268,10 +268,10 @@
         "Bus": "bus",
         "Logger": "logger",
         "ConnectionType": "DPS",
-        "HostName": "<iot_hub_hostname>",
-        "DeviceID": "<DEVICE-ID>",
+        "HostName": "IOTechHub.azure-devices.net",
+        "DeviceID": "dec7aa469e920434734fd391858b0142da0e51fd07b598cbdfeb2038416ef629d8447294626d4cb5a74db794c0abe813789169be1c2876d6d0bdef0677638ba8",
         "ModelID": "virtual_dev_1",
-        "ScopeID": "<ScopeID>",
+        "ScopeID": "0ne0017479D",
         "Interface": "wlan0",
         "Devices": [
             {
@@ -279,7 +279,7 @@
                 "Topic": "device/mt3620/input",
                 "Pattern": "device/mt3620/output",
                 "Format": "Raw",
-                "TwinID": "<DEVICE-ID>"
+                "TwinID": "dec7aa469e920434734fd391858b0142da0e51fd07b598cbdfeb2038416ef629d8447294626d4cb5a74db794c0abe813789169be1c2876d6d0bdef0677638ba8"
             },
             {
                 "Name": "demo",
@@ -316,7 +316,7 @@
     "udp-logger": {
         "Name": "udp-logger",
         "Level": "Trace",
-        "To": "udp:<host-ip>:1999"
+        "To": "udp:192.168.50.8:1999"
         "Start": true
     }
   },

@@ -5,14 +5,14 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "<target-device-ip-address>", "<host-ip>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "<target-device-ip-address>", "192.168.50.8", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [ "$MT3620_GPIO0", "$MT3620_GPIO1", "$MT3620_GPIO43", "$MT3620_GPIO43" ],
     "AllowedTcpServerPorts": [ 22222, 47808 ],
     "AllowedUdpServerPorts": [ 47808, 1999 ],
     "MutableStorage": { "SizeKB": 32 },
     "PowerControls": ["ForceReboot"],
     "NetworkConfig" : true,
-    "DeviceAuthentication": "<tenant-uuid-identifier>"
+    "DeviceAuthentication": "457d3018-e029-4d55-9ad9-f9e9ce6f9474"
   },
   "ApplicationType": "Default"
 }
