@@ -2,7 +2,7 @@
   "schedule1": {
     "device": "gps-sim",
     "resource": [
-      "LatitudeAndLongitude"
+      "Latitude"
     ],
     "interval": 2000000,
     "name": "schedule1"
