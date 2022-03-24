@@ -20,8 +20,8 @@ build:
 	cp $(BOARD)/app_manifest.json app_manifest.json; \
 	(cd build && cmake -G "Ninja" \
         -DCMAKE_TOOLCHAIN_FILE="/opt/azurespheresdk/CMakeFiles/AzureSphereToolchain.cmake" \
-        -DAZURE_SPHERE_TARGET_TOOLS_REVISION="21.10" \
-        -DAZURE_SPHERE_TARGET_API_SET="11" \
+        -DAZURE_SPHERE_TARGET_TOOLS_REVISION="22.02" \
+        -DAZURE_SPHERE_TARGET_API_SET="12" \
         -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
         -DBOARD=$(BOARD) \
         -DDEVICE=$(DEVICE) \
@@ -46,6 +46,9 @@ connect:
 # Uses telnet to observe log output from the application
 monitor: debug
 	telnet 192.168.35.2 2342
+
+monitor-udp: deploy
+	socat -u UDP-RECV:1999 STDOUT
 
 build/xrt-app.imagepackage: build
 

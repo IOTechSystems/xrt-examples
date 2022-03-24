@@ -36,14 +36,14 @@ steps:
   file representation for use with Azure Digital Twins.
 
 * Configure the appropriate *Device Service.json* (for example
-  [modbus.json](deployment/config/modbus.json)) file specifying the device
+  [modbus.json](config/modbus.json)) file specifying the device
   instance(s) that the XRT Device Service (e.g. Modbus) component
   will create at runtime based on the *Device Profile.json* file
-  (e.g. [Damocles2-Mini.json](deployment/config/profiles/Damocles2-Mini.json))
+  (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json))
   created in the previous step.
 
 * Configure the *Azure Export Service.json* file
-  (e.g [azure-modbus.json](deployment/config/azure-modbus.json)) to specify the
+  (e.g [azure-modbus.json](config/azure-modbus.json)) to specify the
   endpoint information needed by the XRT Azure Sphere Export Service to
   send data to and from Azure IoT Hub.
 
@@ -102,11 +102,21 @@ build the examples:
 * [Installing the XRT Package on Windows](docs/windows-installation.md)
 * [Installing the XRT Package on Ubuntu](docs/ubuntu-installation.md)
 
+## First time configuration setup
+
+For first time configuration setup (right after cloning), run the setup_configs.sh script within the AazureSphere Directory:
+
+```bash
+cd AzureSphere
+./setup_configs.sh
+```
+
+and follow on screen instructions
+
 ## Examples
 
-* [Modbus Device](docs/modbus-example.md)
 * [BACnet Device](docs/bacnet-example.md)
-* [Virtual Device](docs/virtual-example.md)
+* [Modbus Device](docs/modbus-example.md)
 * [Ethernet/IP Device](docs/ethernetip-example.md)
 
 ## Using Azure Digital Twins With XRT Examples

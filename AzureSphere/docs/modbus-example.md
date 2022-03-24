@@ -10,7 +10,7 @@ the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 
 The example reads the digital inputs from a Modbus Device via
 the Modbus Device Service component and publishes the data onto the
-[internal XRT bus with duplicates filter turn on](../deployment/config/bus.json).
+[internal XRT bus with duplicates filter turn on](../config/bus.json).
 
 If a new data value is the same as the previous value then the
 duplicates filter will prevent the unchanged data value from being
@@ -31,18 +31,10 @@ mirrored by the digital inputs.*
 
 ## Hardware
 
-### Azure Sphere
+## AzureSphere Hardware
 
-This example uses a Azure Sphere Guardian 100 Module.
-The Guardian 100 is a wireless edge module that uses
-Azure Sphere to deliver secure connectivity to devices.
-
-It includes Avnet Azure Sphere MT3620 module and connects
-to existing equipment via Ethernet or USB. Guardian-enabled
-devices also receive automatic security updates through the
-Azure Sphere Security Service.
-
-![Guardian 100](images/Guardian100.png)
+The Modbus Example works on all XRT supported AzureSphere
+hardware. See [readme](../README.md).
 
 ### Modbus Device
 
@@ -68,23 +60,24 @@ Wired Ethernet or WiFi can be used to communicate with XRT.
 [readme.md](../README.md) are also required for this example.*
 
 * The ModbusPal Java [Modbus simulator](#using-modbuspal-simulator-with-the-example),
-  or a Damocles2 Mini connected by wired EtherNet to a Guardian 100 module
+  or a Damocles2 Mini connected by wired EtherNet to a AzureSphere module
 * Azure IoT Hub setup using the same tenant as your claimed Azure Sphere
   Module
-* Telnet is installed on Ubuntu or enabled on Windows
-  (unless debugging via Visual Studio)
 * Connected to host via a micro-USB cable. Note to access this port
       the top casing must be removed
 
 ## Configuration
 
-In-order for the Modbus Example to work, you will need
-to the configurations listed below.
+The following section describes the configuration used by the Modbus example.
 
 ### Device Profile
 
 To connect to a new device via XRT you must first create a
 Device Profile for the specific device type.
+
+The Device Profile contains a config of different
+deviceResources that can to be sent or received from the Azure
+IoT Hub.
 
 Device Profiles and DTDL for Digital Twins files can created
 using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/).
@@ -93,25 +86,15 @@ can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1
 
 The configuration files generated from the tool are provided
 as follows:
-*	[Damocles2 Mini Device Profile](../deployment/profiles/Damocles2-Mini.json)
+*	[Damocles2 Mini Device Profile](../config/profiles/Damocles2-Mini.json)
 *	[Damocles2 Mini DTDL file](../Damocles2-Mini.dtdl)
 
-### Device Service
-
-* Edit the [deployment/config/modbus.json](../deployment/config/modbus.json) file and 
-  replace 10.0.0.1 with the IP address of your Modbus Device
-  (If your using ModbusPal Simulator, this should be the
-  IP Address of your PC currently running the
-  Simulator)
-
-![Device Service Config](images/DeviceServiceConfig.svg)  
-
-### Azure
+### Azure (required)
 
 To connect the example to your IoT Hub endpoint you must also
 configure Azure Export Service component.
 
-* Edit [deployment/config/azure-modbus.json](../deployment/config/azure-modbus.json) and the
+* Edit [config/azure-modbus.json](../config/azure-modbus.json) and the
   value for the "HostName", "DeviceID" and "ScopeID" values.
 
 * The DeviceID can be found for a USB connected device with
@@ -140,7 +123,63 @@ configure Azure Export Service component.
 
 ![Azure Export Config](images/AzureExportConfig.svg)
 
-### App Manifest
+
+### Device Twin (Required)
+
+The configuration files compiled into the application are only used
+for initial connection to Azure. The "desired" properties setting on
+the device twin are automaticallly downloaded and persisted to the
+Azure Sphere device. An example set of "desired" properties can be
+found at:
+[twin/desired-modbus.json](../twin/desired-modbus.json)
+
+The Microsoft Azure Device Twin corresponding to the Azure Sphere
+development board will need updating to include the same "azure"
+component settings. This is found in the Device twin JSON at
+"properties" / "desired" / "Components" / "azure". This is can be
+accessed via the Azure portal.
+
+The device twin "main" has the modbus component referenced and the
+properties for "properties" / "desired" / "Components" / "modbus" must
+be configured to match the actual deployment.
+
+The configuration for the modbus device service is found under
+"properties" / "desired" / "Services" / "modbus_device_service".
+
+The Azure Sphere board on first boot will wait indefinitely until a
+complete configuration update is received from the device twin. The
+board will then reboot. After reconnecting to the Azure cloud service
+the device service will start processing any configured schedules and
+publish the data to Azure.
+
+If the desired properties are changed then the Azure Sphere board will
+reboot after receiving notification of the change.
+
+#### Python Script
+
+A Python example can be found at [twin/device-twin.py](../twin/device-twin.py)
+which shows how to use the Azure IoT SDK, to alter a device twin on
+an IoT Hub. You will need a connection string for the
+[Azure IoT Hub connection/auth](https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest)
+and the device id of the device you wish to use. Both of these
+will need to be set as environment variables as shown below.
+
+```bash
+export IOTHUB_CONNECTION_STRING=<connection_string>
+export IOTHUB_DEVICE_ID=<device_id>
+```
+
+### Remote Logging (Optional)
+
+The example main.c includes a remote logging component to publish logging
+messages over UDP. This needs to be configured by editing
+[configs/udp-logger.json](../config/udp-logger.json)
+and changing the "To:" value to use the IP address of the host PC.
+The Makefile contains an example of using the socat command to monitor
+the log output.
+
+
+### App Manifest (required)
 
 You will need to edit the app manifest file at [mt3620-g100/app_manifest.json](../mt3620-g100/app_manifest.json)
 with the following:
@@ -211,20 +250,12 @@ on port 1502 to the simulator:
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-## Building The Application
+## Building and Debugging The Application
 
-You can build the Modbus Example with following the links below:
+You can build the BACnet Example following the links below:
 
-* [Building On Windows](windows-build.md)
-* [Building On Ubuntu](ubuntu-build.md)
-
-## Deploying and Debugging the Application
-
-You can deploy and debug the Modbus Example following the
-links below:
-
-* [Deploy And Debug With Windows](windows-deploy-debug.md)
-* [Deploy And Debug With Ubuntu](ubuntu-deploy-debug.md)
+* [Building, Deploying and Debugging on Windows](windows-build.md)
+* [Building, Deploying and Debugging On Ubuntu](ubuntu-build.md)
 
 ## Deploying From The Cloud
 

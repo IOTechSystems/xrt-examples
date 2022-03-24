@@ -1,0 +1,19 @@
+{
+    "cmake.generator": "Ninja",
+    "cmake.buildDirectory": "${workspaceRoot}/out/XRT-${buildType}",
+    "cmake.buildToolArgs": [ "-v" ],
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "${command:azuresphere.AzureSphereSdkDir}/CMakeFiles/AzureSphereToolchain.cmake",
+	"AZURE_SPHERE_TARGET_TOOLS_REVISION": "22.02",
+        "AZURE_SPHERE_TARGET_API_SET": "12",
+	"DEVICE": "bacnet",
+	"BOARD": "mt3620-g100"
+    },
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "azureFunctions.deploySubpath": "twin\\functions/bin/Release/netcoreapp3.1/publish",
+    "azureFunctions.projectLanguage": "C#",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "publish (functions)"
+}
