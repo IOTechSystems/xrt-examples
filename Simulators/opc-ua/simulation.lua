@@ -125,56 +125,56 @@ function add_suported_datatypes_arrays()
 
   bool_variant = Variant.new(DataType.BOOL)
   bool_variant:setArray(bool_array)
-  bool = VariableNode.new(NodeId.newString("BoolArray",ns), "BoolArray", array_datatypes_folder:getNodeId(), bool_variant, AccessLevel.READ)
+  bool = VariableNode.new(NodeId.newString("BoolArray",ns), "BoolArray", array_datatypes_folder:getNodeId(), bool_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   byte_variant = Variant.new(DataType.BYTE)
   byte_variant:setArray(int_array)
-  byte = VariableNode.new(NodeId.newString("ByteArray", ns),"ByteArray", array_datatypes_folder:getNodeId(), byte_variant, AccessLevel.READ)
+  byte = VariableNode.new(NodeId.newString("ByteArray", ns),"ByteArray", array_datatypes_folder:getNodeId(), byte_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   sbyte_variant = Variant.new(DataType.SBYTE)
   sbyte_variant:setArray(int_array)
-  sbyte = VariableNode.new(NodeId.newString("SByteArray", ns),"SByteArray", array_datatypes_folder:getNodeId(), sbyte_variant, AccessLevel.READ)
+  sbyte = VariableNode.new(NodeId.newString("SByteArray", ns),"SByteArray", array_datatypes_folder:getNodeId(), sbyte_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   int16_variant = Variant.new(DataType.INT16)
   int16_variant:setArray(int_array)
-  int16 = VariableNode.new(NodeId.newString("Int16Array", ns),"Int16Array", array_datatypes_folder:getNodeId(), int16_variant, AccessLevel.READ)
+  int16 = VariableNode.new(NodeId.newString("Int16Array", ns),"Int16Array", array_datatypes_folder:getNodeId(), int16_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   uint16_variant = Variant.new(DataType.UINT16)
   uint16_variant:setArray(int_array)
-  uint16 = VariableNode.new(NodeId.newString("UInt16Array", ns),"UInt16Array", array_datatypes_folder:getNodeId(), uint16_variant, AccessLevel.READ)
+  uint16 = VariableNode.new(NodeId.newString("UInt16Array", ns),"UInt16Array", array_datatypes_folder:getNodeId(), uint16_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   int32_variant = Variant.new(DataType.INT32)
   int32_variant:setArray(int_array)
-  int32 = VariableNode.new(NodeId.newString("Int32Array", ns),"Int32Array", array_datatypes_folder:getNodeId(), int32_variant, AccessLevel.READ)
+  int32 = VariableNode.new(NodeId.newString("Int32Array", ns),"Int32Array", array_datatypes_folder:getNodeId(), int32_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   uint32_variant = Variant.new(DataType.UINT32)
   uint32_variant:setArray(int_array)
-  uint32 = VariableNode.new(NodeId.newString("UInt32Array", ns),"UInt32Array", array_datatypes_folder:getNodeId(), uint32_variant, AccessLevel.READ)
+  uint32 = VariableNode.new(NodeId.newString("UInt32Array", ns),"UInt32Array", array_datatypes_folder:getNodeId(), uint32_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   int64_variant = Variant.new(DataType.INT64)
   int64_variant:setArray(int_array)
-  int64 = VariableNode.new(NodeId.newString("Int64Array", ns),"Int64Array", array_datatypes_folder:getNodeId(), int64_variant, AccessLevel.READ)
+  int64 = VariableNode.new(NodeId.newString("Int64Array", ns),"Int64Array", array_datatypes_folder:getNodeId(), int64_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   uint64_variant = Variant.new(DataType.UINT64)
   uint64_variant:setArray(int_array)
-  uint64 = VariableNode.new(NodeId.newString("UInt64Array", ns),"UInt64Array", array_datatypes_folder:getNodeId(), uint64_variant, AccessLevel.READ)
+  uint64 = VariableNode.new(NodeId.newString("UInt64Array", ns),"UInt64Array", array_datatypes_folder:getNodeId(), uint64_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   float_variant = Variant.new(DataType.FLOAT)
   float_variant:setArray(float_array)
-  float = VariableNode.new(NodeId.newString("FloatArray", ns),"FloatArray", array_datatypes_folder:getNodeId(), float_variant, AccessLevel.READ)
+  float = VariableNode.new(NodeId.newString("FloatArray", ns),"FloatArray", array_datatypes_folder:getNodeId(), float_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   double_variant = Variant.new(DataType.DOUBLE)
   double_variant:setArray(float_array)
-  double = VariableNode.new(NodeId.newString("DoubleArray", ns),"DoubleArray", array_datatypes_folder:getNodeId(), double_variant, AccessLevel.READ)
+  double = VariableNode.new(NodeId.newString("DoubleArray", ns),"DoubleArray", array_datatypes_folder:getNodeId(), double_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   string_variant = Variant.new(DataType.STRING)
   string_variant:setArray({"String1", "String2", "String3", "String4", "String5"})
-  string_node = VariableNode.new(NodeId.newString("StringArray", ns), "StringArray", array_datatypes_folder:getNodeId(), string_variant, AccessLevel.READ)
+  string_node = VariableNode.new(NodeId.newString("StringArray", ns), "StringArray", array_datatypes_folder:getNodeId(), string_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   datetime_variant = Variant.new(DataType.DATETIME)
   datetime_variant:setArray({os.time(os.date("!*t")), 2, 3, 4, 5})
-  datetime = VariableNode.new(NodeId.newString("DateTimeArray", ns),"DateTimeArray", array_datatypes_folder:getNodeId(), datetime_variant, AccessLevel.READ)
-  
+  datetime = VariableNode.new(NodeId.newString("DateTimeArray", ns),"DateTimeArray", array_datatypes_folder:getNodeId(), datetime_variant, AccessLevel.READ | AccessLevel.WRITE)
+
   --Register the nodes with the server
   Server.addVariableNode (bool)
   Server.addVariableNode (sbyte)
