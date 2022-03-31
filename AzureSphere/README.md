@@ -18,16 +18,16 @@ The examples currently support the following hardware:
 The process for creating a connected Azure Sphere IoT
 application using XRT is illustrated in the following graphic.
 
-![Azure Development Process](docs/images/AzureDevProcess.jpg)
+![Azure Development Process](docs/images/AzureDevProcess.png)
 
 The development process flow follows a standard sequence of
 steps:
 
-* Install the XRT for Azure Sphere package on either a Windows
+1. Install the XRT for Azure Sphere package on either a Windows
   or Linux (Ubuntu) host PC and open one of the Azure Sphere
   examples with an IDE (Visual Studio for Windows).
 
-* Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
+2. Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
   create a *Device Profile.json* configuration file representing
   the IoT device type. For example, Modbus, we create a Device
   Profile for the [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
@@ -35,32 +35,38 @@ steps:
   be used to generate a Digital Twins Definition Language (DTDL)
   file representation for use with Azure Digital Twins.
 
-* Configure the appropriate *Device Service.json* (for example
+3. Configure the appropriate *Device Service.json* (for example
   [modbus.json](config/modbus.json)) file specifying the device
   instance(s) that the XRT Device Service (e.g. Modbus) component
   will create at runtime based on the *Device Profile.json* file
   (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json))
   created in the previous step.
 
-* Configure the *Azure Export Service.json* file
+   Configure the *Azure Export Service.json* file
   (e.g [azure-modbus.json](config/azure-modbus.json)) to specify the
   endpoint information needed by the XRT Azure Sphere Export Service to
   send data to and from Azure IoT Hub.
 
-* Configure an a *Azure Application Manifest.json*
+    Configure an a *Azure Application Manifest.json*
   (e.g [mt3620-g100/app_manifest.json](mt3620-g100/app_manifest.json))
   file that describes the resources, also called application
   capabilities, that an application requires. Every application has
   an application manifest.
 
-* Build the XRT Azure Application with Visual Studio on Windows
+4. At this point you have two options:
+
+    1.	Include the all individual configuration files for the build that are needed by the XRT application image that is going be deployed onto the Azure Sphere device. This option is useful if you do not require the ability to dynamically update the configuration of your application once deployed.
+
+    2.	Copy the contents of the configuration files and create a single configuration file that can be loaded into the Azure Sphere Devive Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html) section. Remove any build configuration not required to connect the Azure IoT hub. This approach is useful if you want to create a single application image that can support different configurations for each individual deployment.  Using this method the configuration for each XRT application deployed on an Azure Sphere device can be updated dynamically simply by changing the Device Twin’s configuration.
+
+5. Build the XRT Azure Application with Visual Studio on Windows
   or using cmake from the command line.
 
-* Deploy the XRT Azure Application onto the Azure Sphere
+6. Deploy the XRT Azure Application onto the Azure Sphere
   Module (You can deploy from Visual Studio using the azsphere
   utility).
 
-* Visualize the data on Azure IoT Hub and optionally send data
+7. Visualize the data on Azure IoT Hub and optionally send data
   back to the connected IoT device.
 
 Each of the above steps are covered in detail in the subsequent
@@ -121,12 +127,9 @@ and follow on screen instructions
 
 ## Using Azure Digital Twins With XRT Examples
 
-You should refer to the XRT for Azure Sphere Guide
-(XRTAzureSphereUserGuide.pdf). To setup the correct
-cloud infrastructure. The guide is included with the
-[XRT package](#install-xrt-on-a-development-machine).
+To setup Azure Digital Twins refer to the XRT for [Azure Sphere Guide](https://docs.iotechsys.com/edge-xrt11/index.html). 
 
-Refer to the guide and complete the following steps:
+As decsribed in the guide complete the following steps:
 
 * Setup Azure Cloud for Digital Twins – Create a Function App
 * Setup Azure Cloud for Digital Twins – Create an Event Grid
