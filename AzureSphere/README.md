@@ -55,7 +55,7 @@ steps:
 
 4. At this point you have two options:
 
-    1.	Include the all individual configuration files for the build that are needed by the XRT application image that is going be deployed onto the Azure Sphere device. This option is useful if you do not require the ability to dynamically update the configuration of your application once deployed.
+    1.	Include all of the individual configuration files for the build that are needed by the XRT application image that is going be deployed onto the Azure Sphere device. This option is useful if you do not require the ability to dynamically update the configuration of your application once deployed.
 
     2.	Copy the contents of the configuration files and create a single configuration file that can be loaded into the Azure Sphere Devive Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html) section. Remove any build configuration not required to connect the Azure IoT hub. This approach is useful if you want to create a single application image that can support different configurations for each individual deployment.  Using this method the configuration for each XRT application deployed on an Azure Sphere device can be updated dynamically simply by changing the Device Twin’s configuration.
 
