@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "192.168.50.8", "<target-device-ip-address>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "<host-ip>", "<target-device-ip-address>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [
       "$MT3620_RDB_LED1_RED", "$MT3620_RDB_LED1_GREEN", "$MT3620_RDB_LED1_BLUE",
       "$MT3620_RDB_LED2_RED", "$MT3620_RDB_LED2_GREEN", "$MT3620_RDB_LED2_BLUE",

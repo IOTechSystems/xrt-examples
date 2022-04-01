@@ -3,9 +3,8 @@
     "profileName": "GPS-Device",
     "protocols": {
       "GPS": {
-        "GpsdConnTimeoutMS": 2000,
-        "GpsdConnTimeoutS": 3,
-        "GpsdHostname": "0.0.0.0",
+        "GpsdConnTimeout": 2500,
+        "GpsdHostname": "${GPS_SIM_ADDRESS}",
         "GpsdMode": "poll",
         "GpsdPort": 2947,
         "GpsdRequestTimeout": 5000,

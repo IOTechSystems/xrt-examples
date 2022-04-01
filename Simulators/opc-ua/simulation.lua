@@ -29,7 +29,6 @@ function round(x, n)
  return tonumber(string.format("%." .. (n or 0) .. "f", x))
 end
 
-
 --Create a new namespace
 ns = Server.addNamespace("Static")
 --Create a Data Types folder to store our variable nodes under
@@ -120,12 +119,12 @@ end
 function add_suported_datatypes_arrays()
 
   --Create an array variable node of each supported type
-  node_id_start = 20
+  bool_array = {true, false, true, false, false}
   int_array = {0,1,2,3,4,5}
   float_array = {0.0,1.1,2.2,3.3,4.4,5.5}
 
-  bool_variant = Variant.new(DataType.INT32)
-  bool_variant:setArray(int_array, {6})
+  bool_variant = Variant.new(DataType.BOOL)
+  bool_variant:setArray(bool_array)
   bool = VariableNode.new(NodeId.newString("BoolArray",ns), "BoolArray", array_datatypes_folder:getNodeId(), bool_variant, AccessLevel.READ | AccessLevel.WRITE)
 
   byte_variant = Variant.new(DataType.BYTE)
