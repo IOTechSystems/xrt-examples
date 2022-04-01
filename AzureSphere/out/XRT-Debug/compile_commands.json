@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/out/XRT-Debug",
-  "command": "/opt/azurespheresdk/Sysroots/12/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gcc -DDEVICE_BACNET -D_POSIX_C_SOURCE -I/opt/azurespheresdk/Sysroots/12/opt/iotech/xrt/2.0/include -I/opt/azurespheresdk/Sysroots/12/opt/iotech/iot/1.3/include -isystem /opt/azurespheresdk/HardwareDefinitions/inc -isystem /opt/azurespheresdk/HardwareDefinitions/inc/hw -isystem /opt/azurespheresdk/Sysroots/12/usr/include  -B \"/opt/azurespheresdk/Sysroots/12/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi\" -march=armv7ve -mthumb -mfpu=neon-vfpv4 -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=\"/opt/azurespheresdk/Sysroots/12\" -g   -std=c11 -Wstrict-prototypes -Wno-pointer-sign -ggdb -O0 -fPIC -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-omit-frame-pointer -fno-exceptions -Wall -Wswitch -Wempty-body -Wconversion -Wreturn-type -Wparentheses -Wno-format -Wuninitialized -Wunreachable-code -Wunused-function -Wunused-value -Wunused-variable -Werror=implicit-function-declaration -fstack-protector-strong -o CMakeFiles/xrt-app.dir/main.c.obj   -c /home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/main.c",
-  "file": "/home/amaan/xrt-examples-v2/xrt-examples/AzureSphere/main.c"
-}
-]

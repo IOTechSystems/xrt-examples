@@ -5,7 +5,7 @@
   "EntryPoint": "/bin/app",
   "CmdArgs": [],
   "Capabilities": {
-    "AllowedConnections" : [ "<target-device-ip-address>", "192.168.50.8", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
+    "AllowedConnections" : [ "<target-device-ip-address>", "<host-ip>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
     "Gpio": [
       "$AVNET_MT3620_SK_USER_LED_BLUE",
       "$AVNET_MT3620_SK_USER_LED_RED",
@@ -21,7 +21,7 @@
     "MutableStorage": { "SizeKB": 32 },
     "PowerControls": ["ForceReboot"],
     "NetworkConfig": true,
-    "DeviceAuthentication": "457d3018-e029-4d55-9ad9-f9e9ce6f9474"
+    "DeviceAuthentication": "<tenant-uuid-identifier>"
   },
   "ApplicationType": "Default"
 }
