@@ -47,7 +47,7 @@ steps:
   endpoint information needed by the XRT Azure Sphere Export Service to
   send data to and from Azure IoT Hub.
 
-    Configure an a *Azure Application Manifest.json*
+    Configure the *Azure Application Manifest.json* file
   (e.g [mt3620-g100/app_manifest.json](mt3620-g100/app_manifest.json))
   file that describes the resources, also called application
   capabilities, that an application requires. Every application has
