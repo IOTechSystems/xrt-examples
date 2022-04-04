@@ -8,14 +8,8 @@
                     {
                         "name": "DINT_ARRAY",
                         "properties": {
-                            "value": {
-                                "type": "Uint8Array",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valueType": "Uint8Array",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY",
@@ -25,14 +19,8 @@
                     {
                         "name": "DINT_ARRAY[0]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valueType": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[0]",
@@ -42,14 +30,8 @@
                     {
                         "name": "DINT_ARRAY[1]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valueType": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[1]",
@@ -59,14 +41,8 @@
                     {
                         "name": "DINT_ARRAY[2]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valueType": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[2]",
@@ -76,14 +52,9 @@
                     {
                         "name": "DINT_ARRAY[3]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valueType": "Int32",
+                            "readWrite": "R"
+
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[3]",
@@ -93,14 +64,8 @@
                     {
                         "name": "DINT_ARRAY[4]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[4]",
@@ -110,14 +75,8 @@
                     {
                         "name": "DINT_ARRAY[5]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
+                                "valuetype": "Int32",
                                 "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[5]",
@@ -127,14 +86,8 @@
                     {
                         "name": "DINT_ARRAY[6]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[6]",
@@ -144,14 +97,8 @@
                     {
                         "name": "DINT_ARRAY[7]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[7]",
@@ -161,14 +108,8 @@
                     {
                         "name": "DINT_ARRAY[8]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[8]",
@@ -178,14 +119,8 @@
                     {
                         "name": "DINT_ARRAY[9]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[9]",
@@ -195,14 +130,8 @@
                     {
                         "name": "DINT_ARRAY[10]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
+                                "valuetype": "Int32",
                                 "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[10]",
@@ -212,14 +141,8 @@
                     {
                         "name": "DINT_ARRAY[11]",
                         "properties": {
-                            "value": {
-                                "type": "Int32",
-                                "readWrite": "R"
-                            },
-                            "units": {
-                                "type": "String",
-                                "readWrite": "R"
-                            }
+                            "valueType": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[11]",
@@ -344,6 +267,8 @@
         "Name": "ethernet_ip_device_service",
         "Topic": "device/output",
         "RequestTopic": "device/input",
+        "TelemetryTopic": "device/output",
+        "ReplyTopic": "device/output",
         "Scheduler": "scheduler",
         "Logger": "logger",
         "ThreadPool": "pool",
