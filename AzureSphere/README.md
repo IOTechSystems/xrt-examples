@@ -129,7 +129,7 @@ and follow on screen instructions
 
 To setup Azure Digital Twins refer to the XRT for [Azure Sphere Guide](https://docs.iotechsys.com/edge-xrt11/index.html). 
 
-As decsribed in the guide complete the following steps:
+As described in the guide complete the following steps:
 
 * Setup Azure Cloud for Digital Twins – Create a Function App
 * Setup Azure Cloud for Digital Twins – Create an Event Grid
