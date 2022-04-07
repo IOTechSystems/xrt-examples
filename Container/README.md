@@ -2,7 +2,7 @@
 
 ## Example
 
-This example uses the container component in conjunction with the virtual device service component. 
+This example demonstrates the usage of XRT components in a container using JSON configuration. 
 
 **Required Environment Variables**
 
