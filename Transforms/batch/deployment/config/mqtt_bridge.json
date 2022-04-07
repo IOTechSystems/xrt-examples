@@ -19,7 +19,7 @@
     }
   },
   "Bus": "bus",
-  "Logger": "logger",
+  "Logger": "logger_debug",
   "Patterns": ["data/export"],
   "Topic": "test",
   "QueueSize": 4
