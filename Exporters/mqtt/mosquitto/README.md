@@ -2,7 +2,8 @@
 
 ## Example
 
-These examples use the virtual device service to produce readings to be exported by an mqtt exporter to post readings to a Mosquitto MQTT broker.
+This example use the virtual device service to produce readings to be exported by an mqtt exporter to post readings to a Mosquitto MQTT broker.
+The example expect MQTT Broker to be setup and running.
 
 ## Steps
 

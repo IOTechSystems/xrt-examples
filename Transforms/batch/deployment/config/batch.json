@@ -5,7 +5,7 @@
   "Scheduler":"sched",
   "ThreadPool":"pool",
   "Logger":"logger_debug",
-  "Pattern":"device/data",
+  "Pattern":"device/reply",
   "Topic":"data/export",
   "Metadata":{"MQTT_TOPIC":"demo"},
   "BufferSize":5,

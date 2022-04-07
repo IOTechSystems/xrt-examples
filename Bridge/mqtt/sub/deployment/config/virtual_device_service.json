@@ -2,7 +2,7 @@
   "Library": "libxrt-virtual-device-service.so",
   "Factory": "xrt_virtual_device_service_factory",
   "Name":"virtual_device_service",
-  "Topic":"bridge/data",
+  "TelemetryTopic":"bridge/data",
   "Logger":"logger",
   "Scheduler":"sched",
   "ThreadPool":"pool",
