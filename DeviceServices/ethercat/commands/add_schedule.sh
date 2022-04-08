@@ -5,6 +5,7 @@ mosquitto_pub -t xrt/devices/ethercat/request -m \
   "client":"example",
   "request_id": "1040",
   "op": "schedule:add",
+  "type": "xrt.request:1.0",
   "schedule": {
     "name":"ethercat-schedule1",
     "device":"XMC4800",
