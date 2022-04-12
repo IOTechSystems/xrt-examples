@@ -2,7 +2,8 @@
 
 ## Example
 
-This example uses the virtual device service to produce readings to be exported by the 'influxdb exporter'.
+This example uses the virtual device service to produce readings exported by the 'influxdb exporter'.
+Please note that the example illustrates the use of the batch transform component that aggregates the readings based on the configured buffer size/timeout to optimize write to the InfluxDB.
 
 ## Steps 
 
