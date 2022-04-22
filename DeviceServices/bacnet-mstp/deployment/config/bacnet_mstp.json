@@ -17,13 +17,13 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver":{
-    "NetworkID": 101,
+    "InstanceID": 0,
     "SerialInterface": "/tmp/virtualport",
     "APDUTimeout": 10000,
     "APDURetries": 3,
     "MultiBatchSize": 20,
-    "DisableMultiRead": false,
-    "DisableMultiWrite": false,
+    "MultiRead": true,
+    "MultiWrite": true,
     "CancelStaleCOV": true,
     "DefaultDiscoveryMode": "All"
   }
