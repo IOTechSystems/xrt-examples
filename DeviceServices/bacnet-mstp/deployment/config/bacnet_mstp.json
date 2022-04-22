@@ -25,6 +25,6 @@
     "MultiRead": true,
     "MultiWrite": true,
     "CancelStaleCOV": true,
-    "DefaultDiscoveryMode": "All"
+    "DiscoverMode": "All"
   }
 }
