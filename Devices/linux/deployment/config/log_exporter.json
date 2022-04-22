@@ -2,7 +2,7 @@
   "Library":"libxrt-log-exporter.so",
   "Factory":"xrt_log_exporter_factory",
   "Bus":"bus",
-  "Logger":"logger",
+  "Logger":"logger_debug",
   "Pattern":"device/#",
   "Cookie":1234
 }

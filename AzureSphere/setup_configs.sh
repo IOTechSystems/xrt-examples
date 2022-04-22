@@ -31,7 +31,7 @@ echo
 echo
 
 find . -type f -name "*.json" -exec sed -i "s/<DEVICE-ID>/$deviceID/g" {} \;
-find . -type f -name "*.json" -exec sed -i "s/<SCOPE-ID>/$scopeID/g" {} \;
+find . -type f -name "*.json" -exec sed -i "s/<ScopeID>/$scopeID/g" {} \;
 find . -type f -name "*.json" -exec sed -i "s/<iot_hub_hostname>/$hostName/g" {} \;
 find . -type f -name "*.json" -exec sed -i "s/<host-ip>/$HostIP/g" {} \;
 find . -type f -name "*.json" -exec sed -i "s/<tenant-uuid-identifier>/$tenantUUID/g" {} \;

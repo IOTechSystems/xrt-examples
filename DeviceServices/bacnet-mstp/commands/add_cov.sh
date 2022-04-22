@@ -5,6 +5,7 @@ mosquitto_pub -t xrt/devices/bacnet_mstp/request -m \
   "client":"example",
   "request_id": "1050",
   "op": "schedule:add",
+  "type": "xrt.request:1.0",
   "schedule": {
     "name":"bacnet-mstp-sim-cov1",
     "device":"bacnet-mstp-sim",

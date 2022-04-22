@@ -25,41 +25,52 @@ steps:
 
 1. Install the XRT for Azure Sphere package on either a Windows
   or Linux (Ubuntu) host PC and open one of the Azure Sphere
-  examples with an IDE (Visual Studio for Windows).
+  examples with an IDE (Visual Studio Code).
 
 2. Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
   create a *Device Profile.json* configuration file representing
-  the IoT device type. For example, Modbus, we create a Device
+  the IoT device type. For example, create a Device
   Profile for the [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
   Modbus device. Using the same device definition, DCT can also
   be used to generate a Digital Twins Definition Language (DTDL)
   file representation for use with Azure Digital Twins.
 
-3. Configure the appropriate *Device Service.json* (for example
+3. Create a main.json file and specify all of the components you want to include in your XRT application. Then create configuration files for each component defined in the main.json file.  
+
+    For all of the standard XRT examples these configuration are already provided the and the only files that you will have to modify to run the examples in your environment are as follows: 
+
+
+    * Configure the appropriate *Device Service.json* (for example
   [modbus.json](config/modbus.json)) file specifying the device
   instance(s) that the XRT Device Service (e.g. Modbus) component
   will create at runtime based on the *Device Profile.json* file
   (e.g. [Damocles2-Mini.json](config/profiles/Damocles2-Mini.json))
   created in the previous step.
 
-   Configure the *Azure Export Service.json* file
+    * Configure the *Azure Export Service.json* file
   (e.g [azure-modbus.json](config/azure-modbus.json)) to specify the
   endpoint information needed by the XRT Azure Sphere Export Service to
   send data to and from Azure IoT Hub.
 
-    Configure an a *Azure Application Manifest.json*
+    *  Configure an a *Azure Application Manifest.json*
   (e.g [mt3620-g100/app_manifest.json](mt3620-g100/app_manifest.json))
   file that describes the resources, also called application
   capabilities, that an application requires. Every application has
   an application manifest.
 
-4. At this point you have two options:
+4. At this point you must choose whether you want to configure your XRT deployment statically or dynamically:
 
-    1.	Include all of the individual configuration files for the build that are needed by the XRT application image that is going be deployed onto the Azure Sphere device. This option is useful if you do not require the ability to dynamically update the configuration of your application once deployed.
+    * For static configuration, include all of the individual configuration files produced in Steps 2 & 3 in the build image that is going be deployed onto the Azure Sphere device.
+    
+      This option is useful if you do not require the ability to dynamically update the configuration of your application once deployed.
 
-    2.	Copy the contents of the configuration files and create a single configuration file that can be loaded into the Azure Sphere Devive Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html) section. Remove any build configuration not required to connect the Azure IoT hub. This approach is useful if you want to create a single application image that can support different configurations for each individual deployment.  Using this method the configuration for each XRT application deployed on an Azure Sphere device can be updated dynamically simply by changing the Device Twin’s configuration.
+    * For dynamic configuration, copy the contents of the configuration files produced in Steps 2 & 3 and create a single configuration file that can be loaded into the Azure Sphere Device Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html)  section. With the exception of the <azure_application_manifest>.json file, the configuration files that were created in Steps 2 & 3 should not be included XRT application build image.
 
-5. Build the XRT Azure Application with Visual Studio on Windows
+      This option is useful if you wish to create a single application image that can	 support different configurations for each individual deployment. Using this method, the configuration for each XRT application deployed on an Azure Sphere device can be updated dynamically by simply changing the Device Twin’s configuration.
+
+    All of the standard XRT example provide are based on the configuration your XRT deployment dynamically.  Device Twin configuration files for all of the Azure Sphere examples are provided (e.g. [BACnet Device Twin configuration file](https://github.com/IOTechSystems/xrt-examples/blob/v2.0-branch/AzureSphere/twin/desired-bacnet.json))  
+
+5. Build the XRT Azure Application with Visual Studio Code on Windows
   or using cmake from the command line.
 
 6. Deploy the XRT Azure Application onto the Azure Sphere
@@ -74,12 +85,15 @@ parts for each example.
 
 ## Prerequisites
 
-* For Windows [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-  or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download).
-  Once installed open Visual Studio and install Visual
-  Studio Extensions for Azure Sphere
-* The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview)
-  as appropriate for the target environment
+* For Windows or Linux (Ubuntu 20.04) [Visual Studio Code](https://code.visualstudio.com/download)
+
+* To deploy Azure functions (only required if using Azure Digital Twins), also install:
+  * [Net 3.1 Core SDK](https://dotnet.microsoft.com/en-us/download)
+  
+  * [Azure Functions Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+
+* The [Azure Sphere SDK](https://docs.microsoft.com/en-us/azure-sphere/install/overview) as appropriate for the target environment
+
 * You must have your Azure Sphere module claimed to your Azure
   Sphere Cloud Tenant in order for a XRT example to communicate
   with your Azure Cloud Resources. You can claim your device

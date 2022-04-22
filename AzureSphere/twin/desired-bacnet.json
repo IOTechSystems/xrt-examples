@@ -1,277 +1,279 @@
 "Services": {
-  "bacnet_device_service": {
-      "Profiles": [
-          {
-              "labels": [],
-              "name": "bacnet-simulator",
-              "deviceResources": [
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "0"
-                      },
-                      "name": "AnalogInput0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "R",
-                              "type": "float32"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "1"
-                      },
-                      "name": "AnalogOutput0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "RW",
-                              "type": "float32"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "2"
-                      },
-                      "name": "AnalogValue0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "RW",
-                              "type": "float32"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "3"
-                      },
-                      "name": "BinaryInput0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "R",
-                              "type": "uint32"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "4"
-                      },
-                      "name": "BinaryOutput0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "RW",
-                              "type": "uint32"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "5"
-                      },
-                      "name": "BinaryValue0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "RW",
-                              "type": "uint32"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "48"
-                      },
-                      "name": "PositiveIntegerValue0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "RW",
-                              "type": "uint64"
-                          }
-                      }
-                  },
-                  {
-                      "attributes": {
-                          "instance": "0",
-                          "property": "85",
-                          "type": "23"
-                      },
-                      "name": "Accumulator0",
-                      "properties": {
-                          "value": {
-                              "readWrite": "RW",
-                              "type": "uint64"
-                          }
-                      }
-                  }
-              ],
-              "deviceCommands": [
-                  {
-                      "name": "InputsValues",
-                      "get": [
-                          {
-                              "index": "1",
-                              "operation": "get",
-                              "deviceResource": "AnalogInput0"
-                          },
-                          {
-                              "index": "2",
-                              "operation": "get",
-                              "deviceResource": "BinaryInput0"
-                          }
-                      ]
-                  }
-              ]
-          }
-      ],
-      "Devices": {
-          "BacnetSimulator": {
-              "profile": "bacnet-simulator",
-              "protocols": {
-                  "BACnet-IP": {
-                      "DeviceInstance": "2749",
-                      "Port": "47808"
-                  },
-                  "BACnetSupportedServices": {
-                      "DS-RPM-B": "true",
-                      "DS-WPM-B": "true"
-                  }
-              }
-          }
-      },
-      "Schedules": [
-          {
-              "device": "BacnetSimulator",
-              "resource": "InputsValues",
-              "interval": 4000000,
-              "name": "schedule1"
-          }
-      ]
-  }
+    "bacnet_device_service": {
+        "Profiles": [
+            {
+                "labels": [],
+                "name": "bacnet-simulator",
+                "deviceResources": [
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 0
+                        },
+                        "name": "AnalogInput0",
+                        "properties": {
+                            "readWrite": "R",
+                            "valueType": "float32"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 1
+                        },
+                        "name": "AnalogOutput0",
+                        "properties": {
+                            "readWrite": "RW",
+                            "valueType": "float32"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 2
+                        },
+                        "name": "AnalogValue0",
+                        "properties": {
+                            "readWrite": "RW",
+                            "valueType": "float32"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 3
+                        },
+                        "name": "BinaryInput0",
+                        "properties": {
+                            "readWrite": "R",
+                            "valueType": "uint32"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 4
+                        },
+                        "name": "BinaryOutput0",
+                        "properties": {
+                            "readWrite": "RW",
+                            "valueType": "uint32"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 5
+                        },
+                        "name": "BinaryValue0",
+                        "properties": {
+                            "readWrite": "RW",
+                            "valueType": "uint32"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 48
+                        },
+                        "name": "PositiveIntegerValue0",
+                        "properties": {
+                            "readWrite": "RW",
+                            "valueType": "uint64"
+                        }
+                    },
+                    {
+                        "attributes": {
+                            "instance": 0,
+                            "property": 85,
+                            "type": 23
+                        },
+                        "name": "Accumulator0",
+                        "properties": {
+                            "readWrite": "RW",
+                            "valueType": "uint64"
+                        }
+                    }
+                ],
+                "deviceCommands": [
+                    {
+                        "name": "InputsValues",
+                        "get": [
+                            {
+                                "index": 1,
+                                "operation": "get",
+                                "deviceResource": "AnalogInput0"
+                            },
+                            {
+                                "index": 2,
+                                "operation": "get",
+                                "deviceResource": "BinaryInput0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Devices": {
+            "BacnetSimulator": {
+                "protocols": {
+                    "BACnet-IP": {
+                        "DeviceInstance": 2749,
+                        "Port": 47808
+                    },
+                    "BACnetSupportedServices": {
+                        "DS-RPM-B": "true",
+                        "DS-WPM-B": "true"
+                    }
+                },
+                "profileName": "bacnet-simulator",
+                "profile": "bacnet-simulator"
+            }
+        },
+        "Schedules": [
+            {
+                "device": "BacnetSimulator",
+                "resource": [
+                    "BinaryInput0"
+                ],
+                "interval": 2000000,
+                "name": "schedule1"
+            }
+        ]
+    }
 },
 "Components": {
-  "main": {
-      "logger": "IOT::Logger",
-      "pool": "IOT::ThreadPool",
-      "scheduler": "IOT::Scheduler",
-      "bus": "XRT::Bus",
-      "azure": "XRT::AzureSphereExporter",
-      "logexport": "XRT::LogExporter",
-      "mt3620": "XRT::MT3620Device",
-      "bacnet": "XRT::BACnetIPDeviceService",
-      "udp-logger": "IOT::Logger"
-  },
-  "logger": {
-      "Name": "console",
-      "Level": "Debug",
-      "Start": true,
-      "Next": "udp-logger"
-  },
-  "pool": {
-      "Threads": 4,
-      "MaxJobs": 10,
-      "ShutdownDelay": 500,
-      "Logger": "logger"
-  },
-  "scheduler": {
-      "Logger": "logger"
-  },
-  "bus": {
-      "Scheduler": "scheduler",
-      "ThreadPool": "pool",
-      "Logger": "logger",
-      "Topics": [
-          {
-              "Topic": "device/mt3620/input",
-              "ThreadPool": "pool"
-          },
-          {
-              "Topic": "device/mt3620/output",
-              "ThreadPool": "pool"
-          },
-          {
-              "Topic": "device/input",
-              "ThreadPool": "pool"
-          },
-          {
-              "Topic": "device/output",
-              "ThreadPool": "pool",
-              "FilterDuplicates": true
-          }
-      ]
-  },
-  "azure": {
-      "Bus": "bus",
-      "Logger": "logger",
-      "ConnectionType": "DPS",
-      "HostName": "<iot_hub_hostname>",
-      "DeviceID": "<DEVICE-ID>",
-      "ModelID": "virtual_dev_1",
-      "ScopeID": "<ScopeID>",
-      "Interface": "wlan0",
-      "Devices": [
-          {
-              "Name": "mt3620",
-              "Topic": "device/mt3620/input",
-              "Pattern": "device/mt3620/output",
-              "Format": "Raw",
-              "TwinID": "<DEVICE-ID>"
-          },
-          {
-              "Name": "demo",
-              "Topic": "device/input",
-              "Pattern": "device/output",
-              "Format": "Device"
-          }
-      ],
-      "WorkPeriod": 10
-  },
-  "logexport": {
-      "Bus": "bus",
-      "Logger": "logger",
-      "Pattern": "transform/lua/filtered-output"
-  },
-  "mt3620": {
-      "Bus": "bus",
-      "Logger": "logger",
-      "Pattern": "device/mt3620/input",
-      "Interface": "eth0",
-      "Address": "10.0.0.48",
-      "SubnetMask": "255.255.255.0",
-      "Gateway": "0.0.0.0"
-  },
-  "bacnet": {
-      "Name": "bacnet_device_service",
-      "Topic": "device/output",
-      "RequestTopic": "device/input",
-      "DiscoveryInterval": 10,
-      "Scheduler": "scheduler",
-      "Logger": "logger",
-      "ThreadPool": "pool",
-      "Bus": "bus",
-      "Driver": {
-          "NetworkInterface": "wlan0",
-          "APDU_Timeout": "5000",
-          "APDU_Retries": "2"
-      }
-  },
-  "udp-logger": {
-      "Name": "udp-logger",
-      "Level": "Trace",
-      "To": "udp:<host-ip>:1999",
-      "Start": true
-  }
+    "main": {
+        "logger": "IOT::Logger",
+        "pool": "IOT::ThreadPool",
+        "scheduler": "IOT::Scheduler",
+        "bus": "XRT::Bus",
+        "azure": "XRT::AzureSphereExporter",
+        "logexport": "XRT::LogExporter",
+        "mt3620": "XRT::MT3620Device",
+        "bacnet": "XRT::BACnetIPDeviceService",
+        "udp-logger": "IOT::Logger"
+    },
+    "logger": {
+        "Name": "console",
+        "Level": "Trace",
+        "Start": true,
+        "Next": "udp-logger"
+    },
+    "pool": {
+        "Threads": 4,
+        "MaxJobs": 10,
+        "ShutdownDelay": 500,
+        "Logger": "logger"
+    },
+    "scheduler": {
+        "Logger": "logger"
+    },
+    "bus": {
+        "Scheduler": "scheduler",
+        "ThreadPool": "pool",
+        "Logger": "logger",
+        "Topics": [
+            {
+                "Topic": "device/mt3620/input",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/mt3620/output",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/input",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/output",
+                "ThreadPool": "pool",
+                "FilterDuplicates": false
+            }
+        ]
+    },
+    "azure": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "ConnectionType": "DPS",
+        "HostName": "<iot_hub_hostname>",
+        "DeviceID": "<DEVICE-ID>",
+        "ModelID": "virtual_dev_1",
+        "ScopeID": "<ScopeID>",
+        "Interface": "wlan0",
+        "Devices": [
+            {
+                "Name": "mt3620",
+                "Topic": "device/mt3620/input",
+                "Pattern": "device/mt3620/output",
+                "Format": "Raw",
+                "TwinID": "<DEVICE-ID>"
+            },
+            {
+                "Name": "demo",
+                "Topic": "device/input",
+                "Pattern": "device/output",
+                "Format": "Device"
+            }
+        ],
+        "WorkPeriod": 10
+    },
+    "logexport": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "transform/lua/filtered-output"
+    },
+    "mt3620": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "device/mt3620/input",
+        "Interface": "eth0",
+        "Address": "10.0.0.48",
+        "SubnetMask": "255.255.255.0",
+        "Gateway": "0.0.0.0"
+    },
+    "bacnet": {
+        "Name": "bacnet_device_service",
+        "Topic": "device/output",
+        "RequestTopic": "device/input",
+        "DiscoveryInterval": 10,
+        "Scheduler": "scheduler",
+        "Logger": "logger",
+        "ThreadPool": "pool",
+        "Bus": "bus",
+        "Driver": {
+            "NetworkInterface": "eth0",
+            "APDU_Timeout": 5000,
+            "APDU_Retries": 2,
+            "NetworkID": 101,
+            "Port": 47808,
+            "APDUTimeout": 3000,
+            "APDURetries": 3,
+            "MultiBatchSize": 20,
+            "DisableMultiRead": false,
+            "DisableMultiWrite": false,
+            "CancelStaleCOV": true,
+            "DefaultDiscoveryMode": "All"
+        },
+        "AutoRegister": false,
+        "TelemetryTopic": "device/output",
+        "ReplyTopic": "device/output",
+        "DiscoveryTopic": "device/output",
+        "PublishRegisteredDevices": true,
+        "PublishAttributes": true
+    },
+    "udp-logger": {
+        "Name": "udp-logger",
+        "Level": "Trace",
+        "To": "udp:<host-ip>:1999",
+        "Start": true
+    }
 },
