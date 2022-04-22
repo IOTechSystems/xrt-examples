@@ -25,7 +25,7 @@
     "MultiRead": true,
     "MultiWrite": true,
     "CancelStaleCOV": true,
-    "DefaultDiscoveryMode": "All",
+    "DiscoverMode": "All",
     "BBMDAddress": "${BACNET_IP_SIM_ADDRESS}",
     "BBMDPort": 47808
   }
