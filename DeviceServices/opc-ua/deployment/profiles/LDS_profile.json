@@ -5,7 +5,7 @@
         {
             "attributes": {
                 "IDType": "NUMERIC",
-                "nodeID": 2259,
+                "nodeID": "2259",
                 "nsIndex": 0
             },
             "description": "The Server State",
