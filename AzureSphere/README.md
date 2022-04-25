@@ -25,7 +25,7 @@ steps:
 
 1. Install the XRT for Azure Sphere package on either a Windows
   or Linux (Ubuntu) host PC and open one of the Azure Sphere
-  examples with an IDE (Visual Studio Code).
+  examples with an IDE for example Visual Studio Code.
 
 2. Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
   create a *Device Profile.json* configuration file representing
@@ -141,19 +141,15 @@ and follow on screen instructions
 
 ## Using Azure Digital Twins With XRT Examples
 
-To setup Azure Digital Twins refer to the XRT for [Azure Sphere Guide](https://docs.iotechsys.com/edge-xrt11/index.html). 
+To setup Azure Digital Twins refer to the XRT for [Azure Sphere Guide](https://docs.iotechsys.com/edge-xrt20/index.html). 
 
-As decsribed in the guide complete the following steps:
+As described in the guide complete the following steps:
 
 * Setup Azure Cloud for Digital Twins – Create a Function App
-* Setup Azure Cloud for Digital Twins – Create an Event Grid
-  System Topic
-* Create and Manage Digital Twins – Create Digital Twins
-  Instance
-* Create and Manage Digital Twins – Export Digital Twins
-  Changes
-* Create and Manage Digital Twins – Send Digital Twin Changes
-  to IoT Hub
+* Setup Azure Cloud for Digital Twins – Create an Event Grid System Topic
+* Create and Manage Digital Twins – Create Digital Twins Instance
+* Create and Manage Digital Twins – Export Digital Twins Changes
+* Create and Manage Digital Twins – Send Digital Twin Changes to IoT Hub
 * Create and Manage Digital Twins – Add a Digital Twin
 
 A video showing how to create a digital twin using the Explorer
