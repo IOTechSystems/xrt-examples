@@ -24,8 +24,7 @@ The development process flow follows a standard sequence of
 steps:
 
 1. Install the XRT for Azure Sphere package on either a Windows
-  or Linux (Ubuntu) host PC and open one of the Azure Sphere
-  examples with an IDE for example Visual Studio Code.
+  or Linux (Ubuntu) host PC and open the xrt-examples/AzureSphere directory with Visual Studio Code.
 
 2. Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
   create a *Device Profile.json* configuration file representing
@@ -34,6 +33,8 @@ steps:
   Modbus device. Using the same device definition, DCT can also
   be used to generate a Digital Twins Definition Language (DTDL)
   file representation for use with Azure Digital Twins.
+
+    Example profiles for each supported Device Service are provide in the AzureSphere/config/profiles directory.
 
 3. Create a main.json file and specify all of the components you want to include in your XRT application. Then create configuration files for each component defined in the main.json file.  
 
@@ -64,9 +65,9 @@ steps:
     
       This option is useful if you do not require the ability to dynamically update the configuration of your application once deployed.
 
-    * For dynamic configuration, copy the contents of the configuration files produced in Steps 2 & 3 and create a single configuration file that can be loaded into the Azure Sphere Device Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html)  section. With the exception of the <azure_application_manifest>.json file, the configuration files that were created in Steps 2 & 3 should not be included XRT application build image.
+    * For dynamic configuration, copy the contents of the configuration files produced in Steps 2 & 3 and create a single configuration file that can be loaded into the Azure Sphere Device Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html) section. With the exception of the <azure_application_manifest>.json file, the configuration files that were created in Steps 2 & 3 should not be included XRT application build image.
 
-      This option is useful if you wish to create a single application image that can	 support different configurations for each individual deployment. Using this method, the configuration for each XRT application deployed on an Azure Sphere device can be updated dynamically by simply changing the Device Twin’s configuration.
+      This option is useful if you wish to create a single application image that can support different configurations for each individual deployment. Using this method, the configuration for each XRT application deployed on an Azure Sphere device can be updated dynamically by simply changing the Device Twin’s configuration.
 
     All of the standard XRT example provide are based on the configuration your XRT deployment dynamically.  Device Twin configuration files for all of the Azure Sphere examples are provided (e.g. [BACnet Device Twin configuration file](https://github.com/IOTechSystems/xrt-examples/blob/v2.0-branch/AzureSphere/twin/desired-bacnet.json))  
 
