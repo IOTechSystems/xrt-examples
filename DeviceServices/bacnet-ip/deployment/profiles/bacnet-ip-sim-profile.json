@@ -5,7 +5,7 @@
   "deviceResources": [
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 75,
         "type": 8
       },
@@ -17,7 +17,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 77,
         "type": 8
       },
@@ -29,7 +29,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 79,
         "type": 8
       },
@@ -41,7 +41,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 112,
         "type": 8
       },
@@ -53,7 +53,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 121,
         "type": 8
       },
@@ -65,7 +65,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 120,
         "type": 8
       },
@@ -77,7 +77,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 70,
         "type": 8
       },
@@ -89,7 +89,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 44,
         "type": 8
       },
@@ -101,7 +101,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 12,
         "type": 8
       },
@@ -113,7 +113,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 98,
         "type": 8
       },
@@ -125,7 +125,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 139,
         "type": 8
       },
@@ -137,7 +137,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 97,
         "type": 8
       },
@@ -149,7 +149,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 96,
         "type": 8
       },
@@ -161,7 +161,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 76,
         "type": 8
       },
@@ -173,7 +173,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 62,
         "type": 8
       },
@@ -185,7 +185,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 107,
         "type": 8
       },
@@ -197,7 +197,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 11,
         "type": 8
       },
@@ -209,7 +209,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 73,
         "type": 8
       },
@@ -221,7 +221,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 30,
         "raw": true,
         "type": 8
@@ -234,7 +234,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 155,
         "type": 8
       },
@@ -246,7 +246,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 28,
         "type": 8
       },
@@ -258,7 +258,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 57,
         "type": 8
       },
@@ -270,7 +270,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 119,
         "type": 8
       },
@@ -282,7 +282,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 56,
         "type": 8
       },
@@ -294,7 +294,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 24,
         "type": 8
       },
@@ -306,7 +306,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 58,
         "type": 8
       },
@@ -318,7 +318,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 152,
         "raw": true,
         "type": 8
@@ -331,7 +331,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 116,
         "raw": true,
         "type": 8
@@ -344,7 +344,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 204,
         "type": 8
       },
@@ -356,7 +356,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 193,
         "type": 8
       },
@@ -368,7 +368,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 195,
         "type": 8
       },
