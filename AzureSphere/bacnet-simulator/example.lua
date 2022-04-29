@@ -41,7 +41,7 @@ function Update()
 	    value = binaryOptions[binaryIncrement]
 	  end
 
-          bacnet["set" .. instanceType](instanceIterator, value, 1)
+          bacnet["set" .. instanceType .. "PresentValue"](instanceIterator, value, 1)
 	end
       end
     end
