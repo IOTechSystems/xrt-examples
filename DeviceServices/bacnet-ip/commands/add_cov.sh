@@ -10,7 +10,6 @@ mosquitto_pub -t xrt/devices/bacnet_ip/request -m \
     "name":"bacnet-ip-sim-cov1",
     "device":"bacnet-ip-sim",
     "resource":["analog_value_0:present-value","analog_value_1:present-value"],
-    "interval": 100000,
     "options" : {
       "COV" : {
         "Confirmed": false,
