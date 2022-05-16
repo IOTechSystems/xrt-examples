@@ -3,21 +3,21 @@
     "name": "ethernetip-sim",
     "profileName": "ethernetip-sim-profile",
     "protocols": {
-      "IP": {
-        "Address": "${ETHERNETIP_SIM_ADDRESS}"
+      "EtherNet-IP": {
+        "Address": "${ETHERNETIP_SIM_ADDRESS}",
+        "O2T": {
+          "ConnectionType": "p2p",
+          "Ownership": "exclusive",
+          "Priority": "low",
+          "RPI": 10
         },
-      "O2T": {
-        "ConnectionType": "p2p",
-        "Ownership": "exclusive",
-        "Priority": "low",
-        "RPI": 10
-        },
-      "T2O": {
-        "ConnectionType": "p2p",
-        "Ownership": "exclusive",
-        "Priority": "low",
-        "RPI": 10
+        "T2O": {
+          "ConnectionType": "p2p",
+          "Ownership": "exclusive",
+          "Priority": "low",
+          "RPI": 10
         }
       }
     }
+  }
 }
