@@ -156,7 +156,7 @@
             "Allen-Bradley-Azure": {
                 "profile": "Allen-Bradley-Azure",
                 "protocols": {
-                    "IP": {
+                    "EtherNet-IP": {
                         "Address": "192.168.4.18"
                     }
                 }
