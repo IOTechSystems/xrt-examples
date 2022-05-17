@@ -136,12 +136,12 @@
     },
     {
       "name": "StoreInt32Value", "description": "Read/Write Int32 value",
-      "attributes": {},
+      "attributes": {"firstValue": 123},
       "properties": { "valueType": "Int32", "readWrite": "RW" }
     },
     {
       "name": "StoreFloat32Value", "description": "Read/Write Float32 value",
-      "attributes": {},
+      "attributes": {"firstValue": 43.5},
       "properties": { "valueType": "Float32", "readWrite": "RW" }
     }
   ]
