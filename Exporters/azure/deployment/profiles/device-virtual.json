@@ -52,49 +52,49 @@
       "name": "InputBool",
       "description": "Generate random bool value",
       "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Bool", "readWrite": "RW", "units": "random bool value" }
+      "properties": { "valueType": "Bool", "readWrite": "R", "units": "random bool value" }
     },
     {
       "name": "InputInt8",
       "description": "Generate random int8 value",
-      "attributes": { "sequenceType": "random", "minimum": "-127", "maximum": "127" },
-      "properties": { "valueType": "Int8", "readWrite": "RW", "units": "random int8 value" }
+      "attributes": { "sequenceType": "random", "minimum": -127, "maximum": 127 },
+      "properties": { "valueType": "Int8", "readWrite": "R", "units": "random int8 value" }
     },
     {
       "name": "InputInt16",
       "description": "Generate random int16 value",
-      "attributes": { "sequenceType": "random", "minimum": "-32767", "maximum": "32767" },
-      "properties": { "valueType": "Int16", "readWrite": "RW", "units": "random int16 value" }
+      "attributes": { "sequenceType": "random", "minimum": -32767, "maximum": 32767 },
+      "properties": { "valueType": "Int16", "readWrite": "R", "units": "random int16 value" }
     },
     {
       "name": "InputInt32",
       "description": "Generate random int32 value",
-      "attributes": { "sequenceType": "random", "minimum": "-2147483645", "maximum": "2147483645" },
-      "properties": { "valueType": "Int32", "readWrite": "RW", "units": "random int32 value" }
+      "attributes": { "sequenceType": "random", "minimum": -2147483645, "maximum": 2147483645 },
+      "properties": { "valueType": "Int32", "readWrite": "R", "units": "random int32 value" }
     },
     {
       "name": "InputUint8",
       "description": "Generate random uint8 value",
-      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "255" },
-      "properties": { "valueType": "Uint8", "readWrite": "RW", "units": "random uint8 value" }
+      "attributes": { "sequenceType": "random", "minimum": 0, "maximum": 255 },
+      "properties": { "valueType": "Uint8", "readWrite": "R", "units": "random uint8 value" }
     },
     {
       "name": "InputUint16",
       "description": "Generate random uint16 value",
-      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "65535" },
-      "properties": { "valueType": "Uint16", "readWrite": "RW", "units": "random uint16 value" }
+      "attributes": { "sequenceType": "random", "minimum": 0, "maximum": 65535 },
+      "properties": { "valueType": "Uint16", "readWrite": "R", "units": "random uint16 value" }
     },
     {
       "name": "InputFloat32",
       "description": "Generate random float32 value",
-      "attributes": { "sequenceType": "random", "minimum": "-3.4E+38", "maximum": "3.4E+38" },
-      "properties": { "valueType": "Float32", "readWrite": "RW", "units": "random float32 value" }
+      "attributes": { "sequenceType": "random", "minimum": -3.4E+38, "maximum": 3.4E+38 },
+      "properties": { "valueType": "Float32", "readWrite": "R", "units": "random float32 value" }
     },
     {
       "name": "InputFloat64",
       "description": "Generate random float64 value",
-      "attributes": { "sequenceType": "random", "minimum": "-1.7E+308", "maximum": "1.7E+308" },
-      "properties": { "valueType": "Float64", "readWrite": "RW", "units": "random float64 value" }
+      "attributes": { "sequenceType": "random", "minimum": -1.7E+308, "maximum": 1.7E+308 },
+      "properties": { "valueType": "Float64", "readWrite": "R", "units": "random float64 value" }
     }
   ]
 }

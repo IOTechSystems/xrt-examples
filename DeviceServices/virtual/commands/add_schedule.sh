@@ -8,8 +8,8 @@ mosquitto_pub -t xrt/devices/virtual/request -m \
   "type": "xrt.request:1.0",
   "schedule": {
     "name":"virtual-schedule1",
-    "device":"Random-Device",
-    "resource":["RandomInt8","CountingUInt32"],
+    "device":"Virtual-Device",
+    "resource":["RandomInt8","CountingUpFloat32"],
     "interval": 2000000
   }
 }'
