@@ -15,54 +15,63 @@
     },
     {
       "name": "RandomInt8", "description": "Generate random Int8 value",
-      "attributes": { "sequenceType": "random", "minimum": -128, "maximum": 127 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int8", "readWrite": "R" }
     },
     {
       "name": "RandomInt16", "description": "Generate random Int16 value",
-      "attributes": { "sequenceType": "random", "minimum": -32768, "maximum": 32767 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int16", "readWrite": "R" }
     },
     {
       "name": "RandomInt32", "description": "Generate random Int32 value",
-      "attributes": { "sequenceType": "random", "minimum": -2147483648, "maximum": 2147483647 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int32", "readWrite": "R" }
     },
     {
       "name": "RandomInt64", "description": "Generate random Int64 value",
-      "attributes": { "sequenceType": "random", "minimum": -9223372036854775808, "maximum": 9223372036854775807 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int64", "readWrite": "R" }
     },
     {
       "name": "RandomUInt8", "description": "Generate random UInt8 value",
-      "attributes": { "sequenceType": "random", "minimum": 0, "maximum": 255 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "UInt8", "readWrite": "R" }
     },
     {
       "name": "RandomUInt16", "description": "Generate random UInt16 value",
-      "attributes": { "sequenceType": "random", "minimum": 0, "maximum": 65535 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "UInt16", "readWrite": "R" }
     },
     {
       "name": "RandomUInt32", "description": "Generate random UInt32 value",
-      "attributes": { "sequenceType": "random", "minimum": 0, "maximum": 4294967295 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "UInt32", "readWrite": "R" }
     },
     {
-      "name": "RandomUInt64",
-      "description": "Generate random UInt64 value. Missing maximum attribute as integer attributes are read in as Int64 values. Will let it default instead",
-      "attributes": { "sequenceType": "random", "minimum": 0 },
+      "name": "RandomUInt64", "description": "Generate random UInt64 value",
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "UInt64", "readWrite": "R" }
     },
     {
       "name": "RandomFloat32", "description": "Generate random float32 value",
-      "attributes": { "sequenceType": "random", "minimum": -3.4E+38, "maximum": 3.4E+38 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Float32", "readWrite": "R" }
     },
     {
       "name": "RandomFloat64", "description": "Generate random float64 value",
-      "attributes": { "sequenceType": "random", "minimum": -1.7E+308, "maximum": 1.7E+308 },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "RandomInt8Limits", "description": "Generate random Int8 value between -10 and 10",
+      "attributes": { "sequenceType": "random", "minimum": -10, "maximum": 10},
+      "properties": { "valueType": "Int8", "readWrite": "R" }
+    },
+    {
+      "name": "RandomFloat32Limits", "description": "Generate random float32 value between -1.4E+5, and 1.4E+5,",
+      "attributes": { "sequenceType": "random", "minimum": -1.4E+5, "maximum": 1.4E+5 },
+      "properties": { "valueType": "Float32", "readWrite": "R" }
     },
     {
       "name": "CountingDownInt32", "description": "Int32 value which starts at 10 and decrements by 5",
