@@ -9,7 +9,7 @@
       "name": "MachineSpeed",
       "description": "Reads the machines rotational speed",
       "properties": { "valueType": "Float32", "readWrite": "R", "units": "rpm" },
-      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "amplitude": -20.0, "offset": 200.0, "period": 15 }
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "amplitude": 20.0, "offset": 200.0, "period": 15 }
     },
     {
       "name": "MachineTemp",
