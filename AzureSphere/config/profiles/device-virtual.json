@@ -1,5 +1,6 @@
 {
   "name": "device-virtual",
+  "apiVersion": "v2",
   "manufacturer": "IOTech",
   "model": "Device-Virtual-01",
   "labels": [
@@ -8,285 +9,149 @@
   "description": "Example of Device-Virtual",
   "deviceResources": [
     {
-      "name": "OutputBool",
-      "description": "Output bool value",
-      "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output bool value"
-        }
-      }
+      "name": "RandomBool", "description": "Generate random bool value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Bool", "readWrite": "R" }
     },
     {
-      "name": "OutputInt8",
-      "description": "Output int8 value",
-      "properties": {
-        "value": {
-          "type": "Int8",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output int8 value"
-        }
-      }
+      "name": "RandomInt8", "description": "Generate random Int8 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Int8", "readWrite": "R" }
     },
     {
-      "name": "OutputInt16",
-      "description": "Output int16 value",
-      "properties": {
-        "value": {
-          "type": "Int16",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output int16 value"
-        }
-      }
+      "name": "RandomInt16", "description": "Generate random Int16 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Int16", "readWrite": "R" }
     },
     {
-      "name": "OutputInt32",
-      "description": "Output int32 value",
-      "properties": {
-        "value": {
-          "type": "Int32",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output int32 value"
-        }
-      }
+      "name": "RandomInt32", "description": "Generate random Int32 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Int32", "readWrite": "R" }
     },
     {
-      "name": "OutputUint8",
-      "description": "Output uint8 value",
-      "properties": {
-        "value": {
-          "type": "Uint8",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output uint8 value"
-        }
-      }
+      "name": "RandomInt64", "description": "Generate random Int64 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Int64", "readWrite": "R" }
     },
     {
-      "name": "OutputUint16",
-      "description": "Output uint16 value",
-      "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output uint16 value"
-        }
-      }
+      "name": "RandomUInt8", "description": "Generate random UInt8 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt8", "readWrite": "R" }
     },
     {
-      "name": "OutputFloat32",
-      "description": "Output float32 value",
-      "properties": {
-        "value": {
-          "type": "Float32",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output float32 value"
-        }
-      }
+      "name": "RandomUInt16", "description": "Generate random UInt16 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt16", "readWrite": "R" }
     },
     {
-      "name": "OutputFloat64",
-      "description": "Output float64 value",
-      "properties": {
-        "value": {
-          "type": "Float64",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "Output float32 value"
-        }
-      }
+      "name": "RandomUInt32", "description": "Generate random UInt32 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt32", "readWrite": "R" }
     },
     {
-      "name": "InputBool",
-      "description": "Generate random bool value",
-      "attributes": {
-        "sequenceType": "random"
+      "name": "RandomUInt64", "description": "Generate random UInt64 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt64", "readWrite": "R" }
+    },
+    {
+      "name": "RandomFloat32", "description": "Generate random float32 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    },
+    {
+      "name": "RandomFloat64", "description": "Generate random float64 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "RandomInt8Limits", "description": "Generate random Int8 value between -10 and 10",
+      "attributes": { "sequenceType": "random", "minimum": -10, "maximum": 10},
+      "properties": { "valueType": "Int8", "readWrite": "R" }
+    },
+    {
+      "name": "RandomFloat32Limits", "description": "Generate random float32 value between -1.4E+5, and 1.4E+5,",
+      "attributes": { "sequenceType": "random", "minimum": -1.4E+5, "maximum": 1.4E+5 },
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    },
+    {
+      "name": "CountingDownInt32", "description": "Int32 value which starts at 10 and decrements by 5",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": 10, "difference": -5},
+      "properties": { "valueType": "Int32", "readWrite": "R" }
+    },
+    {
+      "name": "CountingUpFloat32", "description": "Float32 value which starts at -20.5 and increments by 6.0",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": -20.5, "difference": 6.0},
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    },
+    {
+      "name": "SineWave", "description": "Value which traces a sine wave",
+      "attributes": { "sequenceType": "waveform", "shape": "sinewave", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SineWaveWithOffsetAndPhase", "description": "Value which traces a sine wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "sinewave", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "TriangleWave", "description": "Value which traces a triangle wave",
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "TriangleWaveWithOffsetAndPhase", "description": "Value which traces a triangle wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SawtoothWave", "description": "Value which traces a sawtooth wave",
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SawtoothWaveWithOffsetAndPhase", "description": "Value which traces a sawtooth wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SquareWave", "description": "Value which traces a square wave",
+      "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SquareWaveWithOffsetAndPhase", "description": "Value which traces a square wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "ScriptInt32",
+      "description": "Int32 value which follows a scripted sequence",
+      "attributes":
+      {
+        "sequenceType": "script",
+        "sequence": [ {"value": 1}, {"value": 2}, {"value": 3, "repeat": 5}, {"value": 4}, {"value": 5} ]
       },
-      "properties": {
-        "value": {
-          "type": "Bool",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random bool value"
-        }
-      }
+      "properties": { "valueType": "Int32", "readWrite": "R" }
     },
     {
-      "name": "InputInt8",
-      "description": "Generate random int8 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "-127",
-        "maximum": "127"
+      "name": "ScriptFloat32",
+      "description": "Float32 value which follows a scripted sequence",
+      "attributes":
+      {
+        "sequenceType": "script",
+        "sequence": [ {"value": 10.7}, {"value": 5.4, "repeat": 2}, {"value": 20}, {"value": 4.5}, {"value": 33.2, "repeat": 6} ]
       },
-      "properties": {
-        "value": {
-          "type": "Int8",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random int8 value"
-        }
-      }
+      "properties": { "valueType": "Float32", "readWrite": "R" }
     },
     {
-      "name": "InputInt16",
-      "description": "Generate random int16 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "-32767",
-        "maximum": "32767"
-      },
-      "properties": {
-        "value": {
-          "type": "Int16",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random int16 value"
-        }
-      }
+      "name": "StoreInt32Value", "description": "Read/Write Int32 value",
+      "attributes": {"firstValue": 123},
+      "properties": { "valueType": "Int32", "readWrite": "RW" }
     },
     {
-      "name": "InputInt32",
-      "description": "Generate random int32 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "-2147483645",
-        "maximum": "2147483645"
-      },
-      "properties": {
-        "value": {
-          "type": "Int32",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random int32 value"
-        }
-      }
-    },
-    {
-      "name": "InputUint8",
-      "description": "Generate random uint8 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "0",
-        "maximum": "255"
-      },
-      "properties": {
-        "value": {
-          "type": "Uint8",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random uint8 value"
-        }
-      }
-    },
-    {
-      "name": "InputUint16",
-      "description": "Generate random uint16 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "0",
-        "maximum": "65535"
-      },
-      "properties": {
-        "value": {
-          "type": "Uint16",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random uint16 value"
-        }
-      }
-    },
-    {
-      "name": "InputFloat32",
-      "description": "Generate random float32 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "-3.4E+38",
-        "maximum": "3.4E+38"
-      },
-      "properties": {
-        "value": {
-          "type": "Float32",
-          "readWrite": "RW",
-          "floatEncoding": "eNotation"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random float32 value"
-        }
-      }
-    },
-    {
-      "name": "InputFloat64",
-      "description": "Generate random float64 value",
-      "attributes": {
-        "sequenceType": "random",
-        "minimum": "-1.7E+308",
-        "maximum": "1.7E+308"
-      },
-      "properties": {
-        "value": {
-          "type": "Float64",
-          "readWrite": "RW",
-          "floatEncoding": "eNotation"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "random float64 value"
-        }
-      }
+      "name": "StoreFloat32Value", "description": "Read/Write Float32 value",
+      "attributes": {"firstValue": 43.5},
+      "properties": { "valueType": "Float32", "readWrite": "RW" }
     }
   ]
 }
-

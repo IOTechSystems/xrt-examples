@@ -9,78 +9,148 @@
   "description": "Example of Device-Virtual",
   "deviceResources": [
     {
-      "name": "RandomInt8", "description": "Generate random int8 value",
-      "attributes": { "sequenceType": "random", "minimum": "-128", "maximum": "127" },
+      "name": "RandomBool", "description": "Generate random bool value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "Bool", "readWrite": "R" }
+    },
+    {
+      "name": "RandomInt8", "description": "Generate random Int8 value",
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int8", "readWrite": "R" }
     },
     {
-      "name": "RandomInt16", "description": "Generate random int16 value",
-      "attributes": { "sequenceType": "random", "minimum": "-32767", "maximum": "32767" },
+      "name": "RandomInt16", "description": "Generate random Int16 value",
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int16", "readWrite": "R" }
     },
     {
-      "name": "RandomInt32", "description": "Generate random int32 value",
-      "attributes": { "sequenceType": "random", "minimum": "-2147483645", "maximum": "2147483645" },
+      "name": "RandomInt32", "description": "Generate random Int32 value",
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int32", "readWrite": "R" }
     },
     {
-      "name": "RandomInt64", "description": "Generate random int64 value",
-      "attributes": { "sequenceType": "random", "minimum": "-9223372036854775807", "maximum": "9223372036854775807" },
+      "name": "RandomInt64", "description": "Generate random Int64 value",
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int64", "readWrite": "R" }
     },
     {
-      "name": "RandomInt64", "description": "Generate random int64 value",
-      "attributes": { "sequenceType": "random", "minimum": "-1", "maximum": "1" },
-      "properties": { "valueType": "Int64", "readWrite": "R" }
+      "name": "RandomUInt8", "description": "Generate random UInt8 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt8", "readWrite": "R" }
     },
     {
-      "name": "RandomUint8", "description": "Generate random uint8 value",
-      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "255" },
-      "properties": { "valueType": "Uint8", "readWrite": "R" }
+      "name": "RandomUInt16", "description": "Generate random UInt16 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt16", "readWrite": "R" }
     },
     {
-      "name": "RandomUint16", "description": "Generate random uint16 value",
-      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "65535" },
-      "properties": { "valueType": "Uint16", "readWrite": "R" }
+      "name": "RandomUInt32", "description": "Generate random UInt32 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt32", "readWrite": "R" }
     },
     {
-      "name": "RandomUint32", "description": "Generate random uint32 value",
-      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "4294967295" },
-      "properties": { "valueType": "Uint32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUint64", "description": "Generate random uint64 value",
-      "attributes": { "sequenceType": "random", "minimum": "0", "maximum": "18446744073709551615" },
-      "properties": { "valueType": "Uint64", "readWrite": "R" }
+      "name": "RandomUInt64", "description": "Generate random UInt64 value",
+      "attributes": { "sequenceType": "random" },
+      "properties": { "valueType": "UInt64", "readWrite": "R" }
     },
     {
       "name": "RandomFloat32", "description": "Generate random float32 value",
-      "attributes": { "sequenceType": "random", "minimum": "-3.4E+38", "maximum": "3.4E+38" },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Float32", "readWrite": "R" }
     },
     {
       "name": "RandomFloat64", "description": "Generate random float64 value",
-      "attributes": { "sequenceType": "random", "minimum": "-1.7E+308", "maximum": "1.7E+308" },
+      "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Float64", "readWrite": "R" }
     },
     {
-      "name": "CountingUInt32", "description": "Integer value which counts upward",
-      "attributes": { "firstValue": "10", "sequenceType": "arithmetic" },
+      "name": "RandomInt8Limits", "description": "Generate random Int8 value between -10 and 10",
+      "attributes": { "sequenceType": "random", "minimum": -10, "maximum": 10},
+      "properties": { "valueType": "Int8", "readWrite": "R" }
+    },
+    {
+      "name": "RandomFloat32Limits", "description": "Generate random float32 value between -1.4E+5, and 1.4E+5,",
+      "attributes": { "sequenceType": "random", "minimum": -1.4E+5, "maximum": 1.4E+5 },
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    },
+    {
+      "name": "CountingDownInt32", "description": "Int32 value which starts at 10 and decrements by 5",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": 10, "difference": -5},
       "properties": { "valueType": "Int32", "readWrite": "R" }
     },
     {
-      "name": "Sinewave", "description": "Value which traces a sinewave",
-      "attributes": { "sequenceType": "waveform", "period": 8, "amplitude": 4.0 },
+      "name": "CountingUpFloat32", "description": "Float32 value which starts at -20.5 and increments by 6.0",
+      "attributes": { "sequenceType": "arithmetic", "firstValue": -20.5, "difference": 6.0},
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    },
+    {
+      "name": "SineWave", "description": "Value which traces a sine wave",
+      "attributes": { "sequenceType": "waveform", "shape": "sinewave", "period": 8, "amplitude": 4.0 },
       "properties": { "valueType": "Float64", "readWrite": "R" }
-    }
+    },
     {
-      "name": "Int32Value", "description": "Read/Write Integer value",
-      "attributes": { "firstValue": "42" },
+      "name": "SineWaveWithOffsetAndPhase", "description": "Value which traces a sine wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "sinewave", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "TriangleWave", "description": "Value which traces a triangle wave",
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "TriangleWaveWithOffsetAndPhase", "description": "Value which traces a triangle wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SawtoothWave", "description": "Value which traces a sawtooth wave",
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SawtoothWaveWithOffsetAndPhase", "description": "Value which traces a sawtooth wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SquareWave", "description": "Value which traces a square wave",
+      "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SquareWaveWithOffsetAndPhase", "description": "Value which traces a square wave with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
+      "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "ScriptInt32",
+      "description": "Int32 value which follows a scripted sequence",
+      "attributes":
+      {
+        "sequenceType": "script",
+        "sequence": [ {"value": 1}, {"value": 2}, {"value": 3, "repeat": 5}, {"value": 4}, {"value": 5} ]
+      },
+      "properties": { "valueType": "Int32", "readWrite": "R" }
+    },
+    {
+      "name": "ScriptFloat32",
+      "description": "Float32 value which follows a scripted sequence",
+      "attributes":
+      {
+        "sequenceType": "script",
+        "sequence": [ {"value": 10.7}, {"value": 5.4, "repeat": 2}, {"value": 20}, {"value": 4.5}, {"value": 33.2, "repeat": 6} ]
+      },
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    },
+    {
+      "name": "StoreInt32Value", "description": "Read/Write Int32 value",
+      "attributes": {"firstValue": 123},
       "properties": { "valueType": "Int32", "readWrite": "RW" }
-    }
+    },
     {
-      "name": "Float32Value", "description": "Read/Write Float value",
-      "attributes": { "firstValue": "2.71" },
+      "name": "StoreFloat32Value", "description": "Read/Write Float32 value",
+      "attributes": {"firstValue": 43.5},
       "properties": { "valueType": "Float32", "readWrite": "RW" }
     }
   ]

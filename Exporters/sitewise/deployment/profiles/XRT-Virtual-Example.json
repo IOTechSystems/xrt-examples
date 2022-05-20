@@ -4,12 +4,12 @@
   "deviceResources":[
     {
       "name": "Voltage",
-      "attributes": { "sequenceType": "arithmetic", "firstValue": "100", "difference": "-1" },
+      "attributes": { "sequenceType": "arithmetic", "firstValue": 100, "difference": -1 },
       "properties": { "valueType": "Float64", "readWrite": "R", "units": "V" }
     },
     {
       "name": "Current",
-      "attributes": { "sequenceType": "arithmetic", "firstValue": "123", "difference": "1" },
+      "attributes": { "sequenceType": "arithmetic", "firstValue": 123, "difference": 1 },
       "properties": { "valueType": "Float64", "readWrite": "R", "units": "A" }
     }
   ],

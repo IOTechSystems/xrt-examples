@@ -3,5 +3,5 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "example_device_service":"XRT::ExampleDeviceService",
+  "example_device_service":"XRT::ExampleDeviceService"
 }
