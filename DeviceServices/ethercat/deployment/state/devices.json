@@ -1,32 +1,35 @@
 {
-  "EK1100":{
-    "name":"EK1100",
-    "profileName":"EK1100",
-    "protocols":{
-      "EtherCAT":{
-        "NetworkIndex":1,
-        "SyncMode":1
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "EK1100",
+      "profileName": "EK1100",
+      "protocols": {
+        "EtherCAT": {
+          "NetworkIndex": 1,
+          "SyncMode": 1
+        }
+      }
+    },
+    {
+      "name": "EL7037",
+      "profileName": "EL7037-VelocityDirect",
+      "protocols": {
+        "EtherCAT": {
+          "NetworkIndex": 2,
+          "SyncMode": 1
+        }
+      }
+    },
+    {
+      "name": "XMC4800",
+      "profileName": "XMC4800_V3_1",
+      "protocols": {
+        "EtherCAT": {
+          "NetworkIndex": 3,
+          "SyncMode": 1
+        }
       }
     }
-  },
-  "EL7037":{
-    "name":"EL7037",
-    "profileName":"EL7037-VelocityDirect",
-    "protocols":{
-      "EtherCAT":{
-        "NetworkIndex":2,
-        "SyncMode":1
-      }
-    }
-  },
-  "XMC4800":{
-    "name":"XMC4800",
-    "profileName":"XMC4800_V3_1",
-    "protocols":{
-      "EtherCAT":{
-        "NetworkIndex":3,
-        "SyncMode":1
-      }
-    }
-  }
+  ]
 }

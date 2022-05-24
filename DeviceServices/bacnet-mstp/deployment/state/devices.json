@@ -1,11 +1,14 @@
 {
-  "bacnet-mstp-sim": {
-    "name": "bacnet-mstp-sim",
-    "profileName": "bacnet-mstp-sim-profile",
-    "protocols": {
-      "BACnet-MSTP": {
-        "DeviceInstance": 1234
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "bacnet-mstp-sim",
+      "profileName": "bacnet-mstp-sim-profile",
+      "protocols": {
+        "BACnet-MSTP": {
+          "DeviceInstance": 1234
+        }
       }
     }
-  }
+  ]
 }
