@@ -1,16 +1,19 @@
 {
-  "modbus-sim": {
-    "profileName": "modbus-sim-profile",
-    "protocols": {
-      "modbus-rtu": {
-        "Address": "/tmp/virtualport",
-        "BaudRate": 19200,
-        "DataBits": 8,
-        "Parity": "N",
-        "StopBits": 1,
-        "UnitID": 1
-      }
-    },
-    "name": "modbus-sim"
-  }
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-rtu": {
+          "Address": "/tmp/virtualport",
+          "BaudRate": 19200,
+          "DataBits": 8,
+          "Parity": "N",
+          "StopBits": 1,
+          "UnitID": 1
+        }
+      },
+      "name": "modbus-sim"
+    }
+  ]
 }

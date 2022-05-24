@@ -1,1 +1,13 @@
-{"schedule1":{"device":"bacnet-ip-sim","interval":3000000,"name":"schedule1","resource":[".*"]}}
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "device": "bacnet-ip-sim",
+      "interval": 3000000,
+      "name": "schedule1",
+      "resource": [
+        ".*"
+      ]
+    }
+  ]
+}
