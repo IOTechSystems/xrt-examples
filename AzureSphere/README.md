@@ -23,17 +23,9 @@ application using XRT is illustrated in the following graphic.
 The development process flow follows a standard sequence of
 steps:
 
-1. Install the XRT for Azure Sphere package on either a Windows
-  or Linux (Ubuntu) host PC and open one of the Azure Sphere
-  examples with an IDE (Visual Studio for Windows).
+1. Install the XRT for Azure Sphere package on either a Windows or Linux (Ubuntu) host PC and open the xrt-examples/AzureSphere directory with Visual Studio Code.
 
-2. Using the IOTech [Device Configuration Tool](https://dct.iotechsys.com/)
-  create a *Device Profile.json* configuration file representing
-  the IoT device type. For example, Modbus, we create a Device
-  Profile for the [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
-  Modbus device. Using the same device definition, DCT can also
-  be used to generate a Digital Twins Definition Language (DTDL)
-  file representation for use with Azure Digital Twins.
+2. Using the [Device Configuration Tool](https://dct.iotechsys.com/) create a Device Profile.json configuration file representing the IoT device type. Using the same device definition, DCT can also be used to generate a Digital Twins Definition Language (DTDL) file representation for use with Azure Digital Twins.
 
 3. Configure the appropriate *Device Service.json* (for example
   [modbus.json](config/modbus.json)) file specifying the device
