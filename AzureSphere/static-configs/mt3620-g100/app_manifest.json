@@ -1,0 +1,18 @@
+{
+  "SchemaVersion": 1,
+  "Name": "xrt-app",
+  "ComponentId": "4a1f4b12-bf60-4dc3-8ce9-bc585c009c5f",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [],
+  "Capabilities": {
+    "AllowedConnections" : [ "<target-device-ip-address>", "<host-ip>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net"],
+    "Gpio": [ "$MT3620_GPIO8", "$MT3620_GPIO9", "$MT3620_GPIO10" ],
+    "AllowedTcpServerPorts": [ 22222, 47808 ],
+    "AllowedUdpServerPorts": [ 47808, 1999 ],
+    "NetworkConfig" : true,
+    "MutableStorage": { "SizeKB": 32 },
+    "PowerControls": ["ForceReboot"],
+    "DeviceAuthentication": "<tenant-uuid-identifier>"
+  },
+  "ApplicationType": "Default"
+}

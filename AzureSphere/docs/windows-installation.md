@@ -19,7 +19,7 @@ curl -L -O https://iotech.jfrog.io/artifactory/windows-release/azuresphere-11/io
 4. Select the downloaded .zip package and extract the files
    to the following location:
 
-`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\11`
+`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\12`
 
 ## Visual Studio Setup
 
@@ -29,3 +29,9 @@ curl -L -O https://iotech.jfrog.io/artifactory/windows-release/azuresphere-11/io
 From this point after the Application has been configured
 (see later) it can be built either from within Visual Studio
 or via the Visual Studio Command Prompt.
+
+
+## Updating the XRT package on Windows
+
+When updating the xrt packages with a newer version, it is recomended that you reinstall the azure sphere SDK to ensure we have a clean sysroots directory. After this the same steps can be followed for [installing](#installing-the-xrt-package-on-windows). 
+

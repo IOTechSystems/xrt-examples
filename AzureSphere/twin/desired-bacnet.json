@@ -141,7 +141,7 @@
             {
                 "device": "BacnetSimulator",
                 "resource": [
-                    "BinaryInput0"
+                    "AnalogInput0"
                 ],
                 "interval": 2000000,
                 "name": "schedule1"
@@ -196,7 +196,7 @@
             {
                 "Topic": "device/output",
                 "ThreadPool": "pool",
-                "FilterDuplicates": false
+                "FilterDuplicates": true
             }
         ]
     },
@@ -209,6 +209,7 @@
         "ModelID": "virtual_dev_1",
         "ScopeID": "<ScopeID>",
         "Interface": "wlan0",
+        "WorkPeriod": 10,
         "Devices": [
             {
                 "Name": "mt3620",
@@ -223,8 +224,7 @@
                 "Pattern": "device/output",
                 "Format": "Device"
             }
-        ],
-        "WorkPeriod": 10
+        ]
     },
     "logexport": {
         "Bus": "bus",
@@ -250,25 +250,19 @@
         "ThreadPool": "pool",
         "Bus": "bus",
         "Driver": {
-            "NetworkInterface": "eth0",
-            "APDU_Timeout": 5000,
-            "APDU_Retries": 2,
-            "NetworkID": 101,
-            "Port": 47808,
-            "APDUTimeout": 3000,
-            "APDURetries": 3,
-            "MultiBatchSize": 20,
-            "DisableMultiRead": false,
-            "DisableMultiWrite": false,
-            "CancelStaleCOV": true,
-            "DefaultDiscoveryMode": "All"
+            "NetworkInterface": "wlan0",
+            "APDUTimeout": 5000,
+            "APDURetries": 2,
+            "port": 47808
         },
         "AutoRegister": false,
         "TelemetryTopic": "device/output",
         "ReplyTopic": "device/output",
         "DiscoveryTopic": "device/output",
         "PublishRegisteredDevices": true,
-        "PublishAttributes": true
+        "PublishAttributes": true,
+        "ProfileDir": ".",
+        "StateDir": "."
     },
     "udp-logger": {
         "Name": "udp-logger",

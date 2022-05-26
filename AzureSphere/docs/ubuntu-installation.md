@@ -1,5 +1,7 @@
 # Installing the XRT Package on Ubuntu
 
+## Using the package manager (apt)
+
 To install XRT Azure Sphere, complete the following steps.
 
 1. Install package dependencies:
@@ -31,5 +33,34 @@ sudo apt update
 5. Install XRT using the following command:
 
 ```bash
-sudo apt-get install iotech-xrt-azsphere8-wipro
+sudo apt-get install iotech-xrt-azsphere12
 ```
+
+## Manual installation
+
+Just like with the [windows installation](./windows-installation.md) we can manually install xrt by extracting the source files in the azure sdk sysroots directory:
+
+1. Install the Azure Sphere SDK for Ubuntu.
+
+2. Download xrt using:
+
+```bat
+curl -L -O https://iotech.jfrog.io/artifactory/windows-release/azuresphere-11/iotech-xrt-dev-azsphere11-1.1-latest.zip
+```
+
+3. Open the file explorer (nautilus) with sudo permissions
+
+```bash
+sudo nautilus ./
+```
+
+4. extract the downloaded zip file into the sysroots directory: `/opt/azurespheresdk/Sysroots/<API_VER>/`
+
+
+## Updating the XRT package on ubuntu
+
+When updating the xrt packages with a newer version, it is recommended that you reinstall the azure sphere SDK to ensure we have a clean sysroots directory.
+
+If xrt was installed using `apt`, please do an `apt remove` before running any `apt-get install` commands.
+
+If xrt was installed manually, the cleanest way to install would be removing the entire sysroots directory that xtr was installed in, and reinstalling the azure sdk.
