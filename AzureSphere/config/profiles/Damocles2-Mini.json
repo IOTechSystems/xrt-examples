@@ -17,15 +17,8 @@
         "startingAddress": 100
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -36,15 +29,8 @@
         "startingAddress": 101
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -55,15 +41,8 @@
         "startingAddress": 102
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -74,15 +53,8 @@
         "startingAddress": 103
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -93,15 +65,8 @@
         "startingAddress": 200
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "RW"
       }
     },
     {
@@ -112,78 +77,9 @@
         "startingAddress": 201
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "RW"
       }
-    }
-  ],
-  "deviceCommands": [
-    {
-      "name": "BinaryInputs",
-      "get": [
-        {
-          "index": 1,
-          "operation": "get",
-          "deviceResource": "BinaryInput1"
-        },
-        {
-          "index": 2,
-          "operation": "get",
-          "deviceResource": "BinaryInput2"
-        },
-        {
-          "index": 3,
-          "operation": "get",
-          "deviceResource": "BinaryInput3"
-        },
-        {
-          "index": 4,
-          "operation": "get",
-          "deviceResource": "BinaryInput4"
-        }
-      ]
-    },
-    {
-      "name": "InputsAndOutputs",
-      "get": [
-        {
-          "index": 1,
-          "operation": "get",
-          "deviceResource": "BinaryInput1"
-        },
-        {
-          "index": 2,
-          "operation": "get",
-          "deviceResource": "BinaryInput2"
-        },
-        {
-          "index": 3,
-          "operation": "get",
-          "deviceResource": "BinaryInput3"
-        },
-        {
-          "index": 4,
-          "operation": "get",
-          "deviceResource": "BinaryInput4"
-        },
-        {
-          "index": 5,
-          "operation": "get",
-          "deviceResource": "BinaryOutput1"
-        },
-        {
-          "index": 6,
-          "operation": "get",
-          "deviceResource": "BinaryOutput2"
-        }
-      ]
     }
   ]
 }

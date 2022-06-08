@@ -10,10 +10,8 @@
                 "tagName": "test_dint"
             },
             "properties": {
-                "value": {
-                    "type": "Int32",
-                    "readWrite": "R"
-                }
+                "valueType": "Int32",
+                "readWrite": "R"
             }
         },
         {
@@ -24,10 +22,8 @@
                 "tagName": "test_bool"
             },
             "properties": {
-                "value": {
-                    "type": "Bool",
-                    "readWrite": "R"
-                }
+                "valueType": "Bool",
+                "readWrite": "R"
             }
         },
         {
@@ -38,10 +34,8 @@
                 "tagName": "test_sint"
             },
             "properties": {
-                "value": {
-                    "type": "Int8",
-                    "readWrite": "R"
-                }
+                "valueType": "Int8",
+                "readWrite": "R"
             }
         },
         {
@@ -52,10 +46,8 @@
                 "tagName": "test_real"
             },
             "properties": {
-                "value": {
-                    "type": "Float32",
-                    "readWrite": "R"
-                }
+                "valueType": "Float32",
+                "readWrite": "R"
             }
         },
         {
@@ -66,10 +58,8 @@
                 "tagName": "test_string"
             },
             "properties": {
-                "value": {
-                    "type": "String",
-                    "readWrite": "R"
-                }
+                "valueType": "String",
+                "readWrite": "R"
             }
         },
         {
@@ -80,10 +70,8 @@
                 "tagName": "test_int"
             },
             "properties": {
-                "value": {
-                    "type": "Int16",
-                    "readWrite": "R"
-                }
+                "valueType": "Int16",
+                "readWrite": "R"
             }
         },
         {
@@ -94,10 +82,8 @@
                 "tagName": "Local:1:O.Data"
             },
             "properties": {
-                "value": {
-                    "type": "Uint8Array",
-                    "readWrite": "R"
-                }
+                "valueType": "Uint8Array",
+                "readWrite": "R"
             }
         }
     ]

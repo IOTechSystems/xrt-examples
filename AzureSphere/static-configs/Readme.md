@@ -50,7 +50,7 @@ To build and deploy xrt with the static configurations, first edit the `.vscode/
 - `"bacnet"`
 - `"ethernetip"`
 - `"modbus"`
-- `"virutal"`
+- `"virtual"`
 
 `"BOARD"` can be set to the following values:
 - `"mt3620-dk"`

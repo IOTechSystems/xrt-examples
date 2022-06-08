@@ -10,10 +10,8 @@
       },
       "name": "AnalogInput0",
       "properties": {
-        "value": {
-          "readWrite": "R",
-          "type": "float32"
-        }
+        "readWrite": "R",
+        "valueType": "float32"
       }
     },
     {
@@ -24,10 +22,8 @@
       },
       "name": "AnalogOutput0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "float32"
-        }
+        "readWrite": "RW",
+        "valueType": "float32"
       }
     },
     {
@@ -38,10 +34,8 @@
       },
       "name": "AnalogValue0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "float32"
-        }
+        "readWrite": "RW",
+        "valueType": "float32"
       }
     },
     {
@@ -52,10 +46,8 @@
       },
       "name": "BinaryInput0",
       "properties": {
-        "value": {
-          "readWrite": "R",
-          "type": "uint32"
-        }
+        "readWrite": "R",
+        "valueType": "uint32"
       }
     },
     {
@@ -66,10 +58,8 @@
       },
       "name": "BinaryOutput0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint32"
-        }
+        "readWrite": "RW",
+        "valueType": "uint32"
       }
     },
     {
@@ -80,10 +70,8 @@
       },
       "name": "BinaryValue0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint32"
-        }
+        "readWrite": "RW",
+        "valueType": "uint32"
       }
     },
     {
@@ -94,10 +82,8 @@
       },
       "name": "PositiveIntegerValue0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint64"
-        }
+        "readWrite": "RW",
+        "valueType": "uint64"
       }
     },
     {
@@ -108,10 +94,8 @@
       },
       "name": "Accumulator0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint64"
-        }
+        "readWrite": "RW",
+        "valueType": "uint64"
       }
     }
   ]
