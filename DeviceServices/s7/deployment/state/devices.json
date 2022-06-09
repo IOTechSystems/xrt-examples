@@ -2,6 +2,7 @@
   "apiVersion": "v2",
   "devices": [
     {
+      "name": "S7-Server",
       "profileName": "Server",
       "protocols": {
         "S7": {
