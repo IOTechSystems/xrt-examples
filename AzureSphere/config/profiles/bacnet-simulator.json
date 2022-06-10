@@ -4,30 +4,26 @@
   "deviceResources": [
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "0"
+        "instance": 0,
+        "property": 85,
+        "type": 0
       },
       "name": "AnalogInput0",
       "properties": {
-        "value": {
-          "readWrite": "R",
-          "type": "float32"
-        }
+        "readWrite": "R",
+        "valueType": "float32"
       }
     },
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "1"
+        "instance": 0,
+        "property": 85,
+        "type": 1
       },
       "name": "AnalogOutput0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "float32"
-        }
+        "readWrite": "RW",
+        "valueType": "float32"
       }
     },
     {
@@ -38,98 +34,69 @@
       },
       "name": "AnalogValue0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "float32"
-        }
+        "readWrite": "RW",
+        "valueType": "float32"
       }
     },
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "3"
+        "instance": 0,
+        "property": 85,
+        "type": 3
       },
       "name": "BinaryInput0",
       "properties": {
-        "value": {
-          "readWrite": "R",
-          "type": "uint32"
-        }
+        "readWrite": "R",
+        "valueType": "uint32"
       }
     },
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "4"
+        "instance": 0,
+        "property": 85,
+        "type": 4
       },
       "name": "BinaryOutput0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint32"
-        }
+        "readWrite": "RW",
+        "valueType": "uint32"
       }
     },
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "5"
+        "instance": 0,
+        "property": 85,
+        "type": 5
       },
       "name": "BinaryValue0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint32"
-        }
+        "readWrite": "RW",
+        "valueType": "uint32"
       }
     },
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "48"
+        "instance": 0,
+        "property": 85,
+        "type": 48
       },
       "name": "PositiveIntegerValue0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint64"
-        }
+        "readWrite": "RW",
+        "valueType": "uint64"
       }
     },
     {
       "attributes": {
-        "instance": "0",
-        "property": "85",
-        "type": "23"
+        "instance": 0,
+        "property": 85,
+        "type": 23
       },
       "name": "Accumulator0",
       "properties": {
-        "value": {
-          "readWrite": "RW",
-          "type": "uint64"
-        }
+        "readWrite": "RW",
+        "valueType": "uint64"
       }
-    }
-  ],
-  "deviceCommands": [
-    {
-      "name": "InputsValues",
-      "get": [
-	{
-	  "index": "1",
-	  "operation": "get",
-	  "deviceResource": "AnalogInput0"
-	},
-	{
-	  "index": "2",
-	  "operation": "get",
-	  "deviceResource": "BinaryInput0"
-	}
-      ]
     }
   ]
 }

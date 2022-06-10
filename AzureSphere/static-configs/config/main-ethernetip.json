@@ -1,0 +1,11 @@
+{
+    "logger": "IOT::Logger",
+    "udp-logger":"IOT::Logger",
+    "pool": "IOT::ThreadPool",
+    "scheduler": "IOT::Scheduler",
+    "bus": "XRT::Bus",
+    "azure": "XRT::AzureSphereExporter",
+    "logexport": "XRT::LogExporter",
+    "mt3620": "XRT::MT3620Device",
+    "ethernetip": "XRT::EtherNetIPDeviceService"
+}

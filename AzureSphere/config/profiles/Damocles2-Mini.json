@@ -14,18 +14,11 @@
       "description": "Current value of binary input 1",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "100"
+        "startingAddress": 100
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -33,18 +26,11 @@
       "description": "Current value of binary input 2",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "101"
+        "startingAddress": 101
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -52,18 +38,11 @@
       "description": "Current value of binary input 3",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "102"
+        "startingAddress": 102
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -71,18 +50,11 @@
       "description": "Current value of binary input 4",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "103"
+        "startingAddress": 103
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "R"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "R"
       }
     },
     {
@@ -90,18 +62,11 @@
       "description": "Current value of output 1",
       "attributes": {
         "primaryTable": "COILS",
-        "startingAddress": "200"
+        "startingAddress": 200
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "RW"
       }
     },
     {
@@ -109,81 +74,12 @@
       "description": "Current value of output 2",
       "attributes": {
         "primaryTable": "COILS",
-        "startingAddress": "201"
+        "startingAddress": 201
       },
       "properties": {
-        "value": {
-          "type": "BOOL",
-          "readWrite": "RW"
-        },
-        "units": {
-          "type": "String",
-          "readWrite": "R",
-          "defaultValue": "value"
-        }
+        "valueType": "BOOL",
+        "readWrite": "RW"
       }
-    }
-  ],
-  "deviceCommands": [
-    {
-      "name": "BinaryInputs",
-      "get": [
-        {
-          "index": "1",
-          "operation": "get",
-          "deviceResource": "BinaryInput1"
-        },
-        {
-          "index": "2",
-          "operation": "get",
-          "deviceResource": "BinaryInput2"
-        },
-        {
-          "index": "3",
-          "operation": "get",
-          "deviceResource": "BinaryInput3"
-        },
-        {
-          "index": "4",
-          "operation": "get",
-          "deviceResource": "BinaryInput4"
-        }
-      ]
-    },
-    {
-      "name": "InputsAndOutputs",
-      "get": [
-        {
-          "index": "1",
-          "operation": "get",
-          "deviceResource": "BinaryInput1"
-        },
-        {
-          "index": "2",
-          "operation": "get",
-          "deviceResource": "BinaryInput2"
-        },
-        {
-          "index": "3",
-          "operation": "get",
-          "deviceResource": "BinaryInput3"
-        },
-        {
-          "index": "4",
-          "operation": "get",
-          "deviceResource": "BinaryInput4"
-        },
-        {
-          "index": "5",
-          "operation": "get",
-          "deviceResource": "BinaryOutput1"
-        },
-        {
-          "index": "6",
-          "operation": "get",
-          "deviceResource": "BinaryOutput2"
-        }
-      ]
     }
   ]
 }

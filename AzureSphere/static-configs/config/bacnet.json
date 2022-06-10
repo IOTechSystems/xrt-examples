@@ -1,0 +1,24 @@
+{
+  "Name": "bacnet_device_service",
+  "Topic": "device/output",
+  "RequestTopic": "device/input",
+  "DiscoveryInterval": 10,
+  "Scheduler": "scheduler",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
+  "Driver": {
+      "NetworkInterface": "wlan0",
+      "APDUTimeout": 5000,
+      "APDURetries": 2,
+      "port": 47808
+  },
+  "AutoRegister": false,
+  "TelemetryTopic": "device/output",
+  "ReplyTopic": "device/output",
+  "DiscoveryTopic": "device/output",
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir": ".",
+  "StateDir": "."
+}

@@ -1,0 +1,17 @@
+{
+        "Name": "ethernet_ip_device_service",
+        "Topic": "device/output",
+        "RequestTopic": "device/input",
+        "TelemetryTopic": "device/output",
+        "ReplyTopic": "device/output",
+        "Scheduler": "scheduler",
+        "Logger": "logger",
+        "ThreadPool": "pool",
+        "Bus": "bus",
+        "Driver": {
+            "NetworkInterface": "eth0",
+            "MacAddress": "02:aa:2b:e7:b7:6e",
+            "FullDuplex": true,
+            "NetworkSpeed": 100
+        }
+    }
