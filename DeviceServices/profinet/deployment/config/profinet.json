@@ -1,0 +1,18 @@
+{
+  "Library": "libxrt-profinet-device-service.so",
+  "Factory": "xrt_profinet_device_service_factory",
+  "Name":"profinet",
+  "TelemetryTopic":"xrt/devices/profinet/telemetry",
+  "RequestTopic":"xrt/devices/profinet/request",
+  "ReplyTopic":"xrt/devices/profinet/reply",
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "Driver":{
+    "NetworkInterface":"eno1",
+    "ProfinetConfigurationFile":"${XRT_CONFIG_DIR}pcf.xml"
+  }
+}

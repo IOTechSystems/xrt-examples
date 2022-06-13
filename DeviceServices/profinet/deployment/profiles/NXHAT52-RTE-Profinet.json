@@ -1,0 +1,142 @@
+{
+  "apiVersion": "v2",
+  "name": "NXHAT52-RTE-Profinet",
+  "description": "NXHAT52-RTE Profinet IO Device",
+  "manufacturer": "Hilscher",
+  "model": "NXHAT52-RTE",
+  "labels": [ "Profinet" ],
+  "deviceResources": [
+    {
+      "name": "InputUint8",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "uint8" }
+    },
+    {
+      "name": "InputInt8",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "int8" }
+    },
+    {
+      "name": "InputUint16",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "uint16" }
+    },
+    {
+      "name": "InputInt16",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "int16" }
+    },
+    {
+      "name": "InputUint32",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "uint32" }
+    },
+    {
+      "name": "InputInt32",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "int32" }
+    },
+    {
+      "name": "InputUint64",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "uint64" }
+    },
+    {
+      "name": "InputInt64",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "int64" }
+    },
+    {
+      "name": "InputFloat32",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "float32" }
+    },
+    {
+      "name": "InputFloat64",
+      "description": "",
+      "attributes": { "I-offset": 0 },
+      "properties": { "readWrite": "R", "valueType": "float64" }
+    },
+    {
+      "name": "OutputUint8",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "uint8" }
+    },
+    {
+      "name": "OutputInt8",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "int8" }
+    },
+    {
+      "name": "OutputUint16",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "uint16" }
+    },
+    {
+      "name": "OutputInt16",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "int16" }
+    },
+    {
+      "name": "OutputUint32",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "uint32" }
+    },
+    {
+      "name": "OutputInt32",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "int32" }
+    },
+    {
+      "name": "OutputUint64",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "uint64" }
+    },
+    {
+      "name": "OutputInt64",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "int64" }
+    },
+    {
+      "name": "OutputFloat32",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "float32" }
+    },
+    {
+      "name": "OutputFloat64",
+      "description": "",
+      "attributes": { "Q-offset": 0 },
+      "properties": { "readWrite": "W", "valueType": "float64" }
+    },
+    {
+      "name": "InputUint16-offset-5",
+      "description": "",
+      "attributes": { "I-offset": 5 },
+      "properties": { "readWrite": "R", "valueType": "uint16" }
+    },
+    {
+      "name": "OutputUint32-offset-20",
+      "description": "",
+      "attributes": { "Q-offset": 20 },
+      "properties": { "readWrite": "W", "valueType": "uint32" }
+    }
+  ]
+}
