@@ -9,7 +9,7 @@ mosquitto_pub -t xrt/devices/gps/request -m \
   "schedule": {
     "name":"gps-sim-schedule1",
     "device":"gps-sim",
-    "resource":["Date"],
+    "resource":"Date",
     "interval": 1000000
   }
 }'
