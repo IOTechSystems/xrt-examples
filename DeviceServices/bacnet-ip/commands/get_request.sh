@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/bacnet_ip/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "bacnet-ip-sim",
-  "resource": ["analog_input_0:present-value"]
+  "resource": "analog_input_0:present-value"
 }'

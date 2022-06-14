@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/ethercat/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "XMC4800",
-  "resource": ["IN_GEN_BIT1"]
+  "resource": "IN_GEN_BIT1"
 }'

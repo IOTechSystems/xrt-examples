@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/virtual/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "Virtual-Device",
-  "resource": ["RandomInt16"]
+  "resource": "RandomInt16"
 }'
