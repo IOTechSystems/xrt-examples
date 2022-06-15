@@ -1,0 +1,10 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "netHAT",
+      "profileName": "NXHAT52-RTE-Profinet",
+      "protocols": { "Profinet": { "I-base": 0, "Q-base": 0 } }
+    }
+  ]
+}
