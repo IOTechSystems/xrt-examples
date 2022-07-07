@@ -4,7 +4,7 @@
 
 This page shows you how to set up and run the virtual device service example.
 
-For more information about the Device Service please review the [Virtual Device Service](https://www.link.to.virtual.device.service.docs) documentation.
+For more information about the Device Service please review the [Virtual Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/virtual-device-service-component.html) documentation.
 
 ## Getting Started
 
