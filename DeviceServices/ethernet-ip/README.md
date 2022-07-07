@@ -5,6 +5,8 @@ This page shows you how to setup and run the EtherNet/IP Device Service Example.
 
 For more information about the Device Service please review the [EtherNet/IP Device Service](https://www.link.to.ethernetip.docs) documentation.
 
+Note: If connecting to the EtherNet/IP docker simulator change the NetworkInterface driver option docker0 otherwise set it to the name of the network interface used on your host to communicate with EtherNet/IP devices on your local network
+
 ## Getting Started
 
 ### Run the simulator

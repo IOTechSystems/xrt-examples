@@ -10,7 +10,7 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
   "device_info":  {
     "profileName": "modbus-sim-profile",
     "protocols":{
-      'modbus-tcp':{
+      "modbus-tcp":{
         "Address": "${MODBUS_SIM_ADDRESS}",
         "Port": 1502,
         "UnitID": 1
