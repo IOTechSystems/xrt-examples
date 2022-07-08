@@ -30,7 +30,7 @@ See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 cd CommandComponent
 xrt deployment/config
 ```
-*Note: upon running XRT a schedule is present consisting of get requests at regular intervals upon a virtual device. The purpose of this is described under Update Component within the Walkthrough section.*
+*Note upon running XRT a schedule is present consisting of get requests at regular intervals upon a virtual device. The purpose of this is described under Update Component within the Walkthrough section.*
 
 ## Walkthrough
 
@@ -52,7 +52,7 @@ This command updates the configuration of a named component.
 This example changes the level of the logger component to "Info" from the initial setting of "Debug". After making the change, the number of logs produced as a result of the virtual device schedule will be decreased.
 
 ```bash
-./commands/list_components.sh
+./commands/update_component.sh
 ```
 
 
