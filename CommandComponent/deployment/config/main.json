@@ -1,0 +1,9 @@
+{
+  "logger":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "sched":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "mqtt_bridge": "XRT::MQTTBridge",
+  "command": "XRT::Command",
+  "virtual": "XRT::VirtualDeviceService"
+}
