@@ -152,20 +152,23 @@
                 ]
             }
         ],
-        "Devices": {
-            "Allen-Bradley-Azure": {
-                "profile": "Allen-Bradley-Azure",
+        "Devices": [
+            {
+                "name": "Allen-Bradley-Azure",
+                "profileName": "Allen-Bradley-Azure",
                 "protocols": {
                     "EtherNet-IP": {
-                        "Address": "192.168.4.18"
+                        "Address": "<plc-address>"
                     }
                 }
             }
-        },
+        ],
         "Schedules": [
             {
                 "device": "Allen-Bradley-Azure",
-                "resource": "InputsValues",
+                "resource": [
+                    "DINT_ARRAY"
+                ],
                 "interval": 4000000,
                 "name": "schedule1"
             }
