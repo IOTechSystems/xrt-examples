@@ -121,8 +121,10 @@
                 ]
             }
         ],
-        "Devices": {
-            "BacnetSimulator": {
+        "Devices": [
+            {
+                "name": "BacnetSimulator",
+                "profileName": "bacnet-simulator",
                 "protocols": {
                     "BACnet-IP": {
                         "DeviceInstance": 2749,
@@ -132,11 +134,9 @@
                         "DS-RPM-B": "true",
                         "DS-WPM-B": "true"
                     }
-                },
-                "profileName": "bacnet-simulator",
-                "profile": "bacnet-simulator"
+                }
             }
-        },
+        ],
         "Schedules": [
             {
                 "device": "BacnetSimulator",
