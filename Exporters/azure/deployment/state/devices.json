@@ -1,1 +1,10 @@
-{"device-virtual":{"profile":"device-virtual","protocols":{"Other":{"Address":"device-virtual-int-01"}},"name":"device-virtual"}}
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "device-virtual",
+      "profileName": "device-virtual",
+      "protocols": { "Other": { "Address": "device-virtual-int-01" } }
+    }
+  ]
+}
