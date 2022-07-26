@@ -104,19 +104,16 @@
                 ],
                 "deviceCommands": [
                     {
-                        "name": "InputsValues",
-                        "get": [
-                            {
-                                "index": 1,
-                                "operation": "get",
-                                "deviceResource": "AnalogInput0"
-                            },
-                            {
-                                "index": 2,
-                                "operation": "get",
-                                "deviceResource": "BinaryInput0"
-                            }
-                        ]
+                      "name": "InputsValues",
+                      "readWrite": "R",
+                      "resourceOperations": [
+                        {
+                            "deviceResource": "AnalogInput0"
+                        },
+                        {
+                            "deviceResource": "BinaryInput0"
+                        }
+                      ]
                     }
                 ]
             }
