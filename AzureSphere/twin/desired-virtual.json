@@ -4,6 +4,7 @@
             {
                 "labels": [],
                 "name": "device-virtual",
+                "apiVersion": "v2",
                 "deviceResources": [
                     {
                       "name": "RandomBool", "description": "Generate random bool value",

@@ -4,6 +4,7 @@
             {
                 "labels": [],
                 "name": "bacnet-simulator",
+                "apiVersion": "v2",
                 "deviceResources": [
                     {
                         "attributes": {
