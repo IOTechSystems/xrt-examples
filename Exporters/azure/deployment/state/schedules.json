@@ -1,1 +1,13 @@
-{"apiVersion":"v2","schedules":[{"device":"device-virtual","interval":3000000,"name":"schedule1","resource":["Input*"]}]}
+{
+  "apiVersion":"v2",
+  "schedules":[
+    {
+      "device":"device-virtual",
+      "interval":3000000,
+      "name":"schedule1",
+      "resource":[
+        "Input*"
+      ]
+    }
+  ]
+}
