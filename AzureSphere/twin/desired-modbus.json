@@ -3,6 +3,7 @@
         "Profiles": [
             {
                 "name": "Damocles2 Mini",
+                "apiVersion": "v2",
                 "manufacturer": "HW group",
                 "model": "Damocles2 Mini",
                 "labels": [

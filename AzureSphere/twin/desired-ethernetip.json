@@ -3,6 +3,7 @@
         "Profiles": [
             {
                 "name": "Allen-Bradley-Azure",
+                "apiVersion": "v2",
                 "labels": [],
                 "deviceResources": [
                     {
