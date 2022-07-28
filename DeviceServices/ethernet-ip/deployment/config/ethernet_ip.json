@@ -14,7 +14,7 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver": {
-    "NetworkInterface": "eth0",
+    "NetworkInterface": "docker0",
     "ConnectionTimeout" : 3000
   }
 }

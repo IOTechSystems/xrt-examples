@@ -231,12 +231,10 @@
     },
     {
       "name": "IdentityClass",
-      "description": "Get Attributes All Command to Identity Object Instance",
+      "description": "Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 1,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -245,15 +243,13 @@
     },
     {
       "name": "IdentityClass_bytes",
-      "description": "Get Attributes All Command to Identity Object Instance",
+      "description": "Resettable Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 1,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint8array"
       }
     },
@@ -262,9 +258,7 @@
       "description": "Get Attributes All Command to Identity Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 246,
-        "serviceCode": 1,
-        "type": "EM"
+        "objClass": 246
       },
       "properties": {
         "readWrite": "R",
@@ -273,166 +267,132 @@
     },
     {
       "name": "VendorID",
-      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint16"
       }
     },
     {
       "name": "VendorID_bytes",
-      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint8array"
       }
     },
     {
       "name": "DeviceType",
-      "description": "Get Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 2,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint16"
       }
     },
     {
       "name": "ProductCode",
-      "description": "Get Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 3,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint16"
       }
     },
     {
       "name": "Revision",
-      "description": "Get Attribute Single Command to Revision Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to Revision Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 4,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint16"
       }
     },
     {
       "name": "Status",
-      "description": "Get Attribute Single Command to Status Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to Status Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 5,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint16"
       }
     },
     {
       "name": "SerialNumber",
-      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint32"
       }
     },
     {
       "name": "SerialNumber_bytes",
-      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint8array"
       }
     },
     {
-      "description": "Get Attribute Single Command to ProductName Attribute Within the Identity Object Instance",
+      "description": "Get/Set Attribute Single Command to ProductName Attribute Within the Identity Object Instance",
       "name": "ProductName",
       "attributes": {
         "attrID": 7,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "String"
       }
     },
     {
       "name": "AssemblyGet",
-      "description": "Get Attribute Single Command to Attribute Within Assembly Object Instance",
+      "description": "Get/Set Attribute Single Command to Attribute Within Assembly Object Instance",
       "attributes": {
         "attrID": 3,
         "instID": 100,
-        "objClass": 4,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 4
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint32"
-      }
-    },
-    {
-      "name": "Reset",
-      "description": "Triggers the device to emulate a power cycle",
-      "attributes": {
-        "instID": 1,
-        "objClass": 1,
-        "serviceCode": 5,
-        "type": "EM"
-      },
-      "properties": {
-        "readWrite": "W",
-        "valueType": "Uint8"
       }
     },
     {
