@@ -267,20 +267,20 @@
     },
     {
       "name": "VendorID",
-      "description": "Get/Set Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Vendor ID",
       "attributes": {
         "attrID": 1,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint16"
       }
     },
     {
       "name": "VendorID_bytes",
-      "description": "Get/Set Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Vendor ID returned in raw bytes",
       "attributes": {
         "attrID": 1,
         "instID": 1,
@@ -293,92 +293,92 @@
     },
     {
       "name": "DeviceType",
-      "description": "Get/Set Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Device Type",
       "attributes": {
         "attrID": 2,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint16"
       }
     },
     {
       "name": "ProductCode",
-      "description": "Get/Set Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Product Code",
       "attributes": {
         "attrID": 3,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint16"
       }
     },
     {
       "name": "Revision",
-      "description": "Get/Set Attribute Single Command to Revision Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Revision",
       "attributes": {
         "attrID": 4,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint16"
       }
     },
     {
       "name": "Status",
-      "description": "Get/Set Attribute Single Command to Status Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Status",
       "attributes": {
         "attrID": 5,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint16"
       }
     },
     {
       "name": "SerialNumber",
-      "description": "Get/Set Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Serial Number",
       "attributes": {
         "attrID": 6,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint32"
       }
     },
     {
       "name": "SerialNumber_bytes",
-      "description": "Get/Set Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Serial Number returned as raw bytes",
       "attributes": {
         "attrID": 6,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint8array"
       }
     },
     {
-      "description": "Get/Set Attribute Single Command to ProductName Attribute Within the Identity Object Instance",
       "name": "ProductName",
+      "description": "Identity Class Object Instance Attribute Product Name",
       "attributes": {
         "attrID": 7,
         "instID": 1,
         "objClass": 1
       },
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "String"
       }
     },
