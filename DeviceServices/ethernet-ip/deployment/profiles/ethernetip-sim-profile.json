@@ -7,6 +7,34 @@
   "labels": [],
   "deviceResources": [
     {
+      "name": "Implicit O2T Settings",
+      "description": "Settings for Originator to Target Implicit Data Exchange",
+      "attributes": {
+        "type": "O2TSettings",
+        "assemblyID": 112,
+        "size": 496,
+        "includeHeader32bit": true
+      },
+      "properties": {
+          "valueType": "String",
+          "readWrite": "R"
+      }
+    },
+    {
+      "name": "Implicit T2O Settings",
+      "description": "Settings for Target to Originator Implicit Data Exchange",
+      "attributes": {
+        "type": "T2OSettings",
+        "assemblyID": 100,
+        "size": 496,
+        "includeHeader32bit": false
+      },
+      "properties": {
+          "valueType": "String",
+          "readWrite": "R"
+      }
+    },
+    {
       "name": "DO0",
       "description": "Digital Output 0",
       "attributes": {
@@ -355,7 +383,7 @@
       }
     },
     {
-      "name": "Assembly100Attr3",
+      "name": "Assembly112Attr3",
       "description": "Assembly Class Object Instance 100, Attribute 3",
       "attributes": {
         "attrID": 3,
@@ -363,7 +391,7 @@
         "objClass": 4
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint8Array"
       }
     },
