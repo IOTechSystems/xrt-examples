@@ -6,7 +6,7 @@
       "interval": 1000000,
       "name": "ethernetip-sim-sched1",
       "resource": [
-        "DO0"
+        "DI0"
       ]
     }
   ]

@@ -40,7 +40,7 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -53,7 +53,7 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -66,7 +66,7 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -79,7 +79,7 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -92,7 +92,7 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -105,7 +105,7 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -118,7 +118,7 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
         "readWrite": "R",
@@ -131,7 +131,7 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -144,7 +144,7 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -157,7 +157,7 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -170,7 +170,7 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -183,7 +183,7 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -196,7 +196,7 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -209,7 +209,7 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -222,7 +222,7 @@
       "attributes": {
         "offsetBits": 7,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
         "readWrite": "W",
@@ -230,8 +230,8 @@
       }
     },
     {
-      "name": "IdentityClass",
-      "description": "Identity Object Instance",
+      "name": "IdentityClassInstanceParsed",
+      "description": "Identity Class Object Instance Parsed as a String",
       "attributes": {
         "instID": 1,
         "objClass": 1
@@ -242,8 +242,8 @@
       }
     },
     {
-      "name": "IdentityClass_bytes",
-      "description": "Resettable Identity Object Instance",
+      "name": "IdentityClassInstance",
+      "description": "Identity Class Object Instance. This resource can be read to view the full object instance or written to with a service code override of 5 to perform a reset operation on the device.",
       "attributes": {
         "instID": 1,
         "objClass": 1
@@ -254,8 +254,8 @@
       }
     },
     {
-      "name": "EtherNetLinkClass_bytes",
-      "description": "Get Attributes All Command to Identity Object Instance",
+      "name": "EtherNetLinkClassInstance",
+      "description": "EtherNetLink Class Object Instance",
       "attributes": {
         "instID": 1,
         "objClass": 246
@@ -383,8 +383,8 @@
       }
     },
     {
-      "name": "AssemblyGet",
-      "description": "Get/Set Attribute Single Command to Attribute Within Assembly Object Instance",
+      "name": "Assembly100Attr3",
+      "description": "Assembly Class Object Instance 100, Attribute 3",
       "attributes": {
         "attrID": 3,
         "instID": 100,
@@ -392,7 +392,7 @@
       },
       "properties": {
         "readWrite": "RW",
-        "valueType": "Uint32"
+        "valueType": "Uint8Array"
       }
     },
     {
