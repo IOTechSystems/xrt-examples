@@ -7,10 +7,13 @@
   "UserName": "${XRT_INFLUXDB_USERNAME}",
   "Password": "${XRT_INFLUXDB_PASSWORD}",
   "SelectData": [
-    { "Pattern": "data/export", "Format": "Device"}
+    { "Pattern": "device/#", "Format": "Device"}
   ],
   "Bus": "bus",
+  "Scheduler":"sched",
+  "ThreadPool":"pool",
   "Logger": "logger_debug",
+  "BatchSize": 5,
   "ConnectTimeout": 4000,
   "Timeout": 1500
 }
