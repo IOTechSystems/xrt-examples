@@ -9,11 +9,15 @@
   "SelectData": [
     { "Pattern": "device/#", "Format": "Device"}
   ],
+  "BatchConfig":
+  {
+    "BatchSize": 5,
+    "BatchTimeout": 5000,
+    "Scheduler":"sched",
+    "ThreadPool":"pool"
+  },
   "Bus": "bus",
-  "Scheduler":"sched",
-  "ThreadPool":"pool",
   "Logger": "logger_debug",
-  "BatchSize": 5,
   "ConnectTimeout": 4000,
   "Timeout": 1500
 }
