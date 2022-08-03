@@ -2,13 +2,9 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "profile": "XRT-Virtual-Example",
-      "protocols": {
-        "Other": {
-          "Address": "device-virtual-example-01"
-        }
-      },
-      "name": "xrt-example-device-1"
+      "name": "xrt-example-device-1",
+      "profileName": "XRT-Virtual-Example",
+      "protocols": { "Other": { "Address": "device-virtual-example-01" } }
     }
   ]
 }

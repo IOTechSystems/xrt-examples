@@ -5,6 +5,5 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "influxdb_exporter":"XRT::InfluxDBExporter",
-  "batch":"XRT::BatchTransform",
   "virtual_device_service":"XRT::VirtualDeviceService"
 }
