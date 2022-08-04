@@ -51,13 +51,12 @@ within their title.
 
 ### Device Profile
 
+The Device Profile contains a config of different deviceResources that 
+can to be sent or received from the Azure IoT Hub.
+
 A sample BACnet device profile can be found on the [BACnet/IP XRT Example](../../DeviceServices/bacnet-ip/deployment/profiles/bacnet-ip-sim-profile.json).
 
-An example profile is already included on the [Example desired-bacnet.json](../twin/desired-bacnet.json)
-
-The Device Profile contains a config of different
-deviceResources that can to be sent or received from the Azure
-IoT Hub.
+An example profile is already included on the [example desired-bacnet.json](../twin/desired-bacnet.json)
 
 ### Azure (Required)
 
@@ -103,7 +102,7 @@ found at:
 The Microsoft Azure Device Twin corresponding to the Azure Sphere
 development board will need updating to include the same "azure"
 component settings. This is found in the Device twin JSON at
-"properties" / "desired" / "Components" / "azure". This is can be
+"properties" / "desired" / "Components" / "azure". This can be
 accessed via the Azure portal.
 
 The device twin "main" has the bacnet component referenced and the

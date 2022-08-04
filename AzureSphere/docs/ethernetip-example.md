@@ -11,7 +11,7 @@ Ethernet is given in this guide.
 
 ## Prerequisites
 
-*Note: The prerequisites found on the main [readme.md] (https:/github.com/IOTechSystems/xrt-examples/blob/v1.1-branch/AzureSphere/README.md)
+*Note: The prerequisites found on the main [readme.md](../../README.md)
 are required for this example
 
 - Allen Bradley PLC or other EthernetIP device
@@ -104,7 +104,7 @@ found at: [twin/desired-ethernetip.json](../twin/desired-ethernetip.json)
 The Microsoft Azure Device Twin corresponding to the Azure Sphere
 development board will need updating to include the same "azure"
 component settings. This is found in the Device twin JSON at
-"properties" / "desired" / "Components" / "azure". This is can be
+"properties" / "desired" / "Components" / "azure". This can be
 accessed via the Azure portal.
 
 The device twin "main" has the EtherNet/IP component referenced

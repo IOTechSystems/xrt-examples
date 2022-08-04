@@ -33,4 +33,7 @@ or via the Visual Studio Command Prompt.
 
 ## Updating the XRT package on Windows
 
-When updating the xrt packages with a newer version, it is recommended that you reinstall the azure sphere SDK to ensure we have a clean sysroots directory. After this the same steps can be followed for [installing](#installing-the-xrt-package-on-windows).
+If an outdated version of XRT for azure is already installed and you
+want to update to the latest version of, it is recommended that you
+reinstall the azure sphere SDK to ensure we have a clean sysroots
+directory. After this, steps 2 onwards can be followed on [installing](#installing-the-xrt-package-on-windows).
