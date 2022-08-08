@@ -1,5 +1,6 @@
 {
   "labels": [],
+  "apiVersion": "v2",
   "name": "bacnet-simulator",
   "deviceResources": [
       {

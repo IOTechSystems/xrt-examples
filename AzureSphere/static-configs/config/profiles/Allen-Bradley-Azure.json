@@ -1,6 +1,7 @@
 {
     "name": "Allen-Bradley-Azure",
     "labels": [],
+    "apiVersion": "v2",
     "deviceResources": [
         {
             "name": "DINT_ARRAY",

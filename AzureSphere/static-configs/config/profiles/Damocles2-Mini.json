@@ -7,6 +7,7 @@
     "Damocles2",
     "Mini"
   ],
+  "apiVersion": "v2",
   "description": "Damocles2 Mini",
   "deviceResources": [
     {

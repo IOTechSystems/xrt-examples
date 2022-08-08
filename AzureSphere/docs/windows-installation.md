@@ -11,7 +11,7 @@ To install XRT Azure Sphere, complete the following steps:
    using the following command:
 
 ```bat
-curl -L -O https://iotech.jfrog.io/artifactory/windows-release/azuresphere-11/iotech-xrt-dev-azsphere11-1.1-latest.zip
+curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-dev-azsphere12-2.0-latest.zip
 ```
 
 3. Open Windows File Explorer
@@ -33,5 +33,7 @@ or via the Visual Studio Command Prompt.
 
 ## Updating the XRT package on Windows
 
-When updating the xrt packages with a newer version, it is recomended that you reinstall the azure sphere SDK to ensure we have a clean sysroots directory. After this the same steps can be followed for [installing](#installing-the-xrt-package-on-windows). 
-
+If an outdated version of XRT for azure is already installed and you
+want to update to the latest version of, it is recommended that you
+reinstall the azure sphere SDK to ensure we have a clean sysroots
+directory. After this, steps 2 onwards can be followed on [installing](#installing-the-xrt-package-on-windows).
