@@ -1,5 +1,7 @@
 # Azure Sphere Static Configurations
 
+*NOTE: Static configurations are currently unsupported for device service. To configure a device service please do so using the digital twin mechanism*
+
 This document describes, and gives examples on how to build a
 connected IoT application using IOTech's Edge XRT deployed on
 supported Azure Sphere hardware statically.

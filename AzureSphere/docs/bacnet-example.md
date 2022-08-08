@@ -25,18 +25,38 @@ Note: The prerequisites found on the main [readme.md](../README.md) are also req
 ## Configuration
 
 In-order for the BACnet example to work, you will need
-to edit some of the configurations. The configurations
-that are required to be edited will have "(required)"
-within there title.
+to edit some of the configurations.
+
+A script has been created to automate the editing of most of the required
+configurations. To launch the script ensure you are in the root *AzureSphere* Directory:
+
+``` console
+cd AzureSphere
+```
+
+and run *setup_configs.sh*
+
+```console
+./setup_configs.sh
+```
+
+to restore changes that have been made by the script:
+
+```console
+git restore .
+```
+
+The configurations that are required to be edited will have "(required)"
+within their title.
 
 ### Device Profile
 
-BACnet Device profile can be found at:
-[configs/profiles/bacnet-simulator.json](../config/profiles/bacnet-simulator.json)
+The Device Profile contains a config of different deviceResources that 
+can to be sent or received from the Azure IoT Hub.
 
-The Device Profile contains a config of different
-deviceResources that can to be sent or received from the Azure
-IoT Hub.
+A sample BACnet device profile can be found on the [BACnet/IP XRT Example](../../DeviceServices/bacnet-ip/deployment/profiles/bacnet-ip-sim-profile.json).
+
+An example profile is already included on the [example desired-bacnet.json](../twin/desired-bacnet.json)
 
 ### Azure (Required)
 
@@ -82,7 +102,7 @@ found at:
 The Microsoft Azure Device Twin corresponding to the Azure Sphere
 development board will need updating to include the same "azure"
 component settings. This is found in the Device twin JSON at
-"properties" / "desired" / "Components" / "azure". This is can be
+"properties" / "desired" / "Components" / "azure". This can be
 accessed via the Azure portal.
 
 The device twin "main" has the bacnet component referenced and the
@@ -123,6 +143,18 @@ messages over UDP. This needs to be configured by editing
 and changing the "To:" value to use the IP address of the host PC.
 The Makefile contains an example of using the socat command to monitor
 the log output.
+
+The udp-logger configuration will also need to be updated in the desired
+json example:
+
+``` json
+"udp-logger": {
+    "Name": "udp-logger",
+    "Level": "Trace",
+    "To": "udp:<host-ip>:1999",
+    "Start": true
+}
+```
 
 ### App Manifest (Required)
 
@@ -303,7 +335,7 @@ sudo systemctl restart network-manager
 
 In order to ssh into the Raspberry Pi on the new 192.168.4.0
 subnet, the Raspberry Pi will need an ip address. Create a file
-in the following path `/etc/dhcp/dhcpd.conf` and copy in the
+in the following path */etc/dhcp/dhcpd.conf* and copy in the
 below contents, replace the <MAC address of the raspberry pi>
 place holder with the MAC Address of the Raspberry Pi you
 obtained earlier:

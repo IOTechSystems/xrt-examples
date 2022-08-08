@@ -44,7 +44,7 @@ Just like with the [windows installation](./windows-installation.md) we can manu
 
 2. Download XRT using:
 
-```bat
+```bash
 curl -L -O https://iotech.jfrog.io/ui/native/windows-release/azuresphere-12/iotech-xrt-dev-azsphere12-2.0-latest.zip
 ```
 
