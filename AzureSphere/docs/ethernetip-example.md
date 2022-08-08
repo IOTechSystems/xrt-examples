@@ -45,12 +45,12 @@ within their title.
 
 ### Device Profile
 
+The Device profile contains a config of different deviceResources
+that can be sent or received from the Azure IoT Hub.
+
 A sample EtherNet/IP device profile can be found on the [EtherNet/IP XRT Example](../../DeviceServices/ethernet-ip/deployment/profiles/ethernetip-sim-profile.json).
 
 An example profile is already included on the [Example desired-ethernetip.json](../twin/desired-ethernetip.json)
-
-The Device profile contains a config of different deviceResources
-that can be sent or received from the Azure IoT Hub.
 
 Edit this file with the corresponding tag names you wish to read
 write to within the desired PLC

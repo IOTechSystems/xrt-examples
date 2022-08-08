@@ -11,7 +11,7 @@ To install XRT Azure Sphere, complete the following steps:
    using the following command:
 
 ```bat
-curl -L -O https://iotech.jfrog.io/artifactory/windows-release/azuresphere-11/iotech-xrt-dev-azsphere11-1.1-latest.zip
+curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-dev-azsphere12-2.0-latest.zip
 ```
 
 3. Open Windows File Explorer
