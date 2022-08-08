@@ -5,6 +5,7 @@
   "labels": [
     "device-virtual-example"
   ],
+  "apiVersion": "v2",
   "description": "Example of Device-Virtual",
   "deviceResources": [
     {

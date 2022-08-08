@@ -10,7 +10,7 @@
         "Bus": "bus",
         "Driver": {
             "NetworkInterface": "eth0",
-            "MacAddress": "02:aa:2b:e7:b7:6e",
+            "MacAddress": "<Network_Interface_Mac>",
             "FullDuplex": true,
             "NetworkSpeed": 100
         }
