@@ -7,81 +7,12 @@ the PLC and pushed to Azure IoT Hub.
 An example of connecting to the Allen Bradley PLC using wired
 Ethernet is given in this guide.
 
-## AzureSphere Hardware
-
 ## Prerequisites
 
 *Note: The prerequisites found on the main [readme.md](../../README.md)
 are required for this example
 
 - Allen Bradley PLC or other EthernetIP device
-
-## Configuration
-
-In-order for the EtherNet/IP Example to work, some of the
-configurations will need to be edited.
-
-A script has been created to automate the editing of most of the required
-configurations. To launch the script ensure you are in the root *AzureSphere* Directory:
-
-``` console
-cd AzureSphere
-```
-
-and run *setup_configs.sh*
-
-```console
-./setup_configs.sh
-```
-
-to restore changes that have been made by the script:
-
-```console
-git restore .
-```
-
-The configurations that are required to be edited will have "(required)"
-within their title.
-
-### Device Profile
-
-The Device profile contains a config of different deviceResources
-that can be sent or received from the Azure IoT Hub.
-
-A sample EtherNet/IP device profile can be found on the [EtherNet/IP XRT Example](../../DeviceServices/ethernet-ip/deployment/profiles/ethernetip-sim-profile.json).
-
-An example profile is already included on the [Example desired-ethernetip.json](../twin/desired-ethernetip.json)
-
-Edit this file with the corresponding tag names you wish to read
-write to within the desired PLC
-
-### Azure (Required)
-
-The Azure config file can be found at: [configs/azure.json](../config/azure.json).
-
-You will need to configure some values in azure.json to be able to
-send values to the IoT Hub. You will need:
-
-- DeviceID, can be found for a USB connected device with the command:
-
-  ```console
-  azsphere device list-attached
-  ```
-
-- HostName, is the IOT Hub host name and can be found using the Azure
-Portal or using the command (replace HubName with the name of your IOT hub):
-
-  ``` console
-  az iot hub show --name <HubName> | grep hostName
-  ```
-
-- ScopeID, the Device Provisioning Service ID Scope can be found using the
-portal or the command (replace DPSName with the name of your Device
-Provisioning Service):
-
-  ``` console
-  az iot dps show --name <DPSName> | grep idScope
-  ```
 
 ### App Manifest (Required)
 

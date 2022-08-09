@@ -84,17 +84,12 @@ using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/).
 A video showing you how to do this can for the Damocles2 Mini device
 can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1hC7S4uE4).
 
-The configuration files generated from the tool are provided
-as follows:
-*	[Damocles2 Mini Device Profile](../config/profiles/Damocles2-Mini.json)
-*	[Damocles2 Mini DTDL file](../Damocles2-Mini.dtdl)
-
 ### Azure (required)
 
 To connect the example to your IoT Hub endpoint you must also
 configure Azure Export Service component.
 
-* Edit [config/azure-modbus.json](../config/azure-modbus.json) and the
+* Edit [config/azure.json](../config/azure.json) and the
   value for the "HostName", "DeviceID" and "ScopeID" values.
 
 * The DeviceID can be found for a USB connected device with
@@ -123,12 +118,11 @@ configure Azure Export Service component.
 
 ![Azure Export Config](images/AzureExportConfig.svg)
 
-
 ### Device Twin (Required)
 
 The configuration files compiled into the application are only used
 for initial connection to Azure. The "desired" properties setting on
-the device twin are automaticallly downloaded and persisted to the
+the device twin are automatically downloaded and persisted to the
 Azure Sphere device. An example set of "desired" properties can be
 found at:
 [twin/desired-modbus.json](../twin/desired-modbus.json)
@@ -202,7 +196,7 @@ with the following:
 
 ![Application Manifest](images/AppManifest.svg)
 
-## Using ModbusPal Simulator With The Example
+## Using the Modbus Simulator With The Example
 
  To use ModbusPal Simulator with this example you will
  need to:
