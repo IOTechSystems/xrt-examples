@@ -49,6 +49,12 @@ Example profiles are already included within the desired twin examples:
 - [example desired-modbus.json](../twin/desired-modbus.json)
 - [example desired-virtual.json](../twin/desired-virtual.json)
 
+Device Profiles and DTDL for Digital Twins files can also be created
+using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/).
+A video showing you how to do this can for the Damocles2 Mini device using the modbus device service 
+can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1hC7S4uE4).
+
+
 ### Azure (Required)
 
 The Azure config file can be found at:
@@ -96,12 +102,37 @@ component settings. This is found in the Device twin JSON at
 "properties" / "desired" / "Components" / "azure". This can be
 accessed via the Azure portal, or via the azure extension within VScode.
 
+#### Setting up Device Service Component
+
 The device twin "main" has the device service component referenced and the
 properties for "properties" / "desired" / "Components" / "*<device_service_name>*" must
 be configured to match the actual deployment.
 
 The configuration for the device service is found under
 "properties" / "desired" / "Services" / "*<device_service_name>*".
+
+#### Setting Up Schedules
+
+Schedules have to be setup before deploying and running XRT, schedules require 3 parameters:
+
+- The Device name
+- The Desired Resource(s)
+- The Desired Interval
+
+These are added to the desired properties under "Schedules":
+
+``` json
+"Schedules": [
+      {
+          "device": "Allen-Bradley-Azure",
+          "resource": [
+              "DINT_ARRAY"
+          ],
+          "interval": 4000000,
+          "name": "schedule1"
+      }
+  ]
+```
 
 The Azure Sphere board on first boot will wait indefinitely until a
 complete configuration update is received from the device twin. The
@@ -124,27 +155,6 @@ will need to be set as environment variables as shown below.
 ```bash
 export IOTHUB_CONNECTION_STRING=<connection_string>
 export IOTHUB_DEVICE_ID=<device_id>
-```
-
-### Remote Logging (Optional)
-
-The example main.c includes a remote logging component to publish logging
-messages over UDP. This needs to be configured by editing
-[configs/udp-logger.json](../config/udp-logger.json)
-and changing the "To:" value to use the IP address of the host PC.
-The Makefile contains an example of using the socat command to monitor
-the log output.
-
-The udp-logger configuration will also need to be updated in the desired
-json example:
-
-``` json
-"udp-logger": {
-    "Name": "udp-logger",
-    "Level": "Trace",
-    "To": "udp:<host-ip>:1999",
-    "Start": true
-}
 ```
 
 ### App Manifest (Required)
@@ -170,9 +180,33 @@ json example:
     within the `AllowedTcpServerPorts` and `AllowedUdpServerPorts` 
     JSON arrays.
 
+*NOTE:* If following any device service examples ensure you enter all the required IP Addresses
+of any simulators or devices you wish to use within the allowed connections.
+
+### Remote Logging (Optional)
+
+The example main.c includes a remote logging component to publish logging
+messages over UDP. This needs to be configured by editing
+[configs/udp-logger.json](../config/udp-logger.json)
+and changing the "To:" value to use the IP address of the host PC.
+The Makefile contains an example of using the socat command to monitor
+the log output.
+
+The udp-logger configuration will also need to be updated in the desired
+json example:
+
+``` json
+"udp-logger": {
+    "Name": "udp-logger",
+    "Level": "Trace",
+    "To": "udp:<host-ip>:1999",
+    "Start": true
+}
+```
+
 ## Building and Debugging The Application
 
-You can build the BACnet Example following the links below:
+You can build the Example following the links below:
 
 - [Building, Deploying and Debugging on Windows](windows-build.md)
 - [Building, Deploying and Debugging On Ubuntu](ubuntu-build.md)

@@ -17,6 +17,11 @@ Note: The prerequisites found on the main [readme.md](../README.md) are also req
 
 * BACnet Simulator (Docker)
 
+## Setup Configurations 
+
+To get started with the BACnet example we have to first setup all
+the configurations files by following the steps on [setup config files](./setup-config-files.md).
+
 ## BACnet Simulator
 
 The BACnet Simulator, simulates a BACnet device, which is
@@ -56,7 +61,7 @@ to select the required `NetworkInterface` option in the Driver section of the co
 Also, the IP address of the machine running the simluator and
 the BACnet broadcast IP should be included in the `AllowedConnections`
 JSON array, as part of the app manifest configuration as described
-[here](./common.md/#app-manifest-required).
+[here](./setup-config-files.md/#app-manifest-required).
 
 ## Changing A BACnet Device Output Values
 
