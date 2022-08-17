@@ -106,6 +106,7 @@ This will replace all of the required placeholders within the provided example c
 
 ## Examples
 
+* [Virutal Device](docs/virtual-example.md)
 * [BACnet Device](docs/bacnet-example.md)
 * [Modbus Device](docs/modbus-example.md)
 * [Ethernet/IP Device](docs/ethernetip-example.md)
