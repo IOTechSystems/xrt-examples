@@ -1,24 +1,16 @@
 # Modbus Example
 
-In this example, XRT is used to communicate with a Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
-or a [simulated Modbus device](#using-modbus-simulator-with-the-example)),
-values read from the Modbus Device are then sent to its
+In this example, XRT is used to communicate with either a: 
+ * Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
+ * [ModbusPal Simulator](#using-modbus-simulator-with-the-example))
+ * [Modbus Dockerised Simulator](https://github.com/IOTechSystems/modbus-sim)
+values read from the choosen Modbus Device are then sent to its
 Azure IoT Hub Device Twin in the Cloud. Methods can also be sent back from
 the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 
 ![Azure Sphere Modbus Example](images/AzureSphereModbusExample.jpg)
 
-The example reads the digital inputs from a Modbus Device via
-the Modbus Device Service component and publishes the data onto the
-[internal XRT bus with duplicates filter turn on](../config/bus.json).
-
-If a new data value is the same as the previous value then the
-duplicates filter will prevent the unchanged data value from being
-published onto the bus and sent to the Azure IoT Hub via the
-Azure Export component. Otherwise all new data values are
-automatically sent to Azure IoT Hub.
-
-From the Azure IoT Hub methods can be called on Device Twins
+From the Azure IoT Hub, methods can be called on Device Twins
 to send values back down to XRT running on the Azure Sphere
 hardware. Values are received by the Azure Export component
 and published onto the XRT bus. The Modbus Device Service subscribes
@@ -34,9 +26,11 @@ mirrored by the digital inputs.*
 ## AzureSphere Hardware
 
 The Modbus Example works on all XRT supported AzureSphere
-hardware. See [readme](../README.md).
+hardware. See the supported hardware section on the main [readme](../README.md/#supported-hardware).
 
-### Modbus Device
+### Modbus Devices
+
+#### Domocles2 Mini
 
 The [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
 is a smart I/O controller used for remote monitoring and
@@ -44,38 +38,69 @@ control of sensors and devices. It provides 4 digital dry
 contact inputs and 2 digital relay outputs that can be
 accessed via a Modbus interface.
 
-If you do not have access to a physical device, a
-[Modbus simulator](#using-modbus-simulator-with-the-example)
-can be used instead of the real hardware.
-
 If the Damocles hardware is used then it must be connected to
-the Guardian 100 module via a wired Ethernet connection.
+the Azure module via a wired Ethernet connection.
 
-The simulator can be used via a wired ethernet or WiFi 
-connection to communicate with XRT.
+#### ModbusPal
+
+If you do not have access to a physical device, a Java application called 
+[ModbusPal simulator](#using-the-modbuspal-simulator-with-the-example)
+called ModbusPal, can be used instead of the real hardware.
+
+If the simulator is used it can be installed on your PC. 
+Wired Ethernet or WiFi can be used to communicate with XRT.
+
+#### Dockerised Modbus-Sim
+
+There is also an in house [dockerised simulator](#using-the-inhouse-dockerised-simulator-with-the-example) available which can be 
+used instead of ModbusPal. This simulator doesn't require any setup
+and can be ran from either the host PC or a sperate host and can
+communicate via a Wired or Wireless network configuration.
 
 ## Prerequisites
 
 *Note - The prerequisites found on the main
 [readme.md](../README.md) are also required for this example.*
 
-* The [Modbus simulator](#using-modbus-simulator-with-the-example),
-  or a Damocles2 Mini connected by wired EtherNet to a AzureSphere module
+Either:
+* The Inhouse [Dockerised Modbus Simulator](#using-the-inhouse-dockerised-simulator-with-the-example)
+* The [ModbusPal Java simulator](#using-the-modbuspal-simulator-with-the-example)
+* or The Damocles2 Mini connected by wired EtherNet to a AzureSphere module
+
+You will also need:
 * Azure IoT Hub setup using the same tenant as your claimed Azure Sphere
   Module
 * Connected to host via a micro-USB cable. Note to access this port
       the top casing must be removed
 
-## Configuration
 
-The following section describes the configuration used by the Modbus example.
+## Setup Configurations 
 
-## Using the Modbus Simulator With The Example
+To get started with the Modbus example we have to first setup all
+the configurations files by following the steps on [setup config files](./setup-config-files.md).
+
+## Using the Inhouse Dockerised Simulator with the Example
+
+To use the inhouse simulator docker will need to be installed on the device
+from where the simulator will be ran from. Then run the following command:
+
+```bash
+docker run --rm --name modbus-sim iotechsys/modbus-sim
+```
+
+This by default will launch a simulated modbus device on port 1502 and the
+IP address of the device will be that of the host device from where the
+simulator is running from.
+
+The simulator can run through a wired network or through a wireless network
+interface.
+
+## Using the ModbusPal Simulator With The Example
 
  To use ModbusPal Simulator with this example you will
  need to:
 
-* Download the [Modbus-sim](https://docs.iotechsys.com/edge-xrt20/simulators/modbus/overview.html) container.
+* Download the [ModbusPal.jar](https://iotech.jfrog.io/artifactory/public/ModbusPal.jar) file.
 
 For both Windows and Ubuntu the Firewall may need to be disabled
 or a new rule needs to be added to allow incoming TCP connections
@@ -118,19 +143,6 @@ on port 1502 to the simulator:
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-## Building and Debugging The Application
-
-You can build the BACnet Example following the links below:
-
-* [Building, Deploying and Debugging on Windows](windows-build.md)
-* [Building, Deploying and Debugging On Ubuntu](ubuntu-build.md)
-
-## Deploying From The Cloud
-
-You can also deploy the Modbus Example from the cloud with
-the link below:
-
-[Deploy From The Cloud](deploy-from-the-cloud.md)
 
 ## Inputs & Outputs With A Modbus Device
 

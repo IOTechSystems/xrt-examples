@@ -30,6 +30,22 @@ git restore .
 The configurations that are required to be edited will have "(required)"
 within their title.
 
+### Bus
+
+The examples read values from a choosen device via
+the appropriate Device Service component and publishes the data onto the
+[internal XRT bus with duplicates filter turn on](../config/bus.json).
+
+If a new data value is the same as the previous value then the
+duplicates filter will prevent the unchanged data value from being
+published onto the bus and sent to the Azure IoT Hub via the
+Azure Export component. Otherwise all new data values are
+automatically sent to Azure IoT Hub.
+
+If you woudl like to make sure all values are published 
+to the IOT Hub regardless if it's a duplicate value then please
+set `FilterDuplicates` to `False`.
+
 ### Device Profile
 
 The Device Profile contains a config of different deviceResources that
