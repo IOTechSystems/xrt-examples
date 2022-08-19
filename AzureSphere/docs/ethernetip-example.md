@@ -16,7 +16,7 @@ are required for this example
 
 ## Setup Configurations 
 
-To get started with the BACnet example we have to first setup all
+To get started with the Ethernet/IP example we have to first setup all
 the configurations files by following the steps on [setup config files](./setup-config-files.md).
 
 ### Ethernet/IP Azure Driver Options

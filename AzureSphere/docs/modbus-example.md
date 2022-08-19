@@ -4,6 +4,7 @@ In this example, XRT is used to communicate with either a:
  * Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
  * [ModbusPal Simulator](#using-modbus-simulator-with-the-example))
  * [Modbus Dockerised Simulator](https://github.com/IOTechSystems/modbus-sim)
+
 values read from the choosen Modbus Device are then sent to its
 Azure IoT Hub Device Twin in the Cloud. Methods can also be sent back from
 the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
@@ -52,9 +53,9 @@ Wired Ethernet or WiFi can be used to communicate with XRT.
 
 #### Dockerised Modbus-Sim
 
-There is also an in house [dockerised simulator](#using-the-inhouse-dockerised-simulator-with-the-example) available which can be 
+There is also an in house dockerised simulator - [Modbus-Sim](#using-the-inhouse-dockerised-simulator-with-the-example), available which can be 
 used instead of ModbusPal. This simulator doesn't require any setup
-and can be ran from either the host PC or a sperate host and can
+and can be ran from either the host PC or a separate host and can
 communicate via a Wired or Wireless network configuration.
 
 ## Prerequisites
@@ -81,11 +82,12 @@ the configurations files by following the steps on [setup config files](./setup-
 
 ## Using the Inhouse Dockerised Simulator with the Example
 
-To use the inhouse simulator docker will need to be installed on the device
-from where the simulator will be ran from. Then run the following command:
+To use the inhouse simulator docker will need to be pullled from docker hub 
+on a device from where the simulator will be ran from. 
+The sim can started using the following command:
 
 ```bash
-docker run --rm --name modbus-sim iotechsys/modbus-sim
+docker run --rm --name modbus-sim iotechsys/modbus-sim:1.0.0
 ```
 
 This by default will launch a simulated modbus device on port 1502 and the

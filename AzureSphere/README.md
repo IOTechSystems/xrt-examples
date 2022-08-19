@@ -93,7 +93,7 @@ build the examples:
 
 ## First time configuration setup
 
-For first time configuration setup, run the setup_configs.sh script within the AazureSphere Directory:
+For first time configuration setup, run the setup_configs.sh script within the *Azure Sphere* Directory:
 
 ```bash
 cd AzureSphere
@@ -106,7 +106,7 @@ This will replace all of the required placeholders within the provided example c
 
 ## Examples
 
-* [Virutal Device](docs/virtual-example.md)
+* [Virtual Device](docs/virtual-example.md)
 * [BACnet Device](docs/bacnet-example.md)
 * [Modbus Device](docs/modbus-example.md)
 * [Ethernet/IP Device](docs/ethernetip-example.md)
