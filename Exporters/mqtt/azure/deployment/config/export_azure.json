@@ -1,0 +1,32 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [
+    "${AZURE_REPLY_TOPIC}"
+  ],
+  "MQTTPatterns": [ "${AZURE_REQUEST_TOPIC}" ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${AZURE_MQTT_SERVER_URI}",
+    "ClientID": "${AZURE_DEVICE_ID}",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "Username":"IOTechHub.azure-devices.net/test-xrt-azure",
+      "Password": "SharedAccessSignature sr=IOTechHub.azure-devices.net%2Fdevices%2Ftest-xrt-azure&sig=qdihuJHi50x2MnPTzJplD%2FG8DmG0cmGEXCXFug11fS4%3D&se=1660849690",
+      "KeepAliveInterval": 10,
+      "MQTTVersion": 4,
+      "Reliable": true,
+      "SSLConfig":
+      {
+        "TrustStore":"${AZURE_MQTT_ROOT_CA}"
+      }
+    },
+    "RetryCount": 5,
+    "RetryInterval": 5
+  },
+  "Cookie": 125,
+  "Bus": "bus",
+  "QueueSize": 5,
+  "Logger": "logger_debug"
+}

@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-virtual-device-service.so",
+  "Factory": "xrt_virtual_device_service_factory",
+  "Name":"virtual",
+  "RequestTopic":"devices/test-xrt-azure/messages/devicebound/#",
+  "ReplyTopic":"devices/test-xrt-azure/messages/events/readpipe",
+  "ProfileDir":"/home/bindurao/workbench/xrt/src/c/examples/Exporters/mqtt/azure/deployment/profiles",
+  "StateDir":"/home/bindurao/workbench/xrt/src/c/examples/Exporters/mqtt/azure/deployment/state",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus"
+}
