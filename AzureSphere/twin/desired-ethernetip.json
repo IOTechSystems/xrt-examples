@@ -55,7 +55,6 @@
                         "properties": {
                             "valueType": "Int32",
                             "readWrite": "R"
-
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[3]",
@@ -76,8 +75,8 @@
                     {
                         "name": "DINT_ARRAY[5]",
                         "properties": {
-                                "valuetype": "Int32",
-                                "readWrite": "R"
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[5]",
@@ -131,8 +130,8 @@
                     {
                         "name": "DINT_ARRAY[10]",
                         "properties": {
-                                "valuetype": "Int32",
-                                "readWrite": "R"
+                            "valuetype": "Int32",
+                            "readWrite": "R"
                         },
                         "attributes": {
                             "tagName": "DINT_ARRAY[10]",
@@ -175,8 +174,8 @@
             }
         ]
     }
-  },
-  "Components": {
+},
+"Components": {
     "main": {
         "logger": "IOT::Logger",
         "pool": "IOT::ThreadPool",
@@ -195,10 +194,10 @@
         "Next": "udp-logger"
     },
     "pool": {
-        "Threads":2,
-        "MaxJobs":10,
-        "ShutdownDelay":500,
-        "Logger":"logger"
+        "Threads": 2,
+        "MaxJobs": 10,
+        "ShutdownDelay": 500,
+        "Logger": "logger"
     },
     "scheduler": {
         "Logger": "logger"
@@ -254,9 +253,9 @@
         "WorkPeriod": 10
     },
     "logexport": {
-        "Bus":"bus",
-        "Logger":"logger",
-        "Pattern":"device/output"
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "device/output"
     },
     "mt3620": {
         "Bus": "bus",
@@ -290,5 +289,4 @@
         "To": "udp:<host-ip>:1999",
         "Start": true
     }
-  },
-  
+},
