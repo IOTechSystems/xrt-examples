@@ -1,225 +1,228 @@
 "Services": {
-    "modbus_device_service": {
-        "Profiles": [
-            {
-                "name": "Damocles2 Mini",
-                "apiVersion": "v2",
-                "manufacturer": "HW group",
-                "model": "Damocles2 Mini",
-                "labels": [
-                  "HW group",
-                  "Damocles2",
-                  "Mini"
-                ],
-                "description": "Damocles2 Mini",
-                "deviceResources": [
-                  {
-                    "name": "BinaryInput1",
-                    "description": "Current value of binary input 1",
-                    "attributes": {
-                      "primaryTable": "DISCRETES_INPUT",
-                      "startingAddress": 100
-                    },
-                    "properties": {
-                      "valueType": "BOOL",
-                      "readWrite": "R"
-                    }
-                  },
-                  {
-                    "name": "BinaryInput2",
-                    "description": "Current value of binary input 2",
-                    "attributes": {
-                      "primaryTable": "DISCRETES_INPUT",
-                      "startingAddress": 101
-                    },
-                    "properties": {
-                      "valueType": "BOOL",
-                      "readWrite": "R"
-                    }
-                  },
-                  {
-                    "name": "BinaryInput3",
-                    "description": "Current value of binary input 3",
-                    "attributes": {
-                      "primaryTable": "DISCRETES_INPUT",
-                      "startingAddress": 102
-                    },
-                    "properties": {
-                      "valueType": "BOOL",
-                      "readWrite": "R"
-                    }
-                  },
-                  {
-                    "name": "BinaryInput4",
-                    "description": "Current value of binary input 4",
-                    "attributes": {
-                      "primaryTable": "DISCRETES_INPUT",
-                      "startingAddress": 103
-                    },
-                    "properties": {
-                        "valueType": "BOOL",
-                        "readWrite": "R"
-                    }
-                  },
-                  {
-                    "name": "BinaryOutput1",
-                    "description": "Current value of output 1",
-                    "attributes": {
-                      "primaryTable": "COILS",
-                      "startingAddress": 200
-                    },
-                    "properties": {
-                      "valueType": "BOOL",
-                      "readWrite": "RW"
-                    }
-                  },
-                  {
-                    "name": "BinaryOutput2",
-                    "description": "Current value of output 2",
-                    "attributes": {
-                      "primaryTable": "COILS",
-                      "startingAddress": 201
-                    },
-                    "properties": {
-                      "valueType": "BOOL",
-                      "readWrite": "RW"
-                    }
-                  }
-                ]
-              }
+  "modbus_device_service": {
+    "Profiles": [
+      {
+        "name": "modbus-sim-profile",
+        "manufacturer": "Dent Instruments",
+        "model": "PS3037",
+        "labels": [
+          "modbus",
+          "powerscout"
         ],
-        "Devices":[
+        "apiVersion": "v2",
+        "description": "Power Scout Meter",
+        "deviceResources": [
           {
-            "name": "damocles-virt1",
-            "profileName":"Damocles2 Mini",
-            "protocols":{
-              "modbus-tcp":{
-                "Address": "192.168.4.6",
-                "Port": 1502,
-                "UnitID": 2
-              }
+            "name": "Current",
+            "description": "Average current of all phases",
+            "attributes": {
+              "primaryTable": "HOLDING_REGISTERS",
+              "startingAddress": 9
+            },
+            "properties": {
+              "units": "A",
+              "valueType": "UINT16"
+            }
+          },
+          {
+            "name": "Energy",
+            "description": "System Total True Energy",
+            "attributes": {
+              "primaryTable": "HOLDING_REGISTERS",
+              "startingAddress": 4001
+            },
+            "properties": {
+              "units": "kWh",
+              "valueType": "FLOAT32"
+            }
+          },
+          {
+            "name": "Power",
+            "description": "System Total True Power ",
+            "attributes": {
+              "primaryTable": "HOLDING_REGISTERS",
+              "startingAddress": 4003
+            },
+            "properties": {
+              "units": "kW",
+              "valueType": "UINT16"
+            }
+          },
+          {
+            "name": "Voltage",
+            "description": "Voltage Line to line (Volts) Average",
+            "attributes": {
+              "primaryTable": "HOLDING_REGISTERS",
+              "startingAddress": 4017
+            },
+            "properties": {
+              "units": "V",
+              "valueType": "UINT16"
+            }
+          },
+          {
+            "name": "DemandWindowSize",
+            "description": "Demand window size in minutes; default is 15 min",
+            "attributes": {
+              "primaryTable": "HOLDING_REGISTERS",
+              "startingAddress": 4603
+            },
+            "properties": {
+              "readWrite": "R",
+              "units": "min",
+              "valueType": "UINT16"
+            }
+          },
+          {
+            "name": "LineFrequency",
+            "description": "Line frequency setting for metering: 50=50 Hz, 60=60Hz",
+            "attributes": {
+              "primaryTable": "HOLDING_REGISTERS",
+              "startingAddress": 4609
+            },
+            "properties": {
+              "readWrite": "R",
+              "units": "Hz",
+              "valueType": "UINT16"
             }
           }
-        ],
-        "Schedules":[
-            {
-              "device": "damocles-virt1",
-              "resource": [
-                "BinaryInput1"
-              ],
-              "interval": 2000000,
-              "name": "schedule1"
-            }
         ]
-    }
+      }
+    ],
+    "Devices": [
+      {
+        "name": "modbus-sim",
+        "profileName": "modbus-sim-profile",
+        "protocols": {
+          "modbus-tcp": {
+            "Address": "<modbus_sim_ip>",
+            "Port": 1502,
+            "UnitID": 2
+          }
+        }
+      }
+    ],
+    "Schedules": [
+      {
+        "device": "modbus-sim",
+        "interval": 2000000,
+        "name": "schedule",
+        "resource": [
+          "Current",
+          "LineFrequency",
+          "DemandWindowSize",
+          "Energy"
+        ]
+      }
+    ]
+  }
+},
+"Components": {
+  "main": {
+    "logger": "IOT::Logger",
+    "pool": "IOT::ThreadPool",
+    "scheduler": "IOT::Scheduler",
+    "bus": "XRT::Bus",
+    "azure": "XRT::AzureSphereExporter",
+    "logexport": "XRT::LogExporter",
+    "modbus": "XRT::ModbusDeviceService",
+    "mt3620": "XRT::MT3620Device",
+    "udp-logger": "IOT::Logger"
   },
-  "Components": {
-    "main": {
-        "logger":"IOT::Logger",
-        "pool":"IOT::ThreadPool",
-        "scheduler":"IOT::Scheduler",
-        "bus":"XRT::Bus",
-        "azure":"XRT::AzureSphereExporter",
-        "logexport":"XRT::LogExporter",
-        "modbus":"XRT::ModbusDeviceService",
-        "mt3620":"XRT::MT3620Device",
-        "udp-logger":"IOT::Logger"
-    },
-    "logger": {
-        "Name": "console",
-        "Level": "Debug",
-        "Start": true,
-        "Next": "udp-logger"
-    },
-    "pool": {
-        "Threads": 4,
-        "MaxJobs": 10,
-        "ShutdownDelay": 500,
-        "Logger": "logger"
-    },
-    "scheduler": {
-        "Logger": "logger"
-    },
-    "bus": {
-        "Scheduler": "scheduler",
-        "ThreadPool": "pool",
-        "Logger": "logger",
-        "Topics": [
-            {
-                "Topic": "device/mt3620/input",
-                "ThreadPool": "pool"
-            },
-            {
-                "Topic": "device/mt3620/output",
-                "ThreadPool": "pool"
-            },
-            {
-                "Topic": "device/input",
-                "ThreadPool": "pool"
-            },
-            {
-                "Topic": "device/output",
-                "ThreadPool": "pool",
-                "FilterDuplicates": true
-            }
-        ]
-    },
-    "azure": {
-        "Bus": "bus",
-        "Logger": "logger",
-        "ConnectionType": "DPS",
-        "HostName": "<iot_hub_hostname>",
-        "DeviceID": "<DEVICE-ID>",
-        "ModelID": "virtual_dev_1",
-        "ScopeID": "<ScopeID>",
-        "Interface": "wlan0",
-        "Devices": [
-            {
-                "Name": "mt3620",
-                "Topic": "device/mt3620/input",
-                "Pattern": "device/mt3620/output",
-                "Format": "Raw",
-                "TwinID": "<DEVICE-ID>"
-            },
-            {
-                "Name": "demo",
-                "Topic": "device/input",
-                "Pattern": "device/output",
-                "Format": "Device"
-            }
-        ],
-        "WorkPeriod": 10
-    },
-    "logexport": {
-        "Bus": "bus",
-        "Logger": "logger",
-        "Pattern": "transform/lua/filtered-output"
-    },
-    "mt3620": {
-        "Bus": "bus",
-        "Logger": "logger",
-        "Pattern": "device/mt3620/input",
-        "Interface": "eth0",
-        "Address": "10.0.0.48",
-        "SubnetMask": "255.255.255.0",
-        "Gateway": "0.0.0.0"
-    },
-    "modbus": {
-        "Name": "modbus_device_service",
+  "logger": {
+    "Name": "console",
+    "Level": "Debug",
+    "Start": true,
+    "Next": "udp-logger"
+  },
+  "pool": {
+    "Threads": 4,
+    "MaxJobs": 10,
+    "ShutdownDelay": 500,
+    "Logger": "logger"
+  },
+  "scheduler": {
+    "Logger": "logger"
+  },
+  "bus": {
+    "Scheduler": "scheduler",
+    "ThreadPool": "pool",
+    "Logger": "logger",
+    "Topics": [
+      {
+        "Topic": "device/mt3620/input",
+        "ThreadPool": "pool"
+      },
+      {
+        "Topic": "device/mt3620/output",
+        "ThreadPool": "pool"
+      },
+      {
+        "Topic": "device/input",
+        "ThreadPool": "pool"
+      },
+      {
         "Topic": "device/output",
-        "RequestTopic": "device/input",
-        "TelemetryTopic": "device/output",
-        "ReplyTopic": "device/output",
-        "Scheduler": "scheduler",
-        "Logger": "logger",
         "ThreadPool": "pool",
-        "Bus": "bus"
-    },
-    "udp-logger": {
-        "Name": "udp-logger",
-        "Level": "Trace",
-        "To": "udp:<host-ip>:1999",
-        "Start": true
-    }
+        "FilterDuplicates": true
+      }
+    ]
   },
-  
+  "azure": {
+    "Bus": "bus",
+    "Logger": "logger",
+    "ConnectionType": "DPS",
+    "HostName": "<iot_hub_hostname>",
+    "DeviceID": "<DEVICE-ID>",
+    "ModelID": "virtual_dev_1",
+    "ScopeID": "<ScopeID>",
+    "Interface": "wlan0",
+    "Devices": [
+      {
+        "Name": "mt3620",
+        "Topic": "device/mt3620/input",
+        "Pattern": "device/mt3620/output",
+        "Format": "Raw",
+        "TwinID": "<DEVICE-ID>"
+      },
+      {
+        "Name": "demo",
+        "Topic": "device/input",
+        "Pattern": "device/output",
+        "Format": "Device"
+      }
+    ],
+    "WorkPeriod": 10
+  },
+  "logexport": {
+    "Bus": "bus",
+    "Logger": "logger",
+    "Pattern": "transform/lua/filtered-output"
+  },
+  "mt3620": {
+    "Bus": "bus",
+    "Logger": "logger",
+    "Pattern": "device/mt3620/input",
+    "Interface": "eth0",
+    "Address": "10.0.0.48",
+    "SubnetMask": "255.255.255.0",
+    "Gateway": "0.0.0.0"
+  },
+  "modbus": {
+    "Name": "modbus_device_service",
+    "Topic": "device/output",
+    "RequestTopic": "device/input",
+    "TelemetryTopic": "device/output",
+    "ReplyTopic": "device/output",
+    "Scheduler": "scheduler",
+    "Logger": "logger",
+    "ThreadPool": "pool",
+    "Bus": "bus"
+  },
+  "udp-logger": {
+    "Name": "udp-logger",
+    "Level": "Trace",
+    "To": "udp:<host-ip>:1999",
+    "Start": true
+  }
+},

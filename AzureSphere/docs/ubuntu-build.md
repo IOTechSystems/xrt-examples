@@ -1,6 +1,7 @@
 # Building, Deploying and Debugging on Ubuntu
 
-XRT for AzureSphere can be build and run on Visual Studio Code just similarly to Windows by following the [windows build instruction](./windows-build.md).
+XRT for AzureSphere can be built and run on Visual Studio Code, to see how you can build on vscode see [Building on Visual Studio Code](./vscode-build.md).
+
 
 You can also use the Linux command line to configure, build and debug
 XRT Azure Sphere applications.

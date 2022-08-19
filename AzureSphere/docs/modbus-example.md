@@ -1,24 +1,17 @@
 # Modbus Example
 
-In this example, XRT is used to communicate with a Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
-or a [simulated Modbus device](#using-modbuspal-simulator-with-the-example)),
-values read from the Modbus Device are then sent to its
+In this example, XRT is used to communicate with either a: 
+ * Modbus TCP/IP Device [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
+ * [ModbusPal Simulator](#using-the-modbuspal-simulator-with-the-example)
+ * [Modbus Dockerised Simulator](#using-the-inhouse-dockerised-simulator-with-the-example)
+
+values read from the choosen Modbus Device are then sent to its
 Azure IoT Hub Device Twin in the Cloud. Methods can also be sent back from
 the cloud to the Modbus Device using the Device Twin from the Azure IoT Hub.
 
 ![Azure Sphere Modbus Example](images/AzureSphereModbusExample.jpg)
 
-The example reads the digital inputs from a Modbus Device via
-the Modbus Device Service component and publishes the data onto the
-[internal XRT bus with duplicates filter turn on](../config/bus.json).
-
-If a new data value is the same as the previous value then the
-duplicates filter will prevent the unchanged data value from being
-published onto the bus and sent to the Azure IoT Hub via the
-Azure Export component. Otherwise all new data values are
-automatically sent to Azure IoT Hub.
-
-From the Azure IoT Hub methods can be called on Device Twins
+From the Azure IoT Hub, methods can be called on Device Twins
 to send values back down to XRT running on the Azure Sphere
 hardware. Values are received by the Azure Export component
 and published onto the XRT bus. The Modbus Device Service subscribes
@@ -34,9 +27,11 @@ mirrored by the digital inputs.*
 ## AzureSphere Hardware
 
 The Modbus Example works on all XRT supported AzureSphere
-hardware. See [readme](../README.md).
+hardware. See the supported hardware section on the main [readme](../README.md/#supported-hardware).
 
-### Modbus Device
+### Modbus Devices
+
+#### Domocles2 Mini
 
 The [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
 is a smart I/O controller used for remote monitoring and
@@ -44,165 +39,65 @@ control of sensors and devices. It provides 4 digital dry
 contact inputs and 2 digital relay outputs that can be
 accessed via a Modbus interface.
 
-If you do not have access to a physical device, a Java
-[Modbus simulator](#using-modbuspal-simulator-with-the-example)
-called ModbusPal, can be used instead of the real hardware.
-
 If the Damocles hardware is used then it must be connected to
-the Guardian 100 module via a wired Ethernet connection.
+the Azure module via a wired Ethernet connection.
+
+#### ModbusPal
+
+If you do not have access to a physical device, a Java application called 
+[ModbusPal simulator](#using-the-modbuspal-simulator-with-the-example)
+called ModbusPal, can be used instead of the real hardware.
 
 If the simulator is used it can be installed on your PC. 
 Wired Ethernet or WiFi can be used to communicate with XRT.
+
+#### Dockerised Modbus-Sim
+
+There is also an in house dockerised simulator - [Modbus-Sim](#using-the-inhouse-dockerised-simulator-with-the-example), available which can be 
+used instead of ModbusPal. This simulator doesn't require any setup
+and can be ran from either the host PC or a separate host and can
+communicate via a Wired or Wireless network configuration.
 
 ## Prerequisites
 
 *Note - The prerequisites found on the main
 [readme.md](../README.md) are also required for this example.*
 
-* The ModbusPal Java [Modbus simulator](#using-modbuspal-simulator-with-the-example),
-  or a Damocles2 Mini connected by wired EtherNet to a AzureSphere module
+Either:
+* The Inhouse [Dockerised Modbus Simulator](#using-the-inhouse-dockerised-simulator-with-the-example)
+* The [ModbusPal Java simulator](#using-the-modbuspal-simulator-with-the-example)
+* or The Damocles2 Mini connected by wired EtherNet to a AzureSphere module
+
+You will also need:
 * Azure IoT Hub setup using the same tenant as your claimed Azure Sphere
   Module
 * Connected to host via a micro-USB cable. Note to access this port
       the top casing must be removed
 
-## Configuration
 
-The following section describes the configuration used by the Modbus example.
+## Setup Configurations 
 
-### Device Profile
+To get started with the Modbus example we have to first setup all
+the configurations files by following the steps on [setup config files](./setup-config-files.md).
 
-To connect to a new device via XRT you must first create a
-Device Profile for the specific device type.
+## Using the Inhouse Dockerised Simulator with the Example
 
-The Device Profile contains a config of different
-deviceResources that can to be sent or received from the Azure
-IoT Hub.
-
-Device Profiles and DTDL for Digital Twins files can created
-using IOTech’s [Device Configuration Tool](https://dct.iotechsys.com/).
-A video showing you how to do this can for the Damocles2 Mini device
-can be viewed at [DCT Modbus Tutorial Video](https://www.youtube.com/watch?v=sj1hC7S4uE4).
-
-The configuration files generated from the tool are provided
-as follows:
-*	[Damocles2 Mini Device Profile](../config/profiles/Damocles2-Mini.json)
-*	[Damocles2 Mini DTDL file](../Damocles2-Mini.dtdl)
-
-### Azure (required)
-
-To connect the example to your IoT Hub endpoint you must also
-configure Azure Export Service component.
-
-* Edit [config/azure-modbus.json](../config/azure-modbus.json) and the
-  value for the "HostName", "DeviceID" and "ScopeID" values.
-
-* The DeviceID can be found for a USB connected device with
-  the command:
-
-  ```bash
-  azsphere device list-attached
-  ```
-
-* The HostName is the IoT Hub host name and can be found using
-  the [Azure Portal](https://portal.azure.com/) or using the
-  command (replace <iothub-name> with the name of your IoT Hub):
-
-  ```bash
-  az iot hub show --name <iothub-name> | grep hostName
-  ```
-
-* The Device Provisioning Service ID Scope can be found using
-  the [Azure Portal](https://portal.azure.com/) or the command
-  (replace <DPSName> with the name of your Device Provisioning
-  Service):
-
-  ```bash
-  az iot dps show --name <DPSName> | grep idScope
-  ```
-
-![Azure Export Config](images/AzureExportConfig.svg)
-
-
-### Device Twin (Required)
-
-The configuration files compiled into the application are only used
-for initial connection to Azure. The "desired" properties setting on
-the device twin are automaticallly downloaded and persisted to the
-Azure Sphere device. An example set of "desired" properties can be
-found at:
-[twin/desired-modbus.json](../twin/desired-modbus.json)
-
-The Microsoft Azure Device Twin corresponding to the Azure Sphere
-development board will need updating to include the same "azure"
-component settings. This is found in the Device twin JSON at
-"properties" / "desired" / "Components" / "azure". This is can be
-accessed via the Azure portal.
-
-The device twin "main" has the modbus component referenced and the
-properties for "properties" / "desired" / "Components" / "modbus" must
-be configured to match the actual deployment.
-
-The configuration for the modbus device service is found under
-"properties" / "desired" / "Services" / "modbus_device_service".
-
-The Azure Sphere board on first boot will wait indefinitely until a
-complete configuration update is received from the device twin. The
-board will then reboot. After reconnecting to the Azure cloud service
-the device service will start processing any configured schedules and
-publish the data to Azure.
-
-If the desired properties are changed then the Azure Sphere board will
-reboot after receiving notification of the change.
-
-#### Python Script
-
-A Python example can be found at [twin/device-twin.py](../twin/device-twin.py)
-which shows how to use the Azure IoT SDK, to alter a device twin on
-an IoT Hub. You will need a connection string for the
-[Azure IoT Hub connection/auth](https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest)
-and the device id of the device you wish to use. Both of these
-will need to be set as environment variables as shown below.
+To use the inhouse simulator docker will need to be pullled from docker hub 
+on a device from where the simulator will be ran from. 
+The sim can started using the following command:
 
 ```bash
-export IOTHUB_CONNECTION_STRING=<connection_string>
-export IOTHUB_DEVICE_ID=<device_id>
+docker run --rm --name modbus-sim iotechsys/modbus-sim:1.0
 ```
 
-### Remote Logging (Optional)
+This by default will launch a simulated modbus device on port 1502 and the
+IP address of the device will be that of the host device from where the
+simulator is running from.
 
-The example main.c includes a remote logging component to publish logging
-messages over UDP. This needs to be configured by editing
-[configs/udp-logger.json](../config/udp-logger.json)
-and changing the "To:" value to use the IP address of the host PC.
-The Makefile contains an example of using the socat command to monitor
-the log output.
+The simulator can run through a wired network or through a wireless network
+interface.
 
-
-### App Manifest (required)
-
-You will need to edit the app manifest file at [mt3620-g100/app_manifest.json](../mt3620-g100/app_manifest.json)
-with the following:
-
-* In AllowedConnections, replace IOTechHub with the name of
-  your hostname of your IoT Hub, you can find this via the
-  [Azure Portal](https://portal.azure.com/) or using the
-  command (replace <iothub-name> with the name of your IoT Hub):
-  ```bash
-  az iot hub show --name <iothub-name> | grep hostName
-  ```
-* If your using the [Modbus Simulator](#using-modbuspal-simulator-with-the-example)
-  you will need to replace 10.0.0.1 in AllowedConnections with
-  the IP address of your PC running the Modbus Simulator,
-  otherwise 10.0.0.1 can be removed from AllowedConnections
-* Set DeviceAuthentication, to your tenant id:
-  ```bash
-  azsphere tenant list
-  ```
-
-![Application Manifest](images/AppManifest.svg)
-
-## Using ModbusPal Simulator With The Example
+## Using the ModbusPal Simulator with the Example
 
  To use ModbusPal Simulator with this example you will
  need to:
@@ -250,19 +145,6 @@ on port 1502 to the simulator:
 
 ![ModbusPal Run](images/ModbusPalRun.svg)
 
-## Building and Debugging The Application
-
-You can build the BACnet Example following the links below:
-
-* [Building, Deploying and Debugging on Windows](windows-build.md)
-* [Building, Deploying and Debugging On Ubuntu](ubuntu-build.md)
-
-## Deploying From The Cloud
-
-You can also deploy the Modbus Example from the cloud with
-the link below:
-
-[Deploy From The Cloud](deploy-from-the-cloud.md)
 
 ## Inputs & Outputs With A Modbus Device
 
