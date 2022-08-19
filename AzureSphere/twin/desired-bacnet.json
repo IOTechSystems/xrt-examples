@@ -105,16 +105,16 @@
                 ],
                 "deviceCommands": [
                     {
-                      "name": "InputsValues",
-                      "readWrite": "R",
-                      "resourceOperations": [
-                        {
-                            "deviceResource": "AnalogInput0"
-                        },
-                        {
-                            "deviceResource": "BinaryInput0"
-                        }
-                      ]
+                        "name": "InputsValues",
+                        "readWrite": "R",
+                        "resourceOperations": [
+                            {
+                                "deviceResource": "AnalogInput0"
+                            },
+                            {
+                                "deviceResource": "BinaryInput0"
+                            }
+                        ]
                     }
                 ]
             }
