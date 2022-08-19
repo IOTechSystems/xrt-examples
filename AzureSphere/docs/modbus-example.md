@@ -97,7 +97,7 @@ simulator is running from.
 The simulator can run through a wired network or through a wireless network
 interface.
 
-## Using the ModbusPal Simulator With The Example
+## Using the ModbusPal Simulator with the Example
 
  To use ModbusPal Simulator with this example you will
  need to:
