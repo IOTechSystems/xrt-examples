@@ -2,8 +2,8 @@
 
 In this example, XRT is used to communicate with either a: 
  * Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
- * [ModbusPal Simulator](#using-modbus-simulator-with-the-example))
- * [Modbus Dockerised Simulator](https://github.com/IOTechSystems/modbus-sim)
+ * [ModbusPal Simulator](#using-the-modbuspal-simulator-with-the-example)
+ * [Modbus Dockerised Simulator](#using-the-inhouse-dockerised-simulator-with-the-example)
 
 values read from the choosen Modbus Device are then sent to its
 Azure IoT Hub Device Twin in the Cloud. Methods can also be sent back from
