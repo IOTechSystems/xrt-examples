@@ -1,7 +1,7 @@
 # Modbus Example
 
 In this example, XRT is used to communicate with either a: 
- * Modbus TCP/IP Device ([Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
+ * Modbus TCP/IP Device [Damocles2 Mini](https://www.hw-group.com/device/damocles2-mini)
  * [ModbusPal Simulator](#using-the-modbuspal-simulator-with-the-example)
  * [Modbus Dockerised Simulator](#using-the-inhouse-dockerised-simulator-with-the-example)
 
@@ -87,7 +87,7 @@ on a device from where the simulator will be ran from.
 The sim can started using the following command:
 
 ```bash
-docker run --rm --name modbus-sim iotechsys/modbus-sim:1.0.0
+docker run --rm --name modbus-sim iotechsys/modbus-sim:1.0
 ```
 
 This by default will launch a simulated modbus device on port 1502 and the
