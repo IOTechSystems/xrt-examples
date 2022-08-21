@@ -12,8 +12,8 @@
     "QoS": 1,
     "ClientConfig":
     {
-      "Username":"IOTechHub.azure-devices.net/test-xrt-azure",
-      "Password": "SharedAccessSignature sr=IOTechHub.azure-devices.net%2Fdevices%2Ftest-xrt-azure&sig=qdihuJHi50x2MnPTzJplD%2FG8DmG0cmGEXCXFug11fS4%3D&se=1660849690",
+      "Username":"${AZURE_MQTT_USERNAME}",
+      "Password": "${AZURE_MQTT_SAS_PASSWORD}",
       "KeepAliveInterval": 10,
       "MQTTVersion": 4,
       "Reliable": true,
