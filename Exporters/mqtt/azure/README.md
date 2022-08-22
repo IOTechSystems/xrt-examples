@@ -44,7 +44,7 @@ AZURE_MQTT_SAS_PASSWORD - SAS based Password e.g
   export AZURE_MQTT_SAS_PASSWORD=SharedAccessSignature sr=<SAS>
 ```
 
-AZURE_MQTT_ROOT_CA - Your Azure trust store file e.g
+AZURE_MQTT_ROOT_CA - Your Azure Root CA e.g
 
 ```bash
   export AZURE_MQTT_ROOT_CA=/path/to/your/azure.pem
