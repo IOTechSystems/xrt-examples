@@ -18,6 +18,7 @@
       },
       "properties": {
         "valueType": "UINT16",
+        "readWrite": "RW",
         "units": "A"
       }
     },
@@ -30,6 +31,7 @@
       },
       "properties": {
         "valueType": "FLOAT32",
+        "readWrite": "RW",
         "units": "kWh"
       }
     },
@@ -42,6 +44,7 @@
       },
       "properties": {
         "valueType": "UINT16",
+        "readWrite": "RW",
         "units": "kW"
       }
     },
@@ -54,6 +57,7 @@
       },
       "properties": {
         "valueType": "UINT16",
+        "readWrite": "RW",
         "units": "V"
       }
     },
