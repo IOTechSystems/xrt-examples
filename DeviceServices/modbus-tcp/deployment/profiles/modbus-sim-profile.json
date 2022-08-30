@@ -18,7 +18,6 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "min",
         "readWrite": "RW"
       }
     },
@@ -31,7 +30,6 @@
       },
       "properties": {
         "valueType": "FLOAT32",
-        "units": "min",
         "readWrite": "RW"
       }
     },
@@ -44,7 +42,6 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "min",
         "readWrite": "RW"
       }
     },
@@ -57,7 +54,6 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "min",
         "readWrite": "RW"
       }
     },
@@ -70,8 +66,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "readWrite": "R",
-        "units": "min"
+        "readWrite": "R"
       }
     },
     {
@@ -83,8 +78,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "readWrite": "R",
-        "units": "Hz"
+        "readWrite": "R"
       }
     }
   ]
