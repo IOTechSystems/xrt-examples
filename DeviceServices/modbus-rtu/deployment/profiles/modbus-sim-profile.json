@@ -18,7 +18,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "min"
+        "units": "A"
       }
     },
     {
@@ -30,7 +30,7 @@
       },
       "properties": {
         "valueType": "FLOAT32",
-        "units": "min"
+        "units": "kWh"
       }
     },
     {
@@ -42,7 +42,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "min"
+        "units": "kW"
       }
     },
     {
@@ -54,7 +54,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "min"
+        "units": "V"
       }
     },
     {

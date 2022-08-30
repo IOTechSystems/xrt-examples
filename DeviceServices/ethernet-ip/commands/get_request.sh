@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/ethernet_ip/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "ethernetip-sim",
-  "resource": ["DO1"]
+  "resource": "DO1"
 }'

@@ -17,7 +17,9 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "Driver":{
-    "InstanceID": 0,
+    "DeviceObject": {
+      "InstanceID": 0
+    },
     "SerialInterface": "/tmp/virtualport",
     "APDUTimeout": 10000,
     "APDURetries": 3,

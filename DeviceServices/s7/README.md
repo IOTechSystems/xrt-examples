@@ -4,11 +4,13 @@
 
 This page shows you how to setup and run the S7 device service example.
 
-For more information about the Device Service please review the [S7 Device Service](https://www.link.to.s7.device.service.docs) documentation. 
+For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/s7-device-service-component.html) documentation. 
 
 ## Getting Started
 
 ### **Run the simulator**
+
+*For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/s7/overview.html).*
 
 ```bash
 ./commands/start_device_sim.sh

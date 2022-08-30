@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/gps/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "gps-sim",
-  "resource": ["Date"]
+  "resource": "Date"
 }'

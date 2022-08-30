@@ -1,9 +1,7 @@
 #include <signal.h>
 #include "xrt/mt3620_device.h"
 #include "xrt/log_exporter.h"
-#include "xrt/influxdb_exporter.h"
 #include "xrt/azuresphere_exporter.h"
-#include "xrt/rest_exporter.h"
 #include "xrt/lua_transform.h"
 #include <applibs/storage.h>
 

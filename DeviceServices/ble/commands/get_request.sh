@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "ble-sim",
-  "resource": ["Square"]
+  "resource": "Square"
 }'

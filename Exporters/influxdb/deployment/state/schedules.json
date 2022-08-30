@@ -1,1 +1,11 @@
-{"schedule1":{"device":"Motor","resource":["MachineState"],"interval":500000,"name":"schedule1"}}
+{
+  "apiVersion": "v2",
+  "schedules":[{
+    "device":"Motor",
+    "resource":[
+      "MachineState"
+    ],
+    "interval":500000,
+    "name":"schedule1"
+  }]
+}

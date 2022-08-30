@@ -1,6 +1,9 @@
 # Building, Deploying and Debugging on Ubuntu
 
-You can use the Linux command line to configure, build and debug
+XRT for AzureSphere can be built and run on Visual Studio Code, to see how you can build on vscode see [Building on Visual Studio Code](./vscode-build.md).
+
+
+You can also use the Linux command line to configure, build and debug
 XRT Azure Sphere applications.
 
 * Set the `BOARD` variable, in-order to build for your targeted
@@ -28,13 +31,13 @@ make monitor
 In another shell issue the command:
 
 ```bash
-/opt/azurespheresdk/Sysroots/11/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out
+/opt/azurespheresdk/Sysroots/12/tools/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-musleabi/arm-poky-linux-musleabi-gdb xrt-app.out
 ```
 
 In gdb issue the commands:
 
 ```
-(gdb) set sysroot /opt/azurespheresdk/Sysroots/11
+(gdb) set sysroot /opt/azurespheresdk/Sysroots/12
 (gdb) target remote 192.168.35.2:2345
 (gdb) continue
 ```

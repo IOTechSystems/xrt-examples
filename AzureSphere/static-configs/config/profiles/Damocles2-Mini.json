@@ -7,6 +7,7 @@
     "Damocles2",
     "Mini"
   ],
+  "apiVersion": "v2",
   "description": "Damocles2 Mini",
   "deviceResources": [
     {
@@ -14,7 +15,7 @@
       "description": "Current value of binary input 1",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "100"
+        "startingAddress": 100
       },
       "properties": {
         "value": {
@@ -33,7 +34,7 @@
       "description": "Current value of binary input 2",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "101"
+        "startingAddress": 101
       },
       "properties": {
         "value": {
@@ -52,7 +53,7 @@
       "description": "Current value of binary input 3",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "102"
+        "startingAddress": 102
       },
       "properties": {
         "value": {
@@ -71,7 +72,7 @@
       "description": "Current value of binary input 4",
       "attributes": {
         "primaryTable": "DISCRETES_INPUT",
-        "startingAddress": "103"
+        "startingAddress": 103
       },
       "properties": {
         "value": {
@@ -90,7 +91,7 @@
       "description": "Current value of output 1",
       "attributes": {
         "primaryTable": "COILS",
-        "startingAddress": "200"
+        "startingAddress": 200
       },
       "properties": {
         "value": {
@@ -109,7 +110,7 @@
       "description": "Current value of output 2",
       "attributes": {
         "primaryTable": "COILS",
-        "startingAddress": "201"
+        "startingAddress": 201
       },
       "properties": {
         "value": {
@@ -129,22 +130,22 @@
       "name": "BinaryInputs",
       "get": [
         {
-          "index": "1",
+          "index": 1,
           "operation": "get",
           "deviceResource": "BinaryInput1"
         },
         {
-          "index": "2",
+          "index": 2,
           "operation": "get",
           "deviceResource": "BinaryInput2"
         },
         {
-          "index": "3",
+          "index": 3,
           "operation": "get",
           "deviceResource": "BinaryInput3"
         },
         {
-          "index": "4",
+          "index": 4,
           "operation": "get",
           "deviceResource": "BinaryInput4"
         }
@@ -154,32 +155,32 @@
       "name": "InputsAndOutputs",
       "get": [
         {
-          "index": "1",
+          "index": 1,
           "operation": "get",
           "deviceResource": "BinaryInput1"
         },
         {
-          "index": "2",
+          "index": 2,
           "operation": "get",
           "deviceResource": "BinaryInput2"
         },
         {
-          "index": "3",
+          "index": 3,
           "operation": "get",
           "deviceResource": "BinaryInput3"
         },
         {
-          "index": "4",
+          "index": 4,
           "operation": "get",
           "deviceResource": "BinaryInput4"
         },
         {
-          "index": "5",
+          "index": 5,
           "operation": "get",
           "deviceResource": "BinaryOutput1"
         },
         {
-          "index": "6",
+          "index": 6,
           "operation": "get",
           "deviceResource": "BinaryOutput2"
         }

@@ -9,7 +9,7 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "schedule": {
     "name":"ble-sim-schedule1",
     "device":"ble-sim",
-    "resource":["Counter"],
+    "resource":"Counter",
     "interval": 1000000
   }
 }'

@@ -14,7 +14,7 @@ mosquitto_pub -t xrt/devices/modbus/request -m \
          "Address": "/tmp/virtualport",
          "BaudRate": 19200,
          "DataBits": 8,
-         "Parity": 'N',
+         "Parity": "N",
          "StopBits": 1,
          "UnitID": 1
       }

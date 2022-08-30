@@ -2,6 +2,7 @@
   "apiVersion": "v2",
   "devices": [
     {
+      "name": "gps-sim",
       "profileName": "GPS-Device",
       "protocols": {
         "GPS": {

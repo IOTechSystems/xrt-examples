@@ -11,157 +11,16 @@ An example of connecting to the BACnet Simulator using WI-FI
 is given and also an example of connecting to BACnet Simulator
 via ethernet.
 
-## AzureSphere Hardware
-
-The BACnet Example works on all XRT supported AzureSphere
-hardware, that's listed on the main [readme](../README.md).
-
 ## Prerequisites
 
 Note: The prerequisites found on the main [readme.md](../README.md) are also required for this example.
 
 * BACnet Simulator (Docker)
 
-## Configuration
+## Setup Configurations 
 
-In-order for the BACnet example to work, you will need
-to edit some of the configurations. The configurations
-that are required to be edited will have "(required)"
-within there title.
-
-### Device Profile
-
-BACnet Device profile can be found at:
-[configs/profiles/bacnet-simulator.json](../config/profiles/bacnet-simulator.json)
-
-The Device Profile contains a config of different
-deviceResources that can to be sent or received from the Azure
-IoT Hub.
-
-### Azure (Required)
-
-The Azure config file can be found at:
-[configs/azure-bacnet.json](../config/azure.json)
-
-You will need to configure some values in azure.json to
-be able to send values to Azure IoT Hub. You will need:
-
-* DeviceID, can be found for a USB connected device with
-  the command:
-
-```bash
-azsphere device list-attached
-```
-
-* HostName, is the Azure IoT Hub host name and can be found
-  using the [Azure Portal](https://portal.azure.com/) or
-  using the command (replace HubName with the name of your
-  IOT hub):
-
-```bash
-az iot hub show --name <HubName> | grep hostName
-```
-
-* ScopeID, The Device Provisioning Service ID Scope can be found
-  using the portal or the command (replace DPSName with
-  the name of your Device Provisioning Service):
-
-```bash
-az iot dps show --name <DPSName> | grep idScope
-```
-
-### Device Twin (Required)
-
-The configuration files compiled into the application are only used
-for initial connection to Azure. The "desired" properties setting on
-the device twin are automaticallly downloaded and persisted to the
-Azure Sphere device. An example set of "desired" properties can be
-found at:
-[twin/desired-bacnet.json](../twin/desired-bacnet.json)
-
-The Microsoft Azure Device Twin corresponding to the Azure Sphere
-development board will need updating to include the same "azure"
-component settings. This is found in the Device twin JSON at
-"properties" / "desired" / "Components" / "azure". This is can be
-accessed via the Azure portal.
-
-The device twin "main" has the bacnet component referenced and the
-properties for "properties" / "desired" / "Components" / "bacnet" must
-be configured to match the actual deployment.
-
-The configuration for the BACnet device service is found under
-"properties" / "desired" / "Services" / "bacnet_device_service".
-
-The Azure Sphere board on first boot will wait indefinitely until a
-complete configuration update is received from the device twin. The
-board will then reboot. After reconnecting to the Azure cloud service
-the device service will start processing any configured schedules and
-publish the data to Azure.
-
-If the desired properties are changed then the Azure Sphere board will
-reboot after receiving notification of the change.
-
-#### Python Script
-
-A Python example can be found at [twin/device-twin.py](../twin/device-twin.py)
-which shows how to use the Azure IoT SDK, to alter a device twin on
-an IoT Hub. You will need a connection string for the
-[Azure IoT Hub connection/auth](https://docs.microsoft.com/en-us/cli/azure/iot/hub/connection-string?view=azure-cli-latest)
-and the device id of the device you wish to use. Both of these
-will need to be set as environment variables as shown below.
-
-```bash
-export IOTHUB_CONNECTION_STRING=<connection_string>
-export IOTHUB_DEVICE_ID=<device_id>
-```
-
-### Remote Logging (Optional)
-
-The example main.c includes a remote logging component to publish logging
-messages over UDP. This needs to be configured by editing
-[configs/udp-logger.json](../config/udp-logger.json)
-and changing the "To:" value to use the IP address of the host PC.
-The Makefile contains an example of using the socat command to monitor
-the log output.
-
-### App Manifest (Required)
-
-* Edit the [app_manifest.json](../app_manifest.json) file and
-  replace the DeviceAuthentication value \<tenant-uuid-identifier\> with
-  your tenant id and replace <IOTHub> with your IoT Hub name
-  in AllowedConnections
-
-  ```bash
-  azsphere tenant list
-  ```
-
-* Add the ip address of any BACnet devices, that will be
-  communicating with XRT, to the `AllowedConnections` JSON
-  array, and add the BACnet broadcast ip address of the
-  subnet. For example, when using the subnet 192.168.4.0,
-  the broadcast ip would be 192.168.4.255
-
-  ```json
-  ...
-  "AllowedConnections" : [ "<bacnet-device-ip>", "<bacnet-broadcast-ip>", "global.azure-devices-provisioning.net", "IOTechHub.azure-devices.net" ],
-  ...
-  ```
-  
-* Optionally add the IP address of a PC to receive XRT logging output sent over UDP.
-
-## Building and Debugging The Application
-
-You can build the BACnet Example following the links below:
-
-* [Building, Deploying and Debugging on Windows](windows-build.md)
-* [Building, Deploying and Debugging On Ubuntu](ubuntu-build.md)
-
-## Deploying From The Cloud
-
-You can also deploy the BACnet Example from the cloud with
-the link below:
-
-[Deploy From The Cloud](deploy-from-the-cloud.md)
+To get started with the BACnet example we have to first setup all
+the configurations files by following the steps on [setup config files](./setup-config-files.md).
 
 ## BACnet Simulator
 
@@ -202,7 +61,7 @@ to select the required `NetworkInterface` option in the Driver section of the co
 Also, the IP address of the machine running the simluator and
 the BACnet broadcast IP should be included in the `AllowedConnections`
 JSON array, as part of the app manifest configuration as described
-[here](#app-manifest-required).
+[here](./setup-config-files.md/#app-manifest-required).
 
 ## Changing A BACnet Device Output Values
 
@@ -303,7 +162,7 @@ sudo systemctl restart network-manager
 
 In order to ssh into the Raspberry Pi on the new 192.168.4.0
 subnet, the Raspberry Pi will need an ip address. Create a file
-in the following path `/etc/dhcp/dhcpd.conf` and copy in the
+in the following path */etc/dhcp/dhcpd.conf* and copy in the
 below contents, replace the <MAC address of the raspberry pi>
 place holder with the MAC Address of the Raspberry Pi you
 obtained earlier:
@@ -332,6 +191,7 @@ ssh pi@192.168.4.12
 ```
 
 Create a bacnet-simulator directory
+
 ```bash
 mkdir bacnet-simulator
 ```
