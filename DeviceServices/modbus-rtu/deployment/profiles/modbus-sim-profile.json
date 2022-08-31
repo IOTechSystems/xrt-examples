@@ -18,7 +18,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "A"
+        "readWrite": "RW"
       }
     },
     {
@@ -30,7 +30,7 @@
       },
       "properties": {
         "valueType": "FLOAT32",
-        "units": "kWh"
+        "readWrite": "RW"
       }
     },
     {
@@ -42,7 +42,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "kW"
+        "readWrite": "RW"
       }
     },
     {
@@ -54,7 +54,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "units": "V"
+        "readWrite": "RW"
       }
     },
     {
@@ -66,8 +66,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "readWrite": "R",
-        "units": "min"
+        "readWrite": "R"
       }
     },
     {
@@ -79,8 +78,7 @@
       },
       "properties": {
         "valueType": "UINT16",
-        "readWrite": "R",
-        "units": "Hz"
+        "readWrite": "R"
       }
     }
   ]
