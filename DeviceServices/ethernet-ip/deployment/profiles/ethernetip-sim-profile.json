@@ -230,48 +230,6 @@
       }
     },
     {
-      "name": "IdentityClass",
-      "description": "Get Attributes All Command to Identity Object Instance",
-      "attributes": {
-        "instID": 1,
-        "objClass": 1,
-        "serviceCode": 1,
-        "type": "EM"
-      },
-      "properties": {
-        "readWrite": "R",
-        "valueType": "String"
-      }
-    },
-    {
-      "name": "IdentityClass_bytes",
-      "description": "Get Attributes All Command to Identity Object Instance",
-      "attributes": {
-        "instID": 1,
-        "objClass": 1,
-        "serviceCode": 1,
-        "type": "EM"
-      },
-      "properties": {
-        "readWrite": "R",
-        "valueType": "Uint8array"
-      }
-    },
-    {
-      "name": "EtherNetLinkClass_bytes",
-      "description": "Get Attributes All Command to Identity Object Instance",
-      "attributes": {
-        "instID": 1,
-        "objClass": 246,
-        "serviceCode": 1,
-        "type": "EM"
-      },
-      "properties": {
-        "readWrite": "R",
-        "valueType": "Uint8array"
-      }
-    },
-    {
       "name": "VendorID",
       "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
       "attributes": {
