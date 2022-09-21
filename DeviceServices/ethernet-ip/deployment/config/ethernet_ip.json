@@ -15,6 +15,7 @@
   "Bus":"bus",
   "Driver": {
     "NetworkInterface": "eth0",
-    "ConnectionTimeout" : 3000
+    "ConnectionTimeout": 3000,
+    "DiscoveryDuration": 4000
   }
 }
