@@ -10,6 +10,7 @@
   "DiscoveryInterval": 0,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
+  "PublishServerId": true,
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}",
   "Scheduler":"sched",
