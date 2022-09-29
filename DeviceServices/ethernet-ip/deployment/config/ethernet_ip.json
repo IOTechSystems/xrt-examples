@@ -16,6 +16,7 @@
   "Driver": {
     "NetworkInterface": "eth0",
     "ConnectionTimeout": 3000,
-    "DiscoveryDuration": 4000
+    "DiscoveryDuration": 4000,
+    "DirectedBroadcastDiscovery" : false
   }
 }
