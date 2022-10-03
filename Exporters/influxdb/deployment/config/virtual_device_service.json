@@ -8,5 +8,6 @@
   "Bus":"bus",
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}",
-  "Timestamp": true
+  "Timestamp": true,
+  "PublishSource":true
 }
