@@ -7,7 +7,7 @@
   "Org": "${XRT_INFLUXDB_ORG}",
   "Token": "${XRT_INFLUXDB_TOKEN}",
   "Measurement": "DeviceName",
-  "Tag": ["TagDeviceName", "TagScheduleName"],
+  "Tags": ["TagDeviceName", "TagScheduleName"],
   "SelectData": [
     { "Pattern": "device/#", "Format": "Device"}
   ],
