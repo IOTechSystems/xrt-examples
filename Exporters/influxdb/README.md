@@ -72,7 +72,7 @@ export XRT_INFLUXDB_TOKEN="abcede=="
 To deploy InfluxDB2.0 using Docker -
 
 ```bash
-  docker run --rm --detach  --name ${INFLUXDB_CONTAINER} influxdb:2.0.7
+  docker run --rm --detach  --name ${INFLUXDB_CONTAINER} influxdb:2.4
   
   docker exec ${INFLUXDB_CONTAINER} influx setup \
     --bucket ${XRT_INFLUXDB_BUCKET} \
