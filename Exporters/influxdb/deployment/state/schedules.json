@@ -6,6 +6,7 @@
       "MachineState"
     ],
     "interval":500000,
-    "name":"schedule1"
+    "name":"schedule1",
+    "publish": true
   }]
 }

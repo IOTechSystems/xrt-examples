@@ -4,6 +4,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "influxdb_exporter":"XRT::InfluxDBExporter",
+  "influxdb2_exporter":"XRT::InfluxDBExporter",
   "virtual_device_service":"XRT::VirtualDeviceService"
 }
