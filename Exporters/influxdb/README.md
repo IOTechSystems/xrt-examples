@@ -39,7 +39,7 @@ XRT_INFLUXDB_PASSWORD - The password for the influx database e.g
 export XRT_INFLUXDB_PASSWORD=admin
 ```
 
-**Influxdb-2.x**
+**Influxdb-2.x Specific Environment Variables**
 
 XRT_INFLUXDB_BUCKET - The name of the influx Bucket e.g.
 
@@ -53,7 +53,7 @@ XRT_INFLUXDB_ORG - The name of the Organisation e.g.
 export XRT_INFLUXDB_ORG=InfluxOrg
 ```
 
-XRT_INFLUXDB_TOKEN - Acess Token string to programmatically write/query
+XRT_INFLUXDB_TOKEN - Acess Token string to programmatically write to database
 
 ```bash
 export XRT_INFLUXDB_TOKEN="abcede=="
@@ -61,15 +61,15 @@ export XRT_INFLUXDB_TOKEN="abcede=="
 
 **Run InfluxDB**
 
-**Influxdb-1.x**
+**1. Influxdb-1.x**
 
 ```bash
   docker run --rm --detach --name xrt-influxdb -e "INFLUXDB_HTTP_AUTH_ENABLED=true" -e "INFLUXDB_ADMIN_USER=${XRT_INFLUXDB_USERNAME}" -e "INFLUXDB_ADMIN_PASSWORD=${XRT_INFLUXDB_PASSWORD}" influxdb:1.8
 ```
 
-**Influxdb-2.x**
+**2. Influxdb-2.x**
 
-To deploy InfluxDB2.0 using Docker, 
+To deploy InfluxDB2.0 using Docker -
 
 ```bash
   docker run --rm --detach  --name ${INFLUXDB_CONTAINER} influxdb:2.0.7
