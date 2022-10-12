@@ -142,6 +142,14 @@ static void app_component_add_callback (iot_data_t * data, void * self, const ch
 /* Function to return static component factory. Used by Container. */
 extern const iot_component_factory_t * app_component_factory (void)
 {
-  static iot_component_factory_t factory = { APP_COMPONENT_TYPE, app_component_config, (iot_component_free_fn_t) app_component_free, NULL , NULL};
+  static iot_component_factory_t factory =
+  {
+    APP_COMPONENT_TYPE,
+    XRT_CATEGORY_TRANSFORM,
+    app_component_config,
+    (iot_component_free_fn_t) app_component_free,
+    NULL,
+    NULL
+  };
   return &factory;
 }
