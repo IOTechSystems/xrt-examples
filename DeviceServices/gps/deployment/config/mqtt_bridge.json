@@ -19,8 +19,6 @@
     	"MQTTVersion": 5,
     	"Reliable": true
      },
-    "RetryCount": 5,
-    "RetryInterval": 5
   },
   "Cookie": 125,
   "Bus": "bus",
