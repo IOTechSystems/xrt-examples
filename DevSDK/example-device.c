@@ -346,6 +346,14 @@ static iot_component_t * xrt_example_device_service_config (iot_container_t * co
 
 extern const iot_component_factory_t * xrt_example_device_service_factory (void)
 {
-  static iot_component_factory_t factory = { XRT_EXAMPLE_DEVICE_SERVICE_TYPE, xrt_example_device_service_config, (iot_component_free_fn_t) xrt_device_free, NULL, NULL };
+  static iot_component_factory_t factory =
+  {
+    XRT_EXAMPLE_DEVICE_SERVICE_TYPE,
+    XRT_CATEGORY_DEVICE_SERVICE,
+    xrt_example_device_service_config,
+    (iot_component_free_fn_t) xrt_device_free,
+    NULL,
+    NULL
+  };
   return &factory;
 }
