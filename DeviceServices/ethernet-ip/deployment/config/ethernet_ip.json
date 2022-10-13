@@ -17,6 +17,7 @@
     "NetworkInterface": "eth0",
     "ConnectionTimeout": 3000,
     "DiscoveryDuration": 4000,
+    "DiscoveryRetries": 2,
     "DirectedBroadcastDiscovery" : false
   }
 }
