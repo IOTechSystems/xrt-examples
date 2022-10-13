@@ -1,11 +1,12 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
+  "MQTTRoot": "xrt/devices/profinet",
   "Patterns": [ 
-    "xrt/devices/profinet/telemetry",
-    "xrt/devices/profinet/reply"
+    "telemetry",
+    "reply"
   ],
-  "MQTTPatterns": [ "xrt/devices/profinet/request"],
+  "MQTTPatterns": [ "request" ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
