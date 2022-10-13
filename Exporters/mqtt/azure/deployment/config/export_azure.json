@@ -22,8 +22,6 @@
         "TrustStore":"${AZURE_MQTT_ROOT_CA}"
       }
     },
-    "RetryCount": 5,
-    "RetryInterval": 5
   },
   "Cookie": 125,
   "Bus": "bus",
