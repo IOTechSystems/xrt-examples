@@ -1,15 +1,16 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
+  "MQTTRoot": "xrt",
   "Patterns": [
-    "xrt/command/reply",
-    "xrt/devices/virtual/telemetry",
-    "xrt/devices/virtual/reply",
-    "xrt/devices/virtual/discovery"
+    "command/reply",
+    "devices/virtual/telemetry",
+    "devices/virtual/reply",
+    "devices/virtual/discovery"
   ],
   "MQTTPatterns": [
-    "xrt/command/request",
-    "xrt/devices/virtual/request"
+    "command/request",
+    "devices/virtual/request"
   ],
   "MQTTConfig":
   {
