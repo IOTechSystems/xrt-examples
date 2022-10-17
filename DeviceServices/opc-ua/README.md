@@ -78,6 +78,6 @@ We can setup a subscription to a monitored resource using auto events. This will
 ./commands/remove_subscription.sh
 ```
 
-### Discovery
+### Discovery & Profile Generation
 
 For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
