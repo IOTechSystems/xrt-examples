@@ -21,7 +21,8 @@
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Patterns": ["device/#"],
+  "MQTTRoot":"xrt/devices",
+  "Patterns": ["virtual/telemetry"],
   "Topic": "test",
   "QueueSize": 4
 }

@@ -17,12 +17,12 @@
       "KeepAliveInterval": 60,
       "MQTTVersion": 4,
       "Reliable": true,
+      "RetryInterval": 5,
       "SSLConfig":
       {
         "TrustStore":"${AZURE_MQTT_ROOT_CA}"
       }
     },
-    "RetryInterval": 5
   },
   "Cookie": 125,
   "Bus": "bus",
