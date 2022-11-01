@@ -9,17 +9,18 @@
   "MQTTPatterns": [ "request" ],
   "MQTTConfig":
   {
-    	"ServerURI": "${XRT_MQTT_BROKER}",
-    	"ClientID": "xrt",
-    	"QoS": 1,
-    	"ClientConfig": 
-    	{
-    	"Username":"${XRT_MQTT_USERNAME}",
-    	"Password": "${XRT_MQTT_PASSWORD}", 
-    	"KeepAliveInterval": 10,
-    	"MQTTVersion": 5,
-    	"Reliable": true
-     },
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig": 
+    {
+      "Username":"${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}", 
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "Reliable": true,
+      "RetryInterval": 5
+    },
   },
   "Cookie": 125,
   "Bus": "bus",

@@ -14,9 +14,10 @@
     {
       "Username":"${AZURE_MQTT_USERNAME}",
       "Password": "${AZURE_MQTT_SAS_PASSWORD}",
-      "KeepAliveInterval": 10,
+      "KeepAliveInterval": 60,
       "MQTTVersion": 4,
       "Reliable": true,
+      "RetryInterval": 5,
       "SSLConfig":
       {
         "TrustStore":"${AZURE_MQTT_ROOT_CA}"
