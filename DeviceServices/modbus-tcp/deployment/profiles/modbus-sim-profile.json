@@ -28,7 +28,7 @@
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
         "startingAddress": 4001,
-        "rawType": "UINT16"
+        "rawType": "INT16"
       },
       "properties": {
         "valueType": "FLOAT32",
