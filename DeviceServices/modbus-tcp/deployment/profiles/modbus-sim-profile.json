@@ -17,7 +17,7 @@
         "startingAddress": 9
       },
       "properties": {
-        "valueType": "UINT16",
+        "valueType": "INT16",
         "readWrite": "RW",
         "units": "A"
       }
