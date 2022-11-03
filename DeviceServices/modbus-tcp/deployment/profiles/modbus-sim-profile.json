@@ -27,7 +27,8 @@
       "description": "System Total True Energy",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 4001
+        "startingAddress": 4001,
+        "rawType": "INT16"
       },
       "properties": {
         "valueType": "FLOAT32",
