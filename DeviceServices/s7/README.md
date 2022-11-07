@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the S7 device service example.
 
-For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/s7-device-service-component.html) documentation. 
+For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/s7-device-service-component.html) documentation.
 
 ## Getting Started
 
