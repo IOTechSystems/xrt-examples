@@ -4,15 +4,23 @@
     "deviceResources": [
         {
             "attributes": {
-                "IDType": "NUMERIC",
-                "nodeID": "2259",
-                "nsIndex": 0
+                "nodeId": {
+                    "identifierType": "NUMERIC",
+                    "identifier": 2259,
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "dataTypeId": {
+                    "identifierType": "NUMERIC",
+                    "identifier": 852,
+                    "namespaceIndex": 0
+                }
             },
             "description": "The Server State",
             "name": "ServerState",
             "properties": {
                 "readWrite": "R",
-                "valueType": "Int32"
+                "valueType": "UInt32"
             }
         }
     ],

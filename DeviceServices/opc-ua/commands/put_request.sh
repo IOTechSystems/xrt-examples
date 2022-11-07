@@ -8,6 +8,6 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
   "type": "xrt.request:1.0",
   "device": "opc-ua-sim",
   "values": {
-    "ns=2;s=Int64": 42,
+    "ns=2;s=Int64:value": 42,
   },
 }'
