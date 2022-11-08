@@ -3,993 +3,119 @@
     "deviceResources": [
         {
             "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "DataTypeVersion",
-                "nodeID": "104",
-                "nsIndex": 0,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Random",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
             },
-            "name": "ns=0;i=104",
+            "name": "ns=3;s=Random:value",
             "properties": {
-                "readWrite": "R",
-                "valueType": "string"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "NamespaceUri",
-                "nodeID": "107",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=107",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "string"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "DataTypeVersion",
-                "nodeID": "106",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=106",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "string"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "CumulatedSubscriptionCount",
-                "nodeID": "2161",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2161",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "CurrentSessionCount",
-                "nodeID": "2152",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2152",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "PublishingIntervalCount",
-                "nodeID": "2159",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2159",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "ServerViewCount",
-                "nodeID": "2151",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2151",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "CurrentSubscriptionCount",
-                "nodeID": "2160",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2160",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "SessionTimeoutCount",
-                "nodeID": "2156",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2156",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "SessionAbortCount",
-                "nodeID": "2157",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2157",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "CumulatedSessionCount",
-                "nodeID": "2153",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2153",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "RejectedRequestsCount",
-                "nodeID": "2163",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2163",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "SecurityRejectedRequestsCount",
-                "nodeID": "2162",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2162",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "SecurityRejectedSessionCount",
-                "nodeID": "2154",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2154",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "RejectedSessionCount",
-                "nodeID": "2155",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2155",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerRegisterNodes",
-                "nodeID": "11571",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11571",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxMonitoredItemsPerCall",
-                "nodeID": "11574",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11574",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerRead",
-                "nodeID": "11565",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11565",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerBrowse",
-                "nodeID": "11570",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11570",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerWrite",
-                "nodeID": "11567",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11567",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerNodeManagement",
-                "nodeID": "11573",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11573",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerMethodCall",
-                "nodeID": "11569",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11569",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerTranslateBrowsePathsToNodeIds",
-                "nodeID": "11572",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11572",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerWrite",
-                "nodeID": "11707",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11707",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerTranslateBrowsePathsToNodeIds",
-                "nodeID": "11712",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11712",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerBrowse",
-                "nodeID": "11710",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11710",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerMethodCall",
-                "nodeID": "11709",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11709",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerNodeManagement",
-                "nodeID": "11713",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11713",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerRead",
-                "nodeID": "11705",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11705",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxNodesPerRegisterNodes",
-                "nodeID": "11711",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11711",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxMonitoredItemsPerCall",
-                "nodeID": "11714",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=11714",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "RedundancySupport",
-                "nodeID": "2035",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2035",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "int32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "SourceName",
-                "nodeID": "2045",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2045",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "string"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "Severity",
-                "nodeID": "2051",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2051",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint16"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxBrowseContinuationPoints",
-                "nodeID": "2735",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2735",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint16"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxQueryContinuationPoints",
-                "nodeID": "2736",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2736",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint16"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "ServerProfileArray",
-                "nodeID": "2269",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2269",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "stringarray"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "MaxHistoryContinuationPoints",
-                "nodeID": "2737",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2737",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint16"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "EnabledFlag",
-                "nodeID": "2294",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2294",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "bool"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "RedundancySupport",
-                "nodeID": "3709",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=3709",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "int32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Counter",
-                "nodeID": "Counter",
-                "nsIndex": 3,
-                "objectType": "Primitive"
-            },
-            "name": "ns=3;s=Counter",
-            "properties": {
-                "readWrite": "R",
+                "readWrite": "RW",
                 "valueType": "float64"
             }
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "Random",
-                "nodeID": "Random",
-                "nsIndex": 3,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Counter",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
             },
-            "name": "ns=3;s=Random",
+            "name": "ns=3;s=Counter:value",
             "properties": {
-                "readWrite": "R",
+                "readWrite": "RW",
                 "valueType": "float64"
             }
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "Sawtooth",
-                "nodeID": "Sawtooth",
-                "nsIndex": 3,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Sawtooth",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
             },
-            "name": "ns=3;s=Sawtooth",
+            "name": "ns=3;s=Sawtooth:value",
             "properties": {
-                "readWrite": "R",
+                "readWrite": "RW",
                 "valueType": "float64"
             }
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "Sinusoid",
-                "nodeID": "Sinusoid",
-                "nsIndex": 3,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Triangle",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
             },
-            "name": "ns=3;s=Sinusoid",
+            "name": "ns=3;s=Triangle:value",
             "properties": {
-                "readWrite": "R",
+                "readWrite": "RW",
                 "valueType": "float64"
             }
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "Square",
-                "nodeID": "Square",
-                "nsIndex": 3,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Sinusoid",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
             },
-            "name": "ns=3;s=Square",
+            "name": "ns=3;s=Sinusoid:value",
             "properties": {
-                "readWrite": "R",
+                "readWrite": "RW",
                 "valueType": "float64"
             }
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "Triangle",
-                "nodeID": "Triangle",
-                "nsIndex": 3,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 8,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Int64",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 2
+                }
             },
-            "name": "ns=3;s=Triangle",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "float64"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "StringNode",
-                "nodeID": "StringNode",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=StringNode",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "Numeric Node",
-                "nodeID": "42",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;i=42",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "GUID",
-                "displayName": "GUID Node",
-                "nodeID": "deadbeef-cafe-babe-ca1f-baff1ed0bee5",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;g=deadbeef-cafe-babe-ca1f-baff1ed0bee5",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "BYTESTRING",
-                "displayName": "Bytestring node",
-                "nodeID": "M/RbKBsRVkePCePcx24oRA=='",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;b=M/RbKBsRVkePCePcx24oRA=='",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "BoolArray",
-                "nodeID": "BoolArray",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=BoolArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "boolarray"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "SByteArray",
-                "nodeID": "SByteArray",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=SByteArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int8array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "ByteArray",
-                "nodeID": "ByteArray",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=ByteArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint8array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Int16Array",
-                "nodeID": "Int16Array",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Int16Array",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int16array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "UInt16Array",
-                "nodeID": "UInt16Array",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=UInt16Array",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint16array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Int32Array",
-                "nodeID": "Int32Array",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Int32Array",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int32array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "UInt32Array",
-                "nodeID": "UInt32Array",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=UInt32Array",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint32array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Int64Array",
-                "nodeID": "Int64Array",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Int64Array",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int64array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "UInt64Array",
-                "nodeID": "UInt64Array",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=UInt64Array",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint64array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "FloatArray",
-                "nodeID": "FloatArray",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=FloatArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "float32array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "DoubleArray",
-                "nodeID": "DoubleArray",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=DoubleArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "float64array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "StringArray",
-                "nodeID": "StringArray",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=StringArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "stringarray"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "DateTimeArray",
-                "nodeID": "DateTimeArray",
-                "nsIndex": 2,
-                "objectType": "DateTime"
-            },
-            "name": "ns=2;s=DateTimeArray",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int64array"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Bool",
-                "nodeID": "Bool",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Bool",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "bool"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "SByte",
-                "nodeID": "SByte",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=SByte",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int8"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Byte",
-                "nodeID": "Byte",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Byte",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint8"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Int16",
-                "nodeID": "Int16",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Int16",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int16"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "UInt16",
-                "nodeID": "UInt16",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=UInt16",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint16"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Int32",
-                "nodeID": "Int32",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Int32",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "UInt32",
-                "nodeID": "UInt32",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=UInt32",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint32"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Int64",
-                "nodeID": "Int64",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Int64",
+            "name": "ns=2;s=Int64:value",
             "properties": {
                 "readWrite": "RW",
                 "valueType": "int64"
@@ -997,27 +123,19 @@
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "UInt64",
-                "nodeID": "UInt64",
-                "nsIndex": 2,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 10,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Float",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 2
+                }
             },
-            "name": "ns=2;s=UInt64",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "uint64"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "Float",
-                "nodeID": "Float",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=Float",
+            "name": "ns=2;s=Float:value",
             "properties": {
                 "readWrite": "RW",
                 "valueType": "float32"
@@ -1025,100 +143,23 @@
         },
         {
             "attributes": {
-                "IDType": "STRING",
-                "displayName": "Double",
-                "nodeID": "Double",
-                "nsIndex": 2,
-                "objectType": "Primitive"
+                "dataTypeId": {
+                    "identifier": 12,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "String",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 2
+                }
             },
-            "name": "ns=2;s=Double",
+            "name": "ns=2;s=String:value",
             "properties": {
                 "readWrite": "RW",
-                "valueType": "float64"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "String",
-                "nodeID": "String",
-                "nsIndex": 2,
-                "objectType": "Primitive"
-            },
-            "name": "ns=2;s=String",
-            "properties": {
-                "readWrite": "RW",
+                "value": "String1",
                 "valueType": "string"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "STRING",
-                "displayName": "DateTime",
-                "nodeID": "DateTime",
-                "nsIndex": 2,
-                "objectType": "DateTime"
-            },
-            "name": "ns=2;s=DateTime",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "int64"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "ServiceLevel",
-                "nodeID": "2267",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2267",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "uint8"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "Auditing",
-                "nodeID": "2994",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2994",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "bool"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "NamespaceArray",
-                "nodeID": "2255",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2255",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "stringarray"
-            }
-        },
-        {
-            "attributes": {
-                "IDType": "NUMERIC",
-                "displayName": "ServerArray",
-                "nodeID": "2254",
-                "nsIndex": 0,
-                "objectType": "Primitive"
-            },
-            "name": "ns=0;i=2254",
-            "properties": {
-                "readWrite": "R",
-                "valueType": "stringarray"
             }
         }
     ],

@@ -7,5 +7,5 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "opc-ua-sim",
-  "resource": "ns=3;s=Counter"
+  "resource": "ns=3;s=Counter:value"
 }'
