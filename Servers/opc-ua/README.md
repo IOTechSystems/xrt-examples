@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the OPC-UA sever example.
 
-The example consists of an OPC-UA server component and an S7 Device Service component with a simulated S7 device.
+The example consists of an OPC-UA Server component and an S7 Device Service component with a simulated S7 device.
 
 For more information about the OPC-UA Server please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html) documentation.
 
