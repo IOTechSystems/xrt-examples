@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the OPC-UA sever example.
 
-The example consists of an OPC-UA server component and an S7 Device service component with a simulated S7 device.
+The example consists of an OPC-UA server component and an S7 Device Service component with a simulated S7 device.
 
 For more information about the OPC-UA Server please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html) documentation.
 
@@ -12,14 +12,14 @@ For more information about the Device Service please review the [S7 Device Servi
 
 ## Getting Started
 
-The following instructions assume your present working directory is `/xrt-examples/server/opc-ua/`.
+The following instructions assume your starting working directory is `/xrt-examples/`.
 
 ### **Run the S7 simulator**
 
-*For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/s7/overview.html).*
+*For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html).*
 
 ```bash
-./commands/start_device_sim.sh
+./DeviceServices/s7/commands/start_device_sim.sh
 ```
 
 ### **Set Environment Variables**
@@ -27,6 +27,7 @@ The following instructions assume your present working directory is `/xrt-exampl
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
+cd ./Servers/opc-ua/
 . ./commands/set_env_vars.sh
 ```
 
@@ -37,10 +38,9 @@ We have provided a script to easily set these environment variables. Run:
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd s7
 xrt deployment/config
 ```
 
 ## Interacting with the OPC-UA Server
 
-Connect with a client to `opc.tcp://0.0.0.0:4840`. You can find the root `XRT` object containig S7 device service under the server's `Objects` folder.
+See the [OPC-UA Server Documentation](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html)
