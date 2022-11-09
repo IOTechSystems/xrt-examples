@@ -21,7 +21,7 @@
       "RetryInterval": 5,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}"
-    },
+    }
   },
   "Cookie": 125,
   "QueueSize": 5,
