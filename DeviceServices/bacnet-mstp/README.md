@@ -68,7 +68,7 @@ property value then the device will send the device service a notification which
 ./commands/remove_cov.sh
 ```
 
-### Discovery
+### Discovery & Profile Generation
 
 For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
 
