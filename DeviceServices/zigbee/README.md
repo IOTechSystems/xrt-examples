@@ -36,3 +36,7 @@ xrt deployment/config
 ### Basic Operations
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
+
+### Discovery & Profile Generation
+
+For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.
