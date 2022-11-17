@@ -1,0 +1,38 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [ 
+    "xrt/devices/zigbee/telemetry",
+    "xrt/devices/zigbee/reply",
+    "xrt/devices/zigbee/discovery",
+    "zigbee2mqtt/+/get",
+    "zigbee2mqtt/+/set",
+    "zigbee2mqtt/bridge/request/#"
+  ],
+  "MQTTPatterns": [
+    "xrt/devices/zigbee/request",
+    "zigbee2mqtt/+",
+    "zigbee2mqtt/bridge/response/#",
+    "zigbee2mqtt/bridge/devices"
+  ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "Reliable": true,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}"
+    },
+    "RetryCount": 5,
+    "RetryInterval": 5
+  },
+  "Cookie": 125,
+  "QueueSize": 5,
+  "Bus": "bus",
+  "Logger": "logger"
+}
