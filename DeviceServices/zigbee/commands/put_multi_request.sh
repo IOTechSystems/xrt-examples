@@ -11,6 +11,6 @@ mosquitto_pub -t xrt/devices/zigbee/request -m \
     "brightness": 254,
     "transition": 1,
     "state": true,
-    "color_hs": {"hue": 100, "saturation": 200}
+    "color_hs": {"hue": 100, "saturation": 100}
   }
 }'
