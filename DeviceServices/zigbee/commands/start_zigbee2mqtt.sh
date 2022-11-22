@@ -1,7 +1,14 @@
 #!/bin/sh
 
 read -p "Input Zigbee adapter location:" adapterlocation
+read -p "MQTT broker on host network? (y/n)" mqttnetworkyn
 read -p "Input MQTT server address:" mqttaddress
+
+if [ "$mqttnetworkyn" = "y" ] || [ "$mqttnetworkyn" = "Y" ]; then
+  mqttnetwork="host"
+else
+  mqttnetwork="bridge"
+fi
 
 if [ ! -d "data" ]; then
   mkdir data
@@ -30,7 +37,7 @@ fi
 docker run \
 --name zigbee2mqtt \
 --restart=unless-stopped \
---network=host \
+--network=$mqttnetwork \
 --device=$adapterlocation \
 -p 8080:8080 \
 -v $(pwd)/data:/app/data \
