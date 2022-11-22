@@ -1,10 +1,6 @@
 #!/bin/sh
 
-read -p "Input Zigbee adapter location:" adapterlocation
-read -p "MQTT broker on host network? (y/n)" mqttnetworkyn
-read -p "Input MQTT broker address:" mqttaddress
-
-if [ "$mqttnetworkyn" = "y" ] || [ "$mqttnetworkyn" = "Y" ]; then
+if [ "$2" = "y" ] || [ "$2" = "Y" ]; then
   mqttnetwork="host"
 else
   mqttnetwork="bridge"
@@ -24,21 +20,21 @@ mqtt:
   # MQTT base topic for zigbee2mqtt MQTT messages
   base_topic: zigbee2mqtt
   # MQTT server URL
-  server: '$mqttaddress'
+  server: '$3'
   # MQTT server authentication, uncomment if required:
   # user: my_user
   # password: my_password
 # Serial settings
 serial:
   # Location of Zigbee adapter
-  port: $adapterlocation" > data/configuration.yaml
+  port: $1" > data/configuration.yaml
 fi
 
 docker run \
 --name zigbee2mqtt \
---restart=unless-stopped \
+--rm \
 --network=$mqttnetwork \
---device=$adapterlocation \
+--device=$1 \
 -p 8080:8080 \
 -v $(pwd)/data:/app/data \
 -v /run/udev:/run/udev:ro \
