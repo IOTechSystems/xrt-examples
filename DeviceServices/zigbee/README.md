@@ -13,6 +13,8 @@ For more information about the Device Service please review the [Zigbee Device S
 
 Unlike many of the examples for the other Device Services, there is no readily available Zigbee device simulator. Therefore, this example is instead based off two real world devices which are required to run the example. The devices used are an [OSRAM Flex RGBW LED Light Strip](https://www.zigbee2mqtt.io/devices/4052899926110.html) and an [Immax Intelligent Motion Sensor](https://www.zigbee2mqtt.io/devices/07047L.html). Click on each device to view their respective pages within the Zigbee2MQTT documentation.
 
+You will need to alter the *FriendlyName* of both devices within the `devices.json` file to match your devices. These are displayed by Zigbee2MQTT when the device is first connected.
+
 If you wish to use different devices than these, clear *devices.json* and *schedules.json*, and then run discovery with `AutoRegister` enabled in the `zigbee.json` config file. This will update the example to use your devices currently connected to Zigbee2MQTT instead. Note that many example requests are written for the aforementioned two devices, so will not work without first being modified.
 
 
