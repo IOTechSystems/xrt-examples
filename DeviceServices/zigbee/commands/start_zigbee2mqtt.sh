@@ -9,8 +9,7 @@ fi
 
 if [ ! -f "data/configuration.yaml" ]; then
   touch data/configuration.yaml
-  echo " # Home Assistant integration (MQTT discovery)
-homeassistant: false
+  echo "homeassistant: false
 # allow new devices to join
 permit_join: true
 # MQTT settings
@@ -24,9 +23,8 @@ mqtt:
   # password: my_password
 # Serial settings
 serial:
-  # Location of CC2531 USB sniffer
-  port: $adapterlocation
-frontend: true" > data/configuration.yaml
+  # Location of Zigbee adapter
+  port: $adapterlocation" > data/configuration.yaml
 fi
 
 docker run \

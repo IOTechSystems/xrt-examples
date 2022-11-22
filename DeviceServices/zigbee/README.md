@@ -76,7 +76,7 @@ For an example which enables reporting for two resources, run:
 . ./commands/add_reporting_schedule.sh
 ```
 
-The above command enables reporting of the `illuminance` and `illuminance_lux` resources belonging to the Immax sensor. The values can be seen in the telemetry topic.
+The above command enables reporting of the `illuminance` and `illuminance_lux` resources belonging to the Immax sensor. The reported values can be seen in the telemetry topic.
 
 To disable the reporting of these resources, run:
 
