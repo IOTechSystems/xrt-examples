@@ -2,7 +2,7 @@
 
 read -p "Input Zigbee adapter location:" adapterlocation
 read -p "MQTT broker on host network? (y/n)" mqttnetworkyn
-read -p "Input MQTT server address:" mqttaddress
+read -p "Input MQTT broker address:" mqttaddress
 
 if [ "$mqttnetworkyn" = "y" ] || [ "$mqttnetworkyn" = "Y" ]; then
   mqttnetwork="host"
