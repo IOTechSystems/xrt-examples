@@ -58,7 +58,6 @@ docker run \
 --rm \
 --network=$dockernetwork \
 --device=$adapter \
--p 8080:8080 \
 -v $(pwd)/data:/app/data \
 -v /run/udev:/run/udev:ro \
 -e TZ=Europe/London \

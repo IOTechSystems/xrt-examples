@@ -38,7 +38,7 @@ Using the following values:
 For example:
 
 ```bash
-./start_zigbee2mqtt.sh --adapter=/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_b4b40f34c612ec1196e723c7bd930c07-if00-port0 --network=host --broker_address=mqtt://localhost
+./start_zigbee2mqtt.sh --adapter=/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_b4b40f34c612ec1196e723c7bd930c07-if00-port0 --network=host --broker_address=mqtt://localhost:1883
 ```
 
 ### Stop Zigbee2MQTT
