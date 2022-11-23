@@ -6,15 +6,28 @@ TEMP=$(getopt -n "$0" -a -l "adapter:,network:,broker_address:" -- -- "$@")
 
 eval set -- "$TEMP"
 
+if [ $# -lt 6 ]
+then
+  echo "Incorrect arguments. Exiting..."
+  exit
+fi
+
 while [ $# -gt 0 ]
 do
   case "$1" in
     --adapter) adapter=$2; shift;;
-    --network) mqttnetwork=$2; shift;;
+    --network) dockernetwork=$2; shift;;
     --broker_address) mqttaddress=$2; shift;;
   esac
   shift;
 done
+
+if [ -z "$adapter" ] || [ -z "$dockernetwork" ] || [ -z "$mqttaddress" ]
+then
+  echo "Incorrect arguments. Exiting..."
+  exit
+fi
+
 
 if [ ! -d "data" ]; then
   mkdir data
@@ -43,7 +56,7 @@ fi
 docker run \
 --name zigbee2mqtt \
 --rm \
---network=$mqttnetwork \
+--network=$dockernetwork \
 --device=$adapter \
 -p 8080:8080 \
 -v $(pwd)/data:/app/data \

@@ -27,13 +27,19 @@ The following script simplifies the process of starting Zigbee2MQTT. To proceed,
 Run:
 
 ```bash
-./commands/start_zigbee2mqtt.sh --adapter=ADAPTER_LOCATION --network=MQTT_NETWORK --broker_address=MQTT_ADDRESS
+./commands/start_zigbee2mqtt.sh --adapter=ADAPTER_LOCATION --network=DOCKER_NETWORK --broker_address=MQTT_ADDRESS
 ```
 Using the following values:
 
 - ADAPTER_LOCATION: Location of Zigbee adapter
-- MQTT_NETWORK: Network of MQTT broker
+- DOCKER_NETWORK: Docker network on which to run container (*host* or name of docker network)
 - MQTT_ADDRESS: Address of MQTT broker
+
+For example:
+
+```bash
+./start_zigbee2mqtt.sh --adapter=/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_b4b40f34c612ec1196e723c7bd930c07-if00-port0 --network=host --broker_address=mqtt://localhost
+```
 
 ### Stop Zigbee2MQTT
 
