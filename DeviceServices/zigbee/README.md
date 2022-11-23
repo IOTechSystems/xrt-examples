@@ -27,13 +27,13 @@ The following script simplifies the process of starting Zigbee2MQTT. To proceed,
 Run:
 
 ```bash
-./commands/start_zigbee2mqtt.sh arg1 arg2 arg3
+./commands/start_zigbee2mqtt.sh --adapter=ADAPTER_LOCATION --network=MQTT_NETWORK --broker_address=MQTT_ADDRESS
 ```
-Using the following arguments:
+Using the following values:
 
-- arg1: Location of Zigbee adapter
-- arg2: Whether MQTT broker is on host network (y/n)
-- arg3: Address of MQTT broker
+- ADAPTER_LOCATION: Location of Zigbee adapter
+- MQTT_NETWORK: Network of MQTT broker
+- MQTT_ADDRESS: Address of MQTT broker
 
 ### Stop Zigbee2MQTT
 

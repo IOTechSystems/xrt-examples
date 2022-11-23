@@ -1,10 +1,20 @@
 #!/bin/sh
 
-if [ "$2" = "y" ] || [ "$2" = "Y" ]; then
-  mqttnetwork="host"
-else
-  mqttnetwork="bridge"
-fi
+TEMP=$(getopt -n "$0" -a -l "adapter:,network:,broker_address:" -- -- "$@")
+
+[ $? -eq 0 ] || exit
+
+eval set -- "$TEMP"
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    --adapter) adapter=$2; shift;;
+    --network) mqttnetwork=$2; shift;;
+    --broker_address) mqttaddress=$2; shift;;
+  esac
+  shift;
+done
 
 if [ ! -d "data" ]; then
   mkdir data
@@ -20,21 +30,21 @@ mqtt:
   # MQTT base topic for zigbee2mqtt MQTT messages
   base_topic: zigbee2mqtt
   # MQTT server URL
-  server: '$3'
+  server: '$mqttaddress'
   # MQTT server authentication, uncomment if required:
   # user: my_user
   # password: my_password
 # Serial settings
 serial:
   # Location of Zigbee adapter
-  port: $1" > data/configuration.yaml
+  port: $adapter" > data/configuration.yaml
 fi
 
 docker run \
 --name zigbee2mqtt \
 --rm \
 --network=$mqttnetwork \
---device=$1 \
+--device=$adapter \
 -p 8080:8080 \
 -v $(pwd)/data:/app/data \
 -v /run/udev:/run/udev:ro \

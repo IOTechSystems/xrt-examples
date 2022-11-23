@@ -6,5 +6,5 @@ mosquitto_pub -t xrt/devices/zigbee/request -m \
   "request_id": "1041",
   "op": "schedule:delete",
   "type": "xrt.request:1.0",
-  "schedule": "zigbee_polled_schedule"
+  "schedule": "zigbee_schedule"
 }'
