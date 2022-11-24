@@ -13,13 +13,15 @@
     {
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "Reliable": true,
       "ConnectTimeout": 0,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
       "CleanSession": false,
       "CleanStart": false,
-      "SessionExpiry": 30
+      "SessionExpiry": 30,
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10
     }
   },
   "Cookie": 126,
