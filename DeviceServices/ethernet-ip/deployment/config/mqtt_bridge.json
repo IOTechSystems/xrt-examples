@@ -14,11 +14,12 @@
     "QoS": 1,
     "ClientConfig":
     {
-      "KeepAliveInterval":60,
+      "KeepAliveInterval": 60,
       "MQTTVersion": 5,
+      "RetryInterval": 5,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
-      "RetryInterval": 5
+      "MaxBufferedMessages": 100
     },
   },
   "Cookie": 125,
