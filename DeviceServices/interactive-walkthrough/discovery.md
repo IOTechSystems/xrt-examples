@@ -24,11 +24,12 @@ Let's start with a clean slate: first remove the existing device from xrt:
 Discovery requests will be made on the `RequestTopic`, a reply to the request will be received on the `ReplyTopic`, and the discovered devices will be received on the `DiscoveryTopic`.
 
 We can trigger discovery to receive information about available devices.
+
 ```bash
 ./commands/trigger_discovery.sh
 ```
 
-On your MQTT message subscription, you will be able to see the discovery request, a message indicating the success of the request, and then subsequently a list of devices, and their properties, that the device service has discovered. 
+On your MQTT message subscription, you will be able to see the discovery request, a message indicating the success of the request, and then subsequently a list of devices, and their properties, that the device service has discovered.
 
 ## Adding a discovered device
 
@@ -37,7 +38,16 @@ We can use the information received above to create a new add device request.
 ```bash
 ./commands/add_discovered_device.sh
 ```
-If you inspect this script, you will see that the protocol information matches one of the discovered devices that we received from our discovery request. Notice that we have omitted the device profile from this add device request. This is because the device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated.  
+
+If you inspect this script, you will see that the protocol information matches one of the discovered devices that we received from our discovery request. Notice that we have omitted the device profile from this add device request. This is because we can scan the device for resources and automatically generate profiles from them.
+
+We can trigger a device scan for the discovered device we have just added.
+
+```bash
+./commands/scan_discovered_device.sh
+```
+
+The device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated.  
 
 In this case there is already a profile that matches, so XRT will use this. We can perform a get request to show that the device has matched to this profile:
 
@@ -47,7 +57,7 @@ In this case there is already a profile that matches, so XRT will use this. We c
 
 **Extra**
 
-To generate a profile for the device instead of using the exsiting one, we can follow the above steps but additionally delete the existing profile: 
+To generate a profile for the device instead of using the existing one, we can follow the above steps but additionally delete the existing profile:
 
 ```bash
 ./commands/remove_device.sh
@@ -61,6 +71,12 @@ Then add our device:
 
 ```bash
 ./commands/add_discovered_device.sh
+```
+
+and scan the device for new resources:
+
+```bash
+./commands/scan_discovered_device.sh
 ```
 
 If you take a look in `profiles` you should notice that there is a new `json` file named with a UUID. This file is the newly generated profile.
