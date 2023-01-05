@@ -14,5 +14,5 @@
     "DiscoveryTopic": "xrt/devices/s7/discovery",
     "TelemetryTopic": "xrt/devices/s7/telemetry",
     "EventTopic": "xrt/devices/s7/event",
-    "QueueMax": 100
+    "RequestQueueMax": 4
 }
