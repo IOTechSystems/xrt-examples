@@ -67,7 +67,13 @@ To generate a profile for the device instead of using the existing one, we can f
 ./commands/remove_device_profile.sh
 ```
 
-Then add our device:
+We trigger discover again to find our device:
+
+```bash
+./commands/trigger_discovery.sh
+```
+
+Then add our discovered device:
 
 ```bash
 ./commands/add_discovered_device.sh
