@@ -127,7 +127,7 @@
     },
     {
       "name": "ExampleWOnlyScale0.1",
-      "description": "EExample Float64 resource that does not belong to real device. Demonstrates W-only scale factor 0.1",
+      "description": "Example Float64 resource that does not belong to real device. Demonstrates W-only scale factor 0.1",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
         "startingAddress": 22,
