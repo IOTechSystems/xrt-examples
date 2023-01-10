@@ -5,6 +5,7 @@
   "TelemetryTopic":"xrt/devices/profinet/telemetry",
   "RequestTopic":"xrt/devices/profinet/request",
   "ReplyTopic":"xrt/devices/profinet/reply",
+  "StatusTopic": "xrt/devices/profinet/status",
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}",
   "Scheduler":"sched",

@@ -5,6 +5,7 @@
   "TelemetryTopic":"xrt/devices/gps/telemetry",
   "RequestTopic": "xrt/devices/gps/request",
   "ReplyTopic": "xrt/devices/gps/reply",
+  "StatusTopic": "xrt/devices/gps/status",
   "AutoRegister": true,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,

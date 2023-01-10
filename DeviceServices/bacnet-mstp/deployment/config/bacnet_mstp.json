@@ -6,6 +6,7 @@
   "RequestTopic": "xrt/devices/bacnet_mstp/request",
   "ReplyTopic": "xrt/devices/bacnet_mstp/reply",
   "DiscoveryTopic": "xrt/devices/bacnet_mstp/discovery",
+  "StatusTopic": "xrt/devices/bacnet_mstp/status",
   "AutoRegister": false,
   "DiscoveryInterval": 0,
   "PublishRegisteredDevices": true,

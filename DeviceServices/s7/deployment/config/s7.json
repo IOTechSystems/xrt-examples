@@ -5,6 +5,7 @@
   "TelemetryTopic":"xrt/devices/s7/telemetry",
   "RequestTopic": "xrt/devices/s7/request",
   "ReplyTopic": "xrt/devices/s7/reply",
+  "StatusTopic": "xrt/devices/s7/status",
   "AutoRegister": true,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,

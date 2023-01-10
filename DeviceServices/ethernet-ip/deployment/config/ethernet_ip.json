@@ -5,6 +5,7 @@
   "TelemetryTopic": "xrt/devices/ethernet_ip/telemetry",
   "RequestTopic": "xrt/devices/ethernet_ip/request",
   "ReplyTopic": "xrt/devices/ethernet_ip/reply",
+  "StatusTopic": "xrt/devices/ethernet_ip/status",
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
   "ProfileDir":"${XRT_PROFILE_DIR}",
