@@ -12,6 +12,8 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
+  "DeviceDownTimeout": 30,
+  "AllowedFails": 5,
   "Driver":{
     "NetworkInterface":"eno1",
     "ProfinetConfigurationFile":"${XRT_CONFIG_DIR}pcf.xml"

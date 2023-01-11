@@ -14,6 +14,10 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
+  "DeviceDownTimeout": 30,
+  "AllowedFails": 5,
+  "DeviceDownTimeout": 30,
+  "AllowedFails": 5,
   "Driver": {
     "NetworkInterface": "eth0",
     "ConnectionTimeout": 3000,

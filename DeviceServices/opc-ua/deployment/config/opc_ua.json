@@ -17,6 +17,8 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
+  "DeviceDownTimeout": 30,
+  "AllowedFails": 5,
   "Driver":{
     "LDSName":"LDS"
   }

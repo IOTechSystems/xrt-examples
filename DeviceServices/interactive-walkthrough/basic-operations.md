@@ -6,7 +6,7 @@ We encourage you to look at the scripts in the `commands` folder in your device 
 ## Prerequisites
 
 * The "Getting Started" section for your respective device service has been followed 
-* Your present working directory is your chosen device service example folder e.g:
+* Your present working directory is\ your chosen device service example folder e.g:
 
 ```bash
 cd ~/xrt-examples/DeviceServices/opc-ua
@@ -116,20 +116,13 @@ The response to this message should indicate that the deletion of the schedule w
 
 ## Operation States
 
-Device services may disable a device if it has deemed the device uncontactable or responding with failures after
-read or write operations are made. 
-If an `AllowedFails` number of consecutive attempts to contact a device result in failure then Device Service 
-will assume the device is down and set the operational state to _false_.
+The operational state of device controls whether requests to contact the device, including existing schedules will be acted on.
+When the operational state changes, a notification is published on the `StatusTopic`.
 
-With the operational state set to _false_, any requests to contact the device, including existing schedules will not be acted on during the
-`DeviceDownTimeout` after which the device will be marked as operational again. When this occurs, the device 
-will be placed in a “last chance” state, meaning that regardless of the `AllowedFails` setting, a single failure 
-will trigger the device back to non-operational, but a successful response will restore the device to normal.
-
-Device Services that support the ability to montitor the online state of a device at the protocol level 
+Device Services that support the ability to monitor the online state of a device at the protocol level
 are able to change the operational state of devices automatically.
 
-The user can also manually change the operation state of a device during a `device:update`:
+The user can manually change the operation state of a device during a `device:update`.
 
 ```bash
 ./commands/operation_state_false.sh
@@ -138,4 +131,11 @@ The user can also manually change the operation state of a device during a `devi
 ./commands/operation_state_true.sh
 ```
 
-When the operational state changes, a notification is published on the `StatusTopic`.
+Device services also may disable a device if it has deemed the device uncontactable or responding with failures after
+read or write operations are made. 
+If an `AllowedFails` number of consecutive attempts to contact a device result in failure then Device Service 
+will assume the device is down and set the device to non-operational. 
+The device will be in a non-operational state until a `DeviceDownTimeout` has been reached after which the device 
+will be marked as operational again. 
+When this occurs, the device will be placed in a “last chance” state, meaning that regardless of the `AllowedFails` 
+setting, a single failure will trigger the device back to non-operational, but a successful response will restore the device to normal.
