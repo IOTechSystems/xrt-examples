@@ -138,4 +138,5 @@ will assume the device is down and set the device to non-operational.
 The device will be in a non-operational state until a `DeviceDownTimeout` has been reached after which the device 
 will be marked as operational again. 
 When this occurs, the device will be placed in a “last chance” state, meaning that regardless of the `AllowedFails` 
-setting, a single failure will trigger the device back to non-operational, but a successful response will restore the device to normal.
+setting, a single failure will trigger the device back to non-operational for the `DeviceDownTimeout` again, but a successful response 
+will restore the device to normal.
