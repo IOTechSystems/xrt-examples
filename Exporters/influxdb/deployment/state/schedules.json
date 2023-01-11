@@ -7,6 +7,6 @@
     ],
     "interval":500000,
     "name":"schedule1",
-    "publish": true
+    "tags": {"ScheduleName": "schedule1"}
   }]
 }
