@@ -5,7 +5,8 @@
   "Patterns": [ 
     "telemetry",
     "reply",
-    "discovery"
+    "discovery",
+    "status"
   ],
   "MQTTPatterns": [ "request"],
   "MQTTConfig":
@@ -21,7 +22,7 @@
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
       "MaxBufferedMessages": 100
-    },
+    }
   },
   "Cookie": 125,
   "QueueSize": 5,

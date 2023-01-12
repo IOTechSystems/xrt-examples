@@ -113,3 +113,30 @@ Once we have received a few readings we can then remove the schedule:
 In the request message you should see that we include the name of the schedule that we are wanting to remove. 
 
 The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.
+
+## Operation States
+
+The operational state of device controls whether requests to contact the device, including existing schedules will be acted on.
+When the operational state changes, a notification is published on the `StatusTopic`.
+
+Device Services that support the ability to monitor the online state of a device at the protocol level
+are able to change the operational state of devices automatically.
+
+The user can manually change the operation state of a device during a `device:update`.
+
+```bash
+./commands/operation_state_false.sh
+```
+```bash
+./commands/operation_state_true.sh
+```
+
+Device services also may disable a device if it has deemed the device uncontactable or responding with failures after
+read or write operations are made. 
+If an `AllowedFails` number of consecutive attempts to contact a device result in failure then Device Service 
+will assume the device is down and set the device to non-operational. 
+The device will be in a non-operational state until a `DeviceDownTimeout` has been reached after which the device 
+will be marked as operational again. 
+When this occurs, the device will be placed in a “last chance” state, meaning that regardless of the `AllowedFails` 
+setting, a single failure will trigger the device back to non-operational for the `DeviceDownTimeout` again, but a successful response 
+will restore the device to normal.
