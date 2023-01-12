@@ -16,8 +16,6 @@
   "Bus":"bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
-  "DeviceDownTimeout": 60,
-  "AllowedFails": 5,
   "Driver": {
     "NetworkInterface": "eth0",
     "ConnectionTimeout": 3000,
