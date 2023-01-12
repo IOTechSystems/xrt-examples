@@ -6,7 +6,7 @@
   "RequestTopic": "xrt/devices/gps/request",
   "ReplyTopic": "xrt/devices/gps/reply",
   "StatusTopic": "xrt/devices/gps/status",
-  "AutoRegister": true,
+  "AutoRegister": false,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
   "ProfileDir":"${XRT_PROFILE_DIR}",
