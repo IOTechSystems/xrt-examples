@@ -6,7 +6,7 @@ We encourage you to look at the scripts in the `commands` folder in your device 
 ## Prerequisites
 
 * The "Getting Started" section for your respective device service has been followed 
-* Your present working directory is\ your chosen device service example folder e.g:
+* Your present working directory is your chosen device service example folder e.g:
 
 ```bash
 cd ~/xrt-examples/DeviceServices/opc-ua
