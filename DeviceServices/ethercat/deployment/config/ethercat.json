@@ -12,7 +12,7 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
-  "DeviceDownTimeout": 30,
+  "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "Driver":{
     "NetworkInterface1":"eno1",
