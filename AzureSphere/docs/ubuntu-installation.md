@@ -45,7 +45,7 @@ Just like with the [windows installation](./windows-installation.md) we can manu
 2. Download XRT using:
 
 ```bash
-curl -L -O https://iotech.jfrog.io/ui/native/windows-release/azuresphere-12/iotech-xrt-dev-azsphere12-2.0-latest.zip
+curl -L -O https://iotech.jfrog.io/ui/native/windows-release/azuresphere-12/iotech-xrt-dev-azsphere12-2.1-latest.zip
 ```
 
 3. Open the file explorer (nautilus) with sudo permissions
@@ -55,7 +55,6 @@ sudo nautilus ./
 ```
 
 4. extract the downloaded zip file into the sysroots directory: `/opt/azurespheresdk/Sysroots/<API_VER>/`
-
 
 ## Updating the XRT package on ubuntu
 
