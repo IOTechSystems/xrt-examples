@@ -2,160 +2,66 @@
     "ethernet_ip_device_service": {
         "Profiles": [
             {
-                "name": "Allen-Bradley-Azure",
+                "name": "EtherNet-IP-Sim-profile",
                 "apiVersion": "v2",
                 "labels": [],
                 "deviceResources": [
                     {
-                        "name": "DINT_ARRAY",
-                        "properties": {
-                            "valueType": "Uint8Array",
-                            "readWrite": "R"
-                        },
+                        "name": "TestIntArray",
                         "attributes": {
-                            "tagName": "DINT_ARRAY",
-                            "type": "logixTag"
+                          "arraySize": 10,
+                          "tagName": "TestInt",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
+                        "properties": {
+                          "readWrite": "R",
+                          "valueType": "Uint16Array"
                         }
                     },
                     {
-                        "name": "DINT_ARRAY[0]",
-                        "properties": {
-                            "valueType": "Int32",
-                            "readWrite": "R"
-                        },
+                        "name": "TestInt",
                         "attributes": {
-                            "tagName": "DINT_ARRAY[0]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[1]",
-                        "properties": {
-                            "valueType": "Int32",
-                            "readWrite": "R"
+                          "tagName": "TestInt",
+                          "type": "logixTag"
                         },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[1]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[2]",
+                        "description": "structure of all output data",
                         "properties": {
-                            "valueType": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[2]",
-                            "type": "logixTag"
+                          "readWrite": "R",
+                          "valueType": "int16"
                         }
-                    },
-                    {
-                        "name": "DINT_ARRAY[3]",
+                      },
+                      {
+                        "name": "TestSint",
+                        "attributes": {
+                          "tagName": "TestSint",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
                         "properties": {
-                            "valueType": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[3]",
-                            "type": "logixTag"
+                          "readWrite": "R",
+                          "valueType": "int8"
                         }
-                    },
-                    {
-                        "name": "DINT_ARRAY[4]",
+                      },
+                      {
+                        "name": "TestDint",
+                        "attributes": {
+                          "tagName": "TestDint",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
                         "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[4]",
-                            "type": "logixTag"
+                          "readWrite": "R",
+                          "valueType": "int32"
                         }
-                    },
-                    {
-                        "name": "DINT_ARRAY[5]",
-                        "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[5]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[6]",
-                        "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[6]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[7]",
-                        "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[7]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[8]",
-                        "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[8]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[9]",
-                        "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[9]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[10]",
-                        "properties": {
-                            "valuetype": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[10]",
-                            "type": "logixTag"
-                        }
-                    },
-                    {
-                        "name": "DINT_ARRAY[11]",
-                        "properties": {
-                            "valueType": "Int32",
-                            "readWrite": "R"
-                        },
-                        "attributes": {
-                            "tagName": "DINT_ARRAY[11]",
-                            "type": "logixTag"
-                        }
-                    }
+                      }
                 ]
             }
         ],
         "Devices": [
             {
-                "name": "Allen-Bradley-Azure",
-                "profileName": "Allen-Bradley-Azure",
+                "name": "Ethernet-IP-Sim",
+                "profileName": "EtherNet-IP-Sim-profile",
                 "protocols": {
                     "EtherNet-IP": {
                         "Address": "<plc-address>"
@@ -165,9 +71,12 @@
         ],
         "Schedules": [
             {
-                "device": "Allen-Bradley-Azure",
+                "device": "Ethernet-IP-Sim",
                 "resource": [
-                    "DINT_ARRAY"
+                    "TestIntArray",
+                    "TestDint",
+                    "TestSint",
+                    "TestInt"
                 ],
                 "interval": 4000000,
                 "name": "schedule1"
@@ -262,7 +171,7 @@
         "Logger": "logger",
         "Pattern": "device/mt3620/input",
         "Interface": "eth0",
-        "Address": "192.168.4.40",
+        "Address": "10.0.0.48",
         "SubnetMask": "255.255.255.0",
         "Gateway": "0.0.0.0"
     },
@@ -276,12 +185,14 @@
         "Logger": "logger",
         "ThreadPool": "pool",
         "Bus": "bus",
+        "ProfileDir": ".",
+        "StateDir": ".",
         "Driver": {
-            "NetworkInterface": "eth0",
-            "MacAddress": "02:aa:2b:e7:b7:6e",
             "FullDuplex": true,
+            "MacAddress": "<interface-mac-address>",
+            "NetworkInterface": "wlan0",
             "NetworkSpeed": 100
-        },
+        }
     },
     "udp-logger": {
         "Name": "udp-logger",

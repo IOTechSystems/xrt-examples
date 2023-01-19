@@ -74,7 +74,7 @@ static char * config_loader (const char * name, const char * uri)
     const iot_data_t * props = config_props ? iot_data_string_map_get_map (config_props, name) : NULL;
     if (props) ret = iot_data_to_json (props);
   }
-  if (!ret) ret = iot_file_config_loader (name, uri);
+  if (!ret) ret = iot_store_config_load (name, uri);
   return ret;
 }
 
