@@ -1,0 +1,14 @@
+{
+    "Library": "libxrt-modbus-device-service.so",
+    "Factory": "xrt_modbus_device_service_factory",
+    "Name": "modbus",
+    "ProfileDir": "${DIR_PATH}/modbus-tcp/deployment/modbus-tcp-profiles",
+    "StateDir": "${DIR_PATH}/modbus-tcp/deployment/modbus-tcp-state",
+    "Scheduler": "sched",
+    "Logger": "logger",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "TelemetryTopic": "xrt/devices/modbus/telemetry",
+    "RequestTopic": "xrt/devices/modbus/request",
+    "ReplyTopic": "xrt/devices/modbus/reply"
+}

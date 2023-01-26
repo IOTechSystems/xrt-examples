@@ -1,0 +1,40 @@
+{
+    "Library": "libxrt-mqtt-bridge.so",
+    "Factory": "xrt_mqtt_bridge_factory",
+    "MQTTRoot": "xrt/devices",
+    "Patterns": [
+        "modbus/telemetry",
+        "modbus/reply",
+        "modbus/request",
+        "bacnet_ip/telemetry",
+        "bacnet_ip/reply",
+        "bacnet_ip/request",
+        "bacnet_ip/discovery",
+        "opc_ua/telemetry",
+        "opc_ua/reply",
+        "opc_ua/request",
+        "opc_ua/discovery"
+    ],
+    "MQTTPatterns": [
+        "modbus/request",
+        "bacnet_ip/request",
+        "opc_ua/request"
+    ],
+    "MQTTConfig": {
+        "ServerURI": "${XRT_MQTT_BROKER}",
+        "ClientID": "xrt",
+        "QoS": 1,
+        "ClientConfig": {
+            "KeepAliveInterval": 60,
+            "MQTTVersion": 5,
+            "Reliable": true,
+            "RetryInterval": 5,
+            "Username": "",
+            "Password": ""
+        }
+    },
+    "Cookie": 125,
+    "QueueSize": 5,
+    "Bus": "bus",
+    "Logger": "logger"
+}

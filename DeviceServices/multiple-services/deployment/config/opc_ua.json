@@ -1,0 +1,22 @@
+{
+    "Library": "libxrt-opcua-device-service.so",
+    "Factory": "xrt_opcua_device_service_factory",
+    "Name": "opc_ua",
+    "TelemetryTopic": "xrt/devices/opc_ua/telemetry",
+    "RequestTopic": "xrt/devices/opc_ua/request",
+    "ReplyTopic": "xrt/devices/opc_ua/reply",
+    "DiscoveryTopic": "xrt/devices/opc_ua/discovery",
+    "AutoRegister": false,
+    "DiscoveryInterval": 300,
+    "PublishRegisteredDevices": true,
+    "PublishAttributes": true,
+    "ProfileDir": "${DIR_PATH}/opc-ua/deployment/opc-ua-profiles",
+    "StateDir": "${DIR_PATH}/opc-ua/deployment/opc-ua-state",
+    "Scheduler": "sched",
+    "Logger": "logger",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "Driver": {
+        "LDSName": "LDS"
+    }
+}
