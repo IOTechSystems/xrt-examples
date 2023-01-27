@@ -22,7 +22,8 @@ Additionally, a number of example scripts are provided that can be used to inter
 
 * [BACnet IP](bacnet-ip)
 * [BACnet MSTP](bacnet-mstp)
-* [Modbus](modbus)
+* [Modbus RTU](modbus-rtu)
+* [Modbus TCP](modbus-tcp)
 * [OPC-UA](opc-ua)
 * [Virtual](virtual)
 * [EtherNet/IP](ethernet-ip)
