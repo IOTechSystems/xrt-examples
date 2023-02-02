@@ -1,24 +1,23 @@
 {
     "Library": "libxrt-mqtt-bridge.so",
     "Factory": "xrt_mqtt_bridge_factory",
-    "MQTTRoot": "xrt/devices",
     "Patterns": [
-        "modbus/telemetry",
-        "modbus/reply",
-        "modbus/request",
-        "bacnet_ip/telemetry",
-        "bacnet_ip/reply",
-        "bacnet_ip/request",
-        "bacnet_ip/discovery",
-        "opc_ua/telemetry",
-        "opc_ua/reply",
-        "opc_ua/request",
-        "opc_ua/discovery"
+        "xrt/devices/modbus/telemetry",
+        "xrt/devices/modbus/reply",
+        "xrt/devices/modbus/request",
+        "xrt/devices/bacnet_ip/telemetry",
+        "xrt/devices/bacnet_ip/reply",
+        "xrt/devices/bacnet_ip/request",
+        "xrt/devices/bacnet_ip/discovery",
+        "xrt/devices/opc_ua/telemetry",
+        "xrt/devices/opc_ua/reply",
+        "xrt/devices/opc_ua/request",
+        "xrt/devices/opc_ua/discovery"
     ],
     "MQTTPatterns": [
-        "modbus/request",
-        "bacnet_ip/request",
-        "opc_ua/request"
+        "xrt/devices/modbus/request",
+        "xrt/devices/bacnet_ip/request",
+        "xrt/devices/opc_ua/request"
     ],
     "MQTTConfig": {
         "ServerURI": "${XRT_MQTT_BROKER}",
