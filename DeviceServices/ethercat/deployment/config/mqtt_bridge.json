@@ -1,13 +1,12 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "MQTTRoot":"xrt/devices/ethercat",
   "Patterns": [ 
-    "telemetry",
-    "reply",
-    "status"
+    "xrt/devices/ethercat/telemetry",
+    "xrt/devices/ethercat/reply",
+    "xrt/devices/ethercat/status"
   ],
-  "MQTTPatterns": [ "request" ],
+  "MQTTPatterns": [ "xrt/devices/ethercat/request" ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

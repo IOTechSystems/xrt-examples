@@ -1,13 +1,12 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "MQTTRoot": "xrt/devices/gps",
   "Patterns": [
-    "telemetry",
-    "reply",
-    "status"
+    "xrt/devices/gps/telemetry",
+    "xrt/devices/gps/reply",
+    "xrt/devices/gps/status"
   ],
-  "MQTTPatterns": [ "request" ],
+  "MQTTPatterns": [ "xrt/devices/gps/request" ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
