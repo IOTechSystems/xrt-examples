@@ -34,6 +34,7 @@
      }
   ],
   "ProfileDir":"deployment/profiles",
+  "StateDir":"deployment/state",
   "Scheduler":"sched",
   "Logger":"logger_info",
   "ThreadPool":"pool",

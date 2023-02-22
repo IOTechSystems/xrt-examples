@@ -1,7 +1,9 @@
 # Example XRT application component
+## Overview
+The aim of this example is to demonstrate how a custom component (app_component) can be built and loaded into the XRT system and subsequently used alongside other components. 
 
-This example uses the **Virtual Device Service** to generate some random data (Int8). The data is published under `"virtual_device_service/data"` topic to the bus.
-A Lua component is attached which subscribes to both data streams and transforms the data (multiplies each data value by 10) before re-publishing the new values under the topic `"virtual_device_service/transformed_data"`. There is also a custom application component attached which subscribes to the topic `"virtual_device_service/transformed_data"`, adds the two random values together before re-publishing the final result back to the XRT bus under the topic `"virtual_device_service/result"`. Lastly, an MQTT exporter component is attached which re-publishes the result on `"virtual_device_service/final_result"` (using Mosquitto) so that the data can be accessed by any client subscribed to that MQTT topic on the broker.
+This example uses the [Virtual Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/virtual-device-service-component.html) to generate some random data (Int8). The data is published under `"virtual_device_service/data"` topic to the bus.
+A [Lua component](https://docs.iotechsys.com/edge-xrt20/transform-components/lua-transform-component.html) is attached which subscribes to both data streams and transforms the data (multiplies each data value by 10) before re-publishing the new values under the topic `"virtual_device_service/transformed_data"`. There is also a custom application component attached which subscribes to the topic `"virtual_device_service/transformed_data"`, adds the two random values together before re-publishing the final result back to the XRT bus under the topic `"virtual_device_service/result"`. Lastly, an MQTT exporter component is attached which re-publishes the result on `"virtual_device_service/final_result"` (using Mosquitto) so that the data can be accessed by any client subscribed to that MQTT topic on the broker.
 
 Below an illustration of the scenario described above:
 
@@ -12,12 +14,11 @@ Below an illustration of the scenario described above:
   
   `dpkg -l | grep iotech`
 
-  * iotech-iot-dev     1.2.1    amd64    IOT C Framework
-  * iotech-thrift-dev  1.0.1    amd64    Embedded Thrift C Version
-  * iotech-xrt-dev     1.1.1    amd64    XRT C RealTime Framework
+  * iotech-iot-1.4-dev     1.4    amd64    IOT C Framework
+  * iotech-xrt-2.1-dev     2.1.1    amd64    XRT C RealTime Framework
 
   Environment variables must be set as usual with the command:
-  `source /opt/iotech/xrt/bin/env.sh`
+  `source /opt/iotech/xrt/2.1/bin/env.sh`
 
 ## Build
 Open a terminal window in the directory containing the example. Run

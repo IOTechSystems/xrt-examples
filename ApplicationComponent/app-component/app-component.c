@@ -24,7 +24,7 @@ typedef struct app_component_t app_component_t;
 
 extern void app_component_start (app_component_t * app_comp);
 extern void app_component_stop (app_component_t * app_comp);
-static void app_component_add_callback (iot_data_t * data, void * self, const char * match);
+static void app_component_add_callback (const iot_data_t * data, void * self, const char * match);
 
 /* Allocation function, takes as arguments all required component attributes */
 extern app_component_t * app_component_alloc (xrt_bus_t * bus, const char * request_topic, const char * reply_topic, iot_logger_t * logger)
@@ -94,7 +94,7 @@ static iot_component_t * app_component_config (iot_container_t * cont, const iot
  * adds the random generated values from the two channels together
  * re-publishes the result back to the bus
  */
-static void app_component_add_callback (iot_data_t * data, void * self, const char * match)
+static void app_component_add_callback (const iot_data_t * data, void * self, const char * match)
 {
   app_component_t * app_comp = (app_component_t*) self;
   iot_log_trace (app_comp->logger, "app_component_add_callback");

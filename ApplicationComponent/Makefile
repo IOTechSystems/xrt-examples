@@ -1,5 +1,5 @@
-IOT_DIR=/opt/iotech/iot
-XRT_DIR=/opt/iotech/xrt
+IOT_DIR=/opt/iotech/iot/1.4
+XRT_DIR=/opt/iotech/xrt/2.1
 
 build: libapp-component.so
 
