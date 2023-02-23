@@ -1,16 +1,15 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "MQTTRoot": "xrt",
   "Patterns": [
-    "command/reply",
-    "devices/virtual/telemetry",
-    "devices/virtual/reply",
-    "devices/virtual/discovery"
+    "xrt/command/reply",
+    "xrt/devices/virtual/telemetry",
+    "xrt/devices/virtual/reply",
+    "xrt/devices/virtual/discovery"
   ],
   "MQTTPatterns": [
-    "command/request",
-    "devices/virtual/request"
+    "xrt/command/request",
+    "xrt/devices/virtual/request"
   ],
   "MQTTConfig":
   {
@@ -21,7 +20,6 @@
     {
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "Reliable": true,
       "RetryInterval": 5,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}"

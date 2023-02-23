@@ -8,7 +8,10 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
+  "DeviceDownTimeout": 60,
+  "AllowedFails": 5,
   "TelemetryTopic":"xrt/devices/modbus/telemetry",
   "RequestTopic": "xrt/devices/modbus/request",
-  "ReplyTopic": "xrt/devices/modbus/reply"
+  "ReplyTopic": "xrt/devices/modbus/reply",
+  "StatusTopic": "xrt/devices/modbus/status"
 }

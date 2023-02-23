@@ -1,13 +1,13 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "MQTTRoot":"xrt/devices/opc_ua",
   "Patterns": [ 
-    "telemetry",
-    "reply",
-    "discovery"
+    "xrt/devices/opc_ua/telemetry",
+    "xrt/devices/opc_ua/reply",
+    "xrt/devices/opc_ua/discovery",
+    "xrt/devices/opc_ua/status"
   ],
-  "MQTTPatterns": [ "request" ],
+  "MQTTPatterns": [ "xrt/devices/opc_ua/request" ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
@@ -17,10 +17,10 @@
     {
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "Reliable": true,
       "RetryInterval": 5,
       "Username": "${XRT_MQTT_USERNAME}",
-      "Password": "${XRT_MQTT_PASSWORD}"
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "MaxBufferedMessages": 100
     }
   },
   "Cookie": 125,

@@ -4,10 +4,12 @@
     "cmake.buildToolArgs": [ "-v" ],
     "cmake.configureSettings": {
         "CMAKE_TOOLCHAIN_FILE": "${command:azuresphere.AzureSphereSdkDir}/CMakeFiles/AzureSphereToolchain.cmake",
-	"AZURE_SPHERE_TARGET_TOOLS_REVISION": "22.02",
+        "AZURE_SPHERE_TARGET_TOOLS_REVISION": "22.09",
         "AZURE_SPHERE_TARGET_API_SET": "12",
-	"DEVICE": "bacnet",
-	"BOARD": "mt3620-g100"
+        "DEVICE": "bacnet",
+        "BOARD": "mt3620-g100",
+        "XRT_VERSION": 2.1,
+        "IOT_VERSION": 1.4
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
