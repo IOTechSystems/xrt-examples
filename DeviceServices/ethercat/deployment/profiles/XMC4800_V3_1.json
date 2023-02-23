@@ -1,0 +1,772 @@
+{
+  "apiVersion": "v2",
+  "name": "XMC4800_V3_1",
+  "manufacturer": "Infineon",
+  "model": "KITXMC48RELAXECATV1TOB01",
+  "description": "EtherCAT slave kit",
+  "labels": [
+    "ethercat"
+  ],
+  "deviceResources": [
+    {
+      "name": "State",
+      "description": "Write Options: SAFE_OP, OP",
+      "attributes": {
+        "type": "State"
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "RW",
+        "units": "Slave State"
+      }
+    },
+    {
+      "name": "Device type",
+      "description": "Type  of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4096,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R",
+        "defaultValue": "2299723776"
+      }
+    },
+    {
+      "name": "Error register",
+      "description": "Type  of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4097,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "Int8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Device name",
+      "description": "Name  of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4104,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R",
+        "defaultValue": "XMC_ESC"
+      }
+    },
+    {
+      "name": "Hardware version",
+      "description": "Version of hardware",
+      "attributes": {
+        "type": "SDO",
+        "index": 4105,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R",
+        "defaultValue": "1.0"
+      }
+    },
+    {
+      "name": "Software version",
+      "description": "Version of software",
+      "attributes": {
+        "type": "SDO",
+        "index": 4106,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R",
+        "defaultValue": "5.11"
+      }
+    },
+    {
+      "name": "Vendor ID",
+      "description": "ID of manufacturer",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R",
+        "defaultValue": "1308819456"
+      }
+    },
+    {
+      "name": "Product code",
+      "description": "Product code of device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Revision",
+      "description": "Revision the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Serial number",
+      "description": "Serial number of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Local error reaction",
+      "description": "Local error reaction",
+      "attributes": {
+        "type": "SDO",
+        "index": 4337,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW",
+        "defaultValue": "16777216"
+      }
+    },
+    {
+      "name": "Sync error counter limit",
+      "description": "Sync error counter limit",
+      "attributes": {
+        "type": "SDO",
+        "index": 4337,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW",
+        "defaultValue": "1024"
+      }
+    },
+    {
+      "name": "Sync mode - output",
+      "description": "The current synchronisation mode in use",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle time - output",
+      "description": "Cycle time (ns)",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync modes supported - output",
+      "description": "Synchronization modes that are supported on the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Minimum cycle time - output",
+      "description": "Minimum cycle time available for the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Calc and copy time - output",
+      "description": "The minimum amount of time allowed between the events of Sync0 and Sync1",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Get cycle time - output",
+      "description": "Command to measure cycle tine: 0 = measurement stopped, 1 = measurement enabled",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Maximum delay time - output",
+      "description": "Maximum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync0 cycle time - output",
+      "description": "Sync0 cycle time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 10
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "SM event missed counter - output",
+      "description": "Counter of the number of SM-Events missed",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 11
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle exceeded counter - output",
+      "description": "Counter on how many times the cycle was not completed in time for the next",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 12
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync error - output",
+      "description": "Error in synchronisation of the slave in the previous cycle",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 32
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync mode - input",
+      "description": "The current synchronisation mode in use",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle time - input",
+      "description": "Cycle time (ns)",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync modes supported - input",
+      "description": "Synchronization modes that are supported on the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Minimum cycle time - input",
+      "description": "Minimum cycle time available for the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Calc and copy time - input",
+      "description": "The minimum amount of time allowed between the events of Sync0 and Sync1",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Get cycle time - input",
+      "description": "Command to measure cycle tine: 0 = measurement stopped, 1 = measurement enabled",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Maximum delay time - input",
+      "description": "Maximum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync0 cycle time - input",
+      "description": "Maximum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 10
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "SM event missed counter - input",
+      "description": "Counter of the number of SM-Events missed",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 11
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle exceeded counter - input",
+      "description": "Counter on how many times the cycle was not completed in time for the next",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 12
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync error - input",
+      "description": "Error in synchronisation of the slave in the previous cycle",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 32
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "OUT_GEN_INT1",
+      "description": "PWM control of LED2 brightness",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_INT2",
+      "description": "OUT_GEN_INT2",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 2,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_INT3",
+      "description": "OUT_GEN_INT3",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 4,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_INT4",
+      "description": "OUT_GEN_INT4",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 6,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT1",
+      "description": "LED 1 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT2",
+      "description": "LED 2 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT3",
+      "description": "LED 3 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT4",
+      "description": "LED 4 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT5",
+      "description": "LED 5 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 4
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT6",
+      "description": "LED 6 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 5
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT7",
+      "description": "LED 7 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 6
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "OUT_GEN_BIT8",
+      "description": "LED 8 on the device",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 7
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "IN_GEN_INT1",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_INT2",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 2,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_INT3",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 4,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_INT4",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 6,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT1",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT2",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT3",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT4",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT5",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 4
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT6",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 5
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT7",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 6
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "IN_GEN_BIT8",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 7
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    }
+  ]
+}

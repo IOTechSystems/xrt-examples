@@ -1,0 +1,522 @@
+"Services": {
+  "virtual_device_service": {
+    "Profiles": [
+      {
+        "labels": [],
+        "name": "device-virtual",
+        "apiVersion": "v2",
+        "deviceResources": [
+          {
+            "name": "RandomBool",
+            "description": "Generate random bool value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Bool",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomInt8",
+            "description": "Generate random Int8 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Int8",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomInt16",
+            "description": "Generate random Int16 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Int16",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomInt32",
+            "description": "Generate random Int32 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Int32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomInt64",
+            "description": "Generate random Int64 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Int64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomUInt8",
+            "description": "Generate random UInt8 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "UInt8",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomUInt16",
+            "description": "Generate random UInt16 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "UInt16",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomUInt32",
+            "description": "Generate random UInt32 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "UInt32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomUInt64",
+            "description": "Generate random UInt64 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "UInt64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomFloat32",
+            "description": "Generate random float32 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Float32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomFloat64",
+            "description": "Generate random float64 value",
+            "attributes": {
+              "sequenceType": "random"
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomInt8Limits",
+            "description": "Generate random Int8 value between -10 and 10",
+            "attributes": {
+              "sequenceType": "random",
+              "minimum": -10,
+              "maximum": 10
+            },
+            "properties": {
+              "valueType": "Int8",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "RandomFloat32Limits",
+            "description": "Generate random float32 value between -1.4E+5, and 1.4E+5,",
+            "attributes": {
+              "sequenceType": "random",
+              "minimum": -1.4E+5,
+              "maximum": 1.4E+5
+            },
+            "properties": {
+              "valueType": "Float32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "CountingDownInt32",
+            "description": "Int32 value which starts at 10 and decrements by 5",
+            "attributes": {
+              "sequenceType": "arithmetic",
+              "firstValue": 10,
+              "difference": -5
+            },
+            "properties": {
+              "valueType": "Int32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "CountingUpFloat32",
+            "description": "Float32 value which starts at -20.5 and increments by 6.0",
+            "attributes": {
+              "sequenceType": "arithmetic",
+              "firstValue": -20.5,
+              "difference": 6.0
+            },
+            "properties": {
+              "valueType": "Float32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "SineWave",
+            "description": "Value which traces a sine wave",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "sinewave",
+              "period": 8,
+              "amplitude": 4.0
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "SineWaveWithOffsetAndPhase",
+            "description": "Value which traces a sine wave with offset and phase",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "sinewave",
+              "period": 8,
+              "amplitude": 4.0,
+              "offset": 10.0,
+              "phase": 2
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "TriangleWave",
+            "description": "Value which traces a triangle wave",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "triangle",
+              "period": 8,
+              "amplitude": 4.0
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "TriangleWaveWithOffsetAndPhase",
+            "description": "Value which traces a triangle wave with offset and phase",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "triangle",
+              "period": 8,
+              "amplitude": 4.0,
+              "offset": 10.0,
+              "phase": 2
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "SawtoothWave",
+            "description": "Value which traces a sawtooth wave",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "sawtooth",
+              "period": 8,
+              "amplitude": 4.0
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "SawtoothWaveWithOffsetAndPhase",
+            "description": "Value which traces a sawtooth wave with offset and phase",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "sawtooth",
+              "period": 8,
+              "amplitude": 4.0,
+              "offset": 10.0,
+              "phase": 2
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "SquareWave",
+            "description": "Value which traces a square wave",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "square",
+              "period": 8,
+              "amplitude": 4.0
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "SquareWaveWithOffsetAndPhase",
+            "description": "Value which traces a square wave with offset and phase",
+            "attributes": {
+              "sequenceType": "waveform",
+              "shape": "square",
+              "period": 8,
+              "amplitude": 4.0,
+              "offset": 10.0,
+              "phase": 2
+            },
+            "properties": {
+              "valueType": "Float64",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "ScriptInt32",
+            "description": "Int32 value which follows a scripted sequence",
+            "attributes": {
+              "sequenceType": "script",
+              "sequence": [
+                {
+                  "value": 1
+                },
+                {
+                  "value": 2
+                },
+                {
+                  "value": 3,
+                  "repeat": 5
+                },
+                {
+                  "value": 4
+                },
+                {
+                  "value": 5
+                }
+              ]
+            },
+            "properties": {
+              "valueType": "Int32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "ScriptFloat32",
+            "description": "Float32 value which follows a scripted sequence",
+            "attributes": {
+              "sequenceType": "script",
+              "sequence": [
+                {
+                  "value": 10.7
+                },
+                {
+                  "value": 5.4,
+                  "repeat": 2
+                },
+                {
+                  "value": 20
+                },
+                {
+                  "value": 4.5
+                },
+                {
+                  "value": 33.2,
+                  "repeat": 6
+                }
+              ]
+            },
+            "properties": {
+              "valueType": "Float32",
+              "readWrite": "R"
+            }
+          },
+          {
+            "name": "StoreInt32Value",
+            "description": "Read/Write Int32 value",
+            "attributes": {
+              "firstValue": 123
+            },
+            "properties": {
+              "valueType": "Int32",
+              "readWrite": "RW"
+            }
+          },
+          {
+            "name": "StoreFloat32Value",
+            "description": "Read/Write Float32 value",
+            "attributes": {
+              "firstValue": 43.5
+            },
+            "properties": {
+              "valueType": "Float32",
+              "readWrite": "RW"
+            }
+          }
+        ]
+      }
+    ],
+    "Devices": [
+      {
+        "name": "Virtual-Device",
+        "profileName": "device-virtual",
+        "protocols": {
+          "Other": {
+            "Address": "device-virtual-int-01"
+          }
+        }
+      }
+    ],
+    "Schedules": [
+      {
+        "name": "schedule1",
+        "device": "Virtual-Device",
+        "resource": [
+          "RandomBool",
+          "RandomInt8",
+          "RandomInt16"
+        ],
+        "interval": 5000000
+      }
+    ]
+  }
+},
+"Components": {
+  "main": {
+    "logger": "IOT::Logger",
+    "pool": "IOT::ThreadPool",
+    "scheduler": "IOT::Scheduler",
+    "bus": "XRT::Bus",
+    "azure": "XRT::AzureSphereExporter",
+    "logexport": "XRT::LogExporter",
+    "mt3620": "XRT::MT3620Device",
+    "virtual": "XRT::VirtualDeviceService",
+    "udp-logger": "IOT::Logger"
+  },
+  "logger": {
+    "Name": "console",
+    "Level": "Trace",
+    "Start": true,
+    "Next": "udp-logger"
+  },
+  "pool": {
+    "Threads": 4,
+    "MaxJobs": 10,
+    "ShutdownDelay": 500,
+    "Logger": "logger"
+  },
+  "scheduler": {
+    "Logger": "logger"
+  },
+  "bus": {
+    "Scheduler": "scheduler",
+    "ThreadPool": "pool",
+    "Logger": "logger",
+    "Topics": [
+      {
+        "Topic": "device/mt3620/input",
+        "ThreadPool": "pool"
+      },
+      {
+        "Topic": "device/mt3620/output",
+        "ThreadPool": "pool"
+      },
+      {
+        "Topic": "device/input",
+        "ThreadPool": "pool"
+      },
+      {
+        "Topic": "device/output",
+        "ThreadPool": "pool",
+        "FilterDuplicates": true
+      }
+    ]
+  },
+  "azure": {
+    "Bus": "bus",
+    "Logger": "logger",
+    "ConnectionType": "DPS",
+    "HostName": "<iot_hub_hostname>",
+    "DeviceID": "<DEVICE-ID>",
+    "ModelID": "virtual_dev_1",
+    "ScopeID": "<ScopeID>",
+    "Interface": "wlan0",
+    "WorkPeriod": 10,
+    "Devices": [
+      {
+        "Name": "mt3620",
+        "Topic": "device/mt3620/input",
+        "Pattern": "device/mt3620/output",
+        "Format": "Raw",
+        "TwinID": "<DEVICE-ID>"
+      },
+      {
+        "Name": "demo",
+        "Topic": "device/input",
+        "Pattern": "device/output",
+        "Format": "Device"
+      }
+    ]
+  },
+  "logexport": {
+    "Bus": "bus",
+    "Logger": "logger",
+    "Pattern": "transform/lua/filtered-output"
+  },
+  "mt3620": {
+    "Bus": "bus",
+    "Logger": "logger",
+    "Pattern": "device/mt3620/input",
+    "Interface": "eth0",
+    "Address": "10.0.0.48",
+    "SubnetMask": "255.255.255.0",
+    "Gateway": "0.0.0.0"
+  },
+  "virtual": {
+    "Name": "virtual_device_service",
+    "Topic": "device/output",
+    "RequestTopic": "device/input",
+    "Scheduler": "scheduler",
+    "Logger": "logger",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "TelemetryTopic": "device/output",
+    "ReplyTopic": "device/output",
+    "DiscoveryTopic": "device/output",
+    "ProfileDir": ".",
+    "StateDir": "."
+  },
+  "udp-logger": {
+    "Name": "udp-logger",
+    "Level": "Trace",
+    "To": "udp:<host-ip>:1999",
+    "Start": true
+  }
+},

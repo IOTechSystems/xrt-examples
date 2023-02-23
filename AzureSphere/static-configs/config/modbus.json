@@ -1,0 +1,11 @@
+{
+  "Name": "modbus_device_service",
+  "Topic": "device/output",
+  "RequestTopic": "device/input",
+  "TelemetryTopic": "device/output",
+  "ReplyTopic": "device/output",
+  "Scheduler": "scheduler",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus"
+}

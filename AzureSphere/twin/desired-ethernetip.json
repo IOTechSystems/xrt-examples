@@ -1,0 +1,203 @@
+"Services": {
+    "ethernet_ip_device_service": {
+        "Profiles": [
+            {
+                "name": "EtherNet-IP-Sim-profile",
+                "apiVersion": "v2",
+                "labels": [],
+                "deviceResources": [
+                    {
+                        "name": "TestIntArray",
+                        "attributes": {
+                          "arraySize": 10,
+                          "tagName": "TestInt",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
+                        "properties": {
+                          "readWrite": "R",
+                          "valueType": "Uint16Array"
+                        }
+                    },
+                    {
+                        "name": "TestInt",
+                        "attributes": {
+                          "tagName": "TestInt",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
+                        "properties": {
+                          "readWrite": "R",
+                          "valueType": "int16"
+                        }
+                      },
+                      {
+                        "name": "TestSint",
+                        "attributes": {
+                          "tagName": "TestSint",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
+                        "properties": {
+                          "readWrite": "R",
+                          "valueType": "int8"
+                        }
+                      },
+                      {
+                        "name": "TestDint",
+                        "attributes": {
+                          "tagName": "TestDint",
+                          "type": "logixTag"
+                        },
+                        "description": "structure of all output data",
+                        "properties": {
+                          "readWrite": "R",
+                          "valueType": "int32"
+                        }
+                      }
+                ]
+            }
+        ],
+        "Devices": [
+            {
+                "name": "Ethernet-IP-Sim",
+                "profileName": "EtherNet-IP-Sim-profile",
+                "protocols": {
+                    "EtherNet-IP": {
+                        "Address": "<plc-address>"
+                    }
+                }
+            }
+        ],
+        "Schedules": [
+            {
+                "device": "Ethernet-IP-Sim",
+                "resource": [
+                    "TestIntArray",
+                    "TestDint",
+                    "TestSint",
+                    "TestInt"
+                ],
+                "interval": 4000000,
+                "name": "schedule1"
+            }
+        ]
+    }
+},
+"Components": {
+    "main": {
+        "logger": "IOT::Logger",
+        "pool": "IOT::ThreadPool",
+        "scheduler": "IOT::Scheduler",
+        "bus": "XRT::Bus",
+        "azure": "XRT::AzureSphereExporter",
+        "logexport": "XRT::LogExporter",
+        "mt3620": "XRT::MT3620Device",
+        "ethernetip": "XRT::EtherNetIPDeviceService",
+        "udp-logger": "IOT::Logger"
+    },
+    "logger": {
+        "Name": "console",
+        "Level": "Debug",
+        "Start": true,
+        "Next": "udp-logger"
+    },
+    "pool": {
+        "Threads": 2,
+        "MaxJobs": 10,
+        "ShutdownDelay": 500,
+        "Logger": "logger"
+    },
+    "scheduler": {
+        "Logger": "logger"
+    },
+    "bus": {
+        "Scheduler": "scheduler",
+        "ThreadPool": "pool",
+        "Logger": "logger",
+        "Topics": [
+            {
+                "Topic": "device/mt3620/input",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/mt3620/output",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/input",
+                "ThreadPool": "pool"
+            },
+            {
+                "Topic": "device/output",
+                "ThreadPool": "pool",
+                "FilterDuplicates": true
+            }
+        ]
+    },
+    "azure": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "ConnectionType": "DPS",
+        "HostName": "<iot_hub_hostname>",
+        "DeviceID": "<DEVICE-ID>",
+        "ModelID": "virtual_dev_1",
+        "ScopeID": "<ScopeID>",
+        "Interface": "wlan0",
+        "Devices": [
+            {
+                "Name": "mt3620",
+                "Topic": "device/mt3620/input",
+                "Pattern": "device/mt3620/output",
+                "Format": "Raw",
+                "TwinID": "<DEVICE-ID>"
+            },
+            {
+                "Name": "demo",
+                "Topic": "device/input",
+                "Pattern": "device/output",
+                "Format": "Device"
+            }
+        ],
+        "WorkPeriod": 10
+    },
+    "logexport": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "device/output"
+    },
+    "mt3620": {
+        "Bus": "bus",
+        "Logger": "logger",
+        "Pattern": "device/mt3620/input",
+        "Interface": "eth0",
+        "Address": "10.0.0.48",
+        "SubnetMask": "255.255.255.0",
+        "Gateway": "0.0.0.0"
+    },
+    "ethernetip": {
+        "Name": "ethernet_ip_device_service",
+        "Topic": "device/output",
+        "RequestTopic": "device/input",
+        "TelemetryTopic": "device/output",
+        "ReplyTopic": "device/output",
+        "Scheduler": "scheduler",
+        "Logger": "logger",
+        "ThreadPool": "pool",
+        "Bus": "bus",
+        "ProfileDir": ".",
+        "StateDir": ".",
+        "Driver": {
+            "FullDuplex": true,
+            "MacAddress": "<interface-mac-address>",
+            "NetworkInterface": "wlan0",
+            "NetworkSpeed": 100
+        }
+    },
+    "udp-logger": {
+        "Name": "udp-logger",
+        "Level": "Trace",
+        "To": "udp:<host-ip>:1999",
+        "Start": true
+    }
+},

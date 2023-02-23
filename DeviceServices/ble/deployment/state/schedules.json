@@ -1,1 +1,13 @@
-{"schedule1":{"device":"ble-sim","interval":1000000,"name":"schedule1","resource":["Counter"]}}
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "device": "ble-sim",
+      "interval": 1000000,
+      "name": "schedule1",
+      "resource": [
+        "Counter"
+      ]
+    }
+  ]
+}

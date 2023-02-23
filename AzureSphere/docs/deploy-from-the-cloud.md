@@ -22,10 +22,9 @@ DEVICE=<modbus, bacnet or virtual> \
 BOARD=<mt3620-g100, mt3620-dk, mt3620-sk or mt3620-sr620>
 ```
 
+The built image `xrt-app.imagepackage` can now be found in
+`build/xrt-app.imagepackage` within the current `AzureSphere` directory.
 Now the image has been built and can be deployed to the cloud.
-The built image `xrt-app.imagepackage` can now be found in the
-build/ directory of your current directory.
 
 To deploy the image from the Cloud, follow the [Create A Deployment](https://docs.microsoft.com/en-us/azure-sphere/deployment/create-a-deployment?tabs=cliv2beta)
 guide.
-

@@ -1,0 +1,9 @@
+{
+    "logger": "IOT::Logger",
+    "sched": "IOT::Scheduler",
+    "pool": "IOT::ThreadPool",
+    "bus": "XRT::Bus",
+    "s7": "XRT::S7DeviceService",
+    "opc_ua_server": "XRT::OPCUAServer",
+    "mqtt_bridge": "XRT::MQTTBridge"
+}

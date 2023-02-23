@@ -1,0 +1,14 @@
+{
+    "Bus":"bus",
+    "Logger":"logger",
+    "ConnectionType":"DPS",
+    "HostName":"<iot_hub_hostname>",
+    "DeviceID":"<DEVICE-ID>",
+    "ModelID":"guardian-100",
+    "ScopeID":"<ScopeID>",
+    "Interface":"wlan0",
+    "Devices": [
+        { "Name": "mt3620", "Topic": "device/mt3620/input", "Pattern": "device/mt3620/output", "Format": "Raw"},
+        { "Name": "Allen-Bradley-Azure",   "Topic": "device/input","Pattern": "device/output", "Format": "Device"}
+    ]
+}

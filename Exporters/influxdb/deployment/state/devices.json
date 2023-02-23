@@ -1,1 +1,10 @@
-{"Motor":{"profile":"MotorSim","protocols":{"Other":{"Address":"device-virtual-motor-01"}},"name":"Motor"}}
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "Motor",
+      "profileName": "MotorSim",
+      "protocols": { "Other": { "Address": "device-virtual-motor-01" } }
+    }
+  ]
+}

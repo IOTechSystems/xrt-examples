@@ -1,1 +1,19 @@
-{"gps-sim":{"profileName":"GPS-Device", "protocols":{"GPS": {}}}}
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "gps-sim",
+      "profileName": "GPS-Device",
+      "protocols": {
+        "GPS": {
+          "GpsdConnTimeout": 2500,
+          "GpsdHostname": "${GPS_SIM_ADDRESS}",
+          "GpsdMode": "poll",
+          "GpsdPort": 2947,
+          "GpsdRequestTimeout": 5000,
+          "GpsdRetries": 5
+        }
+      }
+    }
+  ]
+}

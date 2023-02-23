@@ -1,0 +1,33 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [
+    "${AZURE_MQTT_REPLY_TOPIC}"
+  ],
+  "MQTTPatterns": [ "${AZURE_MQTT_REQUEST_TOPIC}" ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${AZURE_MQTT_SERVER_URI}",
+    "ClientID": "${AZURE_DEVICE_ID}",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "Username":"${AZURE_MQTT_USERNAME}",
+      "Password": "${AZURE_MQTT_SAS_PASSWORD}",
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 4,
+      "RetryInterval": 5,
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10,
+      "SSLConfig":
+      {
+        "TrustStore":"${AZURE_MQTT_ROOT_CA}"
+      }
+    },
+  },
+  "Cookie": 125,
+  "Bus": "bus",
+  "QueueSize": 5,
+  "Logger": "logger_debug"
+}
