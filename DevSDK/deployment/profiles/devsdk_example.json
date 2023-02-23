@@ -1,5 +1,6 @@
 {
   "name": "DevSDK-Example-Device",
+  "apiVersion": "v2",
   "manufacturer": "IOTech",
   "model": "DevSDK-01",
   "description": "Sample profile for DevSDK example",

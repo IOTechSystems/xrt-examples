@@ -1,0 +1,158 @@
+{
+  "apiVersion": "v2",
+  "name": "modbus-sim-profile",
+  "manufacturer": "Dent Instruments",
+  "model": "PS3037",
+  "description": "Power Scout Meter",
+  "labels": [
+    "modbus",
+    "powerscout"
+  ],
+  "deviceResources": [
+    {
+      "name": "Current",
+      "description": "Average current of all phases",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 9
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Energy",
+      "description": "System Total True Energy",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 4001,
+        "rawType": "INT16"
+      },
+      "properties": {
+        "valueType": "FLOAT32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Power",
+      "description": "System Total True Power ",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 4003
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Voltage",
+      "description": "Voltage Line to line (Volts) Average",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 4017
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "DemandWindowSize",
+      "description": "Demand window size in minutes; default is 15 min",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 4603
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "LineFrequency",
+      "description": "Line frequency setting for metering: 50=50 Hz, 60=60Hz",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 4609
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "ExampleZeroStartingAddress",
+      "description": "Example UINT16 resource that does not belong to real device. Accesses first address to demonstrate zero-based addressing.",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 0
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleRWScale0.1",
+      "description": "Example Float32 resource that does not belong to real device. Demonstrates RW scale factor 0.1",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 20,
+        "scaleType": "RW",
+        "scale": 0.1,
+        "rawType": "UINT16"
+      },
+      "properties": {
+        "valueType": "FLOAT32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleRWScale0.001",
+      "description": "Example Float64 resource that does not belong to real device. Demonstrates RW scale factor 0.001",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 21,
+        "scaleType": "RW",
+        "scale": 0.001,
+        "rawType": "UINT16"
+      },
+      "properties": {
+        "valueType": "FLOAT64",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleWOnlyScale0.1",
+      "description": "Example Float64 resource that does not belong to real device. Demonstrates W-only scale factor 0.1",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 22,
+        "scaleType": "W",
+        "scale": 0.1,
+        "rawType": "UINT16"
+      },
+      "properties": {
+        "valueType": "FLOAT64",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleROnlyScale0.1",
+      "description": "Example Float64 resource that does not belong to real device. Demonstrates R-only scale factor 0.1",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 23,
+        "scaleType": "R",
+        "scale": 0.1,
+        "rawType": "UINT16"
+      },
+      "properties": {
+        "valueType": "FLOAT64",
+        "readWrite": "RW"
+      }
+    }
+  ]
+}

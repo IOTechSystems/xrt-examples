@@ -5,8 +5,9 @@ mosquitto_pub -t xrt/devices/virtual/request -m \
   "client": "example",
   "request_id": "1031",
   "op": "device:put",
-  "device": "Random-Device",
+  "type": "xrt.request:1.0",
+  "device": "Virtual-Device",
   "values": {
-    "Float32Value": 1.71
+    "StoreInt32Value": 25
   }
 }'

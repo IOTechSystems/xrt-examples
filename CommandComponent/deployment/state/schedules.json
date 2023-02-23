@@ -1,0 +1,1 @@
+{"apiVersion":"v2","schedules":[{"device":"Virtual-Device","interval":3000000,"name":"schedule1","resource":["RandomInt8"]}]}

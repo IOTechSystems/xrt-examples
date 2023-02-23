@@ -1,22 +1,25 @@
 {
-  "LDS": {
-    "name": "LDS",
-    "profile": "LDS_profile",
-    "protocols": {
-      "OPC-UA": {
-        "Address": "${OPCUA_LDS_ADDRESS}",
-        "Security": "None"
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "LDS",
+      "profileName": "LDS_profile",
+      "protocols": {
+        "OPC-UA": {
+          "Address": "${OPCUA_LDS_ADDRESS}",
+          "Security": "None"
+        }
+      }
+    },
+    {
+      "name": "opc-ua-sim",
+      "profileName": "opc-ua-sim-profile",
+      "protocols": {
+        "OPC-UA": {
+          "Address": "${OPCUA_SIM_ADDRESS}",
+          "Security": "None"
+        }
       }
     }
-  },
-  "opc-ua-sim": {
-    "name": "opc-ua-sim",
-    "profile": "opc-ua-sim-profile",
-    "protocols": {
-      "OPC-UA": {
-        "Address": "${OPCUA_SIM_ADDRESS}",
-        "Security": "None"
-      }
-    }
-  }
+  ]
 }

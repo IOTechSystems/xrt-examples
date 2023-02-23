@@ -6,6 +6,7 @@
   "Scheduler":"sched",
   "ThreadPool":"pool",
   "Bus":"bus",
+  "TelemetryTopic":"xrt/devices/virtual/telemetry",
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}"
 }

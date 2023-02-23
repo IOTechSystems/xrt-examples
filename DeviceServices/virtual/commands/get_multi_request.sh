@@ -5,9 +5,10 @@ mosquitto_pub -t xrt/devices/virtual/request -m \
   "client": "example",
   "request_id": "1021",
   "op": "device:get",
-  "device": "Random-Device",
+  "type": "xrt.request:1.0",
+  "device": "Virtual-Device",
   "resource": [
-      "CountingUInt32",
-      "Sinewave"
+      "SineWave",
+      "SineWaveWithOffsetAndPhase"
     ]
 }'

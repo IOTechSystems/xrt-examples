@@ -4,13 +4,13 @@
 
 This page shows you how to setup and run the OPC-UA device service example. 
 
-For more information about the Device Service please review the [OPC-UA Device Service](https://www.link.to.opc-ua.device.service.docs) documentation. 
+For more information about the Device Service please review the [OPC-UA Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/opc-ua-device-service-component.html) documentation. 
 
 ## Getting Started
 
 ### **Run the simulator**
 
-*For more information about the OPC-UA device simulator, see [OPC-UA Simulator](https://www.fixthislink.please).*
+*For more information about the OPC-UA device simulator, see [OPC-UA Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/opc-ua/overview.html).*
 
 ```bash
 ./commands/start_device_sim.sh
@@ -60,7 +60,7 @@ For basic device service operations see the [Basic Operations Walkthrough](../in
 
 ### Subscriptions
 
-Subscriptions are specific to the OPC-UA device service. You can read more about them [here](https://www.link-to-opc-ua-subscriptions.documentation).
+Subscriptions are specific to the OPC-UA device service. You can read more about them [here](https://docs.iotechsys.com/edge-xrt20/device-service-components/opc-ua-device-service-component.html#opc-ua-subscriptions).
 
 OPC-UA subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
 
@@ -78,6 +78,6 @@ We can setup a subscription to a monitored resource using auto events. This will
 ./commands/remove_subscription.sh
 ```
 
-### Discovery
+### Discovery & Profile Generation
 
 For a walkthrough on device discovery and profile generation see the [Discovery](../interactive-walkthrough/discovery.md) guide.

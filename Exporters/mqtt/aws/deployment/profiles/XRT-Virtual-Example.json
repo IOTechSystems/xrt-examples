@@ -9,12 +9,12 @@
     },
     {
       "name": "Temp",
-      "attributes": { "sequenceType": "arithmetic", "firstValue": "345", "difference": "-1" },
+      "attributes": { "sequenceType": "arithmetic", "firstValue": 345, "difference": -1 },
       "properties": { "valueType": "UInt32", "readWrite": "R", "units": "degC" }
     },
     {
       "name": "Uptime",
-      "attributes": { "sequenceType": "arithmetic", "firstValue": "67891", "difference": "1" },
+      "attributes": { "sequenceType": "arithmetic", "firstValue": 67891, "difference": 1 },
       "properties": { "valueType": "Uint64", "readWrite": "R", "units": "seconds" }
     }
   ],

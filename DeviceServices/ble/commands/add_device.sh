@@ -5,13 +5,13 @@ mosquitto_pub -t xrt/devices/ble/request -m \
   "client": "example",
   "request_id":"1010",
   "op": "device:add",
-  "device": "opc-ua-sim",
+  "type": "xrt.request:1.0",
+  "device": "ble-sim",
   "device_info":  {
     "profileName": "ble-sim-profile",
-    "protocols":{
-      "OPC-UA":{
-        "Address": "localhost:49947",
-        "Security": "None"
+    "protocols": {
+      "BLE": {
+        "MAC": "00:AA:01:01:00:24"
       }
     }
   }

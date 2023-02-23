@@ -12,9 +12,11 @@
     {
       "KeepAliveInterval": 60,
       "MQTTVersion": 4,
-      "Reliable": true,
       "ConnectTimeout": 30,
       "Username": "ignored",
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10,
       "SSLConfig":
       {
         "EnableServerCertAuth": true,

@@ -4,7 +4,8 @@
   "Patterns": [
     "xrt/devices/bacnet_ip/telemetry",
     "xrt/devices/bacnet_ip/reply",
-    "xrt/devices/bacnet_ip/discovery"
+    "xrt/devices/bacnet_ip/discovery",
+    "xrt/devices/bacnet_ip/status"
   ],
   "MQTTPatterns": [ "xrt/devices/bacnet_ip/request" ],
   "MQTTConfig":
@@ -14,14 +15,13 @@
     "QoS": 1,
     "ClientConfig":
     {
-      "KeepAliveInterval": 10,
+      "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "Reliable": true,
+      "RetryInterval": 5,
       "Username": "${XRT_MQTT_USERNAME}",
-      "Password": "${XRT_MQTT_PASSWORD}"
-    },
-    "RetryCount": 5,
-    "RetryInterval": 5
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "MaxBufferedMessages": 100
+    }
   },
   "Cookie": 125,
   "QueueSize": 5,

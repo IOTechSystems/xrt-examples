@@ -1,1 +1,13 @@
-{"schedule1":{"device":"opc-ua-sim","interval":3000000,"name":"schedule1","resource":["ns=3;s=Counter"]}}
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "device": "opc-ua-sim",
+      "interval": 3000000,
+      "name": "schedule1",
+      "resource": [
+        "ns=3;s=Counter:value"
+      ]
+    }
+  ]
+}

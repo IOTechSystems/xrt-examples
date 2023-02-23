@@ -7,5 +7,7 @@
   "ThreadPool":"pool",
   "Bus":"bus",
   "ProfileDir":"${XRT_PROFILE_DIR}",
-  "StateDir":"${XRT_STATE_DIR}"
+  "StateDir":"${XRT_STATE_DIR}",
+  "Timestamp": true,
+  "PublishSource":true
 }

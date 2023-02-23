@@ -1,0 +1,24 @@
+{
+  "apiVersion": "v2",
+  "name": "EK1100",
+  "manufacturer": "Beckhoff",
+  "model": "EK1100",
+  "description": "Device profile for an EtherCAT EK1100 Bus Coupler",
+  "labels": [
+    "EK1100"
+  ],
+  "deviceResources": [
+    {
+      "name": "State",
+      "description": "Write Options: SAFE_OP, OP",
+      "attributes": {
+        "type": "State"
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "RW",
+        "units": "Slave State"
+      }
+    }
+  ]
+}

@@ -40,11 +40,10 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -54,11 +53,10 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -68,11 +66,10 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -82,11 +79,10 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -96,11 +92,10 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -110,11 +105,10 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -124,11 +118,10 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "readOnChange": true,
-        "type": "T2O"
+        "type": "O2T"
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "W",
         "valueType": "Bool"
       }
     },
@@ -138,10 +131,10 @@
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -151,10 +144,10 @@
       "attributes": {
         "offsetBits": 1,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -164,10 +157,10 @@
       "attributes": {
         "offsetBits": 2,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -177,10 +170,10 @@
       "attributes": {
         "offsetBits": 3,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -190,10 +183,10 @@
       "attributes": {
         "offsetBits": 4,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -203,10 +196,10 @@
       "attributes": {
         "offsetBits": 5,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -216,10 +209,10 @@
       "attributes": {
         "offsetBits": 6,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
@@ -229,21 +222,19 @@
       "attributes": {
         "offsetBits": 7,
         "offsetBytes": 0,
-        "type": "O2T"
+        "type": "T2O"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "R",
         "valueType": "Bool"
       }
     },
     {
-      "name": "IdentityClass",
-      "description": "Get Attributes All Command to Identity Object Instance",
+      "name": "IdentityClassInstanceParsed",
+      "description": "Identity Class Object Instance Parsed as a String",
       "attributes": {
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 1,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -251,27 +242,23 @@
       }
     },
     {
-      "name": "IdentityClass_bytes",
-      "description": "Get Attributes All Command to Identity Object Instance",
+      "name": "IdentityClassInstance",
+      "description": "Identity Class Object Instance. This resource can be read to view the full object instance or written to with a service code override of 5 to perform a reset operation on the device.",
       "attributes": {
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 1,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint8array"
       }
     },
     {
-      "name": "EtherNetLinkClass_bytes",
-      "description": "Get Attributes All Command to Identity Object Instance",
+      "name": "EtherNetLinkClassInstance",
+      "description": "EtherNetLink Class Object Instance",
       "attributes": {
         "instID": 1,
-        "objClass": 246,
-        "serviceCode": 1,
-        "type": "EM"
+        "objClass": 246
       },
       "properties": {
         "readWrite": "R",
@@ -280,13 +267,11 @@
     },
     {
       "name": "VendorID",
-      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Vendor ID",
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -295,28 +280,24 @@
     },
     {
       "name": "VendorID_bytes",
-      "description": "Get Attribute Single Command to VendorID Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Vendor ID returned in raw bytes",
       "attributes": {
         "attrID": 1,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
-        "readWrite": "R",
+        "readWrite": "RW",
         "valueType": "Uint8array"
       }
     },
     {
       "name": "DeviceType",
-      "description": "Get Attribute Single Command to DeviceType Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Device Type",
       "attributes": {
         "attrID": 2,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -325,13 +306,11 @@
     },
     {
       "name": "ProductCode",
-      "description": "Get Attribute Single Command to ProductCode Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Product Code",
       "attributes": {
         "attrID": 3,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -340,13 +319,11 @@
     },
     {
       "name": "Revision",
-      "description": "Get Attribute Single Command to Revision Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Revision",
       "attributes": {
         "attrID": 4,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -355,13 +332,11 @@
     },
     {
       "name": "Status",
-      "description": "Get Attribute Single Command to Status Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Status",
       "attributes": {
         "attrID": 5,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -370,13 +345,11 @@
     },
     {
       "name": "SerialNumber",
-      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Serial Number",
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -385,13 +358,11 @@
     },
     {
       "name": "SerialNumber_bytes",
-      "description": "Get Attribute Single Command to SerialNumber Attribute Within the Identity Object Instance",
+      "description": "Identity Class Object Instance Attribute Serial Number returned as raw bytes",
       "attributes": {
         "attrID": 6,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -399,14 +370,12 @@
       }
     },
     {
-      "description": "Get Attribute Single Command to ProductName Attribute Within the Identity Object Instance",
       "name": "ProductName",
+      "description": "Identity Class Object Instance Attribute Product Name",
       "attributes": {
         "attrID": 7,
         "instID": 1,
-        "objClass": 1,
-        "serviceCode": 14,
-        "type": "EM"
+        "objClass": 1
       },
       "properties": {
         "readWrite": "R",
@@ -414,32 +383,16 @@
       }
     },
     {
-      "name": "AssemblyGet",
-      "description": "Get Attribute Single Command to Attribute Within Assembly Object Instance",
+      "name": "Assembly112Attr3",
+      "description": "Assembly Class Object Instance 112, Attribute 3",
       "attributes": {
         "attrID": 3,
-        "instID": 100,
-        "objClass": 4,
-        "serviceCode": 14,
-        "type": "EM"
+        "instID": 112,
+        "objClass": 4
       },
       "properties": {
-        "readWrite": "R",
-        "valueType": "Uint32"
-      }
-    },
-    {
-      "name": "Reset",
-      "description": "Triggers the device to emulate a power cycle",
-      "attributes": {
-        "instID": 1,
-        "objClass": 1,
-        "serviceCode": 5,
-        "type": "EM"
-      },
-      "properties": {
-        "readWrite": "W",
-        "valueType": "Uint8"
+        "readWrite": "RW",
+        "valueType": "Uint8Array"
       }
     },
     {
@@ -451,7 +404,7 @@
       },
       "description": "structure of all output data",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "Uint16Array"
       }
     }

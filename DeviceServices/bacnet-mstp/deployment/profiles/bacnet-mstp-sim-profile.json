@@ -5,7 +5,7 @@
   "deviceResources": [
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 75,
         "type": 8
       },
@@ -17,7 +17,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 77,
         "type": 8
       },
@@ -29,7 +29,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 79,
         "type": 8
       },
@@ -41,7 +41,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 112,
         "type": 8
       },
@@ -53,7 +53,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 121,
         "type": 8
       },
@@ -65,7 +65,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 120,
         "type": 8
       },
@@ -77,7 +77,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 70,
         "type": 8
       },
@@ -89,7 +89,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 44,
         "type": 8
       },
@@ -101,7 +101,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 12,
         "type": 8
       },
@@ -113,7 +113,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 98,
         "type": 8
       },
@@ -125,7 +125,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 139,
         "type": 8
       },
@@ -137,31 +137,31 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 97,
         "type": 8
       },
       "name": "BacnetSimulator:protocol-services-supported",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 96,
         "type": 8
       },
       "name": "BacnetSimulator:protocol-object-types-supported",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 76,
         "type": 8
       },
@@ -173,7 +173,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 62,
         "type": 8
       },
@@ -185,7 +185,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 107,
         "type": 8
       },
@@ -197,7 +197,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 11,
         "type": 8
       },
@@ -209,7 +209,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 73,
         "type": 8
       },
@@ -221,7 +221,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 30,
         "raw": true,
         "type": 8
@@ -229,12 +229,12 @@
       "name": "BacnetSimulator:device-address-binding",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 155,
         "type": 8
       },
@@ -246,7 +246,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 28,
         "type": 8
       },
@@ -258,7 +258,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 57,
         "type": 8
       },
@@ -270,7 +270,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 119,
         "type": 8
       },
@@ -282,7 +282,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 56,
         "type": 8
       },
@@ -294,7 +294,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 24,
         "type": 8
       },
@@ -306,7 +306,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 58,
         "type": 8
       },
@@ -318,7 +318,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 152,
         "raw": true,
         "type": 8
@@ -326,12 +326,12 @@
       "name": "BacnetSimulator:active-cov-subscriptions",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 116,
         "raw": true,
         "type": 8
@@ -339,12 +339,12 @@
       "name": "BacnetSimulator:time-synchronization-recipients",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 204,
         "type": 8
       },
@@ -356,7 +356,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 193,
         "type": 8
       },
@@ -368,7 +368,7 @@
     },
     {
       "attributes": {
-        "instance": 4194303,
+        "instance": 1234,
         "property": 195,
         "type": 8
       },
@@ -435,7 +435,7 @@
       "name": "analog_input_0:status-flags",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -579,7 +579,7 @@
       "name": "analog_input_0:limit-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -591,7 +591,7 @@
       "name": "analog_input_0:event-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -603,7 +603,7 @@
       "name": "analog_input_0:acked-transitions",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -628,7 +628,7 @@
       "name": "analog_input_0:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -724,7 +724,7 @@
       "name": "analog_input_1:status-flags",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -868,7 +868,7 @@
       "name": "analog_input_1:limit-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -880,7 +880,7 @@
       "name": "analog_input_1:event-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -892,7 +892,7 @@
       "name": "analog_input_1:acked-transitions",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -917,7 +917,7 @@
       "name": "analog_input_1:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1013,7 +1013,7 @@
       "name": "analog_output_0:status-flags",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1133,7 +1133,7 @@
       "name": "analog_output_1:status-flags",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1253,7 +1253,7 @@
       "name": "analog_value_0:status-flags",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1385,7 +1385,7 @@
       "name": "analog_value_0:limit-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1397,7 +1397,7 @@
       "name": "analog_value_0:event-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1409,7 +1409,7 @@
       "name": "analog_value_0:acked-transitions",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1434,7 +1434,7 @@
       "name": "analog_value_0:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1494,7 +1494,7 @@
       "name": "analog_value_1:status-flags",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1626,7 +1626,7 @@
       "name": "analog_value_1:limit-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1638,7 +1638,7 @@
       "name": "analog_value_1:event-enable",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1650,7 +1650,7 @@
       "name": "analog_value_1:acked-transitions",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     },
     {
@@ -1675,7 +1675,7 @@
       "name": "analog_value_1:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "binary"
+        "valueType": "uint8array"
       }
     }
   ]

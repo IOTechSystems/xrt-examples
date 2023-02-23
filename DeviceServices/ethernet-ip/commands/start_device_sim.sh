@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -i --rm --name=ethernetip-sim  iotechsys/ethernetip-sim:1.0
+docker run -i -d --rm --name=ethernetip-sim  iotechsys/ethernetip-sim:1.0

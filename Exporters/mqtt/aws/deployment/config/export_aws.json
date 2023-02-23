@@ -9,11 +9,13 @@
     "QoS": 1,
     "ClientConfig":
     {
-      "KeepAliveInterval": 10,
+      "KeepAliveInterval": 60,
       "MQTTVersion": 4,
-      "Reliable": true,
       "ConnectTimeout": 30,
       "CleanSession":true,
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10,
       "SSLConfig":
       {
         "EnableServerCertAuth": true,

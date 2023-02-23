@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-virtual-device-service.so",
+  "Factory": "xrt_virtual_device_service_factory",
+  "Name":"virtual",
+  "RequestTopic":"${AZURE_MQTT_REQUEST_TOPIC}",
+  "ReplyTopic":"${AZURE_MQTT_REPLY_TOPIC}",
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus"
+}

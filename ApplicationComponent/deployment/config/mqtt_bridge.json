@@ -9,9 +9,8 @@
     "QoS": 1,
     "ClientConfig":
     {
-      "KeepAliveInterval": 0,
+      "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "Reliable": true,
       "ConnectTimeout": 0,
       "CleanSession": false,
       "CleanStart": false

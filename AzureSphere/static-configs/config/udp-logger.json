@@ -1,0 +1,6 @@
+{
+  "Name":"udp-logger",
+  "Level":"Trace",
+  "To":"udp:<host-ip>:1999",
+  "Start":true
+}

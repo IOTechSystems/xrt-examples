@@ -3,24 +3,24 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
     "xrt/devices/s7/telemetry",
-    "xrt/devices/s7/reply"
+    "xrt/devices/s7/reply",
+    "xrt/devices/s7/status"
   ],
   "MQTTPatterns": [ "xrt/devices/s7/request" ],
   "MQTTConfig":
   {
-    	"ServerURI": "${XRT_MQTT_BROKER}",
-    	"ClientID": "xrt",
-    	"QoS": 1,
-    	"ClientConfig": 
-    	{
-    	"Username":"${XRT_MQTT_USERNAME}",
-    	"Password": "${XRT_MQTT_PASSWORD}", 
-    	"KeepAliveInterval": 10,
-    	"MQTTVersion": 5,
-    	"Reliable": true
-     },
-    "RetryCount": 5,
-    "RetryInterval": 5
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "RetryInterval": 5,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "MaxBufferedMessages": 100
+    }
   },
   "Cookie": 125,
   "Bus": "bus",

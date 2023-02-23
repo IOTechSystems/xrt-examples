@@ -9,20 +9,22 @@
     "QoS": 1,
     "ClientConfig":
     {
-      "KeepAliveInterval": 0,
+      "KeepAliveInterval": 60,
       "MQTTVersion": 4,
-      "Reliable": true,
       "ConnectTimeout": 0,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
       "CleanSession": false,
-      "CleanStart": false
+      "CleanStart": false,
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10      
     }
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Patterns": ["device/#"],
-  "Topic": "test",
+  "Patterns": ["xrt/devices/virtual/telemetry"],
+  "Compress": [{ "xrt/devices/virtual/telemetry" : "gzip" }],
   "QueueSize": 4
 }
 

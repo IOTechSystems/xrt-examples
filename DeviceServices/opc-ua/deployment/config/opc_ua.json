@@ -6,6 +6,7 @@
   "RequestTopic": "xrt/devices/opc_ua/request",
   "ReplyTopic": "xrt/devices/opc_ua/reply",
   "DiscoveryTopic": "xrt/devices/opc_ua/discovery",
+  "StatusTopic": "xrt/devices/opc_ua/status",
   "AutoRegister": false,
   "DiscoveryInterval": 300,
   "PublishRegisteredDevices": true,
@@ -16,6 +17,8 @@
   "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
+  "DeviceDownTimeout": 60,
+  "AllowedFails": 5,
   "Driver":{
     "LDSName":"LDS"
   }

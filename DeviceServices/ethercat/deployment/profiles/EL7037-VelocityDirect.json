@@ -1,0 +1,1981 @@
+{
+  "apiVersion": "v2",
+  "name": "EL7037-VelocityDirect",
+  "manufacturer": "Beckhoff",
+  "model": "EL7037",
+  "description": "EL7037 stepper motor drive operating in velocity direct mode",
+  "labels": [
+    "EL7037"
+  ],
+  "deviceResources": [
+    {
+      "name": "State",
+      "description": "Write Options: SAFE_OP, OP",
+      "attributes": {
+        "type": "State"
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "RW",
+        "units": "Slave State"
+      }
+    },
+    {
+      "name": "Operation Mode - Velocity Direct",
+      "description": "Setting operation mode to velocity direct on start-up",
+      "attributes": {
+        "type": "InitialSDO",
+        "index": 32786,
+        "subIndex": 1,
+        "byteLength": 1,
+        "value": 1
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": ""
+      }
+    },
+    {
+      "name": "PDO Assignment - Velocity Control",
+      "description": "PDO Assignment for Velocity Control",
+      "attributes": {
+        "type": "AssignPDO",
+        "RxPDO": [ 3, 5633, 5634, 5636 ],
+        "TxPDO": [ 2, 6657, 6659 ]
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": ""
+      }
+    },
+    {
+      "name": "Device type",
+      "description": "Type  of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4096,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Device name",
+      "description": "Name  of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4104,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Hardware version",
+      "description": "Version of hardware",
+      "attributes": {
+        "type": "SDO",
+        "index": 4105,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Software version",
+      "description": "Version of software",
+      "attributes": {
+        "type": "SDO",
+        "index": 4106,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Identity",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Vendor ID",
+      "description": "ID of manufacturer",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Product code",
+      "description": "Product code of device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Revision",
+      "description": "Revision the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Serial number",
+      "description": "Serial number of the device",
+      "attributes": {
+        "type": "SDO",
+        "index": 4120,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Backup parameter handling",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 4336,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Checksum",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 4336,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Actual Time Stamp",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 4344,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt64",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync mode - output",
+      "description": "The current synchronisation mode in use",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle time - output",
+      "description": "Cycle time (ns)",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Shift time - output",
+      "description": "Shift time (ns)",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync modes supported - output",
+      "description": "Synchronization modes that are supported on the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Minimum cycle time - output",
+      "description": "Minimum cycle time available for the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Calc and copy time - output",
+      "description": "The minimum amount of time allowed between the events of Sync0 and Sync1",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Minimum delay time - output",
+      "description": "Minimum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 7
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Get cycle time - output",
+      "description": "Command to measure cycle tine: 0 = measurement stopped, 1 = measurement enabled",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Maximum delay time - output",
+      "description": "Maximum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "SM event missed counter - output",
+      "description": "Counter of the number of SM-Events missed",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 11
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle exceeded counter - output",
+      "description": "Counter on how many times the cycle was not completed in time for the next",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 12
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Shift too short counter - output",
+      "description": "Shift too short counter",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 13
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Frame repeat time - output",
+      "description": "Frame repeat time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 20
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync error - output",
+      "description": "Error in synchronisation of the slave in the previous cycle",
+      "attributes": {
+        "type": "SDO",
+        "index": 7218,
+        "subIndex": 32
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync mode - input",
+      "description": "The current synchronisation mode in use",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle time - input",
+      "description": "Cycle time (ns)",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Shift time - input",
+      "description": "Shift time (ns)",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync modes supported - input",
+      "description": "Synchronization modes that are supported on the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Minimum cycle time - input",
+      "description": "Minimum cycle time available for the slave",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Calc and copy time - input",
+      "description": "The minimum amount of time allowed between the events of Sync0 and Sync1",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Minimum delay time - input",
+      "description": "Minimum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 7
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Get cycle time - input",
+      "description": "Command to measure cycle tine: 0 = measurement stopped, 1 = measurement enabled",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Maximum delay time - input",
+      "description": "Maximum delay time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "SM event missed counter - input",
+      "description": "Counter of the number of SM-Events missed",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 11
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Cycle exceeded counter - input",
+      "description": "Counter on how many times the cycle was not completed in time for the next",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 12
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Shift too short counter - input",
+      "description": "Shift too short counter",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 13
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Frame repeat time - input",
+      "description": "Frame repeat time",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 20
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Sync error - input",
+      "description": "Error in synchronisation of the slave in the previous cycle",
+      "attributes": {
+        "type": "SDO",
+        "index": 7219,
+        "subIndex": 32
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "ENC Settings Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32768,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Disable filter",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32768,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Enable micro increments",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32768,
+        "subIndex": 10
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Reversion of rotation",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32768,
+        "subIndex": 14
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "STM Motor Settings Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Maximal current",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Reduced current",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Nominal voltage",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Motor coil resistance",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Motor EMF",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Motor fullsteps",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Encoder increments (4-fold)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 7
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Start Velocity",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Motor coil inductance",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 10
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Drive on delay time",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 16
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Drive off delay time",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32784,
+        "subIndex": 17
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "STM Controller Settings Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32785,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Kp factor (curr.)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32785,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Ki factor (curr.)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32785,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "STM Controller Features Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Operation mode",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Speed range",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Feedback type",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Invert motor polar- Invert the direction of rotation of the motority",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Invert motor polarity",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Error on step lost",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 10
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Select info data 1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 17
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Select info data 2",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 25
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Invert digital input 1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 48
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Invert digital input 2",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 49
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Function for input 1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 50
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Function for input 2",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 54
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Function for output 1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32786,
+        "subIndex": 58
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "STM Controller Settings 3 Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Feed forward (pos.)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Kp factor (pos.)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Kp factor (velo.)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Tn (velo.)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Sensorless param 1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Sensorless param 2",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cross over velocity 1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 7
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cross over velocity 2",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cross over velocity 3",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32788,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "POS Settings Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Velocity min.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "Int16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Velocity max.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "Int16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Acceleration pos.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Acceleration neg.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 4
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Deceleration pos.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 5
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Deceleration neg.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 6
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Emergency deceleration",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 7
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Calibration position",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 8
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Calibration velocity (towards plc cam)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 9
+      },
+      "properties": {
+        "valueType": "Int16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Calibration velocity (off plc cam)",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 10
+      },
+      "properties": {
+        "valueType": "Int16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Target window",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 11
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "In-Target window",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 12
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Dead time compensation",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 13
+      },
+      "properties": {
+        "valueType": "Int16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Modulo factor",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 14
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Modulo tolerance window",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 15
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Position lag max.",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32800,
+        "subIndex": 16
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "POS Features Ch.1",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Start type",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Time information",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 17
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Invert calibration cam search direction",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 19
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Invert sync impulse search direction",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 20
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Emergency stop on position lag error",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 21
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Enhanced diag history",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 32801,
+        "subIndex": 22
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "STM Command",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 64256,
+        "subIndex": 0
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Request",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 64256,
+        "subIndex": 1
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Status",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 64256,
+        "subIndex": 2
+      },
+      "properties": {
+        "valueType": "UInt8",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Response",
+      "description": "",
+      "attributes": {
+        "type": "SDO",
+        "index": 64256,
+        "subIndex": 3
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Latch C valid - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Latch extern valid - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Latch counter done - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Latch counter underflow - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Latch counter overflow - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 4
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Extrapolation stall - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 7
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Status of input A - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 1,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Status of input B - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 1,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Status of input C - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 1,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Status of extern latch - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 1,
+        "offsetBits": 4
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Sync error - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 1,
+        "offsetBits": 5
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "TxPDO Toggle - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 1,
+        "offsetBits": 7
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Counter value - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 2,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Latch value - ENC Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 4,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "Ready to enable - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Ready - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Warning - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Error - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Moving positive - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 4
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Moving negative - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 5
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Torque reduced - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 6
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Motor stall - STM Status - PDO",
+      "description": "",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 7
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Digital input 1 - STM Status - PDO",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 9,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Digital input 2 - STM Status - PDO",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 9,
+        "offsetBits": 4
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Sync error - STM Status - PDO",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 9,
+        "offsetBits": 5
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "TxPDO Toggle - STM Status - PDO",
+      "attributes": {
+        "type": "TxPDO",
+        "offsetBytes": 9,
+        "offsetBits": 7
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "R",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Enable latch C - ENC Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Enable latch extern on positive edge - ENC Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Set counter - ENC Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Enable latch extern on negative edge - ENC Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 0,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Set counter value - ENC Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 2,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "UInt32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Enable - STM Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 6,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Reset - STM Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 6,
+        "offsetBits": 1
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Reduce torque - STM Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 6,
+        "offsetBits": 2
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Digital output 1 - STM Control - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 7,
+        "offsetBits": 3
+      },
+      "properties": {
+        "valueType": "Bool",
+        "readWrite": "RW",
+        "units": "State"
+      }
+    },
+    {
+      "name": "Velocity - STM Velocity - PDO",
+      "attributes": {
+        "type": "RxPDO",
+        "offsetBytes": 8,
+        "offsetBits": 0
+      },
+      "properties": {
+        "valueType": "Int16",
+        "readWrite": "RW"
+      }
+    }
+  ]
+}
