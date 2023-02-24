@@ -2,8 +2,8 @@
   "Library": "app-component/libapp-component.so",
   "Factory": "app_component_factory",
   "Name": "ApplicationComponent",
-  "Bus":"bus",
-  "Logger":"logger_info",
-  "RequestTopic":"xrt/lua/transformed_data",
+  "Bus": "bus",
+  "Logger": "logger_info",
+  "RequestTopic": "xrt/lua/transformed_data",
   "ReplyTopic": "xrt/app_component/result"
 }

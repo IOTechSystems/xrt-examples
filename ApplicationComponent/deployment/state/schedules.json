@@ -5,13 +5,13 @@
       "device": "Random-Device2",
       "interval": 3000000,
       "name": "schedule2",
-      "resource": ["StoreInt32Value"]
+      "resource": ["RandomInt8"]
     },
     {
       "device": "Random-Device1",
       "interval": 3000000,
       "name": "schedule1",
-      "resource": ["StoreInt32Value"]
+      "resource": ["RandomInt8"]
     }
   ]
 }

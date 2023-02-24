@@ -7,10 +7,9 @@
   "description": "Example of Device-Virtual",
   "deviceResources": [
     {
-      "name": "StoreInt32Value",
-      "description": "Read/Write Int32 value",
-      "attributes": { "firstValue": 2 },
-      "properties": { "valueType": "Int32", "readWrite": "RW" }
+      "name": "RandomInt8", "description": "Generate random Int8 value",
+      "attributes": { "sequenceType": "random" , "minimum":20, "maximum":40},
+      "properties": { "valueType": "Int8", "readWrite": "R" }
     }
   ]
 }

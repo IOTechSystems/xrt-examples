@@ -6,6 +6,8 @@
  */
 
 /* Custom application component function implementations */
+#define DEVICE1_NAME "\"Random-Device1\""
+#define DEVICE2_NAME "\"Random-Device2\""
 
 #include "app-component.h"
 
@@ -105,20 +107,18 @@ static void app_component_add_callback (const iot_data_t * data, void * self, co
 
   char * json_device = iot_data_to_json (device);
   char * json_device_data = iot_data_to_json (device_data);
-  const char * device1_name = "\"Random-Device1\"";
-  const char * device2_name = "\"Random-Device2\"";
 
-  int64_t device1_value = 0;
-  int64_t device2_value = 0;
-  static int64_t sum = 0;
+  static int64_t device1_value = 0;
+  static int64_t device2_value = 0;
+  int64_t sum = 0;
 
-  if (strcmp(json_device, device1_name) == 0)
+  if (strcmp(json_device, DEVICE1_NAME) == 0)
   {
     iot_log_info (app_comp->logger, "---Device: %s", json_device);
     iot_log_info (app_comp->logger, "---Device_data: %s", json_device_data);
     device1_value = iot_data_i64(device_data);
   }
-  else if (strcmp(json_device, device2_name) == 0)
+  else if (strcmp(json_device, DEVICE2_NAME) == 0)
   {
     iot_log_info (app_comp->logger, "---Device: %s", json_device);
     iot_log_info (app_comp->logger, "---Device_data: %s", json_device_data);
@@ -129,7 +129,7 @@ static void app_component_add_callback (const iot_data_t * data, void * self, co
     iot_log_info (app_comp->logger, "No such device");
   }
 
-  sum += device1_value + device2_value;
+  sum = device1_value + device2_value;
   iot_log_info (app_comp->logger, "---sum: %d", sum);
 
   // data has to be put back to the map and will be published on the reply topic specified in the json config
