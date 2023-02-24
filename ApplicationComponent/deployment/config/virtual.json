@@ -1,0 +1,16 @@
+{
+  "Library":"libxrt-virtual-device-service.so",
+  "Factory":"xrt_virtual_device_service_factory",
+  "Name":"virtual",
+  "TelemetryTopic":"xrt/devices/virtual/telemetry",
+  "RequestTopic":"xrt/devices/virtual/request",
+  "ReplyTopic":"xrt/devices/virtual/reply",
+  "DiscoveryTopic": "xrt/devices/virtual/discovery",
+  "StatusTopic": "xrt/devices/virtual/status",
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus"
+}

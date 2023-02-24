@@ -5,7 +5,7 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "virtual_device_service":"XRT::VirtualDeviceService",  
+  "virtual":"XRT::VirtualDeviceService",  
   "lua":"XRT::LuaTransform",
   "data_log_exporter":"XRT::LogExporter",
   "mqtt_bridge": "XRT::MQTTBridge",

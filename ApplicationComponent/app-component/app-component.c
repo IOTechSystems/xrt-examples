@@ -101,7 +101,7 @@ static void app_component_add_callback (const iot_data_t * data, void * self, co
 
   // filter out the devices and their corresponding values from the RequestTopic data stream
   const iot_data_t * device = iot_data_string_map_get (data, "device");
-  const iot_data_t * device_data = iot_data_string_map_get (iot_data_string_map_get (iot_data_string_map_get (data, "readings"), "RandomInt8"), "value");
+  const iot_data_t * device_data = iot_data_string_map_get (iot_data_string_map_get (data, "lua"), "transformed_data");
 
   char * json_device = iot_data_to_json (device);
   char * json_device_data = iot_data_to_json (device_data);
@@ -130,6 +130,7 @@ static void app_component_add_callback (const iot_data_t * data, void * self, co
   }
 
   sum += device1_value + device2_value;
+  iot_log_info (app_comp->logger, "---sum: %d", sum);
 
   // data has to be put back to the map and will be published on the reply topic specified in the json config
   iot_data_t * map = iot_data_alloc_map (IOT_DATA_STRING);
