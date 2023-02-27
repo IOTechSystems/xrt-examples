@@ -12,7 +12,7 @@ A [Lua Transform component](https://docs.iotechsys.com/edge-xrt20/transform-comp
 
 The custom application component subscribes to the `"/xrt/lua/transformed_data"` topic. This component adds the two values from the different devices together and re-publishes the final result to the Xrt bus on the topic: `"/xrt/app_component/result"`.
 
-Finally an MQTT bridge component subscribes to the `"/xrt/app_component/result"` topic on the Xrt bus and re-publishes any message received on a MQTT topic `"/xrt/app_component/result"`.
+Finally, an MQTT bridge component subscribes to the `"/xrt/app_component/result"` topic on the Xrt bus and re-publishes any message received on a MQTT topic `"/xrt/app_component/result"`.
 
 Below is an illustration of the scenario described above:
 
@@ -57,7 +57,7 @@ The logs should indicate that random values are being published to the bus, tran
 
 ## Application component structure
 
-There are a couple of function pointers that have been implemented in order to support the state transitions of the application component that has been created in this example in the C language.
+There are a couple of functions that have been implemented in order to support the state transitions of the application component that has been created in this example in the C language.
 
 ### app_component_alloc
 
