@@ -21,7 +21,8 @@ _For more information about the BACnet device simulator, see [BACnet Simulator](
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-. ./commands/set_env_vars.sh
+cd DeviceServices/bacnet-mstp
+. ../../CommonCommands/set_env_vars.sh
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
