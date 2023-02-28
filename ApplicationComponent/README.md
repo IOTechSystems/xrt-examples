@@ -4,15 +4,15 @@
 
 The aim of this example is to demonstrate how a custom component (app_component) can be built and loaded into Xrt and subsequently used alongside other components.
 
-Included in this example are two Virtual Device Services, a Lua Transform Component, a custom component and an MQTT bridge component.
+This example consists of a Virtual Device Service, a Lua Transform component, an MQTT bridge component and the custom 'app component'.
 
-The two [Virtual Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/virtual-device-service-component.html) are both setup with a scheduler. This scheduler reads from a resource on the device containing a random value and publishes this to the `"/xrt/devices/virtual/telemetry"` topic on the Xrt bus.
+The [Virtual Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/virtual-device-service-component.html) is used to generate random data. It is set up with two devices, each with a schedule that reads a resource whose value is randomly generated. The values of these resources are periodically published under the `"/xrt/devices/virtual/telemetry"` topic on the Xrt bus.
 
 A [Lua Transform component](https://docs.iotechsys.com/edge-xrt20/transform-components/lua-transform-component.html) subscribes to this telemetry topic and transforms the data (multiplies the value by 10) before re-publishing the new values on the `"/xrt/lua/transformed_data"` topic.
 
 The custom application component subscribes to the `"/xrt/lua/transformed_data"` topic. This component adds the two values from the different devices together and re-publishes the final result to the Xrt bus on the topic: `"/xrt/app_component/result"`.
 
-Finally, an MQTT bridge component subscribes to the `"/xrt/app_component/result"` topic on the Xrt bus and re-publishes any message received on a MQTT topic `"/xrt/app_component/result"`.
+Finally, an MQTT bridge component, acting as an MQTT exporter, subscribes to the `"/xrt/app_component/result"` topic and re-publishes any message received so that the data can be accessed by any client subscribed to that MQTT topic on the broker.
 
 Below is an illustration of the scenario described above:
 
@@ -40,7 +40,6 @@ First the custom component defined by app-component.c has to be built as specifi
 This can be done as follows:
 
 ```bash
-cd app-component
 make
 ```
 
