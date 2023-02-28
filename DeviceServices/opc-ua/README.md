@@ -21,7 +21,10 @@ _For more information about the OPC-UA device simulator, see [OPC-UA Simulator](
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-. ./commands/set_env_vars.sh
+cd DeviceServices/opc-ua
+. ../../CommonCommands/set_env_vars.sh
+export OPCUA_SIM_ADDRESS=localhost:49947
+export OPCUA_LDS_ADDRESS=localhost:4840
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._

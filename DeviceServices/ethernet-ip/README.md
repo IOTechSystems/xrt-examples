@@ -6,7 +6,7 @@ This page shows you how to setup and run the EtherNet/IP Device Service Example.
 
 For more information about the Device Service please review the [EtherNet/IP Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/ethernet-ip-device-service-component.html) documentation.
 
-_Note if connecting to the EtherNet/IP docker simulator change the NetworkInterface driver option docker0 otherwise set it to the name of the network interface used on your host to communicate with EtherNet/IP devices on your local network._
+_Note if connecting to the EtherNet/IP docker simulator change the NetworkInterface driver option (`deployment/config/ethernet_ip.json`) to docker0 otherwise set it to the name of the network interface used on your host to communicate with EtherNet/IP devices on your local network._
 
 ## Getting Started
 
@@ -14,7 +14,8 @@ _Note if connecting to the EtherNet/IP docker simulator change the NetworkInterf
 
 _for more information about the EtherNet/IP device simulator, see [EtherNet/IP Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/ethernet-ip/overview.html)._
 
-```
+```bash
+cd DeviceServices/ethernet-ip
 ./commands/start_device_sim.sh
 ```
 
@@ -22,8 +23,10 @@ _for more information about the EtherNet/IP device simulator, see [EtherNet/IP S
 
 We have provided a script to easily set these environment variables. Run:
 
-```
-. ./commands/set_env_vars.sh
+```bash
+cd DeviceServices/ethernet-ip
+. ../../CommonCommands/set_env_vars.sh
+export ETHERNETIP_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ethernetip-sim)
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._

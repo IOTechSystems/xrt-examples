@@ -21,14 +21,12 @@ _For more information about the S7 device simulator, see [S7 Simulator](https://
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-. ./commands/set_env_vars.sh
+cd DeviceServices/s7
+. ../../CommonCommands/set_env_vars.sh
+export S7_SIM_ADDRESS=0.0.0.0
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
-
-**To set them manually**
-
-`export S7_SIM_ADDRESS=<ip-of-sim>`
 
 An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 

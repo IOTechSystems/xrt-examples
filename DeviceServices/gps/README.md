@@ -28,7 +28,9 @@ _For more information about the GPS device simulator, see [GPS Simulator](https:
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-. ./commands/set_env_vars.sh
+cd DeviceServices/gps
+. ../../CommonCommands/set_env_vars.sh
+export GPS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gps-sim)
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._

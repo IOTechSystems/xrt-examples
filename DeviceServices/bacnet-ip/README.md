@@ -21,7 +21,9 @@ _For more information about the BACnet device simulator, see [BACnet Simulator](
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-. ./commands/set_env_vars.sh
+cd DeviceServices/bacnet-ip
+. ../../CommonCommands/set_env_vars.sh
+export BACNET_IP_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-ip-sim)
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
