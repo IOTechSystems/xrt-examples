@@ -1,11 +1,11 @@
 {
   "Library": "libxrt-virtual-device-service.so",
   "Factory": "xrt_virtual_device_service_factory",
-  "Name":"virtual_device_service",
-  "Logger":"logger",
-  "Scheduler":"sched",
-  "ThreadPool":"pool",
-  "Bus":"bus",
-  "ProfileDir":"${XRT_PROFILE_DIR}",
-  "StateDir":"${XRT_STATE_DIR}"
+  "Name": "virtual_device_service",
+  "Logger": "logger",
+  "Scheduler": "sched",
+  "ThreadPool": "pool",
+  "Bus": "bus",
+  "ProfileDir": "./deployment/profiles",
+  "StateDir": "./deployment/state"
 }

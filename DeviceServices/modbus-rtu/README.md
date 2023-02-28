@@ -10,7 +10,7 @@ For more information about the Device Service please review the [Modbus Device S
 
 ### **Run the simulator**
 
-*For more information about the Modbus device simulator, see [Modbus Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/modbus/overview.html).*
+_For more information about the Modbus device simulator, see [Modbus Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/modbus/overview.html)._
 
 ```bash
 ./commands/start_device_sim.sh
@@ -24,7 +24,7 @@ We have provided a script to easily set these environment variables. Run:
 . ./commands/set_env_vars.sh
 ```
 
-*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
+_Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
 
 An explanation for the setting of common device service environment variables can be
 found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
@@ -38,13 +38,14 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd modbus-rtu
+cd DeviceServices/modbus-rtu
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
 ## Walkthrough
 
 ### Basic Operations
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
-

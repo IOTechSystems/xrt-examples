@@ -11,15 +11,15 @@
   "DiscoveryInterval": 300,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
-  "ProfileDir":"${XRT_PROFILE_DIR}",
-  "StateDir":"${XRT_STATE_DIR}",
-  "Scheduler":"sched",
-  "Logger":"logger",
-  "ThreadPool":"pool",
-  "Bus":"bus",
+  "ProfileDir": "./deployment/profiles",
+  "StateDir": "./deployment/state",
+  "Scheduler": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
-  "Driver" : {
-    "BLE_Interface":"hci0"
+  "Driver": {
+    "BLE_Interface": "hci0"
   }
 }

@@ -12,15 +12,15 @@
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
   "PublishServerId": true,
-  "ProfileDir":"${XRT_PROFILE_DIR}",
-  "StateDir":"${XRT_STATE_DIR}",
-  "Scheduler":"sched",
-  "Logger":"logger",
-  "ThreadPool":"pool",
-  "Bus":"bus",
+  "ProfileDir": "./deployment/profiles",
+  "StateDir": "./deployment/state",
+  "Scheduler": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
-  "Driver":{
+  "Driver": {
     "DeviceObject": {
       "InstanceID": 0
     },

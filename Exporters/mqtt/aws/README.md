@@ -8,18 +8,6 @@ These examples use the virtual device service to produce readings to be exported
 
 **Set Environment Variables:**
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
-
-```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/aws/deployment/profiles/
-```
-
-XRT_STATE_DIR - This should be the path to the state directory e.g
-
-```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/aws/deployment/state/
-```
-
 MQTT_EXPORT_AWS_SERVER_URI - The uri of your amazon mqtt server e.g
 
 ```bash
@@ -52,7 +40,9 @@ MQTT_EXPORT_AWS_PRIVATE_KEY - Your AWS private key e.g
 
 **Run XRT with the config folder:**
 
-```bash 
-cd mqtt/aws/
+```bash
+cd Exporters/mqtt/aws
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames

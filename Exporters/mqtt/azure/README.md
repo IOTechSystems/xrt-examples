@@ -8,18 +8,6 @@ These examples use the virtual device service to produce readings to be exported
 
 **Set Environment Variables:**
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
-
-```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/azure/deployment/profiles/
-```
-
-XRT_STATE_DIR - This should be the path to the state directory e.g
-
-```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/azure/deployment/state/
-```
-
 AZURE_MQTT_SERVER_URI - The uri of your Azure mqtt server e.g
 
 ```bash
@@ -64,7 +52,9 @@ AZURE_MQTT_REQUEST_TOPIC - Subscribe to receive messages from Cloud to Device
 
 **Run XRT with the config folder:**
 
-```bash 
-cd mqtt/azure/
+```bash
+cd Exporters/mqtt/azure
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames

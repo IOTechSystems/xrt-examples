@@ -13,10 +13,12 @@ This example makes use of the virtual device service for demonstration purposes.
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
+
 ```bash
 . ./commands/set_env_vars.sh
 ```
-*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
+
+_Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
 
 **To set them manually:**
 
@@ -30,23 +32,31 @@ See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 cd CommandComponent
 xrt deployment/config
 ```
-*Note upon running XRT a schedule is present consisting of get requests at regular intervals upon a virtual device. The purpose of this is described under Update Component within the Walkthrough section.*
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
+
+_Note upon running XRT a schedule is present consisting of get requests at regular intervals upon a virtual device. The purpose of this is described under Update Component within the Walkthrough section._
 
 ## Walkthrough
 
 ### List Components
+
 This command will return a list of all component names within the XRT deployment.
+
 ```bash
 ./commands/list_components.sh
 ```
 
 ### Read Component
+
 This command will read the state of a named component. In this case, the logger component.
+
 ```bash
 ./commands/read_component.sh
 ```
 
 ### Update Component
+
 This command updates the configuration of a named component.
 
 This example changes the level of the logger component to "Info" from the initial setting of "Debug". After making the change, the number of logs produced as a result of the virtual device schedule will be decreased.
@@ -55,5 +65,4 @@ This example changes the level of the logger component to "Info" from the initia
 ./commands/update_component.sh
 ```
 
-
-*Note: This change will not persist, and will revert to the original configuration upon restarting XRT.*
+_Note: This change will not persist, and will revert to the original configuration upon restarting XRT._

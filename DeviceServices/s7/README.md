@@ -10,7 +10,7 @@ For more information about the Device Service please review the [S7 Device Servi
 
 ### **Run the simulator**
 
-*For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html).*
+_For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html)._
 
 ```bash
 ./commands/start_device_sim.sh
@@ -19,10 +19,12 @@ For more information about the Device Service please review the [S7 Device Servi
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
+
 ```bash
 . ./commands/set_env_vars.sh
 ```
-*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
+
+_Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
 
 **To set them manually**
 
@@ -39,9 +41,12 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd s7
+cd DeviceServices/s7
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
+
 ## Walkthrough
 
 ### Basic Operations

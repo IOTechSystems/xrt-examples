@@ -8,11 +8,13 @@ This example uses the linux device component to determine metrics for the target
 
 This is assuming that the following pre-requisites are satisfied:
 
-* XRT is installed
-* LD_LIBRARY_PATH has been correctly set
-* XRT_LICENSE_FILE has been set to the location of the xrt license
+- XRT is installed
+- LD_LIBRARY_PATH has been correctly set
+- XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
-$ xrt deployment/config
+cd Devices/linux
+xrt deployment/config
 ```
 
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames

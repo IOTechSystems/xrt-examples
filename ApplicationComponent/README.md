@@ -49,8 +49,11 @@ make
 A configuration is provided which sets up the custom component as well as two devices generating random values. Run
 
 ```bash
+cd ApplicationComponent
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
 to start the Xrt instance with the example application component.
 The logs should indicate that random values are being published to the bus, transformed and the result is republished.
