@@ -9,6 +9,6 @@
   "ReplyTopic": "xrt/devices/virtual/reply",
   "RequestTopic": "xrt/devices/virtual/request",
   "TelemetryTopic": "xrt/devices/virtual/telemetry",
-  "StateDir": "./deployment/state",
-  "ProfileDir": "./deployment/profiles"
+  "StateDir": "${XRT_STATE_DIR}",
+  "ProfileDir": "${XRT_PROFILE_DIR}"
 }
