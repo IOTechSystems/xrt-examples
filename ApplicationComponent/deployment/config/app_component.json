@@ -1,5 +1,5 @@
 {
-  "Library": "app-component/libapp-component.so",
+  "Library": "./libapp-component.so",
   "Factory": "app_component_factory",
   "Name": "ApplicationComponent",
   "Bus": "bus",
