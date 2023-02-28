@@ -6,7 +6,8 @@
       "interval": 3000000,
       "name": "schedule1",
       "resource": [
-        ".*"
+        "analog_value_0:present-value",
+        "analog_value_1:present-value"
       ]
     }
   ]
