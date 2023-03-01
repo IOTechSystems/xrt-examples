@@ -2,7 +2,7 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "name": "Virtual-Device",
+      "name": "virtual-device1",
       "profileName": "device-virtual",
       "protocols": {
         "Other": {

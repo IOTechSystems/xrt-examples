@@ -1,1 +1,4 @@
-{"Name": "serverlogger", "Level": "debug"}
+{
+  "Name": "serverlogger",
+  "Level": "debug"
+}

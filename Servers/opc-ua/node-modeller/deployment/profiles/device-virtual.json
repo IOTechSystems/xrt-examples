@@ -9,59 +9,28 @@
   "description": "Example of Device-Virtual",
   "deviceResources": [
     {
-      "name": "RandomBool", "description": "Generate random bool value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Bool", "readWrite": "R" }
+      "name" : "IU1-BarrelId",
+      "description" : "Injection Unit 1 BarrelId", 
+      "attributes": { "firstValue": "A000-00001" },
+      "properties": { "valueType": "String", "readWrite": "R"}
     },
     {
-      "name": "RandomInt8", "description": "Generate random Int8 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int8", "readWrite": "R" }
+      "name" : "IU1-InProduction",
+      "description" : "Injection Unit 1 InProduction", 
+      "attributes": { "firstValue": true },
+      "properties": { "valueType": "Bool", "readWrite": "R"}
     },
     {
-      "name": "RandomInt16", "description": "Generate random Int16 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int16", "readWrite": "R" }
+      "name" : "IU1-Index",
+      "description" : "Injection Unit 1 Index", 
+      "attributes": { "firstValue": true },
+      "properties": { "valueType": "Bool", "readWrite": "R"}
     },
     {
-      "name": "RandomInt32", "description": "Generate random Int32 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomInt64", "description": "Generate random Int64 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int64", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt8", "description": "Generate random UInt8 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt8", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt16", "description": "Generate random UInt16 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt16", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt32", "description": "Generate random UInt32 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt64", "description": "Generate random UInt64 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt64", "readWrite": "R" }
-    },
-    {
-      "name": "RandomFloat32", "description": "Generate random float32 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Float32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomFloat64", "description": "Generate random float64 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Float64", "readWrite": "R" }
+      "name" : "IU1-IsPresent",
+      "description" : "Injection Unit 1 IsPresent", 
+      "attributes": { "firstValue": true },
+      "properties": { "valueType": "Bool", "readWrite": "R"}
     }
   ]
 }

@@ -8,28 +8,34 @@
           "definitionNodeId": "ns=1;i=5029",
           "references": {
             "InjectionUnit_1": {
-              "definitionNodeId": "ns=1;i=5027"
-            },
-            "InjectionUnit_2": {
               "definitionNodeId": "ns=1;i=5027",
               "references": {
                 "BarrelId": {
-                  "definitionNodeId": "ns=1;i=6018"
+                  "definitionNodeId": "ns=1;i=6018",
+                  "resource" : "IU1-BarrelId"
                 },
                 "InProduction": {
-                  "definitionNodeId": "ns=1;i=6178"
+                  "definitionNodeId": "ns=1;i=6178",
+                  "resource" : "IU1-InProduction"
                 },
                 "Index": {
-                  "definitionNodeId": "ns=1;i=6157"
+                  "definitionNodeId": "ns=1;i=6157",
+                  "resource" : "IU1-Index"
                 },
                 "IsPresent": {
-                  "definitionNodeId": "ns=1;i=6179"
+                  "definitionNodeId": "ns=1;i=6179",
+                  "resource" : "IU1-IsPresent"
                 },
                 "TemperatureZones": {
                   "definitionNodeId": "ns=1;i=5018",
                   "references": {
                     "TemperatureZone_1": {
-                      "definitionNodeId": "ns=2;i=5018"
+                      "definitionNodeId": "ns=2;i=5018",
+                      "references" : {
+                        "ActualTemperature": {
+                          "definitionNodeId" : "ns=2;i=6111"
+                        }
+                      }
                     }
                   }
                 }
@@ -42,7 +48,7 @@
         }
       },
       "deviceService": "virtual",
-      "device": "virtual-device"
+      "device": "virtual-device1"
     }
   },
   "namespaceUris": [
