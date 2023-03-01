@@ -12,7 +12,8 @@
 #include "app-component.h"
 
 /* Implementation struct, first member must be the base component type iot_component_t */
-struct app_component_t {
+struct app_component_t
+{
   iot_component_t component; /**< Base application component */
   iot_logger_t *logger;      /**< Logger (optional) */
   xrt_bus_t *bus;            /**< Bus to which app_component is connected to */
@@ -24,7 +25,9 @@ struct app_component_t {
 typedef struct app_component_t app_component_t;
 
 extern void app_component_start (app_component_t *app_comp);
+
 extern void app_component_stop (app_component_t *app_comp);
+
 static void app_component_add_callback (const iot_data_t *data, void *self, const char *match);
 
 /* Allocation function, takes as arguments all required component attributes */
@@ -33,7 +36,8 @@ extern app_component_t *app_component_alloc (xrt_bus_t *bus, const char *request
   app_component_t *app_comp = calloc (1, sizeof (*app_comp));
   app_comp->logger = logger;
   iot_log_trace (app_comp->logger, "app_component_alloc()");
-  iot_component_init (&app_comp->component, app_component_factory (), (iot_component_start_fn_t) app_component_start, (iot_component_stop_fn_t) app_component_stop);
+  iot_component_init (&app_comp->component, app_component_factory (), (iot_component_start_fn_t) app_component_start,
+                      (iot_component_stop_fn_t) app_component_stop);
   app_comp->bus = bus;
   app_comp->sub = xrt_bus_sub_alloc (bus, request_topic, app_comp, XRT_BUS_NULL_COOKIE, app_component_add_callback, 0u, false);
   app_comp->pub = xrt_bus_pub_alloc (bus, reply_topic, app_comp, 0, NULL, 0u, false);
@@ -149,6 +153,7 @@ extern const iot_component_factory_t *app_component_factory (void)
       app_component_config,
       (iot_component_free_fn_t) app_component_free,
       NULL,
-      NULL};
+      NULL
+    };
   return &factory;
 }
