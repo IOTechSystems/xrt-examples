@@ -28,7 +28,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 cd Servers/opc-ua
-. ../../CommonCommands/set_env_vars.sh
+. ../../set_env_vars.sh
 export S7_SIM_ADDRESS=0.0.0.0
 ```
 
@@ -39,7 +39,6 @@ _Note the dot before the path to the script, which is required to set the enviro
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd Servers/opc-ua
 xrt deployment/config
 ```
 

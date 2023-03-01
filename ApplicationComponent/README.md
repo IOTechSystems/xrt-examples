@@ -20,13 +20,15 @@ Below is an illustration of the scenario described above:
 
 ## Prerequisites
 
-XRT dev must be installed.
+- XRT dev must be installed.
+- PATH & LD_LIBRARY_PATH must be set
+- XRT_LICENSE_FILE should be set
 
-Environment variables can be set with the command:
+Other environment variables can be set with the command:
 
 ```bash
 cd ApplicationComponent
-. ../CommonCommands/set_env_vars.sh
+. ../set_env_vars.sh
 ```
 
 > _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
@@ -45,16 +47,14 @@ make
 
 ## Run
 
-A configuration is provided which sets up the custom component as well as two devices generating random values. Run
+A configuration is provided which sets up the custom component as well as two devices generating random values. Run the below command to start the xrt instance with the example application component.
 
 ```bash
-cd ApplicationComponent
 xrt deployment/config
 ```
 
 > **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
-to start the Xrt instance with the example application component.
 The logs should indicate that random values are being published to the bus, transformed and the result is republished.
 
 ## Application component structure

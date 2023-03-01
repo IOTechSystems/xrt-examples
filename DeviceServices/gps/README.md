@@ -20,6 +20,7 @@ One of the following is needed before running the GPS component:
 _For more information about the GPS device simulator, see [GPS Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/gps/overview.html)._
 
 ```bash
+cd DeviceServices/gps
 ./commands/start_device_sim.sh
 ```
 
@@ -28,8 +29,7 @@ _For more information about the GPS device simulator, see [GPS Simulator](https:
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd DeviceServices/gps
-. ../../CommonCommands/set_env_vars.sh
+. ../../set_env_vars.sh
 export GPS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gps-sim)
 ```
 
@@ -46,7 +46,6 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd DeviceServices/gps
 xrt deployment/config
 ```
 

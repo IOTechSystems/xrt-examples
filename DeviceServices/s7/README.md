@@ -22,7 +22,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 cd DeviceServices/s7
-. ../../CommonCommands/set_env_vars.sh
+. ../../set_env_vars.sh
 export S7_SIM_ADDRESS=0.0.0.0
 ```
 
@@ -39,7 +39,6 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd DeviceServices/s7
 xrt deployment/config
 ```
 

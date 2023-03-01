@@ -24,8 +24,7 @@ cd DeviceServices/ethernet-ip
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd DeviceServices/ethernet-ip
-. ../../CommonCommands/set_env_vars.sh
+. ../../set_env_vars.sh
 export ETHERNETIP_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ethernetip-sim)
 ```
 
@@ -50,7 +49,6 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd DeviceServices/ethernet-ip
 xrt deployment/config
 ```
 

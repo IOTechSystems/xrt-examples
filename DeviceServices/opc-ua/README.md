@@ -13,6 +13,7 @@ For more information about the Device Service please review the [OPC-UA Device S
 _For more information about the OPC-UA device simulator, see [OPC-UA Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/opc-ua/overview.html)._
 
 ```bash
+cd DeviceServices/opc-ua
 ./commands/start_device_sim.sh
 ```
 
@@ -21,8 +22,7 @@ _For more information about the OPC-UA device simulator, see [OPC-UA Simulator](
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd DeviceServices/opc-ua
-. ../../CommonCommands/set_env_vars.sh
+. ../../set_env_vars.sh
 export OPCUA_SIM_ADDRESS=localhost:49947
 export OPCUA_LDS_ADDRESS=localhost:4840
 ```
@@ -54,7 +54,6 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd DeviceServices/opc-ua
 xrt deployment/config
 ```
 

@@ -24,7 +24,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 cd DeviceServices/ethercat
-. ../../CommonCommands/set_env_vars.sh
+. ../../set_env_vars.sh
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
@@ -40,7 +40,6 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd DeviceServices/ethercat
 xrt deployment/config
 ```
 
