@@ -1,0 +1,20 @@
+{
+  "Library": "libxrt-opc-ua-server.so",
+  "Factory": "xrt_opc_ua_server_factory",
+  "Bus": "bus",
+  "DeviceServices": [
+    {
+      "Name": "virtual"
+    }
+  ],
+  "Logger": "serverlogger",
+  "Port": 4840,
+  "ModelPaths": [
+    "${XRT_MODELS_DIR}/euromap_model.json"
+  ],
+  "NodesetPaths": [
+    "${XRT_NODESET_DIR}/Opc.Ua.Di.NodeSet2.xml",
+    "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.GeneralTypes.NodeSet2.xml",
+    "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.IMM2MES.NodeSet2.xml"
+  ]
+}

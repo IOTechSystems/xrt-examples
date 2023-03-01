@@ -1,0 +1,53 @@
+{
+  "apiVersion": "v2",
+  "nodeModels": {
+    "IMM_MES_Interface_test": {
+      "definitionNodeId": "ns=1;i=1007",
+      "references": {
+        "InjectionUnits": {
+          "definitionNodeId": "ns=1;i=5029",
+          "references": {
+            "InjectionUnit_1": {
+              "definitionNodeId": "ns=1;i=5027"
+            },
+            "InjectionUnit_2": {
+              "definitionNodeId": "ns=1;i=5027",
+              "references": {
+                "BarrelId": {
+                  "definitionNodeId": "ns=1;i=6018"
+                },
+                "InProduction": {
+                  "definitionNodeId": "ns=1;i=6178"
+                },
+                "Index": {
+                  "definitionNodeId": "ns=1;i=6157"
+                },
+                "IsPresent": {
+                  "definitionNodeId": "ns=1;i=6179"
+                },
+                "TemperatureZones": {
+                  "definitionNodeId": "ns=1;i=5018",
+                  "references": {
+                    "TemperatureZone_1": {
+                      "definitionNodeId": "ns=2;i=5018"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ProductionDatasetManagement": {
+          "definitionNodeId": "ns=1;i=5003"
+        }
+      },
+      "deviceService": "virtual",
+      "device": "virtual-device"
+    }
+  },
+  "namespaceUris": [
+    "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+    "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+    "http://opcfoundation.org/UA/DI/"
+  ]
+}

@@ -35,7 +35,7 @@ cd ./Servers/opc-ua/
 
 ### **Run XRT with the config folder:**
 
-See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
+See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
 ```bash
 xrt deployment/config
