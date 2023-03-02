@@ -5,6 +5,9 @@
   "DeviceServices": [
     {
       "Name": "virtual"
+    },
+    {
+      "Name": "s7"
     }
   ],
   "Logger": "serverlogger",

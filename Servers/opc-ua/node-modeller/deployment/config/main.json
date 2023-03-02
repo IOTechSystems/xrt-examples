@@ -5,5 +5,6 @@
   "pool": "IOT::ThreadPool",
   "bus": "XRT::Bus",
   "virtual": "XRT::VirtualDeviceService",
+  "s7": "XRT::S7DeviceService",
   "opc_ua_server": "XRT::OPCUAServer"
 }
