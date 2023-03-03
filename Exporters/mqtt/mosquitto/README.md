@@ -27,10 +27,16 @@ XRT_MQTT_PASSWORD - The Password for the Mosquitto broker e.g
 export XRT_MQTT_PASSWORD=password
 ```
 
-**Run XRT with the config folder:**
+Set commonly used environment variables
 
 ```bash
 cd Exporters/mqtt/mosquitto
+. ../../../set_env_vars.sh
+```
+
+**Run XRT with the config folder:**
+
+```bash
 xrt deployment/config
 ```
 

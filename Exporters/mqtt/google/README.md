@@ -38,10 +38,16 @@ MQTT_EXPORT_GOOGLE_CLIENT_ID
 export MQTT_EXPORT_GOOGLE_CLIENT_ID=projects/light-trail-249010/locations/europe-west1/registries/xrt-mqtt-export-test/devices/test-device-xrt-mqttexport
 ```
 
-**Run XRT with the config folder:**
+Set commonly used environment variables
 
 ```bash
 cd Exporters/mqtt/google
+. ../../../set_env_vars.sh
+```
+
+**Run XRT with the config folder:**
+
+```bash
 xrt deployment/config
 ```
 

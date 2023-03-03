@@ -50,10 +50,16 @@ AZURE_MQTT_REQUEST_TOPIC - Subscribe to receive messages from Cloud to Device
   export AZURE_MQTT_REQUEST_TOPIC=devices/{device_id}/messages/devicebound/#
 ```
 
-**Run XRT with the config folder:**
+Set commonly used environment variables
 
 ```bash
 cd Exporters/mqtt/azure
+. ../../../set_env_vars.sh
+```
+
+**Run XRT with the config folder:**
+
+```bash
 xrt deployment/config
 ```
 

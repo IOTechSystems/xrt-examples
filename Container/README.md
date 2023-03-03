@@ -18,6 +18,7 @@ This is assuming that the following pre-requisites are satisfied:
 
 ```bash
 cd Container
+. ../set_env_vars.sh
 xrt deployment/config
 ```
 

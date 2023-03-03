@@ -38,6 +38,13 @@ MQTT_EXPORT_AWS_PRIVATE_KEY - Your AWS private key e.g
   export MQTT_EXPORT_AWS_PRIVATE_KEY=/path/to/your/AWSPrivateKey.pem.key
 ```
 
+Set commonly used environment variables
+
+```bash
+cd Exporters/mqtt/aws
+. ../../../set_env_vars.sh
+```
+
 **Run XRT with the config folder:**
 
 ```bash

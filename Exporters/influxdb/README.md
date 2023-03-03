@@ -47,6 +47,13 @@ XRT_INFLUXDB_TOKEN - Acess Token string to programmatically write to database
 export XRT_INFLUXDB_TOKEN="abcede=="
 ```
 
+Set commonly used environment variables
+
+```bash
+cd Exporters/influxdb
+. ../../set_env_vars.sh
+```
+
 **Run InfluxDB**
 
 **1. Influxdb-1.x**
@@ -81,7 +88,6 @@ This is assuming that the following pre-requisites are satisfied:
 - XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
-cd Exporters/influxdb
 xrt deployment/config
 ```
 

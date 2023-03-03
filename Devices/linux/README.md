@@ -14,6 +14,7 @@ This is assuming that the following pre-requisites are satisfied:
 
 ```bash
 cd Devices/linux
+. ../../set_env_vars.sh
 xrt deployment/config
 ```
 

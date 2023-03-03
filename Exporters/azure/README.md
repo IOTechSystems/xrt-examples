@@ -38,10 +38,16 @@ AZURE_EXPORTER_KEY - Azure Device Key e.g
 export AZURE_EXPORTER_KEY=/path/to/device-42.key.pem
 ```
 
-**Run XRT with the config folder:**
+Set commonly used environment variables
 
 ```bash
 cd Exporters/azure
+. ../../set_env_vars.sh
+```
+
+**Run XRT with the config folder:**
+
+```bash
 xrt deployment/config
 ```
 
