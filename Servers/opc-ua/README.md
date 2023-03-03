@@ -16,7 +16,7 @@ The following instructions assume your starting working directory is `/xrt-examp
 
 ### **Run the S7 simulator**
 
-*For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html).*
+_For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html)._
 
 ```bash
 ./DeviceServices/s7/commands/start_device_sim.sh
@@ -27,11 +27,12 @@ The following instructions assume your starting working directory is `/xrt-examp
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd ./Servers/opc-ua/
-. ./commands/set_env_vars.sh
+cd Servers/opc-ua
+. ../../set_env_vars.sh
+export S7_SIM_ADDRESS=0.0.0.0
 ```
 
-*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
+_Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
 
 ### **Run XRT with the config folder:**
 
@@ -40,6 +41,8 @@ See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 ```bash
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
 ## Interacting with the OPC-UA Server
 

@@ -8,19 +8,7 @@ These examples use the virtual device service to produce readings to be exported
 
 **Set Environment Variables:**
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
-
-```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/azure/deployment/profiles/
-```
-
-XRT_STATE_DIR - This should be the path to the state directory e.g
-
-```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/azure/deployment/state/
-```
-
-AZURE_EXPORTER_HOSTNAME 
+AZURE_EXPORTER_HOSTNAME
 
 ```bash
 export AZURE_EXPORTER_HOSTNAME=IOTechHub.azure-devices.net
@@ -40,19 +28,27 @@ export AZURE_EXPORTER_SCOPE_ID=0ne0017479D
 
 AZURE_EXPORTER_CERTIFICATE - Azure Full chain Device Certificate e.g
 
-```bash 
+```bash
 export AZURE_EXPORTER_CERTIFICATE=/path/to/device-42.cert.pem
 ```
 
 AZURE_EXPORTER_KEY - Azure Device Key e.g
-```bash 
+
+```bash
 export AZURE_EXPORTER_KEY=/path/to/device-42.key.pem
+```
+
+Set commonly used environment variables
+
+```bash
+cd Exporters/azure
+. ../../set_env_vars.sh
 ```
 
 **Run XRT with the config folder:**
 
-```bash 
-cd azure
+```bash
 xrt deployment/config
 ```
 
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames

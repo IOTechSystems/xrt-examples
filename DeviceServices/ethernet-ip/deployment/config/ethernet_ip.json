@@ -8,19 +8,19 @@
   "StatusTopic": "xrt/devices/ethernet_ip/status",
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
-  "ProfileDir":"${XRT_PROFILE_DIR}",
-  "StateDir":"${XRT_STATE_DIR}",
-  "Scheduler":"sched",
-  "Logger":"logger",
-  "ThreadPool":"pool",
-  "Bus":"bus",
+  "ProfileDir": "${XRT_PROFILE_DIR}",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Scheduler": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "Driver": {
-    "NetworkInterface": "eth0",
+    "NetworkInterface": "docker0",
     "ConnectionTimeout": 3000,
     "DiscoveryDuration": 4000,
     "DiscoveryRetries": 2,
-    "DirectedBroadcastDiscovery" : false
+    "DirectedBroadcastDiscovery": false
   }
 }

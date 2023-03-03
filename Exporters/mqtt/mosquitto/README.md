@@ -9,17 +9,6 @@ The example expect MQTT Broker to be setup and running.
 
 **Set Environment Variables:**
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
-
-```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/deployment/profiles/
-```
-
-XRT_STATE_DIR - This should be the path to the state directory e.g
-
-```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Exporters/mqtt/mosquitto/deployment/state/
-```
 XRT_MQTT_BROKER - The Server URI of the Mosquitto broker e.g
 
 ```bash
@@ -27,18 +16,28 @@ export XRT_MQTT_BROKER=tcp://0.0.0.0:1883
 ```
 
 XRT_MQTT_USERNAME - The Username for the Mosquitto broker e.g
+
 ```bash
 export XRT_MQTT_USERNAME=admin
 ```
 
 XRT_MQTT_PASSWORD - The Password for the Mosquitto broker e.g
+
 ```bash
 export XRT_MQTT_PASSWORD=password
 ```
 
+Set commonly used environment variables
+
+```bash
+cd Exporters/mqtt/mosquitto
+. ../../../set_env_vars.sh
+```
+
 **Run XRT with the config folder:**
 
-```bash 
-cd mqtt/mosquitto/
+```bash
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames

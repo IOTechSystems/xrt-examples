@@ -1,9 +1,9 @@
 {
-  "Library": "app-component/libapp-component.so",
+  "Library": "./libapp-component.so",
   "Factory": "app_component_factory",
   "Name": "ApplicationComponent",
-  "Bus":"bus",
-  "Logger":"logger_info",
-  "RequestTopic":"virtual_device_service/transformed_data",
-  "ReplyTopic": "virtual_device_service/result"
+  "Bus": "bus",
+  "Logger": "logger_info",
+  "RequestTopic": "xrt/lua/transformed_data",
+  "ReplyTopic": "xrt/app_component/result"
 }
