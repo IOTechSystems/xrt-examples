@@ -48,7 +48,6 @@ cd Exporters/mqtt/aws
 **Run XRT with the config folder:**
 
 ```bash
-cd Exporters/mqtt/aws
 xrt deployment/config
 ```
 
