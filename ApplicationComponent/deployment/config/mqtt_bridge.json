@@ -1,25 +1,22 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "MQTTConfig":
-  {
-    "ServerURI": "127.0.0.1",
-    "ClientID": "mqtt_export",
-    "MQTTInstance": 0,
+  "Patterns": ["xrt/app_component/result"],
+  "MQTTConfig": {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
     "QoS": 1,
-    "ClientConfig":
-    {
+    "ClientConfig": {
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "ConnectTimeout": 0,
-      "CleanSession": false,
-      "CleanStart": false
+      "RetryInterval": 5,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "MaxBufferedMessages": 100
     }
   },
+  "Cookie": 125,
+  "QueueSize": 5,
   "Bus": "bus",
-  "Logger": "logger_debug",
-  "Patterns": ["virtual_device_service/result"],
-  "Topic": "virtual_device_service/final_result",
-  "QueueSize": 4
+  "Logger": "logger"
 }
-

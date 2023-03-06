@@ -12,24 +12,28 @@ For more information about the Device Service please review the [GPS Device Serv
 
 One of the following is needed before running the GPS component:
 
-* An instance of GPSD connected to a GPS module
-* A GPS simulator running (locally or in a container)
+- An instance of GPSD connected to a GPS module
+- A GPS simulator running (locally or in a container)
 
 ### **Run the Simulator**
 
-*For more information about the GPS device simulator, see [GPS Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/gps/overview.html).*
+_For more information about the GPS device simulator, see [GPS Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/gps/overview.html)._
 
 ```bash
+cd DeviceServices/gps
 ./commands/start_device_sim.sh
 ```
 
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
+
 ```bash
-. ./commands/set_env_vars.sh
+. ../../set_env_vars.sh
+export GPS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' gps-sim)
 ```
-*Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
+
+_Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
 
 An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
@@ -42,11 +46,13 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd gps
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
+
 ## Walkthrough
 
-### Basic Operations 
+### Basic Operations
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.

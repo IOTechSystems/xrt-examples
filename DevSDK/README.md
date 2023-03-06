@@ -33,7 +33,12 @@ to build the example component.
 A configuration is provided which sets up one device with three accessible
 values. Run
 
-`xrt deployment/config`
+```bash
+cd DevSDK
+xrt deployment/config
+```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
 to start the XRT instance with the example component. The logs should indicate
 a value being published every two seconds.
@@ -118,14 +123,14 @@ The number of read or write operations being requested.
 #### `requests`
 
 An array, each `request` represents an individual value ("resource") on the
-device which is to be read or written. 
+device which is to be read or written.
 
 The request structure contains the following:
 
-* `resname`: The name of the resource, for logging purposes. The example uses this to distinguish one resource from another.
-* `attributes`: Name-value pairs which identify the resource within the device (defined in the device profile).
-* `type`: The expected datatype (for readings).
-* `mask`: A (bitwise) mask to be applied for writes.
+- `resname`: The name of the resource, for logging purposes. The example uses this to distinguish one resource from another.
+- `attributes`: Name-value pairs which identify the resource within the device (defined in the device profile).
+- `type`: The expected datatype (for readings).
+- `mask`: A (bitwise) mask to be applied for writes.
 
 Support for `mask` operations is optional. If implemented, then if `mask` is
 nonzero the handler should lock the resource against concurrent writes, read
@@ -157,7 +162,6 @@ Not yet defined in XRT.
 If the service is unable to perform the requested operation, the handler
 function should allocate an `IOT_DATA_STRING` containing an appropriate error
 message in `*exception`, and return `false`.
-
 
 ### Putting it together
 

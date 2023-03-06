@@ -1,14 +1,15 @@
 {
-  "name": "device-virtual2",
+  "name": "device-virtual1",
   "apiVersion": "v2",
   "manufacturer": "IOTech",
-  "model": "Device-Virtual-02",
+  "model": "Device-Virtual-01",
   "labels": ["device-virtual-example"],
   "description": "Example of Device-Virtual",
   "deviceResources": [
     {
-      "name": "RandomInt8", "description": "Generate random Int8 value",
-      "attributes": { "sequenceType": "random" , "minimum":20, "maximum":40},
+      "name": "RandomInt8",
+      "description": "Generate random Int8 value",
+      "attributes": { "sequenceType": "random", "minimum": 0, "maximum": 20 },
       "properties": { "valueType": "Int8", "readWrite": "R" }
     }
   ]

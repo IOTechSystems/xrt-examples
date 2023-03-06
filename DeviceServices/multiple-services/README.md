@@ -3,10 +3,10 @@
 ## Overview
 
 This page shows you how to run XRT with multiple device services. The following device services are included in this example:
-* BACnet/IP
-* OPC-UA
-* Modbus-TCP
 
+- BACnet/IP
+- OPC-UA
+- Modbus-TCP
 
 For more information about the Device Services included please review the [BACnet Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/bacnet-device-service-component.html), [Modbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/modbus-device-service-component.html) and [OPC-UA Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/opc-ua-device-service-component.html) documentation.
 
@@ -16,7 +16,7 @@ For more information about the Device Services included please review the [BACne
 
 Set the environment variable `DIR_PATH` to the `DeviceServices` path in the xrt-examples directory, for example:
 
-``` shell
+```shell
     export DIR_PATH=/xrt-examples/DeviceServices
 ```
 
@@ -33,6 +33,8 @@ Follow [Device Service Example Getting Started](../interactive-walkthrough/ds-ge
 See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 
 ```bash
-cd multiple-services
+cd DeviceServices/multiple-services
 xrt deployment/config
 ```
+
+> **Note** Xrt must be run from this context as the configuration files use relative pathnames

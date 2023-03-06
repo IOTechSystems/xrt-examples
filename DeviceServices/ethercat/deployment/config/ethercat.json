@@ -1,22 +1,22 @@
 {
   "Library": "libxrt-ethercat-device-service.so",
   "Factory": "xrt_ethercat_device_service_factory",
-  "Name":"ethercat",
-  "TelemetryTopic":"xrt/devices/ethercat/telemetry",
-  "RequestTopic":"xrt/devices/ethercat/request",
-  "ReplyTopic":"xrt/devices/ethercat/reply",
+  "Name": "ethercat",
+  "TelemetryTopic": "xrt/devices/ethercat/telemetry",
+  "RequestTopic": "xrt/devices/ethercat/request",
+  "ReplyTopic": "xrt/devices/ethercat/reply",
   "StatusTopic": "xrt/devices/ethercat/status",
-  "ProfileDir":"${XRT_PROFILE_DIR}",
-  "StateDir":"${XRT_STATE_DIR}",
-  "Scheduler":"sched",
-  "Logger":"logger",
-  "ThreadPool":"pool",
-  "Bus":"bus",
+  "ProfileDir": "${XRT_PROFILE_DIR}",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Scheduler": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
-  "Driver":{
-    "NetworkInterface1":"eno1",
-    "CycleTime_us":4000,
-    "FinalState":"OP"
+  "Driver": {
+    "NetworkInterface1": "eno1",
+    "CycleTime_us": 4000,
+    "FinalState": "OP"
   }
 }
