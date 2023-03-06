@@ -27,8 +27,9 @@ _For more information about the S7 device simulator, see [S7 Simulator](https://
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd ./Servers/opc-ua/
-. ./commands/set_env_vars.sh
+cd ./Servers/opc-ua/node-modeller/
+. ../../../set_env_vars.sh
+export S7_SIM_ADDRESS=0.0.0.0
 ```
 
 > The dot before the path to the script, which is required to set the environment variables in the executing shell.*
@@ -45,7 +46,7 @@ xrt deployment/config
 
 ### Configuration
 
-The nodeset xml files can be found under `deployment/nodesets` and the node model can be found under `deployment/models/euromap_mode.json`. These are loaded in by the OPC-UA Server config which can be found under `deployment/config/opc_ua_server.json`.
+The nodeset xml files can be found under `deployment/nodesets` and the node model can be found under `deployment/models/euromap_model.json`. These are loaded in by the OPC-UA Server config which can be found under `deployment/config/opc_ua_server.json`.
 
 ### Node Model
 

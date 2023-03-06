@@ -27,8 +27,8 @@ _For more information about the S7 device simulator, see [S7 Simulator](https://
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd Servers/opc-ua
-. ../../set_env_vars.sh
+cd Servers/opc-ua/basic/
+. ../../../set_env_vars.sh
 export S7_SIM_ADDRESS=0.0.0.0
 ```
 
