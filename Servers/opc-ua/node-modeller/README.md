@@ -2,11 +2,13 @@
 
 ## Overview
 
-This example shows you how to run the OPC-UA server with a custom node model. The model uses the [EUROMAP77](https://www.euromap.org/euromap77) nodeset and creates an instance of an IMM (Injection Moulding Machines) and MES (Manufacturings Execurtions Systems) interface. Additionally, the model maps resources from a simulated s7 device to this interface.
+This example shows you how to run the OPC-UA server with a custom node model. The model uses the [EUROMAP77](https://www.euromap.org/euromap77) nodeset and creates an instance of an IMM (Injection Moulding Machines) and MES (Manufacturings Execurtions Systems) interface. Additionally, the model maps resources from simulated s7 and virtual devices to this interface.
 
 For more information about the OPC-UA Server and Node Modelling please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html) documentation.
 
 For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/s7-device-service-component.html) documentation.
+
+For more information about the Device Service please review the [Virtual Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/virtual-device-service-component.html) documentation.
 
 ## Getting Started
 
@@ -38,6 +40,16 @@ See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 ```bash
 xrt deployment/config
 ```
+
+## Understanding the Example
+
+### Configuration
+
+The nodeset xml files can be found under `deployment/nodesets` and the node model can be found under `deployment/models/euromap_mode.json`. These are loaded in by the OPC-UA Server config which can be found under `deployment/config/opc_ua_server.json`.
+
+### Node Model
+
+The node model creates an instance of an `IMM_MES_InterfaceType`, which is the Root Euromap ObjectType - representing an injection moulding machine with all its subcomponents for data exchange with an MES. The model creates two instances of the `InjectionUnitType` object: `InjectionUnit_1` and `InjectionUnit_2`, and adds them to the `IMM_MES_Interface`'s `InjectionUnits` object. The model also creates an instance of the `TemperatureZoneType` object and adds that to `InjectionUnit_1`'s  `TemperatureZones` object. The two device services, `virtual` and `s7`, are used to provide values for `InjectionUnit_1` and `InjectionUnit_2`'s components and properties, respectively.
 
 ## Interacting with the OPC-UA Server
 
