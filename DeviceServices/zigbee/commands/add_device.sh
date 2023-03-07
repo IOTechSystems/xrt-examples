@@ -6,12 +6,12 @@ mosquitto_pub -t xrt/devices/zigbee/request -m \
   "request_id": "1010",
   "op": "device:add",
   "type": "xrt.request:1.0",
-  "device": "multi_sensor",
+  "device": "LED_light_strip",
   "device_info":  {
-    "profileName": "multi_sensor_profile",
+    "profileName": "LED_strip_profile",
     "protocols":{
       "Zigbee":{
-        "FriendlyName": "0x000d6ffffe400162"
+        "FriendlyName": "0x7cb03eaa00a9b799"
       }
     }
   }

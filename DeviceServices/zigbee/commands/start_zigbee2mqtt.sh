@@ -8,7 +8,7 @@ eval set -- "$TEMP"
 
 if [ $# -lt 6 ]
 then
-  echo "Incorrect arguments. Exiting..."
+  echo "Incorrect arguments. See README for expected usage. Exiting..."
   exit
 fi
 
@@ -24,7 +24,7 @@ done
 
 if [ -z "$adapter" ] || [ -z "$dockernetwork" ] || [ -z "$mqttaddress" ]
 then
-  echo "Incorrect arguments. Exiting..."
+  echo "Incorrect arguments. See README for expected usage. Exiting..."
   exit
 fi
 
@@ -61,4 +61,4 @@ docker run \
 -v $(pwd)/data:/app/data \
 -v /run/udev:/run/udev:ro \
 -e TZ=Europe/London \
-iotechsys/zigbee2mqtt:1.27.2
+iotechsys/zigbee2mqtt:1.30

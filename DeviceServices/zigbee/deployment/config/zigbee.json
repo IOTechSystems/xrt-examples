@@ -9,7 +9,7 @@
   "ProfileDir":"${XRT_PROFILE_DIR}",
   "StateDir":"${XRT_STATE_DIR}",
   "Scheduler":"sched",
-  "Logger":"logger_debug",
+  "Logger":"logger",
   "ThreadPool":"pool",
   "Bus":"bus",
   "QueueMax": 10,
