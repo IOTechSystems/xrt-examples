@@ -1,0 +1,48 @@
+{
+  "apiVersion":"v2",
+  "devices":[
+    {
+      "description":"Outdoor Flex RGBW",
+      "name":"LED_light_strip",
+      "profileName":"LED_strip_profile",
+      "properties":{
+        "ieee_address":"0x7cb03eaa00a9b799",
+        "manufacturer":"OSRAM",
+        "model_id":"LIGHTIFY Outdoor Flex RGBW",
+        "power_source":"Mains (single phase)",
+        "type":"Router"
+      },
+      "protocols":{
+        "Zigbee":{
+          "FriendlyName":"0x7cb03eaa00a9b799"
+        }
+      }
+    },
+    {
+      "name":"coordinator_device",
+      "profileName":"coordinator_profile",
+      "protocols":{
+        "Zigbee":{
+          "FriendlyName":"Coordinator"
+        }
+      }
+    },
+    {
+      "description":"Intelligent motion sensor",
+      "name":"multi_sensor",
+      "profileName":"multi_sensor_profile",
+      "properties":{
+        "ieee_address":"0x000d6ffffe400162",
+        "manufacturer":"Immax",
+        "model_id":"4in1-Sensor-ZB3.0",
+        "power_source":"Battery",
+        "type":"EndDevice"
+      },
+      "protocols":{
+        "Zigbee":{
+          "FriendlyName":"0x000d6ffffe400162"
+        }
+      }
+    }
+  ]
+}

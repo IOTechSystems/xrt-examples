@@ -1,0 +1,9 @@
+{"apiVersion":"v2","schedules":[
+    {
+      "device":"LED_light_strip",
+      "interval":5000000,
+      "name":"zigbee_schedule",
+      "resource":["brightness"]
+    }
+  ]
+}

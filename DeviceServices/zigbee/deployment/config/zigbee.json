@@ -1,0 +1,20 @@
+{
+  "Library": "libxrt-zigbee-device-service.so",
+  "Factory": "xrt_zigbee_device_service_factory",
+  "Name":"zigbee",
+  "TelemetryTopic":"xrt/devices/zigbee/telemetry",
+  "RequestTopic":"xrt/devices/zigbee/request",
+  "ReplyTopic":"xrt/devices/zigbee/reply",
+  "DiscoveryTopic": "xrt/devices/zigbee/discovery",
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus",
+  "QueueMax": 10,
+  "AutoRegister": false,
+  "Driver": {
+    "BaseZ2MQTTTopic": "zigbee2mqtt/"
+  }
+}
