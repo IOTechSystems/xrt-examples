@@ -1,0 +1,38 @@
+{
+  "name": "device-s7",
+  "manufacturer": "",
+  "description": "S7 Server Example",
+  "labels": ["s7"],
+  "apiVersion": "v2",
+  "deviceResources": [
+    {
+      "name" : "IU2-BarrelId",
+      "description" : "Injection Unit 1 BarrelId", 
+      "attributes": {
+        "start": 320,
+        "type": "IPI",
+        "size": 10
+      },
+      "properties": { "valueType": "String", "readWrite": "R"}
+    },
+    {
+      "name" : "IU2-InProduction",
+      "description" : "Injection Unit 1 InProduction", 
+      "attributes": {
+        "start": 200,
+        "type": "IPU"
+      },
+      "properties": { "valueType": "Bool", "readWrite": "R"}
+    },
+    {
+      "name" : "IU2-IsPresent",
+      "description" : "Injection Unit 1 IsPresent", 
+      "attributes": {
+        "DB_number": 1,
+        "start": 20, 
+        "type": "DB"
+      },
+      "properties": { "valueType": "Bool", "readWrite": "R"}
+    }
+  ]
+}
