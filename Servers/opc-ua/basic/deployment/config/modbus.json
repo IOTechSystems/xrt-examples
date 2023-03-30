@@ -11,6 +11,7 @@
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "TelemetryTopic": "xrt/devices/modbus/telemetry",
+  "DiscoveryTopic": "xrt/devices/modbus/discovery",
   "RequestTopic": "xrt/devices/modbus/request",
   "ReplyTopic": "xrt/devices/modbus/reply",
   "StatusTopic": "xrt/devices/modbus/status",
