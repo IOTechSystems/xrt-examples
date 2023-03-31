@@ -44,6 +44,13 @@ xrt deployment/config
 
 > **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
+### Running with multiple services
+To run the opc-ua server with multiple services or to change which services are ran, the following changes are required:
+
+* Add the service and component to the `main.json` file
+* Add a `<service_name>.json` file
+* Update the `opc_ua_server.json` file
+
 ## Interacting with the OPC-UA Server
 
 See the [OPC-UA Server Documentation](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html)
