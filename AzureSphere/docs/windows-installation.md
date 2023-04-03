@@ -11,7 +11,7 @@ To install XRT Azure Sphere, complete the following steps:
    using the following command:
 
 ```bat
-curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-dev-azsphere12-2.1-latest.zip
+curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-azsphere15-2.1-dev.zip
 ```
 
 3. Open Windows File Explorer
@@ -19,7 +19,7 @@ curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-dev-az
 4. Select the downloaded .zip package and extract the files
    to the following location:
 
-`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\12`
+`C:\Program Files (x86)\Microsoft Azure Sphere SDK\Sysroots\15`
 
 ## Visual Studio Setup
 
