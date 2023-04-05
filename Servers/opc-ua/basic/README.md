@@ -22,6 +22,22 @@ _For more information about the S7 device simulator, see [S7 Simulator](https://
 ./DeviceServices/s7/commands/start_device_sim.sh
 ```
 
+### **Run the Bacnet simulator**
+
+_For more information about the Bacnet device simulator, see [Bacnet Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/bacnet/overview.html)._
+
+```bash
+./DeviceServices/bacnet-ip/commands/start_device_sim.sh
+```
+
+### **Run the Modbus simulator**
+
+_For more information about the Modbus device simulator, see [Modbus Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/modbus/overview.html)._
+
+```bash
+./DeviceServices/modbus-tcp/commands/start_device_sim.sh
+```
+
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
@@ -30,6 +46,9 @@ We have provided a script to easily set these environment variables. Run:
 cd Servers/opc-ua/basic/
 . ../../../set_env_vars.sh
 export S7_SIM_ADDRESS=0.0.0.0
+export BACNET_IP_SIM_ADDRESS=<ip_of_sim>
+export MODBUS_SIM_ADDRESS=$<ip_of_sim>
+export MODBUS_SIM_PORT=1502
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
