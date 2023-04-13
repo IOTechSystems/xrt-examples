@@ -14,11 +14,8 @@
       "ConnectTimeout": 0,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
-      "CleanSession": false,
-      "CleanStart": false,
       "MinRetryInterval": 5,
-      "MaxRetryInterval": 60,
-      "MaxBufferedMessages": 10      
+      "MaxRetryInterval": 60     
     }
   },
   "Bus": "bus",
