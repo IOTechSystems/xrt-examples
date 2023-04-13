@@ -16,10 +16,8 @@
       "Password": "${AZURE_MQTT_SAS_PASSWORD}",
       "KeepAliveInterval": 60,
       "MQTTVersion": 4,
-      "RetryInterval": 5,
       "MinRetryInterval": 5,
       "MaxRetryInterval": 60,
-      "MaxBufferedMessages": 10,
       "SSLConfig":
       {
         "TrustStore":"${AZURE_MQTT_ROOT_CA}"
