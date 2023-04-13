@@ -11,9 +11,7 @@
     {
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
-      "ConnectTimeout": 0,
-      "CleanSession": false,
-      "CleanStart": false
+      "ConnectTimeout": 0
     }
   },
   "Bus": "bus",

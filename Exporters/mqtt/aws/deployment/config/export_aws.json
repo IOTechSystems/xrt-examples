@@ -12,10 +12,8 @@
       "KeepAliveInterval": 60,
       "MQTTVersion": 4,
       "ConnectTimeout": 30,
-      "CleanSession":true,
       "MinRetryInterval": 5,
       "MaxRetryInterval": 60,
-      "MaxBufferedMessages": 10,
       "SSLConfig":
       {
         "EnableServerCertAuth": true,
