@@ -9,7 +9,7 @@ export XRT_MQTT_PASSWORD=""
 
 # Just used for ApplicationComponent Example
 export IOT_DIR=/opt/iotech/iot/1.5
-export XRT_DIR=/opt/iotech/xrt/2.1
+export XRT_DIR=/opt/iotech/xrt/2.2
 
 # OPC-UA Server Basic Profile and State directories
 export XRT_VIRTUAL_PROFILE_DIR=../../../DeviceServices/virtual/deployment/profiles
