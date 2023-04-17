@@ -7,6 +7,21 @@
             "Name" : "s7",
             "Timeout" : 3000,
             "MinimumSamplingInterval" : 1000
+        },
+        {
+            "Name" : "modbus",
+            "Timeout" : 3000,
+            "MinimumSamplingInterval" : 1000
+        },
+        {
+            "Name" : "bacnet_ip",
+            "Timeout" : 3000,
+            "MinimumSamplingInterval" : 1000
+        },
+        {
+            "Name" : "virtual",
+            "Timeout" : 3000,
+            "MinimumSamplingInterval" : 1000
         }
     ],
     "SecurityPolicies" : [
