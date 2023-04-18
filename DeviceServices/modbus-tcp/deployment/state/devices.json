@@ -7,8 +7,7 @@
         "modbus-tcp": {
           "Address": "${MODBUS_SIM_ADDRESS}",
           "Port": 1502,
-          "UnitID": 1,
-          "Scale": 0.01
+          "UnitID": 1
         }
       },
       "name": "modbus-sim"
