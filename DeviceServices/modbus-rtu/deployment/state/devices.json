@@ -10,8 +10,7 @@
           "DataBits": 8,
           "Parity": "N",
           "StopBits": 1,
-          "UnitID": 1,
-          "Scale": 0.01
+          "UnitID": 1
         }
       },
       "name": "modbus-sim"
