@@ -2,7 +2,6 @@
   "Library": "libxrt-redis-bridge.so",
   "Factory": "xrt_redis_bridge_factory",
   "Patterns": [ "xrt/devices/test/data" ],
-  "RedisPatterns": [ "xrt/devices/bridge/*" ],
   "RedisConfig":
   {
     "ServerAddress": "${XRT_REDIS_BROKER}",

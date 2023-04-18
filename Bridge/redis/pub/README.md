@@ -4,22 +4,10 @@
 
 You will need to set the following environment variables prior to running the example:
 
-XRT_PROFILE_DIR - This should be the path to the profile directory e.g
-
-```bash
-export XRT_PROFILE_DIR=/path/to/xrt-examples/Bridge/redis/pub/deployment/profiles/
-```
-
-XRT_STATE_DIR - This should be the path to the state directory e.g
-
-```bash
-export XRT_STATE_DIR=/path/to/xrt-examples/Bridge/redis/pub/deployment/state/
-```
-
 XRT_REDIS_BROKER - Address of the redis service
 
 ```bash
-export XRT_REDIS_BROKER=127.0.0.1
+export XRT_REDIS_BROKER="127.0.0.1"
 ```
 
 XRT_REDIS_USERNAME - Username set on the server. Set to 'default', Can be overridden using ACL_USER.
@@ -44,5 +32,7 @@ This is assuming that the following pre-requisites are satisfied:
 * XRT_LICENSE_FILE has been set to the location of the xrt license
 
 ```bash
+$ cd Bridge/redis/pub
+$ . ../set_env_vars.sh
 $ xrt deployment/config
 ```
