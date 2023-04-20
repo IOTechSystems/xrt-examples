@@ -1,0 +1,8 @@
+{
+  "Library":"libxrt-log-exporter.so",
+  "Factory":"xrt_log_exporter_factory",
+  "Bus":"bus",
+  "Logger":"logger_debug",
+  "Pattern":"xrt/devices/test/data",
+  "Cookie":1234
+}

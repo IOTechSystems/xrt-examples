@@ -5,5 +5,5 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "bridgesub":"XRT::RedisBridge",
-  "virtual_device_service":"XRT::VirtualDeviceService"
+  "log_exporter":"XRT::LogExporter"
 }
