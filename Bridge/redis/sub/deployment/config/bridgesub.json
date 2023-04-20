@@ -1,0 +1,16 @@
+{
+  "Library": "libxrt-redis-bridge.so",
+  "Factory": "xrt_redis_bridge_factory",
+  "RedisPatterns": [ "xrt/devices/test/*" ],
+  "RedisConfig":
+  {
+    "ServerAddress": "${XRT_REDIS_BROKER}",
+    "Port": 6379,
+    "Username": "${XRT_REDIS_USERNAME}",
+    "Password": "${XRT_REDIS_PASSWORD}"
+  },
+  "Cookie": 126,
+  "Bus": "bus",
+  "QueueSize": 4,
+  "Logger": "logger_debug"
+}
