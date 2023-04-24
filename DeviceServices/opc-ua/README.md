@@ -23,8 +23,8 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 . ../../set_env_vars.sh
-export OPCUA_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' opc-ua-sim):49947/
-export OPCUA_LDS_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' opc-ua-sim):4840/
+export OPCUA_SIM_ADDRESS=$(hostname):49947/
+export OPCUA_LDS_ADDRESS=$(hostname):4840/
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
