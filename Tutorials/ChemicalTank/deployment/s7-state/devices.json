@@ -1,0 +1,16 @@
+{
+    "apiVersion": "v2",
+    "devices": [
+        {
+            "name": "S7-Server",
+            "profileName": "Server",
+            "protocols": {
+              "S7": {
+                "IP": "0.0.0.0",
+                "Rack": 0,
+                "Slot": 2
+              }
+            }
+        }
+    ]
+}

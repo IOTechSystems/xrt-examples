@@ -1,0 +1,21 @@
+{
+  "name": "Server",
+  "manufacturer": "",
+  "description": "S7 Server Example",
+  "labels": ["s7"],
+  "apiVersion": "v2",
+  "deviceResources": [
+    {
+      "attributes": {
+        "DB_number": 1,
+        "start": 0,
+        "type": "DB"
+      },
+      "name": "DB_1_I16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Int16"
+      }
+    }
+  ]
+}

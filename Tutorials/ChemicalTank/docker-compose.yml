@@ -1,0 +1,112 @@
+version: '3.7'
+services:
+# XRT
+  xrt:
+    image: iotechsys/xrt-server:testing-2.2.0-x86_64
+    container_name: xrt-demo
+    entrypoint: "/opt/iotech/xrt/2.2/bin/xrt /opt/iotech/xrt/2.2/deployment/config"
+    env_file: ./scripts/env-file.env
+    networks:
+      - network1
+    restart: always
+    volumes:
+      - ./deployment/:/opt/iotech/xrt/2.2/deployment/
+      - ./scripts/license.json:/license.json
+
+# Simulators
+  s7-sim:
+    image: iotechsys/s7-sim:2.0
+    container_name: s7-sim
+    privileged: true
+    networks:
+      - network1
+    restart: always
+    environment:
+      - S7SIM_WAIT_US=2000
+
+  modbus-sim:
+    image: iotechsys/modbus-sim:1.0
+    container_name: modbus-sim
+    networks:
+      - network1
+    restart: always
+    entrypoint: /scripts/tcp-sim.sh
+    volumes:
+      - ./scripts/tcp-sim.sh:/scripts/tcp-sim.sh
+
+# Application services
+  nodered:
+    image: nodered/node-red:2.2.3-16
+    container_name: nodered
+    networks:
+      - network1
+    ports:
+      - "1880:1880"
+    restart: always
+    volumes:
+      # use host timezone
+      - /etc/localtime:/etc/localtime:ro
+      #- nodered-data:/data
+
+  grafana:
+    image: grafana/grafana:8.5.13
+    container_name: grafana
+    networks:
+      - network1
+    ports:
+      - "3000:3000"
+    restart: always
+    volumes:
+      # use host timezone
+      - /etc/localtime:/etc/localtime:ro
+      #- grafana-data:/var/lib/grafana
+
+# Database
+  influxdb:
+    image: influxdb:2.4
+    container_name: xrt-influxdb
+    hostname: xrt-influxdb
+    ports:
+      - "8086:8086"
+    networks:
+      - network1
+    restart: always
+    user: influxdb:influxdb
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: admin-password
+      DOCKER_INFLUXDB_INIT_ORG: IOTech
+      DOCKER_INFLUXDB_INIT_BUCKET: demo_bucket
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: "abcede=="
+
+# MQTT Broker
+#  mqtt-broker:
+#    image: eclipse-mosquitto:2.0
+#    container_name: mqtt-broker
+#    hostname: mqtt-broker
+#    entrypoint: entrypoint.sh
+#    env_file: scripts/env.list
+#    networks:
+#      - network1
+#    restart: always
+#    read_only: true
+#    volumes:
+#      - ./scripts/mosquitto.conf:/mosquitto/config/mosquitto.conf
+#      - ./scripts/entrypoint_mosquitto.sh:/entrypoint.sh
+
+  mqtt-broker:
+    command: "/usr/sbin/mosquitto -c /mosquitto-no-auth.conf"
+    image: eclipse-mosquitto:2.0
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"
+    hostname: mqtt-broker
+    networks:
+      - network1
+    restart: always
+    read_only: true
+
+networks:
+  network1:
+    driver: bridge
