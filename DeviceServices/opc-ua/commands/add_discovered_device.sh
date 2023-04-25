@@ -1,5 +1,5 @@
 #!/bin/sh
-
+HOSTNAME=$(hostname)
 mosquitto_pub -t xrt/devices/opc_ua/request -m \
 '{
   "client": "example",
@@ -10,7 +10,7 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
   "device_info":  {
     "protocols":{
       "OPC-UA":{
-        "Address": "localhost:49947",
+        "Address": "'$HOSTNAME':49947",
         "Security": "None"
       }
     }
