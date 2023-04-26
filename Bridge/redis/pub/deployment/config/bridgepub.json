@@ -9,6 +9,8 @@
     "Username": "${XRT_REDIS_USERNAME}",
     "Password": "${XRT_REDIS_PASSWORD}"
   },
+  "RetryCount": 5,
+  "RetryInterval": 1,
   "Cookie": 125,
   "Bus": "bus",
   "QueueSize": 4,
