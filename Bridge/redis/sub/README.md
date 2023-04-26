@@ -33,6 +33,5 @@ This is assuming that the following pre-requisites are satisfied:
 
 ```bash
 $ cd Bridge/redis/sub
-$ . ../../../set_env_vars.sh
 $ xrt deployment/config
 ```

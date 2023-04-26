@@ -23,6 +23,18 @@ XRT_REDIS_PASSWORD - Password set with requirepass in redis.conf
 export XRT_REDIS_PASSWORD="foobared"
 ```
 
+XRT_PROFILE_DIR - This should be the path to the profile directory e.g
+
+```bash
+export XRT_PROFILE_DIR=/path/to/xrt-examples/Bridge/redis/pub/deployment/profiles/
+```
+
+XRT_STATE_DIR - This should be the path to the state directory e.g
+
+```bash
+export XRT_STATE_DIR=/path/to/xrt-examples/Bridge/redis/pub/deployment/state/
+```
+
 **Run XRT with the config folder:**
 
 This is assuming that the following pre-requisites are satisfied:
@@ -33,6 +45,5 @@ This is assuming that the following pre-requisites are satisfied:
 
 ```bash
 $ cd Bridge/redis/pub
-$ . ../../../set_env_vars.sh
 $ xrt deployment/config
 ```
