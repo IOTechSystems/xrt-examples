@@ -19,23 +19,14 @@ For more information about the Device Service please review the [OPC-UA Device S
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
+
 ```bash
 . ./commands/set_env_vars.sh
+export OPCUA_SIM_ADDRESS=$(hostname):49947/
+export OPCUA_LDS_ADDRESS=$(hostname):4840/
 ```
+
 *Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
-
-**To set them manually:**
-
-`OPCUA_SIM_ADDRESS` - The address of the simulation server
-
-```bash
-export OPCUA_SIM_ADDRESS=localhost:49947
-```
-
-`OPCUA_LDS_ADDRESS` - The address of the Local Discovery Server
-```bash
-export OPCUA_LDS_ADDRESS=localhost:4840
-```
 
 An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
