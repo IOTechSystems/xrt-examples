@@ -11,7 +11,7 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
     "profileName": "opc-ua-sim-profile",
     "protocols":{
       "OPC-UA":{
-        "Address": "localhost:49947",
+        "Address": "'$OPCUA_SIM_ADDRESS'",
         "Security": "None"
       }
     }
