@@ -46,7 +46,7 @@ services:
     volumes:
       # use host timezone
       - /etc/localtime:/etc/localtime:ro
-      #- nodered-data:/data
+      - ./nodered-data/:/data
 
   grafana:
     image: grafana/grafana:8.5.13

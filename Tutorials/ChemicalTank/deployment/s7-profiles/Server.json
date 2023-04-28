@@ -1,7 +1,7 @@
 {
   "name": "Server",
   "manufacturer": "",
-  "description": "S7 Server Example",
+  "description": "Outlet Valve",
   "labels": ["s7"],
   "apiVersion": "v2",
   "deviceResources": [
@@ -11,7 +11,7 @@
         "start": 0,
         "type": "DB"
       },
-      "name": "DB_1_I16",
+      "name": "Setting",
       "properties": {
         "readWrite": "RW",
         "valueType": "Int16"

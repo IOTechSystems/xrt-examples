@@ -1,13 +1,4 @@
 {
   "apiVersion": "v2",
-  "schedules": [
-    {
-      "device": "modbus-sim",
-      "interval": 1000000,
-      "name": "modbus-example-schedule1",
-      "resource": [
-        "Current"
-      ]
-    }
-  ]
+  "schedules": []
 }

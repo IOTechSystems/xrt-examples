@@ -1,0 +1,317 @@
+[
+    {
+        "id": "b0a2892662594180",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "035f32a25bb2b317",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://xrt-demo:4840/",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "7290d8b0.f713d8",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer",
+        "login": false
+    },
+    {
+        "id": "985dfcd1ecf8312c",
+        "type": "OpcUa-Client",
+        "z": "b0a2892662594180",
+        "endpoint": "035f32a25bb2b317",
+        "action": "readmultiple",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "folderName4PKI": "",
+        "name": "",
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "68643714d1292a21"
+            ]
+        ]
+    },
+    {
+        "id": "68643714d1292a21",
+        "type": "debug",
+        "z": "b0a2892662594180",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "230d3295f0518ee7",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "Level",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "[ns=1;s=modbus:modbus-sim:Level, ns=1;s=modbus:modbus-sim:Pressure]",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "985dfcd1ecf8312c"
+            ]
+        ]
+    },
+    {
+        "id": "6315f2265db6526e",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 340,
+        "wires": [
+            [
+                "d62c678e5a62323b"
+            ]
+        ]
+    },
+    {
+        "id": "e12492ab218070c6",
+        "type": "OpcUa-Client",
+        "z": "b0a2892662594180",
+        "endpoint": "035f32a25bb2b317",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "folderName4PKI": "",
+        "name": "",
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "7ea85628637e7d75"
+            ]
+        ]
+    },
+    {
+        "id": "7ea85628637e7d75",
+        "type": "debug",
+        "z": "b0a2892662594180",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d62c678e5a62323b",
+        "type": "OpcUa-Item",
+        "z": "b0a2892662594180",
+        "item": "ns=1;s=modbus:modbus-sim:Level",
+        "datatype": "Int16",
+        "value": "65",
+        "name": "Level",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "e12492ab218070c6"
+            ]
+        ]
+    },
+    {
+        "id": "9014877e963b14ab",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "Pressure",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=modbus:modbus-sim:Pressure",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "985dfcd1ecf8312c"
+            ]
+        ]
+    },
+    {
+        "id": "fac1c80a15c67630",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "Temperature",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=modbus:modbus-sim:Temperature",
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "985dfcd1ecf8312c"
+            ]
+        ]
+    },
+    {
+        "id": "c40bd58dc52ffce0",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "c099b156318e666b"
+            ]
+        ]
+    },
+    {
+        "id": "c099b156318e666b",
+        "type": "OpcUa-Item",
+        "z": "b0a2892662594180",
+        "item": "ns=1;s=modbus:modbus-sim:Temperature",
+        "datatype": "Int16",
+        "value": "123",
+        "name": "Temperature",
+        "x": 260,
+        "y": 420,
+        "wires": [
+            [
+                "e12492ab218070c6"
+            ]
+        ]
+    },
+    {
+        "id": "2443a1a438193be9",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 70,
+        "y": 480,
+        "wires": [
+            [
+                "762c4976103ae135"
+            ]
+        ]
+    },
+    {
+        "id": "762c4976103ae135",
+        "type": "OpcUa-Item",
+        "z": "b0a2892662594180",
+        "item": "ns=1;s=modbus:modbus-sim:Pressure",
+        "datatype": "Int16",
+        "value": "345",
+        "name": "Pressure",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "e12492ab218070c6"
+            ]
+        ]
+    }
+]
