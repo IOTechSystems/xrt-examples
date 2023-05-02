@@ -59,7 +59,7 @@ services:
     volumes:
       # use host timezone
       - /etc/localtime:/etc/localtime:ro
-      #- grafana-data:/var/lib/grafana
+      #- ./grafana-data:/var/lib/grafana
 
 # Database
   influxdb:

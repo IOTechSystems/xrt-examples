@@ -19,20 +19,35 @@
         "userprivatekey": ""
     },
     {
-        "id": "7290d8b0.f713d8",
-        "type": "OpcUa-Endpoint",
-        "endpoint": "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer",
-        "login": false
+        "id": "d73cab5a.ab4f48",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt-broker",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
     },
     {
-        "id": "985dfcd1ecf8312c",
+        "id": "d685395321d9aa75",
         "type": "OpcUa-Client",
         "z": "b0a2892662594180",
         "endpoint": "035f32a25bb2b317",
-        "action": "readmultiple",
+        "action": "subscribe",
         "deadbandtype": "a",
         "deadbandvalue": 1,
-        "time": 10,
+        "time": "3",
         "timeUnit": "s",
         "certificate": "n",
         "localfile": "",
@@ -40,17 +55,110 @@
         "securitymode": "None",
         "securitypolicy": "None",
         "folderName4PKI": "",
-        "name": "",
-        "x": 560,
-        "y": 240,
+        "name": "Subscribe",
+        "x": 480,
+        "y": 280,
         "wires": [
             [
-                "68643714d1292a21"
+                "f685b39847aa676c"
             ]
         ]
     },
     {
-        "id": "68643714d1292a21",
+        "id": "e26473b3de3e37e1",
+        "type": "inject",
+        "z": "b0a2892662594180",
+        "name": "Add Items",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "84297dc001d19437",
+                "df3a0b10e436df65",
+                "8cd97a63873299fe"
+            ]
+        ]
+    },
+    {
+        "id": "84297dc001d19437",
+        "type": "OpcUa-Item",
+        "z": "b0a2892662594180",
+        "item": "ns=1;s=modbus:modbus-sim:Level",
+        "datatype": "Int16",
+        "value": "",
+        "name": "Level-sub",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "d685395321d9aa75"
+            ]
+        ]
+    },
+    {
+        "id": "df3a0b10e436df65",
+        "type": "OpcUa-Item",
+        "z": "b0a2892662594180",
+        "item": "ns=1;s=modbus:modbus-sim:Pressure",
+        "datatype": "Int16",
+        "value": "",
+        "name": "Pressure-sub",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "d685395321d9aa75"
+            ]
+        ]
+    },
+    {
+        "id": "8cd97a63873299fe",
+        "type": "OpcUa-Item",
+        "z": "b0a2892662594180",
+        "item": "ns=1;s=modbus:modbus-sim:Temperature",
+        "datatype": "Int16",
+        "value": "",
+        "name": "Temp-sub",
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "d685395321d9aa75"
+            ]
+        ]
+    },
+    {
+        "id": "f685b39847aa676c",
+        "type": "function",
+        "z": "b0a2892662594180",
+        "name": "",
+        "func": "if (msg.topic.includes(\"Level\"))\n{\n  flow.set(\"level\", msg.payload);\n}\nelse if (msg.topic.includes(\"Pressure\"))\n{\n  flow.set(\"pressure\", msg.payload);\n}\nelse if (msg.topic.includes(\"Temperature\"))\n{\n  flow.set(\"temperature\", msg.payload);\n}\n\nvar payload_val = 0;\n\n\nvar temperature = Number(flow.get(\"temperature\"));\nvar pressure = Number(flow.get(\"pressure\"));\nvar level = Number(flow.get(\"level\"));\nvar limit = 80;// Number(flow.get(\"limit\"));\n\n\nif ( temperature > limit  || \n  pressure > limit  ||\n  level > limit )\n {\n     payload_val = 1;\n     node.log (\"Opening Valve!\");\n }\n\nvar newMsg = { payload: payload_val };\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 280,
+        "wires": [
+            [
+                "85e83d2561a011cc"
+            ]
+        ]
+    },
+    {
+        "id": "7c69d39c855a64d9",
         "type": "debug",
         "z": "b0a2892662594180",
         "name": "",
@@ -58,68 +166,32 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 830,
-        "y": 240,
+        "x": 1150,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "230d3295f0518ee7",
-        "type": "inject",
+        "id": "85e83d2561a011cc",
+        "type": "OpcUa-Item",
         "z": "b0a2892662594180",
-        "name": "Level",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "[ns=1;s=modbus:modbus-sim:Level, ns=1;s=modbus:modbus-sim:Pressure]",
-        "x": 150,
-        "y": 100,
+        "item": "ns=1;s=s7:S7-Server:Setting",
+        "datatype": "Int16",
+        "value": "",
+        "name": "SetOutletValve",
+        "x": 860,
+        "y": 280,
         "wires": [
             [
-                "985dfcd1ecf8312c"
+                "21139db7498332c0"
             ]
         ]
     },
     {
-        "id": "6315f2265db6526e",
-        "type": "inject",
-        "z": "b0a2892662594180",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 90,
-        "y": 340,
-        "wires": [
-            [
-                "d62c678e5a62323b"
-            ]
-        ]
-    },
-    {
-        "id": "e12492ab218070c6",
+        "id": "21139db7498332c0",
         "type": "OpcUa-Client",
         "z": "b0a2892662594180",
         "endpoint": "035f32a25bb2b317",
@@ -134,183 +206,12 @@
         "securitymode": "None",
         "securitypolicy": "None",
         "folderName4PKI": "",
-        "name": "",
-        "x": 520,
-        "y": 420,
+        "name": "Write",
+        "x": 1010,
+        "y": 280,
         "wires": [
             [
-                "7ea85628637e7d75"
-            ]
-        ]
-    },
-    {
-        "id": "7ea85628637e7d75",
-        "type": "debug",
-        "z": "b0a2892662594180",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "d62c678e5a62323b",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=modbus:modbus-sim:Level",
-        "datatype": "Int16",
-        "value": "65",
-        "name": "Level",
-        "x": 210,
-        "y": 340,
-        "wires": [
-            [
-                "e12492ab218070c6"
-            ]
-        ]
-    },
-    {
-        "id": "9014877e963b14ab",
-        "type": "inject",
-        "z": "b0a2892662594180",
-        "name": "Pressure",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=modbus:modbus-sim:Pressure",
-        "x": 160,
-        "y": 180,
-        "wires": [
-            [
-                "985dfcd1ecf8312c"
-            ]
-        ]
-    },
-    {
-        "id": "fac1c80a15c67630",
-        "type": "inject",
-        "z": "b0a2892662594180",
-        "name": "Temperature",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=modbus:modbus-sim:Temperature",
-        "x": 170,
-        "y": 240,
-        "wires": [
-            [
-                "985dfcd1ecf8312c"
-            ]
-        ]
-    },
-    {
-        "id": "c40bd58dc52ffce0",
-        "type": "inject",
-        "z": "b0a2892662594180",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 90,
-        "y": 420,
-        "wires": [
-            [
-                "c099b156318e666b"
-            ]
-        ]
-    },
-    {
-        "id": "c099b156318e666b",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=modbus:modbus-sim:Temperature",
-        "datatype": "Int16",
-        "value": "123",
-        "name": "Temperature",
-        "x": 260,
-        "y": 420,
-        "wires": [
-            [
-                "e12492ab218070c6"
-            ]
-        ]
-    },
-    {
-        "id": "2443a1a438193be9",
-        "type": "inject",
-        "z": "b0a2892662594180",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 70,
-        "y": 480,
-        "wires": [
-            [
-                "762c4976103ae135"
-            ]
-        ]
-    },
-    {
-        "id": "762c4976103ae135",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=modbus:modbus-sim:Pressure",
-        "datatype": "Int16",
-        "value": "345",
-        "name": "Pressure",
-        "x": 260,
-        "y": 480,
-        "wires": [
-            [
-                "e12492ab218070c6"
+                "7c69d39c855a64d9"
             ]
         ]
     }

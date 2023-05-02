@@ -9,7 +9,7 @@
   "Measurement": "DeviceName",
   "Tags": ["TagDeviceName", "TagScheduleName"],
   "SelectData": [
-    { "Pattern": "device/#", "Format": "Device"}
+    { "Pattern": "devices/#", "Format": "Device"}
   ],
   "BatchConfig":
   {
