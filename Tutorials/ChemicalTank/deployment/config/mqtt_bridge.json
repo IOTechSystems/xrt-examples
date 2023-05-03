@@ -4,12 +4,15 @@
     "Bus": "bus",
     "Patterns": [
         "xrt/devices/s7/reply",
-        "xrt/devices/s7/discovery",
         "xrt/devices/s7/telemetry",
-        "xrt/devices/s7/event"
+        "xrt/devices/s7/event",
+        "xrt/devices/modbus/reply",
+        "xrt/devices/modbus/telemetry",
+        "xrt/devices/modbus/event"
     ],
     "MQTTPatterns": [
-        "xrt/devices/s7/request"
+        "xrt/devices/s7/request",
+        "xrt/devices/modbus/request"
     ],
     "MQTTConfig": {
         "ServerURI": "${XRT_MQTT_BROKER}",

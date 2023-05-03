@@ -8,6 +8,7 @@
   "Logger": "logger",
   "ThreadPool": "pool",
   "Bus": "bus",
+  "PublishSource": true,
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "TelemetryTopic": "xrt/devices/modbus/telemetry",

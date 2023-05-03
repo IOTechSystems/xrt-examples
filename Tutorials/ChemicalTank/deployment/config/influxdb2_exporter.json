@@ -6,10 +6,9 @@
   "Bucket"  : "${XRT_INFLUXDB_BUCKET}",
   "Org": "${XRT_INFLUXDB_ORG}",
   "Token": "${XRT_INFLUXDB_TOKEN}",
-  "Measurement": "DeviceName",
-  "Tags": ["TagDeviceName", "TagScheduleName"],
+  "Measurement": "ResourceName",
   "SelectData": [
-    { "Pattern": "devices/#", "Format": "Device"}
+    { "Pattern": "xrt/devices/#", "Format": "Raw"}
   ],
   "BatchConfig":
   {
@@ -19,7 +18,7 @@
     "ThreadPool":"pool"
   },
   "Bus": "bus",
-  "Logger": "logger_debug",
+  "Logger": "logger",
   "ConnectTimeout": 4000,
   "Timeout": 1500
 }

@@ -6,12 +6,18 @@ services:
     container_name: xrt-demo
     entrypoint: "/opt/iotech/xrt/2.2/bin/xrt /opt/iotech/xrt/2.2/deployment/config"
     env_file: ./scripts/env-file.env
+    depends_on:
+      - modbus-sim
+      - s7-sim
+      - influxdb
+      - mqtt-broker
     networks:
       - network1
     restart: always
     volumes:
       - ./deployment/:/opt/iotech/xrt/2.2/deployment/
       - ./scripts/license.json:/license.json
+      - ./scripts/mqtt.lua:/scripts/mqtt.lua
 
 # Simulators
   s7-sim:
@@ -19,7 +25,8 @@ services:
     container_name: s7-sim
     privileged: true
     networks:
-      - network1
+      network1:
+        ipv4_address: 10.5.0.5
     restart: always
     environment:
       - S7SIM_WAIT_US=2000
@@ -38,6 +45,8 @@ services:
   nodered:
     image: nodered/node-red:2.2.3-16
     container_name: nodered
+    depends_on:
+      - xrt
     networks:
       - network1
     ports:
@@ -51,6 +60,9 @@ services:
   grafana:
     image: grafana/grafana:8.5.13
     container_name: grafana
+    depends_on:
+      - xrt
+      - influxdb
     networks:
       - network1
     ports:
@@ -107,6 +119,11 @@ services:
     restart: always
     read_only: true
 
+# Networks with static IP availability for S7-Simulator
 networks:
   network1:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1

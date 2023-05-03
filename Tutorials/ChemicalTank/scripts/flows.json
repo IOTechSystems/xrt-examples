@@ -55,6 +55,10 @@
         "securitymode": "None",
         "securitypolicy": "None",
         "folderName4PKI": "",
+        "maxChunkCount": "",
+        "maxMessageSize": "",
+        "receiveBufferSize": "",
+        "sendBufferSize": "",
         "name": "Subscribe",
         "x": 480,
         "y": 280,
@@ -80,7 +84,7 @@
         "once": true,
         "onceDelay": "3",
         "topic": "",
-        "x": 150,
+        "x": 130,
         "y": 280,
         "wires": [
             [

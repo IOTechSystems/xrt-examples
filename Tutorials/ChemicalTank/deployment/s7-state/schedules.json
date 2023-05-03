@@ -1,13 +1,4 @@
 {
   "apiVersion": "v2",
-  "schedules": [
-    {
-      "device": "S7-Server",
-      "resource": [
-        "DB_1_I16"
-      ],
-      "interval": 2000000,
-      "name": "schedule1"
-    }
-  ]
+  "schedules": []
 }

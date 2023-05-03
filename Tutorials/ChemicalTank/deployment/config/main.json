@@ -3,6 +3,7 @@
     "sched": "IOT::Scheduler",
     "pool": "IOT::ThreadPool",
     "bus": "XRT::Bus",
+    "lua":"XRT::LuaTransform",
     "s7": "XRT::S7DeviceService",
     "influxdb2_exporter":"XRT::InfluxDBExporter",
     "modbus":"XRT::ModbusDeviceService",
