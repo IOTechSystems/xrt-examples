@@ -1,0 +1,34 @@
+{
+    "Library": "libxrt-opc-ua-server.so",
+    "Factory": "xrt_opc_ua_server_factory",
+    "Bus": "bus",
+    "DeviceServices": [
+        {
+            "Name" : "s7",
+            "Timeout" : 3000,
+            "MinimumSamplingInterval" : 1000
+        },
+        {
+            "Name" : "modbus",
+            "Timeout" : 3000,
+            "MinimumSamplingInterval" : 1000
+        }
+    ],
+    "SecurityPolicies" : [
+        {
+            "SecurityPolicy" : "None"
+        }
+    ],
+    "Endpoints" : [
+        {
+            "SecurityPolicy" : "None"
+        }
+    ],
+    "AccessControl" : {
+        "AllowAnonymous" : true,
+        "AccessControlUserPassList" : [
+            {"Username" : "user", "Password" : "pass"}
+        ]
+    },
+    "Logger": "logger"
+}

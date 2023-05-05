@@ -1,0 +1,68 @@
+{
+  "query": "mutation AddProfile($xrtInstanceID: ID!, $input: CreateProfile!, $deviceService: String!) { profileAdd(xrtInstanceID: $xrtInstanceID, input: $input, deviceService: $deviceService) }",
+  "variables": {
+    "xrtInstanceID":"",
+    "input": {
+      "name": "modbus-sim-profile",
+      "manufacturer": "",
+      "model": "",
+      "description": "Chemical Tank",
+      "labels": ["modbus"],
+      "deviceResources": [
+        {
+          "name": "Temperature",
+          "description": "Temperature of liquid within the tank",
+          "attributes": {
+            "primaryTable": "HOLDING_REGISTERS",
+            "startingAddress": 4001
+          },
+          "properties": {
+            "valueType": "INT16",
+            "readWrite": "RW"
+          }
+        },
+        {
+          "name": "Pressure",
+          "description": "Pressure within the tank",
+          "attributes": {
+            "primaryTable": "HOLDING_REGISTERS",
+            "startingAddress": 4003
+          },
+          "properties": {
+            "valueType": "INT16",
+            "readWrite": "RW"
+          }
+        },
+        {
+          "name": "Level",
+          "description": "Level within the tank",
+          "attributes": {
+            "primaryTable": "HOLDING_REGISTERS",
+            "startingAddress": 4017
+          },
+          "properties": {
+            "valueType": "INT16",
+            "readWrite": "RW"
+          }
+        }
+      ],
+      "deviceCommands": [
+        {
+          "name": "GetSensorValues",
+          "readWrite": "R",
+          "resourceOperations": [
+            {
+              "deviceResource": "Temperature"
+            },
+            {
+              "deviceResource": "Pressure"
+            },
+            {
+              "deviceResource": "Level"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
