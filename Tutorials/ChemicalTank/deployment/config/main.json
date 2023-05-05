@@ -4,8 +4,8 @@
     "pool": "IOT::ThreadPool",
     "bus": "XRT::Bus",
     "lua":"XRT::LuaTransform",
-    "s7": "XRT::S7DeviceService",
     "influxdb2_exporter":"XRT::InfluxDBExporter",
+    "s7": "XRT::S7DeviceService",
     "modbus":"XRT::ModbusDeviceService",
     "opc_ua_server": "XRT::OPCUAServer",
     "mqtt_bridge": "XRT::MQTTBridge"
