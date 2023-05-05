@@ -6,9 +6,9 @@
   "Bucket"  : "${XRT_INFLUXDB_BUCKET}",
   "Org": "${XRT_INFLUXDB_ORG}",
   "Token": "${XRT_INFLUXDB_TOKEN}",
-  "Measurement": "ResourceName",
+  "Measurement": "DeviceName",
   "SelectData": [
-    { "Pattern": "xrt/devices/#", "Format": "Raw"}
+    { "Pattern": "xrt/influxdb/message", "Format": "Device"}
   ],
   "BatchConfig":
   {

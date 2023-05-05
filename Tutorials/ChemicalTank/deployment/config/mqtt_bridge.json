@@ -8,7 +8,8 @@
         "xrt/devices/s7/event",
         "xrt/devices/modbus/reply",
         "xrt/devices/modbus/telemetry",
-        "xrt/devices/modbus/event"
+        "xrt/devices/modbus/event",
+        "xrt/influxdb/message"
     ],
     "MQTTPatterns": [
         "xrt/devices/s7/request",
