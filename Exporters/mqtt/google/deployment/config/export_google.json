@@ -30,7 +30,7 @@
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Patterns": ["device/#"],
+  "Patterns": [{"Pattern":"device/#","Retain": true, "Qos": 1}],
   "Topic": "${MQTT_EXPORT_GOOGLE_PUB_TOPIC}",
   "QueueSize": 4
 }

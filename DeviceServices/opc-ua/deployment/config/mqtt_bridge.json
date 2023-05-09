@@ -1,13 +1,11 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [ 
-    "xrt/devices/opc_ua/telemetry",
-    "xrt/devices/opc_ua/reply",
-    "xrt/devices/opc_ua/discovery",
-    "xrt/devices/opc_ua/status"
-  ],
-  "MQTTPatterns": [ "xrt/devices/opc_ua/request" ],
+  "Patterns": [{"Pattern":"xrt/devices/opc_ua/telemetry","Retain": true, "Qos": 1},
+               {"Pattern":"xrt/devices/opc_ua/reply","Retain": true, "Qos": 1},
+               {"Pattern":"xrt/devices/opc_ua/discovery","Retain": true, "Qos": 1},
+               {"Pattern":"xrt/devices/opc_ua/status","Retain": true, "Qos": 1}],
+  "MQTTPatterns": [ {"Pattern":"xrt/devices/opc_ua/request", "Sync": true}],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

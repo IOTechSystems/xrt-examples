@@ -1,13 +1,11 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [ 
-    "xrt/devices/virtual/telemetry",
-    "xrt/devices/virtual/reply",
-    "xrt/devices/virtual/discovery",
-    "xrt/devices/virtual/status"
-  ],
-  "MQTTPatterns": [ "xrt/devices/virtual/request"],
+  "Patterns": [{"Pattern":"xrt/devices/virtual/telemetry","Retain": true, "Qos": 1},
+               {"Pattern":"xrt/devices/virtual/reply","Retain": true, "Qos": 1},
+               {"Pattern":"xrt/devices/virtual/discovery","Retain": true, "Qos": 1},
+               {"Pattern":"xrt/devices/virtual/status","Retain": true, "Qos": 1}],
+  "MQTTPatterns": [{"Pattern":"xrt/devices/virtual/request", "Sync": true}],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
