@@ -12,7 +12,7 @@
 
 ### Current run command 
 * `docker compose up xrt mqtt-broker modbus-sim nodered influxdb grafana`
-* Start the manager with `dmg-manager up`
+* Start the manager with `dmg-manager up --custom-broker <ip-address-of-broker>`
 
 ### Initialise Xrt
 * Navigate to scripts directory
