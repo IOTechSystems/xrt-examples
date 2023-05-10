@@ -1,1 +1,1 @@
-{"apiVersion":"v2","devices":[{"name":"S7-Server","profileName":"Server","protocols":{"S7":{"IP":"10.5.0.5","Rack":0,"Slot":2}}}]}
+{"apiVersion":"v2","devices":[]}
