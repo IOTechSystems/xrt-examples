@@ -51,18 +51,20 @@ authReponse=$(curl -s -H "Content-Type: application/json" \
                       -d "$authQuery" $dmgGQL)
 token=$(echo $authReponse | sed -n 's/.*"result":"\([^"]*\)".*/\1/p')
 
+# Set up the modus profile and device
 addModbusProfileResponse=$(curl -s -H "Authorization: $token" \
                                    -H "Content-Type: application/json" \
                                    -X POST \
                                    -d "$modbusAddProfileMutation" $dmgGQL)
 echo -e "ADD MODBUS PROFILE RESPONSE: \n$addModbusProfileResponse"
-
 addModbusDeviceResponse=$(curl -s -H "Authorization: $token" \
                                   -H "Content-Type: application/json" \
                                   -X POST \
                                   -d "$modbudAddDeviceMutation" $dmgGQL)
 echo -e "ADD MODBUS DEVICE RESPONSE: \n$addModbusDeviceResponse"
 
+
+# Set up the s7 profile and device
 addS7ProfileResponse=$(curl -s -H "Authorization: $token" \
                                 -H "Content-Type: application/json" \
                                 -X POST \
