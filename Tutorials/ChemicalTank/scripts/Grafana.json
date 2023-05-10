@@ -1,16 +1,38 @@
 {
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 1,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
       },
       "gridPos": {
         "h": 1,
@@ -24,8 +46,10 @@
       "type": "row"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -72,7 +96,6 @@
         "y": 1
       },
       "id": 10,
-      "interval": null,
       "links": [],
       "maxDataPoints": 1,
       "options": {
@@ -88,10 +111,14 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -5s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Temperature\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -5s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A"
         }
       ],
@@ -99,8 +126,10 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -147,7 +176,6 @@
         "y": 1
       },
       "id": 11,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -163,14 +191,18 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -5s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Pressure\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -5s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Pressure\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -206,7 +238,51 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/field=\"Pressure\"/i"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Pressure"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/field=\"Temperature\"/i"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Temperature"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/field=\"Level\"/i"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Level"
+              }
+            ]
+          }
+        ]
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -235,7 +311,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -246,12 +322,16 @@
       "targets": [
         {
           "alias": "Temperature",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Temperature\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n  |> drop(columns: [\"_field\", \"_measurement\", \"event_id\", \"deviceName\"])",
-          "refId": "A",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
+          "refId": "Temperature",
           "resultFormat": "time_series",
           "select": [
             [
@@ -279,12 +359,16 @@
         },
         {
           "alias": "Pressure",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Pressure\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n  |> drop(columns: [\"_field\", \"_measurement\", \"event_id\", \"deviceName\"])",
-          "refId": "B",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Pressure\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
+          "refId": "Pressure",
           "resultFormat": "time_series",
           "select": [
             [
@@ -312,12 +396,16 @@
         },
         {
           "alias": "Level",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Level\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n  |> drop(columns: [\"_field\", \"_measurement\", \"event_id\", \"deviceName\"])",
-          "refId": "C",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Level\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
+          "refId": "Level",
           "resultFormat": "time_series",
           "select": [
             [
@@ -345,9 +433,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Live Tank Info",
       "tooltip": {
         "shared": true,
@@ -356,9 +442,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -366,30 +450,26 @@
         {
           "$$hashKey": "object:57",
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "$$hashKey": "object:58",
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "columns": [],
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 10,
@@ -399,12 +479,10 @@
       },
       "id": 6,
       "links": [],
-      "pageSize": null,
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 0,
-        "desc": true
+        "desc": false
       },
       "styles": [
         {
@@ -419,7 +497,6 @@
           "$$hashKey": "object:555",
           "alias": "",
           "align": "auto",
-          "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
@@ -434,11 +511,15 @@
       ],
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Temperature\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n  |> drop(columns: [\"_field\", \"_measurement\", \"event_id\", \"deviceName\"])\n",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -467,12 +548,14 @@
         }
       ],
       "title": "Temperature Table",
-      "transform": "timeseries_to_rows",
+      "transform": "table",
       "type": "table-old"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -518,7 +601,6 @@
       },
       "hideTimeOverride": true,
       "id": 17,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -536,14 +618,18 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Temperature\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -580,8 +666,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -627,7 +715,6 @@
       },
       "hideTimeOverride": true,
       "id": 19,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -645,14 +732,18 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Pressure\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Pressure\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -689,8 +780,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -736,7 +829,6 @@
       },
       "hideTimeOverride": true,
       "id": 18,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -754,14 +846,18 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Temperature\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -798,8 +894,10 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -845,7 +943,6 @@
       },
       "hideTimeOverride": true,
       "id": 20,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -863,14 +960,18 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Pressure\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Pressure\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -908,10 +1009,9 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
       },
       "gridPos": {
         "h": 1,
@@ -921,12 +1021,14 @@
       },
       "id": 13,
       "panels": [],
-      "title": "OPC-UA Valve Data",
+      "title": "S7 Valve Data",
       "type": "row"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -973,7 +1075,6 @@
         "y": 12
       },
       "id": 14,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -993,14 +1094,18 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -3s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Setting\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -5s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"OutletValve\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Setting\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1036,7 +1141,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1064,7 +1172,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.5.13",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1075,11 +1183,15 @@
       "targets": [
         {
           "alias": "Engine OPC UA",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Setting\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"OutletValve\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Setting\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1108,9 +1220,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Live Valve Data",
       "tooltip": {
         "shared": true,
@@ -1119,9 +1229,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -1129,49 +1237,43 @@
         {
           "$$hashKey": "object:872",
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "$$hashKey": "object:873",
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
       "columns": [],
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "NQZW5n8Vk"
+      },
       "fontSize": "100%",
       "gridPos": {
-        "h": 8,
+        "h": 10,
         "w": 5,
         "x": 18,
         "y": 12
       },
-      "id": 16,
+      "id": 21,
       "links": [],
-      "pageSize": null,
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 0,
-        "desc": true
+        "desc": false
       },
       "styles": [
         {
-          "$$hashKey": "object:913",
+          "$$hashKey": "object:554",
           "alias": "Time",
           "align": "auto",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
@@ -1179,10 +1281,9 @@
           "type": "date"
         },
         {
-          "$$hashKey": "object:914",
+          "$$hashKey": "object:555",
           "alias": "",
           "align": "auto",
-          "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
@@ -1197,11 +1298,15 @@
       ],
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "NQZW5n8Vk"
+          },
           "groupBy": [],
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"my-bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"resourceName\"] == \"Setting\")\n  |> group(columns: [\"resourceName\"])\n  |> sort(columns: [\"_time\"])\n  |> drop(columns: [\"_field\", \"_measurement\", \"event_id\", \"deviceName\"])\n",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -30s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"OutletValve\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Setting\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1218,24 +1323,24 @@
             {
               "key": "device",
               "operator": "=",
-              "value": "Outlet Valve"
+              "value": "Chemical Tank"
             },
             {
               "condition": "AND",
               "key": "resource_name",
               "operator": "=",
-              "value": "Setting"
+              "value": "Temperature"
             }
           ]
         }
       ],
       "title": "Setting Table",
-      "transform": "timeseries_to_rows",
+      "transform": "table",
       "type": "table-old"
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 30,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1273,5 +1378,6 @@
   "timezone": "",
   "title": "Chemical Tank Dashboard",
   "uid": "_6OKnhHnk",
-  "version": 2
+  "version": 4,
+  "weekStart": ""
 }

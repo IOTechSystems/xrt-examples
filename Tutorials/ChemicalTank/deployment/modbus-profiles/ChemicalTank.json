@@ -1,6 +1,6 @@
 {
   "apiVersion": "v2",
-  "name": "modbus-sim-profile",
+  "name": "ChemicalTank",
   "manufacturer": "",
   "model": "",
   "description": "Chemical Tank",

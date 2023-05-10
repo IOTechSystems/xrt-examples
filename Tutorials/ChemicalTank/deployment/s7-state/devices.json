@@ -2,8 +2,8 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "name": "S7-Server",
-      "profileName": "Server",
+      "name": "OutletValve",
+      "profileName": "OutletValve",
       "protocols": {
         "S7": {
           "IP": "${S7_SIM_ADDRESS}",

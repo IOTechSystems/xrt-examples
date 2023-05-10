@@ -1,222 +1,214 @@
 [
-    {
-        "id": "b0a2892662594180",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "035f32a25bb2b317",
-        "type": "OpcUa-Endpoint",
-        "endpoint": "opc.tcp://xrt-demo:4840/",
-        "secpol": "None",
-        "secmode": "None",
-        "none": true,
-        "login": false,
-        "usercert": false,
-        "usercertificate": "",
-        "userprivatekey": ""
-    },
-    {
-        "id": "d73cab5a.ab4f48",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "mqtt-broker",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
-    },
-    {
-        "id": "d685395321d9aa75",
-        "type": "OpcUa-Client",
-        "z": "b0a2892662594180",
-        "endpoint": "035f32a25bb2b317",
-        "action": "subscribe",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": "3",
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "folderName4PKI": "",
-        "maxChunkCount": "",
-        "maxMessageSize": "",
-        "receiveBufferSize": "",
-        "sendBufferSize": "",
-        "name": "Subscribe",
-        "x": 480,
-        "y": 280,
-        "wires": [
-            [
-                "f685b39847aa676c"
-            ]
-        ]
-    },
-    {
-        "id": "e26473b3de3e37e1",
-        "type": "inject",
-        "z": "b0a2892662594180",
-        "name": "Add Items",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "3",
-        "topic": "",
-        "x": 130,
-        "y": 280,
-        "wires": [
-            [
-                "84297dc001d19437",
-                "df3a0b10e436df65",
-                "8cd97a63873299fe"
-            ]
-        ]
-    },
-    {
-        "id": "84297dc001d19437",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=modbus:modbus-sim:Level",
-        "datatype": "Int16",
-        "value": "",
-        "name": "Level-sub",
-        "x": 280,
-        "y": 220,
-        "wires": [
-            [
-                "d685395321d9aa75"
-            ]
-        ]
-    },
-    {
-        "id": "df3a0b10e436df65",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=modbus:modbus-sim:Pressure",
-        "datatype": "Int16",
-        "value": "",
-        "name": "Pressure-sub",
-        "x": 290,
-        "y": 280,
-        "wires": [
-            [
-                "d685395321d9aa75"
-            ]
-        ]
-    },
-    {
-        "id": "8cd97a63873299fe",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=modbus:modbus-sim:Temperature",
-        "datatype": "Int16",
-        "value": "",
-        "name": "Temp-sub",
-        "x": 280,
-        "y": 360,
-        "wires": [
-            [
-                "d685395321d9aa75"
-            ]
-        ]
-    },
-    {
-        "id": "f685b39847aa676c",
-        "type": "function",
-        "z": "b0a2892662594180",
-        "name": "",
-        "func": "if (msg.topic.includes(\"Level\"))\n{\n  flow.set(\"level\", msg.payload);\n}\nelse if (msg.topic.includes(\"Pressure\"))\n{\n  flow.set(\"pressure\", msg.payload);\n}\nelse if (msg.topic.includes(\"Temperature\"))\n{\n  flow.set(\"temperature\", msg.payload);\n}\n\nvar payload_val = 0;\n\n\nvar temperature = Number(flow.get(\"temperature\"));\nvar pressure = Number(flow.get(\"pressure\"));\nvar level = Number(flow.get(\"level\"));\nvar limit = 80;// Number(flow.get(\"limit\"));\n\n\nif ( temperature > limit  || \n  pressure > limit  ||\n  level > limit )\n {\n     payload_val = 1;\n     node.log (\"Opening Valve!\");\n }\n\nvar newMsg = { payload: payload_val };\n\nreturn newMsg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 280,
-        "wires": [
-            [
-                "85e83d2561a011cc"
-            ]
-        ]
-    },
-    {
-        "id": "7c69d39c855a64d9",
-        "type": "debug",
-        "z": "b0a2892662594180",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "85e83d2561a011cc",
-        "type": "OpcUa-Item",
-        "z": "b0a2892662594180",
-        "item": "ns=1;s=s7:S7-Server:Setting",
-        "datatype": "Int16",
-        "value": "",
-        "name": "SetOutletValve",
-        "x": 860,
-        "y": 280,
-        "wires": [
-            [
-                "21139db7498332c0"
-            ]
-        ]
-    },
-    {
-        "id": "21139db7498332c0",
-        "type": "OpcUa-Client",
-        "z": "b0a2892662594180",
-        "endpoint": "035f32a25bb2b317",
-        "action": "write",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "folderName4PKI": "",
-        "name": "Write",
-        "x": 1010,
-        "y": 280,
-        "wires": [
-            [
-                "7c69d39c855a64d9"
-            ]
-        ]
-    }
+  {
+      "id": "0f2e1350026e9b5f",
+      "type": "tab",
+      "label": "Flow 1",
+      "disabled": false,
+      "info": ""
+  },
+  {
+      "id": "83894fa0e1df4da9",
+      "type": "OpcUa-Client",
+      "z": "0f2e1350026e9b5f",
+      "endpoint": "035f32a25bb2b317",
+      "action": "subscribe",
+      "deadbandtype": "a",
+      "deadbandvalue": 1,
+      "time": "3",
+      "timeUnit": "s",
+      "certificate": "n",
+      "localfile": "",
+      "localkeyfile": "",
+      "securitymode": "None",
+      "securitypolicy": "None",
+      "folderName4PKI": "",
+      "name": "Subscribe",
+      "x": 480,
+      "y": 280,
+      "wires": [
+          [
+              "805f5ac9660f5ad9"
+          ]
+      ]
+  },
+  {
+      "id": "786b506f02f3554a",
+      "type": "inject",
+      "z": "0f2e1350026e9b5f",
+      "name": "Add Items",
+      "props": [
+          {
+              "p": "topic",
+              "vt": "str"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "onceDelay": "3",
+      "topic": "",
+      "x": 130,
+      "y": 280,
+      "wires": [
+          [
+              "0981bab278fa4ab6",
+              "79b0953cef7acf34",
+              "d1ceea620a42f283",
+              "68d9c61c52b901f1"
+          ]
+      ]
+  },
+  {
+      "id": "0981bab278fa4ab6",
+      "type": "OpcUa-Item",
+      "z": "0f2e1350026e9b5f",
+      "item": "ns=1;s=modbus:ChemicalTank:Level",
+      "datatype": "Int16",
+      "value": "",
+      "name": "Level-sub",
+      "x": 280,
+      "y": 220,
+      "wires": [
+          [
+              "83894fa0e1df4da9"
+          ]
+      ]
+  },
+  {
+      "id": "79b0953cef7acf34",
+      "type": "OpcUa-Item",
+      "z": "0f2e1350026e9b5f",
+      "item": "ns=1;s=modbus:ChemicalTank:Pressure",
+      "datatype": "Int16",
+      "value": "",
+      "name": "Pressure-sub",
+      "x": 290,
+      "y": 280,
+      "wires": [
+          [
+              "83894fa0e1df4da9"
+          ]
+      ]
+  },
+  {
+      "id": "d1ceea620a42f283",
+      "type": "OpcUa-Item",
+      "z": "0f2e1350026e9b5f",
+      "item": "ns=1;s=modbus:ChemicalTank:Temperature",
+      "datatype": "Int16",
+      "value": "",
+      "name": "Temp-sub",
+      "x": 280,
+      "y": 360,
+      "wires": [
+          [
+              "83894fa0e1df4da9"
+          ]
+      ]
+  },
+  {
+      "id": "805f5ac9660f5ad9",
+      "type": "function",
+      "z": "0f2e1350026e9b5f",
+      "name": "",
+      "func": "if (msg.topic.includes(\"Level\"))\n{\n  flow.set(\"level\", msg.payload);\n}\nelse if (msg.topic.includes(\"Pressure\"))\n{\n  flow.set(\"pressure\", msg.payload);\n}\nelse if (msg.topic.includes(\"Temperature\"))\n{\n  flow.set(\"temperature\", msg.payload);\n}\n\nvar payload_val = 0;\n\n\nvar temperature = Number(flow.get(\"temperature\"));\nvar pressure = Number(flow.get(\"pressure\"));\nvar level = Number(flow.get(\"level\"));\nvar limit = 80;// Number(flow.get(\"limit\"));\n\n\nif ( temperature > limit  || \n  pressure > limit  ||\n  level > limit )\n {\n     payload_val = 1;\n     node.log (\"Opening Valve!\");\n }\n\nvar newMsg = { payload: payload_val };\n\nreturn newMsg;",
+      "outputs": 1,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 680,
+      "y": 280,
+      "wires": [
+          [
+              "e325dec410531fa9"
+          ]
+      ]
+  },
+  {
+      "id": "0b7aa4f9771b047d",
+      "type": "debug",
+      "z": "0f2e1350026e9b5f",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "true",
+      "targetType": "full",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 1150,
+      "y": 280,
+      "wires": []
+  },
+  {
+      "id": "e325dec410531fa9",
+      "type": "OpcUa-Item",
+      "z": "0f2e1350026e9b5f",
+      "item": "ns=1;s=s7:OutletValve:Setting",
+      "datatype": "Int16",
+      "value": "",
+      "name": "SetOutletValve",
+      "x": 860,
+      "y": 280,
+      "wires": [
+          [
+              "24a3dbab80cb7c41"
+          ]
+      ]
+  },
+  {
+      "id": "24a3dbab80cb7c41",
+      "type": "OpcUa-Client",
+      "z": "0f2e1350026e9b5f",
+      "endpoint": "035f32a25bb2b317",
+      "action": "write",
+      "deadbandtype": "a",
+      "deadbandvalue": 1,
+      "time": 10,
+      "timeUnit": "s",
+      "certificate": "n",
+      "localfile": "",
+      "localkeyfile": "",
+      "securitymode": "None",
+      "securitypolicy": "None",
+      "folderName4PKI": "",
+      "name": "Write",
+      "x": 1010,
+      "y": 280,
+      "wires": [
+          [
+              "0b7aa4f9771b047d"
+          ]
+      ]
+  },
+  {
+      "id": "68d9c61c52b901f1",
+      "type": "OpcUa-Item",
+      "z": "0f2e1350026e9b5f",
+      "item": "ns=1;s=s7:OutletValve:Setting",
+      "datatype": "Int16",
+      "value": "",
+      "name": "Valve-sub",
+      "x": 280,
+      "y": 420,
+      "wires": [
+          [
+              "83894fa0e1df4da9"
+          ]
+      ]
+  },
+  {
+      "id": "035f32a25bb2b317",
+      "type": "OpcUa-Endpoint",
+      "endpoint": "opc.tcp://xrt-demo:4840/",
+      "secpol": "None",
+      "secmode": "None",
+      "none": true,
+      "login": false,
+      "usercert": false,
+      "usercertificate": "",
+      "userprivatekey": ""
+  }
 ]
