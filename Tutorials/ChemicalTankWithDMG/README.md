@@ -15,6 +15,6 @@
 * Start the manager with `dmg-manager up --custom-broker <ip-address-of-broker>`
 
 ### Initialise Xrt
-* Navigate to scripts directory
+* Navigate to `Tutorials/ChemicalTankWithDMG/scripts` directory
 * `./init_dmg.sh`
 * You should be able to see these devices in the manager at http://localhost:9092
