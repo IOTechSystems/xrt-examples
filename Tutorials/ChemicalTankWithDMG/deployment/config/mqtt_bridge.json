@@ -8,14 +8,14 @@
         "xrt/${XRT_SERVER_ID}/devices/s7/reply",
         "xrt/${XRT_SERVER_ID}/devices/s7/telemetry",
         "xrt/${XRT_SERVER_ID}/devices/s7/event",
-        "xrt/${XRT_SERVER_ID}/devices/modbus/reply",
-        "xrt/${XRT_SERVER_ID}/devices/modbus/telemetry",
-        "xrt/${XRT_SERVER_ID}/devices/modbus/event"
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/reply",
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/telemetry",
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/event"
     ],
     "MQTTPatterns": [
         "xrt/command/request",
         "xrt/${XRT_SERVER_ID}/devices/s7/request",
-        "xrt/${XRT_SERVER_ID}/devices/modbus/request"
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/request"
     ],
     "MQTTConfig": {
         "ServerURI": "${XRT_MQTT_BROKER}",

@@ -1,1 +1,1 @@
-{"apiVersion":"v2","devices":[]}
+{"apiVersion":"v2","devices":[{"name":"modbus-sim","profileName":"modbus-sim-profile","protocols":{"modbus-tcp":{"Address":"modbus-sim","Port":1502,"UnitID":1}}}]}

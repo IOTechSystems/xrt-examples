@@ -124,46 +124,45 @@ services:
     read_only: true
 
   # DMG configuration
-  dmg-db:
-    image: postgres:alpine
-    hostname: dmg-db
-    container_name: dmg-db
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_USER=iotech
-      - POSTGRES_PASSWORD=postgres123
-      - POSTGRES_DB=device_management_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - /etc/dmg/server/data/postgres/db-init.sql:/docker-entrypoint-initdb.d/init.sql
-    restart: always
-    networks:
-      - network1
-
-  dmg-server:
-    image: iotechsys/dev-dmg-server:0.1.dev
-    container_name: dmg-server
-    depends_on:
-      - mqtt-broker
-    ports:
-      - "9096:9096"
-    environment:
-      - DM_MQTTBROKERADDRESS=mqtt-broker
-      - DM_LOGLEVEL=DEBUG
-    restart: always
-    networks:
-      - network1
-
-  dmg-manager:
-    image: iotechsys/dev-dmg-client:0.1.dev
-    container_name: dmg-manager
-    ports:
-      - "9092:9092"
-    restart: always
-    networks:
-      - network1
-
+#  dmg-db:
+#    image: postgres:alpine
+#    hostname: dmg-db
+#    container_name: dmg-db
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - POSTGRES_USER=iotech
+#      - POSTGRES_PASSWORD=postgres123
+#      - POSTGRES_DB=device_management_db
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+#      - /etc/dmg/server/data/postgres/db-init.sql:/docker-entrypoint-initdb.d/init.sql
+#    restart: always
+#    networks:
+#      - network1
+#
+#  dmg-server:
+#    image: iotechsys/dev-dmg-server:0.1.dev
+#    container_name: dmg-server
+#    depends_on:
+#      - mqtt-broker
+#    ports:
+#      - "9096:9096"
+#    environment:
+#      - DM_MQTTBROKERADDRESS=mqtt-broker
+#      - DM_LOGLEVEL=DEBUG
+#    restart: always
+#    networks:
+#      - network1
+#
+#  dmg-manager:
+#    image: iotechsys/dev-dmg-client:0.1.dev
+#    container_name: dmg-manager
+#    ports:
+#      - "9092:9092"
+#    restart: always
+#    networks:
+#      - network1
 
 # Networks with static IP availability for S7-Simulator
 networks:

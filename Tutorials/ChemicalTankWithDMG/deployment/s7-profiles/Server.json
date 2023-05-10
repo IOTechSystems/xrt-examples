@@ -1,0 +1,1 @@
+{"description":"Outlet Valve","deviceResources":[{"attributes":{"DB_number":1,"start":0,"type":"DB"},"name":"Setting","properties":{"readWrite":"RW","valueType":"Int16"}}],"labels":["s7"],"name":"Server"}

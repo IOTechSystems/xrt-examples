@@ -11,10 +11,10 @@
   "PublishSource": true,
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
-  "TelemetryTopic": "xrt/${XRT_SERVER_ID}/devices/modbus/telemetry",
-  "DiscoveryTopic": "xrt/${XRT_SERVER_ID}/devices/modbus/discovery",
-  "RequestTopic": "xrt/${XRT_SERVER_ID}/devices/modbus/request",
-  "ReplyTopic": "xrt/${XRT_SERVER_ID}/devices/modbus/reply",
-  "StatusTopic": "xrt/${XRT_SERVER_ID}/devices/modbus/status",
-  "EventTopic": "xrt/${XRT_SERVER_ID}/devices/modbus/event"
+  "TelemetryTopic": "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/telemetry",
+  "DiscoveryTopic": "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/discovery",
+  "RequestTopic": "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/request",
+  "ReplyTopic": "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/reply",
+  "StatusTopic": "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/status",
+  "EventTopic": "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/event"
 }
