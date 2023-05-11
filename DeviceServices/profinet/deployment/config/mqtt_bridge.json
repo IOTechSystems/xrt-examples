@@ -1,9 +1,9 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [{"Pattern":"xrt/devices/profinet/telemetry","Retain": true, "Qos": 1},
-               {"Pattern":"xrt/devices/profinet/reply","Retain": true, "Qos": 1},
-               {"Pattern":"xrt/devices/profinet/status","Retain": true, "Qos": 1}],
+  "Patterns": [{"Pattern":"xrt/devices/profinet/telemetry","Retain": false, "Qos": 1},
+               {"Pattern":"xrt/devices/profinet/reply","Retain": false, "Qos": 1},
+               {"Pattern":"xrt/devices/profinet/status","Retain": false, "Qos": 1}],
   "MQTTPatterns": [{"Pattern":"xrt/devices/profinet/request", "Sync": true}],
   "MQTTConfig":
   {

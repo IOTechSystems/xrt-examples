@@ -1,10 +1,10 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [{"Pattern": "xrt/devices/ble/telemetry", "Retain": true, "Qos": 1},
-               {"Pattern": "xrt/devices/ble/reply", "Retain": true, "Qos": 1},
-               {"Pattern": "xrt/devices/ble/discovery", "Retain": true, "Qos": 1},
-               {"Pattern": "xrt/devices/ble/status", "Retain": true, "Qos": 1}],
+  "Patterns": [{"Pattern": "xrt/devices/ble/telemetry", "Retain": false, "Qos": 1},
+               {"Pattern": "xrt/devices/ble/reply", "Retain": false, "Qos": 1},
+               {"Pattern": "xrt/devices/ble/discovery", "Retain": false, "Qos": 1},
+               {"Pattern": "xrt/devices/ble/status", "Retain": false, "Qos": 1}],
   "MQTTPatterns": [{"Pattern":"xrt/devices/ble/request", "Sync": true}],
   "MQTTConfig":
   {

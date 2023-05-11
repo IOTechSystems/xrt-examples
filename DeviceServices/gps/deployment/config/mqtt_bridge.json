@@ -1,9 +1,9 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [{"Pattern":"xrt/devices/gps/telemetry","Retain": true, "Qos": 1},
-               {"Pattern":"xrt/devices/gps/reply","Retain": true, "Qos": 1},
-               {"Pattern":"xrt/devices/gps/status","Retain": true, "Qos": 1}],
+  "Patterns": [{"Pattern":"xrt/devices/gps/telemetry","Retain": false, "Qos": 1},
+               {"Pattern":"xrt/devices/gps/reply","Retain": false, "Qos": 1},
+               {"Pattern":"xrt/devices/gps/status","Retain": false, "Qos": 1}],
   "MQTTPatterns": [{"Pattern":"xrt/devices/gps/request","Sync": true}],
   "MQTTConfig":
   {

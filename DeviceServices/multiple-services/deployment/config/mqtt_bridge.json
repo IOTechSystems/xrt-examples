@@ -1,23 +1,21 @@
 {
     "Library": "libxrt-mqtt-bridge.so",
     "Factory": "xrt_mqtt_bridge_factory",
-    "Patterns": [
-        "xrt/devices/modbus/telemetry",
-        "xrt/devices/modbus/reply",
-        "xrt/devices/modbus/request",
-        "xrt/devices/bacnet_ip/telemetry",
-        "xrt/devices/bacnet_ip/reply",
-        "xrt/devices/bacnet_ip/request",
-        "xrt/devices/bacnet_ip/discovery",
-        "xrt/devices/opc_ua/telemetry",
-        "xrt/devices/opc_ua/reply",
-        "xrt/devices/opc_ua/request",
-        "xrt/devices/opc_ua/discovery"
+    "Patterns": [{"Pattern":"xrt/devices/modbus/telemetry","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/modbus/reply","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/modbus/request","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/bacnet_ip/telemetry","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/bacnet_ip/reply","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/bacnet_ip/request","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/bacnet_ip/discovery","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/opc_ua/telemetry","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/opc_ua/reply","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/opc_ua/request","Retain": false, "Qos": 1},
+                 {"Pattern":"xrt/devices/opc_ua/discovery","Retain": false, "Qos": 1} 
     ],
-    "MQTTPatterns": [
-        "xrt/devices/modbus/request",
-        "xrt/devices/bacnet_ip/request",
-        "xrt/devices/opc_ua/request"
+    "MQTTPatterns": [{"Pattern":"xrt/devices/modbus/request", "Sync": true},
+                     {"Pattern":"xrt/devices/bacnet_ip/request", "Sync": true},
+                     {"Pattern":"xrt/devices/opc_ua/request", "Sync": true}
     ],
     "MQTTConfig": {
         "ServerURI": "${XRT_MQTT_BROKER}",

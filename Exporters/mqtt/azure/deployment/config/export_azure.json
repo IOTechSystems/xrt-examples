@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [{"Pattern":"${AZURE_MQTT_REPLY_TOPIC}","Retain": true, "Qos": 1}],
+  "Patterns": [{"Pattern":"${AZURE_MQTT_REPLY_TOPIC}","Retain": false, "Qos": 1}],
   "MQTTPatterns": [{"Pattern":"${AZURE_MQTT_REQUEST_TOPIC}", "Sync": true}],
   "MQTTConfig":
   {
