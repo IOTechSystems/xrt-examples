@@ -2,15 +2,11 @@
     "Library": "libxrt-mqtt-bridge.so",
     "Factory": "xrt_mqtt_bridge_factory",
     "Bus": "bus",
-    "Patterns": [
-        "xrt/devices/s7/reply",
-        "xrt/devices/s7/discovery",
-        "xrt/devices/s7/telemetry",
-        "xrt/devices/s7/event"
-    ],
-    "MQTTPatterns": [
-        "xrt/devices/s7/request"
-    ],
+    "Patterns": [{"Pattern": "xrt/devices/s7/reply", "Retain": false, "Qos": 1},
+                 {"Pattern": "xrt/devices/s7/discovery", "Retain": false, "Qos": 1},
+                 {"Pattern": "xrt/devices/s7/telemetry", "Retain": false, "Qos": 1},
+                 {"Pattern": "xrt/devices/s7/event", "Retain": false, "Qos": 1}],
+    "MQTTPatterns": [{"Pattern": "xrt/devices/s7/request", "Sync": true}],
     "MQTTConfig": {
         "ServerURI": "${XRT_MQTT_BROKER}",
         "ClientID": "xrt",

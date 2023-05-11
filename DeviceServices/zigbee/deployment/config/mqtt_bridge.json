@@ -1,20 +1,16 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [ 
-    "xrt/devices/zigbee/telemetry",
-    "xrt/devices/zigbee/reply",
-    "xrt/devices/zigbee/discovery",
-    "zigbee2mqtt/+/get",
-    "zigbee2mqtt/+/set",
-    "zigbee2mqtt/bridge/request/#"
-  ],
-  "MQTTPatterns": [
-    "xrt/devices/zigbee/request",
-    "zigbee2mqtt/+",
-    "zigbee2mqtt/bridge/response/#",
-    "zigbee2mqtt/bridge/devices"
-  ],
+  "Patterns": [{"Pattern":"xrt/devices/zigbee/telemetry","Retain": false, "Qos": 1},
+               {"Pattern":"xrt/devices/zigbee/reply","Retain": false, "Qos": 1},
+               {"Pattern":"xrt/devices/zigbee/discovery","Retain": false, "Qos": 1},
+               {"Pattern":"zigbee2mqtt/+/get","Retain": false, "Qos": 1},
+               {"Pattern":"zigbee2mqtt/+/set","Retain": false, "Qos": 1},
+               {"Pattern":"zigbee2mqtt/bridge/request/#","Retain": false, "Qos": 1}],
+  "MQTTPatterns": [{"Pattern":"xrt/devices/zigbee/request", "Sync": true},
+                   {"Pattern":"zigbee2mqtt/+", "Sync": true},
+                   {"Pattern":"zigbee2mqtt/bridge/response/#", "Sync": true},
+                   {"Pattern":"zigbee2mqtt/bridge/devices", "Sync": true}],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

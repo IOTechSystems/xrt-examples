@@ -1,8 +1,8 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [ "xrt/devices/test/data" ],
-  "MQTTPatterns": [ "xrt/devices/bridge/data" ],
+  "Patterns": [{"Pattern": "xrt/devices/test/data", "Retain": false, "Qos": 1}],
+  "MQTTPatterns": [{"Pattern": "xrt/devices/bridge/data", "Sync": true}],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

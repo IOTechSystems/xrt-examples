@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": ["xrt/app_component/result"],
+  "Patterns": [{"Pattern":"xrt/app_component/result","Retain": false, "Qos": 1}],
   "MQTTConfig": {
     "ServerURI": "${XRT_MQTT_BROKER}",
     "ClientID": "xrt",

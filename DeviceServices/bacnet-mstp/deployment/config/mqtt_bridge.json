@@ -1,13 +1,11 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [
-    "xrt/devices/bacnet_mstp/telemetry",
-    "xrt/devices/bacnet_mstp/reply",
-    "xrt/devices/bacnet_mstp/discovery",
-    "xrt/devices/bacnet_mstp/status"
-  ],
-  "MQTTPatterns": [ "xrt/devices/bacnet_mstp/request" ],
+  "Patterns": [{"Pattern": "xrt/devices/bacnet_mstp/telemetry", "Retain": false, "Qos": 1},
+               {"Pattern": "xrt/devices/bacnet_mstp/reply", "Retain": false, "Qos": 1},
+               {"Pattern": "xrt/devices/bacnet_mstp/discovery", "Retain": false, "Qos": 1},
+               {"Pattern": "xrt/devices/bacnet_mstp/status", "Retain": false, "Qos": 1}],
+  "MQTTPatterns": [{"Pattern": "xrt/devices/bacnet_mstp/request","Sync": true}],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
