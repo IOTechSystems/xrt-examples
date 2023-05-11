@@ -48,7 +48,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -116,7 +116,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -5s)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "A"
@@ -128,7 +128,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -196,7 +196,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -240,7 +240,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {},
@@ -324,7 +324,7 @@
           "alias": "Temperature",
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -361,7 +361,7 @@
           "alias": "Pressure",
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -398,7 +398,7 @@
           "alias": "Level",
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -468,7 +468,7 @@
       "columns": [],
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fontSize": "100%",
       "gridPos": {
@@ -482,7 +482,8 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "desc": false
+        "col": 0,
+        "desc": true
       },
       "styles": [
         {
@@ -490,12 +491,12 @@
           "alias": "Time",
           "align": "auto",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "pattern": "Time",
+          "pattern": "_time",
           "type": "date"
         },
         {
           "$$hashKey": "object:555",
-          "alias": "",
+          "alias": "Value",
           "align": "auto",
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -503,7 +504,24 @@
             "rgba(50, 172, 45, 0.97)"
           ],
           "decimals": 2,
-          "pattern": "/.*/",
+          "pattern": "_value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:3553",
+          "alias": "Device",
+          "align": "auto",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "_measurement",
           "thresholds": [],
           "type": "number",
           "unit": "short"
@@ -513,7 +531,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -554,7 +572,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -623,7 +641,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -668,7 +686,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -737,7 +755,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -782,7 +800,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -851,7 +869,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -896,7 +914,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -965,7 +983,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -1027,7 +1045,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fieldConfig": {
         "defaults": {
@@ -1099,7 +1117,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -1143,7 +1161,7 @@
       "dashes": false,
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1185,7 +1203,7 @@
           "alias": "Engine OPC UA",
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -1255,7 +1273,7 @@
       "columns": [],
       "datasource": {
         "type": "influxdb",
-        "uid": "NQZW5n8Vk"
+        "uid": "0Wl1US8Vz"
       },
       "fontSize": "100%",
       "gridPos": {
@@ -1269,7 +1287,8 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "desc": false
+        "col": 0,
+        "desc": true
       },
       "styles": [
         {
@@ -1277,12 +1296,12 @@
           "alias": "Time",
           "align": "auto",
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "pattern": "Time",
+          "pattern": "_time",
           "type": "date"
         },
         {
           "$$hashKey": "object:555",
-          "alias": "",
+          "alias": "Value",
           "align": "auto",
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -1290,7 +1309,24 @@
             "rgba(50, 172, 45, 0.97)"
           ],
           "decimals": 2,
-          "pattern": "/.*/",
+          "pattern": "_value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:3470",
+          "alias": "Device",
+          "align": "auto",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "_measurement",
           "thresholds": [],
           "type": "number",
           "unit": "short"
@@ -1300,7 +1336,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "NQZW5n8Vk"
+            "uid": "0Wl1US8Vz"
           },
           "groupBy": [],
           "measurement": "readings",
@@ -1347,7 +1383,7 @@
     "list": []
   },
   "time": {
-    "from": "now-2m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -1378,6 +1414,6 @@
   "timezone": "",
   "title": "Chemical Tank Dashboard",
   "uid": "_6OKnhHnk",
-  "version": 4,
+  "version": 3,
   "weekStart": ""
 }

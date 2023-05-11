@@ -11,7 +11,7 @@
       "description": "Temperature of liquid within the tank",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 4001
+        "startingAddress": 4000
       },
       "properties": {
         "valueType": "INT16",
@@ -23,7 +23,7 @@
       "description": "Pressure within the tank",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 4003
+        "startingAddress": 4002
       },
       "properties": {
         "valueType": "INT16",
@@ -35,7 +35,7 @@
       "description": "Level within the tank",
       "attributes": {
         "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 4017
+        "startingAddress": 4016
       },
       "properties": {
         "valueType": "INT16",

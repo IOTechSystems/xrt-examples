@@ -7,7 +7,7 @@ services:
     entrypoint: "/opt/iotech/xrt/2.2/bin/xrt /opt/iotech/xrt/2.2/deployment/config"
     env_file: ./scripts/env-file.env
     depends_on:
-      - modbus-sim
+      #- modbus-sim
       - s7-sim
       - influxdb
       - mqtt-broker
