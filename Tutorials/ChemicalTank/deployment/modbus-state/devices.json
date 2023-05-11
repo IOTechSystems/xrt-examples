@@ -5,8 +5,8 @@
       "profileName": "ChemicalTank",
       "protocols": {
         "modbus-tcp": {
-          "Address": "172.17.0.1",
-          "Port": 502,
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": "${MODBUS_SIM_PORT}",
           "UnitID": 1
         }
       },

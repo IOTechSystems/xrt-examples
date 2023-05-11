@@ -39,7 +39,14 @@ There are two methods of running the demo:
 * Run with pre-configured devices
 * Run with the Device Management Tool
 
-The demo can also be run using ModbusPal as the simulator or an alternative Modbus simulator.
+The demo can also be run using ModbusPal as the simulator or an alternative Modbus simulator. If ModbusPal is used the following must be done before following either method of running the demo.
+
+* Start ModbusPal
+```shell 
+java -jar ModbusPal.jar
+```
+* Import the `demo_config.xmpp` file into ModbusPal.
+* Update the `MODBUS_SIM_PORT` and `MODBUS_SIM_ADDRESS` in the `env-file.env`
 
 ## Run with Pre-Configured Devices
 To run with pre-configured devices, enter the `ChemicalTank` directory and run the following command:
@@ -47,8 +54,6 @@ To run with pre-configured devices, enter the `ChemicalTank` directory and run t
 ```shell
 docker compose up
 ```
-
-
 
 This will start all services in the `docker-compose.yml` file. XRT will start using the pre-configured devices for Modbus and S7 services.
 
