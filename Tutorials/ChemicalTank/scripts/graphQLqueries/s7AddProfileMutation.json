@@ -1,0 +1,31 @@
+{
+  "query": "mutation AddProfile($xrtInstanceID: ID!, $input: CreateProfile!, $deviceService: String!) { profileAdd(xrtInstanceID: $xrtInstanceID, input: $input, deviceService: $deviceService) }",
+  "variables": {
+    "xrtInstanceID": "XrtChemicalTankInstance",
+    "deviceService": "s7",
+    "labels": ["s7"],
+    "input": {
+      "profile": {
+        "name": "OutletValve",
+        "description": "Outlet Valve",
+        "labels": [
+          "s7"
+        ],
+        "deviceResources": [
+          {
+            "attributes": {
+              "DB_number": 1,
+              "start": 0,
+              "type": "DB"
+            },
+            "name": "Setting",
+            "properties": {
+              "readWrite": "RW",
+              "valueType": "Int16"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

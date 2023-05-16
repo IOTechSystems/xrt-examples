@@ -2,9 +2,8 @@ version: '3.7'
 services:
 # XRT
   xrt:
-    image: iotechsys/xrt-server:testing-2.2.0-x86_64
+    image: iotechsys/xrt:2.1
     container_name: xrt-demo
-    entrypoint: "/opt/iotech/xrt/2.2/bin/xrt /opt/iotech/xrt/2.2/deployment/config"
     env_file: ./scripts/env-file.env
     depends_on:
       #- modbus-sim
@@ -15,7 +14,7 @@ services:
       - network1
     restart: always
     volumes:
-      - ./deployment/:/opt/iotech/xrt/2.2/deployment/
+      - ./deployment/:/opt/iotech/xrt/2.1/deployment/
       - ./scripts/license.json:/license.json
       - ./scripts/mqtt.lua:/scripts/mqtt.lua
 
@@ -31,15 +30,15 @@ services:
     environment:
       - S7SIM_WAIT_US=2000
 
-  modbus-sim:
-    image: iotechsys/modbus-sim:1.0
-    container_name: modbus-sim
-    networks:
-      - network1
-    restart: always
-    entrypoint: /scripts/tcp-sim.sh
-    volumes:
-      - ./scripts/tcp-sim.sh:/scripts/tcp-sim.sh
+  #modbus-sim:
+  #  image: iotechsys/modbus-sim:1.0
+  #  container_name: modbus-sim
+  #  networks:
+  #    - network1
+  #  restart: always
+  #  entrypoint: /scripts/tcp-sim.sh
+  #  volumes:
+  #    - ./scripts/tcp-sim.sh:/scripts/tcp-sim.sh
 
 # Application services
   nodered:
@@ -72,6 +71,17 @@ services:
       # use host timezone
       - /etc/localtime:/etc/localtime:ro
       - ./grafana-data:/var/lib/grafana
+  
+  browser:
+    image: iotechsys/opc-ua-browser:0.1.dev
+    container_name: browser
+    depends_on:
+      - xrt
+    networks:
+      - network1
+    ports:
+      - 8080:8080
+    restart: always
 
 # Database
   influxdb:
@@ -91,21 +101,6 @@ services:
       DOCKER_INFLUXDB_INIT_ORG: IOTech
       DOCKER_INFLUXDB_INIT_BUCKET: demo_bucket
       DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: "abcede=="
-
-# MQTT Broker
-#  mqtt-broker:
-#    image: eclipse-mosquitto:2.0
-#    container_name: mqtt-broker
-#    hostname: mqtt-broker
-#    entrypoint: entrypoint.sh
-#    env_file: scripts/env.list
-#    networks:
-#      - network1
-#    restart: always
-#    read_only: true
-#    volumes:
-#      - ./scripts/mosquitto.conf:/mosquitto/config/mosquitto.conf
-#      - ./scripts/entrypoint_mosquitto.sh:/entrypoint.sh
 
   mqtt-broker:
     command: "/usr/sbin/mosquitto -c /mosquitto-no-auth.conf"

@@ -9,7 +9,7 @@
             "MinimumSamplingInterval" : 1000
         },
         {
-            "Name" : "modbus",
+            "Name" : "modbus_tcp",
             "Timeout" : 3000,
             "MinimumSamplingInterval" : 1000
         }

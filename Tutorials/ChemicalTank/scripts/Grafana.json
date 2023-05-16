@@ -330,7 +330,7 @@
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -20m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Temperature\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "Temperature",
           "resultFormat": "time_series",
           "select": [
@@ -367,7 +367,7 @@
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Pressure\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -20m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Pressure\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "Pressure",
           "resultFormat": "time_series",
           "select": [
@@ -404,7 +404,7 @@
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Level\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -20m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"ChemicalTank\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Level\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])",
           "refId": "Level",
           "resultFormat": "time_series",
           "select": [
@@ -1209,7 +1209,7 @@
           "measurement": "readings",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -2m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"OutletValve\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Setting\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])\n",
+          "query": "from(bucket: \"demo_bucket\")\n  |> range(start: -20m)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"OutletValve\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Setting\")\n  |> group(columns: [\"_field\"])\n  |> sort(columns: [\"_time\"])\n",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1414,6 +1414,6 @@
   "timezone": "",
   "title": "Chemical Tank Dashboard",
   "uid": "_6OKnhHnk",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }

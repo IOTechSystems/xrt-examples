@@ -1,0 +1,19 @@
+{
+  "query": "mutation AddDevice($xrtInstanceID: ID!, $input: CreateDevice!) { deviceAdd(xrtInstanceID: $xrtInstanceID, input: $input) }",
+  "variables": {
+    "xrtInstanceID": "XrtChemicalTankInstance",
+    "input": {
+      "device": "ChemicalTank",
+      "device_info": {
+        "profileName": "ChemicalTank",
+        "protocols": {
+          "modbus-tcp": {
+            "Address": "172.17.0.1",
+            "Port": 1502,
+            "UnitID": 1
+          }
+        }
+      }
+    }
+  }
+}

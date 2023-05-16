@@ -3,17 +3,20 @@
     "Factory": "xrt_mqtt_bridge_factory",
     "Bus": "bus",
     "Patterns": [
-        "xrt/devices/s7/reply",
-        "xrt/devices/s7/telemetry",
-        "xrt/devices/s7/event",
-        "xrt/devices/modbus/reply",
-        "xrt/devices/modbus/telemetry",
-        "xrt/devices/modbus/event",
-        "xrt/influxdb/message"
+        "xrt/discovery",
+        "xrt/command/reply",
+        "xrt/${XRT_SERVER_ID}/devices/s7/reply",
+        "xrt/${XRT_SERVER_ID}/devices/s7/telemetry",
+        "xrt/${XRT_SERVER_ID}/devices/s7/event",
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/reply",
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/telemetry",
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/event",
+        "xrt/${XRT_SERVER_ID}/influxdb/message"
     ],
     "MQTTPatterns": [
-        "xrt/devices/s7/request",
-        "xrt/devices/modbus/request"
+        "xrt/command/request",
+        "xrt/${XRT_SERVER_ID}/devices/s7/request",
+        "xrt/${XRT_SERVER_ID}/devices/modbus_tcp/request"
     ],
     "MQTTConfig": {
         "ServerURI": "${XRT_MQTT_BROKER}",

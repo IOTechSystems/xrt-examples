@@ -8,7 +8,7 @@
   "Token": "${XRT_INFLUXDB_TOKEN}",
   "Measurement": "DeviceName",
   "SelectData": [
-    { "Pattern": "xrt/influxdb/message", "Format": "Device"}
+    { "Pattern": "xrt/${XRT_SERVER_ID}/influxdb/message", "Format": "Device"}
   ],
   "BatchConfig":
   {

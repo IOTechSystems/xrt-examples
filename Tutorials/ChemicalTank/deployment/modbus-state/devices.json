@@ -1,16 +1,1 @@
-{
-  "apiVersion": "v2",
-  "devices": [
-    {
-      "profileName": "ChemicalTank",
-      "protocols": {
-        "modbus-tcp": {
-          "Address": "${MODBUS_SIM_ADDRESS}",
-          "Port": "${MODBUS_SIM_PORT}",
-          "UnitID": 1
-        }
-      },
-      "name": "ChemicalTank"
-    }
-  ]
-}
+{"apiVersion":"v2","devices":[{"name":"ChemicalTank","profileName":"ChemicalTank","protocols":{"modbus-tcp":{"Address":"172.17.0.1","Port":1502,"UnitID":1}}}]}

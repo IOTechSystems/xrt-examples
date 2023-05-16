@@ -20,7 +20,13 @@ function s7_sub_callback (data)
   end
 end
 
-modbus_sub = modbus_sub or sub_alloc (iot_bus, modbus_sub_callback, "xrt/devices/modbus/reply")
-s7_sub = s7_sub or sub_alloc (iot_bus, s7_sub_callback, "xrt/devices/s7/reply")
+server_id = os.getenv("XRT_SERVER_ID")
+modbus_topic = "xrt/" .. server_id .. "/devices/modbus_tcp/reply"
+s7_topic = "xrt/" .. server_id .. "/devices/s7/reply"
+influx_topic = "xrt/" .. server_id .. "/influxdb/message"
 
-pub = pub or pub_alloc (iot_bus, "xrt/influxdb/message")
+
+modbus_sub = modbus_sub or sub_alloc (iot_bus, modbus_sub_callback, modbus_topic)
+s7_sub = s7_sub or sub_alloc (iot_bus, s7_sub_callback, s7_topic)
+
+pub = pub or pub_alloc (iot_bus, influx_topic)

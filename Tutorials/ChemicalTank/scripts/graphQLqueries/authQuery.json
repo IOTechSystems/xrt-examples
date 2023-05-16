@@ -1,0 +1,4 @@
+{
+  "query": "query Authenticate($username: String!, $password: String!) { authenticate(username: $username, password: $password) {result}}",
+  "variables": { "username": "iotech", "password":"dmgAdmin123@" }
+}

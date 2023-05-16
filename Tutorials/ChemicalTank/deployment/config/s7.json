@@ -10,9 +10,9 @@
   "PublishSource": true,
   "Driver": {},
   "Logger": "logger",
-  "RequestTopic": "xrt/devices/s7/request",
-  "ReplyTopic": "xrt/devices/s7/reply",
-  "TelemetryTopic": "xrt/devices/s7/telemetry",
-  "EventTopic": "xrt/devices/s7/event",
+  "RequestTopic": "xrt/${XRT_SERVER_ID}/devices/s7/request",
+  "ReplyTopic": "xrt/${XRT_SERVER_ID}/devices/s7/reply",
+  "TelemetryTopic": "xrt/${XRT_SERVER_ID}/devices/s7/telemetry",
+  "EventTopic": "xrt/${XRT_SERVER_ID}/devices/s7/event",
   "RequestQueueMax": 4
 }

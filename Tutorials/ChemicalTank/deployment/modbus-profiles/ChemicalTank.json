@@ -42,22 +42,5 @@
         "readWrite": "RW"
       }
     }
-  ],
-  "deviceCommands": [
-    {
-      "name": "GetSensorValues",
-      "readWrite": "R",
-      "resourceOperations": [
-        {
-          "deviceResource": "Temperature"
-        },
-        {
-          "deviceResource": "Pressure"
-        },
-        {
-          "deviceResource": "Level"
-        }
-      ]
-    }
   ]
 }

@@ -6,7 +6,9 @@
     "lua":"XRT::LuaTransform",
     "influxdb2_exporter":"XRT::InfluxDBExporter",
     "s7": "XRT::S7DeviceService",
-    "modbus":"XRT::ModbusDeviceService",
+    "modbus_tcp":"XRT::ModbusDeviceService",
     "opc_ua_server": "XRT::OPCUAServer",
-    "mqtt_bridge": "XRT::MQTTBridge"
+    "mqtt_bridge": "XRT::MQTTBridge",
+    "command": "XRT::Command",
+    "xrt":"XRT::Config"
 }
