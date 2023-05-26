@@ -1,0 +1,10 @@
+{
+  "Scheduler": "5-sched",
+  "ThreadPool": "3-pool",
+  "Logger": "2-logger",
+  "Topics":
+  [
+    { "Topic": "xrt/devices/virtual/request", "ThreadPool": "3-pool", "Retain": false, "FilterDuplicates": false },
+    { "Topic": "xrt/devices/virtual/data", "ThreadPool": "3-pool", "Retain": false, "FilterDuplicates": false }
+  ]
+}

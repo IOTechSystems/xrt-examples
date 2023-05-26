@@ -1,0 +1,4 @@
+{
+  "ServerId":"Virtual",
+  "NodeId":"${SPARKPLUG_NODE}"
+}
