@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/devices/bacnet_mstp/request -m \
+mosquitto_pub -t spBv1.0/iotech/REQUEST/node0/bacnet_mstp -m \
 '{
   "client": "example",
   "request_id": "1060",

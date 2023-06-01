@@ -1,9 +1,12 @@
 {
-  "xrt":"XRT::Config",
-  "logger":"IOT::Logger",
-  "pool":"IOT::ThreadPool",
-  "sched":"IOT::Scheduler",
-  "bus":"XRT::Bus",
-  "bacnet_mstp":"XRT::BACnetMSTPDeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge"
+  "1-xrt":"XRT::Config",
+  "2-logger":"IOT::Logger",
+  "3-pool":"IOT::ThreadPool",
+  "4-devpool": "IOT::ThreadPool",
+  "5-sched":"IOT::Scheduler",
+  "6-bus":"XRT::Bus",
+  "7-mqtt": "XRT::MQTTBridge",
+  "8-sparkplug": "XRT::Sparkplug",
+  "9-bacnet_mstp":"XRT::BACnetMSTPDeviceService",
+  "10-logger_debug":"IOT::Logger"
 }
