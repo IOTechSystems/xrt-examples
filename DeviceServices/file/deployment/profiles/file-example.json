@@ -1,0 +1,131 @@
+{
+  "name": "file-example",
+  "manufacturer": "", 
+  "model": "", 
+  "description": "Example profile for file service", 
+  "apiVersion": "v2",
+    "labels": [],
+  "deviceResources": [
+    {
+      "description": "A reource corresponds to a file in the devices property directory",
+      "attributes": {
+        "file": "string.txt"
+      },
+      "name": "file_string",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "String"
+      }
+    },
+    {
+      "description": "A float",
+      "attributes": {
+        "file": "float.txt"
+      },
+      "name": "file_float",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float32"
+      }
+    },
+    {
+      "description": "A double",
+      "attributes": {
+        "file": "double.txt"
+      },
+      "name": "file_double",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "Float64"
+      }
+    },
+    {
+      "description": "A int8",
+      "attributes": {
+        "file": "int8.txt"
+      },
+      "name": "file_int8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "INT8"
+      }
+    },
+    {
+      "description": "A int16",
+      "attributes": {
+        "file": "int16.txt"
+      },
+      "name": "file_int16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "INT16"
+      }
+    },
+    {
+      "description": "A int32",
+      "attributes": {
+        "file": "int32.txt"
+      },
+      "name": "file_int32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "INT32"
+      }
+    },
+    {
+      "description": "A int64",
+      "attributes": {
+        "file": "int64.txt"
+      },
+      "name": "file_int64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "INT64"
+      }
+    },
+    {
+      "description": "A uint8",
+      "attributes": {
+        "file": "uint8.txt"
+      },
+      "name": "file_uint8",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UINT8"
+      }
+    },
+    {
+      "description": "A uint16",
+      "attributes": {
+        "file": "uint16.txt"
+      },
+      "name": "file_uint16",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UINT16"
+      }
+    },
+    {
+      "description": "A uint32",
+      "attributes": {
+        "file": "uint32.txt"
+      },
+      "name": "file_uint32",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UINT32"
+      }
+    },
+    {
+      "description": "A uint64",
+      "attributes": {
+        "file": "uint64.txt"
+      },
+      "name": "file_uint64",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "UINT64"
+      }
+    }
+  ]
+}
