@@ -1,3 +1,4 @@
 {
-  "ServerId":"ble-server"
+  "ServerId":"ble-server",
+  "NodeId":"${SPARKPLUG_NODE}"
 }
