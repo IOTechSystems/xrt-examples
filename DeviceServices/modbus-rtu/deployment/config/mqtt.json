@@ -9,13 +9,13 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/ble" }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/modbus-rtu" }
   ],
   "MQTTPatterns":
   [
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "Sync":true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ble", "Sync":true }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/modbus-rtu", "Sync":true }
   ],
   "MQTTDynamicPatterns":
   [
@@ -31,6 +31,7 @@
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
       "RetryInterval": 5,
+      "Reliable": true,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
       "MaxBufferedMessages": 100,
