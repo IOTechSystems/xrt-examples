@@ -6,7 +6,7 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "opc_ua":"XRT::OPCUADeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge",
+  "mqtt": "XRT::MQTTBridge",
   "sparkplug": "XRT::Sparkplug",
   "logger_debug":"IOT::Logger
 }
