@@ -1,26 +1,48 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns": [
-    "xrt/devices/file/telemetry",
-    "xrt/devices/file/reply",
-    "xrt/devices/file/status"
+  "Patterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${FILE_SERVICE}", "QoS":0 }
   ],
-  "MQTTPatterns": [ "xrt/devices/file/request" ],
+  "MQTTPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+    { "Pattern":"spBv1.0/STATE/+", "QoS":0, "Sync":true },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${FILE_SERVICE}", "QoS":0, "Sync":true }
+  ],
+  "MQTTDynamicPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+  ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
-    "ClientID": "xrt",
-    "QoS": 1,
+    "ClientID": "${SPARKPLUG_NODE}",
+    "QoS": 0,
     "ClientConfig":
     {
-      "KeepAliveInterval": 60,
-      "MQTTVersion": 5,
-      "RetryInterval": 5,
-      "Username": "${XRT_MQTT_USERNAME}",
+      "Username":"${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
-      "MaxBufferedMessages": 100
-    }
+      "KeepAliveInterval": 10,
+      "MQTTVersion": 5,
+      "Reliable": true,
+      "WillConfig":
+      {
+        "Topic": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}",
+        "Transforms": ["${SPARKPLUG_PROTO}"],
+        "QoS": 1,
+        "Retain": false
+      }
+    },
+    "RetryCount": 5,
+    "RetryInterval": 5
   },
   "Cookie": 125,
   "Bus": "bus",

@@ -1,4 +1,4 @@
 {
-  "ThreadPool":"pool",
-  "Logger":"logger"
+  "ThreadPool": "pool",
+  "Logger": "logger"
 }

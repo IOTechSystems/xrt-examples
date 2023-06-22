@@ -1,3 +1,4 @@
 {
-  "ServerId":"file-server"
+  "ServerId":"File",
+  "NodeId":"${SPARKPLUG_NODE}"
 }

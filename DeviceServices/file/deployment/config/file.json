@@ -1,18 +1,13 @@
 {
   "Library": "libxrt-file-device-service.so",
-  "Factory": "xrt_file_device_service_factory",
-  "Name": "file",
-  "TelemetryTopic": "xrt/devices/file/telemetry",
-  "RequestTopic": "xrt/devices/file/request",
-  "ReplyTopic": "xrt/devices/file/reply",
-  "StatusTopic": "xrt/devices/file/status",
-  "AutoRegister": false,
-  "PublishRegisteredDevices": true,
-  "PublishAttributes": true,
-  "ProfileDir": "${XRT_FILE_PROFILE_DIR}",
-  "StateDir": "${XRT_FILE_STATE_DIR}",
-  "Scheduler": "sched",
-  "Logger": "logger",
-  "ThreadPool": "pool",
-  "Bus": "bus"
+  "Factory": "xrt_file_device_service_factory",  
+  "Name":"${FILE_SERVICE}",
+  "StateDir":"${XRT_FILE_STATE_DIR}",
+  "ProfileDir":"${XRT_FILE_PROFILE_DIR}",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "SchedulesThreadPool":"devpool",
+  "Bus":"bus"
 }

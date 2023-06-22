@@ -1,4 +1,1 @@
-{
-  "Name":"console",
-  "Level":"Debug"
-}
+{"Level":"debug","Name":"console","Start":true}
