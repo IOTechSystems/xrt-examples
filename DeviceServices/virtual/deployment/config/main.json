@@ -3,8 +3,10 @@
   "logger":"IOT::Logger",
   "logger_debug":"IOT::Logger",
   "pool":"IOT::ThreadPool",
+  "devpool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "virtual":"XRT::VirtualDeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge"
+  "mqtt": "XRT::MQTTBridge",
+  "sparkplug": "XRT::Sparkplug"
 }
