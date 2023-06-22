@@ -6,6 +6,7 @@
   "5-sched":"IOT::Scheduler",
   "6-bus":"XRT::Bus",
   "7-mqtt": "XRT::MQTTBridge",
-  "8-sparkplug": "XRT:Sparkplug",
-  "9-bacnet_ip":"XRT::BACnetIPDeviceService"
+  "8-sparkplug": "XRT::Sparkplug",
+  "9-bacnet_ip":"XRT::BACnetIPDeviceService",
+  "10-logger_debug":"IOT::Logger"
 }
