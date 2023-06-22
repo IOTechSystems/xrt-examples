@@ -9,14 +9,17 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/bacnet_ip" }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/${BACNET_SERVICE}" }
   ],
   "MQTTPatterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "Sync":true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip", "Sync":true }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/${BACNET_SERVICE}", "Sync":true }
+  ],
+  "MQTTDynamicPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
   ],
   "MQTTConfig":
   {

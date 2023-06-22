@@ -1,12 +1,8 @@
 {
   "Library": "libxrt-bacnet-ip-device-service.so",
   "Factory": "xrt_bacnet_ip_device_service_factory",
-  "Name": "bacnet_ip",
-  "TelemetryTopic": "xrt/devices/bacnet_ip/telemetry",
-  "RequestTopic": "xrt/devices/bacnet_ip/request",
-  "ReplyTopic": "xrt/devices/bacnet_ip/reply",
-  "DiscoveryTopic": "xrt/devices/bacnet_ip/discovery",
-  "StatusTopic": "xrt/devices/bacnet_ip/status",
+  "Name": "${BACNET_SERVICE}",
+  "QueueMax": 100000,
   "AutoRegister": false,
   "DiscoveryInterval": 0,
   "PublishRegisteredDevices": true,
@@ -17,10 +13,12 @@
   "Scheduler": "5-sched",
   "Logger": "2-logger",
   "ThreadPool": "3-pool",
+  "SchedulesThreadPool": "4-devpool",
   "Bus": "6-bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "Driver": {
+    "NetworkInterface":"${BACNET_INTERFACE}",
     "DeviceObject": {
       "InstanceID": 0
     },
