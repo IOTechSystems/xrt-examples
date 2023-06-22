@@ -1,10 +1,10 @@
 {
-  "Scheduler": "5-sched",
-  "ThreadPool": "3-pool",
-  "Logger": "2-logger",
+  "Scheduler": "sched",
+  "ThreadPool": "pool",
+  "Logger": "logger",
   "Topics":
   [
-    { "Topic": "xrt/devices/bacnet_ip/request", "ThreadPool": "3-pool", "Retain": false, "FilterDuplicates": false },
-    { "Topic": "xrt/devices/bacnet_ip/data", "ThreadPool": "3-pool", "Retain": false, "FilterDuplicates": false }
+    { "Topic": "xrt/devices/bacnet_ip/request", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false },
+    { "Topic": "xrt/devices/bacnet_ip/data", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false }
   ]
 }

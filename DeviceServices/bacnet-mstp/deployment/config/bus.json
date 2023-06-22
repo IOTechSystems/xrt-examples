@@ -1,0 +1,10 @@
+{
+  "Scheduler":"sched",
+  "ThreadPool":"pool",
+  "Logger":"logger",
+  "Topics":
+  [
+    { "Topic": "xrt/devices/bacnet_mstp/request", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false },
+    { "Topic": "xrt/devices/bacnet_mstp/data", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false }
+  ]
+}

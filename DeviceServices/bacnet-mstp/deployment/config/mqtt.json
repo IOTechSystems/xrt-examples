@@ -9,15 +9,19 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/bacnet_mstp" }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/bacnet_mstp", "QoS":0 }
   ],
   "MQTTPatterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "Sync":true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_mstp", "Sync":true }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "QoS":1, "Sync":true },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_mstp", "QoS":0, "Sync":true }
   ],
+  "MQTTDynamicPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+  ],
+
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
@@ -40,7 +44,7 @@
     }
   },
   "Cookie": 125,
-  "Bus": "6-bus",
+  "Bus": "bus",
   "QueueSize": 5,
-  "Logger": "10-logger_debug"
+  "Logger": "logger_debug"
 }
