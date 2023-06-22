@@ -4,6 +4,6 @@
   "pool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
-  "file":"XRT::FILEDeviceService",
+  "file":"XRT::FileDeviceService",
   "mqtt_bridge": "XRT::MQTTBridge"
 }
