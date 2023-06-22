@@ -2,8 +2,11 @@
   "xrt":"XRT::Config",
   "logger":"IOT::Logger",
   "pool":"IOT::ThreadPool",
+  "devpool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "s7":"XRT::S7DeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge"
+  "mqtt": "XRT::MQTTBridge",
+  "sparkplug": "XRT::Sparkplug",
+  "logger_debug":"IOT::Logger"
 }

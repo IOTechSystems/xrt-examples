@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/devices/s7/request -m \
+mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/s7 -m \
 '{
   "client": "example",
   "request_id": "1020",
