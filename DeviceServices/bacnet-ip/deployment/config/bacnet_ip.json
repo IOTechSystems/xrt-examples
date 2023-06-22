@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-bacnet-ip-device-service.so",
   "Factory": "xrt_bacnet_ip_device_service_factory",
-  "Name": "${BACNET_SERVICE}",
+  "Name": "bacnet_ip",
   "QueueMax": 100000,
   "AutoRegister": false,
   "DiscoveryInterval": 0,
