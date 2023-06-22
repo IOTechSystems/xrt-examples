@@ -1,3 +1,4 @@
 {
-  "ServerId":"ethernet-ip-server"
+  "ServerId":"ethernet-ip-server",
+  "NodeId":"${SPARKPLUG_NODE}"
 }

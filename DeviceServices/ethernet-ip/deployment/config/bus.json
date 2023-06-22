@@ -1,5 +1,10 @@
 {
   "Scheduler": "sched",
   "ThreadPool": "pool",
-  "Logger": "logger"
+  "Logger": "logger",
+  "Topics":
+  [
+    { "Topic": "xrt/devices/ethernet_ip/request", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false },
+    { "Topic": "xrt/devices/ethernet_ip/data", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false }
+  ]
 }

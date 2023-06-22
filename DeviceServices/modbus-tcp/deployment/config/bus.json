@@ -4,7 +4,7 @@
   "Logger":"logger",
   "Topics":
   [
-    { "Topic": "xrt/devices/modbus-tcp/request", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false },
-    { "Topic": "xrt/devices/modbus-tcp/data", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false }
+    { "Topic": "xrt/devices/modbus_tcp/request", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false },
+    { "Topic": "xrt/devices/modbus_tcp/data", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false }
   ]
 }
