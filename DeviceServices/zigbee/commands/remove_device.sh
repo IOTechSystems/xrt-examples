@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/devices/zigbee/request -m \
+mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/zigbee -m \
 '{
   "client": "example",
   "request_id": "1011",

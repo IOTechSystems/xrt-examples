@@ -1,3 +1,4 @@
 {
-  "ServerId":"zigbee-server"
+  "ServerId":"zigbee-server",
+  "NodeId":"${SPARKPLUG_NODE}"
 }

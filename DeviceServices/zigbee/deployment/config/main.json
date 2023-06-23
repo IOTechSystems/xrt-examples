@@ -1,8 +1,11 @@
 {
   "logger":"IOT::Logger",
   "pool":"IOT::ThreadPool",
+  "devpool":"IOT::ThreadPool",
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "zigbee":"XRT::ZigbeeDeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge"
+  "sparkplug": "XRT::Sparkplug",
+  "mqtt": "XRT::MQTTBridge",
+  "logger_debug":"IOT::Logger"
 }
