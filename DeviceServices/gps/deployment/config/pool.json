@@ -1,3 +1,4 @@
 {
-  "Logger":"logger"
+  "Logger":"logger",
+  "Threads": 10
 }
