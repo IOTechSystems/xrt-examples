@@ -3,7 +3,6 @@
   "Library": "libxrt-sparkplug.so",
   "NodeId": "${SPARKPLUG_NODE}",
   "Group": "${SPARKPLUG_GROUP}",
-  "AppStateWait": [ ${SPARKPLUG_APPS} ],
   "Bus": "bus",
   "Logger": "logger",
   "bdSeq": 0
