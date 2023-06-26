@@ -7,7 +7,7 @@
   "ThreadPool": "pool",
   "SchedulesThreadPool": "devpool",
   "Bus": "bus",
-  "ProfileDir": "${XRT_PROFILE_DIR}",
+  "ProfileDir": "${XRT_STATE_DIR}/profiles",
   "StateDir": "${XRT_STATE_DIR}",
   "Group":"${SPARKPLUG_GROUP}"
 }

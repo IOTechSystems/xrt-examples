@@ -1,1 +1,1 @@
-{"Bus":"bus","Factory":"xrt_sparkplug_factory","Group":"${SPARKPLUG_GROUP}","Library":"libxrt-sparkplug.so","Logger":"logger","NodeId":"${SPARKPLUG_NODE}","bdSeq":17}
+{"Bus":"bus","Factory":"xrt_sparkplug_factory","Group":"iotech","Library":"libxrt-sparkplug.so","Logger":"logger","NodeId":"xrt","bdSeq":23}
