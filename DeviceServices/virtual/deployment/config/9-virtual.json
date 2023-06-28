@@ -9,5 +9,5 @@
   "Logger": "2-logger",
   "ThreadPool": "3-pool",
   "SchedulesThreadPool": "4-devpool",
-  "Bus": "5-bus"
+  "Bus": "6-bus"
 }

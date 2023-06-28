@@ -19,7 +19,6 @@
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "Driver": {
-    "NetworkInterface":"${BACNET_INTERFACE}",
     "DeviceObject": {
       "InstanceID": 0
     },
