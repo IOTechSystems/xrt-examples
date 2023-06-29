@@ -45,7 +45,7 @@
     "RetryInterval": 5
   },
   "Cookie": 125,
-  "Bus": "bus",
+  "Bus": "6-bus",
   "QueueSize": 5,
-  "Logger": "logger"
+  "Logger": "2-logger"
 }

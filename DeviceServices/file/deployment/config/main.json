@@ -1,11 +1,11 @@
 {
-  "xrt": "XRT::Config",
-  "logger": "IOT::Logger",
-  "pool": "IOT::ThreadPool",
-  "devpool": "IOT::ThreadPool",
-  "sched": "IOT::Scheduler",
-  "bus": "XRT::Bus",
-  "mqtt": "XRT::MQTTBridge",
-  "sparkplug": "XRT::Sparkplug",
-  "file": "XRT::FileDeviceService"
+  "1-xrt": "XRT::Config",
+  "2-logger": "IOT::Logger",
+  "3-pool": "IOT::ThreadPool",
+  "4-devpool": "IOT::ThreadPool",
+  "5-sched": "IOT::Scheduler",
+  "6-bus": "XRT::Bus",
+  "7-mqtt_bridge": "XRT::MQTTBridge",
+  "8-sparkplug": "XRT::Sparkplug",
+  "9-file": "XRT::FileDeviceService"
 }

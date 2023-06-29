@@ -1,12 +1,12 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/devices/file/request -m \
+mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/${FILE_SERVICE} -m \
 '{
   "client": "example",
   "request_id": "1010",
   "op": "device:add",
   "type": "xrt.request:1.0",
-  "device": "file-example",
+  "device": "file-example-1",
   "device_info": {
     "profileName": "file-example",
     "protocols": {
