@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${FILE_SERVICE} -m \
+mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/${FILE_SERVICE} -m \
 '{
   "client": "example",
   "request_id": "1093",
