@@ -1,0 +1,4 @@
+{
+  "ServerId":"modbus-tcp-server",
+  "NodeId":"${SPARKPLUG_NODE}"
+}

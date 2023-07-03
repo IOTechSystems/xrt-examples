@@ -1,0 +1,4 @@
+{
+  "ServerId":"opc-ua-server",
+  "NodeId":"${SPARKPLUG_NODE}"
+}
