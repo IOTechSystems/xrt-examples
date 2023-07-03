@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/ethercat -m \
+mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethercat -m \
 '{
   "client": "example",
   "request_id": "1020",

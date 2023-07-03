@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/bacnet_mstp -m \
+mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_mstp -m \
 '{
   "client": "example",
   "request_id": "1012",

@@ -61,4 +61,4 @@ docker run \
 -v $(pwd)/data:/app/data \
 -v /run/udev:/run/udev:ro \
 -e TZ=Europe/London \
-iotechsys/zigbee2mqtt:1.30
+${SPARKPLUG_GROUP}sys/zigbee2mqtt:1.30

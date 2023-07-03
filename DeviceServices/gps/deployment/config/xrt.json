@@ -1,4 +1,0 @@
-{
-  "ServerId":"gps-server",
-  "NodeId":"${SPARKPLUG_NODE}"
-}

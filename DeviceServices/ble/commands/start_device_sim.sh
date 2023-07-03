@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BLE_SIM=iotechsys/ble-sim:1.0
+BLE_SIM=${SPARKPLUG_GROUP}sys/ble-sim:1.0
 
 docker pull $BLE_SIM
 docker run --rm -d --name=ble-sim \

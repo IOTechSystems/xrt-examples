@@ -1,4 +1,0 @@
-{
-  "ServerId":"modbus-rtu-server",
-  "NodeId":"${SPARKPLUG_NODE}"
-}
