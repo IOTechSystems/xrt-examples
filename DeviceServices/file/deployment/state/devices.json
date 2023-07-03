@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "file-example",
+      "profileName": "file-example",
+      "protocols": {
+        "FILE": {
+          "Directory": "${FILE_DIR_PATH}"
+        }
+      }
+    }
+  ]
+}

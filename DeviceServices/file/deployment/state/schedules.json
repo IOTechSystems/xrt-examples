@@ -1,0 +1,13 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "device": "file-example",
+      "resource": [
+        "file_float"
+      ],
+      "interval": 2000000,
+      "name": "schedule1"
+    }
+  ]
+}
