@@ -9,8 +9,8 @@
   "StateDir": "${XRT_STATE_DIR}",
   "Group":"${SPARKPLUG_GROUP}",
   "Scheduler": "5-sched",
-  "Logger": "2-logger",
+  "Logger": "10-logger_debug",
   "ThreadPool": "3-pool",
   "SchedulesThreadPool": "4-devpool",
-  "Bus": "5-bus"
+  "Bus": "6-bus"
 }

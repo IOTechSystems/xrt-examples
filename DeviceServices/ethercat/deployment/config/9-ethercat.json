@@ -7,7 +7,7 @@
   "Group":"${SPARKPLUG_GROUP}",
   "Scheduler": "5-sched",
   "SchedulesThreadPool": "4-devpool",
-  "Logger": "2-logger",
+  "Logger": "10-logger_debug",
   "ThreadPool": "3-pool",
   "Bus": "6-bus",
   "DeviceDownTimeout": 60,
