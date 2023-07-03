@@ -1,1 +1,10 @@
-{"AppStateWait":[],"Bus":"6-bus","Factory":"xrt_sparkplug_factory","Group":"iotech","Library":"libxrt-sparkplug.so","Logger":"2-logger","NodeId":"xrt","bdSeq":15}
+{
+    "AppStateWait": [],
+    "Bus": "6-bus",
+    "Factory": "xrt_sparkplug_factory",
+    "NodeId": "${SPARKPLUG_NODE}",
+    "Group": "${SPARKPLUG_GROUP}",
+    "Library": "libxrt-sparkplug.so",
+    "Logger": "2-logger",
+    "bdSeq": 0
+}

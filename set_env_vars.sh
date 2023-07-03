@@ -18,7 +18,6 @@ export XRT_VIRTUAL_STATE_DIR=../../../DeviceServices/virtual/deployment/state
 export XRT_BACNET_IP_PROFILE_DIR=../../../DeviceServices/bacnet-ip/deployment/profiles
 export XRT_BACNET_IP_STATE_DIR=../../../DeviceServices/bacnet-ip/deployment/state
 
-export XRT_FILE_PROFILE_DIR=../../../DeviceServices/file/deployment/profiles
 export XRT_FILE_STATE_DIR=../../../DeviceServices/file/deployment/state
 
 export XRT_MODBUS_TCP_PROFILE_DIR=../../../DeviceServices/modbus-tcp/deployment/profiles

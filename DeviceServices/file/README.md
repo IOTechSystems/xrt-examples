@@ -26,10 +26,10 @@ _Note the dot before the path to the script, which is required to set the enviro
 
 An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
-To set the Directory path for the example device run the following, replacing `directory-path` with the required path:
+The example device uses and environment variable, `FILE_DIR_PATH` to set the directory path to use. Below is an example of setting the `Directory` to `example-files` using this environment variable:
 
 ```bash
-export FILE_DIR_PATH=directory-path
+export FILE_DIR_PATH=/example-files
 ```
 
 ### **Common Device Service Setup**
