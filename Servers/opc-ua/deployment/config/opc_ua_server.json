@@ -4,7 +4,7 @@
     "Bus": "bus",
     "DeviceServices": [
         {
-            "Name" : "s7",
+            "Name" : "modbus",
             "Timeout" : 3000,
             "MinimumSamplingInterval" : 1000
         }
