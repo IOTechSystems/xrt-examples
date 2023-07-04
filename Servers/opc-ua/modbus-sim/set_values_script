@@ -1,0 +1,25 @@
+import random
+
+def set_initial(resources):
+    args = get_commandline()
+    if args.defaults is None:
+        return
+    f = open(args.defaults, "r")
+    def_map = json.load(f)
+    f.close()
+
+    for file_res in def_map:
+        if file_res not in resources:
+            continue
+        sim_res = resources[file_res]
+        default = def_map[file_res]["default"]
+        if default is not None:
+            sim_res.set_value(default)
+
+def update_values(resources):
+    resource = resources["MBMU - Avg. cell temperature"]
+
+    
+
+    resource.set_value(resource.get_value() + random.randrange(-10, 10))
+
