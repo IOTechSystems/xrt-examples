@@ -1,8 +1,8 @@
 #!/bin/sh
 
 VER=1.2
-OPC_UA_SIM=${SPARKPLUG_GROUP}sys/opc-ua-sim:$VER
-OPC_UA_LDS=${SPARKPLUG_GROUP}sys/opc-ua-lds:$VER
+OPC_UA_SIM=iotechsys/opc-ua-sim:$VER
+OPC_UA_LDS=iotechsys/opc-ua-lds:$VER
 
 docker pull $OPC_UA_LDS
 docker pull $OPC_UA_SIM
