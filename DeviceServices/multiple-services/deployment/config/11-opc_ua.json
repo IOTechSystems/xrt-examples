@@ -10,7 +10,7 @@
   "StateDir": "${DIR_PATH}/opc-ua/deployment/state",
   "Group":"${SPARKPLUG_GROUP}",
   "Scheduler": "5-sched",
-  "Logger": "10-logger_debug",
+  "Logger": "12-logger_debug",
   "ThreadPool": "3-pool",
   "SchedulesThreadPool": "4-devpool",
   "Bus": "6-bus",
