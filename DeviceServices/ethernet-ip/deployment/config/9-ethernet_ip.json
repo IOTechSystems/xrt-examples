@@ -15,7 +15,7 @@
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
   "Driver": {
-    "NetworkInterface": "docker0",
+    "NetworkInterface": "eth0",
     "ConnectionTimeout": 3000,
     "DiscoveryDuration": 4000,
     "DiscoveryRetries": 2,
