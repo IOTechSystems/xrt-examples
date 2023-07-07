@@ -17,7 +17,7 @@
       },
       "properties": {
           "valueType": "String",
-          "readWrite": "R"
+          "readWrite": ""
       }
     },
     {
@@ -31,7 +31,7 @@
       },
       "properties": {
           "valueType": "String",
-          "readWrite": "R"
+          "readWrite": ""
       }
     },
     {
