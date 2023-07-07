@@ -4,9 +4,10 @@
   "Name": "virtual_device_service",
   "TelemetryTopic": "xrt/devices/bridge/data",
   "Logger": "logger",
-  "Scheduler": "sched",
-  "ThreadPool": "pool",
-  "Bus": "bus",
-  "ProfileDir": "${XRT_PROFILE_DIR}",
-  "StateDir": "${XRT_STATE_DIR}"
+  "Scheduler": "5-sched",
+  "ThreadPool": "4-pool",
+  "Bus": "6-bus",
+  "ProfileDir": "${XRT_STATE_DIR}/profiles",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Group":"${SPARKPLUG_GROUP}"
 }

@@ -1,0 +1,49 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE1}/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE1}/virtual" }
+  ],
+  "MQTTPatterns": [
+     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE1}/virtual", "QoS":0, "Sync":true },
+     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE2}/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+   ],
+  "MQTTDynamicPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+  ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "${SPARKPLUG_NODE1}",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "ConnectTimeout": 0,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "CleanSession": false,
+      "CleanStart": false,
+      "SessionExpiry": 30,
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10,
+      "WillConfig":
+      {
+        "Topic": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE1}",
+        "Transforms": ["${SPARKPLUG_PROTO}"],
+        "QoS": 1,
+        "Retain": false
+      }
+    }
+  },
+  "Cookie": 125,
+  "Bus": "6-bus",
+  "QueueSize": 4,
+  "Logger": "3-logger_debug"
+}
