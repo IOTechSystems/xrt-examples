@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-file-device-service.so",
+  "Factory": "xrt_file_device_service_factory",  
+  "Name":"${FILE_SERVICE}",
+  "StateDir":"${XRT_FILE_STATE_DIR}",
+  "ProfileDir":"${XRT_FILE_STATE_DIR}/profiles",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler":"5-sched",
+  "Logger":"2-logger",
+  "ThreadPool":"3-pool",
+  "SchedulesThreadPool":"4-devpool",
+  "Bus":"6-bus"
+}
