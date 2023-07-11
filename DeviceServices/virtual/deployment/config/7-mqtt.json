@@ -3,23 +3,23 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/#", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/virtual" }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/virtual", "QoS":0 }
   ],
   "MQTTPatterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "Sync":true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual", "Sync":true }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "QoS":0, "Sync":true },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual", "QoS":0, "Sync":true }
   ],
   "MQTTDynamicPatterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/#", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
   ],
   "MQTTConfig":
   {
