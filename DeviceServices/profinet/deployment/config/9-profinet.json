@@ -1,0 +1,18 @@
+{
+  "Library": "libxrt-profinet-device-service.so",
+  "Factory": "xrt_profinet_device_service_factory",
+  "Name": "profinet",
+  "ProfileDir": "${XRT_STATE_DIR}/profiles",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler": "5-sched",
+  "Logger": "10-logger_debug",
+  "ThreadPool": "3-pool",
+  "Bus": "6-bus",
+  "DeviceDownTimeout": 60,
+  "AllowedFails": 5,
+  "Driver": {
+    "NetworkInterface": "eno1",
+    "ProfinetConfigurationFile": "./deployment/config/pcf.xml"
+  }
+}

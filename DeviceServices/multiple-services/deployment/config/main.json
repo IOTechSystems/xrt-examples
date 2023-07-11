@@ -1,11 +1,14 @@
 {
-    "xrt": "XRT::Config",
-    "logger": "IOT::Logger",
-    "pool": "IOT::ThreadPool",
-    "sched": "IOT::Scheduler",
-    "bus": "XRT::Bus",
-    "bacnet_ip": "XRT::BACnetIPDeviceService",
-    "opc_ua": "XRT::OPCUADeviceService",
-    "modbus": "XRT::ModbusDeviceService",
-    "mqtt_bridge": "XRT::MQTTBridge"
+  "1-xrt": "XRT::Config",
+  "2-logger": "IOT::Logger",
+  "3-pool": "IOT::ThreadPool",
+  "4-devpool":"IOT::ThreadPool",
+  "5-sched": "IOT::Scheduler",
+  "6-bus": "XRT::Bus",
+  "7-mqtt": "XRT::MQTTBridge",
+  "8-sparkplug": "XRT::Sparkplug",
+  "9-bacnet_ip": "XRT::BACnetIPDeviceService",
+  "10-modbus": "XRT::ModbusDeviceService",
+  "11-opc_ua": "XRT::OPCUADeviceService",
+  "12-logger_debug":"IOT::Logger"
 }

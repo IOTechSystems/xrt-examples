@@ -1,9 +1,11 @@
 {
-  "logger":"IOT::Logger",
-  "logger_debug":"IOT::Logger",
-  "pool":"IOT::ThreadPool",
-  "sched":"IOT::Scheduler",
-  "bus":"XRT::Bus",
-  "bridgepub":"XRT::MQTTBridge",
-  "virtual_device_service":"XRT::VirtualDeviceService"
+  "1-xrt": "XRT::Config",
+  "2-logger":"IOT::Logger",
+  "3-logger_debug":"IOT::Logger",
+  "4-pool":"IOT::ThreadPool",
+  "5-sched":"IOT::Scheduler",
+  "6-bus":"XRT::Bus",
+  "7-bridgepub":"XRT::MQTTBridge",
+  "8-sparkplug": "XRT::Sparkplug",
+  "9-virtual":"XRT::VirtualDeviceService"
 }

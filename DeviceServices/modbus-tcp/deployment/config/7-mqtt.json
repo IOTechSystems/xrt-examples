@@ -1,0 +1,50 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/modbus_tcp", "QoS":0 }
+  ],
+  "MQTTPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "QoS":0, "Sync":true },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/modbus_tcp", "QoS":0, "Sync":true }
+  ],
+  "MQTTDynamicPatterns":
+  [
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+  ],
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "${SPARKPLUG_NODE}",
+    "QoS": 0,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "RetryInterval": 5,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "MaxBufferedMessages": 100,
+      "WillConfig":
+      {
+        "Topic": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}",
+        "Transforms": ["${SPARKPLUG_PROTO}"],
+        "QoS": 1,
+        "Retain": false
+      }
+    }
+  },
+  "Cookie": 125,
+  "QueueSize": 5,
+  "Bus": "6-bus",
+  "Logger": "10-logger_debug"
+}

@@ -1,0 +1,22 @@
+{
+  "Library": "libxrt-opcua-device-service.so",
+  "Factory": "xrt_opcua_device_service_factory",
+  "Name": "opc_ua",
+  "AutoRegister": false,
+  "DiscoveryInterval": 300,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir": "${DIR_PATH}/opc-ua/deployment/state/profiles",
+  "StateDir": "${DIR_PATH}/opc-ua/deployment/state",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler": "5-sched",
+  "Logger": "12-logger_debug",
+  "ThreadPool": "3-pool",
+  "SchedulesThreadPool": "4-devpool",
+  "Bus": "6-bus",
+  "DeviceDownTimeout": 60,
+  "AllowedFails": 5,
+  "Driver": {
+     "LDSName": "LDS"
+  }
+}
