@@ -1,7 +1,7 @@
 {
   "Factory": "xrt_sparkplug_factory",
   "Library": "libxrt-sparkplug.so",
-  "NodeId": "${SPARKPLUG_NODE}",
+  "NodeId": "${SPARKPLUG_NODE2}",
   "Group": "${SPARKPLUG_GROUP}",
   "Bus": "6-bus",
   "Logger": "2-logger",
