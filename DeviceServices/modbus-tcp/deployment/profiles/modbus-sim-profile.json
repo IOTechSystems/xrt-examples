@@ -154,59 +154,6 @@
         "valueType": "FLOAT64",
         "readWrite": "RW"
       }
-    },
-    {
-      "name": "ExampleAdditive",
-      "description": "Example resource that demonstrates additive of 5",
-      "attributes": {
-        "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 24,
-        "additive": 5
-      },
-      "properties": {
-        "valueType": "UINT8",
-        "readWrite": "RW"
-      }
-    },
-    {
-      "name": "ExampleBiggerScale",
-      "description": "Example resource to demonstrate larger scale factor",
-      "attributes": {
-        "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 25,
-        "scale": 100
-      },
-      "properties": {
-        "valueType": "UINT16",
-        "readWrite": "RW"
-      }
-    },
-    {
-      "name": "ExampleDynamicScale",
-      "description": "Example resource to demonstrate dynamic scale",
-      "attributes": {
-        "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 27,
-        "scaleAddress": 26
-      },
-      "properties": {
-        "valueType": "UINT16",
-        "readWrite": "RW"
-      }
-    },
-    {
-      "name": "ExampleScaleAndAdditive",
-      "description": "Example resource to demonstrate scale and additive used together",
-      "attributes": {
-        "primaryTable": "HOLDING_REGISTERS",
-        "startingAddress": 28,
-        "scale": 0.1,
-        "additive": 5
-      },
-      "properties": {
-        "valueType": "UINT16",
-        "readWrite": "RW"
-      }
     }
   ]
 }
