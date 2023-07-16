@@ -20,6 +20,5 @@
         }
     },
     "Logger": "logger",
-    "QueueSize": 100,
-    "Cookie": 125
+    "QueueSize": 100
 }
