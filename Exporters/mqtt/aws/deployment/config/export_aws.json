@@ -29,7 +29,7 @@
   },
   "Bus": "bus",
   "Logger": "logger_debug",
-  "Patterns": [{"Pattern":"device/#","Retain": false, "Qos": 1}]
+  "Patterns": ["device/#"],
   "Topic": "test/data",
   "QueueSize": 4
 }
