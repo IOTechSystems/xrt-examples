@@ -24,7 +24,6 @@
       }
     },
   },
-  "Cookie": 125,
   "Bus": "bus",
   "QueueSize": 5,
   "Logger": "logger_debug"

@@ -15,7 +15,6 @@
       "MaxBufferedMessages": 100
     }
   },
-  "Cookie": 125,
   "QueueSize": 5,
   "Bus": "bus",
   "Logger": "logger"

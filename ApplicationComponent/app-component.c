@@ -41,7 +41,7 @@ extern app_component_t *app_component_alloc (xrt_bus_t *bus, const char *request
                       (iot_component_stop_fn_t) app_component_stop);
   app_comp->bus = bus;
   xrt_bus_add_ref(app_comp->bus);
-  app_comp->sub = xrt_bus_sub_alloc (bus, request_topic, app_comp, XRT_BUS_NULL_COOKIE, app_component_add_callback, 0u, false);
+  app_comp->sub = xrt_bus_sub_alloc (bus, request_topic, app_comp, app_component_add_callback, 0u, false);
   app_comp->pub = xrt_bus_pub_alloc (bus, reply_topic, app_comp, 0, NULL, 0u, false);
 
   return app_comp;

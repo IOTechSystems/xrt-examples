@@ -43,7 +43,6 @@
       }
     }
   },
-  "Cookie": 125,
   "QueueSize": 5,
   "Bus": "6-bus",
   "Logger": "10-logger_debug"

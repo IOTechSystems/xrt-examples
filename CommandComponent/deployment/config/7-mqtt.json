@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns":
+  "Patterns": 
   [
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
@@ -9,19 +9,14 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/zigbee",  "QoS":0}
-    { "Pattern":"zigbee2mqtt/+/get","Retain": false, "Qos": 1},
-    { "Pattern":"zigbee2mqtt/+/set","Retain": false, "Qos": 1},
-    { "Pattern":"zigbee2mqtt/bridge/request/#","Retain": false, "Qos": 1}
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/virtual", "QoS":0 }
+    { "Pattern":"xrt/command/reply", "QoS":0 }
   ],
   "MQTTPatterns": 
   [
-     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "Qos": 0, "Sync":true },
-     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Qos": 1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/zigbee", "Qos": 0, "Sync":true }
-     { "Pattern":"zigbee2mqtt/+", "Qos": 1, "Sync": true},
-     { "Pattern":"zigbee2mqtt/bridge/response/#", "Qos": 1, "Sync": true},
-     { "Pattern":"zigbee2mqtt/bridge/devices", "Qos": 1, "Sync": true}
+    { "Pattern":"xrt/command/request", "QoS":0, "Sync": true},
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual", "QoS":0, "Sync":true }
   ],
   "MQTTDynamicPatterns":
   [
@@ -34,11 +29,11 @@
     "QoS": 1,
     "ClientConfig":
     {
+      "Username":"${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
       "KeepAliveInterval": 60,
       "MQTTVersion": 5,
       "Reliable": true,
-      "Username": "${XRT_MQTT_USERNAME}",
-      "Password": "${XRT_MQTT_PASSWORD}",
       "MaxBufferedMessages": 100,
       "WillConfig":
       {
@@ -47,9 +42,9 @@
         "QoS": 1,
         "Retain": false
       }
-    },
+    }
   },
   "QueueSize": 5,
   "Bus": "6-bus",
-  "Logger": "10-logger_debug"
+  "Logger": "2-logger"
 }

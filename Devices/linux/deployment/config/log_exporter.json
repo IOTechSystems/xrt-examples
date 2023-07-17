@@ -3,6 +3,5 @@
   "Factory":"xrt_log_exporter_factory",
   "Bus":"bus",
   "Logger":"logger_debug",
-  "Pattern":"device/#",
-  "Cookie":1234
+  "Pattern":"device/#"
 }
