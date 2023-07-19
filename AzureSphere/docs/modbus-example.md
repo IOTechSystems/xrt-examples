@@ -87,7 +87,7 @@ on a device from where the simulator will be ran from.
 The sim can started using the following command:
 
 ```bash
-docker run --rm --name modbus-sim iotechsys/pymodbus-sim:1.0 --profile /example_profiles/modbus-example-profile-3.0.json --port 1502
+docker run --rm --name modbus-sim iotechsys/pymodbus-sim:1.0 --profile /example_profiles/modbus-example-profile-2.1.json --port 1502
 ```
 
 This by default will launch a simulated modbus device on port 1502 and the
