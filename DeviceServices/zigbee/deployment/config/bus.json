@@ -1,6 +1,0 @@
-{
-  "Scheduler":"sched",
-  "ThreadPool":"pool",
-  "Logger":"logger",
-  "Topics":[{ "Topic": "zigbee2mqtt/bridge/devices", "ThreadPool": "pool", "Retain": true }]
-}

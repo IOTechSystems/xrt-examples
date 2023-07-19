@@ -1,0 +1,4 @@
+{
+  "ServerId":"profinet-server",
+  "NodeId":"${SPARKPLUG_NODE}"
+}

@@ -1,0 +1,4 @@
+{
+  "ServerId":"bacnet-mstp-server",
+  "NodeId":"${SPARKPLUG_NODE}"
+}

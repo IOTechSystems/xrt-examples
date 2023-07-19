@@ -1,8 +1,0 @@
-{
-  "Library": "libxrt-command.so",
-  "Factory": "xrt_command_factory",
-  "Name": "command",
-  "Bus": "bus",
-  "RequestTopic": "xrt/command/request",
-  "ReplyTopic": "xrt/command/reply"
-}

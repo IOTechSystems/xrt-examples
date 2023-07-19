@@ -1,0 +1,11 @@
+{
+  "Scheduler":"5-sched",
+  "ThreadPool":"3-pool",
+  "Logger":"2-logger",
+  "Topics":
+  [
+    { "Topic": "zigbee2mqtt/bridge/devices", "ThreadPool": "pool", "Retain": true },
+    { "Topic": "xrt/devices/zigbee/request", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false },
+    { "Topic": "xrt/devices/zigbee/data", "ThreadPool": "pool", "Retain": false, "FilterDuplicates": false }
+  ]
+}
