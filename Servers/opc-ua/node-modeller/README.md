@@ -16,7 +16,7 @@ The following instructions assume your starting working directory is `/xrt-examp
 
 ### **Run the S7 simulator**
 
-_For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html)._
+_For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/s7/overview.html)._
 
 ```bash
 ./DeviceServices/s7/commands/start_device_sim.sh
@@ -54,4 +54,4 @@ The node model creates an instance of an `IMM_MES_InterfaceType`, which is the R
 
 ## Interacting with the OPC-UA Server
 
-See the [OPC-UA Server Documentation](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html)
+See the [OPC-UA Server Documentation](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html)

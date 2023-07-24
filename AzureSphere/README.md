@@ -31,7 +31,7 @@ steps:
 
 3. Create a *main.json* file and specify all of the components you want to include in your XRT application. Then create configuration files for each component defined in the *main.json* file.
 
-    All of the standard XRT examples provided are based on configuring your XRT deployment dynamically via the standard Azure Device Twin configuration mechanism as described in [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html).In this case all individual XRT configuration files are combined into a single Device Twin configuration file which can be loaded into the Device Twin configuration on Azure IoT Hub.
+    All of the standard XRT examples provided are based on configuring your XRT deployment dynamically via the standard Azure Device Twin configuration mechanism as described in [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt22/azuresphere/configuration/device-twin-configuration.html).In this case all individual XRT configuration files are combined into a single Device Twin configuration file which can be loaded into the Device Twin configuration on Azure IoT Hub.
     
     Device Twin configuration files for all of the Azure Sphere examples are provided in the [*xrt-examples/AzureSphere/twin/*](/AzureSphere/twin/) directory. These files also includes the Device Profile created in the previous step.
 
@@ -42,7 +42,7 @@ steps:
 
     The one exception to this is that you must also configure a separate *<azure_application_manifest>.json*  file that describes the resources, also called application capabilities, that an application requires. Every application has an application manifest. For example modify the example [mt3620-g100/app_manifest.json](https://github.com/IOTechSystems/xrt-examples/blob/XRT-666-branch/AzureSphere/mt3620-g100/app_manifest.json) provided.  
 
-5. Copy the contents of the Device Twin Configuration file created previously and load in into the Azure Sphere Device Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt20/azuresphere/configuration/device-twin-configuration.html) section.
+5. Copy the contents of the Device Twin Configuration file created previously and load in into the Azure Sphere Device Twin running on Azure IoT Hub as described in the [Device Twin Configuration](https://docs.iotechsys.com/edge-xrt22/azuresphere/configuration/device-twin-configuration.html) section.
 
 6. Using Visual Studio code or cmake from the command line build the XRT Azure Application including the *<azure_application_manifest>.json* file. The Device Twin Configuration file should not be included in the XRT application build image.
 
@@ -113,7 +113,7 @@ This will replace all of the required placeholders within the provided example c
 
 ## Using Azure Digital Twins With XRT Examples
 
-To setup Azure Digital Twins refer to the XRT for [Azure Sphere Guide](https://docs.iotechsys.com/edge-xrt20/index.html).
+To setup Azure Digital Twins refer to the XRT for [Azure Sphere Guide](https://docs.iotechsys.com/edge-xrt22/index.html).
 
 As described in the guide complete the following steps:
 

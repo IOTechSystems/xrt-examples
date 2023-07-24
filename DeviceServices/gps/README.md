@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the GPS example.
 
-For more information about the Device Service please review the [GPS Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/gps-device-service-component.html)
+For more information about the Device Service please review the [GPS Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/gps-device-service-component.html)
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ One of the following is needed before running the GPS component:
 
 ### **Run the Simulator**
 
-_For more information about the GPS device simulator, see [GPS Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/gps/overview.html)._
+_For more information about the GPS device simulator, see [GPS Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/gps/overview.html)._
 
 ```bash
 cd DeviceServices/gps

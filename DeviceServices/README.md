@@ -7,9 +7,9 @@ This section contains examples for the IOTech XRT Device Services.
 Each of these examples contain a profiles directory, state directory, and a config for that respective device service so that it can be run out of the box with XRT. A device service's config will contain:
   
 * Device service configured so that Discovery and Profile generation can be performed (if the device service supports these features).
-* [MQTT Bridge](https://docs.iotechsys.com/edge-xrt20/bridge-components/mqtt-bridge-component.html) configuration so that XRT can be controlled through the MQTT API.
-* [Logger](https://docs.iotechsys.com/edge-xrt20/core-components/logger-component.html)   configured at level INFO.
-* Configured Core Components: [Scheduler](https://docs.iotechsys.com/edge-xrt20/core-components/scheduler-component.html), [Threadpool](hhttps://docs.iotechsys.com/edge-xrt20/core-components/threadpool-component.html), and [Bus](https://docs.iotechsys.com/edge-xrt20/core-components/bus-component.html).
+* [MQTT Bridge](https://docs.iotechsys.com/edge-xrt22/bridge-components/mqtt-bridge-component.html) configuration so that XRT can be controlled through the MQTT API.
+* [Logger](https://docs.iotechsys.com/edge-xrt22/core-components/logger-component.html)   configured at level INFO.
+* Configured Core Components: [Scheduler](https://docs.iotechsys.com/edge-xrt22/core-components/scheduler-component.html), [Threadpool](hhttps://docs.iotechsys.com/edge-xrt22/core-components/threadpool-component.html), and [Bus](https://docs.iotechsys.com/edge-xrt22/core-components/bus-component.html).
 * A profile for the device service simulated device.
 * An added device.
 * An added schedule for the device to read one or more of it's resources at a specified interval.

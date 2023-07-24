@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run XRT with specific PROFINET hardware. You will need to adapt the example for your own configuration.
 
-For more information about the Device Service please review the [PROFINET Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/profinet-device-service-component.html) documentation.
+For more information about the Device Service please review the [PROFINET Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/profinet-device-service-component.html) documentation.
 
 ## Getting Started
 

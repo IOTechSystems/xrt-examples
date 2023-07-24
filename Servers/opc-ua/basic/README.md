@@ -6,9 +6,9 @@ This page shows you how to setup and run the OPC-UA sever example.
 
 The example consists of an OPC-UA Server component and an S7 Device Service component with a simulated S7 device.
 
-For more information about the OPC-UA Server please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html) documentation.
+For more information about the OPC-UA Server please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html) documentation.
 
-For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/s7-device-service-component.html) documentation.
+For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/s7-device-service-component.html) documentation.
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ The following instructions assume your starting working directory is `/xrt-examp
 
 ### **Run the S7 simulator**
 
-_For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/s7/overview.html)._
+_For more information about the S7 device simulator, see [S7 Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/s7/overview.html)._
 
 ```bash
 ./DeviceServices/s7/commands/start_device_sim.sh
@@ -24,7 +24,7 @@ _For more information about the S7 device simulator, see [S7 Simulator](https://
 
 ### **Run the Bacnet simulator**
 
-_For more information about the Bacnet device simulator, see [Bacnet Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/bacnet/overview.html)._
+_For more information about the Bacnet device simulator, see [Bacnet Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/bacnet/overview.html)._
 
 ```bash
 ./DeviceServices/bacnet-ip/commands/start_device_sim.sh
@@ -32,7 +32,7 @@ _For more information about the Bacnet device simulator, see [Bacnet Simulator](
 
 ### **Run the Modbus simulator**
 
-_For more information about the Modbus device simulator, see [Modbus Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/modbus/overview.html)._
+_For more information about the Modbus device simulator, see [Modbus Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/modbus/overview.html)._
 
 ```bash
 ./DeviceServices/modbus-tcp/commands/start_device_sim.sh
@@ -72,4 +72,4 @@ To run the opc-ua server with multiple services or to change which services are 
 
 ## Interacting with the OPC-UA Server
 
-See the [OPC-UA Server Documentation](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html)
+See the [OPC-UA Server Documentation](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html)

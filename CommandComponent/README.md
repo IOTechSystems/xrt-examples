@@ -4,9 +4,9 @@
 
 This page shows you how to setup and run the command component example.
 
-For more information about the command component please review the [Component Management](https://docs.iotechsys.com/edge-xrt20/mqtt-management/mqtt-management.html#component-management) documentation.
+For more information about the command component please review the [Component Management](https://docs.iotechsys.com/edge-xrt22/mqtt-management/mqtt-management.html#component-management) documentation.
 
-This example makes use of the virtual device service for demonstration purposes. For more information about this Device Service please review the [Virtual Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/virtual-device-service-component.html) documentation.
+This example makes use of the virtual device service for demonstration purposes. For more information about this Device Service please review the [Virtual Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/virtual-device-service-component.html) documentation.
 
 ## Getting Started
 

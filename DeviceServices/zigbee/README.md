@@ -4,7 +4,7 @@
 
 This page shows you how to set up and run the Zigbee Device Service example.
 
-For more information about the Device Service please review the [Zigbee Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/zigbee-device-service-component.html) documentation.
+For more information about the Device Service please review the [Zigbee Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/zigbee-device-service-component.html) documentation.
 
 ## Getting Started
 
@@ -82,7 +82,7 @@ For a walkthrough on device discovery and profile generation see the [Discovery]
 
 ### Device Reporting
 
-The Immax sensor used within this example is capable of device reporting. More information about Zigbee device reporting can be found within the [Xrt Documentation](https://docs.iotechsys.com/edge-xrt21/device-service-components/zigbee-device-service-component.html#zigbee-device-reporting).
+The Immax sensor used within this example is capable of device reporting. More information about Zigbee device reporting can be found within the [Xrt Documentation](https://docs.iotechsys.com/edge-xrt22/device-service-components/zigbee-device-service-component.html#zigbee-device-reporting).
 
 For an example which enables reporting for two resources, run:
 
@@ -100,7 +100,7 @@ To disable the reporting of these resources, run:
 
 ### Network Management Commands
 
-The Zigbee Device Service also implements certain Zigbee2MQTT network management commands. More information and a full list of these network commands can be found in the [Xrt Documentation](https://docs.iotechsys.com/edge-xrt21/device-service-components/zigbee-device-service-component.html#network-management-commands).
+The Zigbee Device Service also implements certain Zigbee2MQTT network management commands. More information and a full list of these network commands can be found in the [Xrt Documentation](https://docs.iotechsys.com/edge-xrt22/device-service-components/zigbee-device-service-component.html#network-management-commands).
 
 For each of these network commands, there is a shell script to demonstrate an example request. These all refer to the `coordinator` device which implements the `coordinator_profile`. Within this profile, you can see each of the network commands being represented by a resource.
 
