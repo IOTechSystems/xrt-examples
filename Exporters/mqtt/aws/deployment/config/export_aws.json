@@ -5,7 +5,6 @@
   {
     "ServerURI": "${MQTT_EXPORT_AWS_SERVER_URI}",
     "ClientID": "${MQTT_EXPORT_AWS_CLIENT_ID}",
-    "MQTTInstance": 0,
     "QoS": 1,
     "ClientConfig":
     {
