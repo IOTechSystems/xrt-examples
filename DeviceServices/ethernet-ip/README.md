@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the EtherNet/IP Device Service Example.
 
-For more information about the Device Service please review the [EtherNet/IP Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/ethernet-ip-device-service-component.html) documentation.
+For more information about the Device Service please review the [EtherNet/IP Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/ethernet-ip-device-service-component.html) documentation.
 
 _Note if connecting to the EtherNet/IP docker simulator change the NetworkInterface driver option (`deployment/config/ethernet_ip.json`) to docker0 otherwise set it to the name of the network interface used on your host to communicate with EtherNet/IP devices on your local network._
 
@@ -12,7 +12,7 @@ _Note if connecting to the EtherNet/IP docker simulator change the NetworkInterf
 
 ### Run the simulator
 
-_for more information about the EtherNet/IP device simulator, see [EtherNet/IP Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/ethernet-ip/overview.html)._
+_for more information about the EtherNet/IP device simulator, see [EtherNet/IP Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/ethernet-ip/overview.html)._
 
 ```bash
 cd DeviceServices/ethernet-ip

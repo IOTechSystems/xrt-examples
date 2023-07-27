@@ -21,7 +21,7 @@ apt-get install mosquitto-clients
 ## Topics
 
 In our `device_service.json` file we have configured each topic that XRT will receive it's requests, post its replies, post telemetry data and post discovered devices on. 
-For more about these topics please see [XRT Device Service Component Configuration](https://docs.iotechsys.com/edge-xrt20/device-service-components/device-service-component-configuration.html).   
+For more about these topics please see [XRT Device Service Component Configuration](https://docs.iotechsys.com/edge-xrt22/device-service-components/device-service-component-configuration.html).   
 
 All requests to an XRT Device Service are made through the `RequestTopic` and responses received on the `ReplyTopic` indicating success or failure.
 Readings will also be included in this reply if a reading request was made.

@@ -4,13 +4,13 @@
 
 This page shows you how to setup and run the BLE device service example.
 
-For more information about the Device Service please review the [BLE Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/ble-device-service-component.html) documentation.
+For more information about the Device Service please review the [BLE Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/ble-device-service-component.html) documentation.
 
 ## Getting Started
 
 ### **Run the simulator**
 
-_For more information about the BLE device simulator, see [BLE Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/ble/overview.html)._
+_For more information about the BLE device simulator, see [BLE Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/ble/overview.html)._
 
 ```bash
 ./commands/start_device_sim.sh

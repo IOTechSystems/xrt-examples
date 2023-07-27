@@ -4,13 +4,13 @@
 
 This page shows you how to setup and run the BACnet/IP device service example.
 
-For more information about the Device Service please review the [BACnet Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/bacnet-device-service-component.html) documentation.
+For more information about the Device Service please review the [BACnet Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/bacnet-device-service-component.html) documentation.
 
 ## Getting Started
 
 ### **Run the simulator**
 
-_For more information about the BACnet device simulator, see [BACnet Simulator](https://docs.iotechsys.com/edge-xrt20/simulators/bacnet/overview.html)._
+_For more information about the BACnet device simulator, see [BACnet Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/bacnet/overview.html)._
 
 ```bash
 ./commands/start_device_sim.sh
@@ -60,7 +60,7 @@ For basic device service operations see the [Basic Operations Walkthrough](../in
 
 ### Change of Value Subscriptions
 
-Change of Value (COV) subscriptions are specific to the BACnet device service. You can read more about them [here](https://docs.iotechsys.com/edge-xrt20/device-service-components/bacnet-device-service-component.html#bacnet-change-of-value).
+Change of Value (COV) subscriptions are specific to the BACnet device service. You can read more about them [here](https://docs.iotechsys.com/edge-xrt22/device-service-components/bacnet-device-service-component.html#bacnet-change-of-value).
 
 COV subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
 

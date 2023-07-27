@@ -6,9 +6,9 @@ The aim of this example is to demonstrate how a custom component (app_component)
 
 This example consists of a Virtual Device Service, a Lua Transform component, an MQTT bridge component and the custom 'app component'.
 
-The [Virtual Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/virtual-device-service-component.html) is used to generate random data. It is set up with two devices, each with a schedule that reads a resource whose value is randomly generated. The values of these resources are periodically published under the `"/xrt/devices/virtual/telemetry"` topic on the Xrt bus.
+The [Virtual Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/virtual-device-service-component.html) is used to generate random data. It is set up with two devices, each with a schedule that reads a resource whose value is randomly generated. The values of these resources are periodically published under the `"/xrt/devices/virtual/telemetry"` topic on the Xrt bus.
 
-A [Lua Transform component](https://docs.iotechsys.com/edge-xrt20/transform-components/lua-transform-component.html) subscribes to this telemetry topic and transforms the data (multiplies the value by 10) before re-publishing the new values on the `"/xrt/lua/transformed_data"` topic.
+A [Lua Transform component](https://docs.iotechsys.com/edge-xrt22/transform-components/lua-transform-component.html) subscribes to this telemetry topic and transforms the data (multiplies the value by 10) before re-publishing the new values on the `"/xrt/lua/transformed_data"` topic.
 
 The custom application component subscribes to the `"/xrt/lua/transformed_data"` topic. This component adds the two values from the different devices together and re-publishes the final result to the Xrt bus on the topic: `"/xrt/app_component/result"`.
 

@@ -45,7 +45,7 @@ Just like with the [windows installation](./windows-installation.md) we can manu
 2. Download XRT using:
 
 ```bash
-curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-dev-azsphere12-2.1-latest.zip
+curl -L -O https://iotech.jfrog.io/artifactory/windows-release/iotech-xrt-dev-azsphere12-2.2-latest.zip
 ```
 
 3. Open the file explorer (nautilus) with sudo permissions
