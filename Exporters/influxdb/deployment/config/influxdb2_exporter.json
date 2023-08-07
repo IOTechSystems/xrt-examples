@@ -9,7 +9,7 @@
   "Measurement": "DeviceName",
   "Tags": ["TagDeviceName", "TagScheduleName"],
   "SelectData": [
-    { "Pattern": "device/#", "Format": "Device"}
+    { "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"]}
   ],
   "BatchConfig":
   {
