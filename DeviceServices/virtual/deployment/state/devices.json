@@ -9,6 +9,16 @@
           "Address": "device-virtual-01"
         }
       }
+    },
+    {
+      "name": "Virtual-Device2",
+      "profileName": "device-virtual2",
+      "protocols": {
+        "Other": {
+          "Address": "device-virtual-02"
+        }
+      }
     }
+
   ]
 }
