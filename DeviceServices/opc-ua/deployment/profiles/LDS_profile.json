@@ -20,7 +20,7 @@
             "name": "ServerState",
             "properties": {
                 "readWrite": "R",
-                "valueType": "UInt32"
+                "valueType": "Int32"
             }
         }
     ],

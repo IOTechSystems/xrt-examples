@@ -1,5 +1,5 @@
 {
-  "name": "device-virtual",
+  "name": "device-virtual2",
   "apiVersion": "v2",
   "manufacturer": "IOTech",
   "model": "Device-Virtual-01",
@@ -9,102 +9,62 @@
   "description": "Example of Device-Virtual",
   "deviceCommands": [
     {
-      "name": "RandomResources",
+      "name": "OtherResources",
       "readWrite": "R",
       "resourceOperations": [
         {
-          "deviceResource": "RandomBool"
+          "deviceResource": "RandomInt8Limits"
         },
         {
-          "deviceResource": "RandomInt8"
+          "deviceResource": "RandomFloat32Limits"
         },
         {
-          "deviceResource": "RandomInt16"
+          "deviceResource": "CountingDownInt32"
         },
         {
-          "deviceResource": "RandomInt32"
+          "deviceResource": "CountingUpFloat32"
         },
         {
-          "deviceResource": "RandomInt64"
+          "deviceResource": "SineWave"
         },
         {
-          "deviceResource": "RandomUInt8"
+          "deviceResource": "SineWaveWithOffsetAndPhase"
         },
         {
-          "deviceResource": "RandomUInt16"
+          "deviceResource": "TriangleWave"
         },
         {
-          "deviceResource": "RandomUInt32"
+          "deviceResource": "TriangleWaveWithOffsetAndPhase"
         },
         {
-          "deviceResource": "RandomUInt64"
+          "deviceResource": "SawtoothWave"
         },
         {
-          "deviceResource": "RandomFloat32"
+          "deviceResource": "SawtoothWaveWithOffsetAndPhase"
         },
         {
-          "deviceResource": "RandomFloat64"
+          "deviceResource": "SquareWave"
+        },
+        {
+          "deviceResource": "SquareWaveWithOffsetAndPhase"
+        },
+        {
+          "deviceResource": "ScriptInt32"
+        },
+        {
+          "deviceResource": "ScriptFloat32"
+        },
+        {
+          "deviceResource": "StoreInt32Value"
+        },
+        {
+          "deviceResource": "StoreFloat32Value"
         }
       ]
     }
   ],
   "deviceResources": [
-    {
-      "name": "RandomBool", "description": "Generate random bool value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Bool", "readWrite": "R" }
-    },
-    {
-      "name": "RandomInt8", "description": "Generate random Int8 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int8", "readWrite": "R" }
-    },
-    {
-      "name": "RandomInt16", "description": "Generate random Int16 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int16", "readWrite": "R" }
-    },
-    {
-      "name": "RandomInt32", "description": "Generate random Int32 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomInt64", "description": "Generate random Int64 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Int64", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt8", "description": "Generate random UInt8 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt8", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt16", "description": "Generate random UInt16 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt16", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt32", "description": "Generate random UInt32 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomUInt64", "description": "Generate random UInt64 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "UInt64", "readWrite": "R" }
-    },
-    {
-      "name": "RandomFloat32", "description": "Generate random float32 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Float32", "readWrite": "R" }
-    },
-    {
-      "name": "RandomFloat64", "description": "Generate random float64 value",
-      "attributes": { "sequenceType": "random" },
-      "properties": { "valueType": "Float64", "readWrite": "R" }
-    },
-    {
+   {
       "name": "RandomInt8Limits", "description": "Generate random Int8 value between -10 and 10",
       "attributes": { "sequenceType": "random", "minimum": -10, "maximum": 10},
       "properties": { "valueType": "Int8", "readWrite": "R" }

@@ -9,7 +9,7 @@ mosquitto_pub -t xrt/devices/virtual/request -m \
   "schedule": {
     "name":"virtual-schedule1",
     "device":"Virtual-Device",
-    "resource":["RandomInt8","CountingUpFloat32"],
+    "resource":["RandomResources"],
     "interval": 2000000
   }
 }'
