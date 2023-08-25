@@ -3,6 +3,7 @@
   "Library": "libxrt-sparkplug.so",
   "NodeId": "${SPARKPLUG_NODE1}",
   "Group": "${SPARKPLUG_GROUP}",
+  "MQTTAppId": "XRT::MQTTBridge",
   "Bus": "6-bus",
   "Logger": "2-logger",
   "bdSeq": 0
