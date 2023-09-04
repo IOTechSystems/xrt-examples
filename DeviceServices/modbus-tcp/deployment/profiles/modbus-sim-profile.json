@@ -154,6 +154,90 @@
         "valueType": "FLOAT64",
         "readWrite": "RW"
       }
+    },
+    {
+      "name": "ExampleDynamicScale",
+      "description": "Example resource using dynamic scale found in register 24",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 25,
+        "scaleType": "RW",
+        "scaleAddress": 24
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleNegativeScale",
+      "description": "Example resource demonstrating negative scale",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 26,
+        "scaleType": "RW",
+        "scale": -1
+      },
+      "properties": {
+        "valueType": "INT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleString",
+      "description": "Example ASCII string",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 27,
+        "stringEncoding": "ASCII",
+        "stringRegisterSize": 3
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleStringByteSwapped",
+      "description": "Example ASCII string with swapped bytes",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 27,
+        "stringEncoding": "ASCII",
+        "stringRegisterSize": 3,
+        "isByteSwap": true
+      },
+      "properties": {
+        "valueType": "String",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleAdditiveResource",
+      "description": "Example resource demonstrating use of additive attribute",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 30,
+        "additive": 5
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "ExampleAdditiveAndScaleResource",
+      "description": "Example resource demonstrating use of scale and additive attributes together",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 31,
+        "scale": 0.1,
+        "additive": 5
+      },
+      "properties": {
+        "valueType": "UInt16",
+        "readWrite": "RW"
+      }
     }
   ]
 }
