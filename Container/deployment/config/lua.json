@@ -2,6 +2,8 @@
   "Library": "libxrt-lua-transform.so",
   "Factory": "xrt_lua_transform_factory",
   "Bus":"bus",
+  "Scheduler": "sched",
+  "ThreadPool": "pool",
   "Logger":"logger",
-  "ScriptFile":"deployment/config/example.lua"
+  "ScriptFile":"/xrt/src/c/examples/Container/deployment/config/example.lua"
 }
