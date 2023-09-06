@@ -18,5 +18,5 @@ end
 sub = sub or sub_alloc (iot_bus, sub_callback, "device/data")
 pub = pub or pub_alloc (iot_bus, "device/processed")
 
--- lua_engine, schedule_callback, argument, period, delay, repeat
-sch = sch or schedule_create (xrt_lua, sch_callback, local_data, 5, 1, 6)
+-- lua_engine, schedule_callback, argument, period(ms), delay(ms), repeat
+sch = sch or schedule_create (xrt_lua, sch_callback, local_data, 1000, 500, 6)
