@@ -8,9 +8,36 @@
             "attributes": {
                 "DB_number": 1,
                 "start": 0,
-                "type": "DB"
+                "type": "DB",
+                "bitIndex": 0
             },
-            "name": "DB_1_Bool",
+            "name": "DB_1_Bool_1",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Bool"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 0,
+                "type": "DB",
+                "bitIndex": 1
+            },
+            "name": "DB_1_Bool_2",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Bool"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 0,
+                "type": "DB",
+                "bitIndex": 2
+            },
+            "name": "DB_1_Bool_3",
             "properties": {
                 "readWrite": "RW",
                 "valueType": "Bool"
@@ -467,8 +494,15 @@
     "deviceCommands": [{
         "name": "DB-Test",
         "readWrite": "R",
-        "resourceOperations": [{
-                "deviceResource": "DB_1_Bool"
+        "resourceOperations": [
+            {
+                "deviceResource": "DB_1_Bool_1"
+            },
+            {
+                "deviceResource": "DB_1_Bool_2"
+            },
+            {
+                "deviceResource": "DB_1_Bool_3"
             },
             {
                 "deviceResource": "DB_1_I8"
