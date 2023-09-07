@@ -3,5 +3,5 @@
   "Factory": "xrt_lua_transform_factory",
   "Bus":"bus",
   "Logger":"logger",
-  "ScriptFile":"deployment/config/example.lua"
+  "ScriptFile":"${XRT_LUA_FILE}"
 }
