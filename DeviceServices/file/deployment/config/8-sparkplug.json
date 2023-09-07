@@ -4,6 +4,7 @@
     "Factory": "xrt_sparkplug_factory",
     "NodeId": "${SPARKPLUG_NODE}",
     "Group": "${SPARKPLUG_GROUP}",
+    "MQTTAppId": "XRT::MQTTBridge",
     "Library": "libxrt-sparkplug.so",
     "Logger": "2-logger",
     "bdSeq": 0

@@ -20,6 +20,7 @@
   [
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE1}/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
   ],
+  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
