@@ -8,5 +8,7 @@
     "bacnet_ip":"XRT::BACnetIPDeviceService",
     "modbus":"XRT::ModbusDeviceService",
     "opc_ua_server": "XRT::OPCUAServer",
-    "mqtt_bridge": "XRT::MQTTBridge"
+    "mqtt_bridge": "XRT::MQTTBridge",
+    "command": "XRT::Command",
+    "xrt": "XRT::Config"
 }

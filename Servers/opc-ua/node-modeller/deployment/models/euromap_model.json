@@ -2,6 +2,7 @@
   "apiVersion": "v2",
   "nodeModels": {
     "IMM_MES_Interface_test": {
+      "serverId" : "xrt-opc-ua-example-server",
       "definitionNodeId": "ns=1;i=1007",
       "references": {
         "InjectionUnits": {

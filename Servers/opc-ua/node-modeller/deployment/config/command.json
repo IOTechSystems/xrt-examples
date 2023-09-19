@@ -1,0 +1,6 @@
+{
+    "Library": "libxrt-command.so",
+    "Factory": "xrt_command_factory",
+    "Bus": "bus",
+    "Logger": "logger"
+}

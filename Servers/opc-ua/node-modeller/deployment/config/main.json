@@ -6,5 +6,7 @@
   "bus": "XRT::Bus",
   "virtual": "XRT::VirtualDeviceService",
   "s7": "XRT::S7DeviceService",
-  "opc_ua_server": "XRT::OPCUAServer"
+  "opc_ua_server": "XRT::OPCUAServer", 
+  "command": "XRT::Command",
+  "xrt": "XRT::Config"
 }
