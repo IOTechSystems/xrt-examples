@@ -1,0 +1,28 @@
+{
+  "name": "device-gpio0",
+  "apiVersion": "v2",
+  "manufacturer": "IOTech",
+  "model": "Device-GPIO0",
+  "labels": [
+    "device-gpio-example"
+  ],
+  "description": "Example of Device-GPIO",
+  "deviceResources": [
+    {
+      "name": "line0", "description": "Pin 0",
+      "properties": { "valueType": "Bool", "readWrite": "R" }
+    },
+    {
+      "name": "line1", "description": "Pin 1",
+      "properties": { "valueType": "Bool", "readWrite": "R" }
+    },
+    {
+      "name": "line2", "description": "Pin 2",
+      "properties": { "valueType": "Bool", "readWrite": "W" }
+    },
+    {
+      "name": "line3", "description": "Pin 3",
+      "properties": { "valueType": "Bool", "readWrite": "W" }
+    }
+  ]
+}

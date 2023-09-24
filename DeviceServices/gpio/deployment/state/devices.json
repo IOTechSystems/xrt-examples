@@ -1,0 +1,23 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "gpiochip0",
+      "profileName": "device-gpiochip0",
+      "protocols": {
+        "Other": {
+          "Address": "device-gpiochip0"
+        }
+      }
+    }
+    {
+      "name": "gpiochip1",
+      "profileName": "device-gpiochip1",
+      "protocols": {
+        "Other": {
+          "Address": "device-gpiochip1"
+        }
+      }
+    }
+  ]
+}
