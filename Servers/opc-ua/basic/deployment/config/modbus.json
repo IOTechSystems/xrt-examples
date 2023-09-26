@@ -15,5 +15,6 @@
   "RequestTopic": "xrt/devices/modbus/request",
   "ReplyTopic": "xrt/devices/modbus/reply",
   "StatusTopic": "xrt/devices/modbus/status",
-  "EventTopic": "xrt/devices/modbus/event"
+  "EventTopic": "xrt/devices/modbus/event",
+  "OPCUAServerRequestTimeout" : 3000
 }

@@ -14,5 +14,6 @@
   "Logger": "logger",
   "ThreadPool": "pool",
   "Bus": "bus",
-  "RequestQueueMax": 4
+  "RequestQueueMax": 4,
+  "OPCUAServerRequestTimeout" : 3000
 }

@@ -14,5 +14,6 @@
   "DiscoveryTopic": "xrt/devices/s7/discovery",
   "TelemetryTopic": "xrt/devices/s7/telemetry",
   "EventTopic": "xrt/devices/s7/event",
-  "RequestQueueMax": 4
+  "RequestQueueMax": 4,
+  "OPCUAServerRequestTimeout" : 3000
 }
