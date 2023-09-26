@@ -35,5 +35,6 @@
     "DiscoverMode": "All",
     "BBMDAddress": "${BACNET_IP_SIM_ADDRESS}",
     "BBMDPort": 47808
-  }
+  },
+  "OPCUAServerRequestTimeout" : 3000
 }

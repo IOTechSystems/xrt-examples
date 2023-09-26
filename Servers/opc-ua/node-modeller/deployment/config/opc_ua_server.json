@@ -2,14 +2,6 @@
   "Library": "libxrt-opc-ua-server.so",
   "Factory": "xrt_opc_ua_server_factory",
   "Bus": "bus",
-  "DeviceServices": [
-    {
-      "Name": "virtual"
-    },
-    {
-      "Name": "s7"
-    }
-  ],
   "Logger": "serverlogger",
   "Port": 4840,
   "ModelPaths": [
