@@ -9,18 +9,36 @@
   "description": "Example of Device-GPIO",
   "deviceResources": [
     {
-      "name": "line0", "description": "Pin 0",
+      "name": "line0",
+      "description": "Pin 0",
+      "attributes": {
+        "Resourcename": "Line0",
+        "Linenumber": 0,
+        "Direction": "GPIO_INPUT"
+      }
       "properties": { "valueType": "Bool", "readWrite": "R" }
     },
     {
+      "attributes": 
+      {
+        "Linenumber": 1,"Direction": "GPIO_INPUT"
+      }
       "name": "line1", "description": "Pin 1",
       "properties": { "valueType": "Bool", "readWrite": "R" }
     },
     {
+      "attributes": 
+      {
+        "Linenumber": 2,"Direction": "GPIO_OUTPUT"
+      }
       "name": "line2", "description": "Pin 2",
       "properties": { "valueType": "Bool", "readWrite": "W" }
     },
     {
+      "attributes": 
+      {
+        "Linenumber": 3,"Direction": "GPIO_OUTPUT"
+      }
       "name": "line3", "description": "Pin 3",
       "properties": { "valueType": "Bool", "readWrite": "W" }
     }

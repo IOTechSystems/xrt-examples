@@ -5,7 +5,7 @@
       "name": "gpiochip0",
       "profileName": "device-gpiochip0",
       "protocols": {
-        "Other": {
+        "Digital": {
           "Address": "device-gpiochip0"
         }
       }
@@ -14,7 +14,7 @@
       "name": "gpiochip1",
       "profileName": "device-gpiochip1",
       "protocols": {
-        "Other": {
+        "Digital": {
           "Address": "device-gpiochip1"
         }
       }
