@@ -1,1 +1,1 @@
-["device-gpio0"]
+["device-gpiochip0", "device-gpiochip1"]
