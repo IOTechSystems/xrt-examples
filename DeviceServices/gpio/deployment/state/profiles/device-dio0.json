@@ -1,0 +1,37 @@
+{
+  "name": "device-gpiochip0",
+  "apiVersion": "v2",
+  "manufacturer": "IOTech",
+  "model": "Device-DIO0",
+  "labels": [
+    "device-gpio-example"
+  ],
+  "description": "Example of Device-DIO - ECU150fl",
+  "deviceResources": [
+  {
+    "name": "Channel0",
+    "description": "Start Channel0",
+    "attributes":
+    {
+      "Resourcename": "Channel0",
+      "StartChannel": 0,
+      "Direction": "DIGITAL_INPUT",
+      "ChannelCount": 1
+    },
+    "properties": { "valueType": "Bool", "readWrite": "R" }
+  },
+  {
+    "name": "Channel0",
+    "description": "Start Channel0",
+    "attributes":
+    {
+      "Resourcename": "Channel0",
+      "StartChannel": 0,
+      "Direction": "DIGITAL_INPUT",
+      "ChannelCount": 1
+    },
+    "properties": { "valueType": "Bool", "readWrite": "R" }
+  },
+]}
+
+  
