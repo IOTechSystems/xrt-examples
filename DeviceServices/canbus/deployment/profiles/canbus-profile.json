@@ -1,0 +1,190 @@
+{
+  "name": "canbus-profile",
+  "manufacturer": "", 
+  "model": "", 
+  "description": "Example CAN profile based on an EEC2 Message : BO_ 2364539902 EEC2: 8 Vector__XXX", 
+  "apiVersion": "v2",
+    "labels": [],
+  "deviceResources": [
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 0,
+        "bitLen": 2,
+        "littleEndian": true
+      },
+      "name": "Accelerator_Pedal_1_Low_Idle_Swi", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8",
+        "scale": 1,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 3,
+        "unit": "bit"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 2,
+        "bitLen": 2,
+        "littleEndian": true
+      },
+      "name": "Accelerator_Pedal_Kickdown_Switc", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8",
+        "scale": 1,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 3,
+        "unit": "bit"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 32,
+        "bitLen": 8,
+        "littleEndian": true
+      },
+      "name": "Accelerator_Pedal_Position_2", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float32",
+        "scale": 0.4,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 100,
+        "unit": "%"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 4,
+        "bitLen": 2,
+        "littleEndian": true
+      },
+      "name": "Road_Speed_Limit_Status", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8",
+        "scale": 1,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 3,
+        "unit": "bit"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 8,
+        "bitLen": 8,
+        "littleEndian": true
+      },
+      "name": "Accelerator_Pedal_Position_1", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float32",
+        "scale": 0.4,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 100,
+        "unit": "%"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 16,
+        "bitLen": 8,
+        "littleEndian": true
+      },
+      "name": "Engine_Percent_Load_At_Current_S", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8",
+        "scale": 1,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 250,
+        "unit": "%"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 48,
+        "bitLen": 8,
+        "littleEndian": true
+      },
+      "name": "Actual_Maximum_Available_Engine_", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float32",
+        "scale": 0.4,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 100,
+        "unit": "%"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 24,
+        "bitLen": 8,
+        "littleEndian": true
+      },
+      "name": "Remote_Accelerator_Pedal_Positio", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Float32",
+        "scale": 0.4,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 100,
+        "unit": "%"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 6,
+        "bitLen": 2,
+        "littleEndian": true
+      },
+      "name": "Accelerator_Pedal_2_Low_Idle_Swi", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8",
+        "scale": 1,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 3,
+        "unit": "bit"
+      }
+    },
+    {
+      "description": "Signal for EEC2 Message",
+      "attributes": {
+        "bitStart": 40,
+        "bitLen": 2,
+        "littleEndian": true
+      },
+      "name": "Accelerator_Pedal_2_Low_Idle_Swi", 
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Uint8",
+        "scale": 1,
+        "offset": 0,
+        "minVal": 0,
+        "maxVal": 3,
+        "unit": "bit"
+      }
+    }
+  ]
+}
