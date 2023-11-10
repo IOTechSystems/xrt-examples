@@ -23,6 +23,6 @@
   },
   "Cookie": 125,
   "Bus": "bus",
-  "QueueSize": 5,
+  "QueueSize": 200,
   "Logger": "logger"
 }

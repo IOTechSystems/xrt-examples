@@ -16,7 +16,7 @@
       "name": "Accelerator_Pedal_1_Low_Idle_Swi", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Uint8",
+        "valueType": "Uint64",
         "scale": 1,
         "offset": 0,
         "minVal": 0,
@@ -34,7 +34,7 @@
       "name": "Accelerator_Pedal_Kickdown_Switc", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Uint8",
+        "valueType": "Uint64",
         "scale": 1,
         "offset": 0,
         "minVal": 0,
@@ -52,7 +52,7 @@
       "name": "Accelerator_Pedal_Position_2", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Float32",
+        "valueType": "Float64",
         "scale": 0.4,
         "offset": 0,
         "minVal": 0,
@@ -70,7 +70,7 @@
       "name": "Road_Speed_Limit_Status", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Uint8",
+        "valueType": "Uint64",
         "scale": 1,
         "offset": 0,
         "minVal": 0,
@@ -88,7 +88,7 @@
       "name": "Accelerator_Pedal_Position_1", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Float32",
+        "valueType": "Float64",
         "scale": 0.4,
         "offset": 0,
         "minVal": 0,
@@ -106,7 +106,7 @@
       "name": "Engine_Percent_Load_At_Current_S", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Uint8",
+        "valueType": "Uint64",
         "scale": 1,
         "offset": 0,
         "minVal": 0,
@@ -124,7 +124,7 @@
       "name": "Actual_Maximum_Available_Engine_", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Float32",
+        "valueType": "Float64",
         "scale": 0.4,
         "offset": 0,
         "minVal": 0,
@@ -142,7 +142,7 @@
       "name": "Remote_Accelerator_Pedal_Positio", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Float32",
+        "valueType": "Float64",
         "scale": 0.4,
         "offset": 0,
         "minVal": 0,
@@ -178,7 +178,7 @@
       "name": "Accelerator_Pedal_2_Low_Idle_Swi", 
       "properties": {
         "readWrite": "R",
-        "valueType": "Uint8",
+        "valueType": "Uint64",
         "scale": 1,
         "offset": 0,
         "minVal": 0,
