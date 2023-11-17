@@ -1,0 +1,17 @@
+{
+  "Library": "libxrt-opcua-device-service.so",
+  "Factory": "xrt_opcua_device_service_factory",
+  "Name": "opc_ua",
+  "Bus": "bus",
+  "ThreadPool": "pool",
+  "Scheduler": "sched",
+  "ProfileDir": "/home/bindurao/workbench/v2.2-branch/xrt-examples/DeviceServices/opc-ua/alarms/deployment/profiles",
+  "StateDir": "/home/bindurao/workbench/v2.2-branch/xrt-examples/DeviceServices/opc-ua/alarms/deployment/state",
+  "Driver": {},
+  "Logger": "logger",
+  "RequestTopic": "xrt/devices/opc_ua/request",
+  "ReplyTopic": "xrt/devices/opc_ua/reply",
+  "DiscoveryTopic": "xrt/devices/opc_ua/discovery",
+  "TelemetryTopic": "xrt/devices/opc_ua/telemetry",
+  "RequestQueueMax": 500
+}

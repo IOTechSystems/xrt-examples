@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "test_alarm",
+      "profileName": "test_profile",
+      "protocols": {
+        "OPC-UA": {
+          "Address": "localhost:49947/"
+        }
+      }
+    }
+  ]
+}
