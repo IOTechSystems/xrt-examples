@@ -57,7 +57,7 @@ Below command will setup an alarm to a monitored resource.
 ```bash
 ../commands/put_request_alarm.sh
 ```
-The event is notified on the configured <i>telemetry topic</i>.
+The event is notified on the configured _telemetry topic_.
 
-_To know more on the event management and event format, see [OPC-UA Event Registration Component]((https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html)._ 
+_To know more on the event management and event format, see [OPC-UA Event Registration Component](https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html)._ 
 
