@@ -6,7 +6,7 @@
       "profileName": "test_profile",
       "protocols": {
         "OPC-UA": {
-          "Address": "localhost:49947/"
+          "Address": "${OPCUA_SIM_ADDRESS}"
         }
       }
     }
