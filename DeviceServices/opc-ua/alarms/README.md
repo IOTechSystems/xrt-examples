@@ -41,7 +41,7 @@ xrt deployment/config
 
 ### Alarm
 
-Alarm is a type of an event with a state condition. 
+Alarm is a type of an event in OPC UA with a state condition. 
 
 ## Configure Alarm for a resource
 
@@ -52,7 +52,8 @@ Alarm is a type of an event with a state condition.
 ## To trigger the alarm
 
 ```bash
-../commands/set_put_alarm.sh
+../commands/put_request_alarm.sh
 ```
-The event appears on the configured telemetry topic. To know more on the event management and format, see [OPC-UA Event Registration Component]((https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html) 
+The event is notified on the configured telemetry topic. 
+_To know more on the event management and event format, see [OPC-UA Event Registration Component]((https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html)._ 
 
