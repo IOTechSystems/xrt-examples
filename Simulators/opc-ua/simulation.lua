@@ -199,7 +199,7 @@ function add_node_types()
   string_node = VariableNode.new(NodeId.newString("StringNode", ns), "StringNode", node_types_folder:getNodeId(), node_type_variant, AccessLevel.READ | AccessLevel.WRITE)
   numeric = VariableNode.new(NodeId.newNumeric(42,ns), "Numeric Node", node_types_folder:getNodeId(), node_type_variant, AccessLevel.READ | AccessLevel.WRITE)
   guid = VariableNode.new(NodeId.newGUID("deadbeef-cafe-babe-ca1f-baff1ed0bee5",ns),"GUID Node", node_types_folder:getNodeId(), node_type_variant, AccessLevel.READ | AccessLevel.WRITE)
-  bytestring = VariableNode.new(NodeId.newByteString("M/RbKBsRVkePCePcx24oRA=='",ns), "Bytestring node", node_types_folder:getNodeId(), node_type_variant, AccessLevel.READ | AccessLevel.WRITE)
+  bytestring = VariableNode.new(NodeId.newByteString("M/RbKBsRVkePCePcx24oRA==",ns), "Bytestring node", node_types_folder:getNodeId(), node_type_variant, AccessLevel.READ | AccessLevel.WRITE)
   
   Server.addVariableNode (string_node)
   Server.addVariableNode (numeric)
