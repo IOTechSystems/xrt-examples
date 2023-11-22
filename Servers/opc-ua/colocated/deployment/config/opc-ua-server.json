@@ -1,0 +1,8 @@
+{
+    "Library": "libxrt-opc-ua-server.so",
+    "Factory": "xrt_opc_ua_server_factory",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "DeviceServices": [],
+    "Logger": "logger"
+}
