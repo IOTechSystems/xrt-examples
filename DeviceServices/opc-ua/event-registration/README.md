@@ -39,19 +39,19 @@ xrt deployment/config
 
 > **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
-### Event Registration to monitor an Alarm
+## Event Registration to monitor an Alarm
 
 Alarm is a type of an event in OPC UA with a state condition. 
 
-## Configure a resource for event monitoring
+### Configure a resource for event monitoring
 
-The below command will enable to monitor an event on a resource. Please note, the configured resource should be in the profile with the `nodeAttribute` set as event.
+The below command enables monitoring an event on a resource. Please note, the configured resource should be in the profile with the `nodeAttribute` set as event.
 
 ```bash
 ../commands/event_register.sh
 ```
 
-## Trigger the alarm
+### Trigger the alarm
 
 ```bash
 ../commands/put_request_alarm.sh
