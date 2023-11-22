@@ -1,4 +1,4 @@
-# OPC-UA Device Service - Alarm Example
+# OPC-UA Device Service - Monitor an event (alarm) Example
 
 ## Getting Started
 
@@ -39,13 +39,13 @@ xrt deployment/config
 
 > **Note** Xrt must be run from this context as the configuration files use relative pathnames
 
-### Alarm
+### Event Registration to monitor an Alarm
 
 Alarm is a type of an event in OPC UA with a state condition. 
 
-## Configure Alarm for a resource
+## Configure a resource for event monitoring
 
-The below command will register the monitoring of events on a resource.
+The below command will enable to monitor an event on a resource. Please note, the configured resource should be in the profile with the `nodeAttribute` set as event.
 
 ```bash
 ../commands/event_register.sh
@@ -57,8 +57,7 @@ The below command will register the monitoring of events on a resource.
 ../commands/put_request_alarm.sh
 ```
 
-In this example, the condition is configured to produce an event when it's severity changes. This command will change the severity of the condition and will trigger an event.
-The event is notified on the configured _telemetry topic_.
+In this example, the condition is configured to produce an event when it's severity changes.This command will change the severity of the condition and will trigger an event. The event is notified on the configured _telemetry topic_.
 
 _For more information about event management, see [OPC-UA Event Registration Component](https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html)._ 
 
