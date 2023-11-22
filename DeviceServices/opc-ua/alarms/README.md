@@ -45,7 +45,7 @@ Alarm is a type of an event in OPC UA with a state condition.
 
 ## Configure Alarm for a resource
 
-Below command will setup an alarm to a monitored resource.
+The below command will register the monitoring of events on a resource.
 
 ```bash
 ../commands/event_register.sh
@@ -53,11 +53,12 @@ Below command will setup an alarm to a monitored resource.
 
 ## Trigger the alarm
 
-
 ```bash
 ../commands/put_request_alarm.sh
 ```
+
+In this example, the condition is configured to produce an event when it's severity changes. This command will change the severity of the condition and will trigger an event.
 The event is notified on the configured _telemetry topic_.
 
-_To know more on the event management and event format, see [OPC-UA Event Registration Component](https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html)._ 
+_For more information about event management, see [OPC-UA Event Registration Component](https://docs.iotechsys.com/edge-xrt22/extension-components/opc-ua-event-registration-component.html)._ 
 
