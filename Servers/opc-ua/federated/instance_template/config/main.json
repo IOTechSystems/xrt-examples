@@ -1,0 +1,10 @@
+{
+    "logger": "IOT::Logger",
+    "sched": "IOT::Scheduler",
+    "pool": "IOT::ThreadPool",
+    "bus": "XRT::Bus",
+    "virtual-ds": "XRT::VirtualDeviceService",
+    "mqtt_bridge": "XRT::MQTTBridge",
+    "command": "XRT::Command",
+    "xrt": "XRT::Config"
+}
