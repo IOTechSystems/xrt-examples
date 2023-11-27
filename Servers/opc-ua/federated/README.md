@@ -2,7 +2,7 @@
 
 ## Overview
 
-This example shows an example of multiple Xrt Device Service instances and a separate Xrt instance with an OPC-UA server component that communicate via MQTT. Note the existance of a `Command` component which is used by the OPC-UA Server to discover the running device services on the instance.
+This example shows an example of multiple Xrt Device Service instances and a separate Xrt instance with an OPC-UA server component that communicate via MQTT. Note the existance of a `Command` component which is used by the OPC-UA Server component to discover the running device services.
 
 ## Running the Example
 

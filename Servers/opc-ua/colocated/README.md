@@ -2,7 +2,7 @@
 
 ## Overview
 
-This example shows an example of a colocated Device Service and an OPC-UA server running on the same Xrt instance, communicating via the internal bus. Note the existance of a `Command` component which is used by the OPC-UA Server to discover the running device services on the instance.
+This example shows an example of a colocated Virtual Device Service and an OPC-UA server running on the same Xrt instance, communicating via the internal bus. Note the existance of a `Command` component which is used by the OPC-UA Server component to discover the running device service.
 
 ## Running the Example
 
