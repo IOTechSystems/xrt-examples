@@ -2,6 +2,7 @@
   "Library": "libxrt-opc-ua-server.so",
   "Factory": "xrt_opc_ua_server_factory",
   "Bus": "bus",
+  "ThreadPool": "pool", 
   "Logger": "serverlogger",
   "Port": 4840,
   "ModelPaths": [
