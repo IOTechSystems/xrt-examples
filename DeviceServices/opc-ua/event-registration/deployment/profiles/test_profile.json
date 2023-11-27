@@ -1,0 +1,31 @@
+{
+    "apiVersion":"v2",
+    "deviceResources":[
+      {
+        "name":"alarm",
+        "attributes":{
+          "nodeId":"ns=1;s=ConditionSourceObject",
+          "nodeIdNamespaceIndex":"1",
+          "nodeAttribute":"event"
+        },
+        "properties":{
+          "readWrite":"RW",
+          "valueType":"object"
+        }
+      },
+      {
+        "name":"set_alarm_severity",
+        "attributes":{
+          "nodeId":"ns=0;s=ChangeConditionSeverity",
+          "dataTypeId":"ns=0;i=5",
+          "nodeAttribute":"value"
+        },
+        "properties":{
+          "readWrite":"RW",
+          "valueType":"uint16"
+        }
+      }
+    ],
+    "labels": [],
+    "name": "test_profile"
+}

@@ -2,9 +2,11 @@
 
 ## Overview
 
-This page shows you how to setup and run the OPC-UA device service example.
+This page shows you how to setup and run the OPC-UA device service examples.
 
 For more information about the Device Service please review the [OPC-UA Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/opc-ua-device-service-component.html) documentation.
+
+A separate example configuration [event-registration](./event-registration), which allows monitoring of events or any subtypes for e.g. Conditions or Alarms on an OPC-UA Server is added. Instructions to register an event to trigger an alarm can be found [here](./event-registration/README.md).
 
 ## Getting Started
 

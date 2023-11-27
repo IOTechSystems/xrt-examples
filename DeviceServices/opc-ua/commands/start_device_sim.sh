@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VER=1.2
+VER=1.3
 OPC_UA_SIM=iotechsys/opc-ua-sim:$VER
 OPC_UA_LDS=iotechsys/opc-ua-lds:$VER
 
