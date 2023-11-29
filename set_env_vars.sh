@@ -24,6 +24,6 @@ export XRT_MODBUS_TCP_STATE_DIR=../../../DeviceServices/modbus-tcp/deployment/st
 export XRT_S7_PROFILE_DIR==../../../DeviceServices/s7/deployment/profiles
 export XRT_S7_STATE_DIR==../../../DeviceServices/s7/deployment/state
 
-# OPC UA server node modelling example 
+# OPC UA Server node modelling example 
 export XRT_MODELS_DIR=$PWD/deployment/models
 export XRT_NODESET_DIR=$PWD/deployment/nodesets
