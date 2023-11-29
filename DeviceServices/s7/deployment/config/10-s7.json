@@ -1,7 +1,7 @@
 {
-  "Library": "libxrt-gps-device-service.so",
-  "Factory": "xrt_gps_device_service_factory",
-  "Name": "gps",
+  "Library": "libxrt-s7-device-service.so",
+  "Factory": "xrt_s7_device_service_factory",
+  "Name": "s7",
   "AutoRegister": false,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
@@ -9,7 +9,7 @@
   "StateDir": "${XRT_STATE_DIR}",
   "Group":"${SPARKPLUG_GROUP}",
   "Scheduler": "5-sched",
-  "Logger": "10-logger_debug",
+  "Logger": "11-logger_debug",
   "ThreadPool": "3-pool",
   "SchedulesThreadPool": "4-devpool",
   "Bus": "6-bus"

@@ -7,6 +7,7 @@
   "6-bus":"XRT::Bus",
   "7-mqtt": "XRT::MQTTBridge",
   "8-sparkplug": "XRT::Sparkplug",
-  "9-ethercat":"XRT::EtherCATDeviceService",
-  "10-logger_debug":"IOT::Logger"
+  "9-sparkplug-node": "XRT::SparkplugNode",
+  "10-ethercat":"XRT::EtherCATDeviceService",
+  "11-logger_debug":"IOT::Logger"
 }
