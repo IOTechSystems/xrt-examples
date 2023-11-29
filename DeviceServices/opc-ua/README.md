@@ -1,16 +1,16 @@
-# OPC-UA Device Service Example
+# OPC UA Device Service Example
 
 ## Overview
 
-This page shows you how to setup and run the OPC-UA device service example.
+This page shows you how to setup and run the OPC UA device service example.
 
-For more information about the Device Service please review the [OPC-UA Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/opc-ua-device-service-component.html) documentation.
+For more information about the Device Service please review the [OPC UA Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/opc-ua-device-service-component.html) documentation.
 
 ## Getting Started
 
 ### **Run the simulator**
 
-_For more information about the OPC-UA device simulator, see [OPC-UA Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/opc-ua/overview.html)._
+_For more information about the OPC UA device simulator, see [OPC UA Simulator](https://docs.iotechsys.com/edge-xrt22/simulators/opc-ua/overview.html)._
 
 ```bash
 cd DeviceServices/opc-ua
@@ -53,9 +53,9 @@ For basic device service operations see the [Basic Operations Walkthrough](../in
 
 ### Subscriptions
 
-Subscriptions are specific to the OPC-UA device service. You can read more about them [here](https://docs.iotechsys.com/edge-xrt22/device-service-components/opc-ua-device-service-component.html#opc-ua-subscriptions).
+Subscriptions are specific to the OPC UA device service. You can read more about them [here](https://docs.iotechsys.com/edge-xrt22/device-service-components/opc-ua-device-service-component.html#opc-ua-subscriptions).
 
-OPC-UA subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
+OPC UA subscription requests are made on the same topics as Schedules. See [Schedule Management](../interactive-walkthrough/basic-operations.md#Schedule-Management)
 
 **Create a subscription to a resource**
 

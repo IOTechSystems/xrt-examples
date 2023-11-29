@@ -1,8 +1,8 @@
-# OPC-UA Server Federated example
+# OPC UA Server Federated example
 
 ## Overview
 
-This example shows an example of multiple Xrt Device Service instances and a separate Xrt instance with an OPC-UA server component that communicate via MQTT. Note the existance of a `Command` component which is used by the OPC-UA Server component to discover the running device services.
+This example shows an example of multiple Xrt Device Service instances and a separate Xrt instance with an OPC UA server component that communicate via MQTT. Note the existance of a `Command` component which is used by the OPC UA Server component to discover the running device services.
 
 ## Running the Example
 
@@ -36,7 +36,7 @@ Where `xrt_executable` is the xrt executable/path to the executable and `instanc
 This script can be used to make as many instances as you wish, providing the instance id provided is unique.
 See `instance_template` for the confiuration files for the instance.
 
-### **Run XRT OPC-UA Server:**
+### **Run XRT OPC UA Server:**
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
@@ -44,3 +44,7 @@ See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 cd deployment
 xrt config
 ```
+
+## Interacting with the OPC UA Server
+
+See the [OPC UA Server Documentation](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html)

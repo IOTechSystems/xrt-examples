@@ -30,7 +30,7 @@ Within this repository there are many examples that you can chose to run through
     * [mqtt](Exporters/mqtt/README.md)
     * [rest](Exporters/rest/README.md)
     * [sitewise](Exporters/sitewise/README.md)
-* [OPC-UA Server](Servers/opc-ua/linux/README.md)
+* [OPC UA Server](Servers/opc-ua/README.md)
 * Simulators
     * [bacnet](Simulators/bacnet/README.md)
     * [ble](Simulators/ble/README.md)

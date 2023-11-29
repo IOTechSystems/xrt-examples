@@ -1,13 +1,13 @@
-# OPC-UA Simulator examples
+# OPC UA Simulator examples
 
-This folder contains a number of examples showcasing some of the functionality that can be implemented in the OPC-UA simulator with Lua scripting.
+This folder contains a number of examples showcasing some of the functionality that can be implemented in the OPC UA simulator with Lua scripting.
 
 ## Examples
 
 [**Simulation**](simulation.lua) 
 
 - Creates a scalar and array variable node for each of the supported datatypes.
-- Mimics the simulation nodes found on the popular prosys OPC-UA simulator.
+- Mimics the simulation nodes found on the popular prosys OPC UA simulator.
 - Creates a variable node for each of the supported node types. 
 
 [**Method Node Example**](methodnodes.lua) 

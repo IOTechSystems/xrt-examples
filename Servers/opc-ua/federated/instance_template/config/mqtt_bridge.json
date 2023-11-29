@@ -6,8 +6,7 @@
     "xrt/discovery",
     "${XRT_SERVER_ID}/devices/virtual/telemetry",
     "${XRT_SERVER_ID}/devices/virtual/reply",
-    "${XRT_SERVER_ID}/devices/virtual/discovery",
-    "${XRT_SERVER_ID}/devices/virtual/status"
+    "${XRT_SERVER_ID}/devices/virtual/event"
   ],
   "MQTTPatterns": [ 
     "xrt/request",

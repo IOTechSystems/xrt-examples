@@ -1,6 +1,6 @@
 {
     "apiVersion": "v2",
-    "description": "OPC-UA Example",
+    "description": "OPC UA Example",
     "deviceResources": [
         {
             "attributes": {

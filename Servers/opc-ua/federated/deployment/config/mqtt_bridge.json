@@ -10,8 +10,7 @@
     "xrt/discovery",
     "+/devices/+/telemetry",
     "+/devices/+/reply",
-    "+/devices/+/discovery",
-    "+/devices/+/status"
+    "+/devices/+/event"
   ],
   "MQTTConfig":
   {
