@@ -27,14 +27,14 @@ We have provided a script to run a Device Service instance of Xrt.
 ./command/start_instance.sh <xrt_executable> <instance_id>
 ```
 
-Where `xrt_executable` is the xrt executable/path to the executable and `instance_id` is the unique id of the instance being started.
+Where `xrt_executable` is the path and name to the xrt executable and `instance_id` is the unique id of the instance being started.
 
 ```bash
 ./command/start_instance.sh xrt 1
 ```
 
-This script can be used to make as many instances as you wish, providing the instance id provided is unique.
-See `instance_template` for the confiuration files for the instance.
+User this script to create mulitple instances, but ensure to provide a unique instance id.
+See `instance_template` for the configuration files for the instance.
 
 ### **Run XRT OPC UA Server:**
 

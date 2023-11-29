@@ -3,7 +3,7 @@
 ## Overview
 
 Various examples for running the OPC UA Server component with Xrt. All examples will start the server and then an OPC UA Browser or Client application can be used to connect to the server.
-By Default the Server will start on port `4840`.
+By default the Server will start on port `4840`.
 
 Links to the following examples:
 
