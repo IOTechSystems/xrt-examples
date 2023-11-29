@@ -33,8 +33,8 @@ Where `xrt_executable` is the path and name to the xrt executable and `instance_
 ./command/start_instance.sh xrt 1
 ```
 
-User this script to create mulitple instances, but ensure to provide a unique instance id.
-See `instance_template` for the configuration files for the instance.
+Use this script to create mulitple instances, but ensure to provide a unique instance id.
+See [`federated/instance_template`](./instance_template/) for the configuration files for the instance.
 
 ### **Run XRT OPC UA Server:**
 
