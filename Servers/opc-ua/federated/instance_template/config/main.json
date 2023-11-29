@@ -3,11 +3,7 @@
     "sched": "IOT::Scheduler",
     "pool": "IOT::ThreadPool",
     "bus": "XRT::Bus",
-    "s7": "XRT::S7DeviceService",
-    "virtual": "XRT::VirtualDeviceService",
-    "bacnet_ip":"XRT::BACnetIPDeviceService",
-    "modbus":"XRT::ModbusDeviceService",
-    "opc_ua_server": "XRT::OPCUAServer",
+    "virtual-ds": "XRT::VirtualDeviceService",
     "mqtt_bridge": "XRT::MQTTBridge",
     "command": "XRT::Command",
     "xrt": "XRT::Config"

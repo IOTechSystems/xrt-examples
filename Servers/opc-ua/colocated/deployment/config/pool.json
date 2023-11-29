@@ -1,4 +1,4 @@
 {
     "Logger": "logger",
-    "Threads": 10
+    "Threads": 5 
 }
