@@ -5,9 +5,11 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE}/+", "QoS":1, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE}", "QoS":1, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE1}/virtual", "QoS":0 }
   ],
   "MQTTPatterns": [
@@ -20,7 +22,6 @@
   [
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE1}/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
   ],
-  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
@@ -48,7 +49,10 @@
       }
     }
   },
-  "Bus": "6-bus",
+  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
+  "AcksTimeout": 10,
   "QueueSize": 4,
+  "Priority": 0,
+  "Bus": "6-bus",
   "Logger": "3-logger_debug"
 }

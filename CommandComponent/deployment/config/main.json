@@ -7,6 +7,7 @@
   "6-bus":"XRT::Bus",
   "7-mqtt": "XRT::MQTTBridge",
   "8-sparkplug": "XRT::Sparkplug",
-  "9-command": "XRT::Command",
-  "10-virtual": "XRT::VirtualDeviceService"
+  "9-sparkplug-node": "XRT::SparkplugNode",
+  "10-command": "XRT::Command",
+  "11-virtual": "XRT::VirtualDeviceService"
 }

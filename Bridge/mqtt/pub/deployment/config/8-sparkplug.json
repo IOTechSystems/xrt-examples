@@ -1,10 +1,12 @@
 {
-  "Factory": "xrt_sparkplug_factory",
-  "Library": "libxrt-sparkplug.so",
-  "NodeId": "${SPARKPLUG_NODE1}",
+  "Namespace": "spBv1.0",
   "Group": "${SPARKPLUG_GROUP}",
   "MQTTAppId": "XRT::MQTTBridge",
-  "Bus": "6-bus",
-  "Logger": "2-logger",
-  "bdSeq": 0
+  "EnableMetricQuality": true,
+  "EnableMetricAckGood": false,
+  "EnableFixedAliases": false,
+  "EnableMetricType": false,
+  "EnableMetricName": false,
+  "EnableMetricDefaultTimestamp": false,
+  "EnableBadCMDIgnore": false
 }
