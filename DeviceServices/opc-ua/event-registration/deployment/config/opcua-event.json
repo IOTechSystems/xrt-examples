@@ -1,0 +1,5 @@
+{
+  "Library": "libxrt-opcua-event-registration.so",
+  "Factory": "xrt_opcua_event_registration_factory",
+  "DeviceService": "opc_ua"
+}
