@@ -17,7 +17,7 @@
   [
     { "Pattern":"spBv1.0/STATE/+", "QoS":0, "Sync":true },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip", "QoS":0, "Sync":true }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_mstp", "QoS":0, "Sync":true }
   ],
   "MQTTDynamicPatterns":
   [

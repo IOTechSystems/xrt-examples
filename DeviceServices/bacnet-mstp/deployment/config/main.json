@@ -7,6 +7,6 @@
   "6-bus":"XRT::Bus",
   "7-mqtt": "XRT::MQTTBridge",
   "8-sparkplug": "XRT::Sparkplug",
-  "10-bacnet_mdstp":"XRT::BACnetMSTPDeviceService",
+  "10-bacnet_mstp":"XRT::BACnetMSTPDeviceService",
   "11-logger_debug":"IOT::Logger"
 }
