@@ -21,8 +21,8 @@ export XRT_BACNET_IP_STATE_DIR=../../../DeviceServices/bacnet-ip/deployment/stat
 export XRT_MODBUS_TCP_PROFILE_DIR=../../../DeviceServices/modbus-tcp/deployment/profiles
 export XRT_MODBUS_TCP_STATE_DIR=../../../DeviceServices/modbus-tcp/deployment/state
 
-export XRT_S7_PROFILE_DIR==../../../DeviceServices/s7/deployment/profiles
-export XRT_S7_STATE_DIR==../../../DeviceServices/s7/deployment/state
+export XRT_S7_PROFILE_DIR=../../../DeviceServices/s7/deployment/profiles
+export XRT_S7_STATE_DIR=../../../DeviceServices/s7/deployment/state
 
 # OPC UA Server node modelling example 
 export XRT_MODELS_DIR=$PWD/deployment/models
