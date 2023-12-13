@@ -1,0 +1,812 @@
+<?xml version='1.0' encoding='utf-8'?>
+<UANodeSet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LastModified="2023-10-18T00:00:00Z" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+	<NamespaceUris>
+		<Uri>https://sunspec.org</Uri>
+	</NamespaceUris>
+	<Models>
+		<Model ModelUri="https://sunspec.org" Version="1.02" PublicationDate="2019-05-01T00:00:00Z">
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.05" PublicationDate="2019-05-01T00:00:00Z" />
+		</Model>
+	</Models>
+	<Aliases>
+		<Alias Alias="Boolean">i=1</Alias>
+		<Alias Alias="SByte">i=2</Alias>
+		<Alias Alias="Byte">i=3</Alias>
+		<Alias Alias="Int16">i=4</Alias>
+		<Alias Alias="UInt16">i=5</Alias>
+		<Alias Alias="Int32">i=6</Alias>
+		<Alias Alias="UInt32">i=7</Alias>
+		<Alias Alias="Int64">i=8</Alias>
+		<Alias Alias="UInt64">i=9</Alias>
+		<Alias Alias="Float">i=10</Alias>
+		<Alias Alias="Double">i=11</Alias>
+		<Alias Alias="DateTime">i=13</Alias>
+		<Alias Alias="String">i=12</Alias>
+		<Alias Alias="ByteString">i=15</Alias>
+		<Alias Alias="Guid">i=14</Alias>
+		<Alias Alias="XmlElement">i=16</Alias>
+		<Alias Alias="NodeId">i=17</Alias>
+		<Alias Alias="ExpandedNodeId">i=18</Alias>
+		<Alias Alias="QualifiedName">i=20</Alias>
+		<Alias Alias="LocalizedText">i=21</Alias>
+		<Alias Alias="StatusCode">i=19</Alias>
+		<Alias Alias="Structure">i=22</Alias>
+		<Alias Alias="Number">i=26</Alias>
+		<Alias Alias="Integer">i=27</Alias>
+		<Alias Alias="UInteger">i=28</Alias>
+		<Alias Alias="HasComponent">i=47</Alias>
+		<Alias Alias="HasProperty">i=46</Alias>
+		<Alias Alias="Organizes">i=35</Alias>
+		<Alias Alias="HasEventSource">i=36</Alias>
+		<Alias Alias="HasNotifier">i=48</Alias>
+		<Alias Alias="HasSubtype">i=45</Alias>
+		<Alias Alias="HasTypeDefinition">i=40</Alias>
+		<Alias Alias="HasModellingRule">i=37</Alias>
+		<Alias Alias="HasEncoding">i=38</Alias>
+		<Alias Alias="HasDescription">i=39</Alias>
+		<Alias Alias="OptionSet">i=51</Alias>
+	</Aliases>
+	<UAVariableType NodeId="ns=1;i=1001" BrowseName="SunSpecInt16Type" DataType="Int16">
+		<DisplayName>SunSpecInt16Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>-32767</Low>
+			<High>32767</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1002" BrowseName="SunSpecInt32Type" DataType="Int32">
+		<DisplayName>SunSpecInt32Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>-2147483647</Low>
+			<High>2147483647</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1003" BrowseName="SunSpecInt64Type" DataType="Int64">
+		<DisplayName>SunSpecInt64Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>-9223372036854775807</Low>
+			<High>9223372036854775807</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1004" BrowseName="SunSpecUInt16Type" DataType="UInt16">
+		<DisplayName>SunSpecUInt16Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>65534</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1005" BrowseName="SunSpecUInt32Type" DataType="UInt32">
+		<DisplayName>SunSpecUInt32Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>4294967294</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1006" BrowseName="SunSpecUInt64Type" DataType="UInt64">
+		<DisplayName>SunSpecUInt64Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>18446744073709551615</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1007" BrowseName="SunSpecAcc16Type" DataType="UInt16">
+		<DisplayName>SunSpecAcc16Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>65535</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1008" BrowseName="SunSpecAcc32Type" DataType="UInt32">
+		<DisplayName>SunSpecAcc32Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>4294967295</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1009" BrowseName="SunSpecAcc64Type" DataType="UInt64">
+		<DisplayName>SunSpecAcc64Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>9223372036854775807</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1010" BrowseName="SunSpecBitfield16Type" DataType="UInt16">
+		<DisplayName>SunSpecBitfield16Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>32767</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1011" BrowseName="SunSpecBitfield32Type" DataType="UInt32">
+		<DisplayName>SunSpecBitfield32Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>2147483647</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1012" BrowseName="SunSpecBitfield64Type" DataType="UInt64">
+		<DisplayName>SunSpecBitfield64Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>9223372036854775807</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1013" BrowseName="SunSpecEnum16Type" DataType="UInt16">
+		<DisplayName>SunSpecEnum16Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>65534</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1014" BrowseName="SunSpecEnum32Type" DataType="UInt32">
+		<DisplayName>SunSpecEnum32Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>4294967294</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1015" BrowseName="SunSpecFloat32Type" DataType="Float">
+		<DisplayName>SunSpecFloat32Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1016" BrowseName="SunSpecFloat64Type" DataType="Double">
+		<DisplayName>SunSpecFloat64Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1017" BrowseName="SunSpecStringType" DataType="String">
+		<DisplayName>SunSpecStringType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1018" BrowseName="SunSpecSunssfType" DataType="Int16">
+		<DisplayName>SunSpecSunssfType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>-10</Low>
+			<High>10</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1019" BrowseName="SunSpecIpaddrType" DataType="UInt16">
+		<DisplayName>SunSpecIpaddrType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>32768</Low>
+			<High>32768</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1021" BrowseName="SunSpecCountType" DataType="UInt32">
+		<DisplayName>SunSpecCountType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>4294967293</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1023" BrowseName="SunSpecEui48Type" DataType="UInt32">
+		<DisplayName>SunSpecEui48Type</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<EURange>
+			<Low>0</Low>
+			<High>4294967293</High>
+		</EURange>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=1020" BrowseName="TwoInt64ArrayVariableType">
+		<DisplayName>SunSpecIpv6addr</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=63</Reference>
+		</References>
+		<ValueRank>1</ValueRank>
+		<ArrayDimensions>2</ArrayDimensions>
+		<DataType>i=9</DataType>
+	</UAVariableType>
+	<UAObjectType NodeId="ns=1;i=10000" BrowseName="Model805">
+		<DisplayName>Model805</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10001</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10011</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10012</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10013</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10014</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10015</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10016</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10017</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10018</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10019</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10020</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10021</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10022</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10023</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10024</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10025</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10026</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10027</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10028</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10029</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10030</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10031</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10032</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10033</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10034</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10035</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10036</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10037</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10038</Reference>
+		</References>
+	</UAObjectType>
+	<UAObject NodeId="ns=1;i=10001" ParentNodeId="ns=1;i=10000" BrowseName="Lithium-ion-module-cellContainer">
+		<DisplayName>Lithium-ion-module-cellContainer</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=10003</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+		</References>
+	</UAObject>
+	<UAObjectType NodeId="ns=1;i=10002" BrowseName="Model805Lithium-ion-module-cellType">
+		<DisplayName>Model805Lithium-ion-module-cellType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10006</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10008</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10010</Reference>
+		</References>
+	</UAObjectType>
+	<UAObjectType NodeId="ns=1;i=10003" BrowseName="Model805Lithium-ion-module-cellContainerType">
+		<DisplayName>Model805Lithium-ion-module-cellContainerType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference>
+			<Reference ReferenceType="HasComponent">ns=1;i=10004</Reference>
+		</References>
+	</UAObjectType>
+	<UAObject NodeId="ns=1;i=10004" ParentNodeId="ns=1;i=10003" BrowseName="Model805Lithium-ion-module-cell_&lt;Nr&gt;" SymbolicName="Model805Lithium-ion-module-cell__Nr_">
+		<DisplayName>Model805Lithium-ion-module-cell_&lt;Nr&gt;</DisplayName>
+		<References>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=10003</Reference>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=10002</Reference>
+			<Reference ReferenceType="HasModellingRule">i=11508</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10005</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10007</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=10009</Reference>
+		</References>
+	</UAObject>
+	<UAVariable NodeId="ns=1;i=10005" ParentNodeId="ns=1;i=10004" BrowseName="Cellv" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellv</DisplayName>
+		<Description>Cell terminal voltage.</Description>
+		<EngineeringUnits>
+			<DisplayName>V</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10004</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10006" ParentNodeId="ns=1;i=10002" BrowseName="Cellv" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellv</DisplayName>
+		<Description>Cell terminal voltage.</Description>
+		<EngineeringUnits>
+			<DisplayName>V</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10002</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10007" ParentNodeId="ns=1;i=10004" BrowseName="Celltmp" DataType="ns=1;i=1001">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmp</DisplayName>
+		<Description>Cell temperature.</Description>
+		<EngineeringUnits>
+			<DisplayName>C</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10004</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10008" ParentNodeId="ns=1;i=10002" BrowseName="Celltmp" DataType="ns=1;i=1001">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmp</DisplayName>
+		<Description>Cell temperature.</Description>
+		<EngineeringUnits>
+			<DisplayName>C</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10002</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10009" ParentNodeId="ns=1;i=10004" BrowseName="Cellst" DataType="ns=1;i=1011">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellst</DisplayName>
+		<Description>Status of the cell.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1011</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10004</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10010" ParentNodeId="ns=1;i=10002" BrowseName="Cellst" DataType="ns=1;i=1011">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellst</DisplayName>
+		<Description>Status of the cell.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1011</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10002</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10011" ParentNodeId="ns=1;i=10000" BrowseName="Id" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Id</DisplayName>
+		<Description>Model identifier</Description>
+		<Value>
+			<Value>805</Value>
+		</Value>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10012" ParentNodeId="ns=1;i=10000" BrowseName="L" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>L</DisplayName>
+		<Description>Model length</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10013" ParentNodeId="ns=1;i=10000" BrowseName="Stridx" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Stridx</DisplayName>
+		<Description>Index of the string containing the module.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10014" ParentNodeId="ns=1;i=10000" BrowseName="Modidx" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Modidx</DisplayName>
+		<Description>Index of the module within the string.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10015" ParentNodeId="ns=1;i=10000" BrowseName="Ncell" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Ncell</DisplayName>
+		<Description>Count of all cells in the module.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10016" ParentNodeId="ns=1;i=10000" BrowseName="Soc" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Soc</DisplayName>
+		<Description>Module state of charge, expressed as a percentage.</Description>
+		<EngineeringUnits>
+			<DisplayName>%</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10017" ParentNodeId="ns=1;i=10000" BrowseName="Dod" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Dod</DisplayName>
+		<Description>Depth of discharge for the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>%</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10018" ParentNodeId="ns=1;i=10000" BrowseName="Soh" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Soh</DisplayName>
+		<Description>Module state of health, expressed as a percentage.</Description>
+		<EngineeringUnits>
+			<DisplayName>%</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10019" ParentNodeId="ns=1;i=10000" BrowseName="Ncyc" DataType="ns=1;i=1005">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Ncyc</DisplayName>
+		<Description>Count of cycles executed.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10020" ParentNodeId="ns=1;i=10000" BrowseName="V" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>V</DisplayName>
+		<Description>Voltage of the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>V</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10021" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmax" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellvmax</DisplayName>
+		<Description>Maximum voltage for all cells in the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>V</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10022" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmaxcell" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellvmaxcell</DisplayName>
+		<Description>Cell with the maximum voltage.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10023" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmin" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellvmin</DisplayName>
+		<Description>Minimum voltage for all cells in the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>V</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10024" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmincell" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellvmincell</DisplayName>
+		<Description>Cell with the minimum voltage.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10025" ParentNodeId="ns=1;i=10000" BrowseName="Cellvavg" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellvavg</DisplayName>
+		<Description>Average voltage for all cells in the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>V</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10026" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmax" DataType="ns=1;i=1001">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmpmax</DisplayName>
+		<Description>Maximum temperature for all cells in the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>C</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10027" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmaxcell" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmpmaxcell</DisplayName>
+		<Description>Cell with the maximum cell temperature.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10028" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmin" DataType="ns=1;i=1001">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmpmin</DisplayName>
+		<Description>Minimum temperature for all cells in the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>C</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10029" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmincell" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmpmincell</DisplayName>
+		<Description>Cell with the minimum cell temperature.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10030" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpavg" DataType="ns=1;i=1001">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Celltmpavg</DisplayName>
+		<Description>Average temperature for all cells in the module.</Description>
+		<EngineeringUnits>
+			<DisplayName>C</DisplayName>
+		</EngineeringUnits>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1001</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10031" ParentNodeId="ns=1;i=10000" BrowseName="Ncellbal" DataType="ns=1;i=1004">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Ncellbal</DisplayName>
+		<Description>Number of cells currently being balanced in the module.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10032" ParentNodeId="ns=1;i=10000" BrowseName="Sn" DataType="ns=1;i=1017">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Sn</DisplayName>
+		<Description>Serial number for the module.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1017</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10033" ParentNodeId="ns=1;i=10000" BrowseName="Soc_sf" DataType="ns=1;i=1018">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Soc_sf</DisplayName>
+		<Description>Scale factor for module state of charge.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1018</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10034" ParentNodeId="ns=1;i=10000" BrowseName="Soh_sf" DataType="ns=1;i=1018">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Soh_sf</DisplayName>
+		<Description>Scale factor for module state of health.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1018</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10035" ParentNodeId="ns=1;i=10000" BrowseName="Dod_sf" DataType="ns=1;i=1018">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Dod_sf</DisplayName>
+		<Description>Scale factor for module depth of discharge.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1018</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10036" ParentNodeId="ns=1;i=10000" BrowseName="V_sf" DataType="ns=1;i=1018">
+		<DisplayName>V_sf</DisplayName>
+		<Description>Scale factor for module voltage.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1018</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+		<DefaultValue>
+			<Value>10</Value>
+		</DefaultValue>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10037" ParentNodeId="ns=1;i=10000" BrowseName="Cellv_sf" DataType="ns=1;i=1018">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Cellv_sf</DisplayName>
+		<Description>Scale factor for cell voltage.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1018</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=10038" ParentNodeId="ns=1;i=10000" BrowseName="Tmp_sf" DataType="ns=1;i=1018">
+		<Value>
+			<Value>10</Value>
+		</Value>
+		<DisplayName>Tmp_sf</DisplayName>
+		<Description>Scale factor for module temperature.</Description>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1018</Reference>
+			<Reference ReferenceType="HasModellingRule">i=78</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
+		</References>
+	</UAVariable>
+</UANodeSet>
