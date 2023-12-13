@@ -1,0 +1,13 @@
+{
+  "logger": "IOT::Logger",
+  "serverlogger": "IOT::Logger",
+  "sched": "IOT::Scheduler",
+  "pool": "IOT::ThreadPool",
+  "bus": "XRT::Bus",
+  "modbus": "XRT::ModbusDeviceService",
+  "opc_ua_server": "XRT::OPCUAServer",
+  "xrt": "XRT::Config",
+  "bridge":"XRT::MQTTBridge",
+  "sparkplug": "XRT::Sparkplug",
+  "sparkplug-node": "XRT::SparkplugNode"
+}

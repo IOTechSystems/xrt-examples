@@ -1,0 +1,14 @@
+{
+  "Library": "libxrt-modbus-device-service.so",
+  "Factory": "xrt_modbus_device_service_factory",
+  "Name": "modbus_tcp",
+  "ProfileDir":"${XRT_PROFILE_DIR}/modbus",
+  "StateDir":"${XRT_STATE_DIR}/modbus",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool",
+  "Bus": "bus",
+  "DeviceDownTimeout": 60,
+  "AllowedFails": 5
+}
