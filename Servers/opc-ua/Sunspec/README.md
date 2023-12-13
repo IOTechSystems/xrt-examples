@@ -58,11 +58,6 @@ Now we have the browser and simulator working we can move on to setting up XRT.
 . ../../../set_env_vars.sh
 export MODBUS_SIM_ADDRESS=0.0.0.0
 export MODBUS_SIM_PORT=1502
-export SPARKPLUG_NODE=xrt
-export SPARKPLUG_GROUP=iotech
-export SPARKPLUG_PROTO=spb
-export XRT_MODELS_DIR=$PWD/deployment/models
-export XRT_NODESET_DIR=$PWD/deployment/nodesets
 ```
 The dot before the path to the script, which is required to set the environment variables in the executing shell.
 

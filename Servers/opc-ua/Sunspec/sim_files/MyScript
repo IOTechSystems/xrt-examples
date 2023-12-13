@@ -4,9 +4,10 @@ def update_values(resources):
     resource3 = resources["cell_3_tmp"]
     old_val = resource1.get_value()
     new_val = old_val + 1
+    print("Read in cell_1_tmp : ",old_val)
     resource1.set_value(new_val)
-    print("line 1")
+    print("Increment and write to cell_1_tmp : ",new_val)
     resource2.set_value(new_val * 10)
-    print("line 2")
+    print(" write cell_1_tmp * 10 to cell_2_tmp : ",new_val * 10)
     resource3.set_value(new_val * 100)
-    print("line 3")
+    print(" write cell_1_tmp * 100 to cell_3_tmp : ",new_val * 100)

@@ -7,9 +7,9 @@
   "Port": 4840,
   "EnableSparkplug": true,
   "ModelPaths": [
-    "${XRT_MODELS_DIR}/Sunspec_Model3.json"
+    "${XRT_MODELS_DIR}/Sunspec_Model805.json"
   ],
   "NodesetPaths": [
-    "${XRT_NODESET_DIR}/Sunspec.Model3.xml"
+    "${XRT_NODESET_DIR}/Sunspec.Model805.xml"
   ]
 }
