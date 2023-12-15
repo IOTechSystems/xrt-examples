@@ -2,20 +2,11 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "name": "gpiochip0",
-      "profileName": "device-gpiochip0",
+      "name": "device-dio0",
+      "profileName": "device-dio0",
       "protocols": {
-        "Digital": {
-          "Address": "device-gpiochip0"
-        }
-      }
-    }
-    {
-      "name": "gpiochip1",
-      "profileName": "device-gpiochip1",
-      "protocols": {
-        "Digital": {
-          "Address": "device-gpiochip1"
+        "ECU-150FL": {
+          "Address": "device-dio0"
         }
       }
     }

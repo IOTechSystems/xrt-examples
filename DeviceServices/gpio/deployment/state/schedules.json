@@ -1,1 +1,1 @@
-{"apiVersion":"v2","schedules":[{"device":"gpiochip0","interval":3000000,"name":"schedule1","resource":[".*"]}]}
+{"apiVersion":"v2","schedules":[{"device":"device-dio0","interval":3000000,"name":"schedule1","resource":[".*"]}]}

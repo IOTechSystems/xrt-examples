@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-gpio-device-service.so",
+  "Factory": "xrt_gpio_device_service_factory",
+  "Name": "gpio",
+  "ProfileDir": "/home/iotech/Xrt_test/deployment/state/profiles",
+  "StateDir": "/home/iotech/Xrt_test/deployment/state",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler": "05-sched",
+  "Logger": "02-logger",
+  "ThreadPool": "03-pool",
+  "SchedulesThreadPool": "04-devpool",
+  "Bus": "06-bus" 
+}

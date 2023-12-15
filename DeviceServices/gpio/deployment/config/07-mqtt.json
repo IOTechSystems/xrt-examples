@@ -9,13 +9,13 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/bacnet_ip", "QoS":0 }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/gpio", "QoS":0 }
   ],
   "MQTTPatterns":
   [
     { "Pattern":"spBv1.0/STATE/+", "QoS":0, "Sync":true },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip", "QoS":0, "Sync":true }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/gpio", "QoS":0, "Sync":true }
   ],
   "MQTTDynamicPatterns":
   [
@@ -44,7 +44,7 @@
       }
     }
   },
-  "Bus": "6-bus",
+  "Bus": "06-bus",
   "QueueSize": 5,
-  "Logger": "10-logger_debug"
+  "Logger": "02-logger"
 }

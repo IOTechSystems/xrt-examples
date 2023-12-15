@@ -4,7 +4,7 @@
   "NodeId": "${SPARKPLUG_NODE}",
   "Group": "${SPARKPLUG_GROUP}",
   "MQTTAppId": "XRT::MQTTBridge",
-  "Bus": "6-bus",
-  "Logger": "2-logger",
+  "Bus": "06-bus",
+  "Logger": "02-logger",
   "bdSeq": 0
 }
