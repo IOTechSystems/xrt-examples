@@ -7,5 +7,5 @@ mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/gpio -m \
   "op": "device:get",
   "type": "xrt.request:1.0",
   "device": "device-dio0",
-  "resource": "Channel0"
+  "resource": "DI0"
 }'

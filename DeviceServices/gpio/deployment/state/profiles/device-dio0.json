@@ -9,17 +9,49 @@
   "description": "Example of Device-DIO - ECU150fl",
   "deviceResources": [
   {
-    "name": "Channel0",
-    "description": "Start Channel0",
+    "name": "DI0",
+    "description": "Digital Input 0",
     "attributes":
     {
-      "Resourcename": "Channel0",
       "StartChannel": 0,
       "Direction": "GPIO_INPUT",
       "ChannelCount": 1
     },
+    "properties": { "valueType": "Bool", "readWrite": "R" }
+  },
+  {
+    "name": "DI0_4",
+    "description": "Digital Input 0 for 4 channel count",
+    "attributes":
+    {
+      "StartChannel": 0,
+      "Direction": "GPIO_INPUT",
+      "ChannelCount": 4
+    },
     "properties": { "valueType": "UInt32", "readWrite": "R" }
-  }
-]}
+  },
+  {
+    "name": "DO0",
+    "description": "Digital Output 0",
+    "attributes":
+    {
+      "StartChannel": 0,
+      "Direction": "GPIO_OUTPUT",
+      "ChannelCount": 1
+    },
+    "properties": { "valueType": "Bool", "readWrite": "RW" }
+  },
+  {
+    "name": "DO0_4",
+    "description": "Digital Output 0 for 4 channel count",
+    "attributes":
+    {
+      "StartChannel": 0,
+      "Direction": "GPIO_OUTPUT",
+      "ChannelCount": 4
+    },
+    "properties": { "valueType": "UInt32", "readWrite": "RW" }
+  },
+  ]}
 
   

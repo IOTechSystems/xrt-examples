@@ -5,8 +5,8 @@
       "name": "device-dio0",
       "profileName": "device-dio0",
       "protocols": {
-        "ECU-150FL": {
-          "Address": "device-dio0"
+        "DIO": {
+          "Module": 0
         }
       }
     }
