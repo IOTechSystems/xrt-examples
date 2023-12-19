@@ -1,28 +1,15 @@
 ## What does this show?
 
-This demonstration showcases the integration and interaction between Edge Connect Modbus Device Services and an OPC-UA server using MQTT. The focus is on monitoring and manipulating temperature data from battery cells.
+This demonstration showcases the integration and interaction between Edge Connect Modbus Device Services and an OPC-UA server using MQTT. The focus is on monitoring and manipulating temperature data from battery cells. Although a simple demo running on one machine this is design to show how you can use XRT across multiple hardware nodes for example a gateway running a opc-ua server with multiple hardware nodes running device servers sending data.
+
 Components:
 
- -   Edge Connect Modbus Device Service (Instance on Hardware Node 2): Responsible for reading device data according to a specified schedule.
- -   MQTT Communication: Facilitates the transfer of data between the Modbus device and the OPC-UA server.
- -   Separate Edge Connect Instance with OPC-UA Server: Receives and processes data for inclusion in the battery model.
+ -   Modbus device: Device to be read
+ -   Edge Connect Modbus Device Service: Responsible for    reading device data according to a specified schedule.
+ -   MQTT Broker: Facilitates the transfer of data between the device service and the OPC-UA server.
+ -   Edge Connect OPC-UA Server: a seperate edge connect instance that receives and processes data for inclusion in the battery model.
  -   OPC-UA Browser: Enables viewing and interaction with the battery model data.
 
-Key Features:
+If you follow the steps in the README.md you will get create the deployment outlined above and in the diagram. Then you will be able to see real-time data monioting and data manipulation you can do to the modbus device from the opc-ua server
 
- -   Real-Time Data Monitoring: Observe the incrementing value of Battery Cell 1's temperature, indicating successful data reading and transfer.
- -   Data Manipulation via OPC-UA Browser: Demonstrates the user's ability to write to the device service. This is illustrated by altering the SF_tmp value under the Sparkplug folder to 2.
-
-Demonstration Steps:
-
- -   Initiate Temperature Reading: The Edge Connect Modbus Device Service reads the temperature of Battery Cell 1 and updates it every second.
- -   Data Transfer via MQTT: The read temperature data is sent to the OPC-UA server-hosting Edge Connect instance.
- -   Battery Model Update: The OPC-UA server updates the battery model, defined by the Model and the Nodeset, with the received data.
- -   Observation in OPC-UA Browser: The incrementing temperature of Cell 1 is viewable in real-time.
-  -  Writing to the Device Service: Change the SF_tmp value in the OPC-UA browser. This adjustment alters the computation for Cell 2's temperature, initially set to multiply by 0. Post-modification, it doubles the temperature of Cell 1.
-
-Expected Outcome:
-
-By following these steps, you will observe the dynamic interaction between the Modbus device service and the OPC-UA server, demonstrating real-time data monitoring and manipulation capabilities.
-
-![Alt text](Diagram.png)
+![Alt text](images/Deployment.png)
