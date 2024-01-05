@@ -1,12 +1,12 @@
-# Confederated OPC-UA Server and Modbus Device Service
+# Confederated OPC UA Server and Modbus Device Service
 
-This example demonstrates how to operate the OPC-UA server using a OPC-UA nodeset and model to read a modbus device. The nodeset used is a
+This example demonstrates how to operate the OPC UA server using a OPC UA nodeset and model to read a modbus device. The nodeset used is a
 [Sunspec model](https://sunspec.org/wp-content/uploads/2015/06/SunSpec-Information-Models-12041.pdf) that has been converted to an OPC UA Nodeset.
  Specifically, it utilizes a modified version of Sunspec's [Model805](https://github.com/sunspec/models/blob/master/json/model_805.json) to create an instance of a Lithium-ion module.
 
-The model in the OPC-UA server is a battery module model with three cells. This battery module will be simulated using a Modbus-tcp simulator where it will be read by a schedule of a XRT device service. This XRT device service sends over Sparkplug this data to the XRT OPC-UA Server where you the user can retrieve it using a OPC-UA Browser.
+The model in the OPC UA server is a battery module model with three cells. This battery module will be simulated using a Modbus-tcp simulator where it will be read by a schedule of a XRT device service. This XRT device service sends over Sparkplug this data to the XRT OPC UA Server where you the user can retrieve it using a OPC UA Browser.
 
-For more information about the OPC-UA Server and Node Modelling please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt30/server-components/opc-ua-server-component.html) documentation.
+For more information about the OPC UA Server and Node Modelling please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt30/server-components/opc-ua-server-component.html) documentation.
 
 For more information about the Modbus Device Service please review the [Modbus Device Service](https://docs.iotechsys.com/edge-xrt30/device-service-components/Modbus-device-service-component.html) documentation.
 
@@ -16,9 +16,9 @@ For more information about the Modbus Device Service please review the [Modbus D
 - XRT 3.0 must be installed, along with a copy of this repository (can be checked using `xrt` )
 - Python 3 must also be installed. (can be checked using `python3 -v`)
 
-## OPC-UA Browser Setup
+## OPC UA Browser Setup
 
-This section outlines the setup process for the IOTech OPC-UA browser. If you opt to use a different OPC-UA browser, please refer to the corresponding instructions specific to that browser.
+This section outlines the setup process for the IOTech OPC UA browser. If you opt to use a different OPC UA browser, please refer to the corresponding instructions specific to that browser.
 
 ### Steps
 
@@ -37,11 +37,11 @@ This section outlines the setup process for the IOTech OPC-UA browser. If you op
 3. **Verify Run**:
     - Execute the command `docker ps` in your terminal.
     - Confirm that an image named 'iotechsys/opc-ua-browser' is listed in the output.
-4. **Access the Browser**: Connect to the OPC-UA browser at [http://0.0.0.0:8080/](http://0.0.0.0:8080/) in your web browser of choice. We will come back to this page later.
+4. **Access the Browser**: Connect to the OPC UA browser at [http://0.0.0.0:8080/](http://0.0.0.0:8080/) in your web browser of choice. We will come back to this page later.
 
-## XRT OPC-UA Server
+## XRT OPC UA Server
 
-Now we have the Browser working we can move on to setting up XRT OPC-UA Server for the OPC-UA Browser to connect to. This step assumes you have the XRT-Examples repository cloned from Github and are starting from the top level of it's directory.
+Now we have the Browser working we can move on to setting up XRT OPC UA Server for the OPC UA Browser to connect to. This step assumes you have the XRT-Examples repository cloned from Github and are starting from the top level of it's directory.
 
 1. **Navigate to the Example Directory**:
 
@@ -65,9 +65,9 @@ Now we have the Browser working we can move on to setting up XRT OPC-UA Server f
    xrt ./deployment/config
    ```
 
-4. **Check OPC-UA Browser**:
+4. **Check OPC UA Browser**:
 
-    Now if XRT is set up correctly you should see no error on the console output and be able to connect to the OPC-UA Server using the [OPC-UA Browser](http://0.0.0.0:8080/) and by entering your machines IP address into the 'Enter connection address' box (you can find this using `ip addr`).
+    Now if XRT is set up correctly you should see no error on the console output and be able to connect to the OPC UA Server using the [OPC-UA Browser](http://0.0.0.0:8080/) and by entering your machines IP address into the 'Enter connection address' box (you can find this using `ip addr`).
 
     When the Security pop up come up just click 'SAVE AND CONNECT' as for this example no security is set.
 
@@ -81,7 +81,7 @@ You should be able to see the model data defined by `opc-ua/deployment/models/Su
 
 ## Modbus Simulator Setup  
 
-We now have a OPC-UA Server working so lets create a simulated Modbus device for us to retrieve data from.
+We now have a OPC UA Server working so lets create a simulated Modbus device for us to retrieve data from.
 
 1. **Navigate to the modbus-tcp Directory**:
 
@@ -108,7 +108,7 @@ We now have a OPC-UA Server working so lets create a simulated Modbus device for
 
 ## Modbus Device Service  
 
-Now we have the simulated modbus battery we can move on to reading our battery using a XRT device service and have this over MQTT Sparkplug send the data to the XRT OPC-UA server
+Now we have the simulated modbus battery we can move on to reading our battery using a XRT device service and have this over MQTT Sparkplug send the data to the XRT OPC UA server
 
 1. **Navigate to the modbus-tcp directory**:
 
@@ -132,11 +132,11 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 
 4. **Seeing the results! :**
 
-   Now if we go onto our opc-ua browser we should see if we go into you should see this value incrementing by one every second:
+   Now if we go onto our OPC UA browser we should see if we go into you should see this value incrementing by one every second:
 
 Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
 ![Alt text](images/Opc-ua-browser2.png)
 
     In the sparkplug/xrt/modbus-device-1 folder if you find a variable tmp_sf this can be used that the communication is two way. You can write a value to this property by clicking the pencil icon in the value cell.  
 
-    The value in tmp_1 is multiplied by the value in the tmp_sf and written to tmp_2 in the simulated device. this is then read by our schedule and send up to the opc-ua server showing a full round trip of data!
+    The value in tmp_1 is multiplied by the value in the tmp_sf and written to tmp_2 in the simulated device. this is then read by our schedule and send up to the OPC UA server showing a full round trip of data!
