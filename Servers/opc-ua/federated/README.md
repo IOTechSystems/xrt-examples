@@ -22,7 +22,6 @@ This section outlines the setup process for the IOTech OPC-UA browser. If you op
     ```shell
     docker pull iotechsys/opc-ua-browser:1.1
     ```
-
     
 2. **Run the Browser**:
     
@@ -83,7 +82,7 @@ We now have a OPC-UA Server working so lets create a simulated Modbus device for
     ```
 3. **Run the Container**:
     ```shell
-    docker run --name my_pymodbus_sim -v $(pwd)/sim_files:/sim_files --rm --network host iotechsys/pymodbus-sim:1.0 --profile /sim_files/modbus-profile.json --script /sim_files/MyScript --port 1502 --delay 1
+    docker run --name my_pymodbus_sim -v $(pwd)/sim_files:/sim_files --rm --network host iotechsys/pymodbus-sim:1.0 --profile /sim_files/modbus-profile.json --script /sim_files/MyScript.py --port 1502 --delay 1
     ```
     In this command we are mounting the sim_files directory which contains the logic for the simulator
 4. **Verify Run**:

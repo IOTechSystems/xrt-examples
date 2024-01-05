@@ -1,4 +1,4 @@
 {
   "Name": "serverlogger",
-  "Level": "trace"
+  "Level": "info"
 }

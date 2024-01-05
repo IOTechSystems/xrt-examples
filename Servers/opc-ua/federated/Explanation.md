@@ -5,7 +5,7 @@ This demonstration showcases the integration and interaction between Edge Connec
 Components:
 
  -   Modbus device: Device to be read
- -   Edge Connect Modbus Device Service: Responsible for    reading device data according to a specified schedule.
+ -   Edge Connect Modbus Device Service: Responsible for reading device data according to a specified schedule.
  -   MQTT Broker: Facilitates the transfer of data between the device service and the OPC-UA server.
  -   Edge Connect OPC-UA Server: a separate edge connect instance that receives and processes data for inclusion in the battery model.
  -   OPC-UA Browser: Enables viewing and interaction with the battery model data.
