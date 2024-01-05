@@ -49,7 +49,7 @@ Now we have the Browser working we can move on to setting up XRT OPC-UA Server f
     cd ./Servers/opc-ua/federated/opc-ua
     ```
 
-2. **Set Enviroment Variables**:
+2. **Set Environment Variables**:
 
     ```shell
     . ./../set_env.sh
@@ -116,7 +116,7 @@ Now we have the simulated modbus battery we can move on to reading our battery u
     cd ./Servers/opc-ua/federated/modbus-tcp
     ```
 
-2. **Set Enviroment Variables**:
+2. **Set Environment Variables**:
 
     ```shell
     . ./../set_env.sh
