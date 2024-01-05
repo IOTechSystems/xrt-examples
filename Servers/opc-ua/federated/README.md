@@ -134,7 +134,7 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 
    Now if we go onto our opc-ua browser we should see if we go into you should see this value incrementing by one every second:
 
-   modbus device -> Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
+Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
 ![Alt text](images/Opc-ua-browser2.png)
 
     In the sparkplug/xrt/modbus-device-1 folder if you find a variable tmp_sf this can be used that the communication is two way. You can write a value to this property by clicking the pencil icon in the value cell.  
