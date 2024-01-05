@@ -1,6 +1,6 @@
 ## What does this show?
 
-This demonstration showcases the integration and interaction between Edge Connect Modbus Device Services and an OPC-UA server using MQTT. The focus is on monitoring and manipulating temperature data from battery cells. Although a simple demo running on one machine this is design to show how you can use XRT across multiple hardware nodes for example a gateway running a opc-ua server with multiple hardware nodes running device services sending data.
+This demonstration showcases the integration and interaction between Edge Connect Modbus Device Services and an OPC-UA server using Sparkplug over MQTT. The focus is on monitoring and manipulating temperature data from battery cells. Although a simple demo running on one machine, this is designed to show how you can use XRT across multiple hardware nodes, for example a gateway running a opc-ua server with multiple hardware nodes running device services sending data.
 
 Components:
 
