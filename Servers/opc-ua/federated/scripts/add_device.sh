@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/modbus_tcp -m \ 
+mosquitto_pub -t spBv1.0/iotech/REQUEST/xrt/modbus_tcp -m \
     '{
       "client": "example",
       "request_id":"1010",
