@@ -71,7 +71,7 @@ Now we have the Browser working we can move on to setting up XRT OPC-UA Server f
 
     When the Security pop up come up just click 'SAVE AND CONNECT' as for this example no security is set.
 
-    You should be able to see the nodeset model loaded in under:
+You should be able to see the model data defined by `opc-ua/deployment/models/Sunspec_Model805.json` loaded in under:
 
     Objects -> Model805
 
