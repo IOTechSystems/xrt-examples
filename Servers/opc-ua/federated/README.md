@@ -2,7 +2,7 @@
 
 This example demonstrates how to operate the OPC UA server using a OPC UA nodeset and model to read a modbus device. The nodeset used is a
 [Sunspec model](https://sunspec.org/wp-content/uploads/2015/06/SunSpec-Information-Models-12041.pdf) that has been converted to an OPC UA Nodeset.
- Specifically, it utilizes a modified version of Sunspec's [Model805](https://github.com/sunspec/models/blob/master/json/model_805.json) to create an instance of a Lithium-ion module.
+ Specifically, it uses Sunspec's [Model805](https://github.com/sunspec/models/blob/master/json/model_805.json) to create an instance of a Lithium-ion module.
 
 The model in the OPC UA server is a battery module model with three cells. This battery module will be simulated using a Modbus-tcp simulator where it will be read by a schedule of a XRT device service. This XRT device service sends over Sparkplug this data to the XRT OPC UA Server where you the user can retrieve it using a OPC UA Browser.
 
