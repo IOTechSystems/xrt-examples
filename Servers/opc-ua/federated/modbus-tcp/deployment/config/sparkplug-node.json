@@ -1,0 +1,15 @@
+{
+    "Factory": "xrt_sparkplug_factory",
+    "Library": "libxrt-sparkplug.so",
+    "NodeId": "${SPARKPLUG_NODE}",
+    "StateDir":"${XRT_STATE_DIR}/sparkplug",
+    "AppStateWait": [  ],
+    "WaitTimeout": 5,
+    "EnableMetricLog": true,
+    "EnableExitCmd": true,
+    "HeartbeatInterval": 0,
+    "Bus": "bus",
+    "Logger": "logger",
+    "ThreadPool": "pool",
+    "Scheduler": "sched"
+  }

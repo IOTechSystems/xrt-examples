@@ -1,0 +1,16 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "modbus-device1",
+      "profileName": "modbus-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "172.17.0.1",
+          "Port": 1502,
+          "UnitID": 1
+        }
+      }
+    }
+  ]
+}
