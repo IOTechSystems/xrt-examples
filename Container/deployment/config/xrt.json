@@ -1,0 +1,4 @@
+{
+  "ServerId":"container-server",
+  "NodeId":"${SPARKPLUG_NODE}"
+}
