@@ -1,0 +1,24 @@
+{
+  "Library": "libxrt-ethernet-ip-device-service.so",
+  "Factory": "xrt_ethernet_ip_device_service_factory",
+  "Name": "ethernet_ip",
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir": "${XRT_STATE_DIR}/profiles",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Group":"${SPARKPLUG_GROUP}",
+  "Scheduler": "5-sched",
+  "Logger": "11-logger_debug",
+  "ThreadPool": "3-pool",
+  "SchedulesThreadPool": "4-devpool",
+  "Bus": "6-bus",
+  "DeviceDownTimeout": 60,
+  "AllowedFails": 5,
+  "Driver": {
+    "NetworkInterface": "eth0",
+    "ConnectionTimeout": 3000,
+    "DiscoveryDuration": 4000,
+    "DiscoveryRetries": 2,
+    "DirectedBroadcastDiscovery": false
+  }
+}

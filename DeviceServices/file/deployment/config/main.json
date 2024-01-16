@@ -7,5 +7,6 @@
   "6-bus": "XRT::Bus",
   "7-mqtt_bridge": "XRT::MQTTBridge",
   "8-sparkplug": "XRT::Sparkplug",
-  "9-file": "XRT::FileDeviceService"
+  "9-sparkplug-node": "XRT::SparkplugNode",
+  "10-file": "XRT::FileDeviceService"
 }

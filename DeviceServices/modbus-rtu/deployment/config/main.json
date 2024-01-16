@@ -5,8 +5,9 @@
   "4-devpool":"IOT::ThreadPool",
   "5-sched":"IOT::Scheduler",
   "6-bus":"XRT::Bus",
-  "7-mqtt": "XRT::MQTTBridge",
-  "8-sparkplug": "XRT::Sparkplug",
-  "9-modbus":"XRT::ModbusDeviceService",
-  "10-logger_debug":"IOT::Logger"
+  "7-mqtt":"XRT::MQTTBridge",
+  "8-sparkplug":"XRT::Sparkplug",
+  "9-sparkplug-node":"XRT::SparkplugNode",
+  "10-modbus":"XRT::ModbusDeviceService",
+  "11-logger_debug":"IOT::Logger"
 }

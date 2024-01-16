@@ -7,5 +7,6 @@
   "6-bus":"XRT::Bus",
   "7-bridgesub":"XRT::MQTTBridge",
   "8-sparkplug": "XRT::Sparkplug",
-  "9-virtual":"XRT::VirtualDeviceService"
+  "9-sparkplug-node": "XRT::SparkplugNode",
+  "10-virtual":"XRT::VirtualDeviceService"
 }

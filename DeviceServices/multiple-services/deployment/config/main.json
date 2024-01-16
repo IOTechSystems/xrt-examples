@@ -7,8 +7,9 @@
   "6-bus": "XRT::Bus",
   "7-mqtt": "XRT::MQTTBridge",
   "8-sparkplug": "XRT::Sparkplug",
-  "9-bacnet_ip": "XRT::BACnetIPDeviceService",
-  "10-modbus": "XRT::ModbusDeviceService",
-  "11-opc_ua": "XRT::OPCUADeviceService",
-  "12-logger_debug":"IOT::Logger"
+  "9-sparkplug-node": "XRT::SparkplugNode",
+  "10-bacnet_ip": "XRT::BACnetIPDeviceService",
+  "11-modbus": "XRT::ModbusDeviceService",
+  "12-opc_ua": "XRT::OPCUADeviceService",
+  "13-logger_debug":"IOT::Logger"
 }

@@ -8,15 +8,15 @@ end
 function sub_callback (data)
   data.readings.Uptime.value = mod_uptime (data.readings.Uptime.value)
   data.readings.Uptime.type = "string"
-  publish (pub, data)
+  xrt_bus_publish (pub, data)
 end
 
 function sch_callback (data_cb)
   print ("In sch_callback:", data_cb, local_data)
 end
 
-sub = sub or sub_alloc (iot_bus, sub_callback, "device/data")
-pub = pub or pub_alloc (iot_bus, "device/processed")
+sub = sub or xrt_bus_sub_alloc (xrt_lua, sub_callback, "device/data")
+pub = pub or xrt_bus_pub_alloc (xrt_lua, "device/processed")
 
 -- lua_engine, schedule_callback, argument, period(ms), delay(ms), repeat
-sch = sch or schedule_create (xrt_lua, sch_callback, local_data, 1000, 500, 6)
+sch = sch or xrt_schedule_alloc (xrt_lua, sch_callback, local_data, 1000, 500, 6)
