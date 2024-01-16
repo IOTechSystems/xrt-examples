@@ -1,0 +1,18 @@
+{
+  "apiVersion": "v2",
+  "schedules": 
+  [
+    {
+      "device": "modbus-device1",
+      "interval": 500000,
+      "name": "modbus-example-schedule1",
+      "on_change": false,
+      "resource": [
+        "cell_1_tmp",
+        "cell_2_tmp",
+        "cell_3_tmp",
+        "tmp_sf"
+      ]
+    }
+  ]
+}

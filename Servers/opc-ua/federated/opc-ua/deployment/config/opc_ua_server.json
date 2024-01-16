@@ -1,0 +1,16 @@
+{
+  "Library": "libxrt-opc-ua-server.so",
+  "Factory": "xrt_opc_ua_server_factory",
+  "Bus": "bus",
+  "ThreadPool": "pool",
+  "Logger": "serverlogger",
+  "Port": 4840,
+  "EnableSparkplug": true,
+  "EnableNACK": true,
+  "ModelPaths": [
+    "${XRT_MODELS_DIR}/Sunspec_Model805.json"
+  ],
+  "NodesetPaths": [
+    "${XRT_NODESET_DIR}/Sunspec.Model805.xml"
+  ]
+}

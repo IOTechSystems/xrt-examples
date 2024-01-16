@@ -1,0 +1,414 @@
+{
+  "name": "modbus-profile",
+  "apiVersion": "v2",
+  "deviceResources": [
+    {
+      "name": "cell_1_st",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 0
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_1_tmp",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 1
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_1_v",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 2
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    }
+    ,{
+      "name": "cell_2_st",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 3
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_2_tmp",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 4
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_2_v",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 5
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_3_st",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 6
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_3_tmp",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 7
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "cell_3_v",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 8
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Celltmpavg",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 9
+      },
+      "properties": {
+        "valueType": "INT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Celltmpmax",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 10
+      },
+      "properties": {
+        "valueType": "INT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Celltmpmaxcell",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 11
+      },
+      "properties": {
+        "valueType": "INT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Celltmpmin",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 12
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Celltmpmincell",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 13
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cellv_sf",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 14
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cellvavg",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 15
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cellvmax",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 16
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cellvmaxcell",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 17
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cellvmin",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 18
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Cellvmincell",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 19
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Dod",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 20
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Dod_sf",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 21
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "id",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 22
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "L",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 23
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Modidx",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 24
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Ncell",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 25
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "NCellbal",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 26
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Ncyc",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 27
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Sn",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 28
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Soc",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 29
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Soc_sf",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 30
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Soh",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 31
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Soh_sf",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 32
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "Stridx",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 33
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "tmp_sf",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 34
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "V",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 35
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "V_sf",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 36
+      },
+      "properties": {
+        "valueType": "UINT16",
+        "readWrite": "RW"
+      }
+    }
+  ]
+}
+

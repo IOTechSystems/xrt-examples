@@ -1,0 +1,183 @@
+{
+	"apiVersion": "v2",
+	"nodeModels": {
+		"Model805": {
+			"definitionNodeId": "ns=1;i=10000",
+			"sparkplugDeviceName": "modbus-device1",
+			"sparkplugNodeId": "xrt",
+			"references": {
+				"Lithium-ion-module-cell-container": {
+					"definitionNodeId": "ns=1;i=10001",
+					"references": {
+						"Lithium-ion-module-cell_1": {
+							"definitionNodeId": "ns=1;i=10004",
+							"references": {
+								"cell_1_st": {
+									"definitionNodeId": "ns=1;i=10009",
+									"sparkplugMetricName": "cell_1_st"
+								},
+								"cell_1_tmp": {
+									"definitionNodeId": "ns=1;i=10007",
+									"sparkplugMetricName": "cell_1_tmp"
+								},
+								"cell_1_v": {
+									"definitionNodeId": "ns=1;i=10005",
+									"sparkplugMetricName": "cell_1_v"
+								}
+							}
+						},
+						"Lithium-ion-module-cell_2": {
+							"definitionNodeId": "ns=1;i=10004",
+							"references": {
+								"cell_2_st": {
+									"definitionNodeId": "ns=1;i=10009",
+									"sparkplugMetricName": "cell_2_st"
+								},
+								"cell_2_tmp": {
+									"definitionNodeId": "ns=1;i=10007",
+									"sparkplugMetricName": "cell_2_tmp"
+								},
+								"cell_2_v": {
+									"definitionNodeId": "ns=1;i=10005",
+									"sparkplugMetricName": "cell_2_v"
+								}
+							}
+						},
+						"Lithium-ion-module-cell_3": {
+							"definitionNodeId": "ns=1;i=10004",
+							"references": {
+								"cell_3_st": {
+									"definitionNodeId": "ns=1;i=10009",
+									"sparkplugMetricName": "cell_3_st"
+								},
+								"cell_3_tmp": {
+									"definitionNodeId": "ns=1;i=10007",
+									"sparkplugMetricName": "cell_3_tmp"
+								},
+								"cell_3_v": {
+									"definitionNodeId": "ns=1;i=10005",
+									"sparkplugMetricName": "cell_3_v"
+								}
+							}
+						}
+					}
+				},
+				"Celltmpavg": {
+					"definitionNodeId": "ns=1;i=10030",
+					"sparkplugMetricName": "Celltmpavg"
+				},
+				"Celltmpmax": {
+					"definitionNodeId": "ns=1;i=10026",
+					"sparkplugMetricName": "Celltmpmax"
+				},
+				"Celltmpmaxcell": {
+					"definitionNodeId": "ns=1;i=10027",
+					"sparkplugMetricName": "Celltmpmaxcell"
+				},
+				"Celltmpmin": {
+					"definitionNodeId": "ns=1;i=10028",
+					"sparkplugMetricName": "Celltmpmax"
+				},
+				"Celltmpmincell": {
+					"definitionNodeId": "ns=1;i=10029",
+					"sparkplugMetricName": "Celltmpmaxcell"
+				},
+				"Cellv_sf": {
+					"definitionNodeId": "ns=1;i=10037",
+					"sparkplugMetricName": "Cellv_sf"
+				},
+				"Cellvavg": {
+					"definitionNodeId": "ns=1;i=10025",
+					"sparkplugMetricName": "Cellvavg"
+				},
+				"Cellvmax": {
+					"definitionNodeId": "ns=1;i=10021",
+					"sparkplugMetricName": "Cellvmin"
+				},
+				"Cellvmaxcell": {
+					"definitionNodeId": "ns=1;i=10022",
+					"sparkplugMetricName": "Cellvmincell"
+				},
+				"Cellvmin": {
+					"definitionNodeId": "ns=1;i=10023",
+					"sparkplugMetricName": "Cellvmin"
+				},
+				"Cellvmincell": {
+					"definitionNodeId": "ns=1;i=10024",
+					"sparkplugMetricName": "Cellvmincell"
+				},
+				"Dod": {
+					"definitionNodeId": "ns=1;i=10017",
+					"sparkplugMetricName": "Dod"
+				},
+				"Dod_sf": {
+					"definitionNodeId": "ns=1;i=10035",
+					"sparkplugMetricName": "Dod_sf"
+				},
+				"id": {
+					"definitionNodeId": "ns=1;i=10011",
+					"sparkplugMetricName": "id"
+				},
+				"L": {
+					"definitionNodeId": "ns=1;i=10012",
+					"sparkplugMetricName": "L"
+				},
+				"Modidx": {
+					"definitionNodeId": "ns=1;i=10014",
+					"sparkplugMetricName": "Modidx"
+				},
+				"Ncell": {
+					"definitionNodeId": "ns=1;i=10015",
+					"sparkplugMetricName": "Ncell"
+				},
+				"NCellbal": {
+					"definitionNodeId": "ns=1;i=10031",
+					"sparkplugMetricName": "NCellbal"
+				},
+				"Ncyc": {
+					"definitionNodeId": "ns=1;i=10019",
+					"sparkplugMetricName": "Ncyc"
+				},
+				"Sn": {
+					"definitionNodeId": "ns=1;i=10032",
+					"sparkplugMetricName": "Sn"
+				},
+				"Soc": {
+					"definitionNodeId": "ns=1;i=10016",
+					"sparkplugMetricName": "Soc"
+				},
+				"Soc_sf": {
+					"definitionNodeId": "ns=1;i=10033",
+					"sparkplugMetricName": "Soc_sf"
+				},
+				"Soh": {
+					"definitionNodeId": "ns=1;i=10018",
+					"sparkplugMetricName": "Soh"
+				},
+				"Soh_sf": {
+					"definitionNodeId": "ns=1;i=10034",
+					"sparkplugMetricName": "Soh_sf"
+				},
+				"Stridx": {
+					"definitionNodeId": "ns=1;i=10013",
+					"sparkplugMetricName": "Stridx"
+				},
+				"tmp_sf": {
+					"definitionNodeId": "ns=1;i=10038",
+					"sparkplugMetricName": "tmp_sf"
+				},
+				"V": {
+					"definitionNodeId": "ns=1;i=10020",
+					"sparkplugMetricName": "V"
+				},
+				"V_sf": {
+					"definitionNodeId": "ns=1;i=10036",
+					"sparkplugMetricName": "V_sf"
+				}
+			}
+		}
+	},
+	"namespaceUris": [
+		"https://sunspec.org"
+	]
+}
