@@ -2,9 +2,9 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
-    "xrt/devices/canbus/telemetry",
     "xrt/devices/canbus/reply",
-    "xrt/devices/canbus/status"
+    "xrt/devices/canbus/status",
+    "xrt/devices/canbus/telemetry"
   ],
   "MQTTPatterns": [ "xrt/devices/canbus/request" ],
   "MQTTConfig":
@@ -23,6 +23,6 @@
   },
   "Cookie": 125,
   "Bus": "bus",
-  "QueueSize": 200,
+  "QueueSize": 10000,
   "Logger": "logger"
 }

@@ -2,16 +2,17 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "name": "canbus-device",
+      "name": "canbus-example",
       "description": "Device modeling message with ID 0xcf003fe : BO_ 2364539902 EEC2: 8 Vector__XXX",
       "profileName": "canbus-profile",
       "protocols": {
         "CANbus": {
           "Network": "can0",
+          "NetType": "CAN",
           "Standard": "J1939",
           "ID": 2364539902,
           "DataSize": 8
-        }
+      }
       }
     }
   ]

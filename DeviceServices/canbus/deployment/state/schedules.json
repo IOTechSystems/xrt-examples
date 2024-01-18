@@ -1,14 +1,15 @@
-{"apiVersion":"v2","schedules":
-  [
+{
+  "apiVersion": "v2",
+  "schedules": [
     {
-      "name":"example-sched",
-      "device":"canbus-device",
-      "interval": 2000000,
-      "onChange": true,
-      "resource":[".*"],
-      "options" : {
-        "Cyclic" : true
-      }
+      "device": "canbus-device",
+      "interval": 200000,
+      "name": "sched-1",
+      "on_change": true,
+      "options": { "Cyclic": true },
+      "publish": false,
+      "resource": [".*"],
+      "units": true
     }
   ]
 }

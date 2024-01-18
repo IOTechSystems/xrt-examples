@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page shows you how to setup and run the CANbus example.
+This page shows you how to setup and run the CANbus example. Note that the CANbus example requires hardware as no simulator is available at present.
 
 For more information about the Device Service please review the [CANbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/canbus-device-service-component.html)
 
@@ -10,16 +10,7 @@ For more information about the Device Service please review the [CANbus Device S
 
 ### **Setup**
 
-Follow the instructions in [CANbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/canbus-device-service-component.html) for setting up a CANbus network.
-
-
-### **Run the Simulator**
-
-*For more information about the CANbus device simulator, see [CANbus Simulator](https://docs.iotechsys.com/edge-xrt21/simulators/canbus/overview.html).*
-
-```bash
-./commands/start_device_sim.sh
-```
+Follow the instructions in [CANbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/canbus-device-service-component.html) for setting up a CANbus device Service.
 
 ### **Set Environment Variables**
 
