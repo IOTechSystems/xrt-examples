@@ -8,6 +8,13 @@ For more information about the Device Service please review the [CANbus Device S
 
 ## Getting Started
 
+### Hardware Configuration
+The scenario implemented in this example features the following hardware:
+
+[M5Stack Basic Kit](https://shop.m5stack.com/products/basic-core-iot-development-kit?variant=16804801937498) running a CANbus data streaming program
+
+USR-CANET200 CAN to Ethernet adaptor
+
 ### **Setup**
 
 Follow the instructions in [CANbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/canbus-device-service-component.html) for setting up a CANbus device Service.
