@@ -140,6 +140,6 @@ Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
 ![How to write values](images/Opc-ua-browser2.gif)
 
 
-In the sparkplug/xrt/modbus-device-1 folder if you find a variable tmp_sf this can be used that the communication is two way. You can write a value to this property by clicking the pencil icon in the value cell.  
+In the sparkplug/xrt/modbus-device-1 folder if you find a variable tmp_sf this can be used that the communication is two way. You can write a value to this property by clicking the pencil icon in the value cell or right clicking the resource in the hierarchical menu and clicking write in the context menu.  
 
 The value in tmp_1 is multiplied by the value in the tmp_sf and written to tmp_2 in the simulated device. this is then read by our schedule and send up to the OPC UA server showing a full round trip of data!
