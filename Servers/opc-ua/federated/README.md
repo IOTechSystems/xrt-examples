@@ -136,7 +136,8 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 
 Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
 
-![Alt text](images/Opc-ua-browser2.png)
+
+![How to write values](images/Opc-ua-browser2.gif)
 
 
 In the sparkplug/xrt/modbus-device-1 folder if you find a variable tmp_sf this can be used that the communication is two way. You can write a value to this property by clicking the pencil icon in the value cell.  
