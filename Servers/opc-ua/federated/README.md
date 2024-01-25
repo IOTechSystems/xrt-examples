@@ -132,7 +132,7 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 
 4. **Seeing the results! :**
 
-   Now if we go onto our OPC UA browser we should see if we go into you should see this value incrementing by one every second:
+   Now if you go onto our OPC-UA browser you should see cell_1_tmp's value incrementing by one every second:
 
 Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
 
