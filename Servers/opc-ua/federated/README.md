@@ -132,11 +132,11 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 
 4. **Seeing the results! :**
 
-   Now if we go onto our OPC UA browser we should see if we go into you should see this value incrementing by one every second:
+   Now if you go onto our OPC UA browser you should see cell_1_tmp's value incrementing by one every second:
 
 Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
-![Alt text](images/Opc-ua-browser2.png)
 
-    In the sparkplug/xrt/modbus-device-1 folder if you find a variable tmp_sf this can be used that the communication is two way. You can write a value to this property by clicking the pencil icon in the value cell.  
 
-    The value in tmp_1 is multiplied by the value in the tmp_sf and written to tmp_2 in the simulated device. this is then read by our schedule and send up to the OPC UA server showing a full round trip of data!
+![How to write values](images/Opc-ua-browser2.gif)
+
+In the sparkplug/xrt/modbus-device-1 folder, if you find the variable cell_1_tmp. You can write a value to this property either by clicking the pencil icon in the value cell or by right-clicking the resource in the hierarchical menu and selecting 'Write' from the context menu.
