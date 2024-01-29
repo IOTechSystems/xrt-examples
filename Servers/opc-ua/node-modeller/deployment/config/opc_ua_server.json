@@ -11,5 +11,5 @@
     }
   ],
   "Logger": "serverlogger",
-  "OPCUAServerConfig": "./config/opc_ua_server_config.json",
+  "OPCUAServerConfig": "${XRT_CONFIG_DIR}/opc_ua_server_config.json",
 }
