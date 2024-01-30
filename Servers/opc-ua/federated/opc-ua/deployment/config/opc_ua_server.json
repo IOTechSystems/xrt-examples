@@ -4,13 +4,7 @@
   "Bus": "bus",
   "ThreadPool": "pool",
   "Logger": "serverlogger",
-  "Port": 4840,
+  "OPCUAServerConfig": "${XRT_CONFIG_DIR}/opc_ua_server_config.json",
   "EnableSparkplug": true,
-  "EnableNACK": true,
-  "ModelPaths": [
-    "${XRT_MODELS_DIR}/Sunspec_Model805.json"
-  ],
-  "NodesetPaths": [
-    "${XRT_NODESET_DIR}/Sunspec.Model805.xml"
-  ]
+  "EnableNACK": true
 }
