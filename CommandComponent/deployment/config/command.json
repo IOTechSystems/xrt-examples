@@ -4,5 +4,6 @@
   "Name": "command",
   "Bus": "bus",
   "RequestTopic": "xrt/command/request",
-  "ReplyTopic": "xrt/command/reply"
+  "ReplyTopic": "xrt/command/reply",
+  "DiscoveryTopic": "xrt/command/discovery"
 }
