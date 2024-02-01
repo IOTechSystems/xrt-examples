@@ -10,9 +10,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual -m
   "device_info":  {
     "profileName": "device-virtual",
     "protocols":{
-      "Other":{
-        "Address": "device-virtual-01"
-      }
+      "Virtual": {}
     }
   }
 }'
