@@ -5,9 +5,7 @@
       "name": "virtual-device1",
       "profileName": "device-virtual",
       "protocols": {
-        "Other": {
-          "Address": "device-virtual-01"
-        }
+        "Virtual": {}
       }
     }
   ]

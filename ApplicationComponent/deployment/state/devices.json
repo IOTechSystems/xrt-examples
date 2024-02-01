@@ -5,18 +5,14 @@
       "name": "Random-Device1",
       "profileName": "device-virtual1",
       "protocols": {
-        "Other": {
-          "Address": "device-virtual-01"
+          "Virtual": {}
         }
-      }
     },
     {
       "name": "Random-Device2",
       "profileName": "device-virtual2",
       "protocols": {
-        "Other": {
-          "Address": "device-virtual-02"
-        }
+        "Virtual": {}
       }
     }
   ]
