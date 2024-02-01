@@ -10,9 +10,7 @@ mosquitto_pub -t xrt/devices/virtual/request -m \
   "device_info":  {
     "profileName": "device-virtual",
     "protocols":{
-      "Other":{
-        "Address": "device-virtual-01"
-      }
+      "Virtual": {}
     }
   }
 }'
