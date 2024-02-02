@@ -4,7 +4,9 @@
     {
       "name": "Motor",
       "profileName": "MotorSim",
-      "protocols": { "Other": { "Address": "device-virtual-motor-01" } }
+      "protocols": {
+        "Virtual": {}
+      }
     }
   ]
 }
