@@ -3,6 +3,7 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [ 
     "xrt/request",
+    "xrt/discovery",
     "+/devices/+/request"
   ],
   "MQTTPatterns": [ 
