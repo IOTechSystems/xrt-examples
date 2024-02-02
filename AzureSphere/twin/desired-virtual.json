@@ -388,9 +388,7 @@
         "name": "Virtual-Device",
         "profileName": "device-virtual",
         "protocols": {
-          "Other": {
-            "Address": "device-virtual-int-01"
-          }
+          "Virtual": {}
         }
       }
     ],
