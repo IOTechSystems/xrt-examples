@@ -2,12 +2,10 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [ 
-    "xrt/request",
     "xrt/discovery",
     "+/devices/+/request"
   ],
   "MQTTPatterns": [ 
-    "xrt/reply",
     "xrt/discovery",
     "+/devices/+/telemetry",
     "+/devices/+/reply",
