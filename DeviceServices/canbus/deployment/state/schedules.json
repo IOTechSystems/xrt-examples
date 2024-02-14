@@ -2,7 +2,7 @@
   "apiVersion": "v2",
   "schedules": [
     {
-      "device": "canbus-device",
+      "device": "canbus-example",
       "interval": 200000,
       "name": "sched-1",
       "on_change": true,

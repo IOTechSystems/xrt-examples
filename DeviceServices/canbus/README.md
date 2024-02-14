@@ -46,6 +46,3 @@ xrt deployment/config
 ### Basic Operations 
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
-
-note!!!
-  To use the commands that include 'string' in the name, update the *profiles.json* to include the profile *canbus-profile-strings*.
