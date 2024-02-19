@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run --rm -d --name pymodbus-sim iotechsys/pymodbus-sim:1.0 --profile example_profiles/modbus-example-profile-2.2.json --port 1502
+docker run --rm -d -v $PWD/deployment/profiles:/profiles --name pymodbus-sim iotechsys/pymodbus-sim:1.0 --profile /profiles/modbus-sim-profile.json --port 1502
