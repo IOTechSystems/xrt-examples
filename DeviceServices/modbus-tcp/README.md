@@ -23,7 +23,7 @@ We have provided a script to easily set these environment variables. Run:
 ```bash
 cd DeviceServices/modbus-tcp
 . ../../set_env_vars.sh
-export MODBUS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' modbus-sim)
+export MODBUS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' pymodbus-sim)
 export MODBUS_SIM_PORT=1502
 ```
 
