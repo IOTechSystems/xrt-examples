@@ -5,7 +5,7 @@
       "attributes":{
         "property":"occupancy",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"occupancy",
       "properties":{
@@ -17,7 +17,7 @@
       "attributes":{
         "property":"battery_low",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"battery_low",
       "properties":{
@@ -29,7 +29,7 @@
       "attributes":{
         "property":"tamper",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"tamper",
       "properties":{
@@ -43,7 +43,7 @@
         "minValue":0.0000000000000000e+00,
         "property":"battery",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"battery",
       "properties":{
@@ -55,7 +55,7 @@
       "attributes":{
         "property":"temperature",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"temperature",
       "properties":{
@@ -67,7 +67,7 @@
       "attributes":{
         "property":"illuminance",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"illuminance",
       "properties":{
@@ -79,7 +79,7 @@
       "attributes":{
         "property":"illuminance_lux",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"illuminance_lux",
       "properties":{
@@ -91,7 +91,7 @@
       "attributes":{
         "property":"humidity",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"humidity",
       "properties":{
@@ -105,7 +105,7 @@
         "minValue":0.0000000000000000e+00,
         "property":"linkquality",
         "reportable":true,
-        "explicitly_readable": false
+        "requestable": false
       },
       "name":"linkquality",
       "properties":{
