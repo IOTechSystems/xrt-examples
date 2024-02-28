@@ -52,7 +52,7 @@ Now we have the Browser working we can move on to setting up XRT OPC UA Server f
 2. **Set Environment Variables**:
 
     ```shell
-    . ../../../set_env.sh
+    . ../../../set_env_vars.sh
     ```
 
     An explanation for the manual setting of common device service environment variables can be found [here](https://github.com/IOTechSystems/xrt-examples/blob/v3.0-branch/DeviceServices/interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
@@ -119,7 +119,7 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 2. **Set Environment Variables**:
 
     ```shell
-    . ../../../set_env.sh
+    . ../../../set_env_vars.sh
     ```
 
     An explanation for the manual setting of common device service environment variables can be found [here](https://github.com/IOTechSystems/xrt-examples/blob/v3.0-branch/DeviceServices/interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
