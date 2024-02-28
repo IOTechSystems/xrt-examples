@@ -44,7 +44,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 cd Servers/opc-ua/basic/
-. ../../../set_env_vars.sh
+. ./../../../set_env_vars.sh
 export S7_SIM_ADDRESS=0.0.0.0
 export BACNET_IP_SIM_ADDRESS=<ip_of_sim>
 export MODBUS_SIM_ADDRESS=<ip_of_sim>
