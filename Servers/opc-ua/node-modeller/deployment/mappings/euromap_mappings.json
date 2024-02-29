@@ -1,0 +1,112 @@
+{
+  "mappings" : [
+    {
+      "nodeIdentifier" : "ns=5;i=6039",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-BarrelId"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6041",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-InProduction"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6040",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-Index"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6042",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-IsPresent"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6049",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-TZ1-ActualTemperature"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6055",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-TZ1-NominalTemperature"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6051",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-TZ1-ControlMode"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6053",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-TZ1-IsPresent"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6054",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "virtual", 
+        "device" : "virtual-device", 
+        "resource" : "IU1-TZ1-Name"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6044",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "s7", 
+        "device" : "s7-device", 
+        "resource" : "IU2-BarrelId"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6046",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "s7", 
+        "device" : "s7-device", 
+        "resource" : "IU2-InProduction"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=5;i=6047",
+      "valueMapping" : {
+        "serverId" : "xrt-opc-ua-example-server",
+        "deviceService" : "s7", 
+        "device" : "s7-device", 
+        "resource" : "IU2-IsPresent"
+      }
+    }
+  ]
+}
