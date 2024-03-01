@@ -25,5 +25,5 @@ export XRT_S7_PROFILE_DIR=../../../DeviceServices/s7/deployment/profiles
 export XRT_S7_STATE_DIR=../../../DeviceServices/s7/deployment/state
 
 # OPC UA Server node modelling example 
-export XRT_MODELS_DIR=$PWD/deployment/models
+export XRT_MAPPINGS_DIR=$PWD/deployment/mappings
 export XRT_NODESET_DIR=$PWD/deployment/nodesets
