@@ -39,8 +39,6 @@
     },
     {
       "attributes":{
-        "maxValue":1.0000000000000000e+02,
-        "minValue":0.0000000000000000e+00,
         "property":"battery",
         "reportable":true,
         "requestable": false
@@ -48,7 +46,9 @@
       "name":"battery",
       "properties":{
         "readWrite":"R",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 100
       }
     },
     {
@@ -101,8 +101,6 @@
     },
     {
       "attributes":{
-        "maxValue":2.5500000000000000e+02,
-        "minValue":0.0000000000000000e+00,
         "property":"linkquality",
         "reportable":true,
         "requestable": false
@@ -110,20 +108,22 @@
       "name":"linkquality",
       "properties":{
         "readWrite":"R",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 255
       }
     },
     {
       "attributes":{
-        "maxValue":3.0000000000000000e+00,
-        "minValue":0.0000000000000000e+00,
         "option":"temperature_precision",
         "reportable":false
       },
       "name":"temperature_precision",
       "properties":{
         "readWrite":"W",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 3
       }
     },
     {
@@ -160,15 +160,15 @@
     },
     {
       "attributes":{
-        "maxValue":3.0000000000000000e+00,
-        "minValue":0.0000000000000000e+00,
         "option":"humidity_precision",
         "reportable":false
       },
       "name":"humidity_precision",
       "properties":{
         "readWrite":"W",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 3
       }
     },
     {
