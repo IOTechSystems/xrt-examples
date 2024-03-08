@@ -16,28 +16,28 @@
     },
     {
       "attributes":{
-        "maxValue":2.5400000000000000e+02,
-        "minValue":0.0000000000000000e+00,
         "property":"brightness",
         "reportable":true
       },
       "name":"brightness",
       "properties":{
         "readWrite":"RW",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 254
       }
     },
     {
       "attributes":{
-        "maxValue":5.0000000000000000e+02,
-        "minValue":1.5000000000000000e+02,
         "property":"color_temp",
         "reportable":true
       },
       "name":"color_temp",
       "properties":{
         "readWrite":"RW",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 150,
+        "maximum": 500
       }
     },
     {
@@ -85,27 +85,27 @@
     },
     {
       "attributes":{
-        "maxValue":2.5500000000000000e+02,
-        "minValue":0.0000000000000000e+00,
         "property":"linkquality",
         "reportable":true
       },
       "name":"linkquality",
       "properties":{
         "readWrite":"",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 255
       }
     },
     {
       "attributes":{
-        "minValue":0.0000000000000000e+00,
         "option":"transition",
         "reportable":false
       },
       "name":"transition",
       "properties":{
         "readWrite":"W",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0
       }
     },
     {

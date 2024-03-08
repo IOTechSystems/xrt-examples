@@ -4,117 +4,126 @@
     {
       "attributes":{
         "property":"occupancy",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"occupancy",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"bool"
       }
     },
     {
       "attributes":{
         "property":"battery_low",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"battery_low",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"bool"
       }
     },
     {
       "attributes":{
         "property":"tamper",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"tamper",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"bool"
       }
     },
     {
       "attributes":{
-        "maxValue":1.0000000000000000e+02,
-        "minValue":0.0000000000000000e+00,
         "property":"battery",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"battery",
       "properties":{
-        "readWrite":"",
-        "valueType":"float64"
+        "readWrite":"R",
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 100
       }
     },
     {
       "attributes":{
         "property":"temperature",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"temperature",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"float64"
       }
     },
     {
       "attributes":{
         "property":"illuminance",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"illuminance",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"float64"
       }
     },
     {
       "attributes":{
         "property":"illuminance_lux",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"illuminance_lux",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"float64"
       }
     },
     {
       "attributes":{
         "property":"humidity",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"humidity",
       "properties":{
-        "readWrite":"",
+        "readWrite":"R",
         "valueType":"float64"
       }
     },
     {
       "attributes":{
-        "maxValue":2.5500000000000000e+02,
-        "minValue":0.0000000000000000e+00,
         "property":"linkquality",
-        "reportable":true
+        "reportable":true,
+        "requestable": false
       },
       "name":"linkquality",
       "properties":{
-        "readWrite":"",
-        "valueType":"float64"
+        "readWrite":"R",
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 255
       }
     },
     {
       "attributes":{
-        "maxValue":3.0000000000000000e+00,
-        "minValue":0.0000000000000000e+00,
         "option":"temperature_precision",
         "reportable":false
       },
       "name":"temperature_precision",
       "properties":{
         "readWrite":"W",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 3
       }
     },
     {
@@ -151,15 +160,15 @@
     },
     {
       "attributes":{
-        "maxValue":3.0000000000000000e+00,
-        "minValue":0.0000000000000000e+00,
         "option":"humidity_precision",
         "reportable":false
       },
       "name":"humidity_precision",
       "properties":{
         "readWrite":"W",
-        "valueType":"float64"
+        "valueType":"float64",
+        "minimum": 0,
+        "maximum": 3
       }
     },
     {
