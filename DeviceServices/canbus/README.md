@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the CANbus example. Note that the CANbus example requires hardware as no simulator is available at present.
 
-For more information about the Device Service please review the [CANbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/canbus-device-service-component.html)
+For more information about the Device Service please review the [CANbus Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/canbus-device-service-component.html)
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ Follow the instructions in [CANbus Device Service](https://docs.iotechsys.com/ed
 
 We have provided a script to easily set these environment variables. Run:
 ```bash
-. ./commands/set_env_vars.sh
+. ../../set_env_vars.sh
 ```
 *Note the dot before the path to the script, which is required to set the environment variables in the executing shell.*
 
