@@ -1,0 +1,18 @@
+{
+  "Library": "libxrt-canbus-device-service.so",
+  "Factory": "xrt_canbus_device_service_factory",
+  "Name":"canbus",
+  "TelemetryTopic":"xrt/devices/canbus/telemetry",
+  "RequestTopic": "xrt/devices/canbus/request",
+  "ReplyTopic": "xrt/devices/canbus/reply",
+  "StatusTopic": "xrt/devices/canbus/status",
+  "AutoRegister": false,
+  "PublishRegisteredDevices": true,
+  "PublishAttributes": true,
+  "ProfileDir":"${XRT_PROFILE_DIR}",
+  "StateDir":"${XRT_STATE_DIR}",
+  "Scheduler":"sched",
+  "Logger":"logger",
+  "ThreadPool":"pool",
+  "Bus":"bus"
+}
