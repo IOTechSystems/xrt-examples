@@ -17,7 +17,7 @@ USR-CANET200 CAN to Ethernet adaptor
 
 ### **Setup**
 
-Follow the instructions in [CANbus Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/canbus-device-service-component.html) for setting up a CANbus device Service.
+Follow the instructions in [CANbus Device Service](https://docs.iotechsys.com/edge-xrt22/device-service-components/canbus-device-service-component.html) for setting up a CANbus device Service.
 
 ### **Set Environment Variables**
 
