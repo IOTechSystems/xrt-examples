@@ -1,7 +1,7 @@
 {
   "Library": "libxrt-modbus-device-service.so",
   "Factory": "xrt_modbus_device_service_factory",
-  "Name": "modbus_tcp",
+  "Name": "modbus-tcp",
   "ProfileDir": "${XRT_STATE_DIR}/profiles",
   "StateDir": "${XRT_STATE_DIR}",
   "Group":"${SPARKPLUG_GROUP}",
