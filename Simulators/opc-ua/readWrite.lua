@@ -37,33 +37,17 @@ function Update()
   local counter_variant = Variant.new(DataType.DOUBLE)
   local counter_value_variant = counter_node:getValue()
   local counter_value
-  if counter_value_variant ~= nil then
-    counter_value = counter_value_variant:getScalar()
-    if counter_value ~= nil then
-      counter_value = counter_value + 1
-      counter_variant:setScalar(counter_value)
-      counter_node:setValue(counter_variant)
-      print("counter set to :",counter_value)
-    else
-      print("Counter value is nil.")
-    end
-  else
-    print("Counter value variant is nil.")
-  end
+  counter_value = counter_value_variant:getScalar()
+  counter_value = counter_value + 1
+  counter_variant:setScalar(counter_value)
+  counter_node:setValue(counter_variant)
+  print("counter set to :",counter_value)
 
   -- Attempt to calculate the new output value based on the counter and scale factor
   local sf_value_variant = sf_node:getValue()
-  if sf_value_variant ~= nil then
-    local sf_value = sf_value_variant:getScalar()
-    if sf_value ~= nil and counter_value ~= nil then
-      local variant = Variant.new(DataType.DOUBLE)
-      variant:setScalar(counter_value * sf_value)
-      out_node:setValue(variant)
-      print("output set to  :",counter_value * sf_value)
-    else
-      print("Scale factor value is nil or counter value is nil.")
-    end
-  else
-    print("Scale factor value variant is nil.")
-  end
+  local sf_value = sf_value_variant:getScalar()
+  local variant = Variant.new(DataType.DOUBLE)
+  variant:setScalar(counter_value * sf_value)
+  out_node:setValue(variant)
+  print("output set to  :",counter_value * sf_value)
 end
