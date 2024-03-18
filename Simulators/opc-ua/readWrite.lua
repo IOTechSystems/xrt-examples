@@ -36,6 +36,10 @@ function Update()
   -- Attempt to get the current value of the counter node
   local counter_variant = Variant.new(DataType.DOUBLE)
   local counter_value_variant = counter_node:getValue()
+  if counter_value_variant == nil then
+    print("error retrieving Counter")
+    return
+  end
   local counter_value
   counter_value = counter_value_variant:getScalar()
   counter_value = counter_value + 1
@@ -45,6 +49,10 @@ function Update()
 
   -- Attempt to calculate the new output value based on the counter and scale factor
   local sf_value_variant = sf_node:getValue()
+  if sf_value_variant == nil then
+    print("error retrieving Scalefactor")
+    return
+  end
   local sf_value = sf_value_variant:getScalar()
   local variant = Variant.new(DataType.DOUBLE)
   variant:setScalar(counter_value * sf_value)
