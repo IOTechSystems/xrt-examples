@@ -1,14 +1,21 @@
 # OPC-UA Simulator examples
 
-This folder contains a number of examples showcasing some of the functionality that can be implemented in the OPC-UA simulator with Lua scripting.
+This folder contains a number of examples showcasing some of the functionality that can be implemented in the OPC UA simulator with Lua scripting.
 
 ## Examples
 
 [**Simulation**](simulation.lua) 
 
 - Creates a scalar and array variable node for each of the supported datatypes.
-- Mimics the simulation nodes found on the popular prosys OPC-UA simulator.
+- Mimics the simulation nodes found on the popular prosys OPC UA simulator.
 - Creates a variable node for each of the supported node types. 
+
+[**Read and Write to Server**](readwrite.lua)
+
+- Creates a Counter, Scale_factor and Output Variable node
+- Increments the Counter by 1 every update
+- Sets Output to be Counter * ScaleFactor every update
+- You can modify ScaleFactor in your OPC UA browser to change the value in output
 
 [**Method Node Example**](methodnodes.lua) 
 

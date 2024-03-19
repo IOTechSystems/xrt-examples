@@ -251,20 +251,20 @@ function Update()
 
   --counter
   counter_variant:setScalar(counter_variant:getScalar() + 1)
-  counter:updateValue()
+  counter:setValue(counter_variant)
   --random
   random_variant:setScalar(round(math.random(-20000,20000) / 10000, 8))
-  random:updateValue()
+  random:setValue(random_variant)
   --sawtooth
   sawtooth_variant:setScalar(round(2 * (t % (2*math.pi) * 1/math.pi - 1), 8))
-  sawtooth:updateValue()
+  sawtooth:setValue(sawtooth_variant)
   --sinusoid
   sinusoid_variant:setScalar(round(2 * math.sin(t), 8))
-  sinusoid:updateValue()
+  sinusoid:setValue(sinusoid_variant)
   --square
   square_variant:setScalar(sign(math.sin(t)) * 2)
-  square:updateValue()
+  square:setValue(square_variant)
   --triangle
   triangle_variant:setScalar(round(2 * math.abs((t-math.pi/2) % (2*math.pi) * 1/math.pi - 1) - 1, 8))
-  triangle:updateValue()
+  triangle:setValue(triangle_variant)
 end
