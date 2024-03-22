@@ -1,0 +1,268 @@
+{
+	"mappings" : [		{
+		"nodeIdentifier" : "ns=1;i=10009",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_1_st"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10007",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_1_tmp"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10005",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_1_v"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10009",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_2_st"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10007",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_2_tmp"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10005",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_2_v"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10009",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_3_st"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10007",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_3_tmp"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10005",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "cell_3_v"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10030",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Celltmpavg"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10026",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Celltmpmax"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10027",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Celltmpmaxcell"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10028",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Celltmpmax"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10029",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Celltmpmaxcell"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10037",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Cellv_sf"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10025",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Cellvavg"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10021",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Cellvmin"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10022",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Cellvmincell"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10023",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Cellvmin"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10024",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Cellvmincell"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10017",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Dod"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10035",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Dod_sf"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10011",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "id"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10012",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "L"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10014",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Modidx"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10015",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Ncell"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10031",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "NCellbal"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10019",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Ncyc"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10032",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Sn"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10016",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Soc"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10033",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Soc_sf"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10018",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Soh"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10034",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Soh_sf"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10013",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "Stridx"
+		}
+	  },{
+		"nodeIdentifier" : "ns=1;i=10038",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "tmp_sf"
+		}
+	  },
+		{
+			"nodeIdentifier" : "ns=1;i=10020",
+			"valueMapping" : {
+			  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+			  "sparkplugDeviceName" : "modbus-device1", 
+			  "sparkplugMetricName" : "V"
+			}
+		  },
+	  {
+		"nodeIdentifier" : "ns=1;i=10036",
+		"valueMapping" : {
+		  "sparkplugNodeId" : "xrt-opc-ua-example-server",
+		  "sparkplugDeviceName" : "modbus-device1", 
+		  "sparkplugMetricName" : "V_sf"
+		}
+	  }
+	],
+	"namespaceUris": [
+	"https://sunspec.org"
+	]
+  }
