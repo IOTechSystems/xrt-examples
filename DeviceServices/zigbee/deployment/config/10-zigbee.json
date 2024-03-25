@@ -12,6 +12,7 @@
   "Bus":"6-bus",
   "QueueMax": 100,
   "AutoRegister": false,
+  "DiscoveryTopic": "spBv1.0/${SPARKPLUG_GROUP}/DISCOVERY/${SPARKPLUG_NODE}/zigbee",
   "Driver": {
     "BaseZ2MQTTTopic": "zigbee2mqtt/"
   }
