@@ -12,7 +12,7 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE}", "QoS":1, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/zigbee",  "QoS":0},
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/zigbee/discovery","QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DISCOVERY/${SPARKPLUG_NODE}/zigbee","QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"zigbee2mqtt/+/get","Retain": false, "Qos": 1},
     { "Pattern":"zigbee2mqtt/+/set","Retain": false, "Qos": 1},
     { "Pattern":"zigbee2mqtt/bridge/request/#","Retain": false, "Qos": 1}
