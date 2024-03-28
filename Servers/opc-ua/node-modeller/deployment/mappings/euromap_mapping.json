@@ -1,7 +1,7 @@
 {
   "mappings" : [
     {
-      "nodeIdentifier" : "ns=1;i=6039",
+      "nodeIdentifier" : "ns=2;i=6039",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -9,7 +9,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6041",
+      "nodeIdentifier" : "ns=2;i=6041",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -17,7 +17,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6040",
+      "nodeIdentifier" : "ns=2;i=6040",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -25,7 +25,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6042",
+      "nodeIdentifier" : "ns=2;i=6042",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -33,7 +33,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6049",
+      "nodeIdentifier" : "ns=2;i=6049",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -41,7 +41,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6055",
+      "nodeIdentifier" : "ns=2;i=6055",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -49,7 +49,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6051",
+      "nodeIdentifier" : "ns=2;i=6051",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -57,7 +57,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6053",
+      "nodeIdentifier" : "ns=2;i=6053",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -65,7 +65,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6054",
+      "nodeIdentifier" : "ns=2;i=6054",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "virtual-device", 
@@ -73,7 +73,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6044",
+      "nodeIdentifier" : "ns=2;i=6044",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "s7-device", 
@@ -81,7 +81,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6046",
+      "nodeIdentifier" : "ns=2;i=6046",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "s7-device", 
@@ -89,7 +89,7 @@
       }
     },
     {
-      "nodeIdentifier" : "ns=1;i=6047",
+      "nodeIdentifier" : "ns=2;i=6047",
       "valueMapping" : {
         "sparkplugNodeId" : "xrt-opc-ua-example-server",
         "sparkplugDeviceName" : "s7-device", 
