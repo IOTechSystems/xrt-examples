@@ -30,6 +30,7 @@ export XRT_NODESET_DIR=$PWD/deployment/nodesets
 
 # Sparkplug Vars
 export SPARKPLUG_NODE=xrt
+export SPARKPLUG_NODE2=xrt2
 export SPARKPLUG_GROUP=iotech
 export SPARKPLUG_PROTO=spb
 

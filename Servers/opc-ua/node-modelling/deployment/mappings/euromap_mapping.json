@@ -1,0 +1,107 @@
+{
+  "mappings" : [
+    {
+      "nodeIdentifier" : "ns=2;i=6039",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-BarrelId"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6041",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-InProduction"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6040",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-Index"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6042",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-IsPresent"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6049",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-TZ1-ActualTemperature"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6055",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-TZ1-NominalTemperature"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6051",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-TZ1-ControlMode"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6053",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-TZ1-IsPresent"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6054",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "virtual-device", 
+        "sparkplugMetricName" : "IU1-TZ1-Name"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6044",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "s7-device", 
+        "sparkplugMetricName" : "IU2-BarrelId"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6046",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "s7-device", 
+        "sparkplugMetricName" : "IU2-InProduction"
+      }
+    },
+    {
+      "nodeIdentifier" : "ns=2;i=6047",
+      "valueMapping" : {
+        "sparkplugNodeId" : "xrt-opc-ua-example-server",
+        "sparkplugDeviceName" : "s7-device", 
+        "sparkplugMetricName" : "IU2-IsPresent"
+      }
+    }
+  ],
+  "namespaceUris": [
+    "http://iotech.org/example/",
+    "http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/",
+    "http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/",
+    "http://opcfoundation.org/UA/DI/"
+
+  ]
+}

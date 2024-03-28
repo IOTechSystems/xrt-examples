@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+           xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:s1="http://iotech.org/example/Types.xsd"
+           xmlns:s2="http://opcfoundation.org/UA/PlasticsRubber/IMM2MES/Types.xsd" xmlns:s3="http://opcfoundation.org/UA/PlasticsRubber/GeneralTypes/Types.xsd"
+           xmlns:ua="http://unifiedautomation.com/Configuration/NodeSet.xsd" xmlns:s4="http://opcfoundation.org/UA/DI/Types.xsd"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <NamespaceUris>
+        <Uri>http://iotech.org/example/</Uri>
+        <Uri>http://sunspec.org/</Uri>
+        <Uri>http://opcfoundation.org/UA/</Uri>
+    </NamespaceUris>
+    <Models>
+        <Model ModelUri="http://iotech.org/example/" PublicationDate="2024-02-29T10:11:45Z" Version="1.0.0">
+            <RequiredModel ModelUri="http://opcfoundation.org/UA/" PublicationDate="2022-11-01T00:00:00Z" Version="1.05.02"/>
+            <RequiredModel ModelUri="http://sunspec.org/" Version="1.02" PublicationDate="2019-05-01T00:00:00Z"/>
+        </Model>
+    </Models>
+    <Aliases>
+        <Alias Alias="Boolean">i=1</Alias>
+        <Alias Alias="UInt16">i=5</Alias>
+        <Alias Alias="UInt32">i=7</Alias>
+        <Alias Alias="Double">i=11</Alias>
+        <Alias Alias="String">i=12</Alias>
+        <Alias Alias="DateTime">i=13</Alias>
+        <Alias Alias="LocalizedText">i=21</Alias>
+        <Alias Alias="Enumeration">i=29</Alias>
+        <Alias Alias="Organizes">i=35</Alias>
+        <Alias Alias="HasTypeDefinition">i=40</Alias>
+        <Alias Alias="HasProperty">i=46</Alias>
+        <Alias Alias="HasComponent">i=47</Alias>
+        <Alias Alias="IdType">i=256</Alias>
+        <Alias Alias="Duration">i=290</Alias>
+        <Alias Alias="NumericRange">i=291</Alias>
+        <Alias Alias="Argument">i=296</Alias>
+        <Alias Alias="Range">i=884</Alias>
+        <Alias Alias="TimeZoneDataType">i=8912</Alias>
+    </Aliases>
+    <UAObject NodeId="ns=2;i=20030" BrowseName="temperature readings" SymbolicName="TemperatureReadingsFolder">
+        <DisplayName>Temperature Readings</DisplayName>
+        <References>
+            <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+            <Reference ReferenceType="Organizes">ns=2;i=20001</Reference>
+            <Reference ReferenceType="Organizes">ns=2;i=20011</Reference>
+            <Reference ReferenceType="Organizes">ns=2;i=20021</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20040</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=2;i=20001" BrowseName="Model805Lithium-ion-module-cell_1" SymbolicName="MyLithiumIonModuleCell_1">
+        <DisplayName>Lithium-Ion Module Cell 1</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=10002</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20002</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20003</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20004</Reference>
+        </References>
+    </UAObject>
+
+    <UAVariable NodeId="ns=2;i=20002" BrowseName="Cellv" DataType="ns=2;i=1004">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Cellv</DisplayName>
+        <Description>Cell terminal voltage.</Description>
+        <EngineeringUnits>
+            <DisplayName>V</DisplayName>
+        </EngineeringUnits>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20003" BrowseName="Celltmp" DataType="ns=2;i=1004">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Celltmp</DisplayName>
+        <Description>Cell temperature.</Description>
+        <EngineeringUnits>
+            <DisplayName>C</DisplayName>
+        </EngineeringUnits>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1001</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20004" BrowseName="Cellst" DataType="ns=2;i=1011">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Cellst</DisplayName>
+        <Description>Status of the cell.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1011</Reference>
+        </References>
+    </UAVariable>
+
+    <UAObject NodeId="ns=2;i=20011" BrowseName="Model805Lithium-ion-module-cell_2" SymbolicName="MyLithiumIonModuleCell_2">
+        <DisplayName>Lithium-Ion Module Cell 2</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=10002</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20012</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20013</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20014</Reference>
+        </References>
+    </UAObject>
+
+    <UAVariable NodeId="ns=2;i=20012" BrowseName="Cellv" DataType="ns=2;i=1004">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Cellv</DisplayName>
+        <Description>Cell terminal voltage.</Description>
+        <EngineeringUnits>
+            <DisplayName>V</DisplayName>
+        </EngineeringUnits>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20013" BrowseName="Celltmp" DataType="ns=2;i=1004">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Celltmp</DisplayName>
+        <Description>Cell temperature.</Description>
+        <EngineeringUnits>
+            <DisplayName>C</DisplayName>
+        </EngineeringUnits>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1001</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20014" BrowseName="Cellst" DataType="ns=2;i=1011">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Cellst</DisplayName>
+        <Description>Status of the cell.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1011</Reference>
+        </References>
+    </UAVariable>
+
+    <UAObject NodeId="ns=2;i=20021" BrowseName="Model805Lithium-ion-module-cell_3" SymbolicName="MyLithiumIonModuleCell_3">
+        <DisplayName>Lithium-Ion Module Cell 3</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=10002</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20022</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20023</Reference>
+            <Reference ReferenceType="HasProperty">ns=2;i=20024</Reference>
+        </References>
+    </UAObject>
+
+    <UAVariable NodeId="ns=2;i=20022" BrowseName="Cellv" DataType="ns=2;i=1004">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Cellv</DisplayName>
+        <Description>Cell terminal voltage.</Description>
+        <EngineeringUnits>
+            <DisplayName>V</DisplayName>
+        </EngineeringUnits>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20023" BrowseName="Celltmp" DataType="ns=2;i=1004">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Celltmp</DisplayName>
+        <Description>Cell temperature.</Description>
+        <EngineeringUnits>
+            <DisplayName>C</DisplayName>
+        </EngineeringUnits>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1001</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20024" BrowseName="Cellst" DataType="ns=2;i=1011">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Cellst</DisplayName>
+        <Description>Status of the cell.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1011</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=2;i=20040" BrowseName="Tmp_sf" DataType="ns=2;i=1018">
+        <Value>
+            <Value>10</Value>
+        </Value>
+        <DisplayName>Tmp_sf</DisplayName>
+        <Description>Scale factor for module temperature.</Description>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1018</Reference>
+        </References>
+    </UAVariable>
+</UANodeSet>

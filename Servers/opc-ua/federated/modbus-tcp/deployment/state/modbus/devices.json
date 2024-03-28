@@ -1,1 +1,16 @@
-{"apiVersion":"v2","devices":[]}
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "modbus-sim",
+      "profileName": "modbus-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "0.0.0.0",
+          "Port": 1502,
+          "UnitID": 1
+        }
+      }
+    }
+  ]
+}
