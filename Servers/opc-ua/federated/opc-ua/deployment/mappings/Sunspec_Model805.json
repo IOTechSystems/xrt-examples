@@ -1,0 +1,88 @@
+{
+  "mappings": [
+    {
+      "nodeIdentifier": "ns=2;i=20002",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_1_st"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20003",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_1_tmp"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20004",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_1_v"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20012",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_2_st"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20013",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_2_tmp"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20014",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_2_v"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20022",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_3_st"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20023",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_3_tmp"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20024",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "cell_3_v"
+      }
+    },
+    {
+      "nodeIdentifier": "ns=2;i=20040",
+      "valueMapping": {
+        "sparkplugNodeId": "xrt",
+        "sparkplugDeviceName": "modbus-sim",
+        "sparkplugMetricName": "tmp_sf"
+      }
+    }
+  ],
+  "namespaceUris": [
+    "http://opcfoundation.org/UA/",
+    "http://sunspec.org/"
+  ]
+}

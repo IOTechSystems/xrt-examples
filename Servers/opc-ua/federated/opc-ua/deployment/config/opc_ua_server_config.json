@@ -1,9 +1,10 @@
 {
   "Port": 4840,
-  "ModelPaths": [
-    "${XRT_MODELS_DIR}/Sunspec_Model805.json"
+  "MappingPaths": [
+    "${XRT_MAPPING_DIR}/Sunspec_Model805.json"
   ],
   "NodesetPaths": [
-    "${XRT_NODESET_DIR}/Sunspec.Model805.xml"
+    "${XRT_NODESET_DIR}/Sunspec.Model805.xml",
+    "${XRT_NODESET_DIR}/custom_nodeset.xml"
   ]
 }

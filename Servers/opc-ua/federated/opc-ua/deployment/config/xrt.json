@@ -1,4 +1,4 @@
 {
     "ServerId": "xrt-opc-ua-example-server",
-    "NodeId": "${SPARKPLUG_NODE}"
+    "NodeId": "${SPARKPLUG_NODE2}"
 }
