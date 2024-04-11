@@ -14,9 +14,19 @@
       "properties": { "valueType": "Bool", "readWrite": "R" }
     },
     {
+      "name": "RandomBoolArray", "description": "Generate array of random Bool values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "BoolArray", "readWrite": "R" }
+    },
+    {
       "name": "RandomInt8", "description": "Generate random Int8 value",
       "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int8", "readWrite": "R" }
+    },
+    {
+      "name": "RandomInt8Array", "description": "Generate array of random Int8 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "Int8Array", "readWrite": "R" }
     },
     {
       "name": "RandomInt16", "description": "Generate random Int16 value",
@@ -24,9 +34,19 @@
       "properties": { "valueType": "Int16", "readWrite": "R" }
     },
     {
+      "name": "RandomInt16Array", "description": "Generate array of random Int16 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "Int16Array", "readWrite": "R" }
+    },
+    {
       "name": "RandomInt32", "description": "Generate random Int32 value",
       "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Int32", "readWrite": "R" }
+    },
+    {
+      "name": "RandomInt32Array", "description": "Generate array of random Int32 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "Int32Array", "readWrite": "R" }
     },
     {
       "name": "RandomInt64", "description": "Generate random Int64 value",
@@ -34,9 +54,19 @@
       "properties": { "valueType": "Int64", "readWrite": "R" }
     },
     {
+      "name": "RandomInt64Array", "description": "Generate array of random Int64 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "Int64Array", "readWrite": "R" }
+    },
+    {
       "name": "RandomUInt8", "description": "Generate random UInt8 value",
       "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "UInt8", "readWrite": "R" }
+    },
+    {
+      "name": "RandomUInt8Array", "description": "Generate array of random UInt8 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "UInt8Array", "readWrite": "R" }
     },
     {
       "name": "RandomUInt16", "description": "Generate random UInt16 value",
@@ -44,9 +74,19 @@
       "properties": { "valueType": "UInt16", "readWrite": "R" }
     },
     {
+      "name": "RandomUInt16Array", "description": "Generate array of random UInt16 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "UInt16Array", "readWrite": "R" }
+    },
+    {
       "name": "RandomUInt32", "description": "Generate random UInt32 value",
       "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "UInt32", "readWrite": "R" }
+    },
+    {
+      "name": "RandomUInt32Array", "description": "Generate array of random UInt32 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "UInt32Array", "readWrite": "R" }
     },
     {
       "name": "RandomUInt64", "description": "Generate random UInt64 value",
@@ -54,14 +94,29 @@
       "properties": { "valueType": "UInt64", "readWrite": "R" }
     },
     {
+      "name": "RandomUInt64Array", "description": "Generate array of random UInt64 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "UInt64Array", "readWrite": "R" }
+    },
+    {
       "name": "RandomFloat32", "description": "Generate random float32 value",
       "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Float32", "readWrite": "R" }
     },
     {
+      "name": "RandomFloat32Array", "description": "Generate array of random Float32 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "Float32Array", "readWrite": "R" }
+    },
+    {
       "name": "RandomFloat64", "description": "Generate random float64 value",
       "attributes": { "sequenceType": "random" },
       "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "RandomFloat64Array", "description": "Generate array of random Float64 values",
+      "attributes": { "sequenceType": "random", "arrayLength": 10 },
+      "properties": { "valueType": "Float64Array", "readWrite": "R" }
     },
     {
       "name": "RandomInt8Limits", "description": "Generate random Int8 value between -10 and 10",
@@ -152,6 +207,11 @@
       "name": "StoreFloat32Value", "description": "Read/Write Float32 value",
       "attributes": {"firstValue": 43.5},
       "properties": { "valueType": "Float32", "readWrite": "RW" }
+    },
+    {
+      "name": "StoreUInt16Array", "description": "Non sequenced UInt16 array with firstValue initial state",
+      "attributes": {"firstValue": [1,2,3,4,5,6,7,8,9,10], "arrayLength": 10},
+      "properties": { "valueType": "UInt16Array", "readWrite": "RW" }
     }
   ]
 }
