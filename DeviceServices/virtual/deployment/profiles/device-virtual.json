@@ -135,6 +135,11 @@
       "properties": { "valueType": "Float64", "readWrite": "R" }
     },
     {
+      "name": "SineWaveArray", "description": "Value which traces a sine wave within an array with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "sinewave", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2, "arrayLength":  10},
+      "properties": { "valueType": "Float64Array", "readWrite": "R" }
+    },
+    {
       "name": "TriangleWave", "description": "Value which traces a triangle wave",
       "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0 },
       "properties": { "valueType": "Float64", "readWrite": "R" }
@@ -143,6 +148,11 @@
       "name": "TriangleWaveWithOffsetAndPhase", "description": "Value which traces a triangle wave with offset and phase",
       "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
       "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "TriangleWaveArray", "description": "Value which traces a triangle wave within an array with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "triangle", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2, "arrayLength": 10 },
+      "properties": { "valueType": "Float64Array", "readWrite": "R" }
     },
     {
       "name": "SawtoothWave", "description": "Value which traces a sawtooth wave",
@@ -155,6 +165,11 @@
       "properties": { "valueType": "Float64", "readWrite": "R" }
     },
     {
+      "name": "SawtoothWaveArray", "description": "Value which traces a sawtooth wave within an array with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "sawtooth", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2, "arrayLength": 10},
+      "properties": { "valueType": "Float64Array", "readWrite": "R" }
+    },
+    {
       "name": "SquareWave", "description": "Value which traces a square wave",
       "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0 },
       "properties": { "valueType": "Float64", "readWrite": "R" }
@@ -163,6 +178,11 @@
       "name": "SquareWaveWithOffsetAndPhase", "description": "Value which traces a square wave with offset and phase",
       "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2 },
       "properties": { "valueType": "Float64", "readWrite": "R" }
+    },
+    {
+      "name": "SquareWaveArray", "description": "Value which traces a square wave within an array with offset and phase",
+      "attributes": { "sequenceType": "waveform", "shape": "square", "period": 8, "amplitude": 4.0, "offset": 10.0, "phase": 2, "arrayLength": 10},
+      "properties": { "valueType": "Float64Array", "readWrite": "R" }
     },
     {
       "name": "ScriptInt32",
