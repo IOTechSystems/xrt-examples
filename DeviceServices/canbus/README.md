@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the CANbus device service example.
 
-For more information about the Device Service please review the [CANbus Device Service](hhttps://docs.iotechsys.com/edge-xrt20/device-service-components/canbus-device-service-component.html) documentation.
+For more information about the Device Service please review the [CANbus Device Service](hhttps://docs.iotechsys.com/edge-xrt30/device-service-components/canbus-device-service-component.html) documentation.
 
 ## Getting Started
 
