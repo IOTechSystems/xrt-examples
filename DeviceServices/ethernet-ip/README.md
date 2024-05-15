@@ -26,6 +26,7 @@ We have provided a script to easily set these environment variables. Run:
 ```bash
 . ../../set_env_vars.sh
 export ETHERNETIP_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ethernetip-sim)
+export ETHERNETIP_NI="eth0"
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
@@ -34,8 +35,10 @@ _Note the dot before the path to the script, which is required to set the enviro
 
 `ETHERNETIP_SIM_ADDRESS` - The address of the EtherNet/IP Simulator
 
+`ETHERNETIP_NI` - The name of the network interface to communicate with EtherNet/IP device
 ```
 export ETHERNETIP_SIM_ADDRESS=<IP-Address>
+export ETHERNETIP_NI="<Network Interface>"
 ```
 
 An explanation for the setting of common device service enviroment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
