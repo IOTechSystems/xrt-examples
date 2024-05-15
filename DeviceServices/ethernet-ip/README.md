@@ -34,6 +34,7 @@ _Note the dot before the path to the script, which is required to set the enviro
 #### To set them manually:
 
 `ETHERNETIP_SIM_ADDRESS` - The address of the EtherNet/IP Simulator
+
 `ETHERNETIP_NI` - The name of the network interface to communicate with EtherNet/IP device
 ```
 export ETHERNETIP_SIM_ADDRESS=<IP-Address>
