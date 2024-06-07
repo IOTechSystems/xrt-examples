@@ -178,6 +178,32 @@
         },
         {
             "attributes": {
+                "DB_number": 1,
+                "start": 150,
+                "type": "DB",
+                "array_size": 5
+            },
+            "name": "DB_1_UI8_ARRAY",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "UInt8Array"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 200,
+                "type": "DB",
+                "array_size": 5
+            },
+            "name": "DB_1_I64_ARRAY",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Int64Array"
+            }
+        },
+        {
+            "attributes": {
                 "start": 0,
                 "type": "IPU"
             },
