@@ -163,8 +163,8 @@ int main()
     if (wait_for_reply(100))
     {
       iot_log_info (bus->logger, "received reply: %s", iot_data_to_json (returned));
-      const iot_data_t * result = iot_data_string_map_get (returned,"result");
-      const iot_data_t * device_list = iot_data_add_ref(iot_data_string_map_get (result,"devices"));
+      const iot_data_t * result = iot_data_string_map_get (returned, RESULT_KEY);
+      const iot_data_t * device_list = iot_data_add_ref(iot_data_string_map_get (result, DEVICES_KEY));
       iot_data_vector_iter_t iter;
       iot_data_vector_iter (device_list, &iter);
       while (iot_data_vector_iter_next (&iter))
