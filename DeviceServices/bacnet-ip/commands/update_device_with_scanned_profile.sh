@@ -4,8 +4,8 @@ mosquitto_pub -t xrt/devices/opc_ua/request -m \
 '{
   "client":"example",
   "request_id": "1060",
-  "op": "device:scan",
+  "op": "device:update",
   "type": "xrt.request:1.0",
-  "device": "opc-ua-sim",
-  "profile": "scanned_profile"
+  "device": "bacnet-ip-sim",
+  "device_info":  { "profileName": "scanned_profile" }
 }'

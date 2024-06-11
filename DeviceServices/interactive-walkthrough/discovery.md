@@ -47,45 +47,13 @@ We can trigger a device scan for the discovered device we have just added.
 ./commands/scan_discovered_device.sh
 ```
 
-The device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated.  
+The device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated. The generated profile can be found under the `./profiles` directory, named `scanned_profile`.  
 
-In this case there is already a profile that matches, so XRT will use this. We can perform a get request to show that the device has matched to this profile:
-
-```bash
-./commands/get_request.sh
-```
-
-**Extra**
-
-To generate a profile for the device instead of using the existing one, we can follow the above steps but additionally delete the existing profile:
+The device will then need to be updated in order to make use of the new profile.
 
 ```bash
-./commands/remove_device.sh
+./commands/update_device_with_scanned_profile.sh
 ```
-
-```bash
-./commands/remove_device_profile.sh
-```
-
-We trigger discover again to find our device:
-
-```bash
-./commands/trigger_discovery.sh
-```
-
-Then add our discovered device:
-
-```bash
-./commands/add_discovered_device.sh
-```
-
-and scan the device for new resources:
-
-```bash
-./commands/scan_discovered_device.sh
-```
-
-If you take a look in `profiles` you should notice that there is a new `json` file named with a UUID. This file is the newly generated profile.
 
 ## Additional information
 
