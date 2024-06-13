@@ -47,7 +47,7 @@ We can trigger a device scan for the discovered device we have just added.
 ./commands/scan_discovered_device.sh
 ```
 
-The device service will query the device for it's resources; if there is a profile that matches then xrt will use this existing profile, if there is no matching profile a new one will be generated. The generated profile can be found under the `./profiles` directory, named `scanned_profile`.  
+The device service will query the device for it's resources; if there is a profile that matches XRT will use this existing profile, if there is no matching profile a new one will be generated. The generated profile can be found under the `./profiles` directory, named `scanned_profile`.  
 
 The device will then need to be updated in order to make use of the new profile.
 
