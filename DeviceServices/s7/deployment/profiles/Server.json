@@ -204,6 +204,20 @@
         },
         {
             "attributes": {
+                "DB_number": 1,
+                "start": 250,
+                "type": "DB",
+                "size": 5,
+                "array_size": 5
+            },
+            "name": "DB_1_STRING_ARRAY",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "StringArray"
+            }
+        },
+        {
+            "attributes": {
                 "start": 0,
                 "type": "IPU"
             },
