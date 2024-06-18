@@ -6,7 +6,8 @@
 #include "iot/iot.h"
 #include "xrt/bus.h"
 #include "defines.h"
-
+#define TIMEOUT 100
+#define LOOP_DELAY 5
 #define CLIENT_ID "xrt_demo"
 #define PUB_TOPIC "xrt/devices/virtual/request"
 #define SUB_TOPIC "xrt/devices/virtual/reply"
@@ -18,8 +19,8 @@ private:
 
 public:
   XRT (const std::string& config_uri) {
+    if (config_uri.empty()) return;
     struct sigaction signal_action = {0};
-    memset (&signal_action, 0, sizeof (signal_action));
     signal_action.sa_handler = XRT::signalHandler;
     signal_action.sa_flags = SA_RESETHAND;
     sigaction (SIGINT, &signal_action, NULL);
@@ -183,6 +184,7 @@ public:
   ControlLoop (const std::string& config_uri, const std::string& request_topic, const std::string& reply_topic)
   {
     xrt = new XRT (config_uri);
+    if (xrt->getContainer() == NULL) return 1;
     bus = new BUS (xrt->getContainer(), request_topic, reply_topic);
   }
 
@@ -201,7 +203,7 @@ public:
       iot_data_t* data = bus->createListMessage();
       iot_log_info (bus->getLogger(), "request sent: %s", iot_data_to_json (data));
       bus->publishMessage (data);
-      if (bus->waitForReply (100))
+      if (bus->waitForReply (TIMEOUT))
       {
         iot_data_t* returned = bus->getReturned();
         iot_log_info (bus->getLogger(), "received reply: %s", iot_data_to_json(returned));
@@ -215,33 +217,32 @@ public:
       	  const iot_data_t *device_get =  bus->createGetMessage (ele_data);
       	  iot_log_info (bus->getLogger(), "request sent: %s %d", iot_data_to_json (device_get), iot_data_type (device_get));
       	  bus->publishMessage (iot_data_add_ref (data)); // list message gets freed on publish
-      	  if (bus->waitForReply(100))
+      	  if (bus->waitForReply(TIMEOUT))
     	    {	
             iot_log_info (bus->getLogger(), "received reply: %s", iot_data_to_json (bus->getReturned()));
       	  }
       	  else
 	        {
-	          iot_log_info (bus->getLogger(), "did not receive reply");
+	          iot_log_error (bus->getLogger(), "did not receive reply");
 	        }
-	        sleep(5);
+	        sleep(LOOP_DELAY);
         }
       }
       else
       {
-        iot_log_trace (bus->getLogger(), "did not receive reply");
+        iot_log_error (bus->getLogger(), "did not receive reply");
       }
       bus->freeReturned();
       std::this_thread::sleep_for (std::chrono::seconds(5));
     }
     bus->stop();
     xrt->stop();
+    return 0;
   }
 };
 
 int main()
 {
   ControlLoop control_loop (getenv("XRT_CONFIG_DIR"), PUB_TOPIC, SUB_TOPIC);
-  control_loop.run();
-
-  return 0;
+  return control_loop.run();
 }
