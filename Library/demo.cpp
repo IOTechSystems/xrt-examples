@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2024
+ * IOTech Ltd
+ */
 #include <signal.h>
 #include <atomic>
 #include <chrono>
