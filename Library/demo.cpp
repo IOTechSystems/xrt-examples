@@ -188,7 +188,7 @@ public:
   ControlLoop (const std::string& config_uri, const std::string& request_topic, const std::string& reply_topic)
   {
     xrt = new XRT (config_uri);
-    if (xrt->getContainer() == NULL) return 1;
+    xrt->getContainer();
     bus = new BUS (xrt->getContainer(), request_topic, reply_topic);
   }
 
@@ -219,7 +219,7 @@ public:
         {
 	        const iot_data_t *ele_data = iot_data_vector_iter_value (&iter);
       	  const iot_data_t *device_get =  bus->createGetMessage (ele_data);
-      	  iot_log_info (bus->getLogger(), "request sent: %s %d", iot_data_to_json (device_get), iot_data_type (device_get));
+      	  iot_log_info (bus->getLogger(), "request sent: %s", iot_data_to_json (device_get));
       	  bus->publishMessage (iot_data_add_ref (data)); // list message gets freed on publish
       	  if (bus->waitForReply(TIMEOUT))
     	    {	
@@ -241,12 +241,11 @@ public:
     }
     bus->stop();
     xrt->stop();
-    return 0;
   }
 };
 
 int main()
 {
   ControlLoop control_loop (getenv("XRT_CONFIG_DIR"), PUB_TOPIC, SUB_TOPIC);
-  return control_loop.run();
+  control_loop.run();
 }

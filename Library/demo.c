@@ -43,9 +43,6 @@ init_xrt (char *config_uri)
   sigaction (SIGINT, &signal_action, NULL);
   sigaction (SIGTERM, &signal_action, NULL);
   sigaction (SIGHUP, &signal_action, NULL);
-
-  if (!config_uri)
-  { return NULL; }
   iot_container_config_t config = {.load = iot_store_config_load, .uri = config_uri, .save = iot_store_config_save};
 
   iot_container_config (&config);
@@ -78,7 +75,7 @@ static inline void free_xrt (iot_container_t *container)
   iot_container_free (container);
 }
 
-typedef struct
+typedef struct bus_component_t
 {
   iot_logger_t *logger;      /**< Logger (optional) */
   xrt_bus_t *bus;            /**< Bus to which app_component is connected to */
@@ -130,7 +127,7 @@ static iot_data_t *create_list_message ()
   return map;
 }
 
-static iot_data_t *create_get_message (iot_data_t *device)
+static iot_data_t *create_get_message (const iot_data_t *device)
 {
   iot_data_t *map = iot_data_alloc_map (IOT_DATA_STRING);
   iot_data_string_map_add (map, CLIENT_KEY, iot_data_alloc_string (CLIENT_ID, IOT_DATA_REF));
@@ -188,7 +185,7 @@ int main ()
       {
         const iot_data_t *ele_data = iot_data_vector_iter_value (&iter);
         const iot_data_t *device_get = create_get_message (ele_data);
-        iot_log_info (bus->logger, "request sent: %s %d", iot_data_to_json (device_get), iot_data_type (device_get));
+        iot_log_info (bus->logger, "request sent: %s", iot_data_to_json (device_get));
         xrt_bus_pub_push (bus->pub, iot_data_add_ref (data), true); // list message gets freed on publish
 
         if (wait_for_reply (TIMEOUT))
