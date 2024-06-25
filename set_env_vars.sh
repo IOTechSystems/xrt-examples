@@ -36,3 +36,4 @@ export SPARKPLUG_PROTO=spb
 
 # Service Names
 export FILE_SERVICE=file
+export CANBUS_SERVICE=canbus
