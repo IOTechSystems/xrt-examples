@@ -22,6 +22,7 @@ Within this repository there are many examples that you can chose to run through
 * [MQTT Bridge](Bridge/mqtt/README.md)
 * [Command Component](CommandComponent/README.md)
 * [Linux Device](Devices/linux/README.md)
+* [Library](Library/README.md) - This example demonstrates how to use XRT as a library
 * [Device Services](DeviceServices/README.md) - This folder contains many further examples for demonstrating the various Device Services available
 * [Device SDK](DevSDK/README.md)
 * Exporters
