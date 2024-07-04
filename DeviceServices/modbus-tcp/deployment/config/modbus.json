@@ -13,5 +13,7 @@
   "TelemetryTopic": "xrt/devices/modbus/telemetry",
   "RequestTopic": "xrt/devices/modbus/request",
   "ReplyTopic": "xrt/devices/modbus/reply",
-  "StatusTopic": "xrt/devices/modbus/status"
+  "StatusTopic": "xrt/devices/modbus/status",
+  "DiscoveryTopic": "xrt/devices/modbus/discovery"
+
 }

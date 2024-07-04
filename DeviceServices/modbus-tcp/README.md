@@ -51,3 +51,9 @@ xrt deployment/config
 ### Basic Operations
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
+
+### Device Discovery
+
+For a walkthrough on device discovery see the [Discovery](../interactive-walkthrough/discovery.md) guide.
+
+Please note that profile generation is not available for the Modbus devices unlike other devices services with discovery.
