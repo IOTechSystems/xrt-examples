@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mosquitto_pub -t xrt/devices/modbus/request -m \
+mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/modbus -m \
 '{
   "client":"client1",
   "request_id": "a40c10f6-8489-401a-ac5f-5bd9942e995c",
