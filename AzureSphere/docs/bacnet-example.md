@@ -42,7 +42,7 @@ mount the bacnet-simulator directory:
 docker run -it --rm --name=bacnet-sim -e RUN_MODE=IP \
 --network host \
 -v $(pwd)/bacnet-simulator:/docker-lua-script/ \
-iotechsys/bacnet-sim:2.0 --script /docker-lua-script/example.lua --instance 2749
+iotechsys/bacnet-sim:2.2 --script /docker-lua-script/example.lua --instance 2749
 ```
 
 Within the Device twin desired properties make sure
@@ -102,7 +102,7 @@ sudo apt-get install docker.io
 After docker has been installed, pull the BACnet Simulator image with:
 
 ```bash
-docker pull iotechsys/bacnet-sim:2.0
+docker pull iotechsys/bacnet-sim:2.2
 ```
 
 Make a note of the Raspberry Pi eth0 MAC Address, as it will be
@@ -208,7 +208,7 @@ On the terminal with the ssh connection to the Rasberry Pi start the BACnet Simu
 ```bash
 docker run --rm --name=bacnet-sim -e RUN_MODE=IP -e BACNET_IFACE=eth0 \
 --network host -it --privileged -v $(pwd)/bacnet-simulator:/docker-lua-script/ \
-iotechsys/bacnet-sim:2.0 --script /docker-lua-script/example.lua --instance 2749
+iotechsys/bacnet-sim:2.2 --script /docker-lua-script/example.lua --instance 2749
 ```
 
 Make sure to add the IP address of the BACnet devices (in this case
