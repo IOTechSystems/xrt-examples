@@ -83,7 +83,7 @@
         {
             "attributes": {
                 "DB_number": 1,
-                "start": 264,
+                "start": 30,
                 "type": "DB"
             },
             "name": "DB_1_I32",
@@ -157,7 +157,7 @@
                 "start": 80,
                 "type": "Marker"
             },
-            "name": "MARKER_TEST",
+            "name": "Marker_UI64",
             "properties": {
                 "readWrite": "RW",
                 "valueType": "UInt64"
@@ -211,46 +211,6 @@
             "properties": {
                 "readWrite": "RW",
                 "valueType": "UInt8Array"
-            }
-        },
-        {
-            "attributes": {
-                "DB_number": 1,
-                "start": 150,
-                "type": "DB",
-                "size": 5,
-                "array_size": 6
-            },
-            "name": "DB_1_STRING_ARRAY",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "StringArray"
-            }
-        },
-        {
-            "attributes": {
-                "DB_number": 1,
-                "start": 150,
-                "type": "DB",
-                "size": 5
-            },
-            "name": "DB_1_STRING_EX",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "String"
-            }
-        },
-        {
-            "attributes": {
-                "DB_number": 1,
-                "start": 157,
-                "type": "DB",
-                "size": 5
-            },
-            "name": "DB_1_STRING_EX_2",
-            "properties": {
-                "readWrite": "RW",
-                "valueType": "String"
             }
         },
         {
