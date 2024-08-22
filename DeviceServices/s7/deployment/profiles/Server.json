@@ -11,7 +11,7 @@
                 "timeBase": "10ms",
                 "type": "Timer"
             },
-            "name": "TIMER",
+            "name": "Timer",
             "properties": {
                 "readWrite": "RW",
                 "valueType": "UInt16"
