@@ -7,6 +7,29 @@
     "deviceResources": [
         {
             "attributes": {
+                "start": 0,
+                "timeBase": "10ms",
+                "type": "Timer"
+            },
+            "name": "TIMER",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "UInt16"
+            }
+        },
+        {
+            "attributes": {
+                "start": 0,
+                "type": "Counter"
+            },
+            "name": "Counter",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Uint16"
+            }
+        },
+        {
+            "attributes": {
                 "DB_number": 1,
                 "start": 260,
                 "type": "IEC_Timer"
