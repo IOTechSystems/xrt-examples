@@ -43,6 +43,19 @@
         {
             "attributes": {
                 "DB_number": 1,
+                "start": 275,
+                "type": "IEC_Counter",
+                "counterType": "int16"
+            },
+            "name": "IEC_COUNTER",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Object"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
                 "start": 0,
                 "bitIndex": 0,
                 "type": "DB"
