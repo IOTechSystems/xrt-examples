@@ -2,9 +2,60 @@
     "name": "Server",
     "manufacturer": "",
     "description": "S7 Server Example",
-    "labels": ["s7"],
+    "labels": [
+        "s7"
+    ],
     "apiVersion": "v2",
-    "deviceResources": [{
+    "deviceResources": [
+        {
+            "attributes": {
+                "start": 0,
+                "timeBase": "10ms",
+                "type": "Timer"
+            },
+            "name": "Timer",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "UInt16"
+            }
+        },
+        {
+            "attributes": {
+                "start": 0,
+                "type": "Counter"
+            },
+            "name": "Counter",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Uint16"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 260,
+                "type": "IEC_Timer"
+            },
+            "name": "IEC_TIMER",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Object"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 275,
+                "type": "IEC_Counter",
+                "counterType": "int16"
+            },
+            "name": "IEC_COUNTER",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Object"
+            }
+        },
+        {
             "attributes": {
                 "DB_number": 1,
                 "start": 0,
@@ -174,6 +225,46 @@
             "properties": {
                 "readWrite": "RW",
                 "valueType": "String"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 150,
+                "type": "DB",
+                "array_size": 5
+            },
+            "name": "DB_1_UI8_ARRAY",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "UInt8Array"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 200,
+                "type": "DB",
+                "array_size": 5
+            },
+            "name": "DB_1_I64_ARRAY",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "Int64Array"
+            }
+        },
+        {
+            "attributes": {
+                "DB_number": 1,
+                "start": 250,
+                "type": "DB",
+                "size": 5,
+                "array_size": 5
+            },
+            "name": "DB_1_STRING_ARRAY",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "StringArray"
             }
         },
         {
@@ -491,52 +582,54 @@
             }
         }
     ],
-    "deviceCommands": [{
-        "name": "DB-Test",
-        "readWrite": "R",
-        "resourceOperations": [
-            {
-                "deviceResource": "DB_1_Bool_1"
-            },
-            {
-                "deviceResource": "DB_1_Bool_2"
-            },
-            {
-                "deviceResource": "DB_1_Bool_3"
-            },
-            {
-                "deviceResource": "DB_1_I8"
-            },
-            {
-                "deviceResource": "DB_1_I16"
-            },
-            {
-                "deviceResource": "DB_1_I32"
-            },
-            {
-                "deviceResource": "DB_1_I64"
-            },
-            {
-                "deviceResource": "DB_1_UI8"
-            },
-            {
-                "deviceResource": "DB_1_UI16"
-            },
-            {
-                "deviceResource": "DB_1_UI32"
-            },
-            {
-                "deviceResource": "DB_1_UI64"
-            },
-            {
-                "deviceResource": "DB_1_F32"
-            },
-            {
-                "deviceResource": "DB_1_F64"
-            },
-            {
-                "deviceResource": "DB_1_String_Test"
-            }
-        ]
-    }]
+    "deviceCommands": [
+        {
+            "name": "DB-Test",
+            "readWrite": "R",
+            "resourceOperations": [
+                {
+                    "deviceResource": "DB_1_Bool_1"
+                },
+                {
+                    "deviceResource": "DB_1_Bool_2"
+                },
+                {
+                    "deviceResource": "DB_1_Bool_3"
+                },
+                {
+                    "deviceResource": "DB_1_I8"
+                },
+                {
+                    "deviceResource": "DB_1_I16"
+                },
+                {
+                    "deviceResource": "DB_1_I32"
+                },
+                {
+                    "deviceResource": "DB_1_I64"
+                },
+                {
+                    "deviceResource": "DB_1_UI8"
+                },
+                {
+                    "deviceResource": "DB_1_UI16"
+                },
+                {
+                    "deviceResource": "DB_1_UI32"
+                },
+                {
+                    "deviceResource": "DB_1_UI64"
+                },
+                {
+                    "deviceResource": "DB_1_F32"
+                },
+                {
+                    "deviceResource": "DB_1_F64"
+                },
+                {
+                    "deviceResource": "DB_1_String_Test"
+                }
+            ]
+        }
+    ]
 }
