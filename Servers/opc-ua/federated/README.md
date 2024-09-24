@@ -40,9 +40,26 @@ See [`federated/instance_template`](./instance_template/) for the configuration 
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
+#### Basic
+
 ```bash
 cd deployment
 xrt config
+```
+
+#### Enable Security Policy Basic256Sha256
+
+Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs). 
+
+```bash
+python3 create_self-signed.py
+```
+
+**Note** `ApplicationUri' should match the argument supplied. Defaults to `urn:open62541.server.application`.
+
+```bash
+cd deployment
+xrt config_securitypolicy
 ```
 
 ## Interacting with the OPC UA Server

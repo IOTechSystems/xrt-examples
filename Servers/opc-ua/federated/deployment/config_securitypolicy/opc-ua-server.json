@@ -1,0 +1,29 @@
+{
+    "Library": "libxrt-opc-ua-server.so",
+    "Factory": "xrt_opc_ua_server_factory",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "Logger": "logger",
+    "ApplicationUri" : "${APPLICATION_URI}",
+    "SecurityPolicies": [
+    {
+      "SecurityPolicy": "Basic256Sha256",
+      "Certificate": "${CERTIFICATE}",
+      "PrivateKey": "${PRIVATE_KEY}"
+    },
+    {
+      "SecurityPolicy": "None"
+    }
+     ],
+    "Endpoints": [
+    {
+      "SecurityPolicy": "Basic256Sha256",
+      "MessageSecurityModes": [
+        "SignEncrypt"
+      ]
+    },
+    {
+      "SecurityPolicy": "None",
+    }
+  ], 
+}
