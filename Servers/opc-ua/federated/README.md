@@ -55,7 +55,7 @@ Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed
 python3 create_self-signed.py
 ```
 
-**Note** `ApplicationUri' should match the argument supplied. Defaults to `urn:open62541.server.application`.
+**Note** `ApplicationUri` should match the argument supplied. Defaults to `urn:open62541.server.application`.
 
 ```bash
 cd deployment
