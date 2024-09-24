@@ -40,14 +40,14 @@ See [`federated/instance_template`](./instance_template/) for the configuration 
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
-#### Basic
+#### Standard
 
 ```bash
 cd deployment
 xrt config
 ```
 
-#### Enable Security Policy Basic256Sha256
+#### With Security Policy Set to Basic256Sha256
 
 Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_securitypolicy/opc-ua-server.json.
 
