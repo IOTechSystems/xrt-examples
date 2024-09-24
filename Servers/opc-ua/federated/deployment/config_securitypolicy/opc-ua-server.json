@@ -4,7 +4,7 @@
     "ThreadPool": "pool",
     "Bus": "bus",
     "Logger": "logger",
-    "ApplicationUri" : "${APPLICATION_URI}",
+    "ApplicationUri" : "urn:open62541.server.application",
     "SecurityPolicies": [
     {
       "SecurityPolicy": "Basic256Sha256",

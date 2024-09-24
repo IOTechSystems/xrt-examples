@@ -49,13 +49,15 @@ xrt config
 
 #### Enable Security Policy Basic256Sha256
 
-Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs). 
+Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_securitypolicy/opc-ua-server.json.
+
+1. Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
 
 ```bash
 python3 create_self-signed.py
 ```
 
-**Note** `ApplicationUri` should match the argument supplied. Defaults to `urn:open62541.server.application`.
+2. By default `ApplicationUri` is set to `urn:open62541.server.application`. If changed (argument `uri` in created_self-signed.py), update the config accordingly.
 
 ```bash
 cd deployment
