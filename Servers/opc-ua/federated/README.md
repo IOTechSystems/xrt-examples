@@ -57,7 +57,9 @@ Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_securitypolicy
 python3 create_self-signed.py
 ```
 
-2. By default `ApplicationUri` is set to `urn:open62541.server.application`. If changed (argument `uri` in created_self-signed.py), update the config accordingly.
+_Note In the script, by default `uri` is set to `urn:open62541.server.application` and common name (CN) to `open62541Server@localhost`. Change these to match with the `ApplicationUri` set in the configuration before generating the certificates.
+
+2. Run Xrt with the set securitypolicy
 
 ```bash
 cd deployment
