@@ -40,9 +40,30 @@ See [`federated/instance_template`](./instance_template/) for the configuration 
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
+#### Standard
+
 ```bash
 cd deployment
 xrt config
+```
+
+#### With Security Policy Set to Basic256Sha256
+
+Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_securitypolicy/opc-ua-server.json.
+
+1. Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
+
+```bash
+python3 create_self-signed.py
+```
+
+_Note: In the script, the default `uri` is set to `urn:open62541.server.application`. This should be changed to match the `ApplicationUri` set in the configuration (`urn:iotechsys:xrt`) before generating the certificates. Additionally, update the common name (CN), which is set to `open62541Server@localhost` to align with the applicationuri._
+
+2. Run Xrt with the set securitypolicy
+
+```bash
+cd deployment
+xrt config_securitypolicy
 ```
 
 ## Interacting with the OPC UA Server
