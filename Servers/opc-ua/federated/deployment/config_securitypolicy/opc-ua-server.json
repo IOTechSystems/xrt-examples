@@ -4,7 +4,7 @@
   "ThreadPool": "pool",
   "Bus": "bus",
   "Logger": "logger",
-  "ApplicationUri" : "urn:iotechsys1:xrt",
+  "ApplicationUri" : "urn:iotechsys:xrt",
   "SecurityPolicies": [
   {
     "SecurityPolicy": "Basic256Sha256",
