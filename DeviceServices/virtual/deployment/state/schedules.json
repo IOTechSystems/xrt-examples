@@ -8,6 +8,16 @@
       "resource": [
         "OtherResources"
       ]
+    },
+    {
+      "device": "Virtual-Device",
+      "interval": 500000,
+      "name": "schedule1",
+      "resource": [
+        "RandomInt8Limits"
+      ],
+      "on_change": true,
+      "bounds":{".*": 5}
     }
   ]
 }
