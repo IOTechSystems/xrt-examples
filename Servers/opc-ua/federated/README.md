@@ -40,6 +40,8 @@ See [`federated/instance_template`](./instance_template/) for the configuration 
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
+Use one of the below configurations to run the OPC UA Server.
+
 #### Standard
 
 ```bash
@@ -64,6 +66,13 @@ _Note: In the script, the default `uri` is set to `urn:open62541.server.applicat
 ```bash
 cd deployment
 xrt config_securitypolicy
+```
+
+#### With Username and Password
+
+```bash
+cd deployment
+xrt config_usernamepasswd
 ```
 
 ## Interacting with the OPC UA Server
