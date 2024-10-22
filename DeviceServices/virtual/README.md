@@ -35,7 +35,7 @@ xrt deployment/config
 
 > **Note**
 > 1. Xrt must be run from this context as the configuration files use relative pathnames
-> 2. Only resources that have changed by more than the set bounds will be published in scheduled readings.
+> 2. Only resources that have changed by more than the set bounds (in `schedules.json`) will be published.
 
 ## Walkthrough
 
