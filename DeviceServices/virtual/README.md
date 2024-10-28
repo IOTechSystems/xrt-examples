@@ -33,7 +33,9 @@ See [Setup XRT](../interactive-walkthrough/setup-xrt.md)
 xrt deployment/config
 ```
 
-> **Note** Xrt must be run from this context as the configuration files use relative pathnames
+> **Note**
+> 1. Xrt must be run from this context as the configuration files use relative pathnames
+> 2. Only resources that have changed by more than the set bounds (in `schedules.json`) will be published.
 
 ## Walkthrough
 

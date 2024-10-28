@@ -6,8 +6,10 @@
       "interval": 5000000,
       "name": "schedule2",
       "resource": [
-        "OtherResources"
-      ]
+        "RandomInt8Limits", "CountingDownInt32", "ScriptInt32", "StoreInt32Value"
+      ],
+      "on_change": true,
+      "bounds":{".*": 1}
     }
   ]
 }
