@@ -49,9 +49,9 @@ cd deployment
 xrt config
 ```
 
-#### With Security Policy Set to Basic256Sha256
+#### With Security Policy Set to Basic256Sha256 and X.509 certificate
 
-Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_securitypolicy/opc-ua-server.json.
+Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_certificates/opc-ua-server.json.
 
 1. Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
 
@@ -61,14 +61,19 @@ python3 create_self-signed.py
 
 _Note: In the script, the default `uri` is set to `urn:open62541.server.application`. This should be changed to match the `ApplicationUri` set in the configuration (`urn:iotechsys:xrt`) before generating the certificates. Additionally, update the common name (CN), which is set to `open62541Server@localhost` to align with the applicationuri._
 
-2. Run Xrt with the set securitypolicy
+2. Copy all configs except `opc-ua-server.json` from `config` to `deployment/config_certificates folder.
+   Run Xrt with the configuration that sets the security policy and uses X.509 certificates
 
 ```bash
 cd deployment
-xrt config_securitypolicy
+cp `ls ./config/* | grep -v `opc-ua-server.json` ./config_certificates
+xrt config_certificates
 ```
 
 #### With Username and Password
+
+Copy all configs except `opc-ua-server.json` from `config` to `deployment/config_certificates folder.
+Run Xrt with the configuration that sets an access control with a username and password.
 
 ```bash
 cd deployment
