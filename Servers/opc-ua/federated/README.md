@@ -63,8 +63,7 @@ _Note: In the script, the default `uri` is set to `urn:open62541.server.applicat
 
 1. Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config_securitypolicy/opc-ua-server.json`.
 
-2. Copy all configs except `opc-ua-server.json` from `config` to `deployment/config_certificates folder.
-   Run Xrt with the configuration that sets the security policy and uses X.509 certificates
+2. Copy all configs except `opc-ua-server.json` from `config` to `deployment/config_securitypolicy folder and run Xrt.
 
 ```bash
 cd deployment
@@ -77,8 +76,7 @@ xrt config_securitypolicy
 
 1. Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config_certificates/opc-ua-server.json`.
 
-2. Copy all configs except `opc-ua-server.json` from `config` to `deployment/config_certificates folder.
-   Run Xrt with the configuration that sets the security policy and uses X.509 certificates
+2. Copy all configs except `opc-ua-server.json` from `config` to `deployment/config_certificates folder and run Xrt.
 
 ```bash
 cd deployment
