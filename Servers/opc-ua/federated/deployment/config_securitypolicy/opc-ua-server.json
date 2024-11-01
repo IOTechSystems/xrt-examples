@@ -9,7 +9,7 @@
     {
       "SecurityPolicy": "Basic256Sha256",
       "Certificate": "${XRT_OPC_UA_X509_CERTIFICATE}",
-      "PrivateKey": "/${XRT_OPC_UA_X509_KEY}"
+      "PrivateKey": "${XRT_OPC_UA_X509_KEY}"
     },
     {
       "SecurityPolicy": "None"
