@@ -5,18 +5,15 @@
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
     "ClientID": "mqtt_export",
-    "MQTTInstance": 0,
     "QoS": 1,
     "ClientConfig":
     {
-      "KeepAliveInterval": 0,
-      "MQTTVersion": 4,
-      "Reliable": true,
-      "ConnectTimeout": 0,
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "RetryInterval": 5,
       "Username": "${XRT_MQTT_USERNAME}",
       "Password": "${XRT_MQTT_PASSWORD}",
-      "CleanSession": false,
-      "CleanStart": false
+      "MaxBufferedMessages": 100
     }
   },
   "Bus": "bus",
