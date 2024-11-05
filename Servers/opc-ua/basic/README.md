@@ -17,19 +17,7 @@ We have provided a script to easily set these environment variables. Run:
 cd Servers/opc-ua/basic/deployment
 ```
 
-### **Run XRT with the config folder:**
-
-See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
-
-#### Standard ####
-
-```bash
-. ./set_env_vars.sh
-export OPC_UA_SERVER_CONFIG=opc-ua-server
-xrt config
-```
-
-#### Certificate Generation
+### **Certificate Generation**
 
 Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
 
@@ -39,9 +27,21 @@ python3 create_self-signed.py
 ```
 _Note: In the script, the default `uri` is set to `urn:open62541.server.application`. This should be changed to match the `ApplicationUri` set in the configuration (defaults to `urn:iotechsys:xrt`) before generating the certificates. Additionally, common name (CN), which is set to `open62541Server@localhost` may be updated to align with the applicationuri._
 
-##### With Security Policy Set to Basic256Sha256
+### **Run XRT with the config folder:**
 
-Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
+See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
+
+#### **Standard**
+
+```bash
+. ./set_env_vars.sh
+export OPC_UA_SERVER_CONFIG=opc-ua-server
+xrt config
+```
+
+#### **With Security Policy Set to Basic256Sha256**
+
+Refer [Certificate Generation](# Certificate Generation) to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
 
 ```bash
 . ./set_env_vars.sh
@@ -49,22 +49,20 @@ export OPC_UA_SERVER_CONFIG=opc-ua-server-securitypolicy
 xrt config
 ```
 
-##### With X.509 certificate
+#### **With X.509 certificate**
 
-Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
+Refer [Certificate Generation](# Certificate Generation) to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
 
 ```bash
-. ./set_env_vars.sh
 export OPC_UA_SERVER_CONFIG=opc-ua-server-x509cert
 xrt config
 ```
 
-#### With Username and Password
+#### **With Username and Password**
 
 Run Xrt with the configuration that sets an access control with a username and password.
 
 ```bash
-. ./set_env_vars.sh
 export OPC_UA_SERVER_CONFIG=opc-ua-server-usrpasswd
 xrt config
 ```
