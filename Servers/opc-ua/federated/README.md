@@ -2,11 +2,11 @@
 
 ## Overview
 
-This example demostrates the use of multiple Xrt Device Service instances and a separate Xrt instance with an OPC UA Server component that communicate via MQTT. Note the existance of a `Command` component which is used by the OPC UA Server component to discover the running device services.
+This example demostrates the use of multiple Xrt Device Service instances and a separate Xrt instance with an OPC UA Server component that communicate via MQTT. Note the existence of a `Command` component which is used by the OPC UA Server component to discover the running device services.
 
 ## Running the Example
 
-The following instructions assume your starting working directory is `/xrt-examples/`.
+The following instructions assume your working directory is `/xrt-examples/`.
 
 ### **Set Environment Variables**
 
@@ -14,7 +14,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 . ./set_env_vars.sh
-cd Servers/opc-ua/federated
+cd Servers/opc-ua/federated/deployment
 ```
 
 ### **Starting a Device Service Instance**
@@ -40,9 +40,6 @@ See [`federated/instance_template`](./instance_template/) for the configuration 
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
-Use one of the below configurations to run the OPC UA Server.
-
-#### Standard
 
 ```bash
 cd deployment

@@ -2,11 +2,11 @@
 
 ## Overview
 
-This example config demonstrates a colocated Virtual Device Service and an OPC UA Server running on the same Xrt instance, communicating via the internal bus. Note the existance of a `Command` component which is used by the OPC UA Server component to discover the running device service.
+These example configs demonstrates a colocated Virtual Device Service and an OPC UA Server running on the same Xrt instance, communicating via the internal bus. Note the existence of a `Command` component which is used by the OPC UA Server component to discover the running device service.
 
 ## Running the Example
 
-The following instructions assume your starting working directory is `/xrt-examples/`.
+The following instructions assume your working directory is `/xrt-examples/`.
 
 ### **Set Environment Variables**
 
@@ -31,7 +31,9 @@ _Note: In the script, the default `uri` is set to `urn:open62541.server.applicat
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
-#### **Standard**
+Use one of the below configurations to run the OPC UA Server.
+
+#### **Standard Colocated**
 
 ```bash
 . ./set_env_vars.sh
