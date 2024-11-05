@@ -41,7 +41,7 @@ xrt config
 
 #### **With Security Policy Set to Basic256Sha256**
 
-Refer [Certificate Generation][1] to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
+Refer [Generate Certificates][1] to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
 
 ```bash
 . ./set_env_vars.sh
@@ -51,7 +51,7 @@ xrt config
 
 #### **With X.509 certificate**
 
-Refer [Certificate Generation][1] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
+Refer [Generate Certificates][1] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
 
 ```bash
 export OPC_UA_SERVER_CONFIG=opc-ua-server-x509cert
@@ -71,4 +71,4 @@ xrt config
 
 See the [OPC UA Server Documentation](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html)
 
-[1]:#generatecertificates
+[1]:#generate-certificates
