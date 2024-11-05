@@ -3,7 +3,7 @@
     "sched": "IOT::Scheduler",
     "pool": "IOT::ThreadPool",
     "bus": "XRT::Bus",
-    "opc-ua-server": "XRT::OPCUAServer",
+    "${OPC_UA_SERVER_CONFIG}": "XRT::OPCUAServer",
     "virtual-ds": "XRT::VirtualDeviceService",
     "command": "XRT::Command",
     "xrt": "XRT::Config"

@@ -1,4 +1,4 @@
-# OPC UA Server Colocated example
+# OPC UA Server examples
 
 ## Overview
 
@@ -14,7 +14,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 . ./set_env_vars.sh
-cd Servers/opc-ua/colocated/deployment
+cd Servers/opc-ua/basic/deployment
 ```
 
 ### **Run XRT with the config folder:**
