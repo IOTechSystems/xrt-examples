@@ -2,7 +2,7 @@
 
 ## Overview
 
-This example shows an example of a colocated Virtual Device Service and an OPC UA Server running on the same Xrt instance, communicating via the internal bus. Note the existance of a `Command` component which is used by the OPC UA Server component to discover the running device service.
+This example config demonstrates a colocated Virtual Device Service and an OPC UA Server running on the same Xrt instance, communicating via the internal bus. Note the existance of a `Command` component which is used by the OPC UA Server component to discover the running device service.
 
 ## Running the Example
 
@@ -21,7 +21,51 @@ cd Servers/opc-ua/basic/deployment
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
+#### Standard ####
+
 ```bash
+. ./set_env_vars.sh
+export OPC_UA_SERVER_CONFIG=opc-ua-server
+xrt config
+```
+
+#### Certificate Generation
+
+Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
+
+```bash
+python3 create_self-signed.py
+
+```
+_Note: In the script, the default `uri` is set to `urn:open62541.server.application`. This should be changed to match the `ApplicationUri` set in the configuration (defaults to `urn:iotechsys:xrt`) before generating the certificates. Additionally, common name (CN), which is set to `open62541Server@localhost` may be updated to align with the applicationuri._
+
+##### With Security Policy Set to Basic256Sha256
+
+Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
+
+```bash
+. ./set_env_vars.sh
+export OPC_UA_SERVER_CONFIG=opc-ua-server-securitypolicy
+xrt config
+```
+
+##### With X.509 certificate
+
+Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
+
+```bash
+. ./set_env_vars.sh
+export OPC_UA_SERVER_CONFIG=opc-ua-server-x509cert
+xrt config
+```
+
+#### With Username and Password
+
+Run Xrt with the configuration that sets an access control with a username and password.
+
+```bash
+. ./set_env_vars.sh
+export OPC_UA_SERVER_CONFIG=opc-ua-server-usrpasswd
 xrt config
 ```
 
