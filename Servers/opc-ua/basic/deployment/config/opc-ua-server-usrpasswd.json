@@ -1,0 +1,10 @@
+{
+    "Library": "libxrt-opc-ua-server.so",
+    "Factory": "xrt_opc_ua_server_factory",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "Logger": "logger",
+    "AccessControl": {
+      "AccessControlUserPassList" : [{"Username":"test", "Password":"test"}]
+    }
+}
