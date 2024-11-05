@@ -17,7 +17,7 @@ We have provided a script to easily set these environment variables. Run:
 cd Servers/opc-ua/basic/deployment
 ```
 
-### **Certificate Generation**
+### **Generate Certificates**
 
 Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
 
@@ -41,7 +41,7 @@ xrt config
 
 #### **With Security Policy Set to Basic256Sha256**
 
-Refer [Certificate Generation][#Certificate Generation] to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
+Refer [Certificate Generation][1] to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
 
 ```bash
 . ./set_env_vars.sh
@@ -51,7 +51,7 @@ xrt config
 
 #### **With X.509 certificate**
 
-Refer [Certificate Generation][#Certificate Generation] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
+Refer [Certificate Generation][1] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
 
 ```bash
 export OPC_UA_SERVER_CONFIG=opc-ua-server-x509cert
@@ -70,3 +70,5 @@ xrt config
 ## Interacting with the OPC UA Server
 
 See the [OPC UA Server Documentation](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html)
+
+[1]:#generatecertificates
