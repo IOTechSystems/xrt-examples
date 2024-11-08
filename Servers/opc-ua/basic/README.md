@@ -43,7 +43,7 @@ xrt config
 
 #### **With Security Policy Set to Basic256Sha256**
 
-Refer [Generate Certificates][1] to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
+Refer to [Generate Certificates][1] to generate and update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-securitypolicy.json`.
 
 ```bash
 . ./set_env_vars.sh
@@ -53,7 +53,7 @@ xrt config
 
 #### **With X.509 certificate**
 
-Refer [Generate Certificates][1] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
+Refer to [Generate Certificates][1] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
 
 ```bash
 export OPC_UA_SERVER_CONFIG=opc-ua-server-x509cert
