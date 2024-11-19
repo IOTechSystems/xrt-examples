@@ -2,11 +2,11 @@
 
 ## Overview
 
-This example shows an example of multiple Xrt Device Service instances and a separate Xrt instance with an OPC UA Server component that communicate via MQTT. Note the existance of a `Command` component which is used by the OPC UA Server component to discover the running device services.
+This example demostrates the use of multiple Xrt Device Service instances and a separate Xrt instance with an OPC UA Server component that communicate via MQTT. Note the existence of a `Command` component which is used by the OPC UA Server component to discover the running device services.
 
 ## Running the Example
 
-The following instructions assume your starting working directory is `/xrt-examples/`.
+The following instructions assume your working directory is `/xrt-examples/`.
 
 ### **Set Environment Variables**
 
@@ -14,7 +14,7 @@ We have provided a script to easily set these environment variables. Run:
 
 ```bash
 . ./set_env_vars.sh
-cd Servers/opc-ua/federated
+cd Servers/opc-ua/federated/deployment
 ```
 
 ### **Starting a Device Service Instance**
@@ -40,40 +40,12 @@ See [`federated/instance_template`](./instance_template/) for the configuration 
 
 See [Setup XRT](../../DeviceServices/interactive-walkthrough/setup-xrt.md)
 
-Use one of the below configurations to run the OPC UA Server.
-
-#### Standard
 
 ```bash
 cd deployment
 xrt config
 ```
 
-#### With Security Policy Set to Basic256Sha256
-
-Update `ApplicationUri`, `Certificate` and `PrivateKey` in config_securitypolicy/opc-ua-server.json.
-
-1. Generate your own `Certificate` and the `PrivateKey`, using [`create_self-signed.py`](https://github.com/open62541/open62541/tree/master/tools/certs).
-
-```bash
-python3 create_self-signed.py
-```
-
-_Note: In the script, the default `uri` is set to `urn:open62541.server.application`. This should be changed to match the `ApplicationUri` set in the configuration (`urn:iotechsys:xrt`) before generating the certificates. Additionally, update the common name (CN), which is set to `open62541Server@localhost` to align with the applicationuri._
-
-2. Run Xrt with the set securitypolicy
-
-```bash
-cd deployment
-xrt config_securitypolicy
-```
-
-#### With Username and Password
-
-```bash
-cd deployment
-xrt config_usernamepasswd
-```
 
 ## Interacting with the OPC UA Server
 
