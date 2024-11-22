@@ -25,6 +25,11 @@ export XRT_MODBUS_TCP_STATE_DIR=../../../DeviceServices/modbus-tcp/deployment/st
 export XRT_S7_PROFILE_DIR=../../../DeviceServices/s7/deployment/profiles
 export XRT_S7_STATE_DIR=../../../DeviceServices/s7/deployment/state
 
+export XRT_OPC_UA_APPLICATION_URI=urn:iotechsys:xrt
+export XRT_OPC_UA_X509_CERTIFICATE=../../client_server_certificates/server_cert.der
+export XRT_OPC_UA_X509_KEY=../../client_server_certificates/server_key.der
+export XRT_OPC_UA_CLIENT_CERTIFICATE=../../client_server_certificates/opcua_client_browser.pem
+
 # OPC UA Server node modelling example 
 export XRT_MAPPINGS_DIR=$PWD/deployment/mappings
 export XRT_NODESET_DIR=$PWD/deployment/nodesets
