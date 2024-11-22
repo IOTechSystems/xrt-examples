@@ -54,6 +54,7 @@ xrt config
 #### **With X.509 certificate**
 
 Refer to [Generate Certificates][1] to generate and Update `ApplicationUri`, `Certificate` and `PrivateKey` in `config/opc-ua-server-x509cert.json`.
+Download Client certificate and add that to `TrustList`.
 
 ```bash
 export OPC_UA_SERVER_CONFIG=opc-ua-server-x509cert
