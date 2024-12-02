@@ -7,6 +7,6 @@ By default the Server will start on port `4840`.
 
 Links to the following examples:
 
-- [Colocated Example](./colocated/README.md)
+- [Colocated Example](./basic/README.md)
 - [Federated Example](./federated/README.md)
 - [Node Modeller Example](./node-modeller/README.md)

@@ -1,0 +1,33 @@
+{
+    "Library": "libxrt-opc-ua-server.so",
+    "Factory": "xrt_opc_ua_server_factory",
+    "ThreadPool": "pool",
+    "Bus": "bus",
+    "Logger": "logger",
+    "ApplicationUri" : "${XRT_OPC_UA_APPLICATION_URI}",
+    "SecurityPolicies": [
+    {
+      "SecurityPolicy": "None",
+      "Certificate": "${XRT_OPC_UA_X509_CERTIFICATE}"
+    },
+    {
+      "SecurityPolicy": "Basic256Sha256",
+      "Certificate": "${XRT_OPC_UA_X509_CERTIFICATE}",
+      "PrivateKey": "${XRT_OPC_UA_X509_KEY}"
+    }
+  ],
+  "Endpoints": [
+    {
+      "SecurityPolicy": "None",
+      "X509SecurityPolicy": "Basic256Sha256"
+    }
+  ],
+  "SessionPKI": {
+    "TrustList": [
+      "${XRT_OPC_UA_CLIENT_CERTIFICATE}"
+    ]
+  },
+  "AccessControl": {
+    "EnableX509": true
+  }
+}
