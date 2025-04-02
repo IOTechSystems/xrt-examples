@@ -37,3 +37,19 @@ export SPARKPLUG_PROTO=spb
 # Service Names
 export FILE_SERVICE=file
 export CANBUS_SERVICE=canbus
+
+#NEW CHANGES 
+#export XRT_MQTT_BROKER=tcp://localhost:1883-->1
+export XRT_MQTT_USERNAME=test
+export XRT_MQTT_PASSWORD=test
+export SPARKPLUG_NODE1=device1
+export AZURE_EXPORTER_HOSTNAME=IOTechHub.azure-devices.net
+export AZURE_EXPORTER_DEVICE_ID=device-42
+export AZURE_EXPORTER_SCOPE_ID=0ne0017479D
+export AZURE_EXPORTER_CERTIFICATE=/path/to/device-42.cert.pem
+export AZURE_EXPORTER_KEY=/path/to/device-42.key.pem
+export XRT_LICENSE_FILE=/home/snehal/Documents/gitdir2/xrt-examples/DeviceServices/virtual/deployment/config #instead of this add license fie in the folder --->2
+export XRT_MQTT_BROKER=mqtt://127.0.0.1:1883 #--->1
+
+
+
