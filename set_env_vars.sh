@@ -3,7 +3,6 @@
 export XRT_PROFILE_DIR=$PWD/deployment/state/profiles
 export XRT_STATE_DIR=$PWD/deployment/state
 export XRT_LUA_FILE=$PWD/deployment/config/example.lua
-
 export XRT_MQTT_BROKER=tcp://localhost:1883
 export XRT_MQTT_USERNAME=""
 export XRT_MQTT_PASSWORD=""
@@ -38,7 +37,3 @@ export SPARKPLUG_PROTO=spb
 # Service Names
 export FILE_SERVICE=file
 export CANBUS_SERVICE=canbus
-
-
-
-
