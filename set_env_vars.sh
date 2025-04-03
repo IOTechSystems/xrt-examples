@@ -30,6 +30,7 @@ export XRT_NODESET_DIR=$PWD/deployment/nodesets
 
 # Sparkplug Vars
 export SPARKPLUG_NODE=xrt
+export SPARKPLUG_NODE1=xrt1
 export SPARKPLUG_NODE2=xrt2
 export SPARKPLUG_GROUP=iotech
 export SPARKPLUG_PROTO=spb
@@ -38,10 +39,6 @@ export SPARKPLUG_PROTO=spb
 export FILE_SERVICE=file
 export CANBUS_SERVICE=canbus
 
-#NEW CHANGES 
-export XRT_MQTT_USERNAME=test
-export XRT_MQTT_PASSWORD=test
-export SPARKPLUG_NODE1=xrt1
 
 
 
