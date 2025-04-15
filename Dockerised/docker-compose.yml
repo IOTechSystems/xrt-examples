@@ -6,36 +6,10 @@ networks:
         - subnet: 10.10.0.0/24
           gateway: 10.10.0.1
 
-# volumes:
-#   opc-ua-browser-data:
+volumes:
+  opc-ua-browser-data:
 
 services:
-  # emqx1:
-  #   container_name: emqx1
-  #   image: emqx:5.1.0
-  #   restart: unless-stopped
-  #   environment:
-  #   - "EMQX_NODE_NAME=emqx@node1.emqx.io"
-  #   - "EMQX_CLUSTER__DISCOVERY_STRATEGY=static"
-  #   - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@node1.emqx.io,emqx@node2.emqx.io]"
-  #   healthcheck:
-  #     test: ["CMD", "/opt/emqx/bin/emqx_ctl", "status"]
-  #     interval: 5s
-  #     timeout: 25s
-  #     retries: 5
-  #   networks:
-  #     iotech:
-  #       aliases:
-  #       - node1.emqx.io
-  #   ports:
-  #     - 1883:1883
-  #     - 8083:8083
-  #     - 8084:8084
-  #     - 8883:8883
-  #     - 18083:18083
-  #   # volumes:
-  #   #   - $PWD/emqx1_data:/opt/emqx/data
-
   mqtt:
     image: eclipse-mosquitto:latest
     volumes:
@@ -45,55 +19,49 @@ services:
     networks:
       - iotech
 
-  # opc-ua-server:
-  #   container_name: xrt-opc-ua-server
-  #   image: iotechsys/xrt:2.2
-  #   depends_on:
-  #     emqx1:
-  #       condition: service_healthy
-  #     emqx2:
-  #       condition: service_healthy
-  #   restart: unless-stopped
-  #   environment:
-  #     LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
-  #     XRT_MQTT_BROKER: mqtt://emqx1:1883
-  #     XRT_MQTT_USERNAME: user
-  #     XRT_MQTT_PASSWORD: pass
-  #     XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-  #     XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
-  #   volumes:
-  #     - /home/sam/code/xrt-examples/Servers/opc-ua/federated/deployment/config:/opt/iotech/xrt/2.2/deployment/config
-  #     - /home/sam/licenses/IOTech_EdgeConnect_Developer.json:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
-  #   networks:
-  #     - iotech
-  #   ports:
-  #     - 4840:4840
-  #   # profiles:
-  #   #   - opcua
-      
-  # opc-ua-browser:
-  #   container_name: opc-ua-browser
-  #   image: iotechsys/opc-ua-browser:1.1.0
-  #   restart: unless-stopped
-  #   volumes:
-  #     - opc-ua-browser-data:/data
-  #   networks:
-  #     - iotech
-  #   ports:
-  #     - 8080:8080
-  #   profiles:
-  #     - opcua
+  opc-ua-server:
+    container_name: xrt-opc-ua-server
+    image: iotechsys/xrt:2.2
+    depends_on:
+      mqtt:
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      XRT_MQTT_BROKER: mqtt://mqtt:1883
+      XRT_MQTT_USERNAME: user
+      XRT_MQTT_PASSWORD: pass
+      XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
+      XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+    volumes:
+      - ./../Servers/opc-ua/federated/deployment/config:/opt/iotech/xrt/2.2/deployment/config
+      - ${XRT_LICENSE_FILE}:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+    networks:
+      iotech:
+        ipv4_address: 10.10.0.30
+    profiles:
+      - opcua
 
-      
+  opc-ua-browser:
+    container_name: xrt-opc-ua-browser
+    image: iotechsys/opc-ua-browser:1.1.0
+    restart: unless-stopped
+    volumes:
+      - opc-ua-browser-data:/data
+    networks:
+      - iotech
+    ports:
+      - 8080:8080
+    profiles:
+      - opcua
+
   virtual:
     container_name: xrt-virtual-ds
     image: iotechsys/xrt:2.2
     depends_on:
       mqtt:
-        condition: service_started
+        condition: service_healthy
     restart: unless-stopped
     environment:
-      LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
       XRT_MQTT_BROKER: mqtt://mqtt:1883
       XRT_MQTT_USERNAME: user
       XRT_MQTT_PASSWORD: pass
@@ -109,18 +77,17 @@ services:
     profiles:
       - virtual
       - devices
-      
+
   modbus-tcp:
     container_name: xrt-modbus-tcp-ds
     image: iotechsys/xrt:2.2
     depends_on:
       mqtt:
-        condition: service_started
+        condition: service_healthy
       modbus-tcp-sim:
-        condition: service_started
+        condition: service_healthy
     restart: unless-stopped
     environment:
-      LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
       XRT_MQTT_BROKER: mqtt://mqtt:1883
       XRT_MQTT_USERNAME: user
       XRT_MQTT_PASSWORD: pass
@@ -137,7 +104,7 @@ services:
     profiles:
       - modbus-tcp
       - devices
-      
+
   modbus-tcp-sim:
     container_name: modbus-simulator
     image: iotechsys/pymodbus-sim:1.0
@@ -157,11 +124,10 @@ services:
     restart: unless-stopped
     depends_on:
       mqtt:
-        condition: service_started
+        condition: service_healthy
       s7-sim:
-        condition: service_started
+        condition: service_healthy
     environment:
-      LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
       XRT_PROFILE_DIR: /opt/iotech/xrt/2.2/deployment/profiles
       XRT_STATE_DIR: /opt/iotech/xrt/2.2/deployment/state
       XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
@@ -178,7 +144,7 @@ services:
     profiles:
       - s7
       - devices
-      
+
   s7-sim:
     image: iotechsys/s7-sim:2.0
     container_name: s7-simulator
@@ -188,18 +154,17 @@ services:
     profiles:
       - s7
       - devices
-      
+
   bacnet-ip:
     image: iotechsys/xrt:2.2
     container_name: xrt-bacnet-ip-ds
     restart: unless-stopped
     depends_on:
       mqtt:
-        condition: service_started
+        condition: service_healthy
       bacnet-ip-sim:
-        condition: service_started
+        condition: service_healthy
     environment:
-      LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
       XRT_PROFILE_DIR: /opt/iotech/xrt/2.2/deployment/profiles
       XRT_STATE_DIR: /opt/iotech/xrt/2.2/deployment/state
       XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
@@ -216,7 +181,7 @@ services:
     profiles:
       - bacnet-ip
       - devices
-      
+
   bacnet-ip-sim:
     image: iotechsys/bacnet-sim:2.2
     container_name: bacnet-ip-simulator
@@ -237,7 +202,7 @@ services:
   #   restart: unless-stopped
   #   depends_on:
   #     influxdb:
-  #       condition: service_started
+  #       condition: service_healthy
   #   environment:
   #     LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
   #     XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
@@ -259,7 +224,7 @@ services:
   #     - iotech
   #   profiles:
   #     - exporter
-      
+
   # influxdb:
   #   image: influxdb:latest
   #   container_name: influxdb

@@ -2,12 +2,18 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
+    "xrt/reply",
+    "xrt/discovery",
     "xrt/devices/bacnet_ip/telemetry",
     "xrt/devices/bacnet_ip/reply",
     "xrt/devices/bacnet_ip/discovery",
     "xrt/devices/bacnet_ip/status"
   ],
-  "MQTTPatterns": [ "xrt/devices/bacnet_ip/request" ],
+  "MQTTPatterns": [
+    "xrt/request",
+    "xrt/discovery",
+    "xrt/devices/bacnet_ip/request"
+  ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

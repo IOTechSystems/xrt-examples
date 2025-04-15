@@ -2,11 +2,17 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
+    "xrt/reply",
+    "xrt/discovery",
     "xrt/devices/s7/telemetry",
     "xrt/devices/s7/reply",
     "xrt/devices/s7/status"
   ],
-  "MQTTPatterns": [ "xrt/devices/s7/request" ],
+  "MQTTPatterns": [
+    "xrt/request",
+    "xrt/discovery",
+    "xrt/devices/s7/request"
+  ],
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",

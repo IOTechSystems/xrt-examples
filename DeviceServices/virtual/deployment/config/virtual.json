@@ -5,6 +5,7 @@
   "TelemetryTopic": "xrt/devices/virtual/telemetry",
   "RequestTopic": "xrt/devices/virtual/request",
   "ReplyTopic": "xrt/devices/virtual/reply",
+  "EventTopic": "xrt/devices/virtual/event",
   "DiscoveryTopic": "xrt/devices/virtual/discovery",
   "StatusTopic": "xrt/devices/virtual/status",
   "ProfileDir": "${XRT_PROFILE_DIR}",
