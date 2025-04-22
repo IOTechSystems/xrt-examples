@@ -21,20 +21,15 @@ services:
 
   opc-ua-server:
     container_name: xrt-opc-ua-server
-    image: iotechsys/xrt:2.2
+    image: ${XRT_IMAGE_VERSION}
     depends_on:
       mqtt:
-        condition: service_healthy
+        condition: service_started
     restart: unless-stopped
-    environment:
-      XRT_MQTT_BROKER: mqtt://mqtt:1883
-      XRT_MQTT_USERNAME: user
-      XRT_MQTT_PASSWORD: pass
-      XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-      XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+    env_file: .env
     volumes:
-      - ./../Servers/opc-ua/federated/deployment/config:/opt/iotech/xrt/2.2/deployment/config
-      - ${XRT_LICENSE_FILE}:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+      - ./../Servers/opc-ua/federated/deployment/config:${XRT_IMAGE_INSTALL_PATH}/deployment/config
+      - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
     networks:
       iotech:
         ipv4_address: 10.10.0.30
@@ -56,22 +51,15 @@ services:
 
   virtual:
     container_name: xrt-virtual-ds
-    image: iotechsys/xrt:2.2
+    image: ${XRT_IMAGE_VERSION}
     depends_on:
       mqtt:
-        condition: service_healthy
+        condition: service_started
     restart: unless-stopped
-    environment:
-      XRT_MQTT_BROKER: mqtt://mqtt:1883
-      XRT_MQTT_USERNAME: user
-      XRT_MQTT_PASSWORD: pass
-      XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-      XRT_PROFILE_DIR: /opt/iotech/xrt/2.2/deployment/profiles
-      XRT_STATE_DIR: /opt/iotech/xrt/2.2/deployment/state
-      XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+    env_file: .env
     volumes:
-      - ./../DeviceServices/virtual/deployment:/opt/iotech/xrt/2.2/deployment/
-      - ${XRT_LICENSE_FILE}:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+      - ./../DeviceServices/virtual/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment/
+      - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
     networks:
       - iotech
     profiles:
@@ -80,25 +68,19 @@ services:
 
   modbus-tcp:
     container_name: xrt-modbus-tcp-ds
-    image: iotechsys/xrt:2.2
+    image: ${XRT_IMAGE_VERSION}
     depends_on:
       mqtt:
-        condition: service_healthy
+        condition: service_started
       modbus-tcp-sim:
-        condition: service_healthy
+        condition: service_started
     restart: unless-stopped
+    env_file: .env
     environment:
-      XRT_MQTT_BROKER: mqtt://mqtt:1883
-      XRT_MQTT_USERNAME: user
-      XRT_MQTT_PASSWORD: pass
-      XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-      XRT_PROFILE_DIR: /opt/iotech/xrt/2.2/deployment/profiles
-      XRT_STATE_DIR: /opt/iotech/xrt/2.2/deployment/state
-      XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
       MODBUS_SIM_ADDRESS: modbus-tcp-sim
     volumes:
-      - ./../DeviceServices/modbus-tcp/deployment:/opt/iotech/xrt/2.2/deployment/
-      - ${XRT_LICENSE_FILE}:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+      - ./../DeviceServices/modbus-tcp/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment/
+      - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
     networks:
       - iotech
     profiles:
@@ -119,26 +101,20 @@ services:
       - devices
 
   s7:
-    image: iotechsys/xrt:2.2
+    image: ${XRT_IMAGE_VERSION}
     container_name: xrt-s7-ds
     restart: unless-stopped
     depends_on:
       mqtt:
-        condition: service_healthy
+        condition: service_started
       s7-sim:
-        condition: service_healthy
+        condition: service_started
+    env_file: .env
     environment:
-      XRT_PROFILE_DIR: /opt/iotech/xrt/2.2/deployment/profiles
-      XRT_STATE_DIR: /opt/iotech/xrt/2.2/deployment/state
-      XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-      XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
-      XRT_MQTT_BROKER: mqtt://mqtt:1883
       S7_SIM_ADDRESS: 10.10.0.50
-      XRT_MQTT_USERNAME: user
-      XRT_MQTT_PASSWORD: pass
     volumes:
-      - ./../DeviceServices/s7/deployment:/opt/iotech/xrt/2.2/deployment
-      - ${XRT_LICENSE_FILE}:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+      - ./../DeviceServices/s7/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment
+      - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
     networks:
       - iotech
     profiles:
@@ -156,26 +132,20 @@ services:
       - devices
 
   bacnet-ip:
-    image: iotechsys/xrt:2.2
+    image: ${XRT_IMAGE_VERSION}
     container_name: xrt-bacnet-ip-ds
     restart: unless-stopped
     depends_on:
       mqtt:
-        condition: service_healthy
+        condition: service_started
       bacnet-ip-sim:
-        condition: service_healthy
+        condition: service_started
+    env_file: .env
     environment:
-      XRT_PROFILE_DIR: /opt/iotech/xrt/2.2/deployment/profiles
-      XRT_STATE_DIR: /opt/iotech/xrt/2.2/deployment/state
-      XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-      XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
-      XRT_MQTT_BROKER: mqtt://mqtt:1883
-      XRT_MQTT_USERNAME: user
-      XRT_MQTT_PASSWORD: pass
-      BACNET_IP_SIM_ADDRESS: 10.10.0.60
+      BACNET_IP_SIM_ADDRESS: 10.10.0XRT_IMAGE_INSTALL_PATH.60
     volumes:
-      - ./../DeviceServices/bacnet-ip/deployment:/opt/iotech/xrt/2.2/deployment
-      - ${XRT_LICENSE_FILE}:/opt/iotech/xrt/2.2/IOTech_EdgeConnect_Developer.json
+      - ./../DeviceServices/bacnet-ip/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment
+      - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
     networks:
       - iotech
     profiles:
@@ -197,17 +167,14 @@ services:
       - devices
 
   # exporter:
-  #   image: iotechsys/xrt:2.2
+  #   image: ${XRT_IMAGE_VERSION}
   #   container_name: xrt-opc-ua
   #   restart: unless-stopped
   #   depends_on:
   #     influxdb:
-  #       condition: service_healthy
+  #       condition: service_started
+  #   env_file: .env
   #   environment:
-  #     LD_LIBRARY_PATH: /opt/iotech/xrt/2.2/lib:/opt/iotech/iot/1.5/lib
-  #     XRT_CONFIG_DIR: /opt/iotech/xrt/2.2/deployment/config
-  #     XRT_LICENSE_FILE: /opt/iotech/xrt/2.2/license.json
-  #     XRT_MQTT_BROKER: tcp://mqtt:1883
   #     XRT_INFLUXDB_SERVICE: http://influxdb:8086
   #     XRT_INFLUXDB_USERNAME: admin
   #     XRT_INFLUXDB_PASSWORD: adminadminadmin
@@ -218,8 +185,8 @@ services:
   #     - 5060:80
   #     - 4840:4840
   #   volumes:
-  #     - ./deployment/deployment:/opt/iotech/xrt/2.2/deployment
-  #     - /home/sam/licenses/license.json:/opt/iotech/xrt/2.2/license.json
+  #     - ./deployment/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment
+  #     - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/license.json
   #   networks:
   #     - iotech
   #   profiles:
