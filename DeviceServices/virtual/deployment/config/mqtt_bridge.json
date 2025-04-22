@@ -16,7 +16,7 @@
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
-    "ClientID": "xrt",
+    "ClientID": "virtual-server",
     "QoS": 1,
     "ClientConfig":
     {

@@ -8,6 +8,7 @@ networks:
 
 volumes:
   opc-ua-browser-data:
+  influxdb-data:
 
 services:
   mqtt:
@@ -23,8 +24,7 @@ services:
     container_name: xrt-opc-ua-server
     image: ${XRT_IMAGE_VERSION}
     depends_on:
-      mqtt:
-        condition: service_started
+      - mqtt
     restart: unless-stopped
     env_file: .env
     volumes:
@@ -53,8 +53,7 @@ services:
     container_name: xrt-virtual-ds
     image: ${XRT_IMAGE_VERSION}
     depends_on:
-      mqtt:
-        condition: service_started
+      - mqtt
     restart: unless-stopped
     env_file: .env
     volumes:
@@ -70,10 +69,8 @@ services:
     container_name: xrt-modbus-tcp-ds
     image: ${XRT_IMAGE_VERSION}
     depends_on:
-      mqtt:
-        condition: service_started
-      modbus-tcp-sim:
-        condition: service_started
+      - mqtt
+      - modbus-tcp-sim
     restart: unless-stopped
     env_file: .env
     environment:
@@ -105,10 +102,8 @@ services:
     container_name: xrt-s7-ds
     restart: unless-stopped
     depends_on:
-      mqtt:
-        condition: service_started
-      s7-sim:
-        condition: service_started
+      - mqtt
+      - s7-sim
     env_file: .env
     environment:
       S7_SIM_ADDRESS: 10.10.0.50
@@ -136,13 +131,11 @@ services:
     container_name: xrt-bacnet-ip-ds
     restart: unless-stopped
     depends_on:
-      mqtt:
-        condition: service_started
-      bacnet-ip-sim:
-        condition: service_started
+      - mqtt
+      - bacnet-ip-sim
     env_file: .env
     environment:
-      BACNET_IP_SIM_ADDRESS: 10.10.0XRT_IMAGE_INSTALL_PATH.60
+      BACNET_IP_SIM_ADDRESS: 10.10.0.60
     volumes:
       - ./../DeviceServices/bacnet-ip/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment
       - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
@@ -166,65 +159,54 @@ services:
       - bacnet-ip
       - devices
 
-  # exporter:
-  #   image: ${XRT_IMAGE_VERSION}
-  #   container_name: xrt-opc-ua
-  #   restart: unless-stopped
-  #   depends_on:
-  #     influxdb:
-  #       condition: service_started
-  #   env_file: .env
-  #   environment:
-  #     XRT_INFLUXDB_SERVICE: http://influxdb:8086
-  #     XRT_INFLUXDB_USERNAME: admin
-  #     XRT_INFLUXDB_PASSWORD: adminadminadmin
-  #     XRT_INFLUXDB_BUCKET: test_bucket
-  #     XRT_INFLUXDB_ORG: InfluxOrg
-  #     XRT_INFLUXDB_TOKEN: abcede==
-  #   ports:
-  #     - 5060:80
-  #     - 4840:4840
-  #   volumes:
-  #     - ./deployment/deployment:${XRT_IMAGE_INSTALL_PATH}/deployment
-  #     - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/license.json
-  #   networks:
-  #     - iotech
-  #   profiles:
-  #     - exporter
+  exporter:
+    image: ${XRT_IMAGE_VERSION}
+    container_name: xrt-influxdb-exporter
+    restart: unless-stopped
+    depends_on:
+      - mqtt
+      - influxdb
+    env_file: .env
+    volumes:
+      - ./deployment/deployment/config:${XRT_IMAGE_INSTALL_PATH}/deployment/config
+      - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
+    networks:
+      - iotech
+    profiles:
+      - exporter
 
-  # influxdb:
-  #   image: influxdb:latest
-  #   container_name: influxdb
-  #   restart: always
-  #   environment:
-  #     - DOCKER_INFLUXDB_INIT_MODE=setup
-  #     - DOCKER_INFLUXDB_INIT_USERNAME=admin
-  #     - DOCKER_INFLUXDB_INIT_PASSWORD=adminadminadmin
-  #     - DOCKER_INFLUXDB_INIT_ORG=InfluxOrg
-  #     - DOCKER_INFLUXDB_INIT_BUCKET=test_bucket
-  #     - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=abcede==
-  #   volumes:
-  #     - influxdb-data:/var/lib/influxdb
-  #   ports:
-  #     - "8086:8086"
-  #   networks:
-  #     - iotech
-  #   profiles:
-  #     - exporter
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${XRT_INFLUXDB_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${XRT_INFLUXDB_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${XRT_INFLUXDB_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${XRT_INFLUXDB_BUCKET}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${XRT_INFLUXDB_TOKEN}
+    volumes:
+      - influxdb-data:/var/lib/influxdb
+    # ports:
+    #   - "8086:8086"
+    networks:
+      - iotech
+    profiles:
+      - exporter
 
-  # grafana:
-  #   image: grafana/grafana:latest
-  #   ports:
-  #     - '3000:3000'
-  #   volumes:
-  #     #- grafana-storage:/var/lib/grafana
-  #     - ./deployment/grafana/:/etc/grafana/provisioning
-  #   depends_on:
-  #     - influxdb
-  #   environment:
-  #     - GF_SECURITY_ADMIN_USER=admin
-  #     - GF_SECURITY_ADMIN_PASSWORD=admin
-  #   networks:
-  #     - iotech
-  #   profiles:
-  #     - exporter
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./deployment/grafana/:/etc/grafana/provisioning
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - iotech
+    profiles:
+      - exporter

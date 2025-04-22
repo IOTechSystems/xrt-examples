@@ -14,7 +14,7 @@
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
-    "ClientID": "xrt-opc-ua-server",
+    "ClientID": "xrt-opc-ua-federated-example",
     "QoS": 1,
     "ClientConfig":
     {

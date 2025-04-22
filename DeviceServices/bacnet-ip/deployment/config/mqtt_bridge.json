@@ -17,7 +17,7 @@
   "MQTTConfig":
   {
     "ServerURI": "${XRT_MQTT_BROKER}",
-    "ClientID": "xrt",
+    "ClientID": "bacnet-ip-server",
     "QoS": 1,
     "ClientConfig":
     {
