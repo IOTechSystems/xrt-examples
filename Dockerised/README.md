@@ -88,9 +88,14 @@ The commands from each DeviceService example can still be used to modify the dev
 ../DeviceServices/virtual/commands/get_request.sh
 ```
 
+Note that some devices/resources/schedules information in the `commands/` scripts may be specific to those examples and want changing to see any impact on the running dockerised examples.
+
 ### Grafana Dashboard
 
 When the `exporter` profile is up, view the Grafana dashboard by visitng [localhost:3000](localhost:3000) in the browser of your choice.
+
+The username and password to log in to grafana are both `admin`.
+This can be changed the first time you login, or for the purposes of this example select Skip when prompted to update the password.
 
 View the pre-configured dashboard by going to Dashboards on the left nav bar, and selecting Dockerised Examples Dash.
 This dashboard will show saved data from devices running and saved to InfluxDB by another containerised instance of XRT.
