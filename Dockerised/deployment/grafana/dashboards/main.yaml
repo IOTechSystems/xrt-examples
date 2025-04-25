@@ -7,6 +7,6 @@ providers:
     disableDeletion: false
     updateIntervalSeconds: 10
     options:
-      path: /etc/grafana/provisioning/dashboards/SKF/
+      path: /etc/grafana/provisioning/dashboards/
       foldersFromFilesStructure: true
 
