@@ -33,6 +33,7 @@ export SPARKPLUG_NODE1=xrt1
 export SPARKPLUG_NODE2=xrt2
 export SPARKPLUG_GROUP=iotech
 export SPARKPLUG_PROTO=spb
+export SPARKPLUG_APPS=""
 
 # Service Names
 export FILE_SERVICE=file
