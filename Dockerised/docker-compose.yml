@@ -182,8 +182,6 @@ services:
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${XRT_INFLUXDB_TOKEN}
     volumes:
       - influxdb-data:/var/lib/influxdb
-    # ports:
-    #   - "8086:8086"
     networks:
       - iotech
     profiles:
