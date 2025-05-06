@@ -22,6 +22,15 @@ Follow [Device Service Example Getting Started](../DeviceServices/interactive-wa
 
 [docker compose](https://docs.docker.com/compose/install/) is required to control the multiple containers for this example easily.
 
+### XRT License file
+
+You need to have a license file for XRT that the instances will use.
+The location for this license needs to be stored in the environment variable `$XRT_LICENSE_FILE`
+
+```bash
+export XRT_LICENSE_FILE="/path/to/my/license.lic"
+```
+
 ## Walkthrough
 
 ### Stopping/Starting profiles
@@ -44,8 +53,8 @@ COMPOSE_PROFILES=* docker compose up -d
 COMPOSE_PROFILES=* docker compose down
 
 # Alternatively
-docker compose --profiles "*" up -d
-docker compose --profiles "*" down
+docker compose --profile "*" up -d
+docker compose --profile "*" down
 ```
 
 The `-d`/`--detach` flag on `compose up` commands starts the session detached, allowing you to stop/start other profiles easily.

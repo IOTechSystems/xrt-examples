@@ -25,6 +25,7 @@ Within this repository there are many examples that you can chose to run through
 * [Library](Library/README.md) - This example demonstrates how to use XRT as a library
 * [Device Services](DeviceServices/README.md) - This folder contains many further examples for demonstrating the various Device Services available
 * [Device SDK](DevSDK/README.md)
+* [Dockerised](Dockerised/README.md) - Multiple XRT instances using docker compose
 * Exporters
     * [Azure](Exporters/azure/README.md)
     * [influxdb](Exporters/influxdb/README.md)

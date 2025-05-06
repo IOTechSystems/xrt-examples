@@ -3,14 +3,12 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
     "xrt/reply",
-    "xrt/discovery",
     "xrt/devices/virtual/telemetry",
     "xrt/devices/virtual/reply",
     "xrt/devices/virtual/status"
   ],
   "MQTTPatterns": [
     "xrt/request",
-    "xrt/discovery",
     "xrt/devices/virtual/request"
   ],
   "MQTTConfig":

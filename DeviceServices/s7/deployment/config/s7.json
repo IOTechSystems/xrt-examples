@@ -6,7 +6,6 @@
   "RequestTopic": "xrt/devices/s7/request",
   "ReplyTopic": "xrt/devices/s7/reply",
   "StatusTopic": "xrt/devices/s7/status",
-  "EventTopic": "xrt/devices/s7/event",
   "AutoRegister": false,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,

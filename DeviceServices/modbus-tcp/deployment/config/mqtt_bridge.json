@@ -3,7 +3,6 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Patterns": [
     "xrt/reply",
-    "xrt/discovery",
     "xrt/devices/modbus/telemetry",
     "xrt/devices/modbus/reply",
     "xrt/devices/modbus/discovery",
@@ -11,7 +10,6 @@
   ],
   "MQTTPatterns": [
     "xrt/request",
-    "xrt/discovery",
     "xrt/devices/modbus/request"
   ],
   "MQTTConfig":

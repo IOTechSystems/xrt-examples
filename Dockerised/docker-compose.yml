@@ -170,7 +170,7 @@ services:
       - exporter
 
   influxdb:
-    image: influxdb:latest
+    image: influxdb:2
     container_name: influxdb
     restart: always
     environment:
