@@ -38,7 +38,7 @@ services:
 
   opc-ua-browser:
     container_name: xrt-opc-ua-browser
-    image: iotechsys/opc-ua-browser:1.1.0
+    image: iotechsys/opc-ua-browser:latest
     restart: unless-stopped
     volumes:
       - opc-ua-browser-data:/data
@@ -162,7 +162,7 @@ services:
       - influxdb
     env_file: .env
     volumes:
-      - ./deployment/deployment/config:${XRT_IMAGE_INSTALL_PATH}/deployment/config
+      - ./deployment/exporter/config:${XRT_IMAGE_INSTALL_PATH}/deployment/config
       - ${XRT_LICENSE_FILE}:${XRT_IMAGE_INSTALL_PATH}/IOTech_EdgeConnect_Developer.json
     networks:
       - iotech

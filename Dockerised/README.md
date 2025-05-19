@@ -94,10 +94,8 @@ Resources that are configured to be writable can also be modified from this can 
 The commands from each DeviceService example can still be used to modify the device values, schedules or status.
 
 ```bash
-../DeviceServices/virtual/commands/get_request.sh
+../DeviceServices/modbus-tcp/commands/put_request.sh
 ```
-
-Note that some devices/resources/schedules information in the `commands/` scripts may be specific to those examples and want changing to see any impact on the running dockerised examples.
 
 ### Grafana Dashboard
 
@@ -110,4 +108,4 @@ View the pre-configured dashboard by going to Dashboards on the left nav bar, an
 This dashboard will show saved data from devices running and saved to InfluxDB by another containerised instance of XRT.
 
 The Grafana config files are held in `./deployment/grafana`.
-The Exporter XRT instance config files are held in `./deployment/deployment`.
+The Exporter XRT instance config files are held in `./deployment/exporter`.
