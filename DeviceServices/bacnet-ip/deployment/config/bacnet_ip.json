@@ -7,6 +7,7 @@
   "ReplyTopic": "xrt/devices/bacnet_ip/reply",
   "DiscoveryTopic": "xrt/devices/bacnet_ip/discovery",
   "StatusTopic": "xrt/devices/bacnet_ip/status",
+  "EventTopic": "xrt/devices/bacnet_ip/event",
   "AutoRegister": false,
   "DiscoveryInterval": 0,
   "PublishRegisteredDevices": true,
