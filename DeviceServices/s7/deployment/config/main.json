@@ -5,5 +5,6 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "s7":"XRT::S7DeviceService",
-  "mqtt_bridge": "XRT::MQTTBridge"
+  "mqtt_bridge": "XRT::MQTTBridge",
+  "command": "XRT::Command"
 }
