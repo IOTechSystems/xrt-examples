@@ -19,8 +19,6 @@ services:
       - "1883:1883"
     networks:
       - iotech
-    profiles:
-      - mqtt
 
   opc-ua-server:
     container_name: xrt-opc-ua-server

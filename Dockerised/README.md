@@ -38,7 +38,6 @@ export XRT_LICENSE_FILE="/path/to/my/license.lic"
 Each component can be controlled through docker compose profiles, which can all be stopped or started independently.
 These profiles are:
 
-- `mqtt` for the MQTT broker
 - `opcua` for the OPC-UA server and browser
 - `exporter` for InfluxDB/Grafana instances with data storage and visualisation
 - `devices` for *ALL* of the following devices, to control them simultaneously
@@ -62,19 +61,21 @@ Without the `-d` flag you will be attached to the docker session and view the lo
 A useful tool to view the logs for multiple detached docker containers is [lazydocker](https://github.com/jesseduffield/lazydocker).
 
 These profiles don't all have to be run at once.
-For example after starting up all devices, you could decide to stop `s7`, then later start up the `exporter` profile for the grafana dashboard:
 
 ```bash
-COMPOSE_PROFILES=mqtt,devices docker compose up -d
-COMPOSE_PROFILES=s7 docker compose down
-COMPOSE_PROFILES=exporter docker compose up -d
-```
+# To run all devices
+COMPOSE_PROFILES=devices docker compose up -d
 
-**Note that mqtt profile is required for any of the containers to communicate with each other, but this can also be stopped/started independently if desired.**
+# Only s7, and opcua browser/server
+COMPOSE_PROFILES=s7,opcua docker compose up -d
+
+# Only virtual and grafana/influxdb
+COMPOSE_PROFILES=virtual,exporter docker compose up -d
+```
 
 ### MQTT
 
-When the `mqtt` profile is up, subscribe to all xrt topics in a new terminal to see all of our requests and their replies.
+You can subscribe to all xrt topics in a new terminal to see all of our requests and their replies.
 
 ```bash
 mosquitto_sub -v -t "#"
