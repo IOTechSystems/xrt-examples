@@ -23,6 +23,8 @@ services:
   opc-ua-server:
     container_name: xrt-opc-ua-server
     image: ${XRT_IMAGE_VERSION}
+    depends_on:
+      - mqtt
     restart: unless-stopped
     env_file: .env
     volumes:
@@ -50,6 +52,8 @@ services:
   virtual:
     container_name: xrt-virtual-ds
     image: ${XRT_IMAGE_VERSION}
+    depends_on:
+      - mqtt
     restart: unless-stopped
     env_file: .env
     volumes:
@@ -65,6 +69,7 @@ services:
     container_name: xrt-modbus-tcp-ds
     image: ${XRT_IMAGE_VERSION}
     depends_on:
+      - mqtt
       - modbus-tcp-sim
     restart: unless-stopped
     env_file: .env
@@ -97,6 +102,7 @@ services:
     container_name: xrt-s7-ds
     restart: unless-stopped
     depends_on:
+      - mqtt
       - s7-sim
     env_file: .env
     environment:
@@ -125,6 +131,7 @@ services:
     container_name: xrt-bacnet-ip-ds
     restart: unless-stopped
     depends_on:
+      - mqtt
       - bacnet-ip-sim
     env_file: .env
     environment:
@@ -157,6 +164,7 @@ services:
     container_name: xrt-influxdb-exporter
     restart: unless-stopped
     depends_on:
+      - mqtt
       - influxdb
     env_file: .env
     volumes:
