@@ -65,12 +65,15 @@ These profiles don't all have to be run at once.
 ```bash
 # To run all devices
 COMPOSE_PROFILES=devices docker compose up -d
+COMPOSE_PROFILES=devices docker compose down
 
 # Only s7, and opcua browser/server
 COMPOSE_PROFILES=s7,opcua docker compose up -d
+COMPOSE_PROFILES=s7,opcua docker compose down
 
 # Only virtual and grafana/influxdb
 COMPOSE_PROFILES=virtual,exporter docker compose up -d
+COMPOSE_PROFILES=virtual,exporter docker compose down
 ```
 
 ### MQTT
