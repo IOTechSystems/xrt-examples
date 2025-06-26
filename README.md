@@ -1,6 +1,6 @@
 # XRT Examples
 
-This repository contains examples for IOTech XRT.
+This repository contains examples for IOTech XRT, a core component of IOTech Edge Connect.
 
 ## What is XRT?
 
@@ -9,7 +9,7 @@ of the Linux Foundation’s EdgeX Foundry platform that enables
 the EdgeX ecosystem to support the full spectrum of secure
 hard and soft real-time Edge Computing requirements.
 
-More infomation about XRT can be found on the [IOTech website](https://www.iotechsys.com/our-products/edge-software-platforms/edge-xrt/)
+More information about XRT and IOTech Edge Connect can be found on the [IOTech website](https://www.iotechsys.com/products/edge-connect/)
 
 ## Gettings Started
 
