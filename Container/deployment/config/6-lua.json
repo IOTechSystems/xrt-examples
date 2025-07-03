@@ -1,9 +1,9 @@
 {
   "Library": "libxrt-lua-transform.so",
   "Factory": "xrt_lua_transform_factory",
-  "Bus":"bus",
-  "Scheduler": "sched",
-  "ThreadPool": "pool",
-  "Logger":"logger",
+  "Bus":"5-bus",
+  "Scheduler": "4-sched",
+  "ThreadPool": "3-pool",
+  "Logger":"2-logger",
   "ScriptFile":"${XRT_LUA_FILE}"
 }
