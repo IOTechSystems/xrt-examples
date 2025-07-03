@@ -1,9 +1,9 @@
 {
-  "xrt":"XRT::Config",
-  "logger":"IOT::Logger",
-  "pool":"IOT::ThreadPool",
-  "sched":"IOT::Scheduler",
-  "bus":"XRT::Bus",
-  "lua":"XRT::LuaTransform",
-  "virtual_device_service":"XRT::VirtualDeviceService"
+  "1-xrt":"XRT::Config",
+  "2-logger":"IOT::Logger",
+  "3-pool":"IOT::ThreadPool",
+  "4-sched":"IOT::Scheduler",
+  "5-bus":"XRT::Bus",
+  "6-lua":"XRT::LuaTransform",
+  "7-virtual_device_service":"XRT::VirtualDeviceService"
 }
