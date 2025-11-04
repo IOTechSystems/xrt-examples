@@ -7,10 +7,80 @@
         "modbus-tcp": {
           "Address": "${MODBUS_SIM_ADDRESS}",
           "Port": 1502,
+          "UnitID": 1,
+          "MaxEndpointConnections": 4
+        }
+      },
+      "name": "modbus-sim-0-1"
+    },
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": 1502,
+          "UnitID": 2,
+          "MaxEndpointConnections": 4
+        }
+      },
+      "name": "modbus-sim-0-2"
+    },
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": 1502,
+          "UnitID": 3,
+          "MaxEndpointConnections": 4
+        }
+      },
+      "name": "modbus-sim-0-3"
+    },
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": 1502,
+          "UnitID": 4,
+          "MaxEndpointConnections": 4
+        }
+      },
+      "name": "modbus-sim-0-4"
+    },
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": 1503,
           "UnitID": 1
         }
       },
-      "name": "modbus-sim"
+      "name": "modbus-sim-2"
+    },
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": 1504,
+          "UnitID": 1
+        }
+      },
+      "name": "modbus-sim-3"
+    },
+    {
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "Address": "${MODBUS_SIM_ADDRESS}",
+          "Port": 1505,
+          "UnitID": 1
+        }
+      },
+      "name": "modbus-sim-4"
     }
   ]
 }

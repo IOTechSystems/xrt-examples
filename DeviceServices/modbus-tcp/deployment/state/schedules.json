@@ -2,9 +2,49 @@
   "apiVersion": "v2",
   "schedules": [
     {
-      "device": "modbus-sim",
+      "device": "modbus-sim-0-1",
       "interval": 1000000,
-      "name": "modbus-example-schedule1",
+      "name": "modbus-example-schedule1-1",
+      "resource": [
+        "Current"
+      ]
+    },
+    {
+      "device": "modbus-sim-0-2",
+      "interval": 1000000,
+      "name": "modbus-example-schedule1-2",
+      "resource": [
+        "Current"
+      ]
+    },
+    {
+      "device": "modbus-sim-0-3",
+      "interval": 1000000,
+      "name": "modbus-example-schedule1-3",
+      "resource": [
+        "Current"
+      ]
+    },
+    {
+      "device": "modbus-sim-2",
+      "interval": 1000000,
+      "name": "modbus-example-schedule2",
+      "resource": [
+        "Current"
+      ]
+    },
+    {
+      "device": "modbus-sim-3",
+      "interval": 1000000,
+      "name": "modbus-example-schedule3",
+      "resource": [
+        "Current"
+      ]
+    },
+    {
+      "device": "modbus-sim-4",
+      "interval": 1000000,
+      "name": "modbus-example-schedule4",
       "resource": [
         "Current"
       ]

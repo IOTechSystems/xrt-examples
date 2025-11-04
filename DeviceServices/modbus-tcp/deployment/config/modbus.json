@@ -7,6 +7,7 @@
   "Scheduler": "sched",
   "Logger": "logger",
   "ThreadPool": "pool",
+  "SchedulesThreadPool":"schedule_pool",
   "Bus": "bus",
   "DeviceDownTimeout": 60,
   "AllowedFails": 5,
