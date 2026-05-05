@@ -11,7 +11,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/modbus-tcp
     \"profileName\": \"modbus-sim-profile\",
     \"protocols\":{
       \"modbus-tcp\":{
-        \"Address\": \"$MODBUS_SIM_ADDRESS\",
+        \"Address\": \"0.0.0.0\",
         \"Port\": 1502,
         \"UnitID\": 1
       }
