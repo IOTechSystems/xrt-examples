@@ -40,3 +40,13 @@ xrt deployment/config
 ### Basic Operations
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
+
+### DCMD Write Operations
+
+In this example the put_request.sh and put_multi_request.sh commands are using the Sparkplug API to send write commands to the device. 
+
+These work by adding the device's name on the message topic and specifying the properties you want to change as separate metrics.
+
+Each metric needs to have a name/alias of the property to alter, a value, and a datatype of the property. The datatype currently can only be specified by an integer. 
+
+See [Chapter 6.4.16 of Sparkplug Specification](https://sparkplug.eclipse.org/specification/version/3.0/documents/sparkplug-specification-3.0.0.pdf#page=83) for the full list of datatypes 
