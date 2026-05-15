@@ -88,6 +88,21 @@ Similarly to the multi get request, we can also write to multiple resources in o
 ./commands/put_multi_request.sh
 ```
 
+### DCMD Write Commands
+
+In some device service examples the `put_request.sh` and `put_multi_request.sh` commands are replaced with `write.sh` and `multi_write.sh` commands. 
+These use the Sparkplug API to send DCMD write commands to the device instead of doing so through the request and reply topics.
+
+The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are writing to we add its `Device ID` 
+to the end of the DCMD topic.
+
+The DCMD message payload should consist of an array of metrics with each metric having a name/alias of a device resource, its new value, and 
+the type of the resource's value, specified with a `datatype` field. The datatype currently can only be set as an integer. 
+
+See [Chapter 6.4.16 of Sparkplug Specification](https://sparkplug.eclipse.org/specification/version/3.0/documents/sparkplug-specification-3.0.0.pdf#page=83) for the full list of datatypes.
+
+If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you set. 
+
 ## Schedule Management
 
 Schedules can be set up to automatically perform get or put operations on a defined interval.
