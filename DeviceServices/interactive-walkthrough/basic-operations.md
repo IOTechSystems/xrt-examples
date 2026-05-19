@@ -20,8 +20,8 @@ apt-get install mosquitto-clients
 
 ## Topics
 
-In our `device_service.json` file we have configured each topic that XRT will receive it's requests, post its replies, post telemetry data and post discovered devices on. 
-For more about these topics please see [XRT Device Service Component Configuration](https://docs.iotechsys.com/edge-xrt20/device-service-components/device-service-component-configuration.html).   
+In our `7-mqtt.json` file we have configured a pattern for each topic that XRT will receive it's requests, post its replies, post telemetry data and post discovered devices on. 
+For more about these patterns please see [Sparkplug MQTT Configuration](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#mqtt-configuration).
 
 All requests to an XRT Device Service are made through the `RequestTopic` and responses received on the `ReplyTopic` indicating success or failure.
 Readings will also be included in this reply if a reading request was made.
@@ -67,6 +67,23 @@ We also can read multiple resources in one operation:
 ./commands/get_multi_request.sh
 ```
 
+### DCMD Write Commands
+
+In some device service examples the `get_request.sh` and `get_multi_request.sh` commands are replaced with `read.sh` and `multi_read.sh` commands. 
+These use the Sparkplug API to send DCMD read commands to the device instead of doing so through the request and reply topics.
+
+The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are reading from we add its `Device ID` 
+to the end of the DCMD topic.
+
+The DCMD message payload for a read message should consist of an array of metrics with each metric having a name/alias of a device resource, an `is_null` field set 
+to "true", and the type of the resource's value, specified with a `datatype` field. We use the is_null field to signal that we want to read the resource's value.
+
+The datatype field currently can only be set as an integer. 
+
+See [Edge Connect User Documentation](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#metric-types) for the full list of datatypes.
+
+If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested. 
+
 ## Writing
 
 ### Put request
@@ -96,10 +113,12 @@ These use the Sparkplug API to send DCMD write commands to the device instead of
 The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are writing to we add its `Device ID` 
 to the end of the DCMD topic.
 
-The DCMD message payload should consist of an array of metrics with each metric having a name/alias of a device resource, its new value, and 
-the type of the resource's value, specified with a `datatype` field. The datatype currently can only be set as an integer. 
+The DCMD message payload for a write message should consist of an array of metrics with each metric having a name/alias of a device resource, its new value, 
+and the type of the resource's value, specified with a `datatype` field. 
 
-See [Chapter 6.4.16 of Sparkplug Specification](https://sparkplug.eclipse.org/specification/version/3.0/documents/sparkplug-specification-3.0.0.pdf#page=83) for the full list of datatypes.
+The datatype currently can only be set as an integer. 
+
+See [Edge Connect User Documentation](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#metric-types) for the full list of datatypes.
 
 If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you set. 
 
