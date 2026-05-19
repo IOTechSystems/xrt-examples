@@ -67,7 +67,7 @@ We also can read multiple resources in one operation:
 ./commands/get_multi_request.sh
 ```
 
-### DCMD Write Commands
+### DCMD Read Commands
 
 In some device service examples the `get_request.sh` and `get_multi_request.sh` commands are replaced with `read.sh` and `multi_read.sh` commands. 
 These use the Sparkplug API to send DCMD read commands to the device instead of doing so through the request and reply topics.
