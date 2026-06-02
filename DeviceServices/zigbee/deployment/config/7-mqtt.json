@@ -20,15 +20,15 @@
   "MQTTPatterns":
   [
      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/STATE/+", "Qos": 0, "Sync":true },
-     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Qos": 1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/zigbee", "Qos": 0, "Sync":true }
+     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "Qos": 0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/zigbee", "Qos": 0, "Sync":true },
      { "Pattern":"zigbee2mqtt/+", "Qos": 1, "Sync": true},
      { "Pattern":"zigbee2mqtt/bridge/response/#", "Qos": 1, "Sync": true},
      { "Pattern":"zigbee2mqtt/bridge/devices", "Qos": 1, "Sync": true}
   ],
   "MQTTDynamicPatterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
   ],
   "MQTTConfig":
   {
@@ -50,7 +50,7 @@
         "QoS": 1,
         "Retain": false
       }
-    },
+    }
   },
   "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
   "AcksTimeout": 10,
