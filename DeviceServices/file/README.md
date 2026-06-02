@@ -4,7 +4,7 @@
 
 This page shows you how to setup and run the File example.
 
-For more information about the Device Service please review the [File Device Service](https://docs.iotechsys.com/edge-xrt30/device-service-components/file-device-service-component.html)
+For more information about the Device Service please review the [File Device Service](https://docs.iotechsys.com/edge-connect33/xrt/devices/file.html)
 
 ## Getting Started
 
