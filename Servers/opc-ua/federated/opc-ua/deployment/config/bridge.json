@@ -3,8 +3,8 @@
     "Factory": "xrt_mqtt_bridge_factory",
     "Patterns":
     [
-      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
-      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/+/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/+", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/+/+", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
     ],
     "MQTTPatterns":
     [

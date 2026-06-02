@@ -17,12 +17,12 @@
   "MQTTPatterns": 
   [
     { "Pattern":"xrt/command/request", "QoS":0, "Sync": true},
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"]  },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual", "QoS":0, "Sync":true }
   ],
   "MQTTDynamicPatterns":
   [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+", "QoS":1, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
   ],
   "MQTTConfig":
   {
