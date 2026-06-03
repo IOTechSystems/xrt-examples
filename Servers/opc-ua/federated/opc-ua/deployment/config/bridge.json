@@ -11,11 +11,11 @@
       { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/+/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
       { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/+/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
       { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/+/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DACK/+/+", "QoS":1, "Transforms": ["${SPARKPLUG_PROTO}"] },
+      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DACK/+/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
       { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
       { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
       { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/+", "QoS":1, "Transforms": ["${SPARKPLUG_PROTO}"] }
+      { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] }
     ],
     "MQTTConfig":
     {
