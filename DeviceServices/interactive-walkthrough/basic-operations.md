@@ -99,6 +99,7 @@ The datatypes for each metric are also included in the DBIRTH message.
 * `value`: The value being written. Its type has to match the datatype specified.
 
 If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you changed.
+
 ## Schedule Management
 
 Schedules can be set up to automatically perform get or put operations on a defined interval.
