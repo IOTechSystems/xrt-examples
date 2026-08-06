@@ -18,12 +18,21 @@ cd ~/xrt-examples/DeviceServices/opc-ua
 apt-get install mosquitto-clients
 ```
 
+* Sparkplug client docker container is installed:
+
+```bash
+docker pull iotechsys/sparkplug-client
+```
+
 ## Topics
 
-In our `device_service.json` file we have configured each topic that XRT will receive it's requests, post its replies, post telemetry data and post discovered devices on. 
-For more about these topics please see [XRT Device Service Component Configuration](https://docs.iotechsys.com/edge-xrt20/device-service-components/device-service-component-configuration.html).   
+In our `7-mqtt.json` file we have configured a pattern for each topic that XRT will receive it's requests, post its replies, post metric data and post discovered devices on. 
+For more about these patterns please see [Sparkplug MQTT Configuration](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#mqtt-configuration).
 
-All requests to an XRT Device Service are made through the `RequestTopic` and responses received on the `ReplyTopic` indicating success or failure.
+The Read and Write requests to an XRT device are made through the DCMD topic and responses, which indicate the command's success, are received on the DDATA topic. 
+Please see [Sparkplug Specification](https://sparkplug.eclipse.org/specification/version/3.0/documents/sparkplug-specification-3.0.0.pdf) for more information on Sparkplug messages and their payloads.
+
+All other requests are made through the `RequestTopic` and responses received on the `ReplyTopic` indicating success or failure.
 Readings will also be included in this reply if a reading request was made.
 
 
@@ -36,7 +45,8 @@ Since, with the example, a device has already been added to the device service w
 ./commands/remove_device.sh
 ```
 
-In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed. 
+In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed.
+You should also see a DDEATH message after successfully removing a device.
 
 ### Add a new device
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
@@ -46,47 +56,49 @@ Lets add the device back with a profile field defined. This will match the newly
 ```
 
 Again, you should be able to see the 'add request' message and it's reponse indicating that the device was successfully added. 
+You should also see a DBIRTH message containing all the metrics of the newly added device.
 
 ## Reading 
 
-### Get request
-Let's read a single resource from the device profile:
+### DCMD Read Commands
 
-```bash
-./commands/get_request.sh
-```
-This will perform a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of 
-the device that the request is being performed on and the name of the resource that being requested. 
+In some device service examples the `get_request.sh` and `get_multi_request.sh` commands are replaced with `read.sh` and `multi_read.sh` commands. 
+For these device services, the data is read using DCMDs (protobuf endoced) instead of Request/Reply topics.
 
-In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
+The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are reading from we add its `Device ID` 
+to the end of the DCMD topic. The Device ID of each device can be found in `deployment/state/devices.json` in the `"name":` field. 
+An example topic would be: "spBv1.0/iotech/DCMD/xrt-dev/virtual-device", where "virtual-device" is the Device ID of the device we are reading data from.
 
-### Multi get request
-We also can read multiple resources in one operation:
+The DCMD message payload for a read message should consist of an array of metrics with each metric having a name or an alias of a device resource and an `is_null` field set 
+to "true". Unlike the write DCMD message payload, the `datatype` field is not mandatory in read commands.
 
-```bash
-./commands/get_multi_request.sh
-```
+* `alias`: The alias of the metric to be read, represented as an integer ID. Its value can be retrieved by looking at the DBIRTH message of the corresponding device.
+* `name`: The name of the metric to read, corresponds to the resource name string in the device profile. Can be used instead of the alias.
+* `is_null`: Boolean field used to specify that the metric's value is null when set to `true`. By default, when set to 'true', it indicates the intent to read the metric's value.
+
+If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested. 
 
 ## Writing
 
-### Put request
-Now let's write some data to our device with a put command:
+### DCMD Write Commands
 
-```bash
-./commands/put_request.sh
-```
+In some device service examples the `put_request.sh` and `put_multi_request.sh` commands are replaced with `write.sh` and `multi_write.sh` commands. 
+For these device services, the data is written using DCMDs (protobuf endoced) instead of Request/Reply topics.
 
-In the request message you should be able to see the name of the device that the request is being performed on, 
-and the name of the resource that we are writing to, along with the value we are writing. 
+The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are writing to we add its `Device ID` 
+to the end of the DCMD topic. The Device ID of each device can be found in `deployment/state/devices.json` in the `"name":` field. 
+An example topic would be: "spBv1.0/iotech/DCMD/xrt-dev/virtual-device", where "virtual-device" is the Device ID of the device we are writing data to.
 
-In the reply you should be able to see a message indicating that the put request was successful. 
+The DCMD message payload for a write message should consist of an array of metrics with each metric having a name/alias of a device resource, its new value, 
+and the type of the resource's value, specified with a datatype field. 
 
-### Multi put request
-Similarly to the multi get request, we can also write to multiple resources in one operation.
+* `alias`: The alias of the metric to write to, represented as an integer ID. Its value can be retrieved by looking at the DBIRTH message of the corresponding device.
+* `name`: The name of the metric to write to, corresponds to the resource name string in the device profile. Can be used instead of the alias.
+* `datatype`: The type of the metric's value, represented as an integer. See [Edge Connect User Documentation](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#metric-types) for the full list of datatypes.
+The datatypes for each metric are also included in the DBIRTH message.
+* `value`: The value being written. Its type has to match the datatype specified.
 
-```bash
-./commands/put_multi_request.sh
-```
+If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you changed. 
 
 ## Schedule Management
 
@@ -102,7 +114,7 @@ In the request message you should see information about the schedule we are want
 the resource, and the interval we are wanting to read this resource at. 
 
 The reply should indicate if the schedule add request was successful or not. 
-You should then also start to see readings being published in a similar format to a get request reply but on the `TelemetryTopic`.
+You should then also start to see readings being published on the `DDATA` Topic.
 
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
@@ -114,29 +126,3 @@ In the request message you should see that we include the name of the schedule t
 
 The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.
 
-## Operation States
-
-The operational state of device controls whether requests to contact the device, including existing schedules will be acted on.
-When the operational state changes, a notification is published on the `StatusTopic`.
-
-Device Services that support the ability to monitor the online state of a device at the protocol level
-are able to change the operational state of devices automatically.
-
-The user can manually change the operation state of a device during a `device:update`.
-
-```bash
-./commands/operation_state_false.sh
-```
-```bash
-./commands/operation_state_true.sh
-```
-
-Device services also may disable a device if it has deemed the device uncontactable or responding with failures after
-read or write operations are made. 
-If an `AllowedFails` number of consecutive attempts to contact a device result in failure then Device Service 
-will assume the device is down and set the device to non-operational. 
-The device will be in a non-operational state until a `DeviceDownTimeout` has been reached after which the device 
-will be marked as operational again. 
-When this occurs, the device will be placed in a “last chance” state, meaning that regardless of the `AllowedFails` 
-setting, a single failure will trigger the device back to non-operational for the `DeviceDownTimeout` again, but a successful response 
-will restore the device to normal.
