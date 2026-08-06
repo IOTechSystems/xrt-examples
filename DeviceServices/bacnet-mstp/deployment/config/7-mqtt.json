@@ -10,7 +10,7 @@
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE}", "QoS":1, "Transforms": ["${SPARKPLUG_PROTO}"] },
+    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
     { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/bacnet_mstp", "QoS":0 }
   ],
   "MQTTPatterns":
