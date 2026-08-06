@@ -3,9 +3,9 @@ docker run --rm --network host iotechsys/sparkplug-client pub -h localhost -t sp
 '{   
   "metrics":
   [
-    { "name": "Current",  "datatype": 6, "is_null": true  },
-    { "name": "Power",  "datatype": 6, "is_null": true  },
-    { "name": "Voltage",  "datatype": 6, "is_null": true  }
+    { "name": "Current", "is_null": true  },
+    { "name": "Power", "is_null": true  },
+    { "name": "Voltage", "is_null": true  }
   ]
 }'
 
