@@ -4,6 +4,6 @@ docker run --rm --network host iotechsys/sparkplug-client:3.1.3.dev pub -h local
 '{   
   "metrics":
   [
-    { "name": "IEC_COUNTER", "datatype": 14, "is_null": true }
+    { "name": "IEC_COUNTER", "is_null": true }
   ]
 }'

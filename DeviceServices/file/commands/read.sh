@@ -3,6 +3,6 @@ docker run --rm --network host iotechsys/sparkplug-client pub -h localhost -t sp
 '{   
   "metrics":
   [
-    { "name": "file_string", "datatype": 12, "is_null": true }
+    { "name": "file_string", "is_null": true }
   ]
 }'

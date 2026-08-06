@@ -4,6 +4,6 @@ docker run --rm --network host iotechsys/sparkplug-client:3.1.3.dev pub -h local
 '{   
   "metrics":
   [
-    { "name": "DB_1_I64_ARRAY", "datatype": 25, "is_null": true }
+    { "name": "DB_1_I64_ARRAY", "is_null": true }
   ]
 }'
