@@ -1,4 +1,4 @@
 #!/bin/sh
 
-kill -9 $(ps | grep "socat" | awk '{ print $1 }')
+pkill -9 -f "socat.*virtualport" 2>/dev/null
 docker kill bacnet-mstp-sim
