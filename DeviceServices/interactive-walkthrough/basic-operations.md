@@ -60,24 +60,6 @@ You should also see a DBIRTH message containing all the metrics of the newly add
 
 ## Reading 
 
-### Get request
-Let's read a single resource from the device profile:
-
-```bash
-./commands/get_request.sh
-```
-This will perform a reading on one of the resources defined in the newly added device's profile. In the request message you should see the name of 
-the device that the request is being performed on and the name of the resource that being requested. 
-
-In the reply you should be able to see the value of this resource along with other information about the get request that was performed. 
-
-### Multi get request
-We also can read multiple resources in one operation:
-
-```bash
-./commands/get_multi_request.sh
-```
-
 ### DCMD Read Commands
 
 In some device service examples the `get_request.sh` and `get_multi_request.sh` commands are replaced with `read.sh` and `multi_read.sh` commands. 
@@ -97,25 +79,6 @@ to "true". Unlike the write DCMD message payload, the `datatype` field is not ma
 If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested. 
 
 ## Writing
-
-### Put request
-Now let's write some data to our device with a put command:
-
-```bash
-./commands/put_request.sh
-```
-
-In the request message you should be able to see the name of the device that the request is being performed on, 
-and the name of the resource that we are writing to, along with the value we are writing. 
-
-In the reply you should be able to see a message indicating that the put request was successful. 
-
-### Multi put request
-Similarly to the multi get request, we can also write to multiple resources in one operation.
-
-```bash
-./commands/put_multi_request.sh
-```
 
 ### DCMD Write Commands
 
