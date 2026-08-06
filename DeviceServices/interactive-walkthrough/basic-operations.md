@@ -78,23 +78,6 @@ to "true". Unlike the write DCMD message payload, the `datatype` field is not ma
 
 If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested. 
 
-### DCMD Read Commands
-
-In some device service examples the `get_request.sh` and `get_multi_request.sh` commands are replaced with `read.sh` and `multi_read.sh` commands. 
-These use the Sparkplug API to send DCMD read commands to the device instead of doing so through the request and reply topics.
-
-The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are reading from we add its `Device ID` 
-to the end of the DCMD topic.
-
-The DCMD message payload for a read message should consist of an array of metrics with each metric having a name/alias of a device resource, an `is_null` field set 
-to "true", and the type of the resource's value, specified with a `datatype` field. We use the is_null field to signal that we want to read the resource's value.
-
-The datatype field currently can only be set as an integer. 
-
-See [Edge Connect User Documentation](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#metric-types) for the full list of datatypes.
-
-If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested. 
-
 ## Writing
 
 ### DCMD Write Commands
@@ -115,25 +98,7 @@ and the type of the resource's value, specified with a datatype field.
 The datatypes for each metric are also included in the DBIRTH message.
 * `value`: The value being written. Its type has to match the datatype specified.
 
-If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you changed. 
-
-### DCMD Write Commands
-
-In some device service examples the `put_request.sh` and `put_multi_request.sh` commands are replaced with `write.sh` and `multi_write.sh` commands. 
-These use the Sparkplug API to send DCMD write commands to the device instead of doing so through the request and reply topics.
-
-The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are writing to we add its `Device ID` 
-to the end of the DCMD topic.
-
-The DCMD message payload for a write message should consist of an array of metrics with each metric having a name/alias of a device resource, its new value, 
-and the type of the resource's value, specified with a `datatype` field. 
-
-The datatype currently can only be set as an integer. 
-
-See [Edge Connect User Documentation](https://docs.iotechsys.com/edge-connect33/xrt/sparkplug.html#metric-types) for the full list of datatypes.
-
-If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you set. 
-
+If the DCMD command was successful, you should see a `DDATA` message sent by the device echoing the metrics you changed.
 ## Schedule Management
 
 Schedules can be set up to automatically perform get or put operations on a defined interval.
