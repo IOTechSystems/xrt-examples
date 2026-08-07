@@ -76,7 +76,7 @@ to "true". Unlike the write DCMD message payload, the `datatype` field is not ma
 * `name`: The name of the metric to read, corresponds to the resource name string in the device profile. Can be used instead of the alias.
 * `is_null`: Boolean field used to specify that the metric's value is null when set to `true`. By default, when set to 'true', it indicates the intent to read the metric's value.
 
-If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested. 
+If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested.
 
 ## Writing
 
