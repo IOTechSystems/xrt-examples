@@ -62,8 +62,8 @@ You should also see a DBIRTH message containing all the metrics of the newly add
 
 ### DCMD Read Commands
 
-In some device service examples the `get_request.sh` and `get_multi_request.sh` commands are replaced with `read.sh` and `multi_read.sh` commands. 
-For these device services, the data is read using DCMDs (protobuf endoced) instead of Request/Reply topics.
+For all device services, the data is read using the DCMD and DDATA topics (protobuf endoced) instead of the Request/Reply topics. 
+This is handled by `read.sh` and `multi_read.sh` command scripts.
 
 The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are reading from we add its `Device ID` 
 to the end of the DCMD topic. The Device ID of each device can be found in `deployment/state/devices.json` in the `"name":` field. 
@@ -82,8 +82,8 @@ If the DCMD command was successful, you should see a `DDATA` message with the re
 
 ### DCMD Write Commands
 
-In some device service examples the `put_request.sh` and `put_multi_request.sh` commands are replaced with `write.sh` and `multi_write.sh` commands. 
-For these device services, the data is written using DCMDs (protobuf endoced) instead of Request/Reply topics.
+For all device services, the data is written using the DCMD and DDATA topics (protobuf endoced) instead of the Request/Reply topics.
+This is handled by `write.sh` and `multi_write.sh` command scripts.
 
 The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are writing to we add its `Device ID` 
 to the end of the DCMD topic. The Device ID of each device can be found in `deployment/state/devices.json` in the `"name":` field. 
