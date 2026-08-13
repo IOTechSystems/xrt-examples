@@ -8,7 +8,6 @@
     "ServerURI": "${AZURE_MQTT_SERVER_URI}",
     "ClientID": "${AZURE_DEVICE_ID}",
     "QoS": 1,
-    "EnableTLS": true,
     "ClientConfig":
     {
       "Username":"${AZURE_MQTT_USERNAME}",
@@ -19,6 +18,7 @@
       "MinRetryInterval": 5,
       "MaxRetryInterval": 60,
       "MaxBufferedMessages": 10,
+      "EnableTLS": true,
       "SSLConfig":
       {
         "TrustStore":"${AZURE_MQTT_ROOT_CA}"
