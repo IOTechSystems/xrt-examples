@@ -7,6 +7,7 @@
     "ClientID": "${MQTT_EXPORT_AWS_CLIENT_ID}",
     "MQTTInstance": 0,
     "QoS": 1,
+    "EnableTLS": true,
     "ClientConfig":
     {
       "KeepAliveInterval": 60,
@@ -16,7 +17,6 @@
       "MinRetryInterval": 5,
       "MaxRetryInterval": 60,
       "MaxBufferedMessages": 10,
-      "EnableTLS": true,
       "SSLConfig":
       {
         "EnableServerCertAuth": true,
