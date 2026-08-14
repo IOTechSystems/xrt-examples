@@ -16,6 +16,7 @@
       "MinRetryInterval": 5,
       "MaxRetryInterval": 60,
       "MaxBufferedMessages": 10,
+      "EnableTLS": true,
       "SSLConfig":
       {
         "EnableServerCertAuth": true,
