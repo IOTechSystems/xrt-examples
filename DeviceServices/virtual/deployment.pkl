@@ -1,0 +1,29 @@
+/// Virtual Device Service Example
+/// Generates configuration for the Virtual device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard-node.pkl"
+
+import "@XRT/devices/virtual.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Server and node identifiers using environment variables
+local server_id = "virtual-server"
+local node_id = "${SPARKPLUG_NODE}"
+
+/// Create the standard system with virtual device service
+system =
+  standardSystem(server_id, node_id)
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("virtual")
+      })
+    |> virtual.instance("virtual")
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+
+output {
+  files = system.deployment()
+}
