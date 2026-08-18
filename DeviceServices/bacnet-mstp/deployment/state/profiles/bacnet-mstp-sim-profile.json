@@ -9,7 +9,7 @@
         "property": 75,
         "type": 8
       },
-      "name": "BacnetSimulator:object-identifier",
+      "name": "IOTech BACnet Simulator:object-identifier",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -21,7 +21,7 @@
         "property": 77,
         "type": 8
       },
-      "name": "BacnetSimulator:object-name",
+      "name": "IOTech BACnet Simulator:object-name",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -33,9 +33,9 @@
         "property": 79,
         "type": 8
       },
-      "name": "BacnetSimulator:object-type",
+      "name": "IOTech BACnet Simulator:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -45,7 +45,7 @@
         "property": 112,
         "type": 8
       },
-      "name": "BacnetSimulator:system-status",
+      "name": "IOTech BACnet Simulator:system-status",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint32"
@@ -57,7 +57,7 @@
         "property": 121,
         "type": 8
       },
-      "name": "BacnetSimulator:vendor-name",
+      "name": "IOTech BACnet Simulator:vendor-name",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -69,9 +69,9 @@
         "property": 120,
         "type": 8
       },
-      "name": "BacnetSimulator:vendor-identifier",
+      "name": "IOTech BACnet Simulator:vendor-identifier",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint64"
       }
     },
@@ -81,9 +81,9 @@
         "property": 70,
         "type": 8
       },
-      "name": "BacnetSimulator:model-name",
+      "name": "IOTech BACnet Simulator:model-name",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "string"
       }
     },
@@ -93,7 +93,7 @@
         "property": 44,
         "type": 8
       },
-      "name": "BacnetSimulator:firmware-revision",
+      "name": "IOTech BACnet Simulator:firmware-revision",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -105,7 +105,7 @@
         "property": 12,
         "type": 8
       },
-      "name": "BacnetSimulator:application-software-version",
+      "name": "IOTech BACnet Simulator:application-software-version",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -117,7 +117,7 @@
         "property": 98,
         "type": 8
       },
-      "name": "BacnetSimulator:protocol-version",
+      "name": "IOTech BACnet Simulator:protocol-version",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -129,7 +129,7 @@
         "property": 139,
         "type": 8
       },
-      "name": "BacnetSimulator:protocol-revision",
+      "name": "IOTech BACnet Simulator:protocol-revision",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -141,7 +141,7 @@
         "property": 97,
         "type": 8
       },
-      "name": "BacnetSimulator:protocol-services-supported",
+      "name": "IOTech BACnet Simulator:protocol-services-supported",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint8array"
@@ -153,7 +153,7 @@
         "property": 96,
         "type": 8
       },
-      "name": "BacnetSimulator:protocol-object-types-supported",
+      "name": "IOTech BACnet Simulator:protocol-object-types-supported",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint8array"
@@ -165,7 +165,7 @@
         "property": 76,
         "type": 8
       },
-      "name": "BacnetSimulator:object-list",
+      "name": "IOTech BACnet Simulator:object-list",
       "properties": {
         "readWrite": "R",
         "valueType": "string"
@@ -177,7 +177,7 @@
         "property": 62,
         "type": 8
       },
-      "name": "BacnetSimulator:max-apdu-length-accepted",
+      "name": "IOTech BACnet Simulator:max-apdu-length-accepted",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -189,7 +189,7 @@
         "property": 107,
         "type": 8
       },
-      "name": "BacnetSimulator:segmentation-supported",
+      "name": "IOTech BACnet Simulator:segmentation-supported",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint32"
@@ -201,7 +201,7 @@
         "property": 11,
         "type": 8
       },
-      "name": "BacnetSimulator:apdu-timeout",
+      "name": "IOTech BACnet Simulator:apdu-timeout",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -213,7 +213,7 @@
         "property": 73,
         "type": 8
       },
-      "name": "BacnetSimulator:number-of-APDU-retries",
+      "name": "IOTech BACnet Simulator:number-of-APDU-retries",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -226,7 +226,7 @@
         "raw": true,
         "type": 8
       },
-      "name": "BacnetSimulator:device-address-binding",
+      "name": "IOTech BACnet Simulator:device-address-binding",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint8array"
@@ -238,7 +238,7 @@
         "property": 155,
         "type": 8
       },
-      "name": "BacnetSimulator:database-revision",
+      "name": "IOTech BACnet Simulator:database-revision",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -250,7 +250,7 @@
         "property": 28,
         "type": 8
       },
-      "name": "BacnetSimulator:description",
+      "name": "IOTech BACnet Simulator:description",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -262,7 +262,7 @@
         "property": 57,
         "type": 8
       },
-      "name": "BacnetSimulator:local-time",
+      "name": "IOTech BACnet Simulator:local-time",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -274,7 +274,7 @@
         "property": 119,
         "type": 8
       },
-      "name": "BacnetSimulator:utc-offset",
+      "name": "IOTech BACnet Simulator:utc-offset",
       "properties": {
         "readWrite": "RW",
         "valueType": "int32"
@@ -286,7 +286,7 @@
         "property": 56,
         "type": 8
       },
-      "name": "BacnetSimulator:local-date",
+      "name": "IOTech BACnet Simulator:local-date",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -298,7 +298,7 @@
         "property": 24,
         "type": 8
       },
-      "name": "BacnetSimulator:daylight-savings-status",
+      "name": "IOTech BACnet Simulator:daylight-savings-status",
       "properties": {
         "readWrite": "RW",
         "valueType": "bool"
@@ -310,7 +310,7 @@
         "property": 58,
         "type": 8
       },
-      "name": "BacnetSimulator:location",
+      "name": "IOTech BACnet Simulator:location",
       "properties": {
         "readWrite": "RW",
         "valueType": "string"
@@ -323,7 +323,7 @@
         "raw": true,
         "type": 8
       },
-      "name": "BacnetSimulator:active-cov-subscriptions",
+      "name": "IOTech BACnet Simulator:active-cov-subscriptions",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint8array"
@@ -336,7 +336,7 @@
         "raw": true,
         "type": 8
       },
-      "name": "BacnetSimulator:time-synchronization-recipients",
+      "name": "IOTech BACnet Simulator:time-synchronization-recipients",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint8array"
@@ -348,7 +348,7 @@
         "property": 204,
         "type": 8
       },
-      "name": "BacnetSimulator:time-synchronization-interval",
+      "name": "IOTech BACnet Simulator:time-synchronization-interval",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -360,7 +360,7 @@
         "property": 193,
         "type": 8
       },
-      "name": "BacnetSimulator:align-intervals",
+      "name": "IOTech BACnet Simulator:align-intervals",
       "properties": {
         "readWrite": "RW",
         "valueType": "bool"
@@ -372,7 +372,7 @@
         "property": 195,
         "type": 8
       },
-      "name": "BacnetSimulator:interval-offset",
+      "name": "IOTech BACnet Simulator:interval-offset",
       "properties": {
         "readWrite": "RW",
         "valueType": "uint64"
@@ -410,7 +410,7 @@
       },
       "name": "analog_input_0:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -434,7 +434,7 @@
       },
       "name": "analog_input_0:status-flags",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -446,7 +446,7 @@
       },
       "name": "analog_input_0:event-state",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -602,7 +602,7 @@
       },
       "name": "analog_input_0:acked-transitions",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -627,7 +627,7 @@
       },
       "name": "analog_input_0:event-time-stamps",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -699,7 +699,7 @@
       },
       "name": "analog_input_1:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -723,7 +723,7 @@
       },
       "name": "analog_input_1:status-flags",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -735,7 +735,7 @@
       },
       "name": "analog_input_1:event-state",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -891,7 +891,7 @@
       },
       "name": "analog_input_1:acked-transitions",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -916,7 +916,7 @@
       },
       "name": "analog_input_1:event-time-stamps",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -988,7 +988,7 @@
       },
       "name": "analog_output_0:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1012,7 +1012,7 @@
       },
       "name": "analog_output_0:status-flags",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1024,7 +1024,7 @@
       },
       "name": "analog_output_0:event-state",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1078,6 +1078,18 @@
     },
     {
       "attributes": {
+        "instance": 0,
+        "property": 28,
+        "type": 1
+      },
+      "name": "analog_output_0:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
         "instance": 1,
         "property": 75,
         "type": 1
@@ -1108,7 +1120,7 @@
       },
       "name": "analog_output_1:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1132,7 +1144,7 @@
       },
       "name": "analog_output_1:status-flags",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1144,7 +1156,7 @@
       },
       "name": "analog_output_1:event-state",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1198,6 +1210,18 @@
     },
     {
       "attributes": {
+        "instance": 1,
+        "property": 28,
+        "type": 1
+      },
+      "name": "analog_output_1:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
         "instance": 0,
         "property": 75,
         "type": 2
@@ -1228,7 +1252,7 @@
       },
       "name": "analog_value_0:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1252,7 +1276,7 @@
       },
       "name": "analog_value_0:status-flags",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1264,7 +1288,7 @@
       },
       "name": "analog_value_0:event-state",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1408,7 +1432,7 @@
       },
       "name": "analog_value_0:acked-transitions",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1433,7 +1457,7 @@
       },
       "name": "analog_value_0:event-time-stamps",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1469,7 +1493,7 @@
       },
       "name": "analog_value_1:object-type",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1493,7 +1517,7 @@
       },
       "name": "analog_value_1:status-flags",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1505,7 +1529,7 @@
       },
       "name": "analog_value_1:event-state",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint32"
       }
     },
@@ -1649,7 +1673,7 @@
       },
       "name": "analog_value_1:acked-transitions",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
     },
@@ -1674,9 +1698,728 @@
       },
       "name": "analog_value_1:event-time-stamps",
       "properties": {
-        "readWrite": "RW",
+        "readWrite": "R",
         "valueType": "uint8array"
       }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 75,
+        "type": 3
+      },
+      "name": "binary_input_0:object-identifier",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 77,
+        "type": 3
+      },
+      "name": "binary_input_0:object-name",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 79,
+        "type": 3
+      },
+      "name": "binary_input_0:object-type",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 85,
+        "type": 3
+      },
+      "name": "binary_input_0:present-value",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 111,
+        "type": 3
+      },
+      "name": "binary_input_0:status-flags",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint8array"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 36,
+        "type": 3
+      },
+      "name": "binary_input_0:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 81,
+        "type": 3
+      },
+      "name": "binary_input_0:out-of-service",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "bool"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 84,
+        "type": 3
+      },
+      "name": "binary_input_0:polarity",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 28,
+        "type": 3
+      },
+      "name": "binary_input_0:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 75,
+        "type": 3
+      },
+      "name": "binary_input_1:object-identifier",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 77,
+        "type": 3
+      },
+      "name": "binary_input_1:object-name",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 79,
+        "type": 3
+      },
+      "name": "binary_input_1:object-type",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 85,
+        "type": 3
+      },
+      "name": "binary_input_1:present-value",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 111,
+        "type": 3
+      },
+      "name": "binary_input_1:status-flags",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint8array"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 36,
+        "type": 3
+      },
+      "name": "binary_input_1:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 81,
+        "type": 3
+      },
+      "name": "binary_input_1:out-of-service",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "bool"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 84,
+        "type": 3
+      },
+      "name": "binary_input_1:polarity",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 28,
+        "type": 3
+      },
+      "name": "binary_input_1:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 75,
+        "type": 4
+      },
+      "name": "binary_output_0:object-identifier",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 77,
+        "type": 4
+      },
+      "name": "binary_output_0:object-name",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 79,
+        "type": 4
+      },
+      "name": "binary_output_0:object-type",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 85,
+        "type": 4
+      },
+      "name": "binary_output_0:present-value",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 111,
+        "type": 4
+      },
+      "name": "binary_output_0:status-flags",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint8array"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 36,
+        "type": 4
+      },
+      "name": "binary_output_0:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 81,
+        "type": 4
+      },
+      "name": "binary_output_0:out-of-service",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "bool"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 84,
+        "type": 4
+      },
+      "name": "binary_output_0:polarity",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 87,
+        "type": 4
+      },
+      "name": "binary_output_0:priority-array",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 104,
+        "type": 4
+      },
+      "name": "binary_output_0:relinquish-default",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 28,
+        "type": 4
+      },
+      "name": "binary_output_0:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 4,
+        "type": 4
+      },
+      "name": "binary_output_0:active-text",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 46,
+        "type": 4
+      },
+      "name": "binary_output_0:inactive-text",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 75,
+        "type": 4
+      },
+      "name": "binary_output_1:object-identifier",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 77,
+        "type": 4
+      },
+      "name": "binary_output_1:object-name",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 79,
+        "type": 4
+      },
+      "name": "binary_output_1:object-type",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 85,
+        "type": 4
+      },
+      "name": "binary_output_1:present-value",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 111,
+        "type": 4
+      },
+      "name": "binary_output_1:status-flags",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint8array"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 36,
+        "type": 4
+      },
+      "name": "binary_output_1:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 81,
+        "type": 4
+      },
+      "name": "binary_output_1:out-of-service",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "bool"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 84,
+        "type": 4
+      },
+      "name": "binary_output_1:polarity",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 87,
+        "type": 4
+      },
+      "name": "binary_output_1:priority-array",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 104,
+        "type": 4
+      },
+      "name": "binary_output_1:relinquish-default",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 28,
+        "type": 4
+      },
+      "name": "binary_output_1:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 4,
+        "type": 4
+      },
+      "name": "binary_output_1:active-text",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 46,
+        "type": 4
+      },
+      "name": "binary_output_1:inactive-text",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 75,
+        "type": 5
+      },
+      "name": "binary_value_0:object-identifier",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 77,
+        "type": 5
+      },
+      "name": "binary_value_0:object-name",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 79,
+        "type": 5
+      },
+      "name": "binary_value_0:object-type",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 85,
+        "type": 5
+      },
+      "name": "binary_value_0:present-value",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 111,
+        "type": 5
+      },
+      "name": "binary_value_0:status-flags",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint8array"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 36,
+        "type": 5
+      },
+      "name": "binary_value_0:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 81,
+        "type": 5
+      },
+      "name": "binary_value_0:out-of-service",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "bool"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 28,
+        "type": 5
+      },
+      "name": "binary_value_0:description",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 87,
+        "type": 5
+      },
+      "name": "binary_value_0:priority-array",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 0,
+        "property": 104,
+        "type": 5
+      },
+      "name": "binary_value_0:relinquish-default",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 75,
+        "type": 5
+      },
+      "name": "binary_value_1:object-identifier",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 77,
+        "type": 5
+      },
+      "name": "binary_value_1:object-name",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "string"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 79,
+        "type": 5
+      },
+      "name": "binary_value_1:object-type",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 85,
+        "type": 5
+      },
+      "name": "binary_value_1:present-value",
+      "properties": {
+        "readWrite": "RW",
+        "valueType": "uint32"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 111,
+        "type": 5
+      },
+      "name": "binary_value_1:status-flags",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint8array"
+      }
+    },
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 36,
+        "type": 5
+      },
+      "name": "binary_value_1:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
+      ]
     }
-  ]
-}
