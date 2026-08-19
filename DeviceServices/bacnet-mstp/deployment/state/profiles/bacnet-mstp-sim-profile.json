@@ -2421,5 +2421,6 @@
         "readWrite": "R",
         "valueType": "uint32"
       }
-      ]
     }
+  ]
+}

@@ -2410,16 +2410,17 @@
       "valueType": "uint8array"
     }
   },
-  {
-    "attributes": {
-      "instance": 1,
-      "property": 36,
-      "type": 5
-    },
-    "name": "binary_value_1:event-state",
-    "properties": {
-      "readWrite": "R",
-      "valueType": "uint32"
+    {
+      "attributes": {
+        "instance": 1,
+        "property": 36,
+        "type": 5
+      },
+      "name": "binary_value_1:event-state",
+      "properties": {
+        "readWrite": "R",
+        "valueType": "uint32"
+      }
     }
   ]
 }
