@@ -1,0 +1,30 @@
+{
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Patterns": [ 
+    "xrt/devices/virtual/telemetry",
+    "xrt/devices/virtual/reply",
+    "xrt/devices/virtual/discovery",
+    "xrt/devices/virtual/status"
+  ],
+  "MQTTPatterns": [ "xrt/devices/virtual/request"],
+  "MQTTConfig":
+  {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "xrt",
+    "QoS": 1,
+    "ClientConfig":
+    {
+      "KeepAliveInterval": 60,
+      "MQTTVersion": 5,
+      "RetryInterval": 5,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "MaxBufferedMessages": 100
+    }
+  },
+  "Cookie": 125,
+  "QueueSize": 5,
+  "Bus": "bus",
+  "Logger": "logger"
+}
