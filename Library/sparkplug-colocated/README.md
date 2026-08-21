@@ -43,8 +43,12 @@ their `Library`/`Factory` config fields.
 
 ## Prerequisites
 
-- XRT 3.4 library and headers installed (typically in `/opt/iotech/xrt/3.4`)
-- IOT 1.6 library and headers installed (typically in `/opt/iotech/iot/1.6`)
+- XRT 3.4.6 library and headers installed (typically in `/opt/iotech/xrt/3.4`),
+  built/installed with its MQTT, Sparkplug and BACnet/IP modules enabled
+  (pulls in Paho MQTT C 1.3.162, Sparkplug B 1.0.1 and the BACnet stack
+  library transitively — see [`../README.md`](../README.md#dependencies)
+  for the full dependency breakdown)
+- IOT 1.6.5 library and headers installed (typically in `/opt/iotech/iot/1.6`)
 - C compiler (gcc)
 - An MQTT broker reachable at `XRT_MQTT_BROKER` (e.g. a local Mosquitto)
 - Docker, to run the BACnet/IP simulator container
