@@ -9,10 +9,12 @@
       }
     },
     {
-      "name": "Virtual-Device2",
-      "profileName": "device-virtual",
+      "name": "bacnet-ip-sim",
+      "profileName": "bacnet-ip-sim-profile",
       "protocols": {
-        "Virtual": {}
+        "BACnet-IP": {
+          "DeviceInstance": 1234
+        }
       }
     }
   ]

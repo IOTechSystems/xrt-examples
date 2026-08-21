@@ -1,0 +1,13 @@
+{
+  "Library": "libxrt-virtual-device-service.so",
+  "Factory": "xrt_virtual_device_service_factory",
+  "Name": "virtual",
+  "ProfileDir": "${XRT_STATE_DIR}/profiles",
+  "StateDir": "${XRT_STATE_DIR}",
+  "Group": "${SPARKPLUG_GROUP}",
+  "Scheduler": "sched",
+  "Logger": "logger_debug",
+  "ThreadPool": "pool",
+  "SchedulesThreadPool": "devpool",
+  "Bus": "bus"
+}
