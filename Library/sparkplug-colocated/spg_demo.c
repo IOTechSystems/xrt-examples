@@ -36,6 +36,17 @@
 
 static atomic_bool stopped = ATOMIC_VAR_INIT (false);
 
+/*
+ * XRT::SparkplugNode (libxrt-sparkplug.so) references `xrt_exit_delay` as
+ * extern, but it is only defined in xrt.c, which is compiled into the
+ * standalone `xrt` executable rather than into any library. A colocated
+ * host process must provide it itself, or loading libxrt-sparkplug.so
+ * fails with "undefined symbol: xrt_exit_delay". Requires linking with
+ * -rdynamic so libxrt-sparkplug.so can resolve it back from this
+ * executable's own symbol table.
+ */
+atomic_uint_fast64_t xrt_exit_delay = ATOMIC_VAR_INIT (0u);
+
 typedef struct
 {
   iot_logger_t *logger;
@@ -81,31 +92,42 @@ static void on_metric_value_updated (xrt_spg_app_metric_t *metric, void *app_ctx
 {
   demo_ctx_t *ctx = app_ctx;
   const iot_data_t *value = xrt_spg_app_metric_get_value (metric);
-  char *json = iot_data_to_json (value);
+  /* A metric can be born/updated with no value (is_null); iot_data_to_json
+   * requires non-NULL input, so fall back to the literal "null" here. */
+  char *json = value ? iot_data_to_json (value) : strdup ("null");
   iot_log_info (ctx->logger, "metric '%s' = %s (ts=%" PRIu64 ")", xrt_spg_app_metric_name (metric), json, xrt_spg_app_metric_get_timestamp (metric));
   free (json);
 }
 
-/* Fired when any device (virtual or BACnet/IP) births under a node. Used
- * here to demonstrate issuing a DCMD write back to one specific device
- * (WRITE_DEVICE) via the Sparkplug application. */
+/* Fired when any device (virtual or BACnet/IP) births under a node. */
 static void on_device_added (xrt_spg_app_node_t *node, void *app_ctx, xrt_spg_app_device_t *device)
 {
   demo_ctx_t *ctx = app_ctx;
   iot_log_info (ctx->logger, "device '%s' born on node '%s'", xrt_spg_app_device_name (device), xrt_spg_app_node_get_id (node));
+}
 
-  if (strcmp (xrt_spg_app_device_name (device), WRITE_DEVICE) != 0 || atomic_exchange (&ctx->device_written, true))
+/* Fired for each metric as a device's birth populates its metric store.
+ * Used here to demonstrate issuing a DCMD write back to one specific
+ * device/metric (WRITE_DEVICE/WRITE_METRIC) via the Sparkplug application,
+ * as soon as that metric becomes available.
+ *
+ * NOTE: on_device_added (above) fires before the device's metric store is
+ * populated from the birth, so xrt_spg_app_device_get_metric always
+ * returns NULL if called from there -- the write has to happen from a
+ * per-metric callback like this one instead. */
+static void on_device_metric_added (xrt_spg_app_device_t *device, xrt_spg_app_metric_t *metric, void *app_ctx)
+{
+  demo_ctx_t *ctx = app_ctx;
+  if (strcmp (xrt_spg_app_device_name (device), WRITE_DEVICE) != 0 || strcmp (xrt_spg_app_metric_name (metric), WRITE_METRIC) != 0)
   {
     return;
   }
-
-  xrt_spg_app_metric_t *metric = xrt_spg_app_device_get_metric (device, WRITE_METRIC);
-  if (metric)
+  if (atomic_exchange (&ctx->device_written, true))
   {
-    iot_log_info (ctx->logger, "issuing DCMD: '%s' = %d", WRITE_METRIC, WRITE_VALUE);
-    xrt_spg_app_device_send_cmd (device, metric, iot_data_alloc_i32 (WRITE_VALUE));
-    xrt_spg_app_metric_free (metric);
+    return;
   }
+  iot_log_info (ctx->logger, "issuing DCMD: '%s' = %d", WRITE_METRIC, WRITE_VALUE);
+  xrt_spg_app_device_send_cmd (device, metric, iot_data_alloc_i32 (WRITE_VALUE));
 }
 
 int main (void)
@@ -132,6 +154,7 @@ int main (void)
   app_cfg.group = getenv ("SPARKPLUG_GROUP") ? getenv ("SPARKPLUG_GROUP") : "iotech";
   app_cfg.ctx = &ctx;
   app_cfg.callbacks.on_device_added = on_device_added;
+  app_cfg.callbacks.on_device_metric_added = on_device_metric_added;
   app_cfg.callbacks.on_metric_value_updated = on_metric_value_updated;
 
   xrt_spg_app_t *spg_app = xrt_spg_app_new (bus, &app_cfg, NULL, spg_pool, logger);

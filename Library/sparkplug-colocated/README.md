@@ -76,9 +76,15 @@ their `Library`/`Factory` config fields.
 gcc ./spg_demo.c \
   -I/opt/iotech/xrt/3.4/include -L/opt/iotech/xrt/3.4/lib \
   -I/opt/iotech/iot/1.6/include -L/opt/iotech/iot/1.6/lib \
+  -rdynamic \
   -lxrt-sparkplug-app -lxrt-devsdk -lxrt-sparkplug-xform -lxrt -liot \
   -o spg_demo
 ```
+
+> **Note:** `-rdynamic` is required so that `libxrt-sparkplug.so` (loaded
+> dynamically by `XRT::SparkplugNode`) can resolve `xrt_exit_delay` back
+> from this executable — see the comment above its definition in
+> `spg_demo.c` for why.
 
 ## Setting Up the Environment
 
@@ -122,11 +128,14 @@ log line once it round-trips back through the broker.
 
 ## Where to look
 
-- `spg_demo.c` — `init_xrt`/container setup, and the two Sparkplug
-  Application callbacks (`on_device_added`, `on_metric_value_updated`).
-  `on_device_added` fires for both device services, but only issues the
-  demo `DCMD` write for the named `Virtual-Device` (the BACnet/IP profile
-  has no matching writable metric).
+- `spg_demo.c` — `init_xrt`/container setup, and the three Sparkplug
+  Application callbacks (`on_device_added`, `on_device_metric_added`,
+  `on_metric_value_updated`). `on_device_added` fires for both device
+  services and just logs the birth; the demo `DCMD` write for the named
+  `Virtual-Device`/`StoreInt32Value` (the BACnet/IP profile has no matching
+  writable metric) is issued from `on_device_metric_added` instead, since
+  a device's metric store isn't populated yet when `on_device_added` fires
+  (so `xrt_spg_app_device_get_metric` would always return NULL there).
 - `deployment/config/mqtt_bridge.json` — the merged bridge config: outgoing
   patterns for the local node's births/data, and incoming patterns covering
   both the node's control-plane (`NCMD`/`DCMD`, decoded) and the

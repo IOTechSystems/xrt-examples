@@ -85,7 +85,7 @@ are dynamically loaded and pull those libraries in transitively.
 and its own third-party dependency, the BACnet stack library — same as the
 existing `DeviceServices/bacnet-ip/` example, and likewise expected to come
 bundled with a BACnet-enabled XRT install rather than something to install
-separately.
+separately. multiple disconnec
 
 Beyond libraries, both examples need something actually running to talk
 to: an MQTT broker reachable at `XRT_MQTT_BROKER` (a local Mosquitto is
