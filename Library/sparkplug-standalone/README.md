@@ -50,9 +50,13 @@ does for you in the colocated example. This example only prints whatever
   since this example calls `xrt_xform_spb_*` itself
 - C compiler (gcc)
 - An MQTT broker reachable at `XRT_MQTT_BROKER` (e.g. a local Mosquitto)
-- Something publishing Sparkplug B to that broker/group to see any output
-  — e.g. run [`sparkplug-colocated/`](../sparkplug-colocated/README.md)
-  against the same broker first
+- Something publishing Sparkplug B to that broker/group to see any output.
+  The bundled `spg_publisher.c` (see [below](#running-with-the-bundled-publisher-spg_publisherc))
+  is the simplest option — a few lines of Paho, no Docker/BACnet/XRT
+  container required. [`sparkplug-colocated/`](../sparkplug-colocated/README.md)
+  against the same broker also works, and additionally exercises the full
+  XRT pipeline (device services, `XRT::MQTTBridge`, `XRT::SparkplugNode`),
+  but is a lot more to stand up just to get something onto the broker.
 
 See [`../README.md`](../README.md#dependencies) for the full dependency
 breakdown and versions.
@@ -81,7 +85,53 @@ gcc ./spg_standalone.c \
   -o spg_standalone
 ```
 
-## Running
+## Running with the bundled publisher (`spg_publisher.c`)
+
+`spg_publisher.c`, in this same directory, is a companion program built
+the same way as `spg_standalone.c` itself — a plain Paho client using only
+`xrt_xform_spb_encode`/`xrt_spg_msg`/`xrt_spg_metric_add` directly, no
+bus/container. Instead of subscribing and decoding, it *publishes*: one
+`NBIRTH`, one `DBIRTH` for a fake `Virtual-Device`/`StoreInt32Value`, then a
+`DDATA` every 3 seconds, and it applies (and echoes back) any `DCMD` it
+receives. It exists purely to give `spg_standalone.c` something simple to
+talk to, as an alternative to standing up the full
+[`sparkplug-colocated/`](../sparkplug-colocated/README.md) example.
+
+Compile it the same way as `spg_standalone.c`:
+
+```bash
+gcc ./spg_publisher.c \
+  -I/opt/iotech/xrt/3.4/include -L/opt/iotech/xrt/3.4/lib \
+  -I/opt/iotech/iot/1.6/include -L/opt/iotech/iot/1.6/lib \
+  -lxrt-sparkplug-xform -lxrt-devsdk -lxrt -lsparkplug-b -liot -lpaho-mqtt3as \
+  -o spg_publisher
+```
+
+Then, in one terminal:
+
+```bash
+export XRT_MQTT_BROKER=tcp://localhost:1883
+export SPARKPLUG_GROUP=iotech
+./spg_standalone
+```
+
+And in another, started a moment after (so `spg_standalone` is already
+subscribed and doesn't miss the non-retained `DBIRTH`):
+
+```bash
+export XRT_MQTT_BROKER=tcp://localhost:1883
+export SPARKPLUG_GROUP=iotech
+./spg_publisher
+```
+
+`spg_standalone` should log the `NBIRTH`/`DBIRTH`, issue its demo `DCMD`,
+and then log the `DDATA` reflecting the written value — the same
+round trip described for `sparkplug-colocated/`, without Docker, BACnet, or
+an `iot_container_t` in the loop. `spg_publisher` also reads
+`SPARKPLUG_NODE` (default `publisher-node`) and
+`XRT_MQTT_USERNAME`/`XRT_MQTT_PASSWORD`.
+
+## Running against `sparkplug-colocated/` instead
 
 ```bash
 export XRT_MQTT_BROKER=tcp://localhost:1883
@@ -100,6 +150,10 @@ metrics, then issue the `DCMD` write once it sees `Virtual-Device` birth.
   `parse_topic` (splits `spBv1.0/<group>/<TYPE>/<node>[/<device>]`),
   `process_sparkplug_payload` (decodes + logs each metric, triggers the
   demo write), `publish_write_cmd` (builds and encodes the `DCMD`).
+- `spg_publisher.c` — the minimal publisher described above:
+  `publish_nbirth`/`publish_device_metric` build and encode the
+  `NBIRTH`/`DBIRTH`/`DDATA` payloads, `handle_dcmd` decodes an incoming
+  write and re-publishes `DDATA` to reflect it.
 - No `deployment/` folder — there's no `iot_container_t` and therefore no
   container config to load; the only configuration is the environment
   variables above.

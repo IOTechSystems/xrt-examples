@@ -45,6 +45,12 @@ depending on the full `xrt_spg_app_t` SDK (which would need its own
 with no XRT/IOT dependency at all. See its README for the trade-offs (in
 particular: no alias-table tracking) and build/run instructions.
 
+`sparkplug-standalone/` also includes `spg_publisher.c`, a minimal
+publisher built the same low-level way, so you don't need to stand up all
+of `sparkplug-colocated/` (Docker, BACnet/IP simulator, device services,
+`XRT::MQTTBridge`, `XRT::SparkplugNode`) just to give `spg_standalone.c`
+something to talk to.
+
 ## Dependencies
 
 Both examples use Sparkplug B, which pulls in two libraries beyond the
