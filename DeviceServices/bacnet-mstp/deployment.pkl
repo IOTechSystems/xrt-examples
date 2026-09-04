@@ -1,0 +1,38 @@
+/// BACnet MS/TP Device Service Example
+/// Generates configuration for the BACnet MS/TP device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with BACnet MS/TP device service
+system =
+  standardSystem("bacnet-mstp-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("bacnet_mstp")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> bacnet.mstp_instance("/tmp/virtualport", "bacnet_mstp")
+    |> withOptions("bacnet_mstp", new Dynamic {
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetMSTPDriverOptions {
+          serial_interface = "/tmp/virtualport"
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          apdu_timeout = 10.s
+        }
+      })
+
+output {
+  files = system.deployment()
+}

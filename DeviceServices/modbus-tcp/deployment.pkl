@@ -1,0 +1,29 @@
+/// Modbus TCP Device Service Example
+/// Generates configuration for the Modbus TCP device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/modbus.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with Modbus TCP device service
+system =
+  standardSystem("modbus-tcp-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("modbus-tcp")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> modbus.instance("modbus-tcp")
+    |> withOptions("modbus-tcp", new Dynamic {
+        device_down_timeout = 60.s
+        allowed_fails = 5
+      })
+
+output {
+  files = system.deployment()
+}

@@ -1,0 +1,29 @@
+/// Modbus RTU Device Service Example
+/// Generates configuration for the Modbus RTU device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/modbus.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with Modbus RTU device service
+system =
+  standardSystem("modbus-rtu-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("modbus-rtu")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> modbus.instance("modbus-rtu")
+    |> withOptions("modbus-rtu", new Dynamic {
+        device_down_timeout = 60.s
+        allowed_fails = 5
+      })
+
+output {
+  files = system.deployment()
+}

@@ -1,0 +1,39 @@
+/// OPC UA Server Example (Federated) - OPC UA Server Node
+/// Generates configuration for the federated OPC UA server node. This node acts as
+/// a Sparkplug Primary Application: it subscribes to Sparkplug traffic from every
+/// node/device in the group over MQTT and exposes the data as OPC UA nodes using
+/// the Sunspec Model 805 nodeset and value mapping.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/server/opcua_server.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with the OPC UA server and a Sparkplug Primary Application bridge
+system =
+  standardSystem("xrt-opc-ua-example-server", "${SPARKPLUG_NODE2}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        is_primary_application = true
+        node_id = "${SPARKPLUG_NODE2}"
+        keep_alive_interval = 10.s
+        acks_timeout = 10.s
+        queue_size = 5
+        priority = 0
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> opcua_server.instance("opc_ua_server")
+    |> withOptions("opc_ua_server", new Dynamic {
+        port = 4840
+        enable_sparkplug = true
+        nodeset_paths = List(
+          "${XRT_NODESET_DIR}/Sunspec.Model805.xml",
+          "${XRT_NODESET_DIR}/custom_nodeset.xml",
+        )
+        mapping_paths = List("${XRT_MAPPING_DIR}/Sunspec_Model805.json")
+      })
+
+output {
+  files = system.deployment()
+}

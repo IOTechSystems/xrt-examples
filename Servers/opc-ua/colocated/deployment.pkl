@@ -1,0 +1,65 @@
+/// OPC UA Server Example (Colocated)
+/// Generates configuration for an OPC UA server exposing data from S7, Modbus,
+/// BACnet IP, and Virtual device services, all colocated on a single node with
+/// a Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/s7.pkl"
+import "@XRT/devices/modbus.pkl"
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/devices/virtual.pkl"
+import "@XRT/server/opcua_server.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with all colocated device services and the OPC UA server
+system =
+  standardSystem("opcua-colocated-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("s7", "modbus", "bacnet_ip", "virtual")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> s7.instance("s7")
+    |> modbus.instance("modbus")
+    |> withOptions("modbus", new Dynamic {
+        device_down_timeout = 60.s
+        allowed_fails = 5
+      })
+    |> bacnet.ip_instance("", "bacnet_ip")
+    |> withOptions("bacnet_ip", new Dynamic {
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_SIM_ADDRESS}"
+        }
+      })
+    |> virtual.instance("virtual")
+    |> opcua_server.instance("opc_ua_server")
+    |> withOptions("opc_ua_server", new Dynamic {
+        security_policies = List(new opcua_server.OPCUAServerSecurityPolicy {})
+        endpoints = List(new opcua_server.OPCUAServerEndpoint {})
+        access_control = new opcua_server.OPCUAServerAccessControl {
+          allow_anonymous = true
+          enable_user_pass = true
+          users = List(new opcua_server.OPCUAServerUser {
+            username = "user"
+            password = "pass"
+          })
+        }
+        enable_sparkplug = true
+      })
+
+output {
+  files = system.deployment()
+}

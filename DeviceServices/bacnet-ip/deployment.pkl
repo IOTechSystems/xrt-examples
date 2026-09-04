@@ -1,0 +1,39 @@
+/// BACnet IP Device Service Example
+/// Generates configuration for the BACnet IP device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with BACnet IP device service
+system =
+  standardSystem("bacnet-ip-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("bacnet_ip")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> bacnet.ip_instance("", "bacnet_ip")
+    |> withOptions("bacnet_ip", new Dynamic {
+        request_queue_max = 100000
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_SIM_ADDRESS}"
+        }
+      })
+
+output {
+  files = system.deployment()
+}

@@ -1,0 +1,30 @@
+/// OPC UA Server Example (Federated) - Modbus TCP Device Service Node
+/// Generates configuration for the Modbus TCP device service node, which publishes
+/// its data over Sparkplug MQTT to a separate federated OPC UA server node.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/modbus.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// Create the standard system with Modbus TCP device service
+system =
+  standardSystem("xrt-opc-ua-example-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("modbus_tcp")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> modbus.instance("modbus_tcp")
+    |> withOptions("modbus_tcp", new Dynamic {
+        device_down_timeout = 60.s
+        allowed_fails = 5
+      })
+
+output {
+  files = system.deployment()
+}
