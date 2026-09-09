@@ -3,14 +3,9 @@ docker run --rm --network host iotechsys/sparkplug-client pub -h localhost -t sp
 '{
   "metrics":
   [
-    { "name": "brightness", "value": 254, "datatype": 9 }
-    { "name": "transition", "value": 1, "datatype": 9 }
+    { "name": "brightness", "value": 254, "datatype": 10 }
+    { "name": "transition", "value": 1, "datatype": 10 }
     { "name": "state", "value": true, "datatype": 11 }
     { "name": "color_hs", "value": {"hue": 100, "saturation": 100}, "datatype": 19 }
   ]
 }'
-
-"brightness": 254,
-    "transition": 1,
-    "state": true,
-    "color_hs": {"hue": 100, "saturation": 100}
