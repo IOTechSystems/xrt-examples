@@ -2,13 +2,6 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "name": "Virtual-Device",
-      "profileName": "device-virtual",
-      "protocols": {
-        "Virtual": {}
-      }
-    },
-    {
       "name": "bacnet-ip-sim",
       "profileName": "bacnet-ip-sim-profile",
       "protocols": {
