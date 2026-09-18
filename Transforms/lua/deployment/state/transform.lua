@@ -23,6 +23,47 @@ local function fix_array_metrics(data)
   end
 end
 
+local function read_request(resources)
+  if not schedule_active then
+    return
+  end
+
+  print("read_request")
+
+  local payload = xrt_map()
+  payload.timestamp = xrt_uint64(iot_time_msecs())
+  payload.metrics = xrt_list()
+
+  for i, resource in ipairs(resources) do
+    local metric = xrt_map()
+    metric.name = resource
+    metric.is_null = true
+    payload.metrics[i] = metric
+  end
+
+  xrt_bus_publish(echopub, payload)
+  xrt_bus_publish(dcmdpub, payload)
+end
+
+local function set_schedule(data)
+  print("set_schedule")
+
+  if data.schedule_status then
+    local response = "Invalid schedule status"
+    if data.schedule_status == "active" then
+      response = (schedule_active and "Schedule already active") or "Activated schedule"
+      schedule_active = true
+    elseif data.schedule_status == "inactive" then
+      response = (schedule_active and "Deactivated schedule") or "Schedule already inactive"
+      schedule_active = false
+    end
+
+    local reply = xrt_map()
+    reply.response = response
+    return reply
+  end
+end
+
 function handle_request(data, topic)
   print("handle_request", topic)
 
@@ -35,6 +76,9 @@ function handle_request(data, topic)
   elseif topic == "spBv1.0/iotech/DDATA/xrt-dev/Lua-Device" then
     xrt_bus_publish(echopub, data)
     xrt_bus_publish(ddatapub, data)
+  elseif topic == "spBv1.0/iotech/REQUEST/lua" then
+    reply = set_schedule(data)
+    xrt_bus_publish(replypub, reply)
   end
 end
 
@@ -42,7 +86,18 @@ echopub = xrt_bus_pub_alloc(xrt_bus, "lua/echo")
 dcmdpub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DCMD/xrt-dev/Lua-Device")
 dackpub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DACK/lua")
 ddatapub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DDATA/lua")
+replypub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/REPLY/lua")
 
 sub = xrt_bus_sub_alloc(xrt_bus, handle_request, "spBv1.0/iotech/#")
+
+resources = xrt_list()
+resources[1] = "uint8"
+resources[2] = "int64"
+resources[3] = "bool"
+resources[4] = "array"
+
+-- xrt_schedule_alloc (scheduler, callback, arg, period, delay, repeat)
+schedule = xrt_schedule_alloc(xrt_scheduler, read_request, resources, 1000)
+schedule_active = false
 
 print("Loaded Lua Script")
