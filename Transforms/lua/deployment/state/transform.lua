@@ -82,6 +82,24 @@ function handle_request(data, topic)
   end
 end
 
+function add_metric(data)
+  print("add_metric")
+  local metrics = data.metrics
+--   if metrics and not (metrics[#metrics] and metrics[#metrics].value == "Extra special metric") then
+  if metrics then
+    local len = #metrics
+    local metric = xrt_map()
+    metric.alias = xrt_uint64(99)
+    metric.value = "Extra special metric"
+    metric.timestamp = xrt_uint64(111)
+    metric.datatype = xrt_uint32(SPARKPLUG_STRING)
+    metrics[len + 1] = metric
+    print(metrics)
+    return data, true
+  end
+  return data, false
+end
+
 echopub = xrt_bus_pub_alloc(xrt_bus, "lua/echo")
 dcmdpub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DCMD/xrt-dev/Lua-Device")
 dackpub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DACK/lua")
@@ -99,5 +117,7 @@ resources[4] = "array"
 -- xrt_schedule_alloc (scheduler, callback, arg, period, delay, repeat)
 schedule = xrt_schedule_alloc(xrt_scheduler, read_request, resources, 1000)
 schedule_active = false
+
+xrt_bus_topic_transform(xrt_bus, add_metric, "spBv1.0/iotech/DDATA/lua")
 
 print("Loaded Lua Script")
