@@ -17,6 +17,8 @@ for pkg in iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0; do
   }
 done
 
+mkdir -p "${VENDOR_DIR}/iot/include" "${VENDOR_DIR}/paho/include" "${VENDOR_DIR}/sparkplug-b/include"
+
 rsync -a --delete /opt/iotech/iot/1.6/include/ "${VENDOR_DIR}/iot/include/"
 rsync -a --delete --include='MQTT*.h' --exclude='*' /usr/include/ "${VENDOR_DIR}/paho/include/"
 rsync -a --delete /usr/include/sparkplug-b/ "${VENDOR_DIR}/sparkplug-b/include/sparkplug-b/"

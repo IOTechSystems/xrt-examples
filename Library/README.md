@@ -93,14 +93,25 @@ Stop everything with `docker compose down`.
 ## Dependencies
 
 Both custom-binary components (`app1-colocated`, `app2-standalone`) use
-Sparkplug B, which pulls in two libraries beyond the base XRT/IOT install:
+Sparkplug B, which pulls in two libraries beyond the base XRT/IOT install.
 
-Sync the headers from these packages to allow the apps to build with them.
+**None of `vendor/{iot,paho,sparkplug-b,xrt}/` is committed to git** (all
+four are gitignored), so they must be synced locally before
+`docker compose up --build` will work. `iot`/`paho`/`sparkplug-b` are
+ordinary, already-available IOTech apt packages - synced rather than
+committed only because the build stage is Alpine and can't `apt install`
+them itself. Only `xrt` is actually pending anything: there's no confirmed
+apt/apk package for it yet, so it's still a manual copy - see
+[`vendor/README.md`](vendor/README.md) for the decision that would let that
+go away too.
 
 ```bash
 apt-get install iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0
 ./vendor/sync-apt-headers.sh
 ```
+
+See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
+`vendor/xrt/` and from where.
 
 | Dependency | Version | Why |
 |---|---|---|
