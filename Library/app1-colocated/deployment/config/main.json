@@ -8,7 +8,7 @@
   "sched":"IOT::Scheduler",
   "bus":"XRT::Bus",
   "bacnet_ip_dev1":"XRT::BACnetIPDeviceService",
-  "bacnet_ip_dev2":"XRT::BACnetIPDeviceService",
+  "bacnet_mstp_dev2":"XRT::BACnetMSTPDeviceService",
   "mqtt_bridge":"XRT::MQTTBridge",
   "sparkplug":"XRT::Sparkplug",
   "sparkplug_node":"XRT::SparkplugNode"

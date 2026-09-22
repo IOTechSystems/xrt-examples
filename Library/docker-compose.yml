@@ -38,7 +38,7 @@ services:
     image: iotechsys/bacnet-sim:2.2.7
     container_name: bacnet-sim-dev2
     environment:
-      RUN_MODE: IP
+      RUN_MODE: MSTP
     volumes:
       - ../Simulators/bacnet/device-service-example.lua:/example-scripts/device-service-example.lua:ro
     command: ["--script", "/example-scripts/device-service-example.lua", "--instance", "1235", "--name", "Dev2"]
@@ -58,7 +58,7 @@ services:
     image: iotechsys/bacnet-sim:2.2.7
     container_name: bacnet-sim-dev4
     environment:
-      RUN_MODE: IP
+      RUN_MODE: MSTP
     volumes:
       - ../Simulators/bacnet/device-service-example.lua:/example-scripts/device-service-example.lua:ro
     command: ["--script", "/example-scripts/device-service-example.lua", "--instance", "1237", "--name", "Dev4"]
