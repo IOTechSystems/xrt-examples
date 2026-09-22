@@ -1,0 +1,15 @@
+{
+  "xrt":"XRT::Config",
+  "logger":"IOT::Logger",
+  "logger_debug":"IOT::Logger",
+  "pool":"IOT::ThreadPool",
+  "devpool":"IOT::ThreadPool",
+  "spgapp_pool":"IOT::ThreadPool",
+  "sched":"IOT::Scheduler",
+  "bus":"XRT::Bus",
+  "bacnet_ip_dev1":"XRT::BACnetIPDeviceService",
+  "bacnet_ip_dev2":"XRT::BACnetIPDeviceService",
+  "mqtt_bridge":"XRT::MQTTBridge",
+  "sparkplug":"XRT::Sparkplug",
+  "sparkplug_node":"XRT::SparkplugNode"
+}

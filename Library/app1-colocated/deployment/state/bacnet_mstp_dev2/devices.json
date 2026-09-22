@@ -1,0 +1,1 @@
+{"apiVersion":"v2","devices":[{"name":"Dev2","profileName":"bacnet-ip-sim-profile","protocols":{"BACnet-IP":{"DeviceInstance":1235}}}]}

@@ -1,0 +1,13 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "device": "Dev2",
+      "interval": 3000000,
+      "name": "schedule1",
+      "resource": [
+        ".*"
+      ]
+    }
+  ]
+}

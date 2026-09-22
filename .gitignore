@@ -1,0 +1,7 @@
+*.lic
+
+# Library/ synced headers
+Library/vendor/iot
+Library/vendor/paho
+Library/vendor/sparkplug-b
+Library/vendor/xrt
