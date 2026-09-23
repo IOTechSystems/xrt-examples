@@ -22,6 +22,8 @@
  * protobuf, tracks Node/Device/Metric state, fires callbacks).
  */
 
+#include <ctype.h>
+#include <dirent.h>
 #include <inttypes.h>
 #include <signal.h>
 #include <stdio.h>
@@ -60,6 +62,59 @@ static void signal_handler (int sig)
 {
   (void) sig;
   atomic_store (&stopped, true);
+}
+
+/*
+ * NodeConfig.deployment() (xrt's Pkl deployment schema, core/XRT.pkl)
+ * relabels every component with a numeric prefix (e.g. "bus" -> "08-bus"),
+ * for both the filename and the component's own registered id - and
+ * iot_container_init() loads main.json into a sorted map, so that prefix is
+ * what makes its key order (alphabetical) match real dependency order.
+ * Stripping it at config-generation time (as an earlier version of
+ * generate-pkl-config.sh did) throws that load-order guarantee away, so
+ * instead resolve the real, still-prefixed id here at startup: scan
+ * config_dir for the one file whose name, after stripping any leading
+ * "<digits>-", matches plain_name exactly.
+ */
+static char *resolve_component_id (const char *config_dir, const char *plain_name)
+{
+  char *result = NULL;
+  DIR *dir = opendir (config_dir);
+  if (dir == NULL)
+  {
+    return NULL;
+  }
+
+  size_t name_len = strlen (plain_name);
+  struct dirent *entry;
+  while ((entry = readdir (dir)) != NULL)
+  {
+    const char *fname = entry->d_name;
+    size_t flen = strlen (fname);
+    static const char ext[] = ".json";
+    size_t ext_len = sizeof (ext) - 1;
+    if (flen <= ext_len || strcmp (fname + flen - ext_len, ext) != 0)
+    {
+      continue;
+    }
+
+    const char *stem_end = fname + (flen - ext_len);
+    const char *base = fname;
+    while (base < stem_end && isdigit ((unsigned char) *base))
+    {
+      base++;
+    }
+    base = (base > fname && base < stem_end && *base == '-') ? base + 1 : fname;
+
+    size_t base_len = (size_t) (stem_end - base);
+    if (base_len == name_len && strncmp (base, plain_name, name_len) == 0)
+    {
+      result = strndup (fname, flen - ext_len);
+      break;
+    }
+  }
+  closedir (dir);
+  return result;
 }
 
 static inline iot_container_t *init_xrt (char *config_uri)
@@ -135,19 +190,28 @@ static void on_device_metric_added (xrt_spg_app_device_t *device, xrt_spg_app_me
 
 int main (void)
 {
-  iot_container_t *container = init_xrt (getenv ("XRT_CONFIG_DIR"));
+  const char *config_dir = getenv ("XRT_CONFIG_DIR");
+  iot_container_t *container = init_xrt ((char *) config_dir);
   if (container == NULL)
   {
     return 1;
   }
   iot_container_start (container);
 
-  xrt_bus_t *bus = (xrt_bus_t *) iot_container_find_component (container, "bus");
+  char *bus_id = resolve_component_id (config_dir, "bus");
+  char *logger_id = resolve_component_id (config_dir, "logger");
+  char *spgapp_pool_id = resolve_component_id (config_dir, "spgapp_pool");
+
+  xrt_bus_t *bus = (xrt_bus_t *) iot_container_find_component (container, bus_id ? bus_id : "bus");
   xrt_bus_add_ref (bus);
-  iot_logger_t *logger = (iot_logger_t *) iot_container_find_component (container, "logger");
+  iot_logger_t *logger = (iot_logger_t *) iot_container_find_component (container, logger_id ? logger_id : "logger");
   iot_logger_add_ref (logger);
-  iot_threadpool_t *spg_pool = (iot_threadpool_t *) iot_container_find_component (container, "spgapp_pool");
+  iot_threadpool_t *spg_pool = (iot_threadpool_t *) iot_container_find_component (container, spgapp_pool_id ? spgapp_pool_id : "spgapp_pool");
   iot_threadpool_add_ref (spg_pool);
+
+  free (bus_id);
+  free (logger_id);
+  free (spgapp_pool_id);
 
   demo_ctx_t ctx = {.logger = logger, .device_written = false};
 

@@ -41,50 +41,18 @@ trap 'rm -rf "$TMP_OUT"' EXIT
 (cd "$APP_DIR" && pkl eval deployment.pkl -m "$TMP_OUT") >/dev/null
 
 # NodeConfig.deployment() (core/XRT.pkl) relabels every component with a
-# numeric prefix (e.g. "bus" -> "08-bus") for both the filename and the
-# component's own registered id - and that prefixed id, not the plain
-# name, is what iot_container_init() registers the component under at
-# runtime (confirmed in iotech-c-utils' container.c). Since our own C code
-# (spg_demo.c) and every config's own cross-references expect plain names
-# ("bus", "logger", "spgapp_pool", ...), strip the "<digits>-" prefix from
-# every filename, from main.json's keys, and from any string value
-# elsewhere that exactly matches one of those prefixed keys (every
-# cross-reference in this schema's output is always the full prefixed
-# string as a JSON value, never partial/embedded, so a plain dict
-# replacement is safe).
-python3 - "$TMP_OUT/config" "$APP_DIR/deployment/config" <<'PYEOF'
-import json
-import re
-import sys
-import pathlib
-
-src, dst = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
-prefix_re = re.compile(r"^\d+-")
-
-main = json.loads((src / "main.json").read_text())
-rename = {pid: prefix_re.sub("", pid) for pid in main}
-
-
-def fix(value):
-    if isinstance(value, dict):
-        return {k: fix(v) for k, v in value.items()}
-    if isinstance(value, list):
-        return [fix(v) for v in value]
-    if isinstance(value, str) and value in rename:
-        return rename[value]
-    return value
-
-
-dst.mkdir(parents=True, exist_ok=True)
-for old in dst.glob("*.json"):
-    old.unlink()
-
-new_main = {rename[pid]: typ for pid, typ in main.items()}
-(dst / "main.json").write_text(json.dumps(new_main, indent=2) + "\n")
-
-for pid, new_name in rename.items():
-    data = fix(json.loads((src / f"{pid}.json").read_text()))
-    (dst / f"{new_name}.json").write_text(json.dumps(data, indent=2) + "\n")
-PYEOF
+# numeric prefix (e.g. "bus" -> "08-bus"), for both the filename and the
+# component's own registered id in main.json. That's not just cosmetic:
+# iot_container_init() (iotech-c-utils' container.c) loads main.json into a
+# sorted map, so the prefix is what makes its key order (alphabetical)
+# match real dependency order - stripping it here would throw that
+# load-order guarantee away. So this now copies the generated config
+# through unchanged; any C code that needs a plain component name (e.g.
+# spg_demo.c's "bus"/"logger"/"spgapp_pool" lookups) resolves the real,
+# still-prefixed id itself at startup instead.
+DST="$APP_DIR/deployment/config"
+mkdir -p "$DST"
+find "$DST" -maxdepth 1 -name '*.json' -delete
+cp "$TMP_OUT/config/"*.json "$DST/"
 
 echo "Regenerated $APP_DIR/deployment/config from deployment.pkl"
