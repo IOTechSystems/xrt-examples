@@ -74,22 +74,25 @@ local function set_transform(data)
     if status == "active" then
       response = (apply_dcmd_transform and "Transform already active") or "Activated transform"
       apply_dcmd_transform = true
-    elseif transform == "inactive" then
+    elseif status == "inactive" then
       response = (apply_dcmd_transform and "Deactivated transform") or "Transform already inactive"
       apply_dcmd_transform = false
+    end
 
   elseif transform == "ddata_transform" then
     if status == "active" then
-        response = (apply_ddata_transform and "Transform already active") or "Activated transform"
-        apply_ddata_transform = true
-    elseif transform == "inactive" then
+      response = (apply_ddata_transform and "Transform already active") or "Activated transform"
+      apply_ddata_transform = true
+    elseif status == "inactive" then
       response = (apply_ddata_transform and "Deactivated transform") or "Transform already inactive"
       apply_ddata_transform = false
+    end
+  end
 
    reply = xrt_map()
    reply.response = (transform and status and response) or "Invalid transform request"
    return reply
-
+end
 
 local function add_cmd_id(data)
   local metrics = data.metrics
@@ -121,7 +124,7 @@ function handle_request(data, topic)
     xrt_bus_publish(echopub, data)
     xrt_bus_publish(ddatapub, data)
   elseif topic == "spBv1.0/iotech/REQUEST/lua" then
-    reply = ddata.schedule_status and set_schedule(data) or set_transform(data)
+    reply = data.schedule_status and set_schedule(data) or set_transform(data)
     xrt_bus_publish(replypub, reply)
   end
 end
