@@ -48,27 +48,71 @@ end
 local function set_schedule(data)
   print("set_schedule")
 
-  if data.schedule_status then
-    local response = "Invalid schedule status"
-    if data.schedule_status == "active" then
-      response = (schedule_active and "Schedule already active") or "Activated schedule"
-      schedule_active = true
-    elseif data.schedule_status == "inactive" then
-      response = (schedule_active and "Deactivated schedule") or "Schedule already inactive"
-      schedule_active = false
-    end
-
-    local reply = xrt_map()
-    reply.response = response
-    return reply
+  local status = data.schedule_status
+  local response
+  if status == "active" then
+    response = (schedule_active and "Schedule already active") or "Activated schedule"
+    schedule_active = true
+  elseif status == "inactive" then
+    response = (schedule_active and "Deactivated schedule") or "Schedule already inactive"
+    schedule_active = false
   end
+
+  local reply = xrt_map()
+  reply.response = (status and response) or "Invalid schedule status"
+  return reply
 end
+
+local function set_transform(data)
+  print("set_transform")
+
+  local transform = data.transform
+  local status = data.status
+  local response
+
+  if transform == "dcmd_transform" then
+    if status == "active" then
+      response = (apply_dcmd_transform and "Transform already active") or "Activated transform"
+      apply_dcmd_transform = true
+    elseif transform == "inactive" then
+      response = (apply_dcmd_transform and "Deactivated transform") or "Transform already inactive"
+      apply_dcmd_transform = false
+
+  elseif transform == "ddata_transform" then
+    if status == "active" then
+        response = (apply_ddata_transform and "Transform already active") or "Activated transform"
+        apply_ddata_transform = true
+    elseif transform == "inactive" then
+      response = (apply_ddata_transform and "Deactivated transform") or "Transform already inactive"
+      apply_ddata_transform = false
+
+   reply = xrt_map()
+   reply.response = (transform and status and response) or "Invalid transform request"
+   return reply
+
+
+local function add_cmd_id(data)
+  local metrics = data.metrics
+  local metric = xrt_map()
+  metric.name = "Device Control/CommandId"
+  metric.value = "7cdbce61-941b-4a92-99ff-6ad976b87ad2"
+  metrics[#metrics + 1] = metric
+  return metric, true
+end
+
+function dcmd_transform(data)
+  print("dcmd_transform")
+  if not apply_dcmd_transform then return data, false end
+  fix_array_metrics(data)
+  add_cmd_id(data)
+  return data, true
+end
+
 
 function handle_request(data, topic)
   print("handle_request", topic)
 
   if topic == "spBv1.0/iotech/DCMD/lua" then
-    fix_array_metrics(data)
     xrt_bus_publish(dcmdpub, data)
   elseif topic == "spBv1.0/iotech/DACK/xrt-dev/Lua-Device" then
     xrt_bus_publish(echopub, data)
@@ -77,16 +121,23 @@ function handle_request(data, topic)
     xrt_bus_publish(echopub, data)
     xrt_bus_publish(ddatapub, data)
   elseif topic == "spBv1.0/iotech/REQUEST/lua" then
-    reply = set_schedule(data)
+    reply = ddata.schedule_status and set_schedule(data) or set_transform(data)
     xrt_bus_publish(replypub, reply)
   end
 end
 
-function add_metric(data)
-  print("add_metric")
+function remove_msg(data)
+  print("remove_msg")
+  return nil, true
+end
+
+function ddata_transform(data)
+  print("ddata_transform")
+  if not apply_ddata_transform then return data, false end
+
   local metrics = data.metrics
---   if metrics and not (metrics[#metrics] and metrics[#metrics].value == "Extra special metric") then
-  if metrics then
+  if metrics and not (metrics[#metrics] and metrics[#metrics].value == "Extra special metric") then
+--   if metrics then
     local len = #metrics
     local metric = xrt_map()
     metric.alias = xrt_uint64(99)
@@ -100,24 +151,31 @@ function add_metric(data)
   return data, false
 end
 
-echopub = xrt_bus_pub_alloc(xrt_bus, "lua/echo")
-dcmdpub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DCMD/xrt-dev/Lua-Device")
-dackpub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DACK/lua")
-ddatapub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DDATA/lua")
-replypub = xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/REPLY/lua")
+echopub = echopub or xrt_bus_pub_alloc(xrt_bus, "lua/echo")
+dcmdpub = dcmdpub or xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DCMD/xrt-dev/Lua-Device")
+dackpub = dackpub or xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DACK/lua")
+ddatapub = ddatapub or xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/DDATA/lua")
+replypub = replypub or xrt_bus_pub_alloc(xrt_bus, "spBv1.0/iotech/REPLY/lua")
 
-sub = xrt_bus_sub_alloc(xrt_bus, handle_request, "spBv1.0/iotech/#")
+sub = sub or xrt_bus_sub_alloc(xrt_bus, handle_request, "spBv1.0/iotech/#")
 
-resources = xrt_list()
+resources = resources or xrt_list()
 resources[1] = "uint8"
 resources[2] = "int64"
 resources[3] = "bool"
 resources[4] = "array"
 
 -- xrt_schedule_alloc (scheduler, callback, arg, period, delay, repeat)
-schedule = xrt_schedule_alloc(xrt_scheduler, read_request, resources, 1000)
+schedule = schedule or xrt_schedule_alloc(xrt_scheduler, read_request, resources, 1000)
 schedule_active = false
 
-xrt_bus_topic_transform(xrt_bus, add_metric, "spBv1.0/iotech/DDATA/lua")
+dcmd_xform = dcmd_xform or xrt_bus_topic_transform(xrt_bus, dcmd_transform, "spBv1.0/iotech/DCMD/xrt-dev/Lua-Device")
+ddata_xform = ddata_xform or xrt_bus_topic_transform(xrt_bus, ddata_transform, "spBv1.0/iotech/DDATA/lua")
+-- Enable to filter out all messages on DACK topic
+-- dack_xform = dack_xform or xrt_bus_topic_transform(xrt_bus, remove_msg, "spBv1.0/iotech/DACK/lua")
+
+apply_dcmd_transform = true
+apply_ddata_transform = true
+
 
 print("Loaded Lua Script")
