@@ -1,4 +1,0 @@
-{
-  "ServerId":"app1-colocated-server",
-  "NodeId":"${SPARKPLUG_NODE}"
-}

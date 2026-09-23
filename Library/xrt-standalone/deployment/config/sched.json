@@ -1,4 +1,5 @@
 {
-  "ThreadPool":"pool",
-  "Logger":"logger"
+  "Name": "sched",
+  "Logger": "logger",
+  "ThreadPool": "pool"
 }

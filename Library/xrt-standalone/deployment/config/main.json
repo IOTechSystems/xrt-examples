@@ -1,14 +1,14 @@
 {
-  "xrt":"XRT::Config",
-  "logger":"IOT::Logger",
-  "logger_debug":"IOT::Logger",
-  "pool":"IOT::ThreadPool",
-  "devpool":"IOT::ThreadPool",
-  "sched":"IOT::Scheduler",
-  "bus":"XRT::Bus",
-  "bacnet_ip_dev3":"XRT::BACnetIPDeviceService",
-  "bacnet_mstp_dev4":"XRT::BACnetMSTPDeviceService",
-  "mqtt_bridge":"XRT::MQTTBridge",
-  "sparkplug":"XRT::Sparkplug",
-  "sparkplug_node":"XRT::SparkplugNode"
+  "config": "XRT::Config",
+  "logger": "IOT::Logger",
+  "sparkplug": "XRT::Sparkplug",
+  "logger_debug": "IOT::Logger",
+  "pool": "IOT::ThreadPool",
+  "sched_pool": "IOT::ThreadPool",
+  "sched": "IOT::Scheduler",
+  "bus": "XRT::Bus",
+  "mqtt_bridge": "XRT::MQTTBridge",
+  "sparkplug_node": "XRT::SparkplugNode",
+  "bacnet_ip_dev3": "XRT::BACnetIPDeviceService",
+  "bacnet_mstp_dev4": "XRT::BACnetMSTPDeviceService"
 }

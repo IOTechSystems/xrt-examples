@@ -1,0 +1,101 @@
+/// EC Xrt (stock xrt binary, no library-linked app): BACnet/IP device service
+/// for Dev3, BACnet MSTP device service for Dev4, MQTT bridge, Sparkplug node.
+///
+/// Dev3 (IP) and Dev4 (MSTP) deliberately use different BACnet datalinks -
+/// running two XRT::BACnetIPDeviceService instances in one process was
+/// confirmed to silently break (shared bacnet-stack global datalink state).
+/// See app1-colocated/deployment.pkl for the same reasoning and for notes on
+/// two schema quirks worked around identically here: devices.json/
+/// schedules.json generation is unusable (a schema bug drops every device
+/// field but "name"), and generate-pkl-config.sh has to strip the numeric
+/// id prefix NodeConfig.deployment() adds to every component name.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+system =
+  standardSystem("xrt-standalone-server", "${SPARKPLUG_NODE1}")
+    |> addComponents(new Listing<Component> {
+        new Logger {
+          name = "logger_debug"
+          level = "Debug"
+        }
+      })
+    // See app1-colocated/deployment.pkl for why this has to be
+    // replaceWithOpts (the bridge lives in `std`, not `services`, so a
+    // later withOptions("mqtt_bridge", ...) can't find it) and why these
+    // four options are set explicitly (mqtt_bridge.pkl's own bare
+    // defaults - queue_size=200, priority=null, acks_timeout=0s,
+    // app_topic=null - differ from what this demo has always run with).
+    // device_services deliberately left unset (defaults to empty List())
+    // to skip the REPLY/REQUEST MQTT patterns that come with it - our
+    // current hand-written mqtt_bridge.json doesn't have those either.
+    |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+        acks_timeout = 10.s
+        queue_size = 5
+        priority = 0
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugOptions(new Dynamic {
+        enable_metric_quality = true
+        enable_metric_ack_good = false
+        enable_fixed_aliases = false
+        enable_metric_type = false
+        enable_metric_name = false
+        enable_metric_default_timestamp = false
+        enable_bad_cmd_ignore = false
+      })
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        enable_metric_log = false
+        enable_exit_cmd = true
+        heartbeat_interval = 0.s
+        // See app1-colocated/deployment.pkl for why this is List() rather
+        // than the schema default (List("${SPARKPLUG_APPS}") would become
+        // [""] once XRT substitutes our always-empty SPARKPLUG_APPS in,
+        // not the empty array our hand-written config's unquoted "[
+        // ${SPARKPLUG_APPS} ]" text-substitution trick produces).
+        app_state_wait = List()
+      })
+    |> bacnet.ip_instance("", "bacnet_ip_dev3")
+    |> withOptions("bacnet_ip_dev3", new Dynamic {
+        logger = new LoggerRef { target = "logger_debug" }
+        profile_dir = "${XRT_STATE_DIR}/bacnet_ip_dev3/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_ip_dev3"
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        request_queue_max = 100000
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_DEV3_ADDRESS}"
+        }
+      })
+    |> bacnet.mstp_instance("/tmp/dev4-mstp", "bacnet_mstp_dev4")
+    |> withOptions("bacnet_mstp_dev4", new Dynamic {
+        logger = new LoggerRef { target = "logger_debug" }
+        profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev4/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev4"
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetMSTPDriverOptions {
+          serial_interface = "/tmp/dev4-mstp"
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+        }
+      })
+
+output {
+  files = system.deployment()
+}

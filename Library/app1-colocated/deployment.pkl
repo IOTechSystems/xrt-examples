@@ -1,0 +1,131 @@
+/// App1 (colocated) - XRT linked in as a library: BACnet/IP device service for
+/// Dev1, BACnet MSTP device service for Dev2, MQTT bridge, Sparkplug node, plus
+/// an extra "spgapp_pool" thread pool used by spg_demo.c's own colocated
+/// Sparkplug Application (xrt_spg_app_t).
+///
+/// Dev1 (IP) and Dev2 (MSTP) deliberately use different BACnet datalinks -
+/// running two XRT::BACnetIPDeviceService instances in one process was
+/// confirmed to silently break (shared bacnet-stack global datalink state).
+///
+/// This only generates deployment/config/ - deployment/state/ (devices.json,
+/// schedules.json, profiles/) stays hand-managed. `bacnet.device(...)`'s
+/// result renders through Device/BACnetDevice, neither of which override
+/// Base.dflt() (unlike e.g. BACnetIPDriverOptions), so Base.removeDefaults()
+/// - which compares every field against dflt() and drops anything equal -
+/// ends up comparing each field against itself and strips everything except
+/// "name" (confirmed empirically: a constructed device with profile_name/
+/// protocols set rendered as bare `{"name": "Dev1"}`). That's a schema bug on
+/// this branch, not a usage error - not worth working around for files that
+/// are runtime state XRT owns anyway, not static deployment config.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+system =
+  standardSystem("app1-colocated-server", "${SPARKPLUG_NODE}")
+    |> addComponents(new Listing<Component> {
+        new Logger {
+          name = "logger_debug"
+          level = "Debug"
+        }
+        new ThreadPool {
+          // spgapp_pool is only ever looked up directly by name from our
+          // own C code (spg_demo.c), not referenced via any component's
+          // thread_pool field, so ThreadPool.update()'s consumer-sum would
+          // always compute 0 for it. Requires the XRT-3877-branch fix
+          // where `threads` defaults to null and update() only
+          // auto-computes when null - that lets this explicit value
+          // survive untouched.
+          name = "spgapp_pool"
+          logger = new LoggerRef { target = "logger" }
+          threads = 5
+        }
+      })
+    // The bridge lives in `std` (StandardSystem), not the `services` list
+    // withOptions()/modify() search - so options for it have to go through
+    // replaceWithOpts() at replacement time, not a later withOptions() call
+    // (confirmed empirically: withOptions("mqtt_bridge", ...) here throws
+    // "service named 'mqtt_bridge' not found"). Deliberately not setting
+    // device_services (defaults to empty List()) to skip the REPLY/REQUEST
+    // MQTT patterns that come with it - our current hand-written
+    // mqtt_bridge.json doesn't have those either.
+    //
+    // mqtt_bridge.pkl's own bare defaults for the four options below
+    // (queue_size=200, priority=null, acks_timeout=0s, app_topic=null)
+    // differ from what this demo has always run with - set explicitly
+    // rather than silently accept the schema defaults. app_topic in
+    // particular is the bridge's own Sparkplug STATE announcement topic;
+    // leaving it unset means the bridge never publishes its own
+    // online/offline STATE message.
+    |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+        acks_timeout = 10.s
+        queue_size = 5
+        priority = 0
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugOptions(new Dynamic {
+        enable_metric_quality = true
+        enable_metric_ack_good = false
+        enable_fixed_aliases = false
+        enable_metric_type = false
+        enable_metric_name = true
+        enable_metric_default_timestamp = false
+        enable_bad_cmd_ignore = false
+      })
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        enable_metric_log = false
+        enable_exit_cmd = true
+        heartbeat_interval = 0.s
+        // Schema default is List("${SPARKPLUG_APPS}") -> a one-element
+        // array containing the literal placeholder string. Our
+        // docker-compose.yml always sets SPARKPLUG_APPS="" and relies on
+        // XRT's raw text substitution collapsing an *unquoted* "[
+        // ${SPARKPLUG_APPS} ]" down to "[]" - a JSON array can't reproduce
+        // that trick, so set it directly to what we actually want (no apps
+        // to wait for) rather than the schema default, which would become
+        // [""] (one empty-string entry) once XRT substitutes it in.
+        app_state_wait = List()
+      })
+    |> bacnet.ip_instance("", "bacnet_ip_dev1")
+    |> withOptions("bacnet_ip_dev1", new Dynamic {
+        logger = new LoggerRef { target = "logger_debug" }
+        profile_dir = "${XRT_STATE_DIR}/bacnet_ip_dev1/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_ip_dev1"
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        request_queue_max = 100000
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_DEV1_ADDRESS}"
+        }
+      })
+    |> bacnet.mstp_instance("/tmp/dev2-mstp", "bacnet_mstp_dev2")
+    |> withOptions("bacnet_mstp_dev2", new Dynamic {
+        logger = new LoggerRef { target = "logger_debug" }
+        profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2"
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetMSTPDriverOptions {
+          serial_interface = "/tmp/dev2-mstp"
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+        }
+      })
+
+output {
+  files = system.deployment()
+}

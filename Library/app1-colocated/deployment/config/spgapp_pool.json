@@ -1,4 +1,5 @@
 {
-  "Logger":"logger",
+  "Name": "spgapp_pool",
+  "Logger": "logger",
   "Threads": 5
 }

@@ -1,4 +1,4 @@
 {
-  "Name":"console",
-  "Level":"Debug"
+  "Name": "logger_debug",
+  "Level": "Debug"
 }

@@ -1,5 +1,5 @@
 {
-  "Name": "pool",
+  "Name": "sched_pool",
   "Logger": "logger",
   "Threads": 4
 }

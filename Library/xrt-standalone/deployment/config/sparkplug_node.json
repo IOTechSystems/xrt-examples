@@ -1,15 +1,14 @@
 {
-  "Factory": "xrt_sparkplug_factory",
+  "Name": "sparkplug_node",
+  "Logger": "logger",
   "Library": "libxrt-sparkplug.so",
+  "Factory": "xrt_sparkplug_factory",
+  "Bus": "bus",
+  "Scheduler": "sched",
+  "ThreadPool": "pool",
   "NodeId": "${SPARKPLUG_NODE1}",
-  "StateDir": "${XRT_STATE_DIR}/sparkplug",
-  "AppStateWait": [ ${SPARKPLUG_APPS} ],
   "WaitTimeout": 5,
   "EnableMetricLog": false,
-  "EnableExitCmd": true,
   "HeartbeatInterval": 0,
-  "Bus": "bus",
-  "Logger": "logger",
-  "ThreadPool": "pool",
-  "Scheduler": "sched"
+  "AppStateWait": []
 }

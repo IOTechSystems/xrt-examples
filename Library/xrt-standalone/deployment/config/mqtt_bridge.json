@@ -1,61 +1,99 @@
 {
+  "Name": "mqtt_bridge",
+  "Logger": "logger",
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
-  "Patterns":
-  [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE1}", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE1}/+", "QoS":0, "Transforms": ["${SPARKPLUG_PROTO}"] }
-  ],
-  "MQTTPatterns":
-  [
-    { "Pattern":"spBv1.0/STATE/+", "QoS":0, "Sync":true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE1}", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE1}", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE1}", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE1}", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE1}", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE1}/+", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE1}/+", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE1}/+", "QoS":0, "Sync":true, "Binary": true },
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE1}/+", "QoS":0, "Sync":true, "Binary": true }
-  ],
-  "MQTTDynamicPatterns":
-  [
-    { "Pattern":"spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE1}/+", "QoS":0, "Sync":true, "Transforms": ["${SPARKPLUG_PROTO}"] }
-  ],
-  "MQTTConfig":
-  {
-    "ServerURI": "${XRT_MQTT_BROKER}",
-    "ClientID": "${SPARKPLUG_NODE1}",
-    "QoS": 0,
-    "ClientConfig":
-    {
-      "KeepAliveInterval": 60,
-      "MQTTVersion": 5,
-      "Reliable": true,
-      "Username": "${XRT_MQTT_USERNAME}",
-      "Password": "${XRT_MQTT_PASSWORD}",
-      "MaxBufferedMessages": 100,
-      "WillConfig":
-      {
-        "Topic": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE1}",
-        "Transforms": ["${SPARKPLUG_PROTO}"],
-        "QoS": 1,
-        "Retain": false
-      }
-    }
-  },
-  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
-  "AcksTimeout": 10,
+  "Bus": "bus",
   "QueueSize": 5,
   "Priority": 0,
-  "Bus": "bus",
-  "Logger": "logger"
+  "AcksTimeout": 10,
+  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
+  "Patterns": [
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE}/+",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE}",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE}/+",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE}/+",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE}",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE}/+",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE}",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    }
+  ],
+  "MQTTPatterns": [
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/STATE/+",
+      "Sync": true
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE}",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ],
+      "Sync": true
+    }
+  ],
+  "MQTTDynamicPatterns": [
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/+",
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ],
+      "Sync": true
+    }
+  ],
+  "MQTTConfig": {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "${SPARKPLUG_NODE}",
+    "ClientConfig": {
+      "KeepAliveInterval": 60,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "WillConfig": {
+        "Topic": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE}",
+        "Retain": false,
+        "Transforms": [
+          "${SPARKPLUG_PROTO}"
+        ]
+      }
+    }
+  }
 }

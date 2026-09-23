@@ -1,3 +1,5 @@
 {
-  "Logger":"logger"
+  "Name": "pool",
+  "Logger": "logger",
+  "Threads": 4
 }

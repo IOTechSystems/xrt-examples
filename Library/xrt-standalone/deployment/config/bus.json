@@ -1,5 +1,7 @@
 {
-  "Scheduler":"sched",
-  "ThreadPool":"pool",
-  "Logger":"logger"
+  "Name": "bus",
+  "Logger": "logger",
+  "Scheduler": "sched",
+  "ThreadPool": "pool",
+  "Topics": []
 }
