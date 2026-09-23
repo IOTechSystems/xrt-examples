@@ -22,15 +22,17 @@ system =
     |> virtual.instance("virtual")
     |> opcua_server.instance("opc_ua_server")
     |> withOptions("opc_ua_server", new Dynamic {
-        port = 4840
         enable_sparkplug = true
-        nodeset_paths = List(
-          "${XRT_NODESET_DIR}/Opc.Ua.Di.NodeSet2.xml",
-          "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.GeneralTypes.NodeSet2.xml",
-          "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.IMM2MES.NodeSet2.xml",
-          "${XRT_NODESET_DIR}/CustomNodeset.xml",
-        )
-        mapping_paths = List("${XRT_MAPPING_DIR}/euromap_mapping.json")
+        server_config = new opcua_server.OPCUAServerFileConfig {
+          port = 4840
+          nodeset_paths = List(
+            "${XRT_NODESET_DIR}/Opc.Ua.Di.NodeSet2.xml",
+            "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.GeneralTypes.NodeSet2.xml",
+            "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.IMM2MES.NodeSet2.xml",
+            "${XRT_NODESET_DIR}/CustomNodeset.xml",
+          )
+          mapping_paths = List("${XRT_MAPPING_DIR}/euromap_mapping.json")
+        }
       })
 
 output {

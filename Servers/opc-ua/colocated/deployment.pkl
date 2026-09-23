@@ -47,17 +47,19 @@ system =
     |> virtual.instance("virtual")
     |> opcua_server.instance("opc_ua_server")
     |> withOptions("opc_ua_server", new Dynamic {
-        security_policies = List(new opcua_server.OPCUAServerSecurityPolicy {})
-        endpoints = List(new opcua_server.OPCUAServerEndpoint {})
-        access_control = new opcua_server.OPCUAServerAccessControl {
-          allow_anonymous = true
-          enable_user_pass = true
-          users = List(new opcua_server.OPCUAServerUser {
-            username = "user"
-            password = "pass"
-          })
-        }
         enable_sparkplug = true
+        server_config = new opcua_server.OPCUAServerFileConfig {
+          security_policies = List(new opcua_server.OPCUAServerSecurityPolicy {})
+          endpoints = List(new opcua_server.OPCUAServerEndpoint {})
+          access_control = new opcua_server.OPCUAServerAccessControl {
+            allow_anonymous = true
+            enable_user_pass = true
+            users = List(new opcua_server.OPCUAServerUser {
+              username = "user"
+              password = "pass"
+            })
+          }
+        }
       })
 
 output {

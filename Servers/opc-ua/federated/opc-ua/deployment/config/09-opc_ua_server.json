@@ -1,0 +1,10 @@
+{
+  "Name": "opc_ua_server",
+  "Logger": "00-logger",
+  "Library": "libxrt-opc-ua-server.so",
+  "Factory": "xrt_opc_ua_server_factory",
+  "Threadpool": "03-pool",
+  "Bus": "06-bus",
+  "EnableSparkplug": true,
+  "OPCUAServerConfig": "${XRT_DEPLOYMENT_DIR}/config/opc_ua_server_config.json"
+}
