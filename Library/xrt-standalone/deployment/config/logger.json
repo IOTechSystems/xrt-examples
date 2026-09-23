@@ -1,4 +1,5 @@
 {
   "Name": "logger",
-  "Level": "Info"
+  "Level": "Info",
+  "Start": true
 }

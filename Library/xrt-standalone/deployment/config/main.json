@@ -1,6 +1,6 @@
 {
-  "config": "XRT::Config",
   "logger": "IOT::Logger",
+  "config": "XRT::Config",
   "sparkplug": "XRT::Sparkplug",
   "logger_debug": "IOT::Logger",
   "pool": "IOT::ThreadPool",

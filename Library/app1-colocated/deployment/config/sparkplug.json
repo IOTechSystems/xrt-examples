@@ -1,6 +1,20 @@
 {
   "Name": "sparkplug",
+  "Namespace": "spBv1.0",
   "Group": "${SPARKPLUG_GROUP}",
   "EnableMetricQuality": true,
-  "EnableMetricName": true
+  "EnableMetricDescription": false,
+  "EnableMetricTiming": false,
+  "EnableMicrosecondTimestamp": false,
+  "EnableMetricAttributes": true,
+  "EnableMetricAckGood": false,
+  "EnableFixedAliases": false,
+  "EnableMetricType": false,
+  "EnableMetricName": false,
+  "EnableAckMetricName": false,
+  "EnableMetricDefaultTimestamp": false,
+  "EnableBadCMDIgnore": false,
+  "EnableBadDataNull": false,
+  "EnableCmdNullRead": true,
+  "MQTTAppId": "XRT::MQTTBridge"
 }

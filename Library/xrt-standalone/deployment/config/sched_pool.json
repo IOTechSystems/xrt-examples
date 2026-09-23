@@ -1,5 +1,7 @@
 {
   "Name": "sched_pool",
   "Logger": "logger",
-  "Threads": 4
+  "Threads": 4,
+  "MaxJobs": 0,
+  "ShutdownDelay": 200
 }
