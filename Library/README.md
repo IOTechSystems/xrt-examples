@@ -22,14 +22,12 @@ supervisory access.
      |  EC Xrt (library)     |                |  = xrt-standalone     |
      +-----------------------+                +-----------------------+
         |            |                            |            |
-   BACnet/IP     BACnet/IP                    BACnet/IP    BACnet/IP
+   BACnet/IP     BACnet/MSTP                  BACnet/IP    BACnet/MSTP
      Dev1           Dev2                         Dev3          Dev4
 
   App2 (container, standalone Sparkplug client) subscribes to Dev1-4 across
   the whole bus, independent of the two Xrt instances above it.
 ```
-
-> Dev2 and Dev4 are created as BACnet/IP here instead of MSTP for simplicity.
 
 ## Components
 
@@ -42,7 +40,7 @@ supervisory access.
 | EC OPC UA Server | [`xrt-opc-ua-server/`](xrt-opc-ua-server/README.md) | Purpose-built `iotechsys/connect-opc-ua-server` image (config baked in, no mounted JSON files), `XRT::OPCUAServer` with `EnableSparkplug: true`, subscribes to Dev1-4 |
 | App3 - EC OPC UA browser | `opc-ua-browser` service (`iotechsys/opc-ua-browser:1.1`) | Web UI at `localhost:8080` |
 | Dev1 / Dev3 (BACnet/IP) | `bacnet-sim-dev1` / `bacnet-sim-dev3` services (`iotechsys/bacnet-sim:2.2.7`) | BACnet/IP simulator |
-| Dev2 / Dev4 (BACnet/IP) | `bacnet-sim-dev2` / `bacnet-sim-dev4` services (`iotechsys/bacnet-sim:2.2.7`) | BACnet/IP simulator |
+| Dev2 / Dev4 (BACnet/MSTP) | `bacnet-sim-dev2` / `bacnet-sim-dev4` services (`iotechsys/bacnet-sim:2.2.7`) | BACnet/MSTP simulator |
 
 ## License
 
@@ -67,7 +65,7 @@ docker compose up --build
 ```
 
 This builds `app1-colocated`, `app2-standalone` and `xrt-standalone`
-(pulling `iotechsys/xrt-server:3.4.6`, `iotechsys/connect-opc-ua-server:3.4.5-dev`,
+(pulling `iotechsys/xrt-server:3.4.6`, `iotechsys/connect-opc-ua-server:3.4.6-dev`,
 `iotechsys/opc-ua-browser:1.1` and `iotechsys/bacnet-sim:2.2.7` as-is) and
 starts all ten services.
 
@@ -101,9 +99,7 @@ four are gitignored), so they must be synced locally before
 ordinary, already-available IOTech apt packages - synced rather than
 committed only because the build stage is Alpine and can't `apt install`
 them itself. Only `xrt` is actually pending anything: there's no confirmed
-apt/apk package for it yet, so it's still a manual copy - see
-[`vendor/README.md`](vendor/README.md) for the decision that would let that
-go away too.
+apt/apk package for it yet, so it's still a manual copy.
 
 ```bash
 apt-get install iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0

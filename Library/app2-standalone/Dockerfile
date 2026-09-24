@@ -1,14 +1,3 @@
-# App2 - standalone Sparkplug client: a plain MQTT client with no XRT bus,
-# no iot_container_t, no XRT Sparkplug node. Talks to the broker directly
-# via Paho MQTT C, decoding/encoding Sparkplug B with XRT's low-level
-# transform functions.
-#
-# See ../app1-colocated/Dockerfile for the full explanation: all .so's come
-# from `iotechsys/xrt-server:3.4.6` (Alpine/musl, matched here with
-# `FROM alpine:3.24`), only headers are vendored from ../vendor/. This one
-# also needs Paho/Sparkplug-B headers (this binary links them directly
-# rather than getting them transitively through xrt_spg_app_t) and uses
-# `context: .` in ../docker-compose.yml for the same reason as app1.
 FROM alpine:3.24 AS builder
 
 RUN apk add --no-cache \

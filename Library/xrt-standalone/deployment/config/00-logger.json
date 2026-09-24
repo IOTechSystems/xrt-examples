@@ -1,5 +1,5 @@
 {
   "Name": "logger",
-  "Level": "Info",
+  "Level": "Warn",
   "Start": true
 }

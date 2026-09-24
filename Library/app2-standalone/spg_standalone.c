@@ -5,10 +5,9 @@
  * Standalone Sparkplug client for XRT 3.4.
  *
  * Unlike sparkplug-colocated/, this process has no xrt_bus_t and no
- * iot_container_t at all - it is not "XRT embedded in a program", it is a
- * plain MQTT client. It talks to whatever XRT deployment is already
- * publishing Sparkplug B on the broker (e.g. ../sparkplug-colocated, or any
- * other XRT Sparkplug node) purely over MQTT:
+ * iot_container_t at all - effectively it is a plain MQTT client.
+ * It talks to whatever XRT deployment is already publishing
+ * Sparkplug B on the broker purely over MQTT:
  *
  *   - Connects to the broker directly via Paho MQTT C (MQTTAsync).
  *   - Subscribes to "spBv1.0/<group>/#" and decodes each message's raw
@@ -33,13 +32,9 @@
  *     rather than Sparkplug protobuf, so it never matches the "#" wildcard
  *     subscription below).
  *
- * This is the "own no XRT/iot dependency at all" end of the spectrum was
- * ruled out for now: this example still uses IOT's iot_data_t and XRT's own
+ * This example still uses IOT's iot_data_t and XRT's own
  * Sparkplug B codec (xrt_xform_spb_*) and metric builder (xrt_spg_metric_*)
- * rather than hand-rolling protobuf, per the brief to use "the iot library
- * functions for sparkplug decoding etc for now". Swapping those for a fully
- * independent protobuf implementation would only change encode/decode; the
- * MQTT transport and process structure here would stay the same.
+ * rather than rewriting protobuf handling.
  */
 
 #include <inttypes.h>

@@ -1,7 +1,7 @@
 {
   "Name": "pool",
   "Logger": "00-logger",
-  "Threads": 4,
+  "Threads": 6,
   "MaxJobs": 0,
   "ShutdownDelay": 200
 }

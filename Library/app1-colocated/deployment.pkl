@@ -24,6 +24,8 @@ system =
       })
     |> bacnet.ip_instance("", "bacnet_ip_dev1")
     |> withOptions("bacnet_ip_dev1", new Dynamic {
+        profile_dir = "${XRT_STATE_DIR}/bacnet_ip_dev1/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_ip_dev1"
         schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
         driver = new bacnet.BACnetIPDriverOptions {
           network_interface = ""
@@ -34,6 +36,8 @@ system =
       })
     |> bacnet.mstp_instance("/tmp/dev2-mstp", "bacnet_mstp_dev2")
     |> withOptions("bacnet_mstp_dev2", new Dynamic {
+        profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2"
         logger = new LoggerRef { target = "logger_debug" }
         schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
         driver = new bacnet.BACnetMSTPDriverOptions {

@@ -8,14 +8,14 @@
   "ThreadPool": "04-pool",
   "StateDir": "${XRT_STATE_DIR}/sparkplug",
   "NodeId": "${SPARKPLUG_NODE1}",
-  "WaitTimeout": 5,
-  "EnableMetricLog": false,
+  "WaitTimeout": 0,
+  "EnableMetricLog": true,
   "EnableExitCmd": true,
   "EnableDiscovery": true,
   "EnableGroupCmd": true,
   "EnableServices": true,
   "EnableFixedAliases": false,
-  "HeartbeatInterval": 0,
+  "HeartbeatInterval": 60,
   "CommandQueueMax": 0,
   "AppStateWait": []
 }

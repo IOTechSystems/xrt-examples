@@ -5,21 +5,6 @@
  * Colocated Sparkplug client for XRT 3.4 ("App1" in the reference
  * architecture: XRT linked in as a library, running inside its own
  * container).
- *
- * A Virtual Device Service, XRT::MQTTBridge and XRT::SparkplugNode all run
- * inside this one process alongside a Sparkplug Application (xrt_spg_app_t)
- * created directly in C via sparkplug/sparkplug_app.h, so the business logic
- * below reaches decoded Sparkplug Node/Device/Metric state directly via
- * in-process callbacks rather than over a request/reply protocol. Two
- * separate BACnet/IP Device Service instances (Dev1, Dev2 - each talking to
- * its own simulator container) feed into the one Sparkplug node/application
- * pair, showing multiple devices of the same protocol aggregated under a
- * single Sparkplug identity.
- *
- * Data flow: device schedules -> bus telemetry -> Sparkplug node (encodes
- * NBIRTH/DBIRTH/DDATA) -> MQTT bridge -> real broker -> MQTT bridge
- * (decodes back in, raw protobuf) -> Sparkplug application (decodes
- * protobuf, tracks Node/Device/Metric state, fires callbacks).
  */
 
 #include <ctype.h>
@@ -67,14 +52,10 @@ static void signal_handler (int sig)
 /*
  * NodeConfig.deployment() (xrt's Pkl deployment schema, core/XRT.pkl)
  * relabels every component with a numeric prefix (e.g. "bus" -> "08-bus"),
- * for both the filename and the component's own registered id - and
- * iot_container_init() loads main.json into a sorted map, so that prefix is
- * what makes its key order (alphabetical) match real dependency order.
- * Stripping it at config-generation time (as an earlier version of
- * generate-pkl-config.sh did) throws that load-order guarantee away, so
- * instead resolve the real, still-prefixed id here at startup: scan
- * config_dir for the one file whose name, after stripping any leading
- * "<digits>-", matches plain_name exactly.
+ * so that it is resolved in order when loading into XRT. This function
+ * determines a components full name for looking up with
+ * iot_container_find_component. TODO should a helper like this exist
+ * in IOT instead?
  */
 static char *resolve_component_id (const char *config_dir, const char *plain_name)
 {
@@ -135,10 +116,6 @@ static inline iot_container_t *init_xrt (char *config_uri)
   iot_component_factory_add (iot_scheduler_factory ());
   iot_component_factory_add (xrt_bus_factory ());
   iot_component_factory_add (xrt_config_factory ());
-  /* BACnet/IP device services, the MQTT bridge and the Sparkplug node are
-   * loaded dynamically per their "Library"/"Factory" config fields. The
-   * Sparkplug config type has no such fields (matches other XRT
-   * deployments) so it must be registered here. */
   iot_component_factory_add (xrt_sparkplug_config_factory ());
 
   iot_container_init (container);
@@ -157,7 +134,7 @@ static void on_metric_value_updated (xrt_spg_app_metric_t *metric, void *app_ctx
   free (json);
 }
 
-/* Fired when either BACnet/IP device (Dev1 or Dev2) births under a node. */
+/* Fired when either BACnet device (Dev1 or Dev2) births under a node. */
 static void on_device_added (xrt_spg_app_node_t *node, void *app_ctx, xrt_spg_app_device_t *device)
 {
   demo_ctx_t *ctx = app_ctx;

@@ -1,5 +1,5 @@
 # Reference architecture: two Xrt instances (App1's colocated library and
-# xrt-standalone's plain container) serving four BACnet/IP devices, bridged
+# xrt-standalone's plain container) serving four BACnet devices, bridged
 # through the Sparkplug bus to an OPC UA Server for supervisory access.
 # See README.md for the full walkthrough.
 
@@ -113,18 +113,8 @@ services:
       - ./license:/license:ro
     restart: unless-stopped
 
-  # --- EC OPC UA Server: subscribes to Sparkplug DDATA for Dev1-4, publishes DCMDs back ---
-  # Purpose-built image with a Sparkplug OPC UA Server config baked in - no
-  # deployment/config bind-mount needed, unlike the stock xrt-server image
-  # xrt-standalone/app1-colocated need. See xrt-opc-ua-server/README.md.
-  #
-  # Pinned to 3.4.5-dev, one patch behind the rest of the stack (3.4.6):
-  # the 3.4.6-dev build of this image links libxrt-opc-ua-server.so against
-  # a newer libjwt API than the libjwt.so.2 it actually ships, so the
-  # component fails to load. Bump to 3.4.6-dev once IOTech republishes a
-  # fixed build.
   xrt-opc-ua-server:
-    image: iotechsys/connect-opc-ua-server:3.4.5-dev
+    image: iotechsys/connect-opc-ua-server:3.4.6-dev
     container_name: xrt-opc-ua-server
     depends_on:
       - mosquitto

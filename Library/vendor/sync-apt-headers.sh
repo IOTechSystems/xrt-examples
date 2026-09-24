@@ -3,6 +3,9 @@
 # packages installed on this host. Requires the iotech debian-dev apt repo
 # configured (see /etc/apt/sources.list.d/iotech.list) and:
 #   apt-get install iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0
+# 
+# All are available on public debian-release repo too, but not for all current
+# versions used by XRT 3.4 yet.
 #
 # Does NOT touch vendor/xrt - no confirmed iotech-xrt-dev apt/apk package
 # yet, see README.md.
