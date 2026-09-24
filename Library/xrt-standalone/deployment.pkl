@@ -12,6 +12,7 @@ system =
         }
       })
     |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
+        node_id = "${SPARKPLUG_NODE1}"
         app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
       })
     |> withSparkplugNodeOptions(new Dynamic {

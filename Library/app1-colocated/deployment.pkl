@@ -19,6 +19,7 @@ system =
     |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
         app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
       })
+    |> withLogLevel("Info")
     |> withSparkplugNodeOptions(new Dynamic {
         app_state_wait = List()
       })
