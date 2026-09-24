@@ -1,0 +1,12 @@
+{
+  "00-logger": "IOT::Logger",
+  "01-config": "XRT::Config",
+  "02-sparkplug": "XRT::Sparkplug",
+  "03-pool": "IOT::ThreadPool",
+  "04-sched_pool": "IOT::ThreadPool",
+  "05-app-pool": "IOT::ThreadPool",
+  "06-sched": "IOT::Scheduler",
+  "07-bus": "XRT::Bus",
+  "08-mqtt-bridge": "XRT::MQTTBridge",
+  "09-opc-ua-server": "XRT::OPCUAServer"
+}

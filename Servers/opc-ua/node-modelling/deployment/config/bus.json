@@ -1,5 +1,0 @@
-{
-  "Logger": "dslogger",
-  "Scheduler": "sched",
-  "ThreadPool": "pool"
-}

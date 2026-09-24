@@ -1,0 +1,55 @@
+/// BACnet IP Device Service Example
+/// Generates configuration for the BACnet IP device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated BACnet IP device and its polling schedule
+local bacnet_ip_sim = bacnet.device(
+  "bacnet-ip-sim",
+  "bacnet-ip-sim-profile",
+  new bacnet.IPProtocolType { instance_id = 1234 },
+)
+
+/// Create the standard system with BACnet IP device service
+system =
+  standardSystem("bacnet-ip-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("bacnet_ip")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> bacnet.ip_instance("", "bacnet_ip")
+    |> withOptions("bacnet_ip", new Dynamic {
+        request_queue_max = 100000
+        publish_registered_devices = true
+        publish_attributes = true
+        device_down_timeout = 60.s
+        allowed_fails = 5
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_SIM_ADDRESS}"
+        }
+      })
+    |> withDevices("bacnet_ip", Set(bacnet_ip_sim))
+    |> withSchedules("bacnet_ip", Set(
+        bacnet_ip_sim.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = bacnet_ip_sim.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
+
+output {
+  files = system.deployment()
+}

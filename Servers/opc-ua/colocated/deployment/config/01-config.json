@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "opcua-colocated-server",
+  "NodeId": "${SPARKPLUG_NODE}",
+  "Timeout": 0
+}

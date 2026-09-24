@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "schedule1",
+      "device": "S7-Server",
+      "resource": [
+        "DB_1_I64"
+      ],
+      "interval": 2000000,
+      "on_change": true
+    }
+  ]
+}

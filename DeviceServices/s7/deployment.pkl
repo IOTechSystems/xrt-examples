@@ -1,0 +1,49 @@
+/// S7 Device Service Example
+/// Generates configuration for the S7 device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/s7.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated S7 PLC and its polling schedule
+local s7_server = s7.device(
+  "S7-Server",
+  "Server",
+  new s7.S7ProtocolType {
+    ip = "${S7_SIM_ADDRESS}"
+    rack = 0
+    slot = 2
+  },
+)
+
+/// Create the standard system with S7 device service
+system =
+  standardSystem("s7-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("s7")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> s7.instance("s7")
+    |> withOptions("s7", new Dynamic {
+        publish_registered_devices = true
+        publish_attributes = true
+      })
+    |> withDevices("s7", Set(s7_server))
+    |> withSchedules("s7", Set(
+        s7_server.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = s7_server.ref()
+          resource = Set("DB_1_I64")
+          interval = 2.s
+        }),
+      ))
+
+output {
+  files = system.deployment()
+}

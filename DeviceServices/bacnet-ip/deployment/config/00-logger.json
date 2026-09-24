@@ -1,0 +1,5 @@
+{
+  "Name": "logger",
+  "Level": "Warn",
+  "Start": true
+}

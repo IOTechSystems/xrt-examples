@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "xrt-opc-ua-example-server",
+  "NodeId": "${SPARKPLUG_NODE2}",
+  "Timeout": 0
+}

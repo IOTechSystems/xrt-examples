@@ -1,0 +1,53 @@
+/// OPC UA Server Example (Federated) - Modbus TCP Device Service Node
+/// Generates configuration for the Modbus TCP device service node, which publishes
+/// its data over Sparkplug MQTT to a separate federated OPC UA server node.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/modbus.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated Modbus TCP device and its polling schedule.
+/// Matches the README walkthrough: a pymodbus-sim container run with `--network host`,
+/// reached at the Docker bridge gateway address, publishing as Sparkplug device "modbus-device1".
+local modbus_sim = modbus.device(
+  "modbus-device1",
+  "modbus-profile",
+  new modbus.TCPProtocolType {
+    address = "172.17.0.1"
+    port = 1502
+    unit_id = 1
+  },
+)
+
+/// Create the standard system with Modbus TCP device service
+system =
+  standardSystem("xrt-opc-ua-example-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("modbus_tcp")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions(new Dynamic {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> modbus.instance("modbus_tcp")
+    |> withOptions("modbus_tcp", new Dynamic {
+        device_down_timeout = 60.s
+        allowed_fails = 5
+      })
+    |> withDevices("modbus_tcp", Set(modbus_sim))
+    |> withSchedules("modbus_tcp", Set(
+        modbus_sim.new_schedule(new Dynamic {
+          name = "modbus-example-schedule1"
+          device = modbus_sim.ref()
+          resource = Set("cell_1_tmp", "cell_2_tmp", "cell_3_tmp", "tmp_sf")
+          interval = 500.ms
+          on_change = false
+        }),
+      ))
+
+output {
+  files = system.deployment()
+}

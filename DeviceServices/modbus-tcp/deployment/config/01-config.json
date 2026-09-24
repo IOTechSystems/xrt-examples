@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "modbus-tcp-server",
+  "NodeId": "${SPARKPLUG_NODE}",
+  "Timeout": 0
+}

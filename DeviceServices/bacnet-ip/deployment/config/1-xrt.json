@@ -1,4 +1,0 @@
-{
-  "ServerId":"bacnet-ip-server",
-  "NodeId":"${SPARKPLUG_NODE}"
-}

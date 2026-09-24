@@ -1,0 +1,73 @@
+/// OPC UA Server Example (Custom Components, Simplified)
+/// Shows how to build a NodeConfig from a hand-picked set of components using
+/// minimalSystem(), instead of standardSystem()'s full opinionated defaults.
+/// Uses SparkplugBridge (flag-driven) rather than hand-writing every MQTT topic pattern.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/server/sparkplug.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+import "@XRT/server/opcua_server.pkl"
+
+server_name = "opc-ua-server"
+
+/// minimalSystem() wires up just the shared components (Logger, Bus, Scheduler,
+/// ThreadPools) that the rest of the library depends on - no MQTT bridge, Sparkplug,
+/// or healthcheck, unlike standardSystem().
+local base = minimalSystem()
+
+/// A dedicated pool for the OPC UA server, separate from the shared pool minimalSystem()
+/// uses for the bus/scheduler.
+app_pool = new XRT.ThreadPool {
+  name = "app-pool"
+  logger = base.std._logger.ref()
+}
+
+/// SparkplugBridge generates all the NBIRTH/NDEATH/NDATA/NACK/DBIRTH/... patterns itself
+/// from its include_* flags (all true by default) - no need to list them by hand.
+local _bridge = new sparkplug_bridge.SparkplugBridge {
+  name = "mqtt-bridge"
+  logger = base.std._logger.ref()
+  bus = base.std._bus.ref()
+  node_id = server_name
+  app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+  use_dispatch_thread = true
+  dispatch_thread_queue_size_max = 1000
+}
+
+/// Add the one extra pattern SparkplugBridge's flags don't cover - everything else
+/// (NBIRTH/NDEATH/NDATA/NACK/DBIRTH/DDEATH/DDATA/DACK/NCMD/DCMD/STATE) is already
+/// included via the flag-driven `patterns` above.
+_bridgeWithStats = (_bridge) {
+  patterns = _bridge.patterns + Set(new XRT.TopicPattern {
+    pattern = "xrt/stats"
+    qos = 0
+  })
+}
+
+system =
+  base
+    |> addComponents(new Listing<XRT.Component> {
+        new XRT.Config {
+          name = "config"
+          server_id = server_name
+          node_id = server_name
+        }
+        // Global Sparkplug protocol config - no Node, since this deployment publishes
+        // via the bridge above rather than running its own Sparkplug Edge Node.
+        new sparkplug.Sparkplug {
+          name = "sparkplug"
+        }
+        _bridgeWithStats
+        app_pool
+        new opcua_server.OPCUAServer {
+          name = server_name
+          logger = base.std._logger.ref()
+          thread_pool = app_pool.ref()
+          bus = base.std._bus.ref()
+        }
+      })
+
+output {
+  files = system.deployment()
+}

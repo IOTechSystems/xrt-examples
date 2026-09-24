@@ -1,0 +1,58 @@
+/// OPC UA Server Example (Node Modelling)
+/// Generates configuration for an OPC UA server that exposes a custom EUROMAP77
+/// node model (IMM_MES_Interface) backed by simulated S7 and Virtual devices,
+/// colocated on a single node with a Sparkplug bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/s7.pkl"
+import "@XRT/devices/virtual.pkl"
+import "@XRT/server/opcua_server.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated S7 PLC and Virtual device
+local s7_device = s7.device(
+  "s7-device",
+  "device-s7",
+  new s7.S7ProtocolType {
+    ip = "${S7_SIM_ADDRESS}"
+    rack = 0
+    slot = 2
+  },
+)
+local virtual_device = virtual.device(
+  "virtual-device",
+  "device-virtual",
+  new virtual.VirtualProtocolType {},
+)
+
+/// Create the standard system with the S7 and Virtual device services and the OPC UA server
+system =
+  standardSystem("xrt-opc-ua-example-server", "xrt-opc-ua-example-server")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("s7", "virtual")
+      })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Info")
+    |> s7.instance("s7")
+    |> withDevices("s7", Set(s7_device))
+    |> virtual.instance("virtual")
+    |> withDevices("virtual", Set(virtual_device))
+    |> opcua_server.instance("opc_ua_server")
+    |> withOptions("opc_ua_server", new Dynamic {
+        enable_sparkplug = true
+        server_config = new opcua_server.OPCUAServerFileConfig {
+          port = 4840
+          nodeset_paths = List(
+            "${XRT_NODESET_DIR}/Opc.Ua.Di.NodeSet2.xml",
+            "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.GeneralTypes.NodeSet2.xml",
+            "${XRT_NODESET_DIR}/Opc.Ua.PlasticsRubber.IMM2MES.NodeSet2.xml",
+            "${XRT_NODESET_DIR}/CustomNodeset.xml",
+          )
+          mapping_paths = List("${XRT_MAPPING_DIR}/euromap_mapping.json")
+        }
+      })
+
+output {
+  files = system.deployment()
+}
