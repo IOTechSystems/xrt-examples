@@ -5,6 +5,13 @@ extends "@XRT/core/standard_node.pkl"
 import "@XRT/devices/bacnet.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
 
+/// The simulated BACnet IP device and its polling schedule
+local bacnet_ip_sim = bacnet.device(
+  "bacnet-ip-sim",
+  "bacnet-ip-sim-profile",
+  new bacnet.IPProtocolType { instance_id = 1234 },
+)
+
 /// Create the standard system with BACnet IP device service
 system =
   standardSystem("bacnet-ip-server", "${SPARKPLUG_NODE}")
@@ -33,6 +40,15 @@ system =
           bbmd_address = "${BACNET_IP_SIM_ADDRESS}"
         }
       })
+    |> withDevices("bacnet_ip", Set(bacnet_ip_sim))
+    |> withSchedules("bacnet_ip", Set(
+        bacnet_ip_sim.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = bacnet_ip_sim.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
 
 output {
   files = system.deployment()

@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "opc-ua-server",
+  "NodeId": "opc-ua-server",
+  "Timeout": 0
+}

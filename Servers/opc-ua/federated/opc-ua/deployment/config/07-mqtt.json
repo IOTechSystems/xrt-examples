@@ -4,11 +4,10 @@
   "Library": "libxrt-mqtt-bridge.so",
   "Factory": "xrt_mqtt_bridge_factory",
   "Bus": "06-bus",
-  "QueueSize": 5,
   "Priority": 0,
   "AcksTimeout": 10,
   "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
-  "UseDispatchThread": false,
+  "UseDispatchThread": true,
   "DispatchThreadQueueSizeMax": 0,
   "Patterns": [
     {
@@ -24,45 +23,48 @@
       "Transforms": [
         "${SPARKPLUG_PROTO}"
       ]
+    },
+    {
+      "Pattern": "spBv1.0/STATE/XRT::MQTTBridge",
+      "QoS": 1,
+      "Retain": true,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
     }
   ],
   "MQTTPatterns": [
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/STATE/+",
-      "QoS": 0,
-      "Sync": true
+      "QoS": 0
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDATA/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NACK/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     }
   ],
   "MQTTDynamicPatterns": [
@@ -71,32 +73,28 @@
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DDEATH/+/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DDATA/+/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     },
     {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DACK/+/+",
       "QoS": 0,
       "Transforms": [
         "${SPARKPLUG_PROTO}"
-      ],
-      "Sync": false
+      ]
     }
   ],
   "MQTTConfig": {
@@ -110,6 +108,14 @@
       "ConnectTimeout": 0,
       "DisconnectTimeout": 0,
       "MQTTVersion": 5,
+      "WillConfig": {
+        "Topic": "spBv1.0/STATE/XRT::MQTTBridge",
+        "QoS": 1,
+        "Retain": true,
+        "Transforms": [
+          "${SPARKPLUG_PROTO}"
+        ]
+      },
       "CleanStart": true,
       "SessionExpiry": 0,
       "RetryInterval": 0,

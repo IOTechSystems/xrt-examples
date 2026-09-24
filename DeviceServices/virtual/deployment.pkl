@@ -5,6 +5,13 @@ extends "@XRT/core/standard_node.pkl"
 import "@XRT/devices/virtual.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
 
+/// The simulated virtual device and its polling schedule
+local virtual_device = virtual.device(
+  "Virtual-Device",
+  "device-virtual",
+  new virtual.VirtualProtocolType {},
+)
+
 /// Create the standard system with virtual device service
 system =
   standardSystem("virtual-server", "${SPARKPLUG_NODE}")
@@ -19,6 +26,15 @@ system =
         wait_timeout = 5
         heartbeat_interval = 0.s
       })
+    |> withDevices("virtual", Set(virtual_device))
+    |> withSchedules("virtual", Set(
+        virtual_device.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = virtual_device.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
 
 output {
   files = system.deployment()

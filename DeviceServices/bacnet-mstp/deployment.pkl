@@ -5,6 +5,13 @@ extends "@XRT/core/standard_node.pkl"
 import "@XRT/devices/bacnet.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
 
+/// The simulated BACnet MS/TP device and its polling schedule
+local bacnet_mstp_sim = bacnet.device(
+  "bacnet-mstp-sim",
+  "bacnet-mstp-sim-profile",
+  new bacnet.MSTPProtocolType { instance_id = 1234 },
+)
+
 /// Create the standard system with BACnet MS/TP device service
 system =
   standardSystem("bacnet-mstp-server", "${SPARKPLUG_NODE}")
@@ -32,6 +39,15 @@ system =
           apdu_timeout = 10.s
         }
       })
+    |> withDevices("bacnet_mstp", Set(bacnet_mstp_sim))
+    |> withSchedules("bacnet_mstp", Set(
+        bacnet_mstp_sim.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = bacnet_mstp_sim.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
 
 output {
   files = system.deployment()

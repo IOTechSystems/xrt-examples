@@ -1,0 +1,27 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "modbus-sim",
+      "profileName": "modbus-sim-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "UnitID": 1,
+          "ReadMaxHoldingRegisters": 125,
+          "ReadMaxInputRegisters": 125,
+          "ReadMaxBitsCoils": 2000,
+          "ReadMaxBitsDiscreteInputs": 2000,
+          "WriteMaxHoldingRegisters": 123,
+          "WriteMaxBitsCoils": 1968,
+          "LinkRecovery": false,
+          "RegisterSingleWriteOnly": false,
+          "RegisterMultiWriteOnly": false,
+          "CoilSingleWriteOnly": false,
+          "CoilMultiWriteOnly": false,
+          "Address": "0.0.0.0",
+          "Port": 1502
+        }
+      }
+    }
+  ]
+}

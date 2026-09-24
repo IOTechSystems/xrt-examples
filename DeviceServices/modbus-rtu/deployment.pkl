@@ -5,6 +5,20 @@ extends "@XRT/core/standard_node.pkl"
 import "@XRT/devices/modbus.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
 
+/// The simulated Modbus RTU device and its polling schedule
+local modbus_sim = modbus.device(
+  "modbus-sim",
+  "modbus-sim-profile",
+  new modbus.RTUProtocolType {
+    address = "/tmp/virtualport"
+    baud_rate = 19200
+    data_bits = 8
+    stop_bits = 1
+    parity = "N"
+    unit_id = 1
+  },
+)
+
 /// Create the standard system with Modbus RTU device service
 system =
   standardSystem("modbus-rtu-server", "${SPARKPLUG_NODE}")
@@ -23,6 +37,15 @@ system =
         device_down_timeout = 60.s
         allowed_fails = 5
       })
+    |> withDevices("modbus-rtu", Set(modbus_sim))
+    |> withSchedules("modbus-rtu", Set(
+        modbus_sim.new_schedule(new Dynamic {
+          name = "modbus-sim-schedule"
+          device = modbus_sim.ref()
+          resource = Set("Current")
+          interval = 1.s
+        }),
+      ))
 
 output {
   files = system.deployment()

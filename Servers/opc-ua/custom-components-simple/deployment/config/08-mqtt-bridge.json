@@ -1,0 +1,123 @@
+{
+  "Name": "mqtt-bridge",
+  "Logger": "00-logger",
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Bus": "07-bus",
+  "AcksTimeout": 0,
+  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
+  "UseDispatchThread": true,
+  "DispatchThreadQueueSizeMax": 1000,
+  "Patterns": [
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/opc-ua-server/+",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/opc-ua-server",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DDEATH/opc-ua-server/+",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/opc-ua-server",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DDATA/opc-ua-server/+",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NDATA/opc-ua-server",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DACK/opc-ua-server/+",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NACK/opc-ua-server",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    },
+    {
+      "Pattern": "xrt/stats",
+      "QoS": 0
+    }
+  ],
+  "MQTTPatterns": [
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/STATE/+",
+      "QoS": 0
+    },
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/NCMD/opc-ua-server",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    }
+  ],
+  "MQTTDynamicPatterns": [
+    {
+      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DCMD/opc-ua-server/+",
+      "QoS": 0,
+      "Transforms": [
+        "${SPARKPLUG_PROTO}"
+      ]
+    }
+  ],
+  "MQTTConfig": {
+    "ServerURI": "${XRT_MQTT_BROKER}",
+    "ClientID": "opc-ua-server",
+    "QoS": 0,
+    "ClientConfig": {
+      "KeepAliveInterval": 60,
+      "Username": "${XRT_MQTT_USERNAME}",
+      "Password": "${XRT_MQTT_PASSWORD}",
+      "ConnectTimeout": 0,
+      "DisconnectTimeout": 0,
+      "MQTTVersion": 5,
+      "WillConfig": {
+        "Topic": "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/opc-ua-server",
+        "QoS": 1,
+        "Retain": false,
+        "Transforms": [
+          "${SPARKPLUG_PROTO}"
+        ]
+      },
+      "CleanStart": true,
+      "SessionExpiry": 0,
+      "RetryInterval": 0,
+      "MinRetryInterval": 1,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 100
+    },
+    "FT_Mode": false
+  }
+}

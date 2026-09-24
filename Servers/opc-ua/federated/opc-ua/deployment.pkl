@@ -16,7 +16,6 @@ system =
         node_id = "${SPARKPLUG_NODE2}"
         keep_alive_interval = 10.s
         acks_timeout = 10.s
-        queue_size = 5
         priority = 0
         app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
       })

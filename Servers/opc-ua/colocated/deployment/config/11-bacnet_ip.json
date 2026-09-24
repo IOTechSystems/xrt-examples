@@ -14,12 +14,12 @@
   "RequestQueueMax": 4,
   "CommandQueueMax": 4,
   "DiscoveryInterval": 0,
-  "ScheduleDeadband": 0,
+  "ScheduleDeadBand": 0,
   "DiscoverInitialValues": false,
   "AutoBatchSize": 0,
   "AutoBatchTimeout": 250,
   "PublishTags": true,
-  "Timestamp": false,
+  "Timestamp": true,
   "AutoRegister": false,
   "PublishRegisteredDevices": true,
   "PublishAttributes": true,
@@ -55,8 +55,8 @@
     "Port": 47808,
     "BBMDAddress": "${BACNET_IP_SIM_ADDRESS}",
     "BBMDPort": 47808,
-    "BBMDTimeToLive": 60,
-    "BBMDRetryInterval": 30000,
+    "BBMDTimeToLive": 60000,
+    "BBMDRetryInterval": 30,
     "WaitForBBMDRegistration": true
   }
 }

@@ -11,6 +11,36 @@ import "@XRT/devices/virtual.pkl"
 import "@XRT/server/opcua_server.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
 
+/// The simulated devices for each colocated device service
+local s7_server = s7.device(
+  "S7-Server",
+  "Server",
+  new s7.S7ProtocolType {
+    ip = "${S7_SIM_ADDRESS}"
+    rack = 0
+    slot = 2
+  },
+)
+local modbus_sim = modbus.device(
+  "modbus-sim",
+  "modbus-sim-profile",
+  new modbus.TCPProtocolType {
+    address = "${MODBUS_SIM_ADDRESS}"
+    port = 1502
+    unit_id = 1
+  },
+)
+local bacnet_ip_sim = bacnet.device(
+  "bacnet-ip-sim",
+  "bacnet-ip-sim-profile",
+  new bacnet.IPProtocolType { instance_id = 1234 },
+)
+local virtual_device = virtual.device(
+  "Virtual-Device",
+  "device-virtual",
+  new virtual.VirtualProtocolType {},
+)
+
 /// Create the standard system with all colocated device services and the OPC UA server
 system =
   standardSystem("opcua-colocated-server", "${SPARKPLUG_NODE}")
@@ -25,11 +55,21 @@ system =
         heartbeat_interval = 0.s
       })
     |> s7.instance("s7")
+    |> withDevices("s7", Set(s7_server))
     |> modbus.instance("modbus")
     |> withOptions("modbus", new Dynamic {
         device_down_timeout = 60.s
         allowed_fails = 5
       })
+    |> withDevices("modbus", Set(modbus_sim))
+    |> withSchedules("modbus", Set(
+        modbus_sim.new_schedule(new Dynamic {
+          name = "modbus-sim-schedule"
+          device = modbus_sim.ref()
+          resource = Set("Current")
+          interval = 1.s
+        }),
+      ))
     |> bacnet.ip_instance("", "bacnet_ip")
     |> withOptions("bacnet_ip", new Dynamic {
         publish_registered_devices = true
@@ -44,7 +84,25 @@ system =
           bbmd_address = "${BACNET_IP_SIM_ADDRESS}"
         }
       })
+    |> withDevices("bacnet_ip", Set(bacnet_ip_sim))
+    |> withSchedules("bacnet_ip", Set(
+        bacnet_ip_sim.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = bacnet_ip_sim.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
     |> virtual.instance("virtual")
+    |> withDevices("virtual", Set(virtual_device))
+    |> withSchedules("virtual", Set(
+        virtual_device.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = virtual_device.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
     |> opcua_server.instance("opc_ua_server")
     |> withOptions("opc_ua_server", new Dynamic {
         enable_sparkplug = true

@@ -1,12 +1,12 @@
 {
-  "logger": "IOT::Logger",
-  "serverlogger": "IOT::Logger",
-  "sched": "IOT::Scheduler",
-  "pool": "IOT::ThreadPool",
-  "bus": "XRT::Bus",
-  "modbus": "XRT::ModbusDeviceService",
-  "xrt": "XRT::Config",
-  "bridge":"XRT::MQTTBridge",
-  "sparkplug": "XRT::Sparkplug",
-  "sparkplug-node": "XRT::SparkplugNode"
+  "00-logger": "IOT::Logger",
+  "01-config": "XRT::Config",
+  "02-sparkplug": "XRT::Sparkplug",
+  "03-pool": "IOT::ThreadPool",
+  "04-sched_pool": "IOT::ThreadPool",
+  "05-sched": "IOT::Scheduler",
+  "06-bus": "XRT::Bus",
+  "07-mqtt": "XRT::MQTTBridge",
+  "08-sparkplug_node": "XRT::SparkplugNode",
+  "09-modbus_tcp": "XRT::ModbusDeviceService"
 }
