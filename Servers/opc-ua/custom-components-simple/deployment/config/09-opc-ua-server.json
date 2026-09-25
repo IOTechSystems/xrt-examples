@@ -3,6 +3,6 @@
   "Logger": "00-logger",
   "Library": "libxrt-opc-ua-server.so",
   "Factory": "xrt_opc_ua_server_factory",
-  "Threadpool": "05-app-pool",
+  "ThreadPool": "05-app-pool",
   "Bus": "07-bus"
 }

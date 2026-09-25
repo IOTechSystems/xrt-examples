@@ -75,7 +75,7 @@
   ],
   "MQTTPatterns": [
     {
-      "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/STATE/+",
+      "Pattern": "spBv1.0/STATE/+",
       "QoS": 0
     },
     {
