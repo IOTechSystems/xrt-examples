@@ -1,0 +1,54 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+system =
+  standardSystem("app1-colocated-server", "${SPARKPLUG_NODE}")
+    |> addComponents(new Listing<Component> {
+        new Logger {
+          name = "logger_debug"
+          level = "Debug"
+        }
+        new ThreadPool {
+          name = "spgapp_pool"
+          logger = new LoggerRef { target = "logger" }
+          threads = 5
+        }
+      })
+    |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugNodeOptions(new Dynamic {
+        app_state_wait = List()
+      })
+    |> bacnet.ip_instance("", "bacnet_ip_dev1")
+    |> withOptions("bacnet_ip_dev1", new Dynamic {
+        profile_dir = "${XRT_STATE_DIR}/bacnet_ip_dev1/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_ip_dev1"
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+        }
+      })
+    |> bacnet.mstp_instance("/tmp/dev2-mstp", "bacnet_mstp_dev2")
+    |> withOptions("bacnet_mstp_dev2", new Dynamic {
+        profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2/profiles"
+        state_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2"
+        logger = new LoggerRef { target = "logger_debug" }
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        driver = new bacnet.BACnetMSTPDriverOptions {
+          serial_interface = "/tmp/dev2-mstp"
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+        }
+      })
+
+output {
+  files = system.deployment()
+}

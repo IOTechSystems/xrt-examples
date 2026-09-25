@@ -1,0 +1,141 @@
+# Reference architecture: two Xrt instances (App1's colocated library and
+# xrt-standalone's plain container) serving four BACnet devices, bridged
+# through the Sparkplug bus to an OPC UA Server for supervisory access.
+# See README.md for the full walkthrough.
+
+x-common-env: &common-env
+  XRT_MQTT_BROKER: tcp://mosquitto:1883
+  XRT_MQTT_USERNAME: ""
+  XRT_MQTT_PASSWORD: ""
+  SPARKPLUG_GROUP: iotech
+  SPARKPLUG_PROTO: spb
+  SPARKPLUG_APPS: ""
+  XRT_LICENSE_FILE: /license/xrt.lic
+
+services:
+  # --- MQTT Sparkplug bus ---
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    ports:
+      - "1883:1883"
+    restart: unless-stopped
+
+  # --- Four BACnet/IP simulators: Dev1-2 for App1, Dev3-4 for xrt-standalone ---
+  bacnet-sim-dev1:
+    image: iotechsys/bacnet-sim:2.2.7
+    container_name: bacnet-sim-dev1
+    environment:
+      RUN_MODE: IP
+    volumes:
+      - ../Simulators/bacnet/device-service-example.lua:/example-scripts/device-service-example.lua:ro
+    command: ["--script", "/example-scripts/device-service-example.lua", "--instance", "1234", "--name", "Dev1"]
+    restart: unless-stopped
+
+  bacnet-sim-dev2:
+    image: iotechsys/bacnet-sim:2.2.7
+    container_name: bacnet-sim-dev2
+    environment:
+      RUN_MODE: MSTP
+    volumes:
+      - ../Simulators/bacnet/device-service-example.lua:/example-scripts/device-service-example.lua:ro
+    command: ["--script", "/example-scripts/device-service-example.lua", "--instance", "1235", "--name", "Dev2"]
+    restart: unless-stopped
+
+  bacnet-sim-dev3:
+    image: iotechsys/bacnet-sim:2.2.7
+    container_name: bacnet-sim-dev3
+    environment:
+      RUN_MODE: IP
+    volumes:
+      - ../Simulators/bacnet/device-service-example.lua:/example-scripts/device-service-example.lua:ro
+    command: ["--script", "/example-scripts/device-service-example.lua", "--instance", "1236", "--name", "Dev3"]
+    restart: unless-stopped
+
+  bacnet-sim-dev4:
+    image: iotechsys/bacnet-sim:2.2.7
+    container_name: bacnet-sim-dev4
+    environment:
+      RUN_MODE: MSTP
+    volumes:
+      - ../Simulators/bacnet/device-service-example.lua:/example-scripts/device-service-example.lua:ro
+    command: ["--script", "/example-scripts/device-service-example.lua", "--instance", "1237", "--name", "Dev4"]
+    restart: unless-stopped
+
+  # --- App1: colocated Sparkplug client (XRT-as-library), Dev1 + Dev2 ---
+  app1:
+    build:
+      context: .
+      dockerfile: app1-colocated/Dockerfile
+    container_name: app1
+    depends_on:
+      - mosquitto
+      - bacnet-sim-dev1
+      - bacnet-sim-dev2
+    environment:
+      <<: *common-env
+      SPARKPLUG_NODE: xrt
+    volumes:
+      - ./license:/license:ro
+    restart: unless-stopped
+
+  # --- "EC Xrt" container: stock xrt instance, Dev3 + Dev4 ---
+  xrt-standalone:
+    build: ./xrt-standalone
+    container_name: xrt-standalone
+    depends_on:
+      - mosquitto
+      - bacnet-sim-dev3
+      - bacnet-sim-dev4
+    environment:
+      <<: *common-env
+      SPARKPLUG_NODE1: xrt1
+    volumes:
+      - ./xrt-standalone/deployment:/opt/iotech/xrt/3.4/deployment
+      - ./license:/license:ro
+    restart: unless-stopped
+
+  # --- App2: standalone Sparkplug client, no XRT bus - subscribes to Dev1-4 ---
+  app2:
+    build:
+      context: .
+      dockerfile: app2-standalone/Dockerfile
+    container_name: app2
+    depends_on:
+      - mosquitto
+      - app1
+      - xrt-standalone
+    environment:
+      <<: *common-env
+    volumes:
+      - ./license:/license:ro
+    restart: unless-stopped
+
+  xrt-opc-ua-server:
+    image: iotechsys/connect-opc-ua-server:3.4.6-dev
+    container_name: xrt-opc-ua-server
+    depends_on:
+      - mosquitto
+      - app1
+      - xrt-standalone
+    environment:
+      <<: *common-env
+      SPARKPLUG_APP_ID: xrt2
+      MQTT_TLS_ENABLED: "false"
+    volumes:
+      - ./license:/license:ro
+    ports:
+      - "4840:4840"
+    restart: unless-stopped
+
+  # --- App3: EC OPC UA browser ---
+  opc-ua-browser:
+    image: iotechsys/opc-ua-browser:1.1
+    container_name: opc-ua-browser
+    depends_on:
+      - xrt-opc-ua-server
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

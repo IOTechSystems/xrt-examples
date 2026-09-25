@@ -1,0 +1,7 @@
+{
+  "Name": "spgapp_pool",
+  "Logger": "00-logger",
+  "Threads": 5,
+  "MaxJobs": 0,
+  "ShutdownDelay": 200
+}

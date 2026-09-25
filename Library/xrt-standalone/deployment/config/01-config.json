@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "xrt-standalone-server",
+  "NodeId": "${SPARKPLUG_NODE1}",
+  "Timeout": 0
+}

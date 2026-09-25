@@ -1,0 +1,21 @@
+{
+  "Name": "sparkplug_node",
+  "Logger": "00-logger",
+  "Library": "libxrt-sparkplug.so",
+  "Factory": "xrt_sparkplug_factory",
+  "Bus": "08-bus",
+  "Scheduler": "07-sched",
+  "ThreadPool": "04-pool",
+  "StateDir": "${XRT_STATE_DIR}/sparkplug",
+  "NodeId": "${SPARKPLUG_NODE}",
+  "WaitTimeout": 0,
+  "EnableMetricLog": true,
+  "EnableExitCmd": true,
+  "EnableDiscovery": true,
+  "EnableGroupCmd": true,
+  "EnableServices": true,
+  "EnableFixedAliases": false,
+  "HeartbeatInterval": 60,
+  "CommandQueueMax": 0,
+  "AppStateWait": []
+}
