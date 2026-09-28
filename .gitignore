@@ -5,3 +5,4 @@ Library/vendor/iot
 Library/vendor/paho
 Library/vendor/sparkplug-b
 Library/vendor/xrt
+Library/xrt-standalone/deployment/state/sparkplug/xrt1.json
