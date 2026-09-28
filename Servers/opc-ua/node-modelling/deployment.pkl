@@ -39,7 +39,7 @@ system =
     |> virtual.instance("virtual")
     |> withDevices("virtual", Set(virtual_device))
     |> opcua_server.instance("opc_ua_server")
-    |> withOptions("opc_ua_server", new Dynamic {
+    |> opcua_server.withOPCUAServerOptions("opc_ua_server", (s) -> (s) {
         enable_sparkplug = true
         server_config = new opcua_server.OPCUAServerFileConfig {
           port = 4840

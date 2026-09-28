@@ -30,7 +30,7 @@ system =
         heartbeat_interval = 0.s
       })
     |> modbus.instance("modbus-tcp")
-    |> withOptions("modbus-tcp", new Dynamic {
+    |> modbus.withModbusOptions("modbus-tcp", (s) -> (s) {
         device_down_timeout = 60.s
         allowed_fails = 5
       })

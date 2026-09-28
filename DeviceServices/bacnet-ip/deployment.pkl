@@ -26,7 +26,7 @@ system =
         heartbeat_interval = 0.s
       })
     |> bacnet.ip_instance("", "bacnet_ip")
-    |> withOptions("bacnet_ip", new Dynamic {
+    |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
         request_queue_max = 100000
         publish_registered_devices = true
         publish_attributes = true

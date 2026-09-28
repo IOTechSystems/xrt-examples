@@ -30,7 +30,7 @@ system =
         heartbeat_interval = 0.s
       })
     |> s7.instance("s7")
-    |> withOptions("s7", new Dynamic {
+    |> s7.withS7Options("s7", (s) -> (s) {
         publish_registered_devices = true
         publish_attributes = true
       })

@@ -57,7 +57,7 @@ system =
     |> s7.instance("s7")
     |> withDevices("s7", Set(s7_server))
     |> modbus.instance("modbus")
-    |> withOptions("modbus", new Dynamic {
+    |> modbus.withModbusOptions("modbus", (s) -> (s) {
         device_down_timeout = 60.s
         allowed_fails = 5
       })
@@ -71,7 +71,7 @@ system =
         }),
       ))
     |> bacnet.ip_instance("", "bacnet_ip")
-    |> withOptions("bacnet_ip", new Dynamic {
+    |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
         publish_registered_devices = true
         publish_attributes = true
         device_down_timeout = 60.s
@@ -104,7 +104,7 @@ system =
         }),
       ))
     |> opcua_server.instance("opc_ua_server")
-    |> withOptions("opc_ua_server", new Dynamic {
+    |> opcua_server.withOPCUAServerOptions("opc_ua_server", (s) -> (s) {
         enable_sparkplug = true
         server_config = new opcua_server.OPCUAServerFileConfig {
           security_policies = List(new opcua_server.OPCUAServerSecurityPolicy {})

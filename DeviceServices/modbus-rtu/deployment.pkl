@@ -33,7 +33,7 @@ system =
         heartbeat_interval = 0.s
       })
     |> modbus.instance("modbus-rtu")
-    |> withOptions("modbus-rtu", new Dynamic {
+    |> modbus.withModbusOptions("modbus-rtu", (s) -> (s) {
         device_down_timeout = 60.s
         allowed_fails = 5
       })
