@@ -29,7 +29,6 @@ system =
     |> bacnet.withBACnetMSTPOptions("bacnet_mstp", (s) -> (s) {
         publish_registered_devices = true
         publish_attributes = true
-        device_down_timeout = 60.s
         allowed_fails = 5
         driver = new bacnet.BACnetMSTPDriverOptions {
           serial_interface = "/tmp/virtualport"

@@ -58,7 +58,6 @@ system =
     |> withDevices("s7", Set(s7_server))
     |> modbus.instance("modbus")
     |> modbus.withModbusOptions("modbus", (s) -> (s) {
-        device_down_timeout = 60.s
         allowed_fails = 5
       })
     |> withDevices("modbus", Set(modbus_sim))
@@ -74,7 +73,6 @@ system =
     |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
         publish_registered_devices = true
         publish_attributes = true
-        device_down_timeout = 60.s
         allowed_fails = 5
         driver = new bacnet.BACnetIPDriverOptions {
           network_interface = ""

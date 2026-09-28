@@ -30,7 +30,6 @@ system =
         request_queue_max = 100000
         publish_registered_devices = true
         publish_attributes = true
-        device_down_timeout = 60.s
         allowed_fails = 5
         driver = new bacnet.BACnetIPDriverOptions {
           network_interface = ""

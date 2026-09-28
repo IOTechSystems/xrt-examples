@@ -34,7 +34,6 @@ system =
       })
     |> modbus.instance("modbus-rtu")
     |> modbus.withModbusOptions("modbus-rtu", (s) -> (s) {
-        device_down_timeout = 60.s
         allowed_fails = 5
       })
     |> withDevices("modbus-rtu", Set(modbus_sim))
