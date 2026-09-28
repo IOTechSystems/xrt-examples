@@ -25,7 +25,7 @@ system =
     |> withPoolThreads(10)
     |> withSchedulePoolThreads(6)
     |> withLogLevel("Warn")
-    |> withSparkplugNodeOptions(new Dynamic {
+    |> withSparkplugNodeOptions((s) -> (s) {
         wait_timeout = 5
         heartbeat_interval = 0.s
       })

@@ -10,6 +10,10 @@
   "DispatchThreadQueueSizeMax": 1000,
   "Patterns": [
     {
+      "Pattern": "xrt/stats",
+      "QoS": 0
+    },
+    {
       "Pattern": "spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/opc-ua-server/+",
       "QoS": 0,
       "Transforms": [
@@ -64,10 +68,6 @@
       "Transforms": [
         "${SPARKPLUG_PROTO}"
       ]
-    },
-    {
-      "Pattern": "xrt/stats",
-      "QoS": 0
     }
   ],
   "MQTTPatterns": [

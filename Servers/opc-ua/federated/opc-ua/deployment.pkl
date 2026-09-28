@@ -19,6 +19,12 @@ system =
         priority = 0
         app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
       })
+    // This node still runs its own SparkplugNode (see 08-sparkplug_node.json), but as a
+    // Primary Application it has no Node identity to publish under - without this flag,
+    // SparkplugNode's own DBIRTH/DDEATH/etc contributions would incorrectly leak into the
+    // Primary Application bridge's Patterns/MQTTPatterns via the generic component-derived
+    // topic fold.
+    |> withSparkplugOptions((s) -> (s) { is_primary_application = true })
     |> withPoolThreads(10)
     |> withSchedulePoolThreads(6)
     |> withLogLevel("Warn")

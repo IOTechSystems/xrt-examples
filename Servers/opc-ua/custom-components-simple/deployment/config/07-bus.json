@@ -3,6 +3,15 @@
   "Logger": "00-logger",
   "Scheduler": "06-sched",
   "ThreadPool": "03-pool",
-  "Topics": [],
+  "Topics": [
+    {
+      "Topic": "xrt/stats",
+      "Retain": false,
+      "ThreadPool": "03-pool",
+      "Sync": false,
+      "FilterDuplicates": false
+    }
+  ],
+  "StatsTopic": "xrt/stats",
   "StatsPublishInterval": 0
 }

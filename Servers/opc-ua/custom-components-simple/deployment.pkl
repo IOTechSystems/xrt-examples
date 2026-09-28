@@ -14,7 +14,12 @@ server_name = "opc-ua-server"
 /// minimalSystem() wires up just the shared components (Logger, Bus, Scheduler,
 /// ThreadPools) that the rest of the library depends on - no MQTT bridge, Sparkplug,
 /// or healthcheck, unlike standardSystem().
-local base = minimalSystem()
+///
+/// The Bus's own stats_topic is set here (rather than manually splicing an "xrt/stats"
+/// TopicPattern onto the bridge below) so that MQTTBridge.update()'s auto-derivation - which
+/// folds get_topic_patterns() from every component, including this Bus - picks it up
+/// automatically, the same way it would for any other component's topics.
+local base = minimalSystem() |> withBusOptions((s) -> (s) { stats_topic = "xrt/stats" })
 
 /// A dedicated pool for the OPC UA server, separate from the shared pool minimalSystem()
 /// uses for the bus/scheduler.
@@ -35,16 +40,6 @@ local _bridge = new sparkplug_bridge.SparkplugBridge {
   dispatch_thread_queue_size_max = 1000
 }
 
-/// Add the one extra pattern SparkplugBridge's flags don't cover - everything else
-/// (NBIRTH/NDEATH/NDATA/NACK/DBIRTH/DDEATH/DDATA/DACK/NCMD/DCMD/STATE) is already
-/// included via the flag-driven `patterns` above.
-_bridgeWithStats = (_bridge) {
-  patterns = _bridge.patterns + Set(new XRT.TopicPattern {
-    pattern = "xrt/stats"
-    qos = 0
-  })
-}
-
 system =
   base
     |> addComponents(new Listing<XRT.Component> {
@@ -58,7 +53,7 @@ system =
         new sparkplug.Sparkplug {
           name = "sparkplug"
         }
-        _bridgeWithStats
+        _bridge
         app_pool
         new opcua_server.OPCUAServer {
           name = server_name
