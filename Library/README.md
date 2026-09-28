@@ -1,10 +1,8 @@
 # Using XRT as a Library
 
-This folder is a single `docker compose` deployment of the reference
-"BACnet Dual-Path" architecture: two Xrt instances (one linked in as a
-library, one running as its own stock container) serving four BACnet
-devices, bridged through a Sparkplug MQTT bus to an OPC UA Server for
-supervisory access.
+This folder contains a single `docker compose` that deploys two instances of
+XRT: one linked as a library in a custom C app, one running as a plain docker
+container; connecting to four BACnet devices through an MQTT broker.
 
 ```
                           App3 - EC OPC UA browser  (opc-ua-browser)
@@ -33,9 +31,9 @@ supervisory access.
 
 | Diagram element | Directory / image | What it is |
 |---|---|---|
-| App1 (container) | [`app1-colocated/`](app1-colocated/README.md) | Custom C binary (`spg_demo.c`), XRT linked in as a library, talks to Dev1 + Dev2 |
-| EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock `iotechsys/xrt-server:3.4.6` image, no custom app, talks to Dev3 + Dev4 |
-| App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary (`spg_standalone.c`), plain MQTT/Sparkplug client, no XRT bus, subscribes to Dev1-4 |
+| App1 (container) | [`app1-colocated/`](app1-colocated/README.md) | Custom C binary (`spg_demo.c`), XRT linked in as a library, talks to Dev1 + Dev2 & MQTT broker |
+| EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock `iotechsys/xrt-server:3.4.6` image, talks to Dev3 + Dev4 & MQTT broker|
+| App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary (`spg_standalone.c`), plain MQTT/Sparkplug client, subscribes to DDATA from Dev1-4 through the MQTT broker |
 | MQTT Sparkplug bus | `mosquitto` service (`mosquitto/mosquitto.conf`) | Eclipse Mosquitto broker |
 | EC OPC UA Server | [`xrt-opc-ua-server/`](xrt-opc-ua-server/README.md) | Purpose-built `iotechsys/connect-opc-ua-server` image (config baked in, no mounted JSON files), `XRT::OPCUAServer` with `EnableSparkplug: true`, subscribes to Dev1-4 |
 | App3 - EC OPC UA browser | `opc-ua-browser` service (`iotechsys/opc-ua-browser:1.1`) | Web UI at `localhost:8080` |
@@ -53,7 +51,33 @@ running anything, place your own license file at:
 Library/license/xrt.lic
 ```
 
-`license/*.lic` is gitignored - never commit a real license file.
+## Dependencies
+
+Both custom-binary components (`app1-colocated`, `app2-standalone`) use
+Sparkplug B, which pulls in two libraries beyond the base XRT/IOT install.
+
+**None of `vendor/{iot,paho,sparkplug-b,xrt}/` is committed to git** (all
+four are gitignored), so they must be synced locally before
+`docker compose up --build` will work. `iot`/`paho`/`sparkplug-b` are
+ordinary, already-available IOTech apt packages - synced rather than
+committed only because the build stage is Alpine and can't `apt install`
+them itself. Only `xrt` is actually pending anything: there's no confirmed
+apt/apk package for it yet, so it's still a manual copy.
+
+```bash
+apt-get install iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0
+./vendor/sync-apt-headers.sh
+```
+
+See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
+`vendor/xrt/` and from where.
+
+| Dependency | Version | Why |
+|---|---|---|
+| XRT | **3.4.6** | core library |
+| IOT | **1.6.5** | core library |
+| Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | Sparkplug B rides on real MQTT |
+| Sparkplug B (`sparkplug-b`) | **1.0.1** | the actual protobuf schema/codec for Sparkplug B |
 
 ## Running it
 
@@ -87,35 +111,3 @@ warning), and browse to see `Dev1`-`Dev4` and their metrics. Writing a value
 from the browser publishes a `DCMD` back out over the bus.
 
 Stop everything with `docker compose down`.
-
-## Dependencies
-
-Both custom-binary components (`app1-colocated`, `app2-standalone`) use
-Sparkplug B, which pulls in two libraries beyond the base XRT/IOT install.
-
-**None of `vendor/{iot,paho,sparkplug-b,xrt}/` is committed to git** (all
-four are gitignored), so they must be synced locally before
-`docker compose up --build` will work. `iot`/`paho`/`sparkplug-b` are
-ordinary, already-available IOTech apt packages - synced rather than
-committed only because the build stage is Alpine and can't `apt install`
-them itself. Only `xrt` is actually pending anything: there's no confirmed
-apt/apk package for it yet, so it's still a manual copy.
-
-```bash
-apt-get install iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0
-./vendor/sync-apt-headers.sh
-```
-
-See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
-`vendor/xrt/` and from where.
-
-| Dependency | Version | Why |
-|---|---|---|
-| XRT | **3.4.6** | core library |
-| IOT | **1.6.5** | core library |
-| Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | Sparkplug B rides on real MQTT |
-| Sparkplug B (`sparkplug-b`) | **1.0.1** | the actual protobuf schema/codec for Sparkplug B |
-
-> N.B. paho and sparkplug are available on debian-release but the iot required
-> is only available on debian-dev. XRT headers currently manually added since
-> there is not yet a `-dev` package available for 3.4
