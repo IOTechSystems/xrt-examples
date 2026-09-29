@@ -1,6 +1,9 @@
 #!/bin/sh
 
-docker run --rm -d --name=bacnet-mstp-sim -e RUN_MODE=MSTP iotechsys/bacnet-sim:2.2 --script /example-scripts/device-service-example.lua --instance 1234 --name BacnetSimulator
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+LUA_SCRIPT="$SCRIPT_DIR/../../../Simulators/bacnet/device-service-example.lua"
+
+docker run --rm -d --name=bacnet-mstp-sim -e RUN_MODE=MSTP -v "$LUA_SCRIPT:/example-scripts/device-service-example.lua" iotechsys/bacnet-sim:2.2.7 --script /example-scripts/device-service-example.lua --instance 1234 --name BacnetSimulator
 sleep 2
 BACNET_MSTP_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-mstp-sim)
 ( socat pty,link=/tmp/virtualport,raw,echo=0 tcp:${BACNET_MSTP_SIM_ADDRESS}:55000 ) &
