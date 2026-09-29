@@ -19,9 +19,9 @@ This instance:
 |---|---|
 | `Dockerfile` | Adds `socat` and the entrypoint to `iotechsys/xrt-server:3.4.6` |
 | `entrypoint.sh` | Resolves Dev3's IP for BBMD, bridges Dev4's simulated MS/TP serial link over TCP to `/tmp/dev4-mstp`, then starts XRT |
-| `deployment.pkl` | Source of the XRT config (Sparkplug bridge + the two BACnet components) |
-| `deployment/config/` | JSON config generated from `deployment.pkl`. Don't edit it by hand |
-| `deployment/state/` | Device, profile and schedule state for each BACnet component |
+| `deployment.pkl` | Source of all XRT config: the components (Sparkplug bridge + the two BACnet components) and their devices and schedules |
+| `deployment/config/` | Component JSON config generated from `deployment.pkl`. Don't edit it by hand |
+| `deployment/state/` | `devices.json`/`schedules.json` generated from `deployment.pkl` (don't edit by hand), plus the BACnet device profiles |
 
 `deployment/` is mounted into the container at
 `/opt/iotech/xrt/3.4/deployment`.

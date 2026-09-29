@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
-# Regenerates deployment/config for a Library/<app> directory from its
+# Regenerates deployment/ for a Library/<app> directory from its
 # deployment.pkl, using the XRT Pkl deployment schema. Requires:
 #   - the `pkl` CLI (https://pkl-lang.org)
 #   - a sibling checkout of https://github.com/IOTechSystems/xrt at
-#     ../../xrt (relative to this script), on XRT-3877-branch - this
-#     schema (src/pkl/deploy) isn't merged into XRT's default branch yet.
+#     ../../xrt (relative to this script), on v3.4-branch (the schema lives
+#     in src/pkl/deploy).
+#
+# xrt-standalone gets its component config (deployment/config) and device
+# state (devices/schedules under deployment/state). app1-colocated only gets
+# device state - its component config is compiled in from
+# app1-colocated/deployment_config.h instead.
 #
 # Usage: ./generate-pkl-config.sh <app-directory>
 #   e.g.  ./generate-pkl-config.sh app1-colocated
@@ -21,4 +26,4 @@ APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/$1" && pwd)"
 rm -f "$APP_DIR"/deployment/config/*.json
 (cd "$APP_DIR" && pkl eval deployment.pkl -m deployment) >/dev/null
 
-echo "Regenerated $APP_DIR/deployment/config from deployment.pkl"
+echo "Regenerated $APP_DIR/deployment from deployment.pkl"

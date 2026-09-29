@@ -15,7 +15,7 @@ COPY --from=iotechsys/xrt-server:3.4.6 ${IOT}/lib ${IOT}/lib
 COPY --from=iotechsys/xrt-server:3.4.6 /usr/lib/libsparkplug-b.so /usr/lib/
 
 WORKDIR /build
-COPY app1-colocated/spg_demo.c .
+COPY app1-colocated/spg_demo.c app1-colocated/deployment_config.h ./
 RUN gcc spg_demo.c \
       -I${XRT}/include -L${XRT}/lib \
       -I${IOT}/include -L${IOT}/lib \
@@ -28,7 +28,6 @@ FROM alpine:3.24
 ENV XRT=/opt/iotech/xrt/3.4
 ENV IOT=/opt/iotech/iot/1.6
 ENV LD_LIBRARY_PATH=${XRT}/lib:${IOT}/lib
-ENV XRT_CONFIG_DIR=/app/deployment/config
 ENV XRT_STATE_DIR=/app/deployment/state
 
 RUN apk add --no-cache \
@@ -45,7 +44,7 @@ COPY --from=iotechsys/xrt-server:3.4.6 /usr/lib/libbacnet-mstp-1.3.so /usr/lib/
 
 WORKDIR /app
 COPY --from=builder /build/spg_demo .
-COPY app1-colocated/deployment ./deployment
+COPY app1-colocated/deployment/state ./deployment/state
 COPY app1-colocated/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 

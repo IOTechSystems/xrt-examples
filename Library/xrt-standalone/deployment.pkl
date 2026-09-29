@@ -15,7 +15,7 @@ system =
         node_id = "${SPARKPLUG_NODE1}"
         app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
       })
-    |> withSparkplugNodeOptions(new Dynamic {
+    |> withSparkplugNodeOptions((n) -> (n) {
         app_state_wait = List()
       })
     |> bacnet.ip_instance("", "bacnet_ip_dev3")
@@ -32,6 +32,8 @@ system =
           bbmd_address = "${BACNET_IP_DEV3_ADDRESS}"
         }
       })
+    |> withDevices("bacnet_ip_dev3", Set(dev3))
+    |> addAllResourcesSchedule("bacnet_ip_dev3", dev3, 3.s)
     |> bacnet.mstp_instance("/tmp/dev4-mstp", "bacnet_mstp_dev4")
     |> withOptions("bacnet_mstp_dev4", new Dynamic {
         logger = new LoggerRef { target = "logger_debug" }
@@ -45,6 +47,16 @@ system =
           }
         }
       })
+    |> withDevices("bacnet_mstp_dev4", Set(dev4))
+    |> addAllResourcesSchedule("bacnet_mstp_dev4", dev4, 3.s)
+
+local dev3 = bacnet.device("Dev3", "bacnet-ip-sim-profile", new bacnet.IPProtocolType {
+  instance_id = 1236
+})
+
+local dev4 = bacnet.device("Dev4", "bacnet-ip-sim-profile", new bacnet.MSTPProtocolType {
+  instance_id = 1237
+})
 
 output {
   files = system.deployment()

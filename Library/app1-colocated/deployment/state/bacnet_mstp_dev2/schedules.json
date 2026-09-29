@@ -2,12 +2,13 @@
   "apiVersion": "v2",
   "schedules": [
     {
+      "name": "all",
       "device": "Dev2",
-      "interval": 3000000,
-      "name": "schedule1",
       "resource": [
         ".*"
-      ]
+      ],
+      "interval": 3000000,
+      "on_change": true
     }
   ]
 }

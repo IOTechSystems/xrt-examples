@@ -20,7 +20,7 @@ system =
         app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
       })
     |> withLogLevel("Info")
-    |> withSparkplugNodeOptions(new Dynamic {
+    |> withSparkplugNodeOptions((n) -> (n) {
         app_state_wait = List()
       })
     |> bacnet.ip_instance("", "bacnet_ip_dev1")
@@ -35,6 +35,8 @@ system =
           }
         }
       })
+    |> withDevices("bacnet_ip_dev1", Set(dev1))
+    |> addAllResourcesSchedule("bacnet_ip_dev1", dev1, 3.s)
     |> bacnet.mstp_instance("/tmp/dev2-mstp", "bacnet_mstp_dev2")
     |> withOptions("bacnet_mstp_dev2", new Dynamic {
         profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2/profiles"
@@ -48,7 +50,22 @@ system =
           }
         }
       })
+    |> withDevices("bacnet_mstp_dev2", Set(dev2))
+    |> addAllResourcesSchedule("bacnet_mstp_dev2", dev2, 3.s)
 
+local dev1 = bacnet.device("Dev1", "bacnet-ip-sim-profile", new bacnet.IPProtocolType {
+  instance_id = 1234
+})
+
+local dev2 = bacnet.device("Dev2", "bacnet-ip-sim-profile", new bacnet.MSTPProtocolType {
+  instance_id = 1235
+})
+
+// Only the device service state (devices/schedules) is written out as files.
+// The component config (the "config/" entries of system.deployment()) is
+// compiled into spg_demo instead, from deployment_config.h.
+// TODO: generate deployment_config.h from here too, once the XRT Pkl schema
+// can render component config as C string constants.
 output {
-  files = system.deployment()
+  files = system.deployment().toMap().filter((path, _) -> path.startsWith("state/")).toMapping()
 }

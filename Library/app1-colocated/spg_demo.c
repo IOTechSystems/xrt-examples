@@ -7,8 +7,6 @@
  * container).
  */
 
-#include <ctype.h>
-#include <dirent.h>
 #include <inttypes.h>
 #include <signal.h>
 #include <stdio.h>
@@ -19,6 +17,8 @@
 #include "xrt/bus.h"
 #include "xrt/sparkplug.h"
 #include "sparkplug/sparkplug_app.h"
+
+#include "deployment_config.h"
 
 #define WRITE_DEVICE "Dev1"
 #define WRITE_METRIC "analog_output_0:present-value"
@@ -49,56 +49,22 @@ static void signal_handler (int sig)
   atomic_store (&stopped, true);
 }
 
-/*
- * NodeConfig.deployment() (xrt's Pkl deployment schema, core/XRT.pkl)
- * relabels every component with a numeric prefix (e.g. "bus" -> "08-bus"),
- * so that it is resolved in order when loading into XRT. This function
- * determines a components full name for looking up with
- * iot_container_find_component. TODO should a helper like this exist
- * in IOT instead?
- */
-static char *resolve_component_id (const char *config_dir, const char *plain_name)
+/* Component config is compiled in (deployment_config.h) rather than read
+ * from a config directory, so look it up by component id. */
+static char *config_loader (const char *name, const char *uri)
 {
-  char *result = NULL;
-  DIR *dir = opendir (config_dir);
-  if (dir == NULL)
+  (void) uri;
+  for (size_t i = 0; i < sizeof (app_configs) / sizeof (app_configs[0]); i++)
   {
-    return NULL;
-  }
-
-  size_t name_len = strlen (plain_name);
-  struct dirent *entry;
-  while ((entry = readdir (dir)) != NULL)
-  {
-    const char *fname = entry->d_name;
-    size_t flen = strlen (fname);
-    static const char ext[] = ".json";
-    size_t ext_len = sizeof (ext) - 1;
-    if (flen <= ext_len || strcmp (fname + flen - ext_len, ext) != 0)
+    if (strcmp (name, app_configs[i].id) == 0)
     {
-      continue;
-    }
-
-    const char *stem_end = fname + (flen - ext_len);
-    const char *base = fname;
-    while (base < stem_end && isdigit ((unsigned char) *base))
-    {
-      base++;
-    }
-    base = (base > fname && base < stem_end && *base == '-') ? base + 1 : fname;
-
-    size_t base_len = (size_t) (stem_end - base);
-    if (base_len == name_len && strncmp (base, plain_name, name_len) == 0)
-    {
-      result = strndup (fname, flen - ext_len);
-      break;
+      return strdup (app_configs[i].config);
     }
   }
-  closedir (dir);
-  return result;
+  return NULL;
 }
 
-static inline iot_container_t *init_xrt (char *config_uri)
+static inline iot_container_t *init_xrt (void)
 {
   struct sigaction signal_action = {0};
   signal_action.sa_handler = signal_handler;
@@ -107,7 +73,7 @@ static inline iot_container_t *init_xrt (char *config_uri)
   sigaction (SIGTERM, &signal_action, NULL);
   sigaction (SIGHUP, &signal_action, NULL);
 
-  iot_container_config_t config = {.load = iot_store_config_load, .uri = config_uri, .save = iot_store_config_save};
+  iot_container_config_t config = {.load = config_loader};
   iot_container_config (&config);
   iot_container_t *container = iot_container_alloc ("main");
 
@@ -167,28 +133,19 @@ static void on_device_metric_added (xrt_spg_app_device_t *device, xrt_spg_app_me
 
 int main (void)
 {
-  const char *config_dir = getenv ("XRT_CONFIG_DIR");
-  iot_container_t *container = init_xrt ((char *) config_dir);
+  iot_container_t *container = init_xrt ();
   if (container == NULL)
   {
     return 1;
   }
   iot_container_start (container);
 
-  char *bus_id = resolve_component_id (config_dir, "bus");
-  char *logger_id = resolve_component_id (config_dir, "logger");
-  char *spgapp_pool_id = resolve_component_id (config_dir, "spgapp_pool");
-
-  xrt_bus_t *bus = (xrt_bus_t *) iot_container_find_component (container, bus_id ? bus_id : "bus");
+  xrt_bus_t *bus = (xrt_bus_t *) iot_container_find_component (container, BUS_ID);
   xrt_bus_add_ref (bus);
-  iot_logger_t *logger = (iot_logger_t *) iot_container_find_component (container, logger_id ? logger_id : "logger");
+  iot_logger_t *logger = (iot_logger_t *) iot_container_find_component (container, LOGGER_ID);
   iot_logger_add_ref (logger);
-  iot_threadpool_t *spg_pool = (iot_threadpool_t *) iot_container_find_component (container, spgapp_pool_id ? spgapp_pool_id : "spgapp_pool");
+  iot_threadpool_t *spg_pool = (iot_threadpool_t *) iot_container_find_component (container, SPGAPP_POOL_ID);
   iot_threadpool_add_ref (spg_pool);
-
-  free (bus_id);
-  free (logger_id);
-  free (spgapp_pool_id);
 
   demo_ctx_t ctx = {.logger = logger, .device_written = false};
 
