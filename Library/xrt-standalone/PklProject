@@ -1,5 +1,0 @@
-amends "pkl:Project"
-
-dependencies {
-  ["XRT"] = import("../../../xrt/src/pkl/deploy/PklProject")
-}

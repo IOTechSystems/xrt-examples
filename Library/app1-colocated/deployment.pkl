@@ -2,6 +2,7 @@ extends "@XRT/core/standard_node.pkl"
 
 import "@XRT/devices/bacnet.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
+import "../common/spg_demo_app.pkl"
 
 system =
   standardSystem("app1-colocated-server", "${SPARKPLUG_NODE}")
@@ -14,6 +15,16 @@ system =
           name = "spgapp_pool"
           logger = new LoggerRef { target = "logger" }
           threads = 5
+        }
+        new spg_demo_app.SparkplugDemoApp {
+          name = "spg_demo_app"
+          logger = new LoggerRef { target = "logger" }
+          bus = new BusRef { target = "bus" }
+          thread_pool = new ThreadPoolRef { target = "spgapp_pool" }
+          app_id = "XRTLibSparkplugDemo"
+          write_device = "Dev1"
+          write_metric = "analog_output_0:present-value"
+          write_value = 456.0
         }
       })
     |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {

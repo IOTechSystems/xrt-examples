@@ -4,7 +4,7 @@
 
 Built automatically by `docker compose up --build` from [`../`](../), using
 `../` (not this directory) as the build context - the `Dockerfile` needs to
-reach [`../vendor/`](../vendor/README.md) too. To build just this image
+reach [`../vendor/`](../vendor/README.md) and [`../common/`](../common/) too. To build just this image
 directly:
 
 ```bash
@@ -17,7 +17,12 @@ docker build -t app1-colocated -f app1-colocated/Dockerfile .
 App1 has no config directory. Its XRT component config is compiled into
 `spg_demo` as C string constants in
 [`deployment_config.h`](deployment_config.h), and handed to XRT by a custom
-config loader in `spg_demo.c`.
+config loader in [`../common/main.c`](../common/main.c).
+
+Besides the standard XRT Sparkplug node and the two BACnet device services,
+that config loads the demo Sparkplug application component
+(`App::SparkplugDemo`, [`../common/spg_demo_app.c`](../common/spg_demo_app.c)),
+which issues a `DCMD` write to `Dev1` once it's born.
 
 All of it is defined in [`deployment.pkl`](deployment.pkl):
 

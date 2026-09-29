@@ -3,7 +3,7 @@
  * IOTech Ltd
  *
  * XRT component configuration for spg_demo, compiled into the binary rather
- * than loaded from a config directory (see config_loader in spg_demo.c).
+ * than loaded from a config directory (see config_loader in ../common/main.c).
  *
  * These strings mirror the "config/" output of deployment.pkl. The XRT Pkl
  * schema can't render C string constants yet, so for now they're kept in
@@ -13,11 +13,6 @@
 
 #ifndef _APP1_DEPLOYMENT_CONFIG_H_
 #define _APP1_DEPLOYMENT_CONFIG_H_
-
-/* Ids of the components spg_demo looks up in the container */
-#define LOGGER_ID "00-logger"
-#define SPGAPP_POOL_ID "06-spgapp_pool"
-#define BUS_ID "08-bus"
 
 static const char main_config[] =
   "{"
@@ -32,8 +27,9 @@ static const char main_config[] =
     "\"08-bus\":\"XRT::Bus\","
     "\"09-mqtt_bridge\":\"XRT::MQTTBridge\","
     "\"10-sparkplug_node\":\"XRT::SparkplugNode\","
-    "\"11-bacnet_ip_dev1\":\"XRT::BACnetIPDeviceService\","
-    "\"12-bacnet_mstp_dev2\":\"XRT::BACnetMSTPDeviceService\""
+    "\"11-spg_demo_app\":\"App::SparkplugDemo\","
+    "\"12-bacnet_ip_dev1\":\"XRT::BACnetIPDeviceService\","
+    "\"13-bacnet_mstp_dev2\":\"XRT::BACnetMSTPDeviceService\""
   "}";
 
 static const char logger_config[] =
@@ -268,6 +264,18 @@ static const char sparkplug_node_config[] =
     "\"AppStateWait\":[]"
   "}";
 
+static const char spg_demo_app_config[] =
+  "{"
+    "\"Name\":\"spg_demo_app\","
+    "\"Logger\":\"00-logger\","
+    "\"Bus\":\"08-bus\","
+    "\"ThreadPool\":\"06-spgapp_pool\","
+    "\"AppId\":\"XRTLibSparkplugDemo\","
+    "\"WriteDevice\":\"Dev1\","
+    "\"WriteMetric\":\"analog_output_0:present-value\","
+    "\"WriteValue\":456.0"
+  "}";
+
 static const char bacnet_ip_dev1_config[] =
   "{"
     "\"Name\":\"bacnet_ip_dev1\","
@@ -399,8 +407,9 @@ static const struct
   {"08-bus", bus_config},
   {"09-mqtt_bridge", mqtt_bridge_config},
   {"10-sparkplug_node", sparkplug_node_config},
-  {"11-bacnet_ip_dev1", bacnet_ip_dev1_config},
-  {"12-bacnet_mstp_dev2", bacnet_mstp_dev2_config},
+  {"11-spg_demo_app", spg_demo_app_config},
+  {"12-bacnet_ip_dev1", bacnet_ip_dev1_config},
+  {"13-bacnet_mstp_dev2", bacnet_mstp_dev2_config},
 };
 
 #endif

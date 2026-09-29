@@ -8,8 +8,8 @@
 #
 # xrt-standalone gets its component config (deployment/config) and device
 # state (devices/schedules under deployment/state). app1-colocated only gets
-# device state - its component config is compiled in from
-# app1-colocated/deployment_config.h instead.
+# device state, and app2-standalone nothing at all - their component config
+# is compiled in from their deployment_config.h instead.
 #
 # None of the generated files are committed (they're gitignored), so this
 # must be run before `docker compose up --build`.
@@ -17,11 +17,12 @@
 # Usage: ./generate-pkl-config.sh [app-directory]
 #   e.g.  ./generate-pkl-config.sh                 (all apps)
 #         ./generate-pkl-config.sh app1-colocated
+#         ./generate-pkl-config.sh app2-standalone
 #         ./generate-pkl-config.sh xrt-standalone
 set -euo pipefail
 
 if [ $# -gt 1 ]; then
-  echo "usage: $0 [app-directory]  (e.g. app1-colocated, xrt-standalone)" >&2
+  echo "usage: $0 [app-directory]  (e.g. app1-colocated, app2-standalone, xrt-standalone)" >&2
   exit 1
 fi
 
@@ -39,5 +40,6 @@ if [ $# -eq 1 ]; then
   generate "$1"
 else
   generate app1-colocated
+  generate app2-standalone
   generate xrt-standalone
 fi

@@ -23,17 +23,18 @@ container; connecting to four BACnet devices through an MQTT broker.
    BACnet/IP     BACnet/MSTP                  BACnet/IP    BACnet/MSTP
      Dev1           Dev2                         Dev3          Dev4
 
-  App2 (container, standalone Sparkplug client) subscribes to Dev1-4 across
-  the whole bus, independent of the two Xrt instances above it.
+  App2 (container, EC Xrt library as a Sparkplug application only) subscribes
+  to Dev1-4 across the whole bus, independent of the two Xrt instances above it.
 ```
 
 ## Components
 
 | Diagram element | Directory / image | What it is |
 |---|---|---|
-| App1 (container) | [`app1-colocated/`](app1-colocated/README.md) | Custom C binary (`spg_demo.c`), XRT linked in as a library, talks to Dev1 + Dev2 & MQTT broker |
+| App1 (container) | [`app1-colocated/`](app1-colocated/README.md) | Custom C binary, XRT linked in as a library: a standard XRT Sparkplug node talking to Dev1 + Dev2 & the MQTT broker, plus the demo Sparkplug application component (`common/`) |
 | EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock `iotechsys/xrt-server:3.4.6` image, talks to Dev3 + Dev4 & MQTT broker|
-| App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary (`spg_standalone.c`), plain MQTT/Sparkplug client, subscribes to DDATA from Dev1-4 through the MQTT broker |
+| App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary, XRT linked in as a library: the standard XRT Sparkplug config minus device services and Sparkplug node, plus the same demo Sparkplug application component, consuming Dev1-4 through the MQTT broker |
+| Demo Sparkplug application | [`common/`](common/) | `App::SparkplugDemo`, an XRT component built the same way as `XRT::OPCUAServer`: the container hands it a Bus/ThreadPool/Logger and it does everything through the `xrt_spg_app` API. Shared by App1 and App2, along with the `main.c` that runs the container |
 | MQTT Sparkplug bus | `mosquitto` service (`mosquitto/mosquitto.conf`) | Eclipse Mosquitto broker |
 | EC OPC UA Server | [`xrt-opc-ua-server/`](xrt-opc-ua-server/README.md) | Purpose-built `iotechsys/connect-opc-ua-server` image (config baked in, no mounted JSON files), `XRT::OPCUAServer` with `EnableSparkplug: true`, subscribes to Dev1-4 |
 | App3 - EC OPC UA browser | `opc-ua-browser` service (`iotechsys/opc-ua-browser:1.1`) | Web UI at `localhost:8080` |
@@ -53,19 +54,19 @@ Library/license/xrt.lic
 
 ## Dependencies
 
-Both custom-binary components (`app1-colocated`, `app2-standalone`) use
-Sparkplug B, which pulls in two libraries beyond the base XRT/IOT install.
+Both custom-binary components (`app1-colocated`, `app2-standalone`) are
+compiled against the XRT and IOT headers. At runtime they also need the Paho
+MQTT C and Sparkplug B libraries (used by XRT's MQTT bridge and Sparkplug
+transform), which the Dockerfiles copy from the `iotechsys/xrt-server` image.
 
-**None of `vendor/{iot,paho,sparkplug-b,xrt}/` is committed to git** (all
-four are gitignored), so they must be synced locally before
-`docker compose up --build` will work. `iot`/`paho`/`sparkplug-b` are
-ordinary, already-available IOTech apt packages - synced rather than
-committed only because the build stage is Alpine and can't `apt install`
-them itself. Only `xrt` is actually pending anything: there's no confirmed
-apt/apk package for it yet, so it's still a manual copy.
+**`vendor/iot/` nor `vendor/xrt/` must be synced locally before
+`docker compose up --build` will work. `iot` is an ordinary,
+already-available IOTech apt package - synced because the build stage is
+Alpine and can't `apt install` it itself. `xrt` is synced since there is
+no package available for it yet TODO.
 
 ```bash
-apt-get install iotech-iot-1.6-dev iotech-libpaho-mqtt-1.3 libsparkplug-b-1.0
+apt-get install iotech-iot-1.6-dev
 ./vendor/sync-apt-headers.sh
 ```
 
@@ -76,8 +77,8 @@ See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
 |---|---|---|
 | XRT | **3.4.6** | core library |
 | IOT | **1.6.5** | core library |
-| Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | Sparkplug B rides on real MQTT |
-| Sparkplug B (`sparkplug-b`) | **1.0.1** | the actual protobuf schema/codec for Sparkplug B |
+| Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | runtime only, for XRT's MQTT bridge |
+| Sparkplug B (`sparkplug-b`) | **1.0.1** | runtime only, the protobuf codec for XRT's Sparkplug transform |
 
 ## Running it
 
@@ -107,8 +108,9 @@ Expected log output:
   demo `DCMD` write to `Dev1`'s `analog_output_0:present-value`.
 - `xrt-standalone` births `Dev3`/`Dev4` under Sparkplug node `xrt1`.
 - `app2` logs metrics from *both* Sparkplug nodes (`xrt` and `xrt1`) -
-  proof that it's a plain group-wide Sparkplug subscriber, independent of
-  either Xrt instance.
+  proof that it's a group-wide Sparkplug application, independent of either
+  Xrt instance - then issues its demo `DCMD` write to `Dev3` (on
+  `xrt-standalone`) over MQTT.
 - `xrt-opc-ua-server` births as an OPC UA Server exposing `Dev1`-`Dev4`.
 
 Then open the OPC UA browser at <http://localhost:8080>, connect to

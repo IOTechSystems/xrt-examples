@@ -15,8 +15,10 @@ COPY --from=iotechsys/xrt-server:3.4.6 ${IOT}/lib ${IOT}/lib
 COPY --from=iotechsys/xrt-server:3.4.6 /usr/lib/libsparkplug-b.so /usr/lib/
 
 WORKDIR /build
-COPY app1-colocated/spg_demo.c app1-colocated/deployment_config.h ./
-RUN gcc spg_demo.c \
+COPY common/ common/
+COPY app1-colocated/deployment_config.h app1-colocated/
+RUN gcc common/main.c common/spg_demo_app.c \
+      -Icommon -Iapp1-colocated \
       -I${XRT}/include -L${XRT}/lib \
       -I${IOT}/include -L${IOT}/lib \
       -rdynamic \

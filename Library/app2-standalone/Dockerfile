@@ -9,20 +9,20 @@ ENV IOT=/opt/iotech/iot/1.6
 
 COPY vendor/xrt/include ${XRT}/include
 COPY vendor/iot/include ${IOT}/include
-COPY vendor/paho/include/ /usr/include/
-COPY vendor/sparkplug-b/include/ /usr/include/
 
 COPY --from=iotechsys/xrt-server:3.4.6 ${XRT}/lib ${XRT}/lib
 COPY --from=iotechsys/xrt-server:3.4.6 ${IOT}/lib ${IOT}/lib
-COPY --from=iotechsys/xrt-server:3.4.6 /usr/lib/libpaho-mqtt3as.so* /usr/lib/
 COPY --from=iotechsys/xrt-server:3.4.6 /usr/lib/libsparkplug-b.so /usr/lib/
 
 WORKDIR /build
-COPY app2-standalone/spg_standalone.c .
-RUN gcc spg_standalone.c \
+COPY common/ common/
+COPY app2-standalone/deployment_config.h app2-standalone/
+RUN gcc common/main.c common/spg_demo_app.c \
+      -Icommon -Iapp2-standalone \
       -I${XRT}/include -L${XRT}/lib \
       -I${IOT}/include -L${IOT}/lib \
-      -lxrt-sparkplug-xform -lxrt-devsdk -lxrt -lsparkplug-b -liot -lpaho-mqtt3as \
+      -rdynamic \
+      -lxrt-sparkplug-app -lxrt-devsdk -lxrt-sparkplug-xform -lxrt -liot \
       -o spg_standalone
 
 FROM alpine:3.24

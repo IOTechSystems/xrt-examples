@@ -4,7 +4,7 @@
     "package://iotech.jfrog.io/artifactory/public/XRT/XRT@0": {
       "type": "local",
       "uri": "projectpackage://iotech.jfrog.io/artifactory/public/XRT/XRT@0.0.2",
-      "path": "../../../xrt/src/pkl/deploy"
+      "path": "../../xrt/src/pkl/deploy"
     }
   }
 }
