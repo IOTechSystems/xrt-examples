@@ -11,19 +11,33 @@
 # device state - its component config is compiled in from
 # app1-colocated/deployment_config.h instead.
 #
-# Usage: ./generate-pkl-config.sh <app-directory>
-#   e.g.  ./generate-pkl-config.sh app1-colocated
+# None of the generated files are committed (they're gitignored), so this
+# must be run before `docker compose up --build`.
+#
+# Usage: ./generate-pkl-config.sh [app-directory]
+#   e.g.  ./generate-pkl-config.sh                 (all apps)
+#         ./generate-pkl-config.sh app1-colocated
 #         ./generate-pkl-config.sh xrt-standalone
 set -euo pipefail
 
-if [ $# -ne 1 ]; then
-  echo "usage: $0 <app-directory>  (e.g. app1-colocated, xrt-standalone)" >&2
+if [ $# -gt 1 ]; then
+  echo "usage: $0 [app-directory]  (e.g. app1-colocated, xrt-standalone)" >&2
   exit 1
 fi
 
-APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/$1" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-rm -f "$APP_DIR"/deployment/config/*.json
-(cd "$APP_DIR" && pkl eval deployment.pkl -m deployment) >/dev/null
+generate () {
+  APP_DIR="$(cd "$SCRIPT_DIR/$1" && pwd)"
+  rm -rf "$APP_DIR"/deployment/config
+  rm -f "$APP_DIR"/deployment/state/*/devices.json "$APP_DIR"/deployment/state/*/schedules.json
+  (cd "$APP_DIR" && pkl eval deployment.pkl -m deployment) >/dev/null
+  echo "Regenerated $APP_DIR/deployment from deployment.pkl"
+}
 
-echo "Regenerated $APP_DIR/deployment from deployment.pkl"
+if [ $# -eq 1 ]; then
+  generate "$1"
+else
+  generate app1-colocated
+  generate xrt-standalone
+fi

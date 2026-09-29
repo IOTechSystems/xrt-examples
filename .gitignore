@@ -6,3 +6,10 @@ Library/vendor/paho
 Library/vendor/sparkplug-b
 Library/vendor/xrt
 Library/xrt-standalone/deployment/state/sparkplug/xrt1.json
+Library/app1-colocated/deployment/state/sparkplug/xrt.json
+
+# Library/ config generated from each app's deployment.pkl
+# (see Library/generate-pkl-config.sh)
+Library/*/deployment/config/
+Library/*/deployment/state/*/devices.json
+Library/*/deployment/state/*/schedules.json

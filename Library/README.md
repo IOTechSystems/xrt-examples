@@ -83,8 +83,14 @@ See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
 
 Firstly, ensure all dependencies (below) are met.
 
+All XRT config (component config, devices and schedules) is defined in each
+app's `deployment.pkl` and none of the generated files are committed, so
+generate them first (see [`generate-pkl-config.sh`](generate-pkl-config.sh)
+for what it needs):
+
 ```bash
 cd Library
+./generate-pkl-config.sh
 docker compose up --build
 ```
 
