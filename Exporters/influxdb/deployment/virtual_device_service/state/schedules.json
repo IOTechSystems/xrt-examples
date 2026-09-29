@@ -1,0 +1,17 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "schedule1",
+      "device": "Motor",
+      "resource": [
+        "MachineState"
+      ],
+      "interval": 500000,
+      "tags": {
+        "ScheduleName": "schedule1"
+      },
+      "on_change": true
+    }
+  ]
+}

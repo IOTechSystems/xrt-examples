@@ -1,0 +1,74 @@
+/// MQTT Exporter Example (Azure IoT Hub)
+/// Generates configuration for the Virtual device service exporting data via a plain MQTT
+/// bridge to Azure IoT Hub.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/devices/virtual.pkl"
+import "@XRT/bridge/mqtt_bridge.pkl"
+
+/// The simulated virtual device and its polling schedule
+local virtual_device = virtual.device(
+  "Virtual-Device",
+  "device-virtual",
+  new virtual.VirtualProtocolType {},
+)
+
+/// A dedicated Debug-level logger for the MQTT bridge, separate from the node's shared
+/// Warn-level logger.
+local bridge_logger = new XRT.Logger {
+  name = "logger_debug"
+  level = "Debug"
+}
+
+/// minimalSystem() wires up just the shared components (Logger, Bus, Scheduler,
+/// ThreadPools) - no MQTT bridge or Sparkplug, since this example publishes over a plain
+/// MQTT bridge rather than Sparkplug.
+system =
+  minimalSystem()
+    |> addComponents(new Listing<XRT.Component> { bridge_logger })
+    |> mqtt_bridge.instance("export_azure")
+    |> mqtt_bridge.withMQTTBridgeOptions("export_azure", (b) -> (b) {
+        logger = bridge_logger.ref()
+        patterns = Set(new XRT.TopicPattern {
+          pattern = "${AZURE_MQTT_REPLY_TOPIC}"
+          qos = 1
+          retain = false
+        })
+        mqtt_patterns = Set(new XRT.MQTTTopic {
+          pattern = "${AZURE_MQTT_REQUEST_TOPIC}"
+          qos = 0
+        })
+        mqtt_config = new mqtt_bridge.MQTTConfig {
+          server_uri = "${AZURE_MQTT_SERVER_URI}"
+          client_id = "${AZURE_DEVICE_ID}"
+          qos = 1
+          client_config = new mqtt_bridge.MQTTClientConfig {
+            username = "${AZURE_MQTT_USERNAME}"
+            password = "${AZURE_MQTT_SAS_PASSWORD}"
+            keep_alive_interval = 60.s
+            mqtt_version = 4
+            retry_interval = 5.s
+            min_retry_interval = 5.s
+            max_retry_interval = 60.s
+            max_buffered_messages = 10
+            ssl_config = new mqtt_bridge.SSLConfig {
+              trust_store = "${AZURE_MQTT_ROOT_CA}"
+            }
+          }
+        }
+      })
+    |> virtual.instance("virtual")
+    |> withDevices("virtual", Set(virtual_device))
+    |> withSchedules("virtual", Set(
+        virtual_device.new_schedule(new Dynamic {
+          name = "virtual-schedule1"
+          device = virtual_device.ref()
+          resource = Set("RandomInt8", "CountingUpFloat32")
+          interval = 2.s
+        }),
+      ))
+
+output {
+  files = system.deployment()
+}

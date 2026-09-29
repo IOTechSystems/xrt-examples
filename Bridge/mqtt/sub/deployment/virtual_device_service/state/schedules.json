@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "schedule1",
+      "device": "xrt-example-device-2",
+      "resource": [
+        "SensorOne"
+      ],
+      "interval": 500000,
+      "on_change": true
+    }
+  ]
+}

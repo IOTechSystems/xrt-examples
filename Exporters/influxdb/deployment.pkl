@@ -1,0 +1,74 @@
+/// InfluxDB Exporter Example
+/// Generates configuration for the Virtual device service exporting data to an InfluxDB v2
+/// bucket, with a dedicated debug logger on the exporter.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/devices/virtual.pkl"
+import "@XRT/export/influxdb.pkl"
+
+/// The simulated virtual device and its polling schedule
+local virtual_device = virtual.device(
+  "Motor",
+  "MotorSim",
+  new virtual.VirtualProtocolType {},
+)
+
+/// A dedicated Debug-level logger for the InfluxDB exporter, separate from the node's shared
+/// Warn-level logger.
+local exporter_logger = new XRT.Logger {
+  name = "logger_debug"
+  level = "Debug"
+}
+
+/// minimalSystem() wires up just the shared components (Logger, Bus, Scheduler,
+/// ThreadPools) - no MQTT bridge or Sparkplug, since this example exports directly to
+/// InfluxDB rather than publishing over MQTT.
+local base = minimalSystem()
+
+local exporter = new influxdb.InfluxDBExporter {
+  name = "influxdb2_exporter"
+  logger = exporter_logger.ref()
+  bus = base.std._bus.ref()
+  influx_version = 2
+  server_uri = "${XRT_INFLUXDB_SERVICE}"
+  bucket = "${XRT_INFLUXDB_BUCKET}"
+  org = "${XRT_INFLUXDB_ORG}"
+  token = "${XRT_INFLUXDB_TOKEN}"
+  measurement = "DeviceName"
+  tags = Set("TagDeviceName", "TagScheduleName")
+  select_data = List(new influxdb.InfluxDB_SelectType {
+    pattern = "device/#"
+    format = "Device"
+  })
+  batch_config = new influxdb.InfluxDB_BatchConfig {
+    batch_size = 5
+    batch_timeout = 5.s
+    scheduler = base.std._scheduler.ref()
+    thread_pool = base.std._pool.ref()
+  }
+  connect_timeout = 4.s
+  timeout = 1.5.s
+}
+
+system =
+  base
+    |> addComponents(new Listing<XRT.Component> { exporter_logger; exporter })
+    |> virtual.instance("virtual_device_service")
+    |> virtual.withVirtualOptions("virtual_device_service", (s) -> (s) {
+        publish_source = true
+      })
+    |> withDevices("virtual_device_service", Set(virtual_device))
+    |> withSchedules("virtual_device_service", Set(
+        virtual_device.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = virtual_device.ref()
+          resource = Set("MachineState")
+          interval = 500.ms
+          tags = Map("ScheduleName", "schedule1")
+        }),
+      ))
+
+output {
+  files = system.deployment()
+}

@@ -1,9 +1,13 @@
 {
+  "Name": "lua",
+  "Logger": "0-logger",
   "Library": "libxrt-lua-transform.so",
   "Factory": "xrt_lua_transform_factory",
-  "Bus":"5-bus",
+  "Bus": "5-bus",
   "Scheduler": "4-sched",
-  "ThreadPool": "3-pool",
-  "Logger":"2-logger",
-  "ScriptFile":"${XRT_LUA_FILE}"
+  "ThreadPool": "2-pool",
+  "ScriptFile": "${XRT_LUA_FILE}",
+  "ForceGC": false,
+  "SubscribeTopics": [],
+  "PublishTopics": []
 }

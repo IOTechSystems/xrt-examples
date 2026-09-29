@@ -22,6 +22,7 @@
   "PublishRegisteredDevices": false,
   "PublishAttributes": false,
   "EdgeXCompat": false,
+  "PublishSource": false,
   "ZeroNullReadings": false,
   "EnableDiscovery": true,
   "PreloadCache": false,

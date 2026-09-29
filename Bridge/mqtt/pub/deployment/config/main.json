@@ -1,12 +1,13 @@
 {
-  "1-xrt": "XRT::Config",
-  "2-logger":"IOT::Logger",
-  "3-logger_debug":"IOT::Logger",
-  "4-pool":"IOT::ThreadPool",
-  "5-sched":"IOT::Scheduler",
-  "6-bus":"XRT::Bus",
-  "7-bridgepub":"XRT::MQTTBridge",
-  "8-sparkplug": "XRT::Sparkplug",
-  "9-sparkplug-node": "XRT::SparkplugNode",
-  "10-virtual":"XRT::VirtualDeviceService"
+  "00-logger": "IOT::Logger",
+  "01-config": "XRT::Config",
+  "02-sparkplug": "XRT::Sparkplug",
+  "03-logger_debug": "IOT::Logger",
+  "04-pool": "IOT::ThreadPool",
+  "05-sched_pool": "IOT::ThreadPool",
+  "06-sched": "IOT::Scheduler",
+  "07-bus": "XRT::Bus",
+  "08-bridgepub": "XRT::MQTTBridge",
+  "09-sparkplug_node": "XRT::SparkplugNode",
+  "10-virtual_device_service": "XRT::VirtualDeviceService"
 }

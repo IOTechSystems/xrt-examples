@@ -1,0 +1,8 @@
+{
+  "Name": "bus",
+  "Logger": "00-logger",
+  "Scheduler": "06-sched",
+  "ThreadPool": "04-pool",
+  "Topics": [],
+  "StatsPublishInterval": 0
+}

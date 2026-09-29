@@ -1,0 +1,49 @@
+{
+  "Name": "export_azure",
+  "Logger": "1-logger_debug",
+  "Library": "libxrt-mqtt-bridge.so",
+  "Factory": "xrt_mqtt_bridge_factory",
+  "Bus": "5-bus",
+  "AcksTimeout": 0,
+  "UseDispatchThread": true,
+  "DispatchThreadQueueSizeMax": 0,
+  "Patterns": [
+    {
+      "Pattern": "${AZURE_MQTT_REPLY_TOPIC}",
+      "QoS": 1,
+      "Retain": false
+    }
+  ],
+  "MQTTPatterns": [
+    {
+      "Pattern": "${AZURE_MQTT_REQUEST_TOPIC}",
+      "QoS": 0
+    }
+  ],
+  "MQTTDynamicPatterns": [],
+  "MQTTConfig": {
+    "ServerURI": "${AZURE_MQTT_SERVER_URI}",
+    "ClientID": "${AZURE_DEVICE_ID}",
+    "QoS": 1,
+    "ClientConfig": {
+      "KeepAliveInterval": 60,
+      "Username": "${AZURE_MQTT_USERNAME}",
+      "Password": "${AZURE_MQTT_SAS_PASSWORD}",
+      "ConnectTimeout": 0,
+      "DisconnectTimeout": 0,
+      "MQTTVersion": 4,
+      "SSLConfig": {
+        "SSLVersion": 3,
+        "EnableServerCertAuth": true,
+        "TrustStore": "${AZURE_MQTT_ROOT_CA}"
+      },
+      "CleanStart": true,
+      "SessionExpiry": 0,
+      "RetryInterval": 5,
+      "MinRetryInterval": 5,
+      "MaxRetryInterval": 60,
+      "MaxBufferedMessages": 10
+    },
+    "FT_Mode": false
+  }
+}

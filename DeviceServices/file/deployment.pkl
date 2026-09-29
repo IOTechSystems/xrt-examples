@@ -1,0 +1,41 @@
+/// File Device Service Example
+/// Generates configuration for the File device service with Sparkplug MQTT bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/file.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated file-backed device and its polling schedule
+local file_device = file.device(
+  "file-example",
+  "file-example",
+  new file.FileProtocolType { directory = "${FILE_DIR_PATH}" },
+)
+
+/// Create the standard system with the File device service
+system =
+  standardSystem("File", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
+        device_services = List("file")
+      })
+    |> file.instance("file")
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Debug")
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> withDevices("file", Set(file_device))
+    |> withSchedules("file", Set(
+        file_device.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = file_device.ref()
+          resource = Set("file_float")
+          interval = 2.s
+        }),
+      ))
+
+output {
+  files = system.deployment()
+}

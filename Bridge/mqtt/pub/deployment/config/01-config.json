@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "mqtt_pub",
+  "NodeId": "${SPARKPLUG_NODE1}",
+  "Timeout": 0
+}

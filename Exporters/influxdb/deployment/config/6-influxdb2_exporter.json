@@ -1,0 +1,31 @@
+{
+  "Name": "influxdb2_exporter",
+  "Logger": "1-logger_debug",
+  "Library": "libxrt-influxdb-exporter.so",
+  "Factory": "xrt_influxdb_exporter_factory",
+  "Bus": "5-bus",
+  "InfluxVersion": 2,
+  "Bucket": "${XRT_INFLUXDB_BUCKET}",
+  "Org": "${XRT_INFLUXDB_ORG}",
+  "Token": "${XRT_INFLUXDB_TOKEN}",
+  "Measurement": "DeviceName",
+  "Tags": [
+    "TagDeviceName",
+    "TagScheduleName"
+  ],
+  "ServerURI": "${XRT_INFLUXDB_SERVICE}",
+  "ConnectTimeout": 4000,
+  "Timeout": 1500,
+  "BatchConfig": {
+    "BatchSize": 5,
+    "BatchTimeout": 5000,
+    "Scheduler": "4-sched",
+    "ThreadPool": "2-pool"
+  },
+  "SelectData": [
+    {
+      "Pattern": "device/#",
+      "Format": "Device"
+    }
+  ]
+}
