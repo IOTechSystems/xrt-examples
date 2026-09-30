@@ -40,12 +40,7 @@ system =
       })
     |> withDevices("bacnet_mstp", Set(bacnet_mstp_sim))
     |> withSchedules("bacnet_mstp", Set(
-        bacnet_mstp_sim.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = bacnet_mstp_sim.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        bacnet_mstp_sim.new_schedule("schedule1", Set(".*"), 3.s),
       ))
 
 output {

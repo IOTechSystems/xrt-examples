@@ -51,12 +51,7 @@ system =
       })
     |> withDevices("opc_ua", Set(lds_device, sim_device))
     |> withSchedules("opc_ua", Set(
-        sim_device.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = sim_device.ref()
-          resource = Set("ns=3;s=Counter:value")
-          interval = 3.s
-        }),
+        sim_device.new_schedule("schedule1", Set("ns=3;s=Counter:value"), 3.s),
       ))
 
 output {

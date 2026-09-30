@@ -28,12 +28,7 @@ system =
       })
     |> withDevices("file", Set(file_device))
     |> withSchedules("file", Set(
-        file_device.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = file_device.ref()
-          resource = Set("file_float")
-          interval = 2.s
-        }),
+        file_device.new_schedule("schedule1", Set("file_float"), 2.s),
       ))
 
 output {

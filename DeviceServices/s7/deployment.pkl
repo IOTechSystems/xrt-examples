@@ -36,12 +36,7 @@ system =
       })
     |> withDevices("s7", Set(s7_server))
     |> withSchedules("s7", Set(
-        s7_server.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = s7_server.ref()
-          resource = Set("DB_1_I64")
-          interval = 2.s
-        }),
+        s7_server.new_schedule("schedule1", Set("DB_1_I64"), 2.s),
       ))
 
 output {

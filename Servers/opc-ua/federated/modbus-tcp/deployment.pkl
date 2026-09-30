@@ -38,13 +38,12 @@ system =
       })
     |> withDevices("modbus_tcp", Set(modbus_sim))
     |> withSchedules("modbus_tcp", Set(
-        modbus_sim.new_schedule(new Dynamic {
-          name = "modbus-example-schedule1"
-          device = modbus_sim.ref()
-          resource = Set("cell_1_tmp", "cell_2_tmp", "cell_3_tmp", "tmp_sf")
-          interval = 500.ms
-          on_change = false
-        }),
+        modbus_sim.new_scheduleWithOpts(
+          "modbus-example-schedule1",
+          Set("cell_1_tmp", "cell_2_tmp", "cell_3_tmp", "tmp_sf"),
+          500.ms,
+          (s) -> (s) { on_change = false },
+        ),
       ))
 
 output {

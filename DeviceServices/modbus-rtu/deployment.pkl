@@ -38,12 +38,7 @@ system =
       })
     |> withDevices("modbus-rtu", Set(modbus_sim))
     |> withSchedules("modbus-rtu", Set(
-        modbus_sim.new_schedule(new Dynamic {
-          name = "modbus-sim-schedule"
-          device = modbus_sim.ref()
-          resource = Set("Current")
-          interval = 1.s
-        }),
+        modbus_sim.new_schedule("modbus-sim-schedule", Set("Current"), 1.s),
       ))
 
 output {
