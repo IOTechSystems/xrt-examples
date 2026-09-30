@@ -69,6 +69,8 @@ services:
     build:
       context: .
       dockerfile: app1-colocated/Dockerfile
+      args:
+        XRT_IMAGE: ${XRT_IMAGE:-iotechsys/xrt-server:3.4.6}
     container_name: app1
     depends_on:
       - mosquitto
@@ -102,6 +104,8 @@ services:
     build:
       context: .
       dockerfile: app2-standalone/Dockerfile
+      args:
+        XRT_IMAGE: ${XRT_IMAGE:-iotechsys/xrt-server:3.4.6}
     container_name: app2
     depends_on:
       - mosquitto

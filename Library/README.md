@@ -75,10 +75,21 @@ See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
 
 | Dependency | Version | Why |
 |---|---|---|
-| XRT | **3.4.6** | core library |
-| IOT | **1.6.5** | core library |
+| XRT | **3.4.6** + XRT-4041 | core library - see below |
+| IOT | **1.6.5** (1.6.6 for current `v3.4-branch` XRT) | core library - must match the XRT build |
 | Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | runtime only, for XRT's MQTT bridge |
 | Sparkplug B (`sparkplug-b`) | **1.0.1** | runtime only, the protobuf codec for XRT's Sparkplug transform |
+
+App1 and App2 use only XRT's public Sparkplug application API
+(`sparkplug/sparkplug_app.h`), which needs the XRT-4041 changes:
+`xrt_spg_app_config_init`, a self-contained `sparkplug_app.h`, and
+`xrt_exit_delay` defined in `libxrt`. Until an `iotechsys/xrt-server` release
+includes them, point both builds at an image with an XRT build that does, and
+use that build's headers for `vendor/xrt/`:
+
+```bash
+XRT_IMAGE=<xrt-server image with XRT-4041> docker compose up --build
+```
 
 ## Running it
 

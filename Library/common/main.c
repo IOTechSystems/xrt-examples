@@ -16,23 +16,11 @@
 #include "iot/iot.h"
 #include "xrt/bus.h"
 #include "xrt/config.h"
-#include "xrt/sparkplug.h"
 
 #include "spg_demo_app.h"
 #include "deployment_config.h"
 
 static atomic_bool stopped = false;
-
-/*
- * XRT::SparkplugNode (libxrt-sparkplug.so) references `xrt_exit_delay` as
- * extern, but it is only defined in xrt.c, which is compiled into the
- * standalone `xrt` executable rather than into any library. A colocated
- * host process that loads a Sparkplug node must provide it itself, or
- * loading libxrt-sparkplug.so fails with "undefined symbol: xrt_exit_delay".
- * Requires linking with -rdynamic so libxrt-sparkplug.so can resolve it back
- * from this executable's own symbol table.
- */
-atomic_uint_fast64_t xrt_exit_delay = 0u;
 
 static void signal_handler (int sig)
 {
@@ -68,14 +56,15 @@ int main (void)
   iot_container_config (&config);
   iot_container_t *container = iot_container_alloc ("main");
 
-  /* Everything else (MQTT bridge, Sparkplug node, device services) is
-   * loaded dynamically from the Library/Factory named in its config. */
+  /* The same factories as the standalone xrt executable, plus the app's own.
+   * XRT::Sparkplug is registered by libxrt-devsdk itself, and everything
+   * else (MQTT bridge, Sparkplug node, device services) is loaded
+   * dynamically from the Library/Factory named in its config. */
   iot_component_factory_add (iot_logger_factory ());
   iot_component_factory_add (iot_threadpool_factory ());
   iot_component_factory_add (iot_scheduler_factory ());
   iot_component_factory_add (xrt_bus_factory ());
   iot_component_factory_add (xrt_config_factory ());
-  iot_component_factory_add (xrt_sparkplug_config_factory ());
   iot_component_factory_add (spg_demo_app_factory ());
 
   if (!iot_container_init (container))

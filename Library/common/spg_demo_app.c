@@ -11,8 +11,8 @@
  *   WriteMetric              Metric of WriteDevice to write
  *   WriteValue               Float value to write
  *
- * The Sparkplug namespace and group come from the deployment's XRT::Sparkplug
- * component, as for XRT::OPCUAServer.
+ * The Sparkplug namespace, group and MQTT bridge app ids come from the
+ * deployment's XRT::Sparkplug component, via xrt_spg_app_config_init.
  */
 
 #include <inttypes.h>
@@ -21,8 +21,6 @@
 
 #include "iot/iot.h"
 #include "xrt/bus.h"
-#include "xrt/config.h"
-#include "xrt/xform_spb.h"
 #include "sparkplug/sparkplug_app.h"
 
 #include "spg_demo_app.h"
@@ -134,23 +132,10 @@ static iot_component_t *spg_demo_app_config (iot_container_t *container, const i
   app->write_metric = (char *) iot_config_string_default (config, "WriteMetric", "", true);
   iot_config_f64 (config, "WriteValue", &app->write_value, NULL);
 
-  /* Registers the Sparkplug B payload transform with the bus. A deployment
-   * with an XRT::SparkplugNode gets this from the node, but one without
-   * (a plain Sparkplug application) has to do it itself. */
-  xrt_xform_spb ();
-
-  const char *node_id = xrt_config_node_id ();
-  xrt_spg_app_config_t app_cfg = xrt_spg_app_config_default;
-  app->app_id = (char *) iot_config_string_default (config, "AppId", node_id ? node_id : app_cfg.app_id, true);
+  xrt_spg_app_config_t app_cfg;
+  xrt_spg_app_config_init (&app_cfg);
+  app->app_id = (char *) iot_config_string_default (config, "AppId", app_cfg.app_id, true);
   app_cfg.app_id = app->app_id;
-  /* TODO: xrt_spg_config is the only thing used here from outside the
-   * xrt_spg_app API (it's declared in devsdk/spg.h, which sparkplug_app.h
-   * pulls in). XRT::OPCUAServer uses it the same way; ideally sparkplug_app.h
-   * would take these from the XRT::Sparkplug component itself. */
-  app_cfg.namespace = xrt_spg_config.namespace;
-  app_cfg.group = xrt_spg_config.group;
-  /* Go online once the MQTT bridge is connected (XRT::Sparkplug's MQTTAppId) */
-  app_cfg.mqtt_app_ids = xrt_spg_config.mqtt_app_ids;
   app_cfg.ctx = app;
   app_cfg.callbacks.on_device_added = on_device_added;
   app_cfg.callbacks.on_metric_value_updated = on_metric_value_updated;
