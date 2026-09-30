@@ -5,6 +5,7 @@
   "Factory": "xrt_mqtt_bridge_factory",
   "Bus": "06-bus",
   "AcksTimeout": 0,
+  "AppTopic": "spBv1.0/STATE/XRT::MQTTBridge",
   "UseDispatchThread": true,
   "DispatchThreadQueueSizeMax": 0,
   "Patterns": [
