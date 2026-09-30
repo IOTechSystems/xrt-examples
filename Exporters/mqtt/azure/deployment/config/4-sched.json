@@ -1,5 +1,0 @@
-{
-  "Name": "sched",
-  "Logger": "0-logger",
-  "ThreadPool": "2-pool"
-}

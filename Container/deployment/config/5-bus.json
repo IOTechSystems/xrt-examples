@@ -1,8 +1,8 @@
 {
   "Name": "bus",
   "Logger": "0-logger",
-  "Scheduler": "4-sched",
-  "ThreadPool": "2-pool",
+  "Scheduler": "2-sched",
+  "ThreadPool": "3-pool",
   "Topics": [],
   "StatsPublishInterval": 0
 }
