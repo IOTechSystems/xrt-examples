@@ -14,7 +14,7 @@ which logs every metric and issues a `DCMD` write to `Dev3` once it's born.
 
 Built automatically by `docker compose up --build` from [`../`](../), using
 `../` (not this directory) as the build context - the `Dockerfile` needs to
-reach [`../vendor/`](../vendor/README.md) and [`../common/`](../common/) too.
+reach [`../common/`](../common/) too.
 To build just this image directly:
 
 ```bash

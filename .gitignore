@@ -1,8 +1,5 @@
 *.lic
 
-# Library/ synced headers
-Library/vendor/iot
-Library/vendor/xrt
 Library/xrt-standalone/deployment/state/sparkplug/xrt1.json
 Library/app1-colocated/deployment/state/sparkplug/xrt.json
 

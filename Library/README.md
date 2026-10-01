@@ -55,41 +55,58 @@ Library/license/xrt.lic
 ## Dependencies
 
 Both custom-binary components (`app1-colocated`, `app2-standalone`) are
-compiled against the XRT and IOT headers. At runtime they also need the Paho
-MQTT C and Sparkplug B libraries (used by XRT's MQTT bridge and Sparkplug
-transform), which the Dockerfiles copy from the `iotechsys/xrt-server` image.
+compiled against XRT's public headers, and use only its public Sparkplug
+application API (`sparkplug/sparkplug_app.h`). Their Dockerfiles take
+everything from IOTech's published XRT release, picked by the `XRT_VERSION`
+build argument:
 
-**`vendor/iot/` nor `vendor/xrt/` must be synced locally before
-`docker compose up --build` will work. `iot` is an ordinary,
-already-available IOTech apt package - synced because the build stage is
-Alpine and can't `apt install` it itself. `xrt` is synced since there is
-no package available for it yet TODO.
-
-```bash
-apt-get install iotech-iot-1.6-dev
-./vendor/sync-apt-headers.sh
-```
-
-See [`vendor/README.md`](vendor/README.md) for exactly what to copy for
-`vendor/xrt/` and from where.
+- the XRT and IOT libraries, plus the Paho MQTT C and Sparkplug B libraries
+  used by XRT's MQTT bridge and Sparkplug transform, from the
+  `iotechsys/xrt-server:${XRT_VERSION}` image
+- the XRT and IOT headers, from the `iotech-xrt-3.4-dev` and
+  `iotech-iot-1.6-dev` packages in IOTech's public Alpine repository
+  (`iotech.jfrog.io/artifactory/alpine-release`)
 
 | Dependency | Version | Why |
 |---|---|---|
 | XRT | **3.4.6** + XRT-4041 | core library - see below |
-| IOT | **1.6.5** (1.6.6 for current `v3.4-branch` XRT) | core library - must match the XRT build |
+| IOT | **1.6.6** | core library |
 | Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | runtime only, for XRT's MQTT bridge |
 | Sparkplug B (`sparkplug-b`) | **1.0.1** | runtime only, the protobuf codec for XRT's Sparkplug transform |
 
-App1 and App2 use only XRT's public Sparkplug application API
-(`sparkplug/sparkplug_app.h`), which needs the XRT-4041 changes:
-`xrt_spg_app_config_init`, a self-contained `sparkplug_app.h`, and
-`xrt_exit_delay` defined in `libxrt`. Until an `iotechsys/xrt-server` release
-includes them, point both builds at an image with an XRT build that does, and
-use that build's headers for `vendor/xrt/`:
+The Sparkplug application API needs the XRT-4041 changes
+(`xrt_spg_app_config_init`, a self-contained `sparkplug_app.h`, and
+`xrt_exit_delay` defined in `libxrt`), and the headers need the XRT `-dev`
+package published for Alpine. Until an XRT release has both, the build fails.
+Once one does, build against it with:
 
 ```bash
-XRT_IMAGE=<xrt-server image with XRT-4041> docker compose up --build
+XRT_VERSION=<release> docker compose up --build
 ```
+
+### Building against unreleased XRT
+
+Before a release's `-dev` packages are in `alpine-release` - e.g. while they're
+only in IOTech's private repositories - build against headers on this machine
+instead, with [`docker-compose.local-headers.yml`](docker-compose.local-headers.yml):
+
+```bash
+XRT_IMAGE=<xrt-server image> XRT_INCLUDE=<dir> \
+  docker compose -f docker-compose.yml -f docker-compose.local-headers.yml up --build
+```
+
+- `XRT_INCLUDE` / `IOT_INCLUDE` are the XRT and IOT headers to use: an include
+  directory, or one containing it. They default to where the `-dev` packages
+  install (`/opt/iotech/xrt/3.4/include`, `/opt/iotech/iot/1.6/include`), so
+  with privately hosted `-dev` packages installed on this machine neither needs
+  setting. For a local XRT build, use its package staging directory,
+  `x86_64/release/_CPack_Packages/Linux/TGZ/iotech-xrt-3.4-<version>_<arch>`.
+- `XRT_IMAGE` is the image the XRT libraries come from, which must match those
+  headers - e.g. one built from the same XRT build.
+
+Without the extra compose file, `docker build` takes the same headers as
+`--build-context xrt-include=<dir>` / `--build-context iot-include=<dir>`.
+Either can be left out, to use its `XRT_VERSION` `-dev` package instead.
 
 ## Running it
 

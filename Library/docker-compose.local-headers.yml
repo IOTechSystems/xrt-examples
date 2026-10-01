@@ -1,0 +1,21 @@
+# Builds app1/app2 against XRT and IOT headers from this machine, instead of
+# the XRT_VERSION -dev packages from IOTech's public Alpine repository - e.g.
+# from privately hosted -dev packages installed here, or a local XRT build.
+#
+#   XRT_INCLUDE=<dir> docker compose -f docker-compose.yml -f docker-compose.local-headers.yml up --build
+#
+# XRT_INCLUDE/IOT_INCLUDE are include directories, or directories containing
+# one (e.g. an XRT build's x86_64/release/_CPack_Packages/Linux/TGZ/<package>).
+# They default to where the -dev packages install.
+
+x-local-headers: &local-headers
+  xrt-include: ${XRT_INCLUDE:-/opt/iotech/xrt/3.4/include}
+  iot-include: ${IOT_INCLUDE:-/opt/iotech/iot/1.6/include}
+
+services:
+  app1:
+    build:
+      additional_contexts: *local-headers
+  app2:
+    build:
+      additional_contexts: *local-headers

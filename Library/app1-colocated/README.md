@@ -4,7 +4,7 @@
 
 Built automatically by `docker compose up --build` from [`../`](../), using
 `../` (not this directory) as the build context - the `Dockerfile` needs to
-reach [`../vendor/`](../vendor/README.md) and [`../common/`](../common/) too. To build just this image
+reach [`../common/`](../common/) too. To build just this image
 directly:
 
 ```bash
@@ -33,9 +33,3 @@ All of it is defined in [`deployment.pkl`](deployment.pkl):
 
 The BACnet device profiles under `deployment/state/*/profiles/` are still
 plain JSON.
-
-## Note on Linking XRT headers
-
-**FOR NOW:** the `Dockerfile` compiles against XRT/IOT headers vendored in
-from [`../vendor/`](../vendor/README.md) since they're not currently
-publicly available.
