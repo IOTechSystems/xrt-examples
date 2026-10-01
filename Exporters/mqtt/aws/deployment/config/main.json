@@ -1,9 +1,10 @@
 {
-  "logger":"IOT::Logger",
-  "logger_debug":"IOT::Logger",
-  "pool":"IOT::ThreadPool",
-  "sched":"IOT::Scheduler",
-  "bus":"XRT::Bus",
-  "export_aws": "XRT::MQTTBridge",
-  "virtual_device_service":"XRT::VirtualDeviceService"
+  "0-logger": "IOT::Logger",
+  "1-logger_debug": "IOT::Logger",
+  "2-sched": "IOT::Scheduler",
+  "3-pool": "IOT::ThreadPool",
+  "4-sched_pool": "IOT::ThreadPool",
+  "5-bus": "XRT::Bus",
+  "6-export_aws": "XRT::MQTTBridge",
+  "7-virtual_device_service": "XRT::VirtualDeviceService"
 }

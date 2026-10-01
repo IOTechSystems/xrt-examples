@@ -1,0 +1,5 @@
+{
+  "Name": "logger_debug",
+  "Level": "Debug",
+  "Start": true
+}

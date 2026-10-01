@@ -1,0 +1,168 @@
+{
+    "apiVersion": "v2",
+    "deviceResources": [
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Random",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
+            },
+            "name": "ns=3;s=Random:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Counter",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
+            },
+            "name": "ns=3;s=Counter:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Sawtooth",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
+            },
+            "name": "ns=3;s=Sawtooth:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Triangle",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
+            },
+            "name": "ns=3;s=Triangle:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 11,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Sinusoid",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 3
+                }
+            },
+            "name": "ns=3;s=Sinusoid:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float64"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 8,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Int64",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 2
+                }
+            },
+            "name": "ns=2;s=Int64:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "int64"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 10,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "Float",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 2
+                }
+            },
+            "name": "ns=2;s=Float:value",
+            "properties": {
+                "readWrite": "RW",
+                "valueType": "float32"
+            }
+        },
+        {
+            "attributes": {
+                "dataTypeId": {
+                    "identifier": 12,
+                    "identifierType": "NUMERIC",
+                    "namespaceIndex": 0
+                },
+                "nodeAttribute": "value",
+                "nodeId": {
+                    "identifier": "String",
+                    "identifierType": "STRING",
+                    "namespaceIndex": 2
+                }
+            },
+            "name": "ns=2;s=String:value",
+            "properties": {
+                "readWrite": "RW",
+                "value": "String1",
+                "valueType": "string"
+            }
+        }
+    ],
+    "labels": [],
+    "name": "opc-ua-sim-profile"
+}

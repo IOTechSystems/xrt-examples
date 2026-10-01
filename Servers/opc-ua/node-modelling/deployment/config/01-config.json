@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "xrt-opc-ua-example-server",
+  "NodeId": "xrt-opc-ua-example-server",
+  "Timeout": 0
+}

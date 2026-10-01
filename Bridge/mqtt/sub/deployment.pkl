@@ -1,0 +1,100 @@
+/// MQTT Bridge Example (Subscriber)
+/// Generates configuration for a Virtual device service publishing Sparkplug data as
+/// node "${SPARKPLUG_NODE2}", which also subscribes to the paired Bridge/mqtt/pub example's
+/// node ("${SPARKPLUG_NODE1}") DDATA to demonstrate a cross-node MQTT bridge pattern.
+/// Uses a hand-written pattern list rather than SparkplugBridge's auto-derivation, since that
+/// cross-node subscription can't be derived from this node's own components.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/devices/virtual.pkl"
+import "@XRT/bridge/mqtt_bridge.pkl"
+
+/// The simulated virtual device and its polling schedule
+local virtual_device = virtual.device(
+  "xrt-example-device-2",
+  "XRT-Virtual-Example",
+  new virtual.VirtualProtocolType {},
+)
+
+/// A dedicated Trace-level logger for the MQTT bridge, separate from the node's shared
+/// Warn-level logger.
+local bridge_logger = new XRT.Logger {
+  name = "logger_debug"
+  level = "Trace"
+}
+
+/// Create the standard system, then replace the default bridge with a fully hand-written
+/// one: every pattern below publishes/subscribes as "${SPARKPLUG_NODE2}", except the extra
+/// MQTTPatterns entry that also listens for the paired pub example's own DDATA.
+system =
+  standardSystem("mqtt_sub", "${SPARKPLUG_NODE2}")
+    |> addComponents(new Listing<XRT.Component> { bridge_logger })
+    |> withStd((std) -> (std) {
+        _bridge = new mqtt_bridge.MQTTBridge {
+          name = "bridgesub"
+          logger = bridge_logger.ref()
+          bus = std._bus.ref()
+          acks_timeout = 10.s
+          app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+          patterns = Set(
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/DBIRTH/${SPARKPLUG_NODE2}/+"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/DDEATH/${SPARKPLUG_NODE2}/+"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE2}/+"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE2}/+"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/NBIRTH/${SPARKPLUG_NODE2}"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE2}"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/NDATA/${SPARKPLUG_NODE2}"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/NACK/${SPARKPLUG_NODE2}"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.TopicPattern { pattern = "spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE2}/virtual"; qos = 0 },
+          )
+          mqtt_patterns = Set(
+            new XRT.MQTTTopic { pattern = "spBv1.0/STATE/+"; qos = 0 },
+            new XRT.MQTTTopic { pattern = "spBv1.0/${SPARKPLUG_GROUP}/NCMD/${SPARKPLUG_NODE2}"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+            new XRT.MQTTTopic { pattern = "spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE2}/virtual"; qos = 0 },
+            // Cross-node subscription: also listen for the paired pub example's own DDATA.
+            new XRT.MQTTTopic { pattern = "spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE1}/+"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+          )
+          mqtt_dynamic_patterns = Set(
+            new XRT.MQTTTopic { pattern = "spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE2}/+"; qos = 0; transforms = List("${SPARKPLUG_PROTO}") },
+          )
+          mqtt_config = new mqtt_bridge.MQTTConfig {
+            server_uri = "${XRT_MQTT_BROKER}"
+            client_id = "${SPARKPLUG_NODE2}"
+            qos = 1
+            client_config = new mqtt_bridge.MQTTClientConfig {
+              keep_alive_interval = 60.s
+              mqtt_version = 5
+              connect_timeout = 0.s
+              username = "${XRT_MQTT_USERNAME}"
+              password = "${XRT_MQTT_PASSWORD}"
+              clean_start = false
+              session_expiry = 30.s
+              min_retry_interval = 5.s
+              max_retry_interval = 60.s
+              max_buffered_messages = 10
+              will_config = new mqtt_bridge.WillConfig {
+                topic = "spBv1.0/${SPARKPLUG_GROUP}/NDEATH/${SPARKPLUG_NODE2}"
+                transforms = List("${SPARKPLUG_PROTO}")
+                qos = 1
+                retain = false
+              }
+            }
+          }
+        }
+      })
+    |> virtual.instance("virtual_device_service")
+    |> withPoolThreads(10)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> withDevices("virtual_device_service", Set(virtual_device))
+    |> withSchedules("virtual_device_service", Set(
+        virtual_device.new_schedule("schedule1", Set("SensorOne"), 500.ms),
+      ))
+
+output {
+  files = system.deployment()
+}

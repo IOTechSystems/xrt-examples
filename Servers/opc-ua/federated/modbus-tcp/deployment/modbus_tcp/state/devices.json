@@ -1,0 +1,27 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "modbus-device1",
+      "profileName": "modbus-profile",
+      "protocols": {
+        "modbus-tcp": {
+          "UnitID": 1,
+          "ReadMaxHoldingRegisters": 125,
+          "ReadMaxInputRegisters": 125,
+          "ReadMaxBitsCoils": 2000,
+          "ReadMaxBitsDiscreteInputs": 2000,
+          "WriteMaxHoldingRegisters": 123,
+          "WriteMaxBitsCoils": 1968,
+          "LinkRecovery": false,
+          "RegisterSingleWriteOnly": false,
+          "RegisterMultiWriteOnly": false,
+          "CoilSingleWriteOnly": false,
+          "CoilMultiWriteOnly": false,
+          "Address": "172.17.0.1",
+          "Port": 1502
+        }
+      }
+    }
+  ]
+}

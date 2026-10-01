@@ -2,6 +2,7 @@
 
 export XRT_PROFILE_DIR=$PWD/deployment/state/profiles
 export XRT_STATE_DIR=$PWD/deployment/state
+export XRT_DEPLOYMENT_DIR=$PWD/deployment
 export XRT_LUA_FILE=$PWD/deployment/config/example.lua
 export XRT_MQTT_BROKER=tcp://localhost:1883
 export XRT_MQTT_USERNAME=""

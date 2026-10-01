@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "schedule1",
+      "device": "bacnet-ip-sim",
+      "resource": [
+        ".*"
+      ],
+      "interval": 3000000,
+      "on_change": true
+    }
+  ]
+}

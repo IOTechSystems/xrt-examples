@@ -1,0 +1,15 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "virtual-schedule1",
+      "device": "Virtual-Device",
+      "resource": [
+        "RandomInt8",
+        "CountingUpFloat32"
+      ],
+      "interval": 2000000,
+      "on_change": true
+    }
+  ]
+}
