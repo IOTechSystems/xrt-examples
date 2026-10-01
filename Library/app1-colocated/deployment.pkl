@@ -47,7 +47,14 @@ system =
         }
       })
     |> withDevices("bacnet_ip_dev1", Set(dev1))
-    |> addAllResourcesSchedule("bacnet_ip_dev1", dev1, 3.s)
+    |> withSchedules("bacnet_ip_dev1", Set(
+        dev1.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = dev1.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
     |> bacnet.mstp_instance("/tmp/dev2-mstp", "bacnet_mstp_dev2")
     |> withOptions("bacnet_mstp_dev2", new Dynamic {
         profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev2/profiles"
@@ -62,12 +69,21 @@ system =
         }
       })
     |> withDevices("bacnet_mstp_dev2", Set(dev2))
-    |> addAllResourcesSchedule("bacnet_mstp_dev2", dev2, 3.s)
+    |> withSchedules("bacnet_mstp_dev2", Set(
+        dev2.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = dev2.ref()
+          resource = Set(".*")
+          interval = 3.s
+        }),
+      ))
 
+/// A simulated BACnet device, polled for all its resources every 3s
 local dev1 = bacnet.device("Dev1", "bacnet-ip-sim-profile", new bacnet.IPProtocolType {
   instance_id = 1234
 })
 
+/// A simulated BACnet device, polled for all its resources every 3s
 local dev2 = bacnet.device("Dev2", "bacnet-ip-sim-profile", new bacnet.MSTPProtocolType {
   instance_id = 1235
 })
