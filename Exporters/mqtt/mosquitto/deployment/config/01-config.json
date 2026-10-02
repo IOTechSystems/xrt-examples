@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "virtual-server",
+  "NodeId": "${SPARKPLUG_NODE}",
+  "Timeout": 0
+}

@@ -1,0 +1,102 @@
+/// Multiple Device Services Example
+/// Generates configuration for BACnet IP, Modbus TCP, and OPC UA device services colocated
+/// on a single node with a Sparkplug MQTT bridge. All three device services and the bridge
+/// share one Debug-level logger.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/devices/modbus.pkl"
+import "@XRT/devices/opcua.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated devices for each colocated device service
+local bacnet_ip_sim = bacnet.device(
+  "bacnet-ip-sim",
+  "bacnet-ip-sim-profile",
+  new bacnet.IPProtocolType { instance_id = 1234 },
+)
+local modbus_sim = modbus.device(
+  "modbus-sim",
+  "modbus-sim-profile",
+  new modbus.TCPProtocolType {
+    address = "0.0.0.0"
+    port = 1502
+    unit_id = 1
+  },
+)
+local lds_device = opcua.device(
+  "LDS",
+  "LDS_profile",
+  new opcua.OPCUAProtocolType { address = "${OPCUA_LDS_ADDRESS}" },
+)
+local sim_device = opcua.device(
+  "opc-ua-sim",
+  "opc-ua-sim-profile",
+  new opcua.OPCUAProtocolType { address = "${OPCUA_SIM_ADDRESS}" },
+)
+
+/// A dedicated Debug-level logger shared by all three device services and the MQTT bridge.
+local shared_logger = new XRT.Logger {
+  name = "logger_debug"
+  level = "Debug"
+}
+
+/// Create the standard system with all three colocated device services
+system =
+  standardSystem("", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("bacnet_ip", "opc_ua", "modbus")
+      })
+    |> addComponents(new Listing<XRT.Component> { shared_logger })
+    |> withStd((std) -> (std) { _bridge = (std._bridge) { logger = shared_logger.ref() } })
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> bacnet.ip_instance("", "bacnet_ip")
+    |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
+        logger = shared_logger.ref()
+        publish_registered_devices = true
+        publish_attributes = true
+        allowed_fails = 5
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_SIM_ADDRESS}"
+        }
+      })
+    |> withDevices("bacnet_ip", Set(bacnet_ip_sim))
+    |> withSchedules("bacnet_ip", Set(
+        bacnet_ip_sim.new_schedule("schedule1", Set(".*"), 3.s),
+      ))
+    |> modbus.instance("modbus")
+    |> modbus.withModbusOptions("modbus", (s) -> (s) {
+        logger = shared_logger.ref()
+        allowed_fails = 5
+      })
+    |> withDevices("modbus", Set(modbus_sim))
+    |> withSchedules("modbus", Set(
+        modbus_sim.new_schedule("modbus-example-schedule1", Set("Current"), 1.s),
+      ))
+    |> opcua.instance("opc_ua")
+    |> opcua.withOPCUAOptions("opc_ua", (s) -> (s) {
+        logger = shared_logger.ref()
+        discovery_interval = 300.s
+        publish_registered_devices = true
+        publish_attributes = true
+        allowed_fails = 5
+      })
+    |> withDevices("opc_ua", Set(lds_device, sim_device))
+    |> withSchedules("opc_ua", Set(
+        sim_device.new_schedule("schedule1", Set("ns=3;s=Counter:value"), 3.s),
+      ))
+
+output {
+  files = system.deployment()
+}

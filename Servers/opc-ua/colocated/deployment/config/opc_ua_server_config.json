@@ -1,0 +1,22 @@
+{
+  "SecurityPolicies": [
+    {
+      "SecurityPolicy": "None"
+    }
+  ],
+  "Endpoints": [
+    {
+      "SecurityPolicy": "None"
+    }
+  ],
+  "AccessControl": {
+    "AllowAnonymous": true,
+    "EnableUserPass": true,
+    "Users": [
+      {
+        "Username": "user",
+        "Password": "pass"
+      }
+    ]
+  }
+}

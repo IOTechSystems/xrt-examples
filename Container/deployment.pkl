@@ -1,0 +1,39 @@
+/// Container Device Example
+/// Demonstrates a Lua transform alongside a Virtual device service, with no MQTT bridge or
+/// Sparkplug - suitable for embedding in a container where data is processed in-process.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/util/lua.pkl"
+import "@XRT/devices/virtual.pkl"
+
+/// The simulated virtual device and its polling schedule
+local virtual_device = virtual.device(
+  "xrt-example-device-1",
+  "XRT-Virtual-Example",
+  new virtual.VirtualProtocolType {},
+)
+
+/// minimalSystem() wires up just the shared components (Logger, Bus, Scheduler,
+/// ThreadPools) - no MQTT bridge, Sparkplug, or healthcheck, since this example doesn't use them.
+system =
+  minimalSystem()
+    |> addComponents(new Listing<XRT.Component> {
+        new XRT.Config {
+          name = "config"
+          server_id = "container-server"
+          node_id = "${SPARKPLUG_NODE}"
+        }
+      })
+    |> lua.instance("lua", "${XRT_LUA_FILE}")
+    |> virtual.instance("virtual_device_service")
+    |> withPoolThreads(2)
+    |> withLogLevel("Debug")
+    |> withDevices("virtual_device_service", Set(virtual_device))
+    |> withSchedules("virtual_device_service", Set(
+        virtual_device.new_schedule("schedule1", Set("SensorOne"), 500.ms),
+      ))
+
+output {
+  files = system.deployment()
+}

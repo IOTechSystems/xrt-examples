@@ -1,4 +1,0 @@
-{
-  "ServerId":"mqtt_sub",
-  "NodeId":"${SPARKPLUG_NODE2}"
-}

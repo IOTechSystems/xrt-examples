@@ -1,0 +1,47 @@
+/// MQTT Exporter Example (Mosquitto)
+/// Generates configuration for the Virtual device service exporting data via Sparkplug MQTT
+/// to a Mosquitto broker, with a dedicated debug logger on the bridge.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/devices/virtual.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The simulated virtual device and its polling schedule
+local virtual_device = virtual.device(
+  "xrt-example-device-1",
+  "XRT-Virtual-Example",
+  new virtual.VirtualProtocolType {},
+)
+
+/// A dedicated Debug-level logger for the MQTT bridge, separate from the node's shared
+/// Warn-level logger.
+local bridge_logger = new XRT.Logger {
+  name = "mqtt-logger"
+  level = "Debug"
+}
+
+/// Create the standard system with virtual device service
+system =
+  standardSystem("virtual-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("virtual")
+      })
+    |> virtual.instance("virtual")
+    |> withPoolThreads(10)
+    |> withSchedulePoolThreads(6)
+    |> withLogLevel("Warn")
+    |> addComponents(new Listing<XRT.Component> { bridge_logger })
+    |> withStd((std) -> (std) { _bridge = (std._bridge) { logger = bridge_logger.ref() } })
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
+      })
+    |> withDevices("virtual", Set(virtual_device))
+    |> withSchedules("virtual", Set(
+        virtual_device.new_schedule("schedule1", Set("SensorOne"), 500.ms),
+      ))
+
+output {
+  files = system.deployment()
+}

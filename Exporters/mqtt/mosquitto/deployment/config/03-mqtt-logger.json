@@ -1,0 +1,5 @@
+{
+  "Name": "mqtt-logger",
+  "Level": "Debug",
+  "Start": true
+}

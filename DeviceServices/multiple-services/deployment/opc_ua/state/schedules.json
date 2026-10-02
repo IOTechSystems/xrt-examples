@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "schedule1",
+      "device": "opc-ua-sim",
+      "resource": [
+        "ns=3;s=Counter:value"
+      ],
+      "interval": 3000000,
+      "on_change": true
+    }
+  ]
+}

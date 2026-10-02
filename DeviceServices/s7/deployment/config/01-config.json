@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "s7-server",
+  "NodeId": "${SPARKPLUG_NODE}",
+  "Timeout": 0
+}

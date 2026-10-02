@@ -1,0 +1,43 @@
+{
+  "apiVersion": "v2",
+  "devices": [
+    {
+      "name": "LDS",
+      "profileName": "LDS_profile",
+      "protocols": {
+        "OPC-UA": {
+          "Address": "${OPCUA_LDS_ADDRESS}",
+          "SecurityPolicy": "None",
+          "SecurityMode": "None",
+          "Timeout": 0,
+          "RequestedSessionTimeout": 1200000,
+          "SessionKeepAliveInterval": 1000,
+          "ConnectionReadingPostDelay": 0,
+          "ClientIterateInterval": 100000,
+          "ReadBatchSize": 10,
+          "WriteBatchSize": 10,
+          "NodesPerBrowse": 5
+        }
+      }
+    },
+    {
+      "name": "opc-ua-sim",
+      "profileName": "opc-ua-sim-profile",
+      "protocols": {
+        "OPC-UA": {
+          "Address": "${OPCUA_SIM_ADDRESS}",
+          "SecurityPolicy": "None",
+          "SecurityMode": "None",
+          "Timeout": 0,
+          "RequestedSessionTimeout": 1200000,
+          "SessionKeepAliveInterval": 1000,
+          "ConnectionReadingPostDelay": 0,
+          "ClientIterateInterval": 100000,
+          "ReadBatchSize": 10,
+          "WriteBatchSize": 10,
+          "NodesPerBrowse": 5
+        }
+      }
+    }
+  ]
+}
