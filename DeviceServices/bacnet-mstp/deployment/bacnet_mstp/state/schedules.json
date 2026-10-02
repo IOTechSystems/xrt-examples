@@ -5,7 +5,12 @@
       "name": "schedule1",
       "device": "bacnet-mstp-sim",
       "resource": [
-        ".*"
+        "analog_input_0:present-value",
+        "analog_input_1:present-value",
+        "analog_output_0:present-value",
+        "analog_output_1:present-value",
+        "analog_value_0:present-value",
+        "analog_value_1:present-value"
       ],
       "interval": 3000000,
       "on_change": true
