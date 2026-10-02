@@ -633,42 +633,6 @@
   },
   {
     "attributes": {
-      "instance": 0,
-      "property": 9997,
-      "type": 0
-    },
-    "name": "analog_input_0:9997",
-    "properties": {
-      "readWrite": "RW",
-      "valueType": "float32"
-    }
-  },
-  {
-    "attributes": {
-      "instance": 0,
-      "property": 9998,
-      "type": 0
-    },
-    "name": "analog_input_0:9998",
-    "properties": {
-      "readWrite": "RW",
-      "valueType": "uint64"
-    }
-  },
-  {
-    "attributes": {
-      "instance": 0,
-      "property": 9999,
-      "type": 0
-    },
-    "name": "analog_input_0:9999",
-    "properties": {
-      "readWrite": "RW",
-      "valueType": "int32"
-    }
-  },
-  {
-    "attributes": {
       "instance": 1,
       "property": 75,
       "type": 0
@@ -918,42 +882,6 @@
     "properties": {
       "readWrite": "R",
       "valueType": "uint8array"
-    }
-  },
-  {
-    "attributes": {
-      "instance": 1,
-      "property": 9997,
-      "type": 0
-    },
-    "name": "analog_input_1:9997",
-    "properties": {
-      "readWrite": "RW",
-      "valueType": "float32"
-    }
-  },
-  {
-    "attributes": {
-      "instance": 1,
-      "property": 9998,
-      "type": 0
-    },
-    "name": "analog_input_1:9998",
-    "properties": {
-      "readWrite": "RW",
-      "valueType": "uint64"
-    }
-  },
-  {
-    "attributes": {
-      "instance": 1,
-      "property": 9999,
-      "type": 0
-    },
-    "name": "analog_input_1:9999",
-    "properties": {
-      "readWrite": "RW",
-      "valueType": "int32"
     }
   },
   {
