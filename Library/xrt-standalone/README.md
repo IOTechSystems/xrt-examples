@@ -17,7 +17,7 @@ This instance:
 
 | File | Purpose |
 |---|---|
-| `Dockerfile` | Adds `socat` and the entrypoint to `iotechsys/xrt-server:3.4.6` |
+| `Dockerfile` | Adds `socat` and the entrypoint to the Debian/Ubuntu XRT image (`iotechsys/xrt-server:<XRT_VERSION>-deb13` by default, see [`../README.md`](../README.md)) |
 | `entrypoint.sh` | Resolves Dev3's IP for BBMD, bridges Dev4's simulated MS/TP serial link over TCP to `/tmp/dev4-mstp`, then starts XRT |
 | `deployment.pkl` | Source of all XRT config: the components (Sparkplug bridge + the two BACnet components) and their devices and schedules |
 | `deployment/config/` | Component JSON config generated from `deployment.pkl` (gitignored) |

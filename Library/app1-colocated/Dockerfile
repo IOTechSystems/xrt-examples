@@ -1,36 +1,28 @@
-# XRT release to build against (see ../README.md): its libraries come from the
-# XRT image, and its headers from the matching XRT -dev package
+# XRT release to build against (see ../README.md). The app image is the
+# Debian or Ubuntu XRT image plus the app, built against the headers from the
+# matching XRT -dev package.
 ARG XRT_VERSION=3.4.6
-ARG XRT_IMAGE=iotechsys/xrt-server:${XRT_VERSION}
-
-FROM ${XRT_IMAGE} AS xrt
+ARG XRT_IMAGE=iotechsys/xrt-server:${XRT_VERSION}-deb13
 
 # Headers to build against instead of the XRT_VERSION -dev packages, given as
 # the xrt-include/iot-include build contexts (see ../README.md)
 FROM scratch AS xrt-include
 FROM scratch AS iot-include
 
-FROM alpine:3.24 AS builder
+FROM ${XRT_IMAGE} AS builder
 
 ARG XRT_VERSION
-ARG IOTECH_APK_REPO=https://iotech.jfrog.io/artifactory/alpine-release/v3.24/main
-ARG IOTECH_APK_KEY=https://iotech.jfrog.io/artifactory/api/security/keypair/public/repositories/alpine-release
+# XRT package name, whose -dev package has the headers
+ARG XRT_PACKAGE=iotech-xrt-3.4
+ARG IOTECH_APT_REPO=https://iotech.jfrog.io/iotech/debian-release
+ARG IOTECH_APT_KEY=https://iotech.jfrog.io/artifactory/api/gpg/key/public
 
-ENV XRT=/opt/iotech/xrt/3.4
-ENV IOT=/opt/iotech/iot/1.6
-
-RUN apk add --no-cache \
-      build-base \
-      yaml libcbor sqlite-libs protobuf-c libssl3 zlib libatomic
+RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev
 
 COPY --from=xrt-include / /tmp/xrt-include/
 COPY --from=iot-include / /tmp/iot-include/
 COPY common/install_headers.sh /tmp/
 RUN /tmp/install_headers.sh
-
-COPY --from=xrt ${XRT}/lib ${XRT}/lib
-COPY --from=xrt ${IOT}/lib ${IOT}/lib
-COPY --from=xrt /usr/lib/libsparkplug-b.so /usr/lib/
 
 WORKDIR /build
 COPY common/ common/
@@ -43,24 +35,12 @@ RUN gcc common/main.c common/spg_demo_app.c \
       -lxrt-sparkplug-app -lxrt -liot \
       -o spg_demo
 
-FROM alpine:3.24
+FROM ${XRT_IMAGE}
 
-ENV XRT=/opt/iotech/xrt/3.4
-ENV IOT=/opt/iotech/iot/1.6
-ENV LD_LIBRARY_PATH=${XRT}/lib:${IOT}/lib
 ENV XRT_STATE_DIR=/app/deployment/state
 
-RUN apk add --no-cache \
-      yaml libcbor sqlite-libs protobuf-c libssl3 zlib libatomic \
-      socat
-
-COPY --from=xrt ${XRT}/lib ${XRT}/lib
-COPY --from=xrt ${IOT}/lib ${IOT}/lib
-
-COPY --from=xrt /usr/lib/libsparkplug-b.so /usr/lib/
-COPY --from=xrt /usr/lib/libpaho-mqtt3as.so* /usr/lib/
-COPY --from=xrt /usr/lib/libbacnet-ip-1.3.so /usr/lib/
-COPY --from=xrt /usr/lib/libbacnet-mstp-1.3.so /usr/lib/
+RUN apt-get update && apt-get install -y --no-install-recommends socat \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY --from=builder /build/spg_demo .
