@@ -126,7 +126,7 @@ services:
     restart: unless-stopped
 
   xrt-opc-ua-server:
-    image: iotechsys/connect-opc-ua-server:3.4.6-dev
+    image: iotechsys/connect-opc-ua-server:3.4.6
     container_name: xrt-opc-ua-server
     depends_on:
       - mosquitto

@@ -32,7 +32,7 @@ container; connecting to four BACnet devices through an MQTT broker.
 | Diagram element | Directory / image | What it is |
 |---|---|---|
 | App1 (container) | [`app1-colocated/`](app1-colocated/README.md) | Custom C binary, XRT linked in as a library: a standard XRT Sparkplug node talking to Dev1 + Dev2 & the MQTT broker, plus the demo Sparkplug application component (`common/`) |
-| EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock `iotechsys/xrt-server:<XRT_VERSION>-deb13` image (the same XRT image as App1/App2), talks to Dev3 + Dev4 & MQTT broker |
+| EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock `iotechsys/xrt:<XRT_VERSION>-deb13` image (the same XRT image as App1/App2), talks to Dev3 + Dev4 & MQTT broker |
 | App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary, XRT linked in as a library: the standard XRT Sparkplug config minus device services and Sparkplug node, plus the same demo Sparkplug application component, consuming Dev1-4 through the MQTT broker |
 | Demo Sparkplug application | [`common/`](common/) | `App::SparkplugDemo`, an XRT component built the same way as `XRT::OPCUAServer`: the container hands it a Bus/ThreadPool/Logger and it does everything through the `xrt_spg_app` API. Shared by App1 and App2, along with the `main.c` that runs the container |
 | MQTT Sparkplug bus | `mosquitto` service (`mosquitto/mosquitto.conf`) | Eclipse Mosquitto broker |
@@ -58,7 +58,7 @@ Both custom-binary components (`app1-colocated`, `app2-standalone`) are
 compiled against XRT's public headers, and use only its public Sparkplug
 application API (`sparkplug/sparkplug_app.h`). They, and `xrt-standalone`, are
 built on IOTech's published Debian/Ubuntu XRT image for the release picked by
-the `XRT_VERSION` build argument, `iotechsys/xrt-server:${XRT_VERSION}-deb13`
+the `XRT_VERSION` build argument, `iotechsys/xrt:${XRT_VERSION}-deb13`
 by default (`XRT_IMAGE` picks another, e.g. the Ubuntu 24.04 one):
 
 - the image has the XRT and IOT runtime packages installed, with everything
@@ -91,7 +91,7 @@ To build against headers on this machine instead, use
 [`docker-compose.local-headers.yml`](docker-compose.local-headers.yml):
 
 ```bash
-XRT_IMAGE=<xrt-server image> XRT_INCLUDE=<dir> \
+XRT_IMAGE=<XRT image> XRT_INCLUDE=<dir> \
   docker compose -f docker-compose.yml -f docker-compose.local-headers.yml up --build
 ```
 
@@ -128,7 +128,7 @@ docker compose up --build
 ```
 
 This builds `app1-colocated`, `app2-standalone` and `xrt-standalone`
-(pulling `iotechsys/xrt-server:${XRT_VERSION}-deb13`, `iotechsys/connect-opc-ua-server:3.4.6-dev`,
+(pulling `iotechsys/xrt:${XRT_VERSION}-deb13`, `iotechsys/connect-opc-ua-server:3.4.6`,
 `iotechsys/opc-ua-browser:1.1` and `iotechsys/bacnet-sim:2.2.7` as-is) and
 starts all ten services.
 

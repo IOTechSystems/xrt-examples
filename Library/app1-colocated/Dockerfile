@@ -2,7 +2,7 @@
 # Debian or Ubuntu XRT image plus the app, built against the headers from the
 # matching XRT -dev package.
 ARG XRT_VERSION=3.4.6
-ARG XRT_IMAGE=iotechsys/xrt-server:${XRT_VERSION}-deb13
+ARG XRT_IMAGE=iotechsys/xrt:${XRT_VERSION}-deb13
 
 # Headers to build against instead of the XRT_VERSION -dev packages, given as
 # the xrt-include/iot-include build contexts (see ../README.md)

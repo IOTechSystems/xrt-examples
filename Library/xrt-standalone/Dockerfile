@@ -1,6 +1,6 @@
 # The same XRT image as app1/app2 (see ../README.md)
 ARG XRT_VERSION=3.4.6
-ARG XRT_IMAGE=iotechsys/xrt-server:${XRT_VERSION}-deb13
+ARG XRT_IMAGE=iotechsys/xrt:${XRT_VERSION}-deb13
 
 FROM ${XRT_IMAGE}
 
