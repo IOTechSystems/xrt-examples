@@ -1,0 +1,10 @@
+{
+  "Library": "libxrt-lua-transform.so",
+  "Factory": "xrt_lua_transform_factory",
+  "Logger": "2-logger",
+  "Bus": "5-bus",
+  "Scheduler": "4-sched",
+  "ThreadPool": "3-pool",
+  "ScriptFile": "${XRT_STATE_DIR}/transform.lua",
+  "ForceGC": false
+}
