@@ -3,6 +3,6 @@ docker run --rm --network host iotechsys/sparkplug-client pub -h localhost -t sp
 '{
   "metrics":
   [
-    { "name": "RandomNotification", "value": true, "datatype": 11 }
+    { "name": "Square", "is_null": true }
   ]
 }'
