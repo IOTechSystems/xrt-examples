@@ -1,13 +1,8 @@
 #!/bin/sh
-
-mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/zigbee -m \
+docker run --rm --network host iotechsys/sparkplug-client pub -h localhost -t spBv1.0/${SPARKPLUG_GROUP}/DCMD/${SPARKPLUG_NODE}/coordinator_device -m \
 '{
-  "client": "example",
-  "request_id": "1031",
-  "op": "device:put",
-  "type": "xrt.request:1.0",
-  "device": "coordinator_device",
-  "values": {
-    "permit_join": true
-  }
+  "metrics":
+  [
+    { "name": "permit_join", "value": true, "datatype": 11 }
+  ]
 }'
