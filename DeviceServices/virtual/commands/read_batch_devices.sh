@@ -7,7 +7,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual -m
   "op": "device:read_batch",
   "type": "xrt.request:1.0",
   "devices": [
-    "Virtual-Device",
+    "Virtual-Device-01",
     "Virtual-Device-02",
     "Virtual-Device-03"
   ]
