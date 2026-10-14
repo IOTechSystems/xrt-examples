@@ -1,0 +1,21 @@
+/// The demo Sparkplug application component (common/spg_demo_app.c), compiled
+/// into the app1-colocated and app2-standalone binaries.
+module spg_demo_app
+
+import "@XRT/core/XRT.pkl"
+
+class SparkplugDemoApp extends XRT.Logs {
+  hidden fixed type: XRT.ComponentType = "App::SparkplugDemo"
+  /// Reference to the Bus component the Sparkplug application runs on.
+  bus: XRT.BusRef
+  /// Reference to the ThreadPool component the Sparkplug application uses.
+  thread_pool: XRT.ThreadPoolRef
+  /// Sparkplug application id. Defaults to the XRT::Config NodeId.
+  app_id: String?
+  /// Device to issue a one-shot demo DCMD write to, once its metric is born.
+  write_device: String?
+  /// Metric of write_device to write.
+  write_metric: String?
+  /// Value to write.
+  write_value: Float?
+}

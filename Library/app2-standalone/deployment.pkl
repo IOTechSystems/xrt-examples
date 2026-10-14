@@ -1,0 +1,92 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/server/sparkplug.pkl"
+import "@XRT/bridge/mqtt_bridge.pkl"
+import "../common/spg_demo_app.pkl"
+
+/// Sparkplug application (host) id, also used as the XRT node id and MQTT client id.
+local APP_ID = "XRTLibSparkplugDemo2"
+local STATE_TOPIC = "spBv1.0/STATE/\(APP_ID)"
+local GROUP = "${SPARKPLUG_GROUP}"
+local PROTO = List("${SPARKPLUG_PROTO}")
+
+/// The standard XRT Sparkplug config, minus device services and the Sparkplug
+/// node: a Sparkplug application has no node identity of its own, it only
+/// consumes data from (and sends commands to) every node in the group.
+system =
+  minimalSystem()
+    |> withLogLevel("Info")
+    |> addComponents(new Listing<Component> {
+        new Config {
+          name = "config"
+          server_id = "app2-standalone-server"
+          node_id = APP_ID
+        }
+        new sparkplug.Sparkplug {
+          name = "sparkplug"
+        }
+        // Mirrors the MQTT bridge of the iotechsys/connect-opc-ua-server image: the
+        // Sparkplug application consumes every node's and device's messages, and
+        // publishes commands to any of them plus its own (JSON, so no transform) STATE.
+        new mqtt_bridge.MQTTBridge {
+          name = "mqtt_bridge"
+          logger = new LoggerRef { target = "logger" }
+          bus = new BusRef { target = "bus" }
+          app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+          patterns = Set(
+            new TopicPattern { pattern = "spBv1.0/\(GROUP)/NCMD/+"; qos = 0; transforms = PROTO },
+            new TopicPattern { pattern = "spBv1.0/\(GROUP)/DCMD/+/+"; qos = 0; transforms = PROTO },
+            new TopicPattern { pattern = STATE_TOPIC; qos = 1; retain = true },
+          )
+          mqtt_patterns = Set(
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NBIRTH/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NDEATH/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NDATA/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NACK/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DBIRTH/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DDEATH/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DDATA/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DACK/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/STATE/+"; qos = 1 },
+          )
+          mqtt_dynamic_patterns = Set()
+          mqtt_config {
+            server_uri = "${XRT_MQTT_BROKER}"
+            client_id = APP_ID
+            client_config {
+              username = "${XRT_MQTT_USERNAME}"
+              password = "${XRT_MQTT_PASSWORD}"
+              keep_alive_interval = 10.s
+              mqtt_version = 5
+              will_config {
+                topic = STATE_TOPIC
+                qos = 1
+                retain = true
+              }
+            }
+          }
+        }
+        new ThreadPool {
+          name = "spgapp_pool"
+          logger = new LoggerRef { target = "logger" }
+          threads = 5
+        }
+        new spg_demo_app.SparkplugDemoApp {
+          name = "spg_demo_app"
+          logger = new LoggerRef { target = "logger" }
+          bus = new BusRef { target = "bus" }
+          thread_pool = new ThreadPoolRef { target = "spgapp_pool" }
+          app_id = APP_ID
+          write_device = "Dev3"
+          write_metric = "analog_output_0:present-value"
+          write_value = 789.0
+        }
+      })
+
+// No device services, so there's no state to write out: all of this node's
+// component config is compiled into spg_standalone from deployment_config.h.
+// TODO: generate deployment_config.h from here, once the XRT Pkl schema can
+// render component config as C string constants.
+output {
+  files = system.deployment().toMap().filter((path, _) -> path.startsWith("state/")).toMapping()
+}
