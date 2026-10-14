@@ -48,6 +48,13 @@ Since, with the example, a device has already been added to the device service w
 In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed.
 You should also see a DDEATH message after successfully removing a device.
 
+If we need to removed multiple devices with one command, a batch operation will be used (available only for the Virtual example at the moment).
+
+```bash
+./commands/remove_batch_devices.sh
+```
+You will get a REPLY with the result for each device in the REQUEST. If the device does not exist, it will return 1 for status.
+
 ### Add a new device
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
 
@@ -57,6 +64,26 @@ Lets add the device back with a profile field defined. This will match the newly
 
 Again, you should be able to see the 'add request' message and it's reponse indicating that the device was successfully added. 
 You should also see a DBIRTH message containing all the metrics of the newly added device.
+
+If adding multiple device is needed, a batch operation can be used to add them in one REQUEST (available only for the Virtual example at the moment).
+
+```bash
+./commands/add_batch_devices.sh
+```
+This will add three devices. The result will be in the REPLY topic.
+
+### Device status
+
+If a state of multiple devices is needed, a batch read can be used (available only for the Virtual example at the moment).
+
+```bash
+# To read the sate of specific devices
+./commands/read_batch_devices.sh
+# Or using a wildcard to retrive information about all the availabe devices
+./commands/read_batch_devices_all.sh
+```
+
+After the REQUEST topic, a REPLY topic with device information, including device names and operational status will be generated.
 
 ## Reading 
 
@@ -77,6 +104,7 @@ to "true". Unlike the write DCMD message payload, the `datatype` field is not ma
 * `is_null`: Boolean field used to specify that the metric's value is null when set to `true`. By default, when set to 'true', it indicates the intent to read the metric's value.
 
 If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested.
+
 
 ## Writing
 
@@ -116,6 +144,29 @@ the resource, and the interval we are wanting to read this resource at.
 The reply should indicate if the schedule add request was successful or not. 
 You should then also start to see readings being published on the `DDATA` Topic.
 
+If multiple schedules are needed, a batch operation can be used (available only for the Virtual example at the moment).
+
+```bash
+./commands/add_batch_schedules.sh
+```
+
+The REPLY topic will show the state of the requested schedules.
+
+### Get state of schedules
+
+A batch operation can be used to get the state of schedules (available only for the Virtual example at the moment).
+
+```bash
+# To get the state of specific shedules
+./commands/read_batch_schedules.sh 
+# To get the state of schedules base on their device
+./commands/read_batch_schedules_by_device.sh
+# To get all the availbe schedules, using a wildcard pattern 
+./commands/read_batch_schedules_all.sh
+```
+
+Once the REQUEST topic is published, a REPLY topic is generated with the state of each schedules.
+
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
 ```bash
@@ -125,4 +176,15 @@ Once we have received a few readings we can then remove the schedule:
 In the request message you should see that we include the name of the schedule that we are wanting to remove. 
 
 The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.
+
+If more than once schedule should be removed, a batch operation can be used (available only for the Virtual example at the moment).
+
+```bash
+# To remove a list of specific schedules
+./commands/remove_batch_schedules.sh
+# To remove schedules of a specific device
+./commands/remove_batch_schedules_by_device.sh
+```
+
+Once the REQUEST topic is published, a REPLY topic will be generated with the batch operation result.
 
