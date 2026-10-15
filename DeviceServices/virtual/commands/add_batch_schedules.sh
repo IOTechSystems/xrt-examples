@@ -19,7 +19,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual -m
       "schedule": {
         "name":"virtual-schedule2",
         "device":"Virtual-Device",
-        "resource":["RandomInt8","CountingUpFloat32"],
+        "resource":["SineWaveWithOffsetAndPhase","TriangleWaveWithOffsetAndPhase"],
         "interval": 10000000
       }
     },
@@ -27,7 +27,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/virtual -m
       "schedule": {
         "name":"virtual-schedule3",
         "device":"Virtual-Device",
-        "resource":["RandomInt8","CountingUpFloat32"],
+        "resource":["SquareWaveWithOffsetAndPhase","RandomFloat64"],
         "interval": 20000000
       }
     }

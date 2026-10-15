@@ -48,12 +48,12 @@ Since, with the example, a device has already been added to the device service w
 In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed.
 You should also see a DDEATH message after successfully removing a device.
 
-If we need to removed multiple devices with one command, a batch operation will be used (available only for the Virtual example at the moment).
+To remove multiple devices with one command, a batch operation can be used (available only for the Virtual example at the moment).
 
 ```bash
 ./commands/remove_batch_devices.sh
 ```
-You will get a REPLY with the result for each device in the REQUEST. If the device does not exist, it will return 1 for status.
+For each available device, a DDEATH message will be published. Then, you will get a REPLY with the result for each device in the REQUEST. If the device does not exist, it will return 1 for status.
 
 ### Add a new device
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
@@ -70,7 +70,7 @@ If adding multiple device is needed, a batch operation can be used to add them i
 ```bash
 ./commands/add_batch_devices.sh
 ```
-This will add three devices. The result will be in the REPLY topic.
+This will add three devices. A DBIRTH message will be published for each successfully added device. Then result of adding every device will be in the REPLY message.
 
 ### Device status
 
@@ -79,11 +79,11 @@ If a state of multiple devices is needed, a batch read can be used (available on
 ```bash
 # To read the sate of specific devices
 ./commands/read_batch_devices.sh
-# Or using a wildcard to retrive information about all the availabe devices
+# Or using a wildcard to retrieve information about all the available devices
 ./commands/read_batch_devices_all.sh
 ```
 
-After the REQUEST topic, a REPLY topic with device information, including device names and operational status will be generated.
+After the REQUEST message, a REPLY message with device information, including device names and operational status will be generated.
 
 ## Reading 
 
@@ -138,19 +138,20 @@ Let's add our own schedule:
 ./commands/add_schedule.sh
 ```
 
-In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
-the resource, and the interval we are wanting to read this resource at. 
-
-The reply should indicate if the schedule add request was successful or not. 
-You should then also start to see readings being published on the `DDATA` Topic.
-
 If multiple schedules are needed, a batch operation can be used (available only for the Virtual example at the moment).
 
 ```bash
 ./commands/add_batch_schedules.sh
 ```
 
-The REPLY topic will show the state of the requested schedules.
+The REPLY message will show the state of the requested schedules.
+
+In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
+the resource, and the interval we are wanting to read this resource at. 
+
+The reply should indicate if the schedule add request was successful or not. 
+You should then also start to see readings being published on the `DDATA` Topic.
+
 
 ### Get state of schedules
 
@@ -165,7 +166,7 @@ A batch operation can be used to get the state of schedules (available only for 
 ./commands/read_batch_schedules_all.sh
 ```
 
-Once the REQUEST topic is published, a REPLY topic is generated with the state of each schedules.
+Once the REQUEST message is published, a REPLY message is generated with the state of each schedules.
 
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
@@ -186,5 +187,5 @@ If more than once schedule should be removed, a batch operation can be used (ava
 ./commands/remove_batch_schedules_by_device.sh
 ```
 
-Once the REQUEST topic is published, a REPLY topic will be generated with the batch operation result.
+Once the REQUEST message is published, a REPLY message will be generated with the batch operation result.
 
