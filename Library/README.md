@@ -74,6 +74,7 @@ by default (`XRT_IMAGE` picks another, e.g. the Ubuntu 24.04 one):
 | IOT | **1.6.6** | core library |
 | Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | runtime only, for XRT's MQTT bridge |
 | Sparkplug B (`sparkplug-b`) | **1.0.1** | runtime only, the protobuf codec for XRT's Sparkplug transform |
+| XRT Pkl package | **3.4.6+1** | the `deployment.pkl` schema, downloaded from `iotech.jfrog.io` (see [`PklProject`](PklProject)) |
 
 The Sparkplug application API needs the XRT-4041 changes
 (`xrt_spg_app_config_init`, a self-contained `sparkplug_app.h`, and

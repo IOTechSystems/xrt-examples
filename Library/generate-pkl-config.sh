@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # Regenerates deployment/ for a Library/<app> directory from its
 # deployment.pkl, using the XRT Pkl deployment schema. Requires:
-#   - the `pkl` CLI (https://pkl-lang.org)
-#   - a sibling checkout of https://github.com/IOTechSystems/xrt at
-#     ../../xrt (relative to this script), on v3.4-branch (the schema lives
-#     in src/pkl/deploy).
+#   - the `pkl` CLI (https://pkl-lang.org), 0.29 or later
+#   - network access to iotech.jfrog.io, where the XRT Pkl package (the
+#     version in PklProject) is downloaded from on first use.
 #
 # xrt-standalone gets its component config (deployment/config) and device
 # state (devices/schedules under deployment/state). app1-colocated only gets
