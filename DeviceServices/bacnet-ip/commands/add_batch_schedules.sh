@@ -11,7 +11,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip 
       "schedule": {
         "name":"bacnet-ip-schedule1",
         "device":"bacnet-ip-sim",
-        "resource":["analog_input_0:present-value","analog_input_1:present-value"],
+        "resource":["IOTech BACnet Simulator:system-status","IOTech BACnet Simulator:local-time"],
         "interval": 2000000
       }
     },
@@ -19,7 +19,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip 
       "schedule": {
         "name":"bacnet-ip-schedule2",
         "device":"bacnet-ip-sim",
-        "resource":["analog_value_0:present-value"],
+        "resource":["analog_output_0:present-value"],
         "interval": 10000000
       }
     },
@@ -27,7 +27,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip 
       "schedule": {
         "name":"bacnet-ip-schedule3",
         "device":"bacnet-ip-sim",
-        "resource":["analog_value_1:present-value"],
+        "resource":["analog_output_1:present-value"],
         "interval": 20000000
       }
     }
