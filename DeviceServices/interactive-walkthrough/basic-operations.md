@@ -48,6 +48,13 @@ Since, with the example, a device has already been added to the device service w
 In your other terminal window, you should see the request message that was sent and also response to this message indicating that the device was successfully removed.
 You should also see a DDEATH message after successfully removing a device.
 
+A batch operation can be used to remove multiple devices with one command.
+
+```bash
+./commands/remove_batch_devices.sh
+```
+For each removed device, a DDEATH message will be published, along with a REPLY with the result for each device in the REQUEST. If the device does not exist, it will return 1 for status.
+
 ### Add a new device
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
 
@@ -55,14 +62,34 @@ Lets add the device back with a profile field defined. This will match the newly
 ./commands/add_device.sh
 ```
 
-Again, you should be able to see the 'add request' message and it's reponse indicating that the device was successfully added. 
+Again, you should be able to see the 'add request' message, and it's response indicating that the device was successfully added. 
 You should also see a DBIRTH message containing all the metrics of the newly added device.
+
+A batch operation can be used to add multiple devices with one REQUEST command.
+
+```bash
+./commands/add_batch_devices.sh
+```
+This will add three devices. A DBIRTH message will be published for each successfully added device. The result of adding every device will be published in the REPLY message.
+
+### Device status
+
+A batch read can be used to get the state of multiple devices in one REQUEST command.
+
+```bash
+# To read the sate of specific devices
+./commands/read_batch_devices.sh
+# Or using a wildcard to retrieve information about all the available devices
+./commands/read_batch_devices_all.sh
+```
+
+After the REQUEST message, a REPLY message with device information, including device names and operational status will be generated.
 
 ## Reading 
 
 ### DCMD Read Commands
 
-For all device services, the data is read using the DCMD and DDATA topics (protobuf endoced) instead of the Request/Reply topics. 
+For all device services, the data is read using the DCMD and DDATA topics (protobuf encoded) instead of the Request/Reply topics. 
 This is handled by `read.sh` and `multi_read.sh` command scripts.
 
 The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are reading from we add its `Device ID` 
@@ -78,11 +105,12 @@ to "true". Unlike the write DCMD message payload, the `datatype` field is not ma
 
 If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested.
 
+
 ## Writing
 
 ### DCMD Write Commands
 
-For all device services, the data is written using the DCMD and DDATA topics (protobuf endoced) instead of the Request/Reply topics.
+For all device services, the data is written using the DCMD and DDATA topics (protobuf encoded) instead of the Request/Reply topics.
 This is handled by `write.sh` and `multi_write.sh` command scripts.
 
 The topic for sending DCMD commands is defined in the `7-mqtt.json` file in the config. To specify the device which we are writing to we add its `Device ID` 
@@ -110,11 +138,35 @@ Let's add our own schedule:
 ./commands/add_schedule.sh
 ```
 
+A batch command can be used to add multiple schedules in one REQUEST command.
+
+```bash
+./commands/add_batch_schedules.sh
+```
+
+The REPLY message will show the state of the requested schedules.
+
 In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
 the resource, and the interval we are wanting to read this resource at. 
 
-The reply should indicate if the schedule add request was successful or not. 
+The reply should indicate if the schedule:add_batch operation was successful or not. 
 You should then also start to see readings being published on the `DDATA` Topic.
+
+
+### Get state of schedules
+
+A batch operation can be used to get the state of schedules.
+
+```bash
+# To get the state of specific schedules
+./commands/read_batch_schedules.sh 
+# To get the state of schedules base on their device
+./commands/read_batch_schedules_by_device.sh
+# To get all the available schedules, using a wildcard pattern 
+./commands/read_batch_schedules_all.sh
+```
+
+Once the REQUEST message is published, a REPLY message is generated with the state of each schedule.
 
 ### Delete schedule
 Once we have received a few readings we can then remove the schedule:
@@ -125,4 +177,15 @@ Once we have received a few readings we can then remove the schedule:
 In the request message you should see that we include the name of the schedule that we are wanting to remove. 
 
 The response to this message should indicate that the deletion of the schedule was successful. The readings that were previously being published should now have stopped.
+
+A batch operation can be used to remove multiple schedules with one REQUEST command.
+
+```bash
+# To remove a list of specific schedules
+./commands/remove_batch_schedules.sh
+# To remove schedules of a specific device
+./commands/remove_batch_schedules_by_device.sh
+```
+
+Once the REQUEST message is published, a REPLY message will be generated with the batch operation result.
 
