@@ -149,7 +149,7 @@ The REPLY message will show the state of the requested schedules.
 In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
 the resource, and the interval we are wanting to read this resource at. 
 
-The reply should indicate if the schedule adds request was successful or not. 
+The reply should indicate if the schedule:add_batch operation was successful or not. 
 You should then also start to see readings being published on the `DDATA` Topic.
 
 
