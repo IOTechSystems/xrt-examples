@@ -21,7 +21,7 @@ The simulator runs its own BlueZ daemon and creates two virtual Bluetooth contro
 - The host `bluetooth` service is stopped and masked until the next reboot, as the simulator's BlueZ daemon cannot start while it is running.
 - Every Bluetooth controller on the host is released by unbinding it from its driver (for example `btusb` for USB adapters), so that none of them takes `hci0`.
 
-While the simulator is running, the host's own Bluetooth is unavailable. Only the changes the script actually makes are recorded, in `/tmp/ble-sim-host-state`. If any step fails, the script restores these changes before exiting.
+While the simulator is running, the host's own Bluetooth is unavailable. Only the changes the script actually makes are recorded, in `~/.local/state/xrt-examples/ble-sim-host-state`. If any step fails, the script restores these changes before exiting.
 
 The script also mounts [ble-sim-main.conf](commands/ble-sim-main.conf) into the simulator, which disables Enhanced ATT (EATT). Without it, GATT discovery between the simulator and the device service can stall and the device service does not find the device's characteristics.
 
