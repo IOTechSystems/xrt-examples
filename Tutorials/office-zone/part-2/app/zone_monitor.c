@@ -50,8 +50,10 @@ typedef struct zone_monitor_t
   bool fan_on;
 } zone_monitor_t;
 
-/* Sends a DCMD to switch the fan on. Runs as a thread pool job, because
- * commands can't be sent from inside a Sparkplug application callback. */
+/* Sends a DCMD to switch the fan on. Runs as a thread pool job: while the
+ * Sparkplug application runs on_metric_value_updated it holds the device's
+ * lock, which xrt_spg_app_device_get_metric also takes, so looking up the
+ * fan metric from inside that callback would deadlock (XRT-4202). */
 static void *zone_monitor_fan_on (void *arg)
 {
   zone_monitor_t *zm = arg;
