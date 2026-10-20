@@ -70,7 +70,7 @@ A batch operation can be used to add multiple devices with one REQUEST command.
 ```bash
 ./commands/add_batch_devices.sh
 ```
-This example adds three devices, but a batch operation can add any number of devices in a single REQUEST. A DBIRTH message will be published for each successfully added device. The result of adding every device will be published in the REPLY message.
+A DBIRTH message will be published for each successfully added device. The result of adding every device will be published in the REPLY message.
 
 ### Device status
 
