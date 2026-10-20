@@ -1,0 +1,24 @@
+/// The zone monitor component (zone_monitor.c), compiled into the zone_monitor application.
+module zone_monitor
+
+import "@XRT/core/XRT.pkl"
+import "@XRT/client/sparkplug_app.pkl"
+
+class ZoneMonitor extends XRT.Logs {
+  hidden fixed type: XRT.ComponentType = "App::ZoneMonitor"
+  /// Reference to the Bus component the Sparkplug application runs on.
+  bus: XRT.BusRef
+  /// Reference to the ThreadPool component the Sparkplug application uses.
+  thread_pool: XRT.ThreadPoolRef
+  /// Sparkplug application id. Defaults to the XRT::Config NodeId.
+  app_id: String?
+  /// Sparkplug edge node that publishes the zone.
+  node: String
+  /// Sparkplug device of the zone.
+  device: String
+  /// Degrees C above the setpoint at which the fan is switched on.
+  max_temperature_offset: Float?
+  /// Sparkplug application settings.
+  @XRT.Key { id = "SparkplugConfig" }
+  sparkplug_config: sparkplug_app.SparkplugAppConfig?
+}
