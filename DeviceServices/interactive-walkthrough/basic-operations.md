@@ -62,7 +62,7 @@ Lets add the device back with a profile field defined. This will match the newly
 ./commands/add_device.sh
 ```
 
-Again, you should be able to see the 'add request' message, and it's response indicating that the device was successfully added. 
+Again, you should be able to see the 'add request' message, and its response indicating that the device was successfully added. 
 You should also see a DBIRTH message containing all the metrics of the newly added device.
 
 A batch operation can be used to add multiple devices with one REQUEST command.
@@ -77,13 +77,13 @@ A DBIRTH message will be published for each successfully added device. The resul
 A batch read can be used to get the state of multiple devices in one REQUEST command.
 
 ```bash
-# To read the sate of specific devices
+# To read the state of specific devices
 ./commands/read_batch_devices.sh
 # Or using a wildcard to retrieve information about all the available devices
 ./commands/read_batch_devices_all.sh
 ```
 
-After the REQUEST message, a REPLY message with device information, including device names and operational status will be generated.
+After the REQUEST message, a REPLY message with device information, including device names and operational status, will be generated.
 
 ## Reading 
 
@@ -104,7 +104,6 @@ to "true". Unlike the write DCMD message payload, the `datatype` field is not ma
 * `is_null`: Boolean field used to specify that the metric's value is null when set to `true`. By default, when set to 'true', it indicates the intent to read the metric's value.
 
 If the DCMD command was successful, you should see a `DDATA` message with the resource values you requested.
-
 
 ## Writing
 
@@ -138,20 +137,19 @@ Let's add our own schedule:
 ./commands/add_schedule.sh
 ```
 
+In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
+the resource, and the interval we are wanting to read this resource at. 
+
+The reply should indicate if the add request was successful or not.
+You should then also start to see readings being published on the `DDATA` Topic.
+
 A batch command can be used to add multiple schedules in one REQUEST command.
 
 ```bash
 ./commands/add_batch_schedules.sh
 ```
 
-The REPLY message will show the state of the requested schedules.
-
-In the request message you should see information about the schedule we are wanting to add, such as the name of the schedule, the name of the device, 
-the resource, and the interval we are wanting to read this resource at. 
-
-The reply should indicate if the schedule:add_batch operation was successful or not. 
-You should then also start to see readings being published on the `DDATA` Topic.
-
+The REPLY message will show the state of each requested schedule, and readings will be published on the `DDATA` Topic for each schedule that was added.
 
 ### Get state of schedules
 
@@ -159,10 +157,10 @@ A batch operation can be used to get the state of schedules.
 
 ```bash
 # To get the state of specific schedules
-./commands/read_batch_schedules.sh 
-# To get the state of schedules base on their device
+./commands/read_batch_schedules.sh
+# To get the state of schedules based on their device
 ./commands/read_batch_schedules_by_device.sh
-# To get all the available schedules, using a wildcard pattern 
+# To get all the available schedules, using a wildcard pattern
 ./commands/read_batch_schedules_all.sh
 ```
 
@@ -187,5 +185,5 @@ A batch operation can be used to remove multiple schedules with one REQUEST comm
 ./commands/remove_batch_schedules_by_device.sh
 ```
 
-Once the REQUEST message is published, a REPLY message will be generated with the batch operation result.
+Once the REQUEST message is published, a REPLY message will be generated with the result for each schedule.
 
