@@ -1,0 +1,36 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The office zone controller: BACnet/IP device instance 1234, using the office-zone-profile device profile
+local office = bacnet.device(
+  "office-zone",
+  "office-zone-profile",
+  new bacnet.IPProtocolType { instance_id = 1234 },
+)
+
+system =
+  standardSystem("tutorial-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("bacnet_ip")
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugNodeOptions((n) -> (n) {
+        app_state_wait = List()
+      })
+    |> bacnet.ip_instance("", "bacnet_ip")
+    |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          bbmd_address = "${BACNET_SIM_ADDRESS}"
+        }
+      })
+    |> withDevices("bacnet_ip", Set(office))
+    |> withSchedules("bacnet_ip", Set(
+        office.new_schedule("office-zone-schedule", Set(".*:present-value"), 5.s),
+      ))
+
+output {
+  files = system.deployment()
+}
