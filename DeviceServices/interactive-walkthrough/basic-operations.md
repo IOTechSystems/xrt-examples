@@ -53,7 +53,7 @@ A batch operation can be used to remove multiple devices with one command.
 ```bash
 ./commands/remove_batch_devices.sh
 ```
-For each removed device, a DDEATH message will be published, along with a REPLY with the result for each device in the REQUEST. If the device does not exist, it will return 1 for status.
+For each removed device, a DDEATH message will be published, along with a REPLY that indicates the result for each device in the REQUEST. If a device does not exist, its status will be 1, which means "not found".
 
 ### Add a new device
 Lets add the device back with a profile field defined. This will match the newly added device to a profile in the `profiles` folder.
@@ -70,7 +70,7 @@ A batch operation can be used to add multiple devices with one REQUEST command.
 ```bash
 ./commands/add_batch_devices.sh
 ```
-This will add three devices. A DBIRTH message will be published for each successfully added device. The result of adding every device will be published in the REPLY message.
+This example adds three devices, but a batch operation can add any number of devices in a single REQUEST. A DBIRTH message will be published for each successfully added device. The result of adding every device will be published in the REPLY message.
 
 ### Device status
 
