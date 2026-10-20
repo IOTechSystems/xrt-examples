@@ -8,6 +8,17 @@ For more information about the Device Service please review the [CANbus Device S
 
 ## Getting Started
 
+### **Run the simulator**
+
+The example device connects to the CANbus simulator at `192.168.50.7:20001`. The script creates a docker network, `canbus-sim-net` (subnet `192.168.50.0/24`), if it does not exist yet, and starts the simulator on it with that address:
+
+```bash
+cd DeviceServices/canbus
+./commands/start_device_sim.sh
+```
+
+Use `./commands/stop_device_sim.sh` to stop it.
+
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:

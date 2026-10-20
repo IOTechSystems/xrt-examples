@@ -19,7 +19,7 @@ _For more information about the BLE device simulator, see [BLE Simulator](https:
 The simulator runs its own BlueZ daemon and creates two virtual Bluetooth controllers, which must be `hci0` and `hci1`. To make this possible, the script prepares the host before starting the simulator and asks for your `sudo` password:
 
 - The host `bluetooth` service is stopped and masked until the next reboot, as the simulator's BlueZ daemon cannot start while it is running.
-- Every Bluetooth controller on the host is released by unbinding it from its driver (for example `btusb` for USB adapters), so that none of them takes `hci0`.
+- Every Bluetooth controller on the host is released by unbinding it from its driver (for example `btusb` for USB adapters), so that none of them takes `hci0`. For a USB adapter, all of its interfaces claimed by the same driver are unbound, not only the one behind the controller.
 
 While the simulator is running, the host's own Bluetooth is unavailable. Only the changes the script actually makes are recorded, in `~/.local/state/xrt-examples/ble-sim-host-state`. If any step fails, the script restores these changes before exiting.
 

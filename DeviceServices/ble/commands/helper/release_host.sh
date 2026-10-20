@@ -25,15 +25,33 @@ fi
 for hci in /sys/class/bluetooth/hci*; do
   name=${hci##*/}
   case $name in *:*) continue ;; hci[0-9]*) ;; *) continue ;; esac  # skip connection entries such as hci0:42
+  [ -e $hci ] || continue  # already gone, as it was an interface of a USB adapter released earlier in this loop
   if [ ! -e $hci/device/driver ]; then  # checked by check_host.sh, this covers a controller that appeared since
     echo "Error: $name is a virtual controller or has no driver to unbind"
     exit 1
   fi
   driver=$(readlink -f $hci/device/driver)
   device=$(basename $(readlink -f $hci/device))
+  usb_parent=$(dirname $(readlink -f $hci/device))
   echo "Releasing $name ($(basename $driver) $device)"
   echo "unbind $driver $device" >> $HOST_STATE
   echo $device | sudo tee $driver/unbind > /dev/null || { echo "Error: could not release $name"; exit 1; }
+
+  # A USB adapter exposes several interfaces (for example 1-1:1.0 for HCI and 1-1:1.1 for ISOC), all claimed by the same
+  # driver. Release the other interfaces of the same USB device too, otherwise the adapter is only partly released.
+  case $driver in
+    /sys/bus/usb/drivers/*)
+      for sibling in "$usb_parent"/*:*; do
+        [ -d "$sibling" ] || continue
+        sibling_device=${sibling##*/}
+        [ "$sibling_device" = "$device" ] && continue
+        [ "$(readlink -f "$sibling/driver" 2>/dev/null)" = "$driver" ] || continue
+        echo "Releasing $name interface $sibling_device ($(basename $driver))"
+        echo "unbind $driver $sibling_device" >> $HOST_STATE
+        echo $sibling_device | sudo tee $driver/unbind > /dev/null ||
+          { echo "Error: could not release $name interface $sibling_device"; exit 1; }
+      done ;;
+  esac
 done
 timeout 5 sh -c 'while ls /sys/class/bluetooth/ 2>/dev/null | grep -q "^hci[0-9]*$"; do sleep 0.2; done' ||
   { echo "Error: Bluetooth controllers are still present"; exit 1; }

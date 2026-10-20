@@ -6,7 +6,7 @@ This page shows you how to setup and run the EtherNet/IP Device Service Example.
 
 For more information about the Device Service please review the [EtherNet/IP Device Service](https://docs.iotechsys.com/edge-xrt20/device-service-components/ethernet-ip-device-service-component.html) documentation.
 
-_Note if connecting to the EtherNet/IP docker simulator change the NetworkInterface driver option (`deployment/config/ethernet_ip.json`) to docker0 otherwise set it to the name of the network interface used on your host to communicate with EtherNet/IP devices on your local network._
+_Note the `NetworkInterface` driver option in `deployment/config/10-ethernet_ip.json` is set to `docker0`, which is the interface used to reach the EtherNet/IP docker simulators. To connect to real EtherNet/IP devices, change it to the name of the network interface used on your host to communicate with them on your local network._
 
 ## Getting Started
 
@@ -18,6 +18,8 @@ _for more information about the EtherNet/IP device simulator, see [EtherNet/IP S
 cd DeviceServices/ethernet-ip
 ./commands/start_device_sim.sh
 ```
+
+The script starts four simulator containers: `ethernetip-sim` for the single device example and `ethernetip-sim-01`, `ethernetip-sim-02` and `ethernetip-sim-03` for the batch device example. Each device needs its own simulator, as the device service does not support multiple devices at the same IP address. Use `./commands/stop_device_sim.sh` to stop them.
 
 ### Set Environment Variables
 
@@ -38,7 +40,7 @@ _Note the dot before the path to the script, which is required to set the enviro
 export ETHERNETIP_SIM_ADDRESS=<IP-Address>
 ```
 
-An explanation for the setting of common device service enviroment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
 ### Common Device Service Setup
 
@@ -59,6 +61,18 @@ xrt deployment/config
 ### Basic Operations
 
 For basic device service operations see the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md) guide.
+
+### Batch Operations
+
+The batch commands are described in the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md). For this example:
+
+- `commands/add_batch_devices.sh` adds `ethernetip-sim-01`, `ethernetip-sim-02` and `ethernetip-sim-03`. The four simulators must be running first (see [Run the simulator](#run-the-simulator)).
+- `commands/add_batch_schedules.sh` adds schedules for the single `ethernetip-sim` device, so that device must be added first with `commands/add_device.sh`.
+- The `read_batch_*` and `remove_batch_*` scripts read and remove the batch devices and schedules.
+
+### Digital Inputs
+
+The `ethernetip-sim-profile` exposes the eight digital inputs as one packed `DI` resource of type `Int8`, where bit _n_ is `DIn` and bit 7 is the sign bit. Digital outputs `DO0`-`DO6` are read/write.
 
 ### Discovery & Profile Generation
 

@@ -26,11 +26,13 @@ _Note the dot before the path to the script, which is required to set the enviro
 
 An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
-The example device uses an environment variable, `FILE_DIR_PATH` to set the directory path to use. Below is an example of setting the `Directory` to `example-files` using this environment variable:
+The example device uses an environment variable, `FILE_DIR_PATH` to set the directory path to use. Below is an example of setting the `Directory` to `/tmp/example-files` using this environment variable:
 
 ```bash
-export FILE_DIR_PATH=/example-files
+export FILE_DIR_PATH=/tmp/example-files
 ```
+
+_`/tmp` is writable by any user, so no `sudo` is needed. Its contents are usually removed on reboot, so choose another user-writable directory if the files must persist. If XRT runs in a container, the directory must be mounted into it._
 
 ### Create the Example Files
 
@@ -55,13 +57,13 @@ The `file-example` profile maps each resource to a file:
 Each file contains the value as plain text. To create them in `${FILE_DIR_PATH}`:
 
 ```bash
-mkdir -p ${FILE_DIR_PATH}
-cd ${FILE_DIR_PATH}
-echo -n "hello" > string.txt
-echo -n "1.5" > float.txt
-echo -n "2.25" > double.txt
-for t in int8 int16 int32 int64 uint8 uint16 uint32 uint64; do echo -n "42" > $t.txt; done
-cd -
+mkdir -p "${FILE_DIR_PATH}" && cd "${FILE_DIR_PATH}" && {
+  printf "hello" > string.txt
+  printf "1.5" > float.txt
+  printf "2.25" > double.txt
+  for t in int8 int16 int32 int64 uint8 uint16 uint32 uint64; do printf "42" > $t.txt; done
+}
+cd - > /dev/null
 ```
 
 > **Note** Make sure the user running XRT has read and write permissions on the directory and files.
