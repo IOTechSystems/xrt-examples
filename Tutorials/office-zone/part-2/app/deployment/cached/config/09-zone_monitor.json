@@ -1,0 +1,15 @@
+{
+  "Name": "zone_monitor",
+  "Logger": "00-logger",
+  "Bus": "07-bus",
+  "ThreadPool": "06-app_pool",
+  "Node": "${SPARKPLUG_NODE}",
+  "Device": "office-zone",
+  "MaxTemperatureOffset": 1.0,
+  "SparkplugConfig": {
+    "IssueDREBIRTHS": false,
+    "IssueNREBIRTHS": false,
+    "EnableBirthCache": true,
+    "BirthCacheDir": "/app/state"
+  }
+}
