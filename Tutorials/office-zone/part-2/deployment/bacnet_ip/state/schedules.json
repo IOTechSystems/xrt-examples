@@ -1,0 +1,14 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "office-zone-schedule",
+      "device": "office-zone",
+      "resource": [
+        ".*:present-value"
+      ],
+      "interval": 5000000,
+      "on_change": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "Name": "config",
+  "ServerId": "zone-monitor-server",
+  "NodeId": "zone-monitor",
+  "Timeout": 0
+}
