@@ -1,0 +1,16 @@
+apiVersion: 1
+
+datasources:
+  - name: Historian
+    uid: historian
+    type: grafana-postgresql-datasource
+    url: timescaledb:5432
+    user: ${POSTGRES_USER}
+    database: historian
+    isDefault: true
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1500
+      timescaledb: true
+    secureJsonData:
+      password: ${POSTGRES_PASSWORD}
