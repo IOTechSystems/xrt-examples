@@ -5,7 +5,5 @@ xrt.env
 PklProject.deps.json
 # Written by Xrt at runtime. The directory itself is kept, because Xrt
 # does not create it
-deployment/state/*
-!deployment/state/sparkplug/
 deployment/state/sparkplug/*
 !deployment/state/sparkplug/.gitkeep
