@@ -2,7 +2,7 @@
 module zone_monitor
 
 import "@XRT/core/XRT.pkl"
-import "@XRT/client/sparkplug_app.pkl"
+import "sparkplug_app.pkl"
 
 class ZoneMonitor extends XRT.Logs {
   hidden fixed type: XRT.ComponentType = "App::ZoneMonitor"
