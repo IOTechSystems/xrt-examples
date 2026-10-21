@@ -1,0 +1,206 @@
+name: bess-tutorial
+
+services:
+  # Infrastructure
+
+  mqtt-broker:
+    image: emqx:5.8.8
+    container_name: mqtt-broker
+    healthcheck:
+      test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    ports:
+      - "1883:1883"
+      - "18083:18083"
+
+  timescaledb:
+    image: timescale/timescaledb:2.23.1-pg15
+    container_name: timescaledb
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_MULTIPLE_DATABASES: historian, alarms
+    volumes:
+      - timescaledb:/var/lib/postgresql/data
+      - ./timescaledb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Simulated equipment
+
+  modbus-sim:
+    image: iotechsys/pymodbus-sim:1.1.1
+    container_name: modbus-sim
+    command: >
+      --unit 1:/profiles/enclosure-sensor-profile.json
+      --unit 2:/profiles/battery-rack-profile.json
+      --unit 3:/profiles/battery-rack-profile.json
+      --script /sim/bess.py
+      --delay 1
+      --comm tcp
+      --port 1502
+    volumes:
+      - ./deployment/modbus/profiles:/profiles:ro
+      - ./simulators/modbus:/sim:ro
+
+  opcua-sim:
+    image: iotechsys/opc-ua-sim:1.4.0
+    container_name: opcua-sim
+    command: ["-l", "/sim/site-meter.lua"]
+    volumes:
+      - ./simulators/opcua:/sim:ro
+
+  # Edge Connect
+
+  xrt:
+    image: iotechsys/xrt-server:3.4.6
+    container_name: xrt
+    environment:
+      XRT_LICENSE_FILE: /opt/iotech/xrt/3.4/license.json
+      XRT_DEPLOYMENT_DIR: /opt/iotech/xrt/3.4/deployment
+      XRT_STATE_DIR: /opt/iotech/xrt/3.4/deployment/state
+      XRT_MQTT_BROKER: tcp://mqtt-broker:1883
+      XRT_MQTT_USERNAME: ""
+      XRT_MQTT_PASSWORD: ""
+      SPARKPLUG_GROUP: ${SPARKPLUG_GROUP}
+      SPARKPLUG_NODE: ${SPARKPLUG_NODE}
+      SPARKPLUG_PROTO: spb
+    volumes:
+      - ./deployment:/opt/iotech/xrt/3.4/deployment
+      - ./license.json:/opt/iotech/xrt/3.4/license.json:ro
+    depends_on:
+      mqtt-broker:
+        condition: service_healthy
+      modbus-sim:
+        condition: service_started
+      opcua-sim:
+        condition: service_started
+
+  alarm-service:
+    image: iotechsys/alarm-service:1.0.8
+    container_name: alarm-service
+    environment:
+      EDGEX_SECURITY_SECRET_STORE: "false"
+      WRITABLE_LOGLEVEL: INFO
+      MESSAGEBUS_HOST: mqtt-broker
+      MESSAGEBUS_PORT: 1883
+      MESSAGEBUS_SUB_TOPICS: '["bess/ekuiper/+"]'
+      MESSAGEBUS_SOURCES_DIR: /deployment/sources
+      SPARKPLUG_GROUP: ${SPARKPLUG_GROUP}
+      SPARKPLUG_PROTO: spb
+      ALARM_CONFIGS_DIR: /deployment/alarms
+      ALARM_POSTGRES_ADDRESS: timescaledb
+      ALARM_POSTGRES_PORT: 5432
+      ALARM_POSTGRES_USERNAME: ${POSTGRES_USER}
+      ALARM_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      ALARM_POSTGRES_DB_NAME: alarms
+      # No EdgeX core-metadata service to synchronise devices with
+      OPCUA_CORE_METADATA_ADDRESS: ""
+      # Tutorial only: encrypts stored action secrets with a well-known key
+      ALARM_ENABLE_DEFAULT_INSECURE_AES_KEY: "true"
+    volumes:
+      - ./license.json:/edgecentral/licenses/license.lic:ro
+      - ./alarm-service:/deployment:ro
+      - alarm-service-data:/data
+    ports:
+      - "4840:4840"
+      - "59893:59893"
+    depends_on:
+      mqtt-broker:
+        condition: service_healthy
+      timescaledb:
+        condition: service_healthy
+
+  sparkplug-historian:
+    image: iotechsys/sparkplug-historian:2.0.3
+    container_name: sparkplug-historian
+    environment:
+      EDGE_SECURITY_SECRET_STORE: "false"
+      SERVICE_HOST: sparkplug-historian
+      LOGLEVEL: INFO
+      INSECURESECRETS_DB_SECRETDATA_USERNAME: ${POSTGRES_USER}
+      INSECURESECRETS_DB_SECRETDATA_PASSWORD: ${POSTGRES_PASSWORD}
+      SPARKPLUG_MQTTBROKERS_PRIMARY_URL: tcp://mqtt-broker:1883
+      SPARKPLUG_MQTTBROKERS_PRIMARY_SUBSCRIBETOPICS: spBv1.0/${SPARKPLUG_GROUP}/#
+      SPARKPLUG_HOSTAPPLICATION_HOSTAPPLICATIONCONFIGS_DBHOST: timescaledb
+      SPARKPLUG_HOSTAPPLICATION_HOSTAPPLICATIONCONFIGS_DBNAME: historian
+      SPARKPLUG_HOSTAPPLICATION_HOSTAPPLICATIONCONFIGS_MAXDBBATCHDURATION: 1s
+    depends_on:
+      mqtt-broker:
+        condition: service_healthy
+      timescaledb:
+        condition: service_healthy
+
+  connect-ui:
+    image: iotechsys/dev-connect-ui:1.0.dev
+    container_name: connect-ui
+    environment:
+      EDGE_SECURITY_SECRET_STORE: "false"
+      SETTINGS_SERVICE_HOST: 0.0.0.0
+      SETTINGS_INSTANCEBROKER_ADDRESS: mqtt://mqtt-broker:1883
+      CLIENTS_ALARM_SERVICE_HOST: alarm-service
+    volumes:
+      - connect-ui-data:/data
+    ports:
+      - "9091:9091"
+    depends_on:
+      - alarm-service
+
+  # Rules engine and dashboards
+
+  ekuiper:
+    image: lfedge/ekuiper:2.4.0-slim-python
+    container_name: ekuiper
+    environment:
+      KUIPER__BASIC__CONSOLELOG: "true"
+      KUIPER__BASIC__RESTPORT: "59720"
+    volumes:
+      - ekuiper-data:/kuiper/data
+      - ekuiper-plugins:/kuiper/plugins
+    ports:
+      - "59720:59720"
+    depends_on:
+      - alarm-service
+
+  grafana:
+    image: grafana/grafana:12.2.1
+    container_name: grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - timescaledb
+
+  sparkplug-client:
+    image: iotechsys/sparkplug-client:3.0.1
+    container_name: sparkplug-client
+    command: ["sub", "-h", "mqtt-broker", "-t", "spBv1.0/#", "-quiet", "--webui", "-webui-port", "8090"]
+    ports:
+      - "8090:8090"
+    depends_on:
+      mqtt-broker:
+        condition: service_healthy
+
+volumes:
+  timescaledb:
+  alarm-service-data:
+  connect-ui-data:
+  ekuiper-data:
+  ekuiper-plugins:
+  grafana-data:
+
+networks:
+  default:
+    name: bess-tutorial

@@ -1,0 +1,65 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/modbus.pkl"
+import "@XRT/devices/opcua.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The Modbus simulator serves all three Modbus devices, one per unit ID
+local function modbusDevice(name: String, profile: String, unit: UInt8) =
+  modbus.device(name, profile, new modbus.TCPProtocolType {
+    address = "modbus-sim"
+    port = 1502
+    unit_id = unit
+  })
+
+local enclosure = modbusDevice("enclosure-sensor", "enclosure-sensor-profile", 1)
+local rack1 = modbusDevice("rack-01", "battery-rack-profile", 2)
+local rack2 = modbusDevice("rack-02", "battery-rack-profile", 3)
+
+/// A schedule that reads every resource of a device
+local function readAll(_device: Device, _interval: Duration) = _device.new_schedule(new Dynamic {
+  name = "\(_device.name)-schedule"
+  device = _device.ref()
+  resource = Set(".*")
+  interval = _interval
+})
+
+/// The site meter, served by the OPC UA simulator
+local meter = opcua.device("site-meter", "site-meter-profile", new opcua.OPCUAProtocolType {
+  address = "opcua-sim:49947"
+})
+
+system =
+  standardSystem("bess-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("modbus", "opcua")
+        // The Sparkplug node waits for the bridge's state on this topic before it publishes
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugNodeOptions((n) -> (n) {
+        app_state_wait = List()
+      })
+    |> modbus.instance("modbus")
+    // Read devices and schedules from deployment/state/modbus, where they are generated
+    |> modbus.withModbusOptions("modbus", (s) -> (s) {
+        state_dir = "${XRT_DEPLOYMENT_DIR}/state/modbus"
+      })
+    |> withDevices("modbus", Set(enclosure, rack1, rack2))
+    |> withSchedules("modbus", Set(
+        readAll(enclosure, 2.s),
+        readAll(rack1, 1.s),
+        readAll(rack2, 1.s),
+      ))
+    |> opcua.instance("opcua")
+    |> opcua.withOPCUAOptions("opcua", (s) -> (s) {
+        state_dir = "${XRT_DEPLOYMENT_DIR}/state/opcua"
+      })
+    |> withDevices("opcua", Set(meter))
+    |> withSchedules("opcua", Set(
+        readAll(meter, 1.s),
+      ))
+
+output {
+  files = system.deployment()
+}

@@ -1,0 +1,9 @@
+{
+  "sources": {
+    "Rack01AverageModuleTemperature": {
+      "topic": "bess/ekuiper/rack-01",
+      "messageIdentifier": { "source": "rack-01-average-module-temperature" },
+      "valueKey": "averageTemperature"
+    }
+  }
+}
