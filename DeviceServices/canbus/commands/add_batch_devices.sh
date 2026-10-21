@@ -19,7 +19,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/canbus -m 
             "NetType": "Ethernet",
             "Port": 20001,
             "CommType": "TCP",
-            "Network": "192.168.50.7"
+            "Network": "192.168.50.8"
           }
         }
       }
@@ -36,7 +36,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/canbus -m 
             "NetType": "Ethernet",
             "Port": 20001,
             "CommType": "TCP",
-            "Network": "192.168.50.7"
+            "Network": "192.168.50.9"
           }
         }
       }
@@ -53,7 +53,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/canbus -m 
             "NetType": "Ethernet",
             "Port": 20001,
             "CommType": "TCP",
-            "Network": "192.168.50.7"
+            "Network": "192.168.50.10"
           }
         }
       }

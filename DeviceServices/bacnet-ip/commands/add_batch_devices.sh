@@ -8,34 +8,34 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip 
   "type": "xrt.request:1.0",
   "devices": [
     {
-      "device": "bacnet-ip-sim-01",
+      "device": "bacnet-ip-sim-device-01",
       "device_info":  {
         "profileName": "bacnet-ip-sim-profile",
         "protocols":{
           "BACnet-IP":{
-            "DeviceInstance": 1234
+            "DeviceInstance": 1235
           }
         }
       }
     },
     {
-      "device": "bacnet-ip-sim-02",
+      "device": "bacnet-ip-sim-device-02",
       "device_info":  {
         "profileName": "bacnet-ip-sim-profile",
         "protocols":{
           "BACnet-IP":{
-            "DeviceInstance": 1234
+            "DeviceInstance": 1236
           }
         }
       }
     },
     {
-      "device": "bacnet-ip-sim-03",
+      "device": "bacnet-ip-sim-device-03",
       "device_info":  {
         "profileName": "bacnet-ip-sim-profile",
         "protocols":{
           "BACnet-IP":{
-            "DeviceInstance": 1234
+            "DeviceInstance": 1237
           }
         }
       }

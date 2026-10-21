@@ -7,8 +7,8 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
   "op": "device:delete_batch",
   "type": "xrt.request:1.0",
   "devices": [
-    "ethernetip-sim-01",
-    "ethernetip-sim-02",
-    "ethernetip-sim-03"
+    "ethernetip-sim-device-01",
+    "ethernetip-sim-device-02",
+    "ethernetip-sim-device-03"
   ]
 }'

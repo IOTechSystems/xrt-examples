@@ -7,8 +7,8 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/bacnet_ip 
   "op": "device:read_batch",
   "type": "xrt.request:1.0",
   "devices": [
-    "bacnet-ip-sim-01",
-    "bacnet-ip-sim-02",
-    "bacnet-ip-sim-03"
+    "bacnet-ip-sim-device-01",
+    "bacnet-ip-sim-device-02",
+    "bacnet-ip-sim-device-03"
   ]
 }'

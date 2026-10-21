@@ -24,7 +24,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
   "type": "xrt.request:1.0",
   "devices": [
     {
-      "device": "ethernetip-sim-01",
+      "device": "ethernetip-sim-device-01",
       "device_info": {
         "profileName": "ethernetip-sim-profile",
         "protocols":{
@@ -47,7 +47,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
       }
     },
     {
-      "device": "ethernetip-sim-02",
+      "device": "ethernetip-sim-device-02",
       "device_info": {
         "profileName": "ethernetip-sim-profile",
         "protocols":{
@@ -70,7 +70,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
       }
     },
     {
-      "device": "ethernetip-sim-03",
+      "device": "ethernetip-sim-device-03",
       "device_info": {
         "profileName": "ethernetip-sim-profile",
         "protocols":{

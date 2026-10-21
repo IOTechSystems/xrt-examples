@@ -2,7 +2,7 @@
   "apiVersion": "v2",
   "devices": [
     {
-      "name": "S7-Server",
+      "name": "s7-sim",
       "profileName": "Server",
       "protocols": {
         "S7": {

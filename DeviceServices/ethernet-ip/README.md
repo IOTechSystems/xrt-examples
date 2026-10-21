@@ -66,8 +66,8 @@ For basic device service operations see the [Basic Operations Walkthrough](../in
 
 The batch commands are described in the [Basic Operations Walkthrough](../interactive-walkthrough/basic-operations.md). For this example:
 
-- `commands/add_batch_devices.sh` adds `ethernetip-sim-01`, `ethernetip-sim-02` and `ethernetip-sim-03`. The four simulators must be running first (see [Run the simulator](#run-the-simulator)).
-- `commands/add_batch_schedules.sh` adds schedules for the single `ethernetip-sim` device, so that device must be added first with `commands/add_device.sh`.
+- `commands/add_batch_devices.sh` adds the devices `ethernetip-sim-device-01`, `ethernetip-sim-device-02` and `ethernetip-sim-device-03`, which connect to the simulators `ethernetip-sim-01`, `ethernetip-sim-02` and `ethernetip-sim-03`. The four simulators must be running first (see [Run the simulator](#run-the-simulator)).
+- `commands/add_batch_schedules.sh` adds schedules for the default `ethernetip-sim` device.
 - The `read_batch_*` and `remove_batch_*` scripts read and remove the batch devices and schedules.
 
 ### Digital Inputs

@@ -32,7 +32,7 @@
     },
     {
       "name": "Random",
-      "description": "An Random value",
+      "description": "A Random value",
       "properties": {
         "valueType": "float64",
         "readWrite": "RW"
