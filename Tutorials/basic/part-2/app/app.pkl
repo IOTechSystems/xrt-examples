@@ -3,7 +3,7 @@ extends "@XRT/core/standard_node.pkl"
 
 import "@XRT/server/sparkplug.pkl"
 import "@XRT/bridge/mqtt_bridge.pkl"
-import "@XRT/client/sparkplug_app.pkl"
+import "sparkplug_app.pkl"
 import "zone_monitor.pkl"
 
 /// Sparkplug application id, also used as the MQTT client id
