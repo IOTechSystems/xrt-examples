@@ -1,0 +1,38 @@
+{
+  "apiVersion": "v2",
+  "name": "enclosure-sensor-profile",
+  "manufacturer": "IOTech",
+  "description": "Temperature and humidity sensor in the battery enclosure",
+  "labels": [
+    "tutorial",
+    "bess"
+  ],
+  "deviceResources": [
+    {
+      "name": "enclosure-temperature",
+      "description": "Enclosure air temperature",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 0
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "°C"
+      }
+    },
+    {
+      "name": "enclosure-humidity",
+      "description": "Enclosure relative humidity",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 2
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "%"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "apiVersion": "v2",
+  "schedules": [
+    {
+      "name": "enclosure-sensor-schedule",
+      "device": "enclosure-sensor",
+      "resource": [
+        ".*"
+      ],
+      "interval": 2000000,
+      "on_change": true
+    },
+    {
+      "name": "rack-01-schedule",
+      "device": "rack-01",
+      "resource": [
+        ".*"
+      ],
+      "interval": 1000000,
+      "on_change": true
+    },
+    {
+      "name": "rack-02-schedule",
+      "device": "rack-02",
+      "resource": [
+        ".*"
+      ],
+      "interval": 1000000,
+      "on_change": true
+    }
+  ]
+}

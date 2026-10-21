@@ -1,0 +1,8 @@
+default:
+  server: "opc.tcp://alarm-service:4840"
+  # Sparkplug metrics are in namespace 3 of the Alarm Service's OPC UA Server
+  sparkplugNs: 3
+  # Subscribe to the metrics of this <node>/<device>. Leave empty to subscribe to every device
+  nodePrefix: ""
+  # Only subscribe to these metrics. Leave empty to subscribe to every metric
+  metrics: []

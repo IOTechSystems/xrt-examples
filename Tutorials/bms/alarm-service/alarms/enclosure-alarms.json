@@ -1,0 +1,23 @@
+{
+  "alarmConfigs": {
+    "EnclosureTemperatureDeviation": {
+      "type": "Deviation",
+      "config": {
+        "setpoint": 25,
+        "highLimit": 5,
+        "lowLimit": -5,
+        "severityHigh": 400,
+        "severityLow": 200,
+        "requireAckOnActive": true,
+        "autoAckOnInactive": true,
+        "shelvable": true
+      }
+    }
+  },
+  "sourceAssociations": [
+    {
+      "source": { "sparkplugNodeId": "bess-node", "sparkplugDeviceName": "enclosure-sensor", "sparkplugMetricName": "enclosure-temperature" },
+      "alarms": ["EnclosureTemperatureDeviation"]
+    }
+  ]
+}

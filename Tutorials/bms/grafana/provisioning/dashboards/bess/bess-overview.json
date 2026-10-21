@@ -1,0 +1,464 @@
+{
+  "uid": "bess-overview",
+  "title": "Battery Energy Storage System",
+  "description": "Rack, enclosure and site meter data stored by the Sparkplug Historian",
+  "tags": [
+    "tutorial",
+    "bess"
+  ],
+  "timezone": "browser",
+  "refresh": "5s",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "schemaVersion": 41,
+  "editable": true,
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "State of charge",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, h.device_id AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'state-of-charge' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Rack current",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "amp",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, h.device_id AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'rack-current' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Highest cell voltage",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "volt",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never",
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "decimals": 3,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 3.55
+              },
+              {
+                "color": "red",
+                "value": 3.6
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, h.device_id AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'cell-voltage-max' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Module temperatures",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "celsius",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never",
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 40
+              },
+              {
+                "color": "red",
+                "value": 45
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, h.device_id || ' module 1' AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'module-1-temperature' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        },
+        {
+          "refId": "B",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, h.device_id || ' module 2' AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'module-2-temperature' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Enclosure",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "celsius",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never",
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 30
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, 'temperature' AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'enclosure-temperature' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Grid frequency",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "hertz",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never"
+          },
+          "decimals": 3
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, 'frequency' AS metric, v.float64_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'grid-frequency' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Site power",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "kwatt",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, 'site power' AS metric, v.float64_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'site-power' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "Enclosure humidity",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "historian"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "custom": {
+            "lineWidth": 2,
+            "showPoints": "never"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawQuery": true,
+          "editorMode": "code",
+          "rawSql": "SELECT v.captured_time AS time, 'humidity' AS metric, v.float32_value AS value\nFROM sparkplug.metric_value v\nJOIN sparkplug.metric m ON m.metric_id = v.metric_id\nJOIN sparkplug.hierarchy h ON h.id = m.hierarchy_id\nWHERE m.metric_name = 'enclosure-humidity' AND $__timeFilter(v.captured_time)\nORDER BY 1",
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "historian"
+          }
+        }
+      ]
+    }
+  ]
+}
