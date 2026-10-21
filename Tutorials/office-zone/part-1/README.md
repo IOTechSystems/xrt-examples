@@ -43,7 +43,7 @@ EOF
 docker run -d --name xrt --network xrt-tutorial --env-file xrt.env \
   -v "$PWD/deployment:/opt/iotech/xrt/3.4/deployment" \
   -v "$PWD/license.json:/opt/iotech/xrt/3.4/license.json:ro" \
-  iotechsys/xrt:3.4.6-deb13
+  iotechsys/xrt-server:3.4.6
 ```
 
 Open the Sparkplug Client web UI at <http://localhost:8090> to see the office zone's data.
