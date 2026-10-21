@@ -1,7 +1,7 @@
 # Builds the zone monitor application against XRT linked as a library. The
 # image is the Xrt Debian image plus the application, compiled against the
 # headers from the matching XRT and IOT -dev packages.
-ARG XRT_IMAGE=iotechsys/xrt:3.4.6-deb13
+ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers
 
 FROM ${XRT_IMAGE} AS builder
 

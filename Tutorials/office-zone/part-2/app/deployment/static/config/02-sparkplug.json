@@ -9,7 +9,6 @@
   "EnableMetricAttributes": true,
   "EnableMetricAckGood": false,
   "EnableFixedAliases": false,
-  "EnableU64FixedAliases": false,
   "EnableMetricType": false,
   "EnableMetricName": false,
   "EnableAckMetricName": false,
