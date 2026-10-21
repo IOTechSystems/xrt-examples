@@ -1,0 +1,99 @@
+/// Sparkplug application settings, as in the client/sparkplug_app.pkl module of the XRT PKL package.
+/// XRT@3.4.6+1 does not include that module yet, so the tutorial has its own copy.
+module sparkplug_app
+
+extends "@XRT/core/XRT.pkl"
+
+/// Sparkplug application configuration.
+///
+/// Settings for the Sparkplug Host Application (xrt_spg_app), read by
+/// xrt_spg_app_config_settings_init_from_iot. Components that run the Sparkplug
+/// application extend or use this class to create their own configuration settings.
+open class SparkplugAppConfig extends Base {
+  /// Whether to enable DACK (Device Acknowledgement).
+  @Key { id = "EnableDACK" }
+  enable_dack: Boolean?
+
+  /// Whether to enable NACK (Node Acknowledgement).
+  @Key { id = "EnableNACK" }
+  enable_nack: Boolean?
+
+  /// Acknowledgement timeout in milliseconds.
+  @Key { id = "ACKTimeout" }
+  @RequiredDurationUnit { unit = "ms" }
+  ack_timeout: Duration?
+
+  /// Whether to issue device rebirths.
+  @Key { id = "IssueDREBIRTHS" }
+  issue_drebirths: Boolean?
+
+  /// Whether to issue node rebirths.
+  @Key { id = "IssueNREBIRTHS" }
+  issue_nrebirths: Boolean?
+
+  /// Rate limit for node rebirth requests.
+  @Key { id = "NodeRebirthRateLimit" }
+  node_rebirth_rate_limit: UInt?
+
+  /// Rate limit for device rebirth requests.
+  @Key { id = "DeviceRebirthRateLimit" }
+  device_rebirth_rate_limit: UInt?
+
+  /// Number of rebirth requests issued to a node before the application stops issuing
+  /// rebirths for it until a BIRTH message is received. 0 means unlimited.
+  @Key { id = "NodeMaxRebirthAttempts" }
+  node_max_rebirth_attempts: UInt?
+
+  /// Number of rebirth requests issued to a device before the application stops issuing
+  /// rebirths for it until a BIRTH message is received. 0 means unlimited.
+  @Key { id = "DeviceMaxRebirthAttempts" }
+  device_max_rebirth_attempts: UInt?
+
+  /// Cooldown period for global rebirth limits in milliseconds.
+  @Key { id = "GlobalRebirthLimitsCooldown" }
+  @RequiredDurationUnit { unit = "ms" }
+  global_rebirth_limits_cooldown: Duration?
+
+  /// Maximum global node rebirth requests.
+  @Key { id = "GlobalNodeRebirthMaxRequests" }
+  global_node_rebirth_max_requests: UInt?
+
+  /// Maximum global device rebirth requests.
+  @Key { id = "GlobalDeviceRebirthMaxRequests" }
+  global_device_rebirth_max_requests: UInt?
+
+  /// Maximum node message queue size.
+  @Key { id = "NodeMessageQueueMax" }
+  node_message_queue_max: UInt?
+
+  /// Batch size for processing node messages.
+  @Key { id = "NodeProcessMessageBatchSize" }
+  node_process_message_batch_size: UInt?
+
+  /// High threshold percentage for node message queue alerts.
+  @Key { id = "NodeMessageQueueAlertThresholdHighPct" }
+  node_message_queue_alert_threshold_high_pct: UInt?
+
+  /// Recovery threshold percentage for node message queue alerts.
+  @Key { id = "NodeMessageQueueAlertThresholdRecoveredPct" }
+  node_message_queue_alert_threshold_recovered_pct: UInt?
+
+  /// Whether to cache received BIRTH messages to disk.
+  @Key { id = "EnableBirthCache" }
+  enable_birth_cache: Boolean?
+
+  /// Directory for the BIRTH cache. Only used when `enable_birth_cache` is set (default "./").
+  @Key { id = "BirthCacheDir" }
+  birth_cache_dir: String?
+
+  /// Directory of BIRTH messages to preload on startup.
+  @Key { id = "BirthPreloadDir" }
+  birth_preload_dir: String?
+
+  /// Static configuration mode. The application does not react to BIRTH or DEATH messages,
+  /// issue rebirths, or invalidate its state on invalid payloads. Requires `birth_preload_dir`.
+  @Key { id = "StaticMode" }
+  static_mode: Boolean?
+
+  function dflt(): Base = new SparkplugAppConfig {}
+}

@@ -2,7 +2,7 @@
   "Name": "zone_monitor",
   "Logger": "00-logger",
   "Bus": "07-bus",
-  "ThreadPool": "06-app_pool",
+  "ThreadPool": "05-app_pool",
   "AppId": "zone-monitor",
   "Node": "${SPARKPLUG_NODE}",
   "Device": "office-zone",

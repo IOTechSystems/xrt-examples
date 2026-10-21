@@ -16,7 +16,7 @@ the same process:
 |---|---|
 | `app/main.c`, `app/zone_monitor.c`, `app/zone_monitor.h` | The application. As in Part 2, plus an `AppId` option for the zone monitor |
 | `app/Dockerfile` | Builds the application on the Xrt image |
-| `app/zone_monitor.pkl` | PKL class for the zone monitor component |
+| `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL class for the zone monitor component, and the Sparkplug application settings it uses |
 | `deployment.pkl` | The Part 1 node description, plus the zone monitor |
 | `deployment/config/`, `deployment/bacnet_ip/` | The generated configuration, and the office zone device profile |
 
