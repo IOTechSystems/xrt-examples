@@ -126,8 +126,8 @@
       }
     },
     {
-      "name": "DI",
-      "description": "Digital Inputs 0-7 packed into one byte (bit n = DIn). Bit 7 is the sign bit.",
+      "name": "DI0",
+      "description": "Digital Input 0",
       "attributes": {
         "offsetBits": 0,
         "offsetBytes": 0,
@@ -135,7 +135,98 @@
       },
       "properties": {
         "readWrite": "R",
-        "valueType": "Int8"
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI1",
+      "description": "Digital Input 1",
+      "attributes": {
+        "offsetBits": 1,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI2",
+      "description": "Digital Input 2",
+      "attributes": {
+        "offsetBits": 2,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI3",
+      "description": "Digital Input 3",
+      "attributes": {
+        "offsetBits": 3,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI4",
+      "description": "Digital Input 4",
+      "attributes": {
+        "offsetBits": 4,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI5",
+      "description": "Digital Input 5",
+      "attributes": {
+        "offsetBits": 5,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI6",
+      "description": "Digital Input 6",
+      "attributes": {
+        "offsetBits": 6,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
+      }
+    },
+    {
+      "name": "DI7",
+      "description": "Digital Input 7",
+      "attributes": {
+        "offsetBits": 7,
+        "offsetBytes": 0,
+        "type": "T2O"
+      },
+      "properties": {
+        "readWrite": "R",
+        "valueType": "Bool"
       }
     },
     {
