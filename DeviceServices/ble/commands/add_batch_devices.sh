@@ -13,7 +13,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ble -m \
         "profileName": "ble-sim-profile",
         "protocols":{
           "BLE":{
-            "MAC": "00:AA:01:01:00:24"
+            "MAC": "00:AA:01:01:00:25"
           }
         }
       }
@@ -24,7 +24,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ble -m \
         "profileName": "ble-sim-profile",
         "protocols":{
           "BLE":{
-            "MAC": "00:AA:01:02:00:25"
+            "MAC": "00:AA:01:02:00:26"
           }
         }
       }
@@ -35,7 +35,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ble -m \
         "profileName": "ble-sim-profile",
         "protocols":{
           "BLE":{
-            "MAC": "00:AA:01:03:00:26"
+            "MAC": "00:AA:01:03:00:27"
           }
         }
       }

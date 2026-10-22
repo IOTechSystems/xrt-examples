@@ -26,7 +26,6 @@
       },
       "attributes": {
         "deviceResource": "Counter",
-        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe1",
         "isNotification": true
       }
     },
@@ -50,7 +49,6 @@
       },
       "attributes": {
         "deviceResource": "Random",
-        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe2",
         "isNotification": true
       }
     },
@@ -74,7 +72,6 @@
       },
       "attributes": {
         "deviceResource": "Sawtooth",
-        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe3",
         "isNotification": true
       }
     },
@@ -98,7 +95,6 @@
       },
       "attributes": {
         "deviceResource": "Sinusoid",
-        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe4",
         "isNotification": true
       }
     },
@@ -122,7 +118,6 @@
       },
       "attributes": {
         "deviceResource": "Square",
-        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe5",
         "isNotification": true
       }
     },
@@ -146,7 +141,6 @@
       },
       "attributes": {
         "deviceResource": "Triangle",
-        "characteristicUuid": "deadbeef-0000-1000-0000-008cafebabe6",
         "isNotification": true
       }
     },

@@ -27,7 +27,6 @@ The script also mounts [ble-sim-main.conf](commands/ble-sim-main.conf) into the 
 
 > **Note** If the script reports a virtual controller or a controller with no driver to unbind, that controller cannot be released and the simulator is not started. Remove that controller and run the script again.
 
-> **Note** The simulator provides a single device, with the MAC address `00:AA:01:01:00:24`. This is the address of the default `ble-sim` device, and the batch device scripts add `ble-sim-01` with the same address, so that it comes online. `ble-sim-02` and `ble-sim-03` use addresses of devices that do not exist, so they stay offline. The simulator can create several devices, but the device service can connect to only one of them at a time: connecting to a second device fails and drops the first, so increasing `DEVICE_COUNT` does not help. Remove `ble-sim` before adding the batch devices, or the two devices will share the same simulated device.
 
 ### **Stop the simulator**
 
