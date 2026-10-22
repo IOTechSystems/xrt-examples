@@ -29,7 +29,7 @@ cd DeviceServices/ethercat
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
 
-An explanation for the setting of common device service enviroment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
+An explanation for the setting of common device service environment variables can be found [here](../interactive-walkthrough/ds-getting-started-common.md#Device-service-configuration-setup).
 
 ### Common Device Service Setup
 
@@ -53,16 +53,16 @@ For basic device service operations see the [Basic Operations Walkthrough](../in
 
 ### LED control for XMC4800
 
-Let's switch some of the XMC4800's LEDs on. This command issues a device put request with multiple resources.
+Let's switch some of the XMC4800's LEDs on. This command issues a Sparkplug DCMD write with multiple metrics.
 
 ```bash
-./commands/put_request_leds_on.sh
+./commands/multi_write_leds_on.sh
 ```
 
 And switch all of the controllable LEDs off:
 
 ```bash
-./commands/put_request_leds_off.sh
+./commands/multi_write_leds_off.sh
 ```
 
 ### Motor control for EL7037
@@ -70,12 +70,12 @@ And switch all of the controllable LEDs off:
 The provided configuration initializes the EL7037 in "Velocity Direct" mode. There is an enabling flag which must be set before driving the motor:
 
 ```bash
-./commands/put_request_motor_enable.sh
+./commands/multi_write_motor_enable.sh
 ```
 
 Having enabled motor control we can start and stop the motor by writing the "Velocity - STM Velocity - PDO" resource:
 
 ```bash
-./commands/put_request_motor_start.sh
-./commands/put_request_motor_stop.sh
+./commands/multi_write_motor_start.sh
+./commands/multi_write_motor_stop.sh
 ```

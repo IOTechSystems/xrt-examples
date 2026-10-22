@@ -7,7 +7,7 @@ import "@XRT/bridge/sparkplug_bridge.pkl"
 
 /// The simulated S7 PLC and its polling schedule
 local s7_server = s7.device(
-  "S7-Server",
+  "s7-sim",
   "Server",
   new s7.S7ProtocolType {
     ip = "${S7_SIM_ADDRESS}"

@@ -6,5 +6,5 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/canbus -m 
   "request_id":"1011",
   "op": "device:delete",
   "type": "xrt.request:1.0",
-  "device": cabus-device"
+  "device": "canbus-device"
 }'

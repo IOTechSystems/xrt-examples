@@ -1,20 +1,20 @@
 #!/bin/sh
 
 mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/modbus-tcp -m \
-"{
-  \"client\": \"example\",
-  \"request_id\":\"1010\",
-  \"op\": \"device:add\",
-  \"type\": \"xrt.request:1.0\",
-  \"device\": \"modbus-sim\",
-  \"device_info\":  {
-    \"profileName\": \"modbus-sim-profile\",
-    \"protocols\":{
-      \"modbus-tcp\":{
-        \"Address\": \"0.0.0.0\",
-        \"Port\": 1502,
-        \"UnitID\": 1
+'{
+  "client": "example",
+  "request_id":"1010",
+  "op": "device:add",
+  "type": "xrt.request:1.0",
+  "device": "modbus-sim",
+  "device_info":  {
+    "profileName": "modbus-sim-profile",
+    "protocols":{
+      "modbus-tcp":{
+        "Address": "0.0.0.0",
+        "Port": 1502,
+        "UnitID": 1
       }
     }
   }
-}"
+}'
