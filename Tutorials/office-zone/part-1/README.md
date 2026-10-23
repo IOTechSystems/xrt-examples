@@ -8,7 +8,8 @@ data on an MQTT broker as Sparkplug B.
 
 | Path | What it is |
 |---|---|
-| `compose.yml` | MQTT broker, BACnet Simulator and Sparkplug Client web UI |
+| `compose.yml` | MQTT broker, BACnet Simulator and Sparkplug Client web UI. The simulator has a fixed address, `172.16.238.10` |
+| `xrt.env` | Environment variables for the Xrt container |
 | `mosquitto/mosquitto.conf` | Broker configuration (anonymous access - tutorial only) |
 | `simulator/office-zone.lua` | Simulator script: zone temperature, setpoint, occupancy and fan |
 | `PklProject`, `deployment.pkl` | PKL node description the Xrt configuration is generated from |
@@ -34,20 +35,6 @@ Then start the supporting containers and Xrt:
 
 ```bash
 docker compose up -d
-export BACNET_SIM_ADDRESS=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim)
-
-cat > xrt.env <<EOF
-XRT_LICENSE_FILE=/opt/iotech/xrt/3.4/license.json
-XRT_DEPLOYMENT_DIR=/opt/iotech/xrt/3.4/deployment
-XRT_STATE_DIR=/opt/iotech/xrt/3.4/deployment/state
-XRT_MQTT_BROKER=tcp://mqtt-broker:1883
-XRT_MQTT_USERNAME=
-XRT_MQTT_PASSWORD=
-SPARKPLUG_GROUP=tutorial
-SPARKPLUG_NODE=xrt-node
-SPARKPLUG_PROTO=spb
-BACNET_SIM_ADDRESS=$BACNET_SIM_ADDRESS
-EOF
 
 docker run -d --name xrt --network xrt-tutorial --env-file xrt.env \
   -v "$PWD/deployment:/opt/iotech/xrt/3.4/deployment" \
