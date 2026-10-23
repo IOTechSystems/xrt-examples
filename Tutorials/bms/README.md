@@ -24,7 +24,7 @@ it, all as Docker containers on one host:
 |---|---|
 | `compose.yml`, `.env` | The containers, and the Sparkplug names and tutorial credentials they share |
 | `deployment.pkl` | Description of the Xrt node, used to generate `deployment/config` and `deployment/state` |
-| `deployment/` | The Xrt configuration, device profiles and devices |
+| `deployment/` | The device profiles, and the Xrt configuration and devices once generated (not committed) |
 | `simulators/` | The Modbus simulator script and the OPC UA simulator script |
 | `alarm-service/` | Alarm definitions and the eKuiper message bus source |
 | `ekuiper/` | The OPC UA source plugin for eKuiper, and scripts to install it and create the rule |
@@ -34,10 +34,15 @@ it, all as Docker containers on one host:
 
 * A Linux host with Docker and the Docker Compose plugin, and `curl` and `python3`
 * An Edge Connect license that includes the Alarm Service, copied to `license.json` in this directory
+* The [PKL CLI](https://pkl-lang.org/main/current/pkl-cli/index.html), version 0.29 or later
 
 ## Run it
 
+Generate the Xrt configuration from `deployment.pkl`, then start the containers:
+
 ```bash
+pkl project resolve .
+pkl eval -m deployment deployment.pkl
 docker compose up -d
 ```
 
@@ -70,11 +75,11 @@ docker run --rm --network bess-tutorial iotechsys/sparkplug-client:3.0.1 pub -h 
 
 Set `current-setpoint` back to `0` to stop the rack and clear its fault.
 
-To regenerate the Xrt configuration after changing `deployment.pkl`:
+After changing `deployment.pkl`, generate the configuration again and restart Xrt:
 
 ```bash
-pkl project resolve .
 pkl eval -m deployment deployment.pkl
+docker compose restart xrt
 ```
 
 Stop everything with `docker compose down`, or `docker compose down -v` to also delete the stored data.
