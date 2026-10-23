@@ -17,7 +17,9 @@ Within this repository there are many examples that you can chose to run through
 
 ## Examples
 
-* [Basic Tutorial](Tutorials/basic/part-1/README.md) - The completed project for each part of the Edge Connect Basic Tutorial
+* Basic Tutorial - The completed project for each part of the Edge Connect Basic Tutorial
+    * [Part 1: Install, configure and run Xrt](Tutorials/basic/part-1/README.md)
+    * [Part 2: Develop a Sparkplug client application in C](Tutorials/basic/part-2/README.md)
 * [Application Component](ApplicationComponent/README.md) - This example demonstrates how a custom component can be written and loaded into XRT
 * [Azure Sphere](AzureSphere/README.md)
 * [MQTT Bridge](Bridge/mqtt/README.md)
