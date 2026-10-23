@@ -12,16 +12,25 @@ data on an MQTT broker as Sparkplug B.
 | `mosquitto/mosquitto.conf` | Broker configuration (anonymous access - tutorial only) |
 | `simulator/office-zone.lua` | Simulator script: zone temperature, setpoint, occupancy and fan |
 | `PklProject`, `deployment.pkl` | PKL node description the Xrt configuration is generated from |
-| `deployment/config/`, `deployment/state/bacnet_ip/` | Xrt configuration generated from `deployment.pkl` |
+| `deployment/config/`, `deployment/state/bacnet_ip/` | Xrt configuration, generated from `deployment.pkl` when you run it (not committed) |
 | `deployment/bacnet_ip/profiles/` | Device profile for the office zone controller |
 
 ## Prerequisites
 
 - Linux with Docker and the Docker Compose plugin
 - An Edge Connect license file, copied to `license.json` in this directory
-- The [PKL CLI](https://pkl-lang.org/main/current/pkl-cli/index.html), only if you change `deployment.pkl`
+- The [PKL CLI](https://pkl-lang.org/main/current/pkl-cli/index.html), version 0.29 or later
 
 ## Run it
+
+Generate the Xrt configuration from `deployment.pkl`:
+
+```bash
+pkl project resolve .
+pkl eval -m deployment deployment.pkl
+```
+
+Then start the supporting containers and Xrt:
 
 ```bash
 docker compose up -d
@@ -48,11 +57,11 @@ docker run -d --name xrt --network xrt-tutorial --env-file xrt.env \
 
 Open the Sparkplug Client web UI at <http://localhost:8090> to see the office zone's data.
 
-To regenerate the configuration after changing `deployment.pkl`:
+After changing `deployment.pkl`, generate the configuration again and restart Xrt:
 
 ```bash
-pkl project resolve .
 pkl eval -m deployment deployment.pkl
+docker restart xrt
 ```
 
 Stop everything with:
