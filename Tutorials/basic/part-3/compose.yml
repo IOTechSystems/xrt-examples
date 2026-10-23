@@ -1,0 +1,41 @@
+name: xrt-tutorial
+
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0.22
+    container_name: mqtt-broker
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    ports:
+      - "1883:1883"
+
+  bacnet-sim:
+    image: iotechsys/bacnet-sim:2.2.7
+    container_name: bacnet-sim
+    environment:
+      RUN_MODE: IP
+    volumes:
+      - ./simulator/office-zone.lua:/scripts/office-zone.lua:ro
+    command: ["--script", "/scripts/office-zone.lua", "--instance", "1234", "--name", "OfficeZone"]
+    networks:
+      default:
+        # Fixed, so that Xrt can register with the simulator at a known address (BACNET_SIM_ADDRESS)
+        ipv4_address: 172.16.238.10
+
+  sparkplug-client:
+    image: iotechsys/sparkplug-client:3.0.1
+    container_name: sparkplug-client
+    command: ["sub", "-h", "mqtt-broker", "-t", "spBv1.0/#", "-quiet", "--webui", "-webui-port", "8090"]
+    ports:
+      - "8090:8090"
+    depends_on:
+      - mqtt-broker
+
+networks:
+  default:
+    name: xrt-tutorial
+    ipam:
+      config:
+        # Containers without a fixed address are given one from ip_range, so they never take the simulator's
+        - subnet: 172.16.238.0/24
+          ip_range: 172.16.238.128/25
