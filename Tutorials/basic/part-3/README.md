@@ -18,13 +18,23 @@ the same process:
 | `app/Dockerfile` | Builds the application on the Xrt image |
 | `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL class for the zone monitor component, and the Sparkplug application settings it uses |
 | `deployment.pkl` | The Part 1 node description, plus the zone monitor |
-| `deployment/config/`, `deployment/bacnet_ip/` | The generated configuration, and the office zone device profile |
+| `deployment/bacnet_ip/` | The office zone device profile |
+| `deployment/config/`, `deployment/state/bacnet_ip/` | The configuration, generated from `deployment.pkl` when you run it (not committed) |
 
 ## Prerequisites
 
 As for Part 1, and copy your Edge Connect license file to `license.json` in this directory.
 
 ## Run it
+
+Generate the configuration from `deployment.pkl`:
+
+```bash
+pkl project resolve .
+pkl eval -m deployment deployment.pkl
+```
+
+Then start the supporting containers, and build and run the application:
 
 ```bash
 docker compose up -d
@@ -55,11 +65,11 @@ docker logs -f zone-app
 There is no separate Xrt container: the application is the Xrt node. Open the Sparkplug Client web UI at
 <http://localhost:8090> to see the office zone's data.
 
-To regenerate the configuration after changing `deployment.pkl`:
+After changing `deployment.pkl`, generate the configuration again and restart the application:
 
 ```bash
-pkl project resolve .
 pkl eval -m deployment deployment.pkl
+docker restart zone-app
 ```
 
 Stop everything with:
