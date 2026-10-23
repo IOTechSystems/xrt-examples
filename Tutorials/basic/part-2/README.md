@@ -23,6 +23,7 @@ The zone monitor can learn about the office zone in three ways, each with its ow
 | `app/app.pkl`, `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL description the three configurations are generated from |
 | `app/deployment/` | The three configurations, generated from `app/app.pkl` when you run it (not committed) |
 | `app/preload/` | BIRTH records for static mode, generated from the Xrt configuration in `deployment/` |
+| `xrt.env`, `app.env` | Environment variables for the Xrt and zone monitor containers |
 
 Compared with Part 1, the Xrt node uses fixed Sparkplug aliases (`enable_fixed_aliases` in `deployment.pkl`,
 and an `alias` for each resource in the device profile), which static mode needs.
@@ -44,16 +45,6 @@ Build the zone monitor and run it with one of the three configurations:
 
 ```bash
 docker build -t zone-monitor app
-
-cat > app.env <<EOF
-XRT_LICENSE_FILE=/app/license.json
-XRT_MQTT_BROKER=tcp://mqtt-broker:1883
-XRT_MQTT_USERNAME=
-XRT_MQTT_PASSWORD=
-SPARKPLUG_GROUP=tutorial
-SPARKPLUG_NODE=xrt-node
-SPARKPLUG_PROTO=spb
-EOF
 
 mkdir -p app/state
 docker run -d --name zone-monitor --user "$(id -u):$(id -g)" --network xrt-tutorial --env-file app.env \
