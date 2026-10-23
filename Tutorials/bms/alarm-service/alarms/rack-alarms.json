@@ -1,0 +1,45 @@
+{
+  "alarmConfigs": {
+    "CellVoltageHigh": {
+      "type": "Level",
+      "config": {
+        "highLimit": 3.55,
+        "highHighLimit": 3.6,
+        "severityHigh": 500,
+        "severityHighHigh": 800,
+        "requireAckOnActive": true,
+        "requireConfirmOnActiveAcked": true
+      }
+    },
+    "RackFault": {
+      "type": "Discrete",
+      "config": {
+        "comparisonValue": 3,
+        "offNormal": false,
+        "severityActive": 900,
+        "activeMessage": "Rack has tripped on a fault",
+        "requireAckOnActive": true,
+        "latching": true,
+        "shelvable": true
+      }
+    }
+  },
+  "sourceAssociations": [
+    {
+      "source": { "sparkplugNodeId": "bess-node", "sparkplugDeviceName": "rack-01", "sparkplugMetricName": "cell-voltage-max" },
+      "alarms": ["CellVoltageHigh"]
+    },
+    {
+      "source": { "sparkplugNodeId": "bess-node", "sparkplugDeviceName": "rack-02", "sparkplugMetricName": "cell-voltage-max" },
+      "alarms": ["CellVoltageHigh"]
+    },
+    {
+      "source": { "sparkplugNodeId": "bess-node", "sparkplugDeviceName": "rack-01", "sparkplugMetricName": "rack-status" },
+      "alarms": ["RackFault"]
+    },
+    {
+      "source": { "sparkplugNodeId": "bess-node", "sparkplugDeviceName": "rack-02", "sparkplugMetricName": "rack-status" },
+      "alarms": ["RackFault"]
+    }
+  ]
+}
