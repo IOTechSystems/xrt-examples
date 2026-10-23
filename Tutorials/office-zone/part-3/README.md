@@ -18,6 +18,7 @@ the same process:
 | `app/Dockerfile` | Builds the application on the Xrt image |
 | `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL class for the zone monitor component, and the Sparkplug application settings it uses |
 | `deployment.pkl` | The Part 1 node description, plus the zone monitor |
+| `app.env` | Environment variables for the application container |
 | `deployment/bacnet_ip/` | The office zone device profile |
 | `deployment/config/`, `deployment/state/bacnet_ip/` | The configuration, generated from `deployment.pkl` when you run it (not committed) |
 
@@ -39,20 +40,6 @@ Then start the supporting containers, and build and run the application:
 ```bash
 docker compose up -d
 docker build -t zone-app app
-
-export BACNET_SIM_ADDRESS=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-sim)
-cat > app.env <<EOF
-XRT_LICENSE_FILE=/app/license.json
-XRT_DEPLOYMENT_DIR=/app/deployment
-XRT_STATE_DIR=/app/deployment/state
-XRT_MQTT_BROKER=tcp://mqtt-broker:1883
-XRT_MQTT_USERNAME=
-XRT_MQTT_PASSWORD=
-SPARKPLUG_GROUP=tutorial
-SPARKPLUG_NODE=xrt-node
-SPARKPLUG_PROTO=spb
-BACNET_SIM_ADDRESS=$BACNET_SIM_ADDRESS
-EOF
 
 docker run -d --name zone-app --user "$(id -u):$(id -g)" --network xrt-tutorial --env-file app.env \
   -v "$PWD/deployment:/app/deployment" \
