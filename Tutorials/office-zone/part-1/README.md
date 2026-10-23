@@ -12,7 +12,7 @@ data on an MQTT broker as Sparkplug B.
 | `mosquitto/mosquitto.conf` | Broker configuration (anonymous access - tutorial only) |
 | `simulator/office-zone.lua` | Simulator script: zone temperature, setpoint, occupancy and fan |
 | `PklProject`, `deployment.pkl` | PKL node description the Xrt configuration is generated from |
-| `deployment/config/`, `deployment/bacnet_ip/state/` | Xrt configuration generated from `deployment.pkl` |
+| `deployment/config/`, `deployment/state/bacnet_ip/` | Xrt configuration generated from `deployment.pkl` |
 | `deployment/bacnet_ip/profiles/` | Device profile for the office zone controller |
 
 ## Prerequisites
