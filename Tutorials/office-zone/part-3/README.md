@@ -1,7 +1,7 @@
-# Basic Tutorial - Part 3: Link Xrt as a Shared Library
+# Office Zone Tutorial - Part 3: Link Xrt as a Shared Library
 
-The completed project for Part 3 of the Edge Connect Basic Tutorial. The step-by-step guide is in the Edge
-Connect documentation, under **Getting Started > Tutorials > Basic Tutorial**.
+The completed project for Part 3 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the Edge
+Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial**.
 
 This folder contains the [Part 1](../part-1/README.md) project, plus the zone monitor from
 [Part 2](../part-2/README.md), built into an application that links Xrt as a shared library. The application runs
@@ -26,8 +26,8 @@ the same process:
 
 As for Part 1, and copy your Edge Connect license file to `license.json` in this directory.
 
-Building the application also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-3.4-dev`
-version 3.4.6, which contains the XRT C headers. The Dockerfile installs it from the IOTech package repository.
+Building the application also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-4.0-dev`
+version 4.0.0, which contains the XRT C headers. The Dockerfile installs it from the IOTech package repository.
 
 ## Run it
 
