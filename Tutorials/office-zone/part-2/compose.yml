@@ -23,7 +23,7 @@ services:
         ipv4_address: 172.16.238.10
 
   sparkplug-client:
-    image: iotechsys/sparkplug-client:3.0.1
+    image: iotechsys/dev-sparkplug-client:3.2.0.dev-x86_64
     container_name: sparkplug-client
     command: ["sub", "-h", "mqtt-broker", "-t", "spBv1.0/#", "-quiet", "--webui", "-webui-port", "8090"]
     ports:
