@@ -33,13 +33,15 @@ pkl eval -m deployment deployment.pkl
 
 Then start the supporting containers and Xrt:
 
+<!-- TODO: change the Xrt 3.4 image and paths, here and in xrt.env, to 4.0 once Xrt 4.0 is released -->
+
 ```bash
 docker compose up -d
 
 docker run -d --name xrt --network xrt-tutorial --env-file xrt.env \
-  -v "$PWD/deployment:/opt/iotech/xrt/4.0/deployment" \
-  -v "$PWD/license.json:/opt/iotech/xrt/4.0/license.json:ro" \
-  iotechsys/xrt:4.0
+  -v "$PWD/deployment:/opt/iotech/xrt/3.4/deployment" \
+  -v "$PWD/license.json:/opt/iotech/xrt/3.4/license.json:ro" \
+  iotechsys/xrt-server:3.4.6
 ```
 
 Open the Sparkplug Client web UI at <http://localhost:8090> to see the office zone's data.
