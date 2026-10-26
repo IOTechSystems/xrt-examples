@@ -58,12 +58,12 @@ services:
   # Edge Connect
 
   xrt:
-    image: iotechsys/xrt-server:3.4.6
+    image: iotechsys/xrt:4.0
     container_name: xrt
     environment:
-      XRT_LICENSE_FILE: /opt/iotech/xrt/3.4/license.json
-      XRT_DEPLOYMENT_DIR: /opt/iotech/xrt/3.4/deployment
-      XRT_STATE_DIR: /opt/iotech/xrt/3.4/deployment/state
+      XRT_LICENSE_FILE: /opt/iotech/xrt/4.0/license.json
+      XRT_DEPLOYMENT_DIR: /opt/iotech/xrt/4.0/deployment
+      XRT_STATE_DIR: /opt/iotech/xrt/4.0/deployment/state
       XRT_MQTT_BROKER: tcp://mqtt-broker:1883
       XRT_MQTT_USERNAME: ""
       XRT_MQTT_PASSWORD: ""
@@ -71,8 +71,8 @@ services:
       SPARKPLUG_NODE: ${SPARKPLUG_NODE}
       SPARKPLUG_PROTO: spb
     volumes:
-      - ./deployment:/opt/iotech/xrt/3.4/deployment
-      - ./license.json:/opt/iotech/xrt/3.4/license.json:ro
+      - ./deployment:/opt/iotech/xrt/4.0/deployment
+      - ./license.json:/opt/iotech/xrt/4.0/license.json:ro
     depends_on:
       mqtt-broker:
         condition: service_healthy
@@ -184,7 +184,7 @@ services:
       - timescaledb
 
   sparkplug-client:
-    image: iotechsys/sparkplug-client:3.0.1
+    image: iotechsys/dev-sparkplug-client:3.2.0.dev-x86_64
     container_name: sparkplug-client
     command: ["sub", "-h", "mqtt-broker", "-t", "spBv1.0/#", "-quiet", "--webui", "-webui-port", "8090"]
     ports:
