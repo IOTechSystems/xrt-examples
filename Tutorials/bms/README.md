@@ -68,7 +68,7 @@ To charge `rack-01` at 150 A, which raises its cell voltage until the `CellVolta
 activate:
 
 ```bash
-docker run --rm --network bess-tutorial iotechsys/sparkplug-client:3.0.1 pub -h mqtt-broker \
+docker run --rm --network bess-tutorial iotechsys/dev-sparkplug-client:3.2.0.dev-x86_64 pub -h mqtt-broker \
   -t spBv1.0/iotech/DCMD/bess-node/rack-01 \
   -m '{"metrics":[{"name":"current-setpoint","datatype":9,"value":150}]}'
 ```
