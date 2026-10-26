@@ -4,6 +4,8 @@
 --   Binary Input 0  zone-occupancy    (0 = unoccupied, 1 = occupied)
 --   Binary Output 0 fan-command       (0 = off, 1 = on, writable)
 
+-- Values are set at priority 16, the lowest BACnet priority, so that writes from Xrt, at a higher priority,
+-- take precedence over them
 local priority = 16
 local lastUpdate = os.time()
 
