@@ -65,13 +65,8 @@ To add the eKuiper rule:
 ```
 
 To charge `rack-01` at 150 A, which raises its cell voltage until the `CellVoltageHigh` and `RackFault` alarms
-activate:
-
-```bash
-docker run --rm --network bess-tutorial iotechsys/dev-sparkplug-client:3.2.0.dev-x86_64 pub -h mqtt-broker \
-  -t spBv1.0/iotech/DCMD/bess-node/rack-01 \
-  -m '{"metrics":[{"name":"current-setpoint","datatype":9,"value":150}]}'
-```
+activate, open the Sparkplug Client web UI at <http://localhost:8090>, select `rack-01`'s DBIRTH message, and use
+**Write** next to `current-setpoint` to write `150`.
 
 Set `current-setpoint` back to `0` to stop the rack and clear its fault.
 
