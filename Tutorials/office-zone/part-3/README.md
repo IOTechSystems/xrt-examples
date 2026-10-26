@@ -26,8 +26,10 @@ the same process:
 
 As for Part 1, and copy your Edge Connect license file to `license.json` in this directory.
 
-Building the application also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-4.0-dev`
-version 4.0.0, which contains the XRT C headers. The Dockerfile installs it from the IOTech package repository.
+<!-- TODO: change the Xrt 3.4 -dev package, here and in app/Dockerfile, to 4.0 once Xrt 4.0 is released -->
+
+Building the application also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-3.4-dev`
+version 3.4.6, which contains the XRT C headers. The Dockerfile installs it from the IOTech package repository.
 
 ## Run it
 
