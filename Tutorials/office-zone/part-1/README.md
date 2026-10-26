@@ -1,7 +1,7 @@
-# Basic Tutorial - Part 1: Install, Configure and Run Xrt
+# Office Zone Tutorial - Part 1: Install, Configure and Run Xrt
 
-The completed project for Part 1 of the Edge Connect Basic Tutorial. The step-by-step guide is in the Edge
-Connect documentation, under **Getting Started > Tutorials > Basic Tutorial**.
+The completed project for Part 1 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the Edge
+Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial**.
 
 Xrt reads a simulated BACnet office zone controller through the BACnet/IP Device Service, and publishes its
 data on an MQTT broker as Sparkplug B.
@@ -37,9 +37,9 @@ Then start the supporting containers and Xrt:
 docker compose up -d
 
 docker run -d --name xrt --network xrt-tutorial --env-file xrt.env \
-  -v "$PWD/deployment:/opt/iotech/xrt/3.4/deployment" \
-  -v "$PWD/license.json:/opt/iotech/xrt/3.4/license.json:ro" \
-  iotechsys/xrt-server:3.4.6
+  -v "$PWD/deployment:/opt/iotech/xrt/4.0/deployment" \
+  -v "$PWD/license.json:/opt/iotech/xrt/4.0/license.json:ro" \
+  iotechsys/xrt:4.0
 ```
 
 Open the Sparkplug Client web UI at <http://localhost:8090> to see the office zone's data.
