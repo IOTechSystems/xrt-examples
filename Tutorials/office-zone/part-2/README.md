@@ -20,7 +20,7 @@ The zone monitor can learn about the office zone in three ways, each with its ow
 |---|---|
 | `app/main.c`, `app/zone_monitor.c`, `app/zone_monitor.h` | The zone monitor application |
 | `app/Dockerfile` | Builds the application on the Xrt image |
-| `app/app.pkl`, `app/zone_monitor.pkl` | PKL description the three configurations are generated from |
+| `app/app.pkl`, `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL description the three configurations are generated from |
 | `app/deployment/` | The three configurations, generated from `app/app.pkl` when you run it (not committed) |
 | `app/preload/` | Birth records for static mode, generated from the Xrt configuration in `deployment/` |
 | `xrt.env`, `app.env` | Environment variables for the Xrt and zone monitor containers |
