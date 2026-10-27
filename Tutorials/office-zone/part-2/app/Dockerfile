@@ -1,12 +1,10 @@
 # Builds the zone monitor application against XRT linked as a library. The
 # image is the Xrt Debian image plus the application, compiled against the
 # headers from the matching XRT and IOT -dev packages.
-# TODO: change the Xrt 3.4 image and -dev package to 4.0 once Xrt 4.0 is released
-ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers
+ARG XRT_IMAGE=iotechsys/xrt:4.0
 
 FROM ${XRT_IMAGE} AS builder
 
-ARG XRT_VERSION=3.4.6
 ARG IOTECH_APT_REPO=https://iotech.jfrog.io/iotech/debian-release
 ARG IOTECH_APT_KEY=https://iotech.jfrog.io/artifactory/api/gpg/key/public
 
@@ -18,8 +16,8 @@ RUN apt-get update \
   && echo "deb [signed-by=/usr/share/keyrings/iotech.gpg] ${IOTECH_APT_REPO} $(lsb_release -cs) main" > /etc/apt/sources.list.d/iotech.list \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-       "iotech-xrt-3.4-dev=${XRT_VERSION}" \
-       "iotech-iot-1.6-dev=$(dpkg-query -W -f '${Version}' iotech-iot-1.6)"
+       "iotech-xrt-4.0-dev=$(dpkg-query -W -f '${Version}' iotech-xrt-4.0)" \
+       "iotech-iot-1.7-dev=$(dpkg-query -W -f '${Version}' iotech-iot-1.7)"
 
 WORKDIR /build
 COPY main.c zone_monitor.c zone_monitor.h ./

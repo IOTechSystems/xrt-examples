@@ -20,7 +20,7 @@ The zone monitor can learn about the office zone in three ways, each with its ow
 |---|---|
 | `app/main.c`, `app/zone_monitor.c`, `app/zone_monitor.h` | The zone monitor application |
 | `app/Dockerfile` | Builds the application on the Xrt image |
-| `app/app.pkl`, `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL description the three configurations are generated from |
+| `app/app.pkl`, `app/zone_monitor.pkl` | PKL description the three configurations are generated from |
 | `app/deployment/` | The three configurations, generated from `app/app.pkl` when you run it (not committed) |
 | `app/preload/` | Birth records for static mode, generated from the Xrt configuration in `deployment/` |
 | `xrt.env`, `app.env` | Environment variables for the Xrt and zone monitor containers |
@@ -32,10 +32,9 @@ and an `alias` for each resource in the device profile), which static mode needs
 
 As for Part 1, and copy your Edge Connect license file to `license.json` in this directory.
 
-<!-- TODO: change the Xrt 3.4 image, -dev package and paths, here, in xrt.env and in app/Dockerfile, to 4.0 once Xrt 4.0 is released -->
-
-Building the zone monitor also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-3.4-dev`
-version 3.4.6, which contains the XRT C headers. The Dockerfile installs it from the IOTech package repository.
+Building the zone monitor also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-4.0-dev`,
+which contains the XRT C headers. The Dockerfile installs the version that matches the image from the IOTech package
+repository.
 
 ## Run it
 
