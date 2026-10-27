@@ -51,10 +51,10 @@ typedef struct zone_monitor_t
 } zone_monitor_t;
 
 /* Sends a DCMD to switch the fan on. Runs as a thread pool job, so that the
- * lookup and command don't run inside on_metric_value_updated: up to Xrt 3.4.6
- * the Sparkplug application runs that callback while holding the node's lock,
- * which xrt_spg_app_node_get_device also takes, so looking up the fan's device
- * from inside the callback deadlocks (XRT-4202). */
+ * lookup and command don't run inside on_metric_value_updated: the Sparkplug
+ * application runs that callback while holding the node's lock, which
+ * xrt_spg_app_node_get_device also takes, so looking up the fan's device from
+ * inside the callback deadlocks. */
 static void *zone_monitor_fan_on (void *arg)
 {
   zone_monitor_t *zm = arg;
@@ -254,8 +254,8 @@ static iot_component_t *zone_monitor_config (iot_container_t *container, const i
       iot_log_error (logger, "%s: invalid SparkplugConfig", ZONE_MONITOR_TYPE);
       return NULL;
     }
-    /* StaticMode is not read by xrt_spg_app_config_settings_init_from_iot
-     * (XRT-4201), so set it here. */
+    /* StaticMode is not read by xrt_spg_app_config_settings_init_from_iot, so
+     * set it here. */
     app_cfg.settings.static_mode = iot_data_string_map_get_bool (spg_config, "StaticMode", false);
   }
 
