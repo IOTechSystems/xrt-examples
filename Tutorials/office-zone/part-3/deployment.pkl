@@ -2,7 +2,7 @@ extends "@XRT/core/standard_node.pkl"
 
 import "@XRT/devices/bacnet.pkl"
 import "@XRT/bridge/sparkplug_bridge.pkl"
-import "@XRT/client/sparkplug_app.pkl"
+import "app/sparkplug_app.pkl"
 import "app/zone_monitor.pkl"
 
 /// The office zone controller: BACnet/IP device instance 1234, using the office-zone-profile device profile
