@@ -34,7 +34,7 @@ services:
   # Simulated equipment
 
   modbus-sim:
-    image: iotechsys/pymodbus-sim:1.1.1
+    image: iotechsys/pymodbus-sim:1.1
     container_name: modbus-sim
     command: >
       --unit 1:/profiles/enclosure-sensor-profile.json
@@ -49,7 +49,7 @@ services:
       - ./simulators/modbus:/sim:ro
 
   opcua-sim:
-    image: iotechsys/opc-ua-sim:1.4.0
+    image: iotechsys/opc-ua-sim:1.4
     container_name: opcua-sim
     command: ["-l", "/sim/site-meter.lua"]
     volumes:
@@ -58,13 +58,12 @@ services:
   # Edge Connect
 
   xrt:
-    # TODO: change the Xrt 3.4 image and paths to 4.0 once Xrt 4.0 is released
-    image: iotechsys/xrt-server:3.4.6
+    image: iotechsys/xrt:4.0
     container_name: xrt
     environment:
-      XRT_LICENSE_FILE: /opt/iotech/xrt/3.4/license.json
-      XRT_DEPLOYMENT_DIR: /opt/iotech/xrt/3.4/deployment
-      XRT_STATE_DIR: /opt/iotech/xrt/3.4/deployment/state
+      XRT_LICENSE_FILE: /opt/iotech/xrt/4.0/license.json
+      XRT_DEPLOYMENT_DIR: /opt/iotech/xrt/4.0/deployment
+      XRT_STATE_DIR: /opt/iotech/xrt/4.0/deployment/state
       XRT_MQTT_BROKER: tcp://mqtt-broker:1883
       XRT_MQTT_USERNAME: ""
       XRT_MQTT_PASSWORD: ""
@@ -72,8 +71,8 @@ services:
       SPARKPLUG_NODE: ${SPARKPLUG_NODE}
       SPARKPLUG_PROTO: spb
     volumes:
-      - ./deployment:/opt/iotech/xrt/3.4/deployment
-      - ./license.json:/opt/iotech/xrt/3.4/license.json:ro
+      - ./deployment:/opt/iotech/xrt/4.0/deployment
+      - ./license.json:/opt/iotech/xrt/4.0/license.json:ro
     depends_on:
       mqtt-broker:
         condition: service_healthy
@@ -83,7 +82,7 @@ services:
         condition: service_started
 
   alarm-service:
-    image: iotechsys/alarm-service:1.0.8
+    image: iotechsys/alarm-service:1.0
     container_name: alarm-service
     environment:
       EDGEX_SECURITY_SECRET_STORE: "false"
@@ -118,7 +117,7 @@ services:
         condition: service_healthy
 
   sparkplug-historian:
-    image: iotechsys/sparkplug-historian:2.0.3
+    image: iotechsys/sparkplug-historian:2.0
     container_name: sparkplug-historian
     environment:
       EDGE_SECURITY_SECRET_STORE: "false"
@@ -138,7 +137,7 @@ services:
         condition: service_healthy
 
   connect-ui:
-    image: iotechsys/dev-connect-ui:1.0.dev
+    image: iotechsys/connect-ui:1.0
     container_name: connect-ui
     environment:
       EDGE_SECURITY_SECRET_STORE: "false"
@@ -155,7 +154,7 @@ services:
   # Rules engine and dashboards
 
   ekuiper:
-    image: lfedge/ekuiper:2.4.0-slim-python
+    image: lfedge/ekuiper:2.4.2-slim-python
     container_name: ekuiper
     environment:
       KUIPER__BASIC__CONSOLELOG: "true"
@@ -169,7 +168,7 @@ services:
       - alarm-service
 
   grafana:
-    image: grafana/grafana:12.2.1
+    image: grafana/grafana:12.2.10
     container_name: grafana
     environment:
       GF_SECURITY_ADMIN_USER: admin
@@ -185,7 +184,7 @@ services:
       - timescaledb
 
   sparkplug-client:
-    image: iotechsys/dev-sparkplug-client:3.2.0.dev-x86_64
+    image: iotechsys/sparkplug-client:3.2
     container_name: sparkplug-client
     command: ["sub", "-h", "mqtt-broker", "-t", "spBv1.0/#", "-quiet", "--webui", "-webui-port", "8090"]
     ports:
