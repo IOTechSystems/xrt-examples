@@ -11,7 +11,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
       "schedule": {
         "name":"ethernetip-sim-batch-sched1",
         "device":"ethernetip-sim",
-        "resource":"VendorID",
+        "resource":"DI1",
         "interval": 1000000,
         "on_change": false
       }
@@ -20,7 +20,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
       "schedule": {
         "name":"ethernetip-sim-batch-sched2",
         "device":"ethernetip-sim",
-        "resource":"Status",
+        "resource":"DI2",
         "interval": 5000000,
         "on_change": false
       }
@@ -29,7 +29,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethernet_i
       "schedule": {
         "name":"ethernetip-sim-batch-sched3",
         "device":"ethernetip-sim",
-        "resource":"SerialNumber",
+        "resource":"DI3",
         "interval": 10000000,
         "on_change": false
       }

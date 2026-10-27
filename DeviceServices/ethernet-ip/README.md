@@ -72,7 +72,7 @@ The batch commands are described in the [Basic Operations Walkthrough](../intera
 
 ### Digital Inputs
 
-The `ethernetip-sim-profile` exposes the eight digital inputs as one packed `DI` resource of type `Int8`, where bit _n_ is `DIn` and bit 7 is the sign bit. Digital outputs `DO0`-`DO6` are read/write.
+The `ethernetip-sim-profile` exposes the eight digital inputs as the individual `Bool` resources `DI0`-`DI7`. Digital outputs `DO0`-`DO6` are read/write.
 
 ### Discovery & Profile Generation
 
