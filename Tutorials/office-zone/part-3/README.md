@@ -16,7 +16,7 @@ the same process:
 |---|---|
 | `app/main.c`, `app/zone_monitor.c`, `app/zone_monitor.h` | The application. As in Part 2, plus an `AppId` option for the zone monitor |
 | `app/Dockerfile` | Builds the application on the Xrt image |
-| `app/zone_monitor.pkl`, `app/sparkplug_app.pkl` | PKL class for the zone monitor component, and the Sparkplug application settings it uses |
+| `app/zone_monitor.pkl` | PKL class for the zone monitor component |
 | `deployment.pkl` | The Part 1 node description, plus the zone monitor |
 | `app.env` | Environment variables for the application container |
 | `deployment/bacnet_ip/` | The office zone device profile |
@@ -26,10 +26,9 @@ the same process:
 
 As for Part 1, and copy your Edge Connect license file to `license.json` in this directory.
 
-<!-- TODO: change the Xrt 3.4 -dev package, here and in app/Dockerfile, to 4.0 once Xrt 4.0 is released -->
-
-Building the application also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-3.4-dev`
-version 3.4.6, which contains the XRT C headers. The Dockerfile installs it from the IOTech package repository.
+Building the application also needs the XRT `-dev` package for the same release as the Xrt image, `iotech-xrt-4.0-dev`,
+which contains the XRT C headers. The Dockerfile installs the version that matches the image from the IOTech package
+repository.
 
 ## Run it
 
