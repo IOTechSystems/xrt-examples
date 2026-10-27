@@ -1,5 +1,5 @@
 amends "pkl:Project"
 
 dependencies {
-  ["XRT"] { uri = "package://iotech.jfrog.io/artifactory/public/PKL/XRT/XRT@4.0.0" }
+  ["XRT"] { uri = "package://iotech.jfrog.io/artifactory/public/PKL/XRT/XRT@3.4.6+1" }
 }
