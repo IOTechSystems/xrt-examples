@@ -4,7 +4,7 @@ services:
   # Infrastructure
 
   mqtt-broker:
-    image: emqx:5.8.8
+    image: emqx:5.8
     container_name: mqtt-broker
     healthcheck:
       test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
@@ -154,7 +154,7 @@ services:
   # Rules engine and dashboards
 
   ekuiper:
-    image: lfedge/ekuiper:2.4.2-slim-python
+    image: lfedge/ekuiper:2.4-slim-python
     container_name: ekuiper
     environment:
       KUIPER__BASIC__CONSOLELOG: "true"
@@ -168,7 +168,7 @@ services:
       - alarm-service
 
   grafana:
-    image: grafana/grafana:12.2.10
+    image: grafana/grafana:12.2
     container_name: grafana
     environment:
       GF_SECURITY_ADMIN_USER: admin
