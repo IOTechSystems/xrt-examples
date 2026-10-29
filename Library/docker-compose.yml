@@ -15,7 +15,7 @@ x-common-env: &common-env
 services:
   # --- MQTT Sparkplug bus ---
   mosquitto:
-    image: eclipse-mosquitto:latest
+    image: eclipse-mosquitto:2.0
     container_name: mosquitto
     volumes:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
@@ -25,7 +25,7 @@ services:
 
   # --- Four BACnet/IP simulators: Dev1-2 for App1, Dev3-4 for xrt-standalone ---
   bacnet-sim-dev1:
-    image: iotechsys/bacnet-sim:2.2.7
+    image: iotechsys/bacnet-sim:2.2
     container_name: bacnet-sim-dev1
     environment:
       RUN_MODE: IP
@@ -35,7 +35,7 @@ services:
     restart: unless-stopped
 
   bacnet-sim-dev2:
-    image: iotechsys/bacnet-sim:2.2.7
+    image: iotechsys/bacnet-sim:2.2
     container_name: bacnet-sim-dev2
     environment:
       RUN_MODE: MSTP
@@ -45,7 +45,7 @@ services:
     restart: unless-stopped
 
   bacnet-sim-dev3:
-    image: iotechsys/bacnet-sim:2.2.7
+    image: iotechsys/bacnet-sim:2.2
     container_name: bacnet-sim-dev3
     environment:
       RUN_MODE: IP
@@ -55,7 +55,7 @@ services:
     restart: unless-stopped
 
   bacnet-sim-dev4:
-    image: iotechsys/bacnet-sim:2.2.7
+    image: iotechsys/bacnet-sim:2.2
     container_name: bacnet-sim-dev4
     environment:
       RUN_MODE: MSTP
@@ -70,7 +70,6 @@ services:
       context: .
       dockerfile: app1-colocated/Dockerfile
       args:
-        - XRT_VERSION
         - XRT_IMAGE
         - XRT_PACKAGE
     container_name: app1
@@ -90,7 +89,6 @@ services:
     build:
       context: ./xrt-standalone
       args:
-        - XRT_VERSION
         - XRT_IMAGE
     container_name: xrt-standalone
     depends_on:
@@ -111,7 +109,6 @@ services:
       context: .
       dockerfile: app2-standalone/Dockerfile
       args:
-        - XRT_VERSION
         - XRT_IMAGE
         - XRT_PACKAGE
     container_name: app2
@@ -126,7 +123,9 @@ services:
     restart: unless-stopped
 
   xrt-opc-ua-server:
-    image: ${OPCUA_IMAGE:-iotechsys/connect-opc-ua-server:3.4.6}
+    # Not released for this XRT yet, so the dev image. Once released, this should
+    # be the major.minor release: iotechsys/connect-opc-ua-server:4.0
+    image: ${OPCUA_IMAGE:-iotechsys/connect-opc-ua-server:3.4.6-dev}
     container_name: xrt-opc-ua-server
     depends_on:
       - mosquitto

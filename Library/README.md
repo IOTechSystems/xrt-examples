@@ -32,7 +32,7 @@ container; connecting to four BACnet devices through an MQTT broker.
 | Diagram element | Directory / image | What it is |
 |---|---|---|
 | App1 (container) | [`app1-colocated/`](app1-colocated/README.md) | Custom C binary, XRT linked in as a library: a standard XRT Sparkplug node talking to Dev1 + Dev2 & the MQTT broker, plus the demo Sparkplug application component (`common/`) |
-| EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock `iotechsys/xrt:<XRT_VERSION>-deb13` image (the same XRT image as App1/App2), talks to Dev3 + Dev4 & MQTT broker |
+| EC Xrt (container) | [`xrt-standalone/`](xrt-standalone/README.md) | Stock Debian XRT image (`XRT_IMAGE`, the same XRT image as App1/App2), talks to Dev3 + Dev4 & MQTT broker |
 | App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary, XRT linked in as a library: the standard XRT Sparkplug config minus device services and Sparkplug node, plus the same demo Sparkplug application component, consuming Dev1-4 through the MQTT broker |
 | Demo Sparkplug application | [`common/`](common/) | `App::SparkplugDemo`, an XRT component built the same way as `XRT::OPCUAServer`: the container hands it a Bus/ThreadPool/Logger and it does everything through the `xrt_spg_app` API. Shared by App1 and App2, along with the `main.c` that runs the container |
 | MQTT Sparkplug bus | `mosquitto` service (`mosquitto/mosquitto.conf`) | Eclipse Mosquitto broker |
@@ -57,17 +57,25 @@ Library/license/xrt.lic
 Both custom-binary components (`app1-colocated`, `app2-standalone`) are
 compiled against XRT's public headers, and use only its public Sparkplug
 application API (`sparkplug/sparkplug_app.h`). They, and `xrt-standalone`, are
-built on IOTech's published Debian/Ubuntu XRT image for the release picked by
-the `XRT_VERSION` build argument, `iotechsys/xrt:${XRT_VERSION}-deb13`
-by default (`XRT_IMAGE` picks another, e.g. the Ubuntu 24.04 one):
+built on a Debian/Ubuntu XRT image, picked by `XRT_IMAGE`:
 
 - the image has the XRT and IOT runtime packages installed, with everything
   they depend on (Paho MQTT C, Sparkplug B, BACnet, ...), so each app's image
   is just that image plus the app
-- the apps are compiled against the headers in the matching `iotech-xrt-3.4-dev`
-  package and the image's IOT `-dev` package (`iotech-iot-1.7-dev`), from
-  IOTech's public apt repository
+- the apps are compiled against the headers in the `-dev` packages of the
+  image's XRT and IOT packages (e.g. `iotech-xrt-4.0-dev` and
+  `iotech-iot-1.7-dev`), from IOTech's public apt repository
   (`iotech.jfrog.io/iotech/debian-release`).
+
+Images are pinned to their major.minor version. XRT with the changes below
+isn't released yet, so for now the defaults are IOTech's private dev images,
+with the release each should be once it is (`XRT_IMAGE` and `OPCUA_IMAGE`
+pick others):
+
+| Image | Default for now | Once released |
+|---|---|---|
+| XRT (`XRT_IMAGE`) | `iotechsys/xrt-server:3.4.6-deb13-headers-x86_64` | `iotechsys/xrt:4.0-deb13` |
+| OPC UA Server (`OPCUA_IMAGE`) | `iotechsys/connect-opc-ua-server:3.4.6-dev` | `iotechsys/connect-opc-ua-server:4.0` |
 
 | Dependency | Version | Why |
 |---|---|---|
@@ -82,11 +90,8 @@ The Sparkplug application API needs the XRT-4041 changes
 `xrt_exit_delay` defined in `libxrt`) and the XRT-4148 CMD API
 (`xrt_spg_app_metric_cmd_init`, multi-metric `xrt_spg_app_device_send_cmd`),
 and building needs that release's Debian/Ubuntu image and `-dev` packages
-published. Until an XRT release has all of them, the build fails. Once one does, build against it with:
-
-```bash
-XRT_VERSION=<release> docker compose up --build
-```
+published. Until an XRT release has all of them, build against unreleased XRT
+(below).
 
 ### Building against unreleased XRT
 
@@ -108,18 +113,16 @@ XRT_IMAGE=<XRT image> XRT_INCLUDE=<dir> \
   `x86_64/<release|debug>/_CPack_Packages/Linux/TGZ/iotech-xrt-dev-3.4-<version>_<arch>`.
 - `XRT_IMAGE` is the Debian/Ubuntu XRT image to build on and run, which must
   match those headers - e.g. one built from the same XRT source.
-- `OPCUA_IMAGE` is the OPC UA Server image, `iotechsys/connect-opc-ua-server:3.4.6`
-  by default.
+- `OPCUA_IMAGE` is the OPC UA Server image (see above).
 
 For example, with IOTech's private registries, the XRT-4041 dev build (an
 `XRT-4041-branch` Jenkins build with `Archive=Development`, `System=debian-13`,
 `Container` and `CustomTag=headers`) publishes the
-`iotechsys/xrt-server:3.4.6-deb13-headers-x86_64` image. With a local build of
-the same `XRT-4041-branch` source and the `iotech-iot-1.7-dev` headers:
+`iotechsys/xrt-server:3.4.6-deb13-headers-x86_64` image, the current default.
+With a local build of the same `XRT-4041-branch` source and the
+`iotech-iot-1.7-dev` headers:
 
 ```bash
-XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers-x86_64 \
-OPCUA_IMAGE=iotechsys/connect-opc-ua-server:3.4.6-dev \
 XRT_INCLUDE=<xrt>/x86_64/debug/_CPack_Packages/Linux/TGZ/iotech-xrt-dev-3.4-3.4.6_amd64 \
   docker compose -f docker-compose.yml -f docker-compose.local-headers.yml up --build
 ```
@@ -128,9 +131,9 @@ Without the extra compose file, `docker build` takes the same headers as
 `--build-context xrt-include=<dir>` / `--build-context iot-include=<dir>`.
 Either can be left out, to use its `-dev` package instead. To install the
 `-dev` packages from another apt repository, set the `IOTECH_APT_REPO` and
-`IOTECH_APT_KEY` build arguments, and `XRT_PACKAGE` for a differently named XRT
-package (e.g. `iotech-xrt-headers-3.4`, whose headers are in
-`iotech-xrt-headers-3.4-dev`).
+`IOTECH_APT_KEY` build arguments. The XRT `-dev` package is the image's XRT
+package's (e.g. `iotech-xrt-headers-3.4-dev` for the dev image), or set the
+`XRT_PACKAGE` build argument to pick another.
 
 ## Running it
 
@@ -148,8 +151,8 @@ docker compose up --build
 ```
 
 This builds `app1-colocated`, `app2-standalone` and `xrt-standalone`
-(pulling `iotechsys/xrt:${XRT_VERSION}-deb13`, `iotechsys/connect-opc-ua-server:3.4.6`,
-`iotechsys/opc-ua-browser:1.1` and `iotechsys/bacnet-sim:2.2.7` as-is) and
+(pulling the `XRT_IMAGE` and `OPCUA_IMAGE` images, `iotechsys/opc-ua-browser:1.1`,
+`iotechsys/bacnet-sim:2.2` and `eclipse-mosquitto:2.0` as-is) and
 starts all ten services.
 
 Expected log output:
