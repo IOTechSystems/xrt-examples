@@ -1,0 +1,22 @@
+{
+  "alarmConfigs": {
+    "AverageModuleTemperatureHigh": {
+      "type": "Level",
+      "config": {
+        "highLimit": 40,
+        "highHighLimit": 45,
+        "severityHigh": 500,
+        "severityHighHigh": 700,
+        "requireAckOnActive": true,
+        "autoAckOnInactive": true,
+        "shelvable": true
+      }
+    }
+  },
+  "sourceAssociations": [
+    {
+      "source": { "messageBusSourceName": "Rack01AverageModuleTemperature" },
+      "alarms": ["AverageModuleTemperatureHigh"]
+    }
+  ]
+}

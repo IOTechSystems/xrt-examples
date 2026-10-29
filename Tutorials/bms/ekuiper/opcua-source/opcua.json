@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "language": "python",
+  "executable": "opcua.py",
+  "sources": ["opcua"],
+  "sinks": [],
+  "functions": []
+}

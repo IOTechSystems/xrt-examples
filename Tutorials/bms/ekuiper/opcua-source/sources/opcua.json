@@ -1,0 +1,31 @@
+{
+  "about": {
+    "trial": false,
+    "author": {
+      "name": "IOTech"
+    },
+    "description": {
+      "en_US": "Subscribe to OPC-UA nodes via monitored item subscriptions."
+    }
+  },
+  "properties": {
+    "default": [
+      {
+        "name": "server",
+        "default": "opc.tcp://alarm-service:4840",
+        "type": "string"
+      },
+      {
+        "name": "nodePrefix",
+        "default": "",
+        "hint": "NS=3 node ID prefix e.g. bess-node/rack-01. Leave empty to subscribe all NS=3 variables.",
+        "type": "string"
+      },
+      {
+        "name": "sparkplugNs",
+        "default": 3,
+        "type": "int"
+      }
+    ]
+  }
+}
