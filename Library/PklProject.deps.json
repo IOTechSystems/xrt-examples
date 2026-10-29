@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "resolvedDependencies": {
+    "package://iotech.jfrog.io/artifactory/public/XRT/XRT@3": {
+      "type": "remote",
+      "uri": "projectpackage://iotech.jfrog.io/artifactory/public/XRT/XRT@3.4.6+1",
+      "checksums": {
+        "sha256": "65cefcfe3107c3c4c7b8f367af829b66484b05144b669d1ba67238026f913928"
+      }
+    }
+  }
+}
