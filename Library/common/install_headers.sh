@@ -40,16 +40,18 @@ IOT_INCLUDE=$(include_dir /tmp/iot-include iot/iot.h)
 
 if [ -z "${XRT_INCLUDE}" ] || [ -z "${IOT_INCLUDE}" ]
 then
-  IOT_PKG_VER=$(dpkg-query -W -f '${Version}' iotech-iot-1.6)
+  # The image's IOT package, e.g. iotech-iot-1.7 for IOT=/opt/iotech/iot/1.7
+  IOT_PACKAGE="iotech-iot-${IOT##*/}"
+  IOT_PKG_VER=$(dpkg-query -W -f '${Version}' "${IOT_PACKAGE}")
   curl -fsSL "${IOTECH_APT_KEY}" | gpg --dearmor -o /usr/share/keyrings/iotech.gpg
   echo "deb [signed-by=/usr/share/keyrings/iotech.gpg] ${IOTECH_APT_REPO} $(lsb_release -c -s) main" > /etc/apt/sources.list.d/iotech.list
   apt-get update
   if [ -z "${XRT_INCLUDE}" ]
   then
     apt-get install -y --no-install-recommends \
-      "${XRT_PACKAGE}-dev=${XRT_VERSION}" "iotech-iot-1.6-dev=${IOT_PKG_VER}"
+      "${XRT_PACKAGE}-dev=${XRT_VERSION}" "${IOT_PACKAGE}-dev=${IOT_PKG_VER}"
   else
-    apt-get install -y --no-install-recommends "iotech-iot-1.6-dev=${IOT_PKG_VER}"
+    apt-get install -y --no-install-recommends "${IOT_PACKAGE}-dev=${IOT_PKG_VER}"
   fi
 fi
 

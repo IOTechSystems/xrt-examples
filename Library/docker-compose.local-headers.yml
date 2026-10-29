@@ -10,7 +10,7 @@
 
 x-local-headers: &local-headers
   xrt-include: ${XRT_INCLUDE:-/opt/iotech/xrt/3.4/include}
-  iot-include: ${IOT_INCLUDE:-/opt/iotech/iot/1.6/include}
+  iot-include: ${IOT_INCLUDE:-/opt/iotech/iot/1.7/include}
 
 services:
   app1:

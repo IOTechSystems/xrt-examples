@@ -78,7 +78,9 @@ static void on_device_metric_added (xrt_spg_app_device_t *device, xrt_spg_app_me
     return;
   }
   iot_log_info (app->logger, "issuing DCMD: '%s' '%s' = %f", app->write_device, app->write_metric, app->write_value);
-  xrt_spg_app_device_send_cmd (device, metric, iot_data_alloc_f32 ((float) app->write_value));
+  xrt_spg_metric_cmd_t cmd;
+  xrt_spg_app_metric_cmd_init (&cmd, metric, iot_data_alloc_f32 ((float) app->write_value));
+  xrt_spg_app_device_send_cmd (device, 1, &cmd);
 }
 
 static void spg_demo_app_start (spg_demo_app_t *app)

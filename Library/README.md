@@ -65,22 +65,24 @@ by default (`XRT_IMAGE` picks another, e.g. the Ubuntu 24.04 one):
   they depend on (Paho MQTT C, Sparkplug B, BACnet, ...), so each app's image
   is just that image plus the app
 - the apps are compiled against the headers in the matching `iotech-xrt-3.4-dev`
-  and `iotech-iot-1.6-dev` packages, from IOTech's public apt repository
+  package and the image's IOT `-dev` package (`iotech-iot-1.7-dev`), from
+  IOTech's public apt repository
   (`iotech.jfrog.io/iotech/debian-release`).
 
 | Dependency | Version | Why |
 |---|---|---|
 | XRT | **3.4.6** + XRT-4041 | core library - see below |
-| IOT | **1.6.6** | core library |
+| IOT | **1.7.0** | core library |
 | Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | runtime only, for XRT's MQTT bridge |
 | Sparkplug B (`sparkplug-b`) | **1.0.1** | runtime only, the protobuf codec for XRT's Sparkplug transform |
 | XRT Pkl package | **3.4.6+1** | the `deployment.pkl` schema, downloaded from `iotech.jfrog.io` (see [`PklProject`](PklProject)) |
 
 The Sparkplug application API needs the XRT-4041 changes
 (`xrt_spg_app_config_init`, a self-contained `sparkplug_app.h`, and
-`xrt_exit_delay` defined in `libxrt`), and building needs that release's
-Debian/Ubuntu image and `-dev` packages published. Until an XRT release has
-all of them, the build fails. Once one does, build against it with:
+`xrt_exit_delay` defined in `libxrt`) and the XRT-4148 CMD API
+(`xrt_spg_app_metric_cmd_init`, multi-metric `xrt_spg_app_device_send_cmd`),
+and building needs that release's Debian/Ubuntu image and `-dev` packages
+published. Until an XRT release has all of them, the build fails. Once one does, build against it with:
 
 ```bash
 XRT_VERSION=<release> docker compose up --build
@@ -98,12 +100,29 @@ XRT_IMAGE=<XRT image> XRT_INCLUDE=<dir> \
 
 - `XRT_INCLUDE` / `IOT_INCLUDE` are the XRT and IOT headers to use: an include
   directory, or one containing it. They default to where the `-dev` packages
-  install (`/opt/iotech/xrt/3.4/include`, `/opt/iotech/iot/1.6/include`), so
-  with privately hosted `-dev` packages installed on this machine neither needs
-  setting. For a local XRT build, use its package staging directory,
-  `x86_64/release/_CPack_Packages/Linux/TGZ/iotech-xrt-3.4-<version>_<arch>`.
+  install (`/opt/iotech/xrt/3.4/include`, `/opt/iotech/iot/1.7/include`), but
+  installing the XRT `-dev` package needs a host of the image's distro (Debian
+  13): elsewhere its runtime dependencies are built for another distro, or
+  clash with other installed versions of IOTech's libraries. Instead, use a
+  local XRT build of the same source, at its `-dev` package staging directory,
+  `x86_64/<release|debug>/_CPack_Packages/Linux/TGZ/iotech-xrt-dev-3.4-<version>_<arch>`.
 - `XRT_IMAGE` is the Debian/Ubuntu XRT image to build on and run, which must
-  match those headers - e.g. one built from the same XRT build.
+  match those headers - e.g. one built from the same XRT source.
+- `OPCUA_IMAGE` is the OPC UA Server image, `iotechsys/connect-opc-ua-server:3.4.6`
+  by default.
+
+For example, with IOTech's private registries, the XRT-4041 dev build (an
+`XRT-4041-branch` Jenkins build with `Archive=Development`, `System=debian-13`,
+`Container` and `CustomTag=headers`) publishes the
+`iotechsys/xrt-server:3.4.6-deb13-headers-x86_64` image. With a local build of
+the same `XRT-4041-branch` source and the `iotech-iot-1.7-dev` headers:
+
+```bash
+XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers-x86_64 \
+OPCUA_IMAGE=iotechsys/connect-opc-ua-server:3.4.6-dev \
+XRT_INCLUDE=<xrt>/x86_64/debug/_CPack_Packages/Linux/TGZ/iotech-xrt-dev-3.4-3.4.6_amd64 \
+  docker compose -f docker-compose.yml -f docker-compose.local-headers.yml up --build
+```
 
 Without the extra compose file, `docker build` takes the same headers as
 `--build-context xrt-include=<dir>` / `--build-context iot-include=<dir>`.
