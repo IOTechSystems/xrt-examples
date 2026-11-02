@@ -24,6 +24,9 @@ services:
     env_file: xrt.env
     # Show Xrt's log output as soon as it is written
     tty: true
+    # Run Xrt as your user, so that the files it writes in deployment/ stay yours to change. If your
+    # user and group IDs (id -u, id -g) are not 1000, set XRT_UID and XRT_GID to them
+    user: "${XRT_UID:-1000}:${XRT_GID:-1000}"
     volumes:
       # The image runs Xrt against the deployment/config directory mounted here
       - ./deployment:/opt/iotech/xrt/4.0/deployment
