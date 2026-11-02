@@ -38,34 +38,6 @@ repository.
 
 ## Run it
 
-Generate the Xrt configuration and start the supporting containers and Xrt as in
-[Part 1](../part-1/README.md#run-it). Then generate the zone monitor's three configurations from `app/app.pkl`:
-
-```bash
-pkl eval -m app/deployment app/app.pkl
-```
-
-Build the zone monitor and run it with one of the three configurations:
-
-```bash
-docker build -t zone-monitor app
-
-mkdir -p app/state
-docker run -d --name zone-monitor --user "$(id -u):$(id -g)" --network xrt-tutorial --env-file app.env \
-  -v "$PWD/app/deployment/dynamic:/app/deployment" \
-  -v "$PWD/app/state:/app/state" \
-  -v "$PWD/app/preload:/app/preload:ro" \
-  -v "$PWD/license.json:/app/license.json:ro" \
-  zone-monitor
-
-docker logs -f zone-monitor
-```
-
-Replace `dynamic` with `cached` or `static` to run the other configurations.
-
-After changing `app/app.pkl`, generate the configurations again and restart the zone monitor:
-
-```bash
-pkl eval -m app/deployment app/app.pkl
-docker restart zone-monitor
-```
+Follow the Edge Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial > Part 2**: build
+the zone monitor in **Build the Zone Monitor**, then run it with each configuration in **Run Fully Dynamically**,
+**Run Partially Dynamically** and **Run Statically**.
