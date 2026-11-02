@@ -32,40 +32,5 @@ repository.
 
 ## Run it
 
-Generate the configuration from `deployment.pkl`:
-
-```bash
-pkl project resolve .
-pkl eval -m deployment deployment.pkl
-```
-
-Then start the supporting containers, and build and run the application:
-
-```bash
-docker compose up -d
-docker build -t zone-app app
-
-docker run -d --name zone-app --user "$(id -u):$(id -g)" --network xrt-tutorial --env-file app.env \
-  -v "$PWD/deployment:/app/deployment" \
-  -v "$PWD/license.json:/app/license.json:ro" \
-  zone-app
-
-docker logs -f zone-app
-```
-
-There is no separate Xrt container: the application is the Xrt node. Open the Sparkplug Client web UI at
-<http://localhost:8090> to see the office zone's data.
-
-After changing `deployment.pkl`, generate the configuration again and restart the application:
-
-```bash
-pkl eval -m deployment deployment.pkl
-docker restart zone-app
-```
-
-Stop everything with:
-
-```bash
-docker rm -f zone-app
-docker compose down
-```
+Follow the Edge Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial > Part 3**: build
+the application in **Build the Application**, then run it in **Run the Application**.
