@@ -8,7 +8,7 @@ data on an MQTT broker as Sparkplug B.
 
 | Path | What it is |
 |---|---|
-| `compose.yml` | MQTT broker, BACnet Simulator and Sparkplug Client web UI. The simulator has a fixed address, `172.16.238.10` |
+| `docker-compose.yml` | MQTT broker, BACnet Simulator and Sparkplug Client web UI. The simulator has a fixed address, `172.16.238.10` |
 | `xrt.env` | Environment variables for the Xrt container |
 | `mosquitto/mosquitto.conf` | Broker configuration (anonymous access - tutorial only) |
 | `simulator/office-zone.lua` | Simulator script: zone temperature, setpoint, occupancy and fan |
