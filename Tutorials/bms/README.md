@@ -22,7 +22,7 @@ it, all as Docker containers on one host:
 
 | Path | What it is |
 |---|---|
-| `compose.yml`, `.env` | The containers, and the Sparkplug names and tutorial credentials they share |
+| `docker-compose.yml`, `.env` | The containers, and the Sparkplug names and tutorial credentials they share |
 | `deployment.pkl` | Description of the Xrt node, used to generate `deployment/config` and `deployment/state` |
 | `deployment/` | The device profiles, and the Xrt configuration and devices once generated (not committed) |
 | `simulators/` | The Modbus simulator script and the OPC UA simulator script |
