@@ -1,0 +1,13 @@
+name: xrt-getting-started
+
+services:
+  xrt:
+    image: iotechsys/xrt:4.0
+    container_name: xrt
+    env_file: xrt.env
+    # Show Xrt's log output as soon as it is written
+    tty: true
+    volumes:
+      # The image runs Xrt against the deployment/config directory mounted here
+      - ./deployment:/opt/iotech/xrt/4.0/deployment
+      - ./license.json:/opt/iotech/xrt/4.0/license.json:ro

@@ -1,0 +1,22 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/virtual.pkl"
+
+/// The office zone: a virtual device, using the office-zone-profile device profile
+local office = virtual.device("office-zone", "office-zone-profile", new virtual.VirtualProtocolType {})
+
+system =
+  minimalSystem()
+    |> withLogLevel("Info")
+    |> virtual.instance("virtual")
+    |> virtual.withVirtualOptions("virtual", (s) -> (s) {
+        // Read devices from deployment/state/virtual, where they are generated
+        state_dir = "${XRT_DEPLOYMENT_DIR}/state/virtual"
+      })
+    |> withDevices("virtual", Set(office))
+    // No schedules yet: you add one in the next step
+    |> withSchedules("virtual", Set())
+
+output {
+  files = system.deployment()
+}
