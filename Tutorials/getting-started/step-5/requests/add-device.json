@@ -1,0 +1,13 @@
+{
+  "client": "tutorial",
+  "request_id": "1",
+  "type": "xrt.request:1.0",
+  "op": "device:add",
+  "device": "meeting-room",
+  "device_info": {
+    "profileName": "office-zone-profile",
+    "protocols": {
+      "Virtual": {}
+    }
+  }
+}
