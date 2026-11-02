@@ -24,36 +24,5 @@ data on an MQTT broker as Sparkplug B.
 
 ## Run it
 
-Generate the Xrt configuration from `deployment.pkl`:
-
-```bash
-pkl project resolve .
-pkl eval -m deployment deployment.pkl
-```
-
-Then start the supporting containers and Xrt:
-
-```bash
-docker compose up -d
-
-docker run -d --name xrt --network xrt-tutorial --env-file xrt.env \
-  -v "$PWD/deployment:/opt/iotech/xrt/4.0/deployment" \
-  -v "$PWD/license.json:/opt/iotech/xrt/4.0/license.json:ro" \
-  iotechsys/xrt:4.0
-```
-
-Open the Sparkplug Client web UI at <http://localhost:8090> to see the office zone's data.
-
-After changing `deployment.pkl`, generate the configuration again and restart Xrt:
-
-```bash
-pkl eval -m deployment deployment.pkl
-docker restart xrt
-```
-
-Stop everything with:
-
-```bash
-docker rm -f xrt
-docker compose down
-```
+Follow the Edge Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial > Part 1**: generate
+the configuration in **Generate the Configuration**, then start the containers and Xrt in **Run Xrt**.
