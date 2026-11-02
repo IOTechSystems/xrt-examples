@@ -38,43 +38,6 @@ it, all as Docker containers on one host:
 
 ## Run it
 
-Generate the Xrt configuration from `deployment.pkl`, then start the containers:
-
-```bash
-pkl project resolve .
-pkl eval -m deployment deployment.pkl
-docker compose up -d
-```
-
-Then open:
-
-| UI | Address | Login |
-|---|---|---|
-| Edge Connect UI | <http://localhost:9091> | `admin` / `Admin@Edge0` |
-| Grafana | <http://localhost:3000> | `admin` / `admin` |
-| Sparkplug Client | <http://localhost:8090> | |
-| EMQX dashboard | <http://localhost:18083> | `admin` / `public` |
-
-In the Edge Connect UI's OPC UA Browser, connect to `opc.tcp://alarm-service:4840`.
-
-To add the eKuiper rule:
-
-```bash
-./ekuiper/install-plugin.sh
-./ekuiper/create-rule.sh
-```
-
-To charge `rack-01` at 150 A, which raises its cell voltage until the `CellVoltageHigh` and `RackFault` alarms
-activate, open the Sparkplug Client web UI at <http://localhost:8090>, select `rack-01`'s DBIRTH message, and use
-**Write** next to `current-setpoint` to write `150`.
-
-Set `current-setpoint` back to `0` to stop the rack and clear its fault.
-
-After changing `deployment.pkl`, generate the configuration again and restart Xrt:
-
-```bash
-pkl eval -m deployment deployment.pkl
-docker compose restart xrt
-```
-
-Stop everything with `docker compose down`, or `docker compose down -v` to also delete the stored data.
+Follow the Edge Connect documentation, under **Getting Started > Tutorials > Battery Management System**: start the
+system in **Set Up and Start the System**, then follow the data and raise alarms in **Follow the Data** and
+**Work with Alarms**.
