@@ -1,0 +1,49 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The office zone controller: BACnet/IP device instance 1234, using the office-zone-profile device profile
+local office = bacnet.device(
+  "office-zone",
+  "office-zone-profile",
+  new bacnet.IPProtocolType { instance_id = 1234 },
+)
+
+/// Read the present value of every object on the office zone controller every 5 seconds
+local schedule = office.new_schedule(new Dynamic {
+  name = "office-zone-schedule"
+  device = office.ref()
+  resource = Set(".*:present-value")
+  interval = 5.s
+})
+
+system =
+  standardSystem("tutorial-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("bacnet_ip")
+        // The Sparkplug node waits for the bridge's state on this topic before it publishes
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugOptions((s) -> (s) {
+        enable_fixed_aliases = true
+      })
+    |> withSparkplugNodeOptions((n) -> (n) {
+        app_state_wait = List()
+      })
+    |> bacnet.ip_instance("", "bacnet_ip")
+    |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
+        // Read devices and schedules from deployment/state/bacnet_ip, where they are generated
+        state_dir = "${XRT_DEPLOYMENT_DIR}/state/bacnet_ip"
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          bbmd_address = "${BACNET_SIM_ADDRESS}"
+        }
+      })
+    |> withDevices("bacnet_ip", Set(office))
+    |> withSchedules("bacnet_ip", Set(schedule))
+
+output {
+  files = system.deployment()
+}

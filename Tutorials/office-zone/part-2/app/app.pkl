@@ -1,0 +1,109 @@
+/// Configuration for the zone monitor application, in each of its three BIRTH modes.
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/server/sparkplug.pkl"
+import "@XRT/bridge/mqtt_bridge.pkl"
+import "sparkplug_app.pkl"
+import "zone_monitor.pkl"
+
+/// Sparkplug application id, also used as the MQTT client id
+local APP_ID = "zone-monitor"
+local STATE_TOPIC = "spBv1.0/STATE/\(APP_ID)"
+local GROUP = "${SPARKPLUG_GROUP}"
+local PROTO = List("${SPARKPLUG_PROTO}")
+
+/// Fully dynamic: learns the zone from BIRTH messages, and asks the node to
+/// rebirth whenever it sees data it has no BIRTH for
+local dynamic = new sparkplug_app.SparkplugAppConfig {}
+
+/// Partially dynamic: persists the BIRTH messages it receives, so after a
+/// restart it already knows the zone, and never asks for a rebirth
+local cached = new sparkplug_app.SparkplugAppConfig {
+  enable_birth_cache = true
+  birth_cache_dir = "/app/state"
+  issue_nrebirths = false
+  issue_drebirths = false
+}
+
+/// Static: knows the zone from BIRTH record files generated from the Xrt
+/// configuration, and ignores BIRTH and DEATH messages
+local static = new sparkplug_app.SparkplugAppConfig {
+  static_mode = true
+  birth_preload_dir = "/app/preload"
+  issue_nrebirths = false
+  issue_drebirths = false
+}
+
+local function app(settings: sparkplug_app.SparkplugAppConfig) =
+  minimalSystem()
+    |> withLogLevel("Info")
+    |> addComponents(new Listing<Component> {
+        new Config {
+          name = "config"
+          server_id = "zone-monitor-server"
+          node_id = APP_ID
+        }
+        new sparkplug.Sparkplug {
+          name = "sparkplug"
+        }
+        // A Sparkplug application receives every node's and device's messages, and
+        // publishes commands to them plus its own (JSON, so no transform) STATE
+        new mqtt_bridge.MQTTBridge {
+          name = "mqtt_bridge"
+          logger = new LoggerRef { target = "logger" }
+          bus = new BusRef { target = "bus" }
+          app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+          patterns = Set(
+            new TopicPattern { pattern = "spBv1.0/\(GROUP)/NCMD/+"; qos = 0; transforms = PROTO },
+            new TopicPattern { pattern = "spBv1.0/\(GROUP)/DCMD/+/+"; qos = 0; transforms = PROTO },
+            new TopicPattern { pattern = STATE_TOPIC; qos = 1; retain = true },
+          )
+          mqtt_patterns = Set(
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NBIRTH/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NDEATH/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/NDATA/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DBIRTH/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DDEATH/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/\(GROUP)/DDATA/+/+"; qos = 0; transforms = PROTO },
+            new MQTTTopic { pattern = "spBv1.0/STATE/+"; qos = 1 },
+          )
+          mqtt_dynamic_patterns = Set()
+          mqtt_config {
+            server_uri = "${XRT_MQTT_BROKER}"
+            client_id = APP_ID
+            client_config {
+              username = "${XRT_MQTT_USERNAME}"
+              password = "${XRT_MQTT_PASSWORD}"
+              mqtt_version = 5
+              will_config {
+                topic = STATE_TOPIC
+                qos = 1
+                retain = true
+              }
+            }
+          }
+        }
+        new ThreadPool {
+          name = "app_pool"
+          logger = new LoggerRef { target = "logger" }
+          threads = 2
+        }
+        new zone_monitor.ZoneMonitor {
+          name = "zone_monitor"
+          logger = new LoggerRef { target = "logger" }
+          bus = new BusRef { target = "bus" }
+          thread_pool = new ThreadPoolRef { target = "app_pool" }
+          node = "${SPARKPLUG_NODE}"
+          device = "office-zone"
+          max_temperature_offset = 1.0
+          sparkplug_config = settings
+        }
+      })
+
+output {
+  files {
+    ...app(dynamic).deploy_in("dynamic")
+    ...app(cached).deploy_in("cached")
+    ...app(static).deploy_in("static")
+  }
+}
