@@ -1,7 +1,7 @@
 # Office Zone Tutorial - Part 1: Install, Configure and Run Xrt
 
-The completed project for Part 1 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the Edge
-Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial**.
+The completed project for Part 1 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the [Edge
+Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Office Zone Tutorial**.
 
 Xrt reads a simulated BACnet office zone controller through the BACnet/IP Device Service, and publishes its
 data on an MQTT broker as Sparkplug B.
@@ -24,5 +24,6 @@ data on an MQTT broker as Sparkplug B.
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial > Part 1**: generate
-the configuration in **Generate the Configuration**, then start the containers and Xrt in **Run Xrt**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Office
+Zone Tutorial > Part 1**: generate the configuration in **Generate the Configuration**, then start the containers and
+Xrt in **Run Xrt**.
