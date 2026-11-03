@@ -1,7 +1,8 @@
 # Battery Management System Tutorial
 
-The completed project for the Edge Connect Battery Management System (BMS) tutorial. The step-by-step guide is
-in the Edge Connect documentation, under **Getting Started > Tutorials > Battery Management System**.
+The completed project for the Edge Connect Battery Management System (BMS) tutorial. The step-by-step guide is in the
+[Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Battery Management
+System**.
 
 The project runs a simulated battery energy storage system (BESS) and the Edge Connect components that monitor
 it, all as Docker containers on one host:
@@ -38,6 +39,6 @@ it, all as Docker containers on one host:
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Battery Management System**: start the
-system in **Set Up and Start the System**, then follow the data and raise alarms in **Follow the Data** and
-**Work with Alarms**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Battery
+Management System**: start the system in **Set Up and Start the System**, then follow the data and raise alarms in
+**Follow the Data** and **Work with Alarms**.
