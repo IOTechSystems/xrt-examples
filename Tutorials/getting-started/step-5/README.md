@@ -3,11 +3,12 @@
 The completed project for Step 5 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide
 is in the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt**.
 
-Adds a `meeting-room` device and its schedule while Xrt is running, with requests on the MQTT broker.
+Adds a `meeting-room` device and its schedule while Xrt is running, with requests sent from the Sparkplug Client
+web UI.
 
 | Path | What it is |
 |---|---|
-| `requests/` | The requests that add the `meeting-room` device and its schedule |
+| `requests/add-schedule.json` | The request that adds the `meeting-room` schedule. The device is added from the web UI's **Add a device** template |
 | `deployment.pkl`, `PklProject` | PKL description the Xrt configuration is generated from |
 | `deployment/virtual/profiles/` | Device profile for the office zone |
 | `deployment/config/`, `deployment/state/virtual/` | Xrt configuration, devices and schedules, generated from `deployment.pkl` when you run it (not committed). Xrt adds the devices and schedules you add at runtime to `deployment/state/virtual/` |
