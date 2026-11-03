@@ -17,6 +17,7 @@ Within this repository there are many examples that you can chose to run through
 
 ## Examples
 
+* [Office Zone Tutorial](Tutorials/office-zone/part-1/README.md) - The completed project for each part of the Edge Connect Office Zone Tutorial
 * [Application Component](ApplicationComponent/README.md) - This example demonstrates how a custom component can be written and loaded into XRT
 * [Azure Sphere](AzureSphere/README.md)
 * [MQTT Bridge](Bridge/mqtt/README.md)
