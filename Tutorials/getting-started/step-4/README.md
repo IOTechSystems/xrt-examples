@@ -1,7 +1,8 @@
 # Getting Started with Xrt - Step 4: Read and Write
 
-The completed project for Step 4 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide
-is in the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt**.
+The completed project for Step 4 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide is in
+the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting Started
+with Xrt**.
 
 Adds a writable `zone-setpoint` to the office zone's device profile, to read and write from the Sparkplug
 Client web UI.
@@ -22,4 +23,5 @@ Client web UI.
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt > Read and Write**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting
+Started with Xrt > Read and Write**.

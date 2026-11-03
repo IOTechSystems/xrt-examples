@@ -1,7 +1,8 @@
 # Getting Started with Xrt - Step 1: Your First Xrt Node
 
-The completed project for Step 1 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide
-is in the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt**.
+The completed project for Step 1 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide is in
+the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting Started
+with Xrt**.
 
 A node with only Xrt's core components: a logger, the bus, two thread pools and a scheduler.
 
@@ -19,4 +20,5 @@ A node with only Xrt's core components: a logger, the bus, two thread pools and 
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt > Your First Xrt Node**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting
+Started with Xrt > Your First Xrt Node**.

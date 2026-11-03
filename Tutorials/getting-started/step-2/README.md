@@ -1,7 +1,8 @@
 # Getting Started with Xrt - Step 2: Add a Virtual Device
 
-The completed project for Step 2 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide
-is in the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt**.
+The completed project for Step 2 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide is in
+the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting Started
+with Xrt**.
 
 Adds the Virtual device service, and an `office-zone` device whose `zone-temperature` follows a sine wave.
 
@@ -20,4 +21,5 @@ Adds the Virtual device service, and an `office-zone` device whose `zone-tempera
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt > Add a Virtual Device**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting
+Started with Xrt > Add a Virtual Device**.

@@ -1,7 +1,8 @@
 # Getting Started with Xrt - Step 3: See the Data
 
-The completed project for Step 3 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide
-is in the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt**.
+The completed project for Step 3 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide is in
+the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting Started
+with Xrt**.
 
 Adds a schedule, an MQTT broker, the MQTT Bridge and Sparkplug node, and the Sparkplug Client web UI to see
 the office zone's data.
@@ -22,4 +23,5 @@ the office zone's data.
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt > See the Data**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting
+Started with Xrt > See the Data**.

@@ -1,7 +1,8 @@
 # Getting Started with Xrt - Step 5: Add a Device at Runtime
 
-The completed project for Step 5 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide
-is in the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt**.
+The completed project for Step 5 of the Edge Connect Getting Started with Xrt tutorial. The step-by-step guide is in
+the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting Started
+with Xrt**.
 
 Adds a `meeting-room` device and its schedule while Xrt is running, with requests sent from the Sparkplug Client
 web UI.
@@ -23,4 +24,5 @@ web UI.
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Getting Started with Xrt > Add a Device at Runtime**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Getting
+Started with Xrt > Add a Device at Runtime**.
