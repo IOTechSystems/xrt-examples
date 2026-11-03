@@ -1,0 +1,128 @@
+{
+  "apiVersion": "v2",
+  "name": "battery-rack-profile",
+  "manufacturer": "IOTech",
+  "description": "Battery rack controller (BMS) of a battery energy storage system",
+  "labels": [
+    "tutorial",
+    "bess"
+  ],
+  "deviceResources": [
+    {
+      "name": "rack-voltage",
+      "description": "Rack DC voltage",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 0
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "V"
+      }
+    },
+    {
+      "name": "rack-current",
+      "description": "Rack DC current, positive when charging",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 2
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "A"
+      }
+    },
+    {
+      "name": "state-of-charge",
+      "description": "Rack state of charge",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 4
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "%"
+      }
+    },
+    {
+      "name": "cell-voltage-max",
+      "description": "Highest cell voltage in the rack",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 6
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "V"
+      }
+    },
+    {
+      "name": "cell-voltage-min",
+      "description": "Lowest cell voltage in the rack",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 8
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "V"
+      }
+    },
+    {
+      "name": "module-1-temperature",
+      "description": "Module 1 cell temperature",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 10
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "°C"
+      }
+    },
+    {
+      "name": "module-2-temperature",
+      "description": "Module 2 cell temperature",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 12
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "R",
+        "units": "°C"
+      }
+    },
+    {
+      "name": "rack-status",
+      "description": "0 = standby, 1 = charging, 2 = discharging, 3 = fault",
+      "attributes": {
+        "primaryTable": "INPUT_REGISTERS",
+        "startingAddress": 14
+      },
+      "properties": {
+        "valueType": "Uint16",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "current-setpoint",
+      "description": "Requested rack current, positive to charge, negative to discharge",
+      "attributes": {
+        "primaryTable": "HOLDING_REGISTERS",
+        "startingAddress": 0
+      },
+      "properties": {
+        "valueType": "Float32",
+        "readWrite": "RW",
+        "units": "A"
+      }
+    }
+  ]
+}
