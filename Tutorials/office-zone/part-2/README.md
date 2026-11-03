@@ -1,7 +1,7 @@
 # Office Zone Tutorial - Part 2: Develop a Sparkplug Client Application in C
 
-The completed project for Part 2 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the Edge
-Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial**.
+The completed project for Part 2 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the [Edge
+Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Office Zone Tutorial**.
 
 This folder contains everything from [Part 1](../part-1/README.md), plus the zone monitor: a Sparkplug
 application written in C, using XRT's Sparkplug application library (`sparkplug/sparkplug_app.h`). It follows
@@ -38,6 +38,6 @@ repository.
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial > Part 2**: build
-the zone monitor in **Build the Zone Monitor**, then run it with each configuration in **Run Fully Dynamically**,
-**Run Partially Dynamically** and **Run Statically**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Office
+Zone Tutorial > Part 2**: build the zone monitor in **Build the Zone Monitor**, then run it with each configuration in
+**Run Fully Dynamically**, **Run Partially Dynamically** and **Run Statically**.
