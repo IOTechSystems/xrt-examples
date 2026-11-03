@@ -1,7 +1,7 @@
 # Office Zone Tutorial - Part 3: Link Xrt as a Shared Library
 
-The completed project for Part 3 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the Edge
-Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial**.
+The completed project for Part 3 of the Edge Connect Office Zone Tutorial. The step-by-step guide is in the [Edge
+Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Office Zone Tutorial**.
 
 This folder contains the [Part 1](../part-1/README.md) project, plus the zone monitor from
 [Part 2](../part-2/README.md), built into an application that links Xrt as a shared library. The application runs
@@ -32,5 +32,5 @@ repository.
 
 ## Run it
 
-Follow the Edge Connect documentation, under **Getting Started > Tutorials > Office Zone Tutorial > Part 3**: build
-the application in **Build the Application**, then run it in **Run the Application**.
+Follow the [Edge Connect documentation](https://docs.iotechsys.com/), under **Getting Started > Tutorials > Office
+Zone Tutorial > Part 3**: build the application in **Build the Application**, then run it in **Run the Application**.
