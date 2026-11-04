@@ -67,7 +67,6 @@ system =
     |> bacnet.ip_instance("", "bacnet_ip")
     |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
         publish_registered_devices = true
-        publish_attributes = true
         allowed_fails = 5
         driver = new bacnet.BACnetIPDriverOptions {
           network_interface = ""

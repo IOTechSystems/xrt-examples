@@ -56,7 +56,6 @@ system =
     |> addComponents(new Listing<XRT.Component> { exporter_logger; exporter })
     |> virtual.instance("virtual_device_service")
     |> virtual.withVirtualOptions("virtual_device_service", (s) -> (s) {
-        publish_source = true
       })
     |> withDevices("virtual_device_service", Set(virtual_device))
     |> withSchedules("virtual_device_service", Set(

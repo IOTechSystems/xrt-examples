@@ -39,7 +39,6 @@ system =
         logger = shared_logger.ref()
         discovery_interval = 300.s
         publish_registered_devices = true
-        publish_attributes = true
         allowed_fails = 5
       })
     |> withPoolThreads(10)
