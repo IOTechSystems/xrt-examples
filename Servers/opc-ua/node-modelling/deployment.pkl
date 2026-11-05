@@ -34,6 +34,9 @@ system =
     |> withPoolThreads(10)
     |> withSchedulePoolThreads(6)
     |> withLogLevel("Info")
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+      })
     |> s7.instance("s7")
     |> withDevices("s7", Set(s7_device))
     |> virtual.instance("virtual")

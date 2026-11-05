@@ -28,6 +28,9 @@ system =
     |> withPoolThreads(10)
     |> withSchedulePoolThreads(6)
     |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+      })
     |> opcua_server.instance("opc_ua_server")
     |> opcua_server.withOPCUAServerOptions("opc_ua_server", (s) -> (s) {
         enable_sparkplug = true
