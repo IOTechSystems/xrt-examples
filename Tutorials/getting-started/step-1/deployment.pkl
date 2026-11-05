@@ -1,0 +1,10 @@
+extends "@XRT/core/standard_node.pkl"
+
+/// A node with only Xrt's core components: a logger, the bus, two thread pools and a scheduler
+system =
+  minimalSystem()
+    |> withLogLevel("Info")
+
+output {
+  files = system.deployment()
+}
