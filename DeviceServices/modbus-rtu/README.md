@@ -17,6 +17,8 @@ cd DeviceServices/modbus-rtu
 ./commands/start_device_sim.sh
 ```
 
+The script also uses `socat` to create the virtual serial port `/tmp/virtualport`, which connects the device service to the simulator over TCP, so `socat` must be installed.
+
 ### **Set Environment Variables**
 
 We have provided a script to easily set these environment variables. Run:
