@@ -99,7 +99,7 @@ services:
       <<: *common-env
       SPARKPLUG_NODE1: xrt1
     volumes:
-      - ./xrt-standalone/deployment:/opt/iotech/xrt/3.4/deployment
+      - ./xrt-standalone/deployment:/deployment
       - ./license:/license:ro
     restart: unless-stopped
 

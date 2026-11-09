@@ -5,8 +5,10 @@ ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers-x86_64
 
 FROM ${XRT_IMAGE}
 
-ENV XRT_DEPLOYMENT_DIR=/opt/iotech/xrt/3.4/deployment
-ENV XRT_STATE_DIR=/opt/iotech/xrt/3.4/deployment/state
+# deployment/ is mounted here (see ../docker-compose.yml), rather than under
+# the image's ${XRT}, which changes with the XRT version
+ENV XRT_DEPLOYMENT_DIR=/deployment
+ENV XRT_STATE_DIR=/deployment/state
 
 # socat bridges Dev4's simulated MS/TP bus (see entrypoint.sh) in.
 RUN apt-get update && apt-get install -y --no-install-recommends socat \

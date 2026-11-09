@@ -22,4 +22,4 @@ while [ ! -e /tmp/dev4-mstp ] && [ "$i" -lt 30 ]; do
   i=$((i + 1))
 done
 
-exec /opt/iotech/xrt/3.4/bin/xrt /opt/iotech/xrt/3.4/deployment/config
+exec "${XRT}/bin/xrt" "${XRT_DEPLOYMENT_DIR}/config"

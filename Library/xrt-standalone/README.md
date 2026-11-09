@@ -24,8 +24,8 @@ This instance:
 | `deployment/<service>/` | Each BACnet device service's `state/devices.json`/`schedules.json` generated from `deployment.pkl` (gitignored), and its device `profiles/` |
 | `deployment/state/sparkplug/` | The Sparkplug node's state (`XRT_STATE_DIR`) |
 
-`deployment/` is mounted into the container at
-`/opt/iotech/xrt/3.4/deployment`.
+`deployment/` is mounted into the container at `/deployment`
+(`XRT_DEPLOYMENT_DIR`).
 
 ## Generating config
 
