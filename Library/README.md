@@ -36,10 +36,10 @@ container; connecting to four BACnet devices through an MQTT broker.
 | App2 (container) | [`app2-standalone/`](app2-standalone/README.md) | Custom C binary, XRT linked in as a library: the standard XRT Sparkplug config minus device services and Sparkplug node, plus the same demo Sparkplug application component, consuming Dev1-4 through the MQTT broker |
 | Demo Sparkplug application | [`common/`](common/) | `App::SparkplugDemo`, an XRT component built the same way as `XRT::OPCUAServer`: the container hands it a Bus/ThreadPool/Logger and it does everything through the `xrt_spg_app` API. Shared by App1 and App2, along with the `main.c` that runs the container |
 | MQTT Sparkplug bus | `mosquitto` service (`mosquitto/mosquitto.conf`) | Eclipse Mosquitto broker |
-| EC OPC UA Server | [`xrt-opc-ua-server/`](xrt-opc-ua-server/README.md) | Purpose-built `iotechsys/connect-opc-ua-server` image (config baked in, no mounted JSON files), `XRT::OPCUAServer` with `EnableSparkplug: true`, subscribes to Dev1-4 |
+| EC OPC UA Server | `xrt-opc-ua-server` service (`OPCUA_IMAGE`, see [Dependencies](#dependencies)) | The `iotechsys/connect-opc-ua-server` image as-is, configured by environment in `docker-compose.yml`: `XRT::OPCUAServer` with Sparkplug enabled, subscribes to Dev1-4 |
 | App3 - EC OPC UA browser | `opc-ua-browser` service (`iotechsys/opc-ua-browser:1.1`) | Web UI at `localhost:8080` |
-| Dev1 / Dev3 (BACnet/IP) | `bacnet-sim-dev1` / `bacnet-sim-dev3` services (`iotechsys/bacnet-sim:2.2.7`) | BACnet/IP simulator |
-| Dev2 / Dev4 (BACnet/MSTP) | `bacnet-sim-dev2` / `bacnet-sim-dev4` services (`iotechsys/bacnet-sim:2.2.7`) | BACnet/MSTP simulator |
+| Dev1 / Dev3 (BACnet/IP) | `bacnet-sim-dev1` / `bacnet-sim-dev3` services (`iotechsys/bacnet-sim:2.2`) | BACnet/IP simulator |
+| Dev2 / Dev4 (BACnet/MSTP) | `bacnet-sim-dev2` / `bacnet-sim-dev4` services (`iotechsys/bacnet-sim:2.2`) | BACnet/MSTP simulator |
 
 ## License
 
@@ -137,7 +137,7 @@ package's (e.g. `iotech-xrt-headers-3.4-dev` for the dev image), or set the
 
 ## Running it
 
-Firstly, ensure all dependencies (below) are met.
+Firstly, ensure all dependencies (above) are met.
 
 All XRT config (component config, devices and schedules) is defined in each
 app's `deployment.pkl` (for App1 and App2, the component config is generated
@@ -161,8 +161,8 @@ starts all ten services.
 
 Expected log output:
 
-- `bacnet-sim-dev1`..`dev4` come up and start responding to BACnet/IP
-  requests.
+- `bacnet-sim-dev1`..`dev4` come up and start responding to requests:
+  `Dev1`/`Dev3` over BACnet/IP, `Dev2`/`Dev4` over BACnet MSTP.
 - `app1` births `Dev1`/`Dev2` under Sparkplug node `xrt`, then issues its
   demo `DCMD` write to `Dev1`'s `analog_output_0:present-value`.
 - `xrt-standalone` births `Dev3`/`Dev4` under Sparkplug node `xrt1`.

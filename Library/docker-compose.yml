@@ -23,7 +23,7 @@ services:
       - "1883:1883"
     restart: unless-stopped
 
-  # --- Four BACnet/IP simulators: Dev1-2 for App1, Dev3-4 for xrt-standalone ---
+  # --- Four BACnet simulators (Dev1/Dev3 IP, Dev2/Dev4 MSTP): Dev1-2 for App1, Dev3-4 for xrt-standalone ---
   bacnet-sim-dev1:
     image: iotechsys/bacnet-sim:2.2
     container_name: bacnet-sim-dev1
