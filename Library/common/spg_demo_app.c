@@ -8,8 +8,8 @@
  *   Logger, Bus, ThreadPool  Components to use (required)
  *   AppId                    Sparkplug application id. Default: the XRT::Config NodeId
  *   WriteDevice              Device to issue a one-shot demo DCMD to. Default: none (no write)
- *   WriteMetric              Metric of WriteDevice to write
- *   WriteValue               Float value to write
+ *   WriteMetric              Metric of WriteDevice to write (required with WriteDevice)
+ *   WriteValue               Float value to write (required with WriteDevice)
  *
  * The Sparkplug namespace, group and MQTT bridge app ids come from the
  * deployment's XRT::Sparkplug component, via xrt_spg_app_config_init.
@@ -121,6 +121,14 @@ static iot_component_t *spg_demo_app_config (iot_container_t *container, const i
     iot_log_error (logger, "%s: Bus and ThreadPool must be configured", SPG_DEMO_APP_TYPE);
     return NULL;
   }
+  const char *write_device = iot_config_string_default (config, "WriteDevice", "", false);
+  const char *write_metric = iot_config_string_default (config, "WriteMetric", "", false);
+  double write_value = 0.0;
+  if (*write_device && (*write_metric == '\0' || !iot_config_f64 (config, "WriteValue", &write_value, logger)))
+  {
+    iot_log_error (logger, "%s: WriteMetric and a float WriteValue must be configured with WriteDevice", SPG_DEMO_APP_TYPE);
+    return NULL;
+  }
 
   spg_demo_app_t *app = calloc (1, sizeof (*app));
   iot_component_init (&app->component, spg_demo_app_factory (), (iot_component_start_fn_t) spg_demo_app_start, (iot_component_stop_fn_t) spg_demo_app_stop);
@@ -130,9 +138,9 @@ static iot_component_t *spg_demo_app_config (iot_container_t *container, const i
   xrt_bus_add_ref (bus);
   app->pool = pool;
   iot_threadpool_add_ref (pool);
-  app->write_device = (char *) iot_config_string_default (config, "WriteDevice", "", true);
-  app->write_metric = (char *) iot_config_string_default (config, "WriteMetric", "", true);
-  iot_config_f64 (config, "WriteValue", &app->write_value, NULL);
+  app->write_device = strdup (write_device);
+  app->write_metric = strdup (write_metric);
+  app->write_value = write_value;
 
   xrt_spg_app_config_t app_cfg;
   xrt_spg_app_config_init (&app_cfg);

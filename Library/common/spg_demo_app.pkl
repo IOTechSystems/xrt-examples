@@ -14,8 +14,8 @@ class SparkplugDemoApp extends XRT.Logs {
   app_id: String?
   /// Device to issue a one-shot demo DCMD write to, once its metric is born.
   write_device: String?
-  /// Metric of write_device to write.
+  /// Metric of write_device to write. Required with write_device.
   write_metric: String?
-  /// Value to write.
+  /// Value to write. Required with write_device.
   write_value: Float?
 }
