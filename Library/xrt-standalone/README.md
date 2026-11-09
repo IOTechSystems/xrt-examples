@@ -18,7 +18,7 @@ This instance:
 | File | Purpose |
 |---|---|
 | `Dockerfile` | Adds `socat` and the entrypoint to the Debian/Ubuntu XRT image (`XRT_IMAGE`, see [`../README.md`](../README.md)) |
-| `entrypoint.sh` | Resolves Dev3's IP for BBMD, bridges Dev4's simulated MS/TP serial link over TCP to `/tmp/dev4-mstp`, then starts XRT |
+| `entrypoint.sh` | Resolves Dev3's IP for BBMD, bridges Dev4's simulated MS/TP serial link over TCP to `/tmp/dev4-mstp`, then starts XRT. Exits if that link closes, for compose to restart the container |
 | `deployment.pkl` | Source of all XRT config: the components (Sparkplug bridge + the two BACnet components) and their devices and schedules |
 | `deployment/config/` | Component JSON config generated from `deployment.pkl` (gitignored) |
 | `deployment/<service>/` | Each BACnet device service's `state/devices.json`/`schedules.json` generated from `deployment.pkl` (gitignored), and its device `profiles/` |
