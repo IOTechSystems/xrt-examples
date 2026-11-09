@@ -43,6 +43,7 @@ system =
           device_object = new bacnet.BACnetDeviceObjectType {
             instance_id = 0
           }
+          bbmd_address = "${BACNET_IP_DEV1_ADDRESS}"
         }
       })
     |> withDevices("bacnet_ip_dev1", Set(dev1))
