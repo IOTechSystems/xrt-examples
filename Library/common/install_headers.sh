@@ -40,22 +40,35 @@ IOT_INCLUDE=$(include_dir /tmp/iot-include iot/iot.h)
 
 if [ -z "${XRT_INCLUDE}" ] || [ -z "${IOT_INCLUDE}" ]
 then
-  # The image's IOT package, e.g. iotech-iot-1.7 for IOT=/opt/iotech/iot/1.7
-  IOT_PACKAGE="iotech-iot-${IOT##*/}"
-  IOT_PKG_VER=$(dpkg-query -W -f '${Version}' "${IOT_PACKAGE}")
-  # The image's XRT package (e.g. iotech-xrt-4.0), unless XRT_PACKAGE is given
-  XRT_PACKAGE=${XRT_PACKAGE:-$(dpkg-query -W -f '${db:Status-Abbrev} ${Package}\n' 'iotech-xrt*' | awk '$1 == "ii" && $2 !~ /-(dev|dbg)$/ { print $2; exit }')}
-  XRT_PKG_VER=$(dpkg-query -W -f '${Version}' "${XRT_PACKAGE}")
+  # -dev packages to install from IOTech's apt repository
+  DEV_PACKAGES=""
+  if [ -z "${XRT_INCLUDE}" ]
+  then
+    # The image's XRT package (e.g. iotech-xrt-4.0), unless XRT_PACKAGE is given
+    XRT_PACKAGE=${XRT_PACKAGE:-$(dpkg-query -W -f '${db:Status-Abbrev} ${Package}\n' 'iotech-xrt*' | awk '$1 == "ii" && $2 !~ /-(dev|dbg)$/ { print $2; exit }')}
+    if [ -z "${XRT_PACKAGE}" ]
+    then
+      echo "No XRT package installed in the image: set the XRT_PACKAGE build argument, or give XRT headers as the xrt-include build context" >&2
+      exit 1
+    fi
+    XRT_PKG_VER=$(dpkg-query -W -f '${Version}' "${XRT_PACKAGE}")
+    DEV_PACKAGES="${XRT_PACKAGE}-dev=${XRT_PKG_VER}"
+  fi
+  if [ -z "${IOT_INCLUDE}" ]
+  then
+    # The image's IOT package, e.g. iotech-iot-1.7 for IOT=/opt/iotech/iot/1.7
+    IOT_PACKAGE="iotech-iot-${IOT##*/}"
+    IOT_PKG_VER=$(dpkg-query -W -f '${Version}' "${IOT_PACKAGE}")
+    DEV_PACKAGES="${DEV_PACKAGES} ${IOT_PACKAGE}-dev=${IOT_PKG_VER}"
+  fi
+  # What adding the repository takes, which not every XRT image has
+  apt-get update
+  apt-get install -y --no-install-recommends ca-certificates curl gpg lsb-release
   curl -fsSL "${IOTECH_APT_KEY}" | gpg --dearmor -o /usr/share/keyrings/iotech.gpg
   echo "deb [signed-by=/usr/share/keyrings/iotech.gpg] ${IOTECH_APT_REPO} $(lsb_release -c -s) main" > /etc/apt/sources.list.d/iotech.list
   apt-get update
-  if [ -z "${XRT_INCLUDE}" ]
-  then
-    apt-get install -y --no-install-recommends \
-      "${XRT_PACKAGE}-dev=${XRT_PKG_VER}" "${IOT_PACKAGE}-dev=${IOT_PKG_VER}"
-  else
-    apt-get install -y --no-install-recommends "${IOT_PACKAGE}-dev=${IOT_PKG_VER}"
-  fi
+  # shellcheck disable=SC2086 # one word per package
+  apt-get install -y --no-install-recommends ${DEV_PACKAGES}
 fi
 
 if [ -n "${IOT_INCLUDE}" ]
