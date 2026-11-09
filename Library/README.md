@@ -131,7 +131,20 @@ Without the extra compose file, `docker build` takes the same headers as
 `--build-context xrt-include=<dir>` / `--build-context iot-include=<dir>`.
 Either can be left out, to use its `-dev` package instead. To install the
 `-dev` packages from another apt repository, set the `IOTECH_APT_REPO` and
-`IOTECH_APT_KEY` build arguments. The XRT `-dev` package is the image's XRT
+`IOTECH_APT_KEY` build arguments.
+
+If that repository needs credentials, as IOTech's private `debian-dev`
+repository does for a dev build's `-dev` packages, give them as an apt
+`auth.conf` file (see `man apt_auth.conf`), with
+[`docker-compose.apt-auth.yml`](docker-compose.apt-auth.yml):
+
+```bash
+IOTECH_APT_REPO=https://iotech.jfrog.io/iotech/debian-dev IOTECH_APT_AUTH=<auth.conf> \
+  docker compose -f docker-compose.yml -f docker-compose.apt-auth.yml up --build
+```
+
+or to `docker build` as `--secret id=apt-auth,src=<auth.conf>`. It's a build
+secret, so it isn't kept in the images. The XRT `-dev` package is the image's XRT
 package's (e.g. `iotech-xrt-headers-3.4-dev` for the dev image), or set the
 `XRT_PACKAGE` build argument to pick another.
 

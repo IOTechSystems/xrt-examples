@@ -22,7 +22,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev
 COPY --from=xrt-include / /tmp/xrt-include/
 COPY --from=iot-include / /tmp/iot-include/
 COPY common/install_headers.sh /tmp/
-RUN /tmp/install_headers.sh
+# Credentials for IOTECH_APT_REPO, if it needs them, as an apt auth.conf file
+# given as the apt-auth build secret (see ../README.md). Not kept in the image.
+RUN --mount=type=secret,id=apt-auth,target=/etc/apt/auth.conf.d/iotech.conf \
+  /tmp/install_headers.sh
 
 WORKDIR /build
 COPY common/ common/
