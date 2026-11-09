@@ -3,6 +3,7 @@ extends "@XRT/core/standard_node.pkl"
 import "@XRT/server/sparkplug.pkl"
 import "@XRT/bridge/mqtt_bridge.pkl"
 import "../common/spg_demo_app.pkl"
+import "@XRT/codegen/c_config.pkl"
 
 /// Sparkplug application (host) id, also used as the XRT node id and MQTT client id.
 local APP_ID = "XRTLibSparkplugDemo2"
@@ -83,10 +84,18 @@ system =
         }
       })
 
-// No device services, so there's no state to write out: all of this node's
-// component config is compiled into spg_standalone from deployment_config.h.
-// TODO: generate deployment_config.h from here, once the XRT Pkl schema can
-// render component config as C string constants.
+// The component config (the "config/" entries of system.deployment()) is
+// compiled into spg_standalone, as deployment_config.h, rather than written out as
+// files: the container's config loader serves it from there (see
+// ../common/main.c). Everything else (device service state, the Sparkplug
+// state dir) goes in deployment/.
 output {
-  files = system.deployment().toMap().filter((path, _) -> !path.startsWith("config/")).toMapping()
+  files {
+    for (path, file in system.deployment()) {
+      when (!path.startsWith("config/")) {
+        ["deployment/\(path)"] = file
+      }
+    }
+    ["deployment_config.h"] = c_config.headerFile(system, "XRT configuration of app2-standalone (spg_standalone).")
+  }
 }

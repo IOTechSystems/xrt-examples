@@ -26,10 +26,10 @@ docker build -t app2-standalone -f app2-standalone/Dockerfile .
 
 App2 has no config directory. Its XRT component config is compiled into
 `spg_standalone` as C string constants in
-[`deployment_config.h`](deployment_config.h), and handed to XRT by the config
+`deployment_config.h` (generated from `deployment.pkl`), and handed to XRT by the config
 loader in [`../common/main.c`](../common/main.c).
 
-It's all defined in [`deployment.pkl`](deployment.pkl). **FOR NOW:**
-`deployment_config.h` is kept in step with it by hand, since the XRT Pkl schema
-can't render C strings yet. With no device services there's no state for
-`../generate-pkl-config.sh` to write out.
+It's all defined in [`deployment.pkl`](deployment.pkl), from which
+`../generate-pkl-config.sh app2-standalone` generates `deployment_config.h`
+(gitignored) with the XRT Pkl package's `codegen/c_config.pkl`. With no device
+services, that's all it generates.

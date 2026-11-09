@@ -61,5 +61,9 @@ local dev4 = bacnet.device("Dev4", "bacnet-ip-sim-profile", new bacnet.MSTPProto
 })
 
 output {
-  files = system.deployment()
+  files {
+    for (path, file in system.deployment()) {
+      ["deployment/\(path)"] = file
+    }
+  }
 }

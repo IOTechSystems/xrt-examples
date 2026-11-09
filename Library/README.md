@@ -140,7 +140,9 @@ package's (e.g. `iotech-xrt-headers-3.4-dev` for the dev image), or set the
 Firstly, ensure all dependencies (below) are met.
 
 All XRT config (component config, devices and schedules) is defined in each
-app's `deployment.pkl` and none of the generated files are committed, so
+app's `deployment.pkl` (for App1 and App2, the component config is generated
+as a C header, `deployment_config.h`, compiled into the app) and none of the
+generated files are committed, so
 generate them first (see [`generate-pkl-config.sh`](generate-pkl-config.sh)
 for what it needs). The `deployment.pkl` schema is the XRT Pkl package in an
 XRT source checkout of `v3.4-branch`, given as `XRT_SRC` (it's linked in as

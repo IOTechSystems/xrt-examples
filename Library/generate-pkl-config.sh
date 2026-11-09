@@ -8,9 +8,9 @@
 #     link is reused, so XRT_SRC only needs giving again to change it.
 #
 # xrt-standalone gets its component config (deployment/config) and device
-# state (deployment/<service>/state). app1-colocated only gets device state,
-# and app2-standalone nothing at all - their component config is compiled in
-# from their deployment_config.h instead.
+# state (deployment/<service>/state). app1-colocated and app2-standalone get
+# their component config as deployment_config.h instead, compiled into the
+# app, and app1-colocated its device state.
 #
 # None of the generated files are committed (they're gitignored), so this
 # must be run before `docker compose up --build`.
@@ -43,8 +43,8 @@ fi
 generate () {
   APP_DIR="$(cd "$SCRIPT_DIR/$1" && pwd)"
   rm -rf "$APP_DIR"/deployment/config
-  rm -f "$APP_DIR"/deployment/*/state/devices.json "$APP_DIR"/deployment/*/state/schedules.json
-  (cd "$APP_DIR" && pkl eval deployment.pkl -m deployment) >/dev/null
+  rm -f "$APP_DIR"/deployment_config.h "$APP_DIR"/deployment/*/state/devices.json "$APP_DIR"/deployment/*/state/schedules.json
+  (cd "$APP_DIR" && pkl eval deployment.pkl -m .) >/dev/null
   echo "Regenerated $APP_DIR/deployment from deployment.pkl"
 }
 
