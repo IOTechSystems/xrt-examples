@@ -5,6 +5,7 @@ ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers-x86_64
 
 FROM ${XRT_IMAGE}
 
+ENV XRT_DEPLOYMENT_DIR=/opt/iotech/xrt/3.4/deployment
 ENV XRT_STATE_DIR=/opt/iotech/xrt/3.4/deployment/state
 
 # socat bridges Dev4's simulated MS/TP bus (see entrypoint.sh) in.

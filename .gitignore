@@ -6,5 +6,8 @@ Library/app1-colocated/deployment/state/sparkplug/xrt.json
 # Library/ config generated from each app's deployment.pkl
 # (see Library/generate-pkl-config.sh)
 Library/*/deployment/config/
-Library/*/deployment/state/*/devices.json
-Library/*/deployment/state/*/schedules.json
+Library/*/deployment/*/state/
+Library/*/deployment/state/sparkplug/.gitkeep
+
+# Link to an XRT checkout's Pkl package (see Library/generate-pkl-config.sh)
+Library/xrt-pkl

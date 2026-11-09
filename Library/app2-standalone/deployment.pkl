@@ -88,5 +88,5 @@ system =
 // TODO: generate deployment_config.h from here, once the XRT Pkl schema can
 // render component config as C string constants.
 output {
-  files = system.deployment().toMap().filter((path, _) -> path.startsWith("state/")).toMapping()
+  files = system.deployment().toMap().filter((path, _) -> !path.startsWith("config/")).toMapping()
 }

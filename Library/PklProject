@@ -1,16 +1,7 @@
 amends "pkl:Project"
 
+// The XRT Pkl package from an XRT source checkout, through the xrt-pkl link
+// that generate-pkl-config.sh makes to its src/pkl/deploy (see README.md).
 dependencies {
-  ["XRT"] { uri = "package://iotech.jfrog.io/artifactory/public/XRT/XRT@3.4.6+1" }
-}
-
-// The XRT package is published under public/PKL/XRT/, but its metadata
-// (packageUri and packageZipUrl) points at public/XRT/, which 404s. Redirect
-// there until it's republished with the right URLs, then drop this.
-evaluatorSettings {
-  http {
-    rewrites {
-      ["https://iotech.jfrog.io/artifactory/public/XRT/"] = "https://iotech.jfrog.io/artifactory/public/PKL/XRT/"
-    }
-  }
+  ["XRT"] = import("xrt-pkl/PklProject")
 }

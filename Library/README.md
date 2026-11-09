@@ -83,7 +83,7 @@ pick others):
 | IOT | **1.7.0** | core library |
 | Paho MQTT C (`paho-mqtt3as`) | **1.3.162** | runtime only, for XRT's MQTT bridge |
 | Sparkplug B (`sparkplug-b`) | **1.0.1** | runtime only, the protobuf codec for XRT's Sparkplug transform |
-| XRT Pkl package | **3.4.6+1** | the `deployment.pkl` schema, downloaded from `iotech.jfrog.io` (see [`PklProject`](PklProject)) |
+| XRT Pkl package | XRT **v3.4-branch** | the `deployment.pkl` schema, from a local XRT source checkout (see [`PklProject`](PklProject) and below) |
 
 The Sparkplug application API needs the XRT-4041 changes
 (`xrt_spg_app_config_init`, a self-contained `sparkplug_app.h`, and
@@ -142,11 +142,13 @@ Firstly, ensure all dependencies (below) are met.
 All XRT config (component config, devices and schedules) is defined in each
 app's `deployment.pkl` and none of the generated files are committed, so
 generate them first (see [`generate-pkl-config.sh`](generate-pkl-config.sh)
-for what it needs):
+for what it needs). The `deployment.pkl` schema is the XRT Pkl package in an
+XRT source checkout of `v3.4-branch`, given as `XRT_SRC` (it's linked in as
+`Library/xrt-pkl`, so later runs can leave `XRT_SRC` out):
 
 ```bash
 cd Library
-./generate-pkl-config.sh
+XRT_SRC=<xrt checkout> ./generate-pkl-config.sh
 docker compose up --build
 ```
 

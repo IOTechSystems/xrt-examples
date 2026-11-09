@@ -21,7 +21,8 @@ This instance:
 | `entrypoint.sh` | Resolves Dev3's IP for BBMD, bridges Dev4's simulated MS/TP serial link over TCP to `/tmp/dev4-mstp`, then starts XRT |
 | `deployment.pkl` | Source of all XRT config: the components (Sparkplug bridge + the two BACnet components) and their devices and schedules |
 | `deployment/config/` | Component JSON config generated from `deployment.pkl` (gitignored) |
-| `deployment/state/` | `devices.json`/`schedules.json` generated from `deployment.pkl` (gitignored), plus the BACnet device profiles |
+| `deployment/<service>/` | Each BACnet device service's `state/devices.json`/`schedules.json` generated from `deployment.pkl` (gitignored), and its device `profiles/` |
+| `deployment/state/sparkplug/` | The Sparkplug node's state (`XRT_STATE_DIR`) |
 
 `deployment/` is mounted into the container at
 `/opt/iotech/xrt/3.4/deployment`.

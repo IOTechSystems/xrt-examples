@@ -21,8 +21,6 @@ system =
     |> bacnet.ip_instance("", "bacnet_ip_dev3")
     |> withOptions("bacnet_ip_dev3", new Dynamic {
         logger = new LoggerRef { target = "logger_debug" }
-        profile_dir = "${XRT_STATE_DIR}/bacnet_ip_dev3/profiles"
-        state_dir = "${XRT_STATE_DIR}/bacnet_ip_dev3"
         schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
         driver = new bacnet.BACnetIPDriverOptions {
           network_interface = ""
@@ -34,18 +32,11 @@ system =
       })
     |> withDevices("bacnet_ip_dev3", Set(dev3))
     |> withSchedules("bacnet_ip_dev3", Set(
-        dev3.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = dev3.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        dev3.new_schedule("schedule1", Set(".*"), 3.s),
       ))
     |> bacnet.mstp_instance("/tmp/dev4-mstp", "bacnet_mstp_dev4")
     |> withOptions("bacnet_mstp_dev4", new Dynamic {
         logger = new LoggerRef { target = "logger_debug" }
-        profile_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev4/profiles"
-        state_dir = "${XRT_STATE_DIR}/bacnet_mstp_dev4"
         schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
         driver = new bacnet.BACnetMSTPDriverOptions {
           serial_interface = "/tmp/dev4-mstp"
@@ -56,12 +47,7 @@ system =
       })
     |> withDevices("bacnet_mstp_dev4", Set(dev4))
     |> withSchedules("bacnet_mstp_dev4", Set(
-        dev4.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = dev4.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        dev4.new_schedule("schedule1", Set(".*"), 3.s),
       ))
 
 /// A simulated BACnet device, polled for all its resources every 3s

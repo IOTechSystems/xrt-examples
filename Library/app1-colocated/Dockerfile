@@ -37,6 +37,7 @@ RUN gcc common/main.c common/spg_demo_app.c \
 
 FROM ${XRT_IMAGE}
 
+ENV XRT_DEPLOYMENT_DIR=/app/deployment
 ENV XRT_STATE_DIR=/app/deployment/state
 
 RUN apt-get update && apt-get install -y --no-install-recommends socat \
@@ -44,7 +45,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends socat \
 
 WORKDIR /app
 COPY --from=builder /build/spg_demo .
-COPY app1-colocated/deployment/state ./deployment/state
+COPY app1-colocated/deployment ./deployment
 COPY app1-colocated/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
