@@ -1,7 +1,7 @@
 *.lic
 
-Library/xrt-standalone/deployment/state/sparkplug/xrt1.json
-Library/app1-colocated/deployment/state/sparkplug/xrt.json
+# Sparkplug node state (bdSeq) written at runtime to the mounted deployment
+Library/*/deployment/state/sparkplug/*.json
 
 # Library/ config generated from each app's deployment.pkl
 # (see Library/generate-pkl-config.sh)
