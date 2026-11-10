@@ -1,0 +1,38 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/virtual.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+
+/// The office zone: a virtual device, using the office-zone-profile device profile
+local office = virtual.device("office-zone", "office-zone-profile", new virtual.VirtualProtocolType {})
+
+/// Read every resource of the office zone every 5 seconds
+local schedule = office.new_schedule(new Dynamic {
+  name = "office-zone-schedule"
+  device = office.ref()
+  resource = Set(".*")
+  interval = 5.s
+})
+
+system =
+  standardSystem("tutorial-server", "${SPARKPLUG_NODE}")
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("virtual")
+        // The Sparkplug node waits for the bridge's state on this topic before it publishes
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugNodeOptions((n) -> (n) {
+        app_state_wait = List()
+      })
+    |> virtual.instance("virtual")
+    |> virtual.withVirtualOptions("virtual", (s) -> (s) {
+        // Read devices and schedules from deployment/state/virtual, where they are generated
+        state_dir = "${XRT_DEPLOYMENT_DIR}/state/virtual"
+      })
+    |> withDevices("virtual", Set(office))
+    |> withSchedules("virtual", Set(schedule))
+
+output {
+  files = system.deployment()
+}
