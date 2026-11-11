@@ -1,9 +1,9 @@
 {
   "Name": "influxdb2_exporter",
-  "Logger": "1-logger_debug",
+  "Logger": "03-logger_debug",
   "Library": "libxrt-influxdb-exporter.so",
   "Factory": "xrt_influxdb_exporter_factory",
-  "Bus": "5-bus",
+  "Bus": "07-bus",
   "InfluxVersion": 2,
   "Bucket": "${XRT_INFLUXDB_BUCKET}",
   "Org": "${XRT_INFLUXDB_ORG}",
@@ -19,13 +19,9 @@
   "BatchConfig": {
     "BatchSize": 5,
     "BatchTimeout": 5000,
-    "Scheduler": "2-sched",
-    "ThreadPool": "3-pool"
+    "Scheduler": "04-sched",
+    "ThreadPool": "05-pool"
   },
-  "SelectData": [
-    {
-      "Pattern": "device/#",
-      "Format": "Device"
-    }
-  ]
+  "SparkplugConfig": {},
+  "SparkplugThreadpool": "05-pool"
 }

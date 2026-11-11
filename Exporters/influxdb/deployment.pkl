@@ -1,11 +1,14 @@
 /// InfluxDB Exporter Example
 /// Generates configuration for the Virtual device service exporting data to an InfluxDB v2
-/// bucket, with a dedicated debug logger on the exporter.
+/// bucket, with a dedicated debug logger on the exporter. Device service data is published as
+/// Sparkplug, so the exporter runs a Sparkplug application (sparkplug_config) to export it, on a
+/// standard node, whose Sparkplug node publishes the NBIRTH the application requires.
 extends "@XRT/core/standard_node.pkl"
 
 import "@XRT/core/XRT.pkl"
 import "@XRT/devices/virtual.pkl"
 import "@XRT/export/influxdb.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
 
 /// The simulated virtual device and its polling schedule
 local virtual_device = virtual.device(
@@ -21,10 +24,7 @@ local exporter_logger = new XRT.Logger {
   level = "Debug"
 }
 
-/// minimalSystem() wires up just the shared components (Logger, Bus, Scheduler,
-/// ThreadPools) - no MQTT bridge or Sparkplug, since this example exports directly to
-/// InfluxDB rather than publishing over MQTT.
-local base = minimalSystem()
+local base = standardSystem("influxdb-server", "${SPARKPLUG_NODE}")
 
 local exporter = new influxdb.InfluxDBExporter {
   name = "influxdb2_exporter"
@@ -37,10 +37,8 @@ local exporter = new influxdb.InfluxDBExporter {
   token = "${XRT_INFLUXDB_TOKEN}"
   measurement = "DeviceName"
   tags = Set("TagDeviceName", "TagScheduleName")
-  select_data = List(new influxdb.InfluxDB_SelectType {
-    pattern = "device/#"
-    format = "Device"
-  })
+  sparkplug_config = new influxdb.InfluxDBSparkplugConfig {}
+  sparkplug_thread_pool = base.std._pool.ref()
   batch_config = new influxdb.InfluxDB_BatchConfig {
     batch_size = 5
     batch_timeout = 5.s
@@ -53,10 +51,15 @@ local exporter = new influxdb.InfluxDBExporter {
 
 system =
   base
+    |> sparkplug_bridge.replaceWithOpts("mqtt", new Dynamic {
+        device_services = List("virtual_device_service")
+      })
     |> addComponents(new Listing<XRT.Component> { exporter_logger; exporter })
     |> virtual.instance("virtual_device_service")
-    |> virtual.withVirtualOptions("virtual_device_service", (s) -> (s) {
-        publish_source = true
+    |> withLogLevel("Warn")
+    |> withSparkplugNodeOptions((s) -> (s) {
+        wait_timeout = 5
+        heartbeat_interval = 0.s
       })
     |> withDevices("virtual_device_service", Set(virtual_device))
     |> withSchedules("virtual_device_service", Set(
