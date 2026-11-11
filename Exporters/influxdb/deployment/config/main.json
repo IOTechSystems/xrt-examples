@@ -9,6 +9,6 @@
   "07-bus": "XRT::Bus",
   "08-mqtt": "XRT::MQTTBridge",
   "09-sparkplug_node": "XRT::SparkplugNode",
-  "10-influxdb2_exporter": "XRT::InfluxDBExporter",
+  "10-influxdb_exporter": "XRT::InfluxDBExporter",
   "11-virtual_device_service": "XRT::VirtualDeviceService"
 }

@@ -1,6 +1,6 @@
 /// InfluxDB Exporter Example
-/// Generates configuration for the Virtual device service exporting data to an InfluxDB v2
-/// bucket, with a dedicated debug logger on the exporter. Device service data is published as
+/// Generates configuration for the Virtual device service exporting data to an InfluxDB 3
+/// database (with its InfluxDB v2 compatible write API), with a dedicated debug logger on the exporter. Device service data is published as
 /// Sparkplug, so the exporter runs a Sparkplug application (sparkplug_config) to export it, on a
 /// standard node, whose Sparkplug node publishes the NBIRTH the application requires.
 extends "@XRT/core/standard_node.pkl"
@@ -27,18 +27,17 @@ local exporter_logger = new XRT.Logger {
 local base = standardSystem("influxdb-server", "${SPARKPLUG_NODE}")
 
 local exporter = new influxdb.InfluxDBExporter {
-  name = "influxdb2_exporter"
+  name = "influxdb_exporter"
   logger = exporter_logger.ref()
   bus = base.std._bus.ref()
   influx_version = 2
   server_uri = "${XRT_INFLUXDB_SERVICE}"
-  bucket = "${XRT_INFLUXDB_BUCKET}"
-  org = "${XRT_INFLUXDB_ORG}"
+  bucket = "${XRT_INFLUXDB_DATABASE}"
   token = "${XRT_INFLUXDB_TOKEN}"
   sparkplug_config = new influxdb.InfluxDBSparkplugConfig {}
   sparkplug_thread_pool = base.std._pool.ref()
   connect_timeout = 4.s
-  timeout = 1.5.s
+  timeout = 5.s
 }
 
 system =
