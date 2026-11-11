@@ -4,7 +4,7 @@
 
 This example uses the virtual device service to produce readings exported by the InfluxDB exporter to an InfluxDB-2.x bucket.
 
-Device services publish their data as Sparkplug, so the exporter is configured with `SparkplugConfig`, to run a Sparkplug application that exports each device resource value as a field of the device name measurement (tagged with the device and schedule names). The node is a standard (Sparkplug) node, as its Sparkplug node publishes the NBIRTH that the Sparkplug application requires, so an MQTT broker is also required.
+Device services publish their data as Sparkplug, so the exporter is configured with `SparkplugConfig`, to run a Sparkplug application that exports each device resource value as a point in the `sparkplug` measurement, tagged with the Sparkplug `group`, `node`, `device` and `metric`. The value is a field named by its type (`float`, `int`, `bool` or `string`), with its quality in the `quality` field (0 if good). Data is written in batches of up to 128 points, at least once a second. The node is a standard (Sparkplug) node, as its Sparkplug node publishes the NBIRTH that the Sparkplug application requires, so an MQTT broker is also required.
 
 The configuration is generated from `deployment.pkl` (see the `@XRT/export/influxdb.pkl` module for the exporter options). To use InfluxDB-1.x, set `influx_version = 1` and replace the `bucket`, `org` and `token` options with `db_name` (and `auth_enabled`, `user_name` and `password` if authentication is enabled).
 
@@ -87,5 +87,5 @@ xrt deployment/config
 
 ```bash
 docker exec xrt-influxdb influx query --org ${XRT_INFLUXDB_ORG} --token ${XRT_INFLUXDB_TOKEN} \
-  "from(bucket: \"${XRT_INFLUXDB_BUCKET}\") |> range(start: -5m) |> filter(fn: (r) => r._measurement == \"Motor\")"
+  "from(bucket: \"${XRT_INFLUXDB_BUCKET}\") |> range(start: -5m) |> filter(fn: (r) => r._measurement == \"sparkplug\" and r.device == \"Motor\")"
 ```
