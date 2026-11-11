@@ -39,12 +39,6 @@ local exporter = new influxdb.InfluxDBExporter {
   tags = Set("TagDeviceName", "TagScheduleName")
   sparkplug_config = new influxdb.InfluxDBSparkplugConfig {}
   sparkplug_thread_pool = base.std._pool.ref()
-  batch_config = new influxdb.InfluxDB_BatchConfig {
-    batch_size = 5
-    batch_timeout = 5.s
-    scheduler = base.std._scheduler.ref()
-    thread_pool = base.std._pool.ref()
-  }
   connect_timeout = 4.s
   timeout = 1.5.s
 }

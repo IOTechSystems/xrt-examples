@@ -16,12 +16,6 @@
   "ServerURI": "${XRT_INFLUXDB_SERVICE}",
   "ConnectTimeout": 4000,
   "Timeout": 1500,
-  "BatchConfig": {
-    "BatchSize": 5,
-    "BatchTimeout": 5000,
-    "Scheduler": "04-sched",
-    "ThreadPool": "05-pool"
-  },
   "SparkplugConfig": {},
   "SparkplugThreadpool": "05-pool"
 }
