@@ -11,7 +11,7 @@ COMMANDS_DIR="${EXAMPLE_DIR}/commands"
 SKIP_COMMANDS=("start_device_sim.sh" "stop_device_sim.sh")
 
 # Topics
-REQUEST_RESPONSE_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/RESPONSE/${SPARKPLUG_NODE}/modbus-tcp"
+REQUEST_RESPONSE_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/modbus-tcp"
 DDATA_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE}/+"
 DACK_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE}/+"
 
@@ -22,18 +22,74 @@ echo "Running modbus-tcp device service command tests..."
 # Give XRT time to fully initialize
 sleep 2
 
+# When XRT_REQUIRE_EXAMPLE_TESTS=true (CI) a missing tool, an unreachable broker or a
+# command that gets no response is a failure rather than a skip, so that the tests cannot
+# pass without having actually run.
+REQUIRE_TESTS="${XRT_REQUIRE_EXAMPLE_TESTS:-false}"
+
+skip_or_fail()
+{
+    if [ "${REQUIRE_TESTS}" = "true" ]
+    then
+        echo "FAIL: ${1} (these tests are required in this environment)"
+        exit 1
+    fi
+    echo "SKIP: ${1}"
+    exit 0
+}
+
+# MQTT broker connection: host, port and credentials come from XRT_MQTT_BROKER,
+# XRT_MQTT_USERNAME and XRT_MQTT_PASSWORD (CI runs the broker in a separate container).
+# Defaults to a broker on localhost:1883.
+MQTT_HOSTPORT="${XRT_MQTT_BROKER:-mqtt://localhost:1883}"
+MQTT_HOSTPORT="${MQTT_HOSTPORT#*://}"
+MQTT_HOSTPORT="${MQTT_HOSTPORT%%/*}"
+MQTT_HOST="${MQTT_HOSTPORT%%:*}"
+MQTT_PORT="${MQTT_HOSTPORT##*:}"
+if [ "${MQTT_PORT}" = "${MQTT_HOST}" ]
+then
+    MQTT_PORT=1883
+fi
+MQTT_ARGS=(-h "${MQTT_HOST}" -p "${MQTT_PORT}")
+if [ -n "${XRT_MQTT_USERNAME}" ]
+then
+    MQTT_ARGS+=(-u "${XRT_MQTT_USERNAME}")
+    if [ -n "${XRT_MQTT_PASSWORD}" ]
+    then
+        MQTT_ARGS+=(-P "${XRT_MQTT_PASSWORD}")
+    fi
+fi
+
+# The command scripts call mosquitto_pub without a host, so give the mosquitto clients the
+# connection options through their per-user config files.
+MQTT_CONF_DIR="$(mktemp -d)"
+trap 'rm -rf "${MQTT_CONF_DIR}"' EXIT
+export XDG_CONFIG_HOME="${MQTT_CONF_DIR}"
+# (the config file format is one option per line)
+{
+    echo "-h ${MQTT_HOST}"
+    echo "-p ${MQTT_PORT}"
+    if [ -n "${XRT_MQTT_USERNAME}" ]
+    then
+        echo "-u ${XRT_MQTT_USERNAME}"
+        if [ -n "${XRT_MQTT_PASSWORD}" ]
+        then
+            echo "-P ${XRT_MQTT_PASSWORD}"
+        fi
+    fi
+} > "${MQTT_CONF_DIR}/mosquitto_pub"
+cp "${MQTT_CONF_DIR}/mosquitto_pub" "${MQTT_CONF_DIR}/mosquitto_sub"
+
 # Check dependencies
 if ! command -v mosquitto_pub &> /dev/null || ! command -v mosquitto_sub &> /dev/null
 then
-    echo "SKIP: mosquitto clients not available"
-    exit 0
+    skip_or_fail "mosquitto clients not available"
 fi
 
 # Check MQTT broker
-if ! mosquitto_pub -h localhost -t "test/connection" -m "test" -q 0 2>/dev/null
+if ! mosquitto_pub "${MQTT_ARGS[@]}" -t "test/connection" -m "test" -q 0 2>/dev/null
 then
-    echo "SKIP: MQTT broker not available"
-    exit 0
+    skip_or_fail "MQTT broker ${MQTT_HOST}:${MQTT_PORT} not available"
 fi
 
 # Check Docker for sparkplug-client commands
@@ -57,7 +113,7 @@ get_response_topic()
     then
         echo "${DDATA_TOPIC}"
     else
-        # REQUEST commands get responses on RESPONSE topic
+        # REQUEST commands get replies on the REPLY topic
         echo "${REQUEST_RESPONSE_TOPIC}"
     fi
 }
@@ -83,7 +139,7 @@ run_command_with_validation()
     local RESPONSE_TOPIC=$(get_response_topic "${CMD_SCRIPT}")
 
     # Start subscriber to capture response
-    mosquitto_sub -h localhost -t "${RESPONSE_TOPIC}" -C 1 -W ${TIMEOUT} > "${RESPONSE_FILE}" 2>/dev/null &
+    mosquitto_sub "${MQTT_ARGS[@]}" -t "${RESPONSE_TOPIC}" -C 1 -W ${TIMEOUT} > "${RESPONSE_FILE}" 2>/dev/null &
     local SUB_PID=$!
 
     # Brief delay to ensure subscriber is ready
@@ -106,8 +162,14 @@ run_command_with_validation()
     # Check if we got a response
     if [ ! -s "${RESPONSE_FILE}" ]
     then
-        echo "    WARN: ${CMD_NAME} - no response received (timeout)"
         rm -f "${RESPONSE_FILE}"
+        if [ "${REQUIRE_TESTS}" = "true" ]
+        then
+            echo "    FAIL: ${CMD_NAME} - no response received (timeout)"
+            FAILED=$((FAILED + 1))
+            return 1
+        fi
+        echo "    WARN: ${CMD_NAME} - no response received (timeout)"
         # Treat as pass - some operations may not have direct responses
         PASSED=$((PASSED + 1))
         return 0
