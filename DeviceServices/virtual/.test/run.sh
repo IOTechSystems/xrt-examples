@@ -11,7 +11,9 @@ REQUEST_RESPONSE_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/virtu
 DDATA_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/DDATA/${SPARKPLUG_NODE}/+"
 DACK_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/DACK/${SPARKPLUG_NODE}/+"
 
-TIMEOUT=5
+# How long to wait for each reply (seconds); some operations on devices that do not answer take
+# several APDU timeouts to complete
+TIMEOUT="${XRT_TEST_REPLY_TIMEOUT:-5}"
 
 echo "Running virtual device service command tests..."
 
@@ -120,6 +122,7 @@ run_command_with_validation()
     local CMD_SCRIPT="${1}"
     local CMD_NAME=$(basename "${CMD_SCRIPT}")
     local RESPONSE_FILE="/tmp/xrt_response_$$.txt"
+    local CMD_START=${SECONDS}
 
     # Check if command needs Docker
     if grep -q "docker run" "${CMD_SCRIPT}"
@@ -161,11 +164,11 @@ run_command_with_validation()
         rm -f "${RESPONSE_FILE}"
         if [ "${REQUIRE_TESTS}" = "true" ]
         then
-            echo "    FAIL: ${CMD_NAME} - no response received (timeout)"
+            echo "    FAIL: ${CMD_NAME} - no response received (timeout, $((SECONDS - CMD_START))s)"
             FAILED=$((FAILED + 1))
             return 1
         fi
-        echo "    WARN: ${CMD_NAME} - no response received (timeout)"
+        echo "    WARN: ${CMD_NAME} - no response received (timeout, $((SECONDS - CMD_START))s)"
         # Treat as pass - some operations may not have direct responses
         PASSED=$((PASSED + 1))
         return 0
@@ -181,7 +184,7 @@ run_command_with_validation()
         return 1
     fi
 
-    echo "    PASS: ${CMD_NAME}"
+    echo "    PASS: ${CMD_NAME} ($((SECONDS - CMD_START))s)"
     rm -f "${RESPONSE_FILE}"
     PASSED=$((PASSED + 1))
     return 0
