@@ -214,8 +214,60 @@ then
     exit 0
 fi
 
+# The commands that add a device hardcode the simulator at 0.0.0.0, where a simulator
+# published on the host listens. When the simulator is elsewhere (S7_SIM_ADDRESS is set, e.g. a
+# container on the CI test network) run the commands from a copy that uses its address.
+SIM_ADDRESS="${S7_SIM_ADDRESS:-}"
+if [ -n "${SIM_ADDRESS}" ]
+then
+    COMMANDS_COPY="$(mktemp -d)"
+    cp "${COMMANDS_DIR}"/*.sh "${COMMANDS_COPY}/"
+    sed -i "s/0\.0\.0\.0/${SIM_ADDRESS}/g" "${COMMANDS_COPY}"/*.sh
+    COMMANDS_DIR="${COMMANDS_COPY}"
+    trap 'rm -rf "${MQTT_CONF_DIR}" "${COMMANDS_COPY}"' EXIT
+fi
+
+# The command scripts depend on each other's effects (a schedule needs its device, a removal
+# needs the thing it removes), so run them in lifecycle order rather than alphabetically:
+# create devices, add schedules, read and write while everything exists, remove schedules,
+# then remove devices. The phase comes from the request's "op".
+command_phase()
+{
+    local NAME
+    NAME="$(basename "${1}")"
+
+    # Discovery: trigger a scan, look at what was found, then add what was discovered
+    case "${NAME}" in
+        trigger_discovery.sh)     echo 5;  return ;;
+        scan_discovered_device.sh) echo 6; return ;;
+        add_discovered_device.sh) echo 15; return ;;
+    esac
+
+    local OP
+    OP="$(grep -o '"op": *"[^"]*"' "${1}" | head -1 | sed 's/.*: *"\(.*\)"/\1/')"
+    local PHASE
+    case "${OP}" in
+        device:add|device:add_batch)               PHASE=10 ;;
+        schedule:add|schedule:add_batch)           PHASE=20 ;;
+        schedule:delete|schedule:delete_batch)     PHASE=40 ;;
+        device:delete|device:delete_batch|profile:delete) PHASE=50 ;;
+        *)                                         PHASE=30 ;;
+    esac
+
+    # Removing every schedule of a device must come after the individual removals
+    case "${NAME}" in
+        *_by_device.sh) if [ "${PHASE}" -eq 40 ]; then PHASE=41; fi ;;
+    esac
+    echo "${PHASE}"
+}
+
+ORDERED_COMMANDS="$(for CMD in "${COMMANDS_DIR}"/*.sh
+do
+    printf '%s %s\n' "$(command_phase "${CMD}")" "${CMD}"
+done | sort -k1,1n -k2,2 | cut -d' ' -f2-)"
+
 # Run each command script
-for CMD_SCRIPT in "${COMMANDS_DIR}"/*.sh
+for CMD_SCRIPT in ${ORDERED_COMMANDS}
 do
     if [ -x "${CMD_SCRIPT}" ]
     then
