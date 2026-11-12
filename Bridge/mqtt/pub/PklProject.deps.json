@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "resolvedDependencies": {
-    "package://iotech.jfrog.io/artifactory/public/XRT/XRT@0": {
+    "package://iotech.jfrog.io/artifactory/public/PKL/XRT/XRT@0": {
       "type": "local",
-      "uri": "projectpackage://iotech.jfrog.io/artifactory/public/XRT/XRT@0.0.2",
+      "uri": "projectpackage://iotech.jfrog.io/artifactory/public/PKL/XRT/XRT@0.0.0-dev",
       "path": "../../../../xrt/src/pkl/deploy"
     }
   }
