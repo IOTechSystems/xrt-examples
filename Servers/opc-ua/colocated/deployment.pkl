@@ -112,6 +112,7 @@ system =
             enable_user_pass = true
             users = List(new opcua_server.OPCUAServerUser {
               username = "user"
+              email = "user@example.com"
               password = "pass"
             })
           }
