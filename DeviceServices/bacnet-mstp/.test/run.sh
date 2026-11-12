@@ -215,38 +215,47 @@ then
     exit 0
 fi
 
-# The command scripts depend on each other's effects (a schedule needs its device, a removal
-# needs the thing it removes), so run them in lifecycle order rather than alphabetically:
-# create devices, add schedules, read and write while everything exists, remove schedules,
-# then remove devices. The phase comes from the request's "op".
+# The command scripts depend on each other's effects, and the example starts with what its
+# deployment.pkl defines already in place (the main device and one schedule), so run the
+# commands in a lifecycle order rather than alphabetically:
+#   10 read/write what exists            12 read everything that exists
+#   20 remove all schedules of the device, 22 remove the device (so it can be added again)
+#   30 add the device, 31 add batch devices, 32-34 discovery
+#   40 add a schedule, 41 remove it      (before the batch commands, which use the same names)
+#   50 add batch schedules, 51 read them, 52 remove them, 53 remove batch devices
+#   90 remove the device profile
+# The phase comes from the request's "op".
+
 command_phase()
 {
     local NAME
     NAME="$(basename "${1}")"
 
-    # Discovery: trigger a scan, look at what was found, then add what was discovered
     case "${NAME}" in
-        trigger_discovery.sh)     echo 5;  return ;;
-        scan_discovered_device.sh) echo 6; return ;;
-        add_discovered_device.sh) echo 15; return ;;
+        trigger_discovery.sh)      echo 32; return ;;
+        scan_discovered_device.sh) echo 33; return ;;
+        add_discovered_device.sh)  echo 34; return ;;
+        read_batch_devices_all.sh|read_batch_schedules_all.sh|read_batch_schedules_by_device.sh)
+            echo 12; return ;;
+        remove_batch_schedules_by_device.sh)
+            echo 20; return ;;
     esac
 
     local OP
     OP="$(grep -o '"op": *"[^"]*"' "${1}" | head -1 | sed 's/.*: *"\(.*\)"/\1/')"
-    local PHASE
     case "${OP}" in
-        device:add|device:add_batch)               PHASE=10 ;;
-        schedule:add|schedule:add_batch)           PHASE=20 ;;
-        schedule:delete|schedule:delete_batch)     PHASE=40 ;;
-        device:delete|device:delete_batch|profile:delete) PHASE=50 ;;
-        *)                                         PHASE=30 ;;
+        device:delete)          echo 22 ;;
+        device:add)             echo 30 ;;
+        device:add_batch)       echo 31 ;;
+        schedule:add)           echo 40 ;;
+        schedule:delete)        echo 41 ;;
+        schedule:add_batch)     echo 50 ;;
+        device:read_batch|schedule:read_batch) echo 51 ;;
+        schedule:delete_batch)  echo 52 ;;
+        device:delete_batch)    echo 53 ;;
+        profile:delete)         echo 90 ;;
+        *)                      echo 10 ;;
     esac
-
-    # Removing every schedule of a device must come after the individual removals
-    case "${NAME}" in
-        *_by_device.sh) if [ "${PHASE}" -eq 40 ]; then PHASE=41; fi ;;
-    esac
-    echo "${PHASE}"
 }
 
 ORDERED_COMMANDS="$(for CMD in "${COMMANDS_DIR}"/*.sh
