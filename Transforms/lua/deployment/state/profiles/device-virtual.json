@@ -1,0 +1,87 @@
+{
+  "name": "device-virtual",
+  "apiVersion": "v2",
+  "manufacturer": "IOTech",
+  "model": "Device-Virtual-01",
+  "labels": [
+    "device-virtual-example"
+  ],
+  "description": "Example of Device-Virtual",
+  "deviceResources": [
+    {
+      "name": "int8",
+      "attributes": { "firstValue": -14 },
+      "properties": { "valueType":  "Int8", "readWrite" : "RW" }
+    },
+    {
+      "name": "uint8",
+      "attributes": { "firstValue": 14 },
+      "properties": { "valueType":  "UInt8", "readWrite" : "RW" }
+    },
+    {
+      "name": "int16",
+      "attributes": { "firstValue": 146 },
+      "properties": { "valueType":  "Int16", "readWrite" : "RW" }
+    },
+    {
+      "name": "uint16",
+      "attributes": { "firstValue": 257 },
+      "properties": { "valueType":  "UInt16", "readWrite" : "RW" }
+    },
+    {
+      "name": "int32",
+      "attributes": { "firstValue": -4756 },
+      "properties": { "valueType":  "Int32", "readWrite" : "RW" }
+    },
+    {
+      "name": "uint32",
+      "attributes": { "firstValue": 84756 },
+      "properties": { "valueType":  "UInt32", "readWrite" : "RW" }
+    },
+    {
+      "name": "int64",
+      "attributes": { "firstValue": -432156 },
+      "properties": { "valueType":  "Int64", "readWrite" : "RW" }
+    },
+    {
+      "name": "uint64",
+      "attributes": { "firstValue": 141235 },
+      "properties": { "valueType":  "UInt64", "readWrite" : "RW" }
+    },
+    {
+      "name": "float32",
+      "attributes": { "firstValue": 58.1264 },
+      "properties": { "valueType":  "Float32", "readWrite" : "RW" }
+    },
+    {
+      "name": "float64",
+      "attributes": { "firstValue": 124.09721 },
+      "properties": { "valueType":  "Float64", "readWrite" : "RW" }
+    },
+    {
+      "name": "string",
+      "attributes": { "firstValue": "Initial string" },
+      "properties": { "valueType":  "String", "readWrite" : "RW" }
+    },
+    {
+      "name": "bool",
+      "attributes": { "firstValue": true },
+      "properties": { "valueType":  "Bool", "readWrite" : "RW" }
+    },
+    {
+      "name": "list",
+      "attributes": { "firstValue": [ 1, -2, 3], "arrayLength": 3 },
+      "properties": { "valueType":  "Int8Array", "readWrite" : "RW" }
+    },
+    {
+      "name": "vector",
+      "attributes": { "firstValue": [ -10, 200, -3], "arrayLength": 3 },
+      "properties": { "valueType":  "Int16Array", "readWrite" : "RW" }
+    },
+    {
+      "name": "array",
+      "attributes": { "firstValue": [ 103, -500, 6000], "arrayLength": 3 },
+      "properties": { "valueType":  "Int32Array", "readWrite" : "RW" }
+    }
+  ]
+}
