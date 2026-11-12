@@ -8,7 +8,9 @@ COMMANDS_DIR="${EXAMPLE_DIR}/commands"
 
 # Commands whose lifecycle is managed by the test environment (the simulator
 # container is already started/stopped externally, e.g. by docker-compose in CI)
-SKIP_COMMANDS=("start_device_sim.sh" "stop_device_sim.sh")
+# BACnet discovery (trigger, scan, add the discovered device) relies on broadcasts being answered
+# by the simulator, which does not work across the CI test network: the commands get no reply.
+SKIP_COMMANDS=("start_device_sim.sh" "stop_device_sim.sh" "trigger_discovery.sh" "scan_discovered_device.sh" "add_discovered_device.sh")
 
 # Topics
 REQUEST_RESPONSE_TOPIC="spBv1.0/${SPARKPLUG_GROUP}/REPLY/${SPARKPLUG_NODE}/bacnet_ip"
@@ -272,7 +274,7 @@ ORDERED_COMMANDS="$(
     # removed (it cannot be while a device uses it).
     if [ -f "${COMMANDS_DIR}/remove_device.sh" ]
     then
-        if [ -f "${COMMANDS_DIR}/add_discovered_device.sh" ]
+        if [ -f "${COMMANDS_DIR}/add_discovered_device.sh" ] && ! is_skipped_command "add_discovered_device.sh"
         then
             printf '28 %s\n' "${COMMANDS_DIR}/remove_device.sh"
         fi
@@ -291,7 +293,12 @@ do
         CMD_NAME=$(basename "${CMD_SCRIPT}")
         if is_skipped_command "${CMD_NAME}"
         then
-            echo "  SKIP: ${CMD_NAME} (simulator lifecycle managed externally)"
+            case "${CMD_NAME}" in
+                trigger_discovery.sh|scan_discovered_device.sh|add_discovered_device.sh)
+                    SKIP_REASON="BACnet discovery does not work across the test network" ;;
+                *)  SKIP_REASON="simulator lifecycle managed externally" ;;
+            esac
+            echo "  SKIP: ${CMD_NAME} (${SKIP_REASON})"
             SKIPPED=$((SKIPPED + 1))
             continue
         fi

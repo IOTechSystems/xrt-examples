@@ -55,10 +55,8 @@
         </References>
     </UAObject>
 
-    <UAVariable NodeId="ns=2;i=20002" BrowseName="Cellv" DataType="ns=2;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20002" BrowseName="Cellv" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellv</DisplayName>
         <Description>Cell terminal voltage.</Description>
         <EngineeringUnits>
@@ -68,10 +66,8 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20003" BrowseName="Celltmp" DataType="ns=2;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20003" BrowseName="Celltmp" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmp</DisplayName>
         <Description>Cell temperature.</Description>
         <EngineeringUnits>
@@ -81,10 +77,8 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1001</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20004" BrowseName="Cellst" DataType="ns=2;i=1011">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20004" BrowseName="Cellst" DataType="i=7">
+        <Value><uax:UInt32>10</uax:UInt32></Value>
         <DisplayName>Cellst</DisplayName>
         <Description>Status of the cell.</Description>
         <References>
@@ -102,10 +96,8 @@
         </References>
     </UAObject>
 
-    <UAVariable NodeId="ns=2;i=20012" BrowseName="Cellv" DataType="ns=2;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20012" BrowseName="Cellv" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellv</DisplayName>
         <Description>Cell terminal voltage.</Description>
         <EngineeringUnits>
@@ -115,10 +107,8 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20013" BrowseName="Celltmp" DataType="ns=2;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20013" BrowseName="Celltmp" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmp</DisplayName>
         <Description>Cell temperature.</Description>
         <EngineeringUnits>
@@ -128,10 +118,8 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1001</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20014" BrowseName="Cellst" DataType="ns=2;i=1011">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20014" BrowseName="Cellst" DataType="i=7">
+        <Value><uax:UInt32>10</uax:UInt32></Value>
         <DisplayName>Cellst</DisplayName>
         <Description>Status of the cell.</Description>
         <References>
@@ -149,10 +137,8 @@
         </References>
     </UAObject>
 
-    <UAVariable NodeId="ns=2;i=20022" BrowseName="Cellv" DataType="ns=2;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20022" BrowseName="Cellv" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellv</DisplayName>
         <Description>Cell terminal voltage.</Description>
         <EngineeringUnits>
@@ -162,10 +148,8 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1004</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20023" BrowseName="Celltmp" DataType="ns=2;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20023" BrowseName="Celltmp" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmp</DisplayName>
         <Description>Cell temperature.</Description>
         <EngineeringUnits>
@@ -175,20 +159,16 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1001</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20024" BrowseName="Cellst" DataType="ns=2;i=1011">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20024" BrowseName="Cellst" DataType="i=7">
+        <Value><uax:UInt32>10</uax:UInt32></Value>
         <DisplayName>Cellst</DisplayName>
         <Description>Status of the cell.</Description>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=1011</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=2;i=20040" BrowseName="Tmp_sf" DataType="ns=2;i=1018">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=2;i=20040" BrowseName="Tmp_sf" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Tmp_sf</DisplayName>
         <Description>Scale factor for module temperature.</Description>
         <References>

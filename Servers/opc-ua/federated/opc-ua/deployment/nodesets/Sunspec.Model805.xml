@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<UANodeSet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LastModified="2023-10-18T00:00:00Z"
+<UANodeSet xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LastModified="2023-10-18T00:00:00Z"
            xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
     <NamespaceUris>
         <Uri>http://sunspec.org/</Uri>
@@ -324,10 +324,8 @@
             <Reference ReferenceType="HasProperty">ns=1;i=10009</Reference>
         </References>
     </UAObject>
-    <UAVariable NodeId="ns=1;i=10005" ParentNodeId="ns=1;i=10004" BrowseName="Cellv" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10005" ParentNodeId="ns=1;i=10004" BrowseName="Cellv" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellv</DisplayName>
         <Description>Cell terminal voltage.</Description>
         <EngineeringUnits>
@@ -340,10 +338,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10004</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10006" ParentNodeId="ns=1;i=10002" BrowseName="Cellv" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10006" ParentNodeId="ns=1;i=10002" BrowseName="Cellv" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellv</DisplayName>
         <Description>Cell terminal voltage.</Description>
         <EngineeringUnits>
@@ -356,10 +352,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10002</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10007" ParentNodeId="ns=1;i=10004" BrowseName="Celltmp" DataType="ns=1;i=1001">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10007" ParentNodeId="ns=1;i=10004" BrowseName="Celltmp" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmp</DisplayName>
         <Description>Cell temperature.</Description>
         <EngineeringUnits>
@@ -372,10 +366,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10004</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10008" ParentNodeId="ns=1;i=10002" BrowseName="Celltmp" DataType="ns=1;i=1001">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10008" ParentNodeId="ns=1;i=10002" BrowseName="Celltmp" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmp</DisplayName>
         <Description>Cell temperature.</Description>
         <EngineeringUnits>
@@ -388,10 +380,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10002</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10009" ParentNodeId="ns=1;i=10004" BrowseName="Cellst" DataType="ns=1;i=1011">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10009" ParentNodeId="ns=1;i=10004" BrowseName="Cellst" DataType="i=7">
+        <Value><uax:UInt32>10</uax:UInt32></Value>
         <DisplayName>Cellst</DisplayName>
         <Description>Status of the cell.</Description>
         <References>
@@ -401,10 +391,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10004</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10010" ParentNodeId="ns=1;i=10002" BrowseName="Cellst" DataType="ns=1;i=1011">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10010" ParentNodeId="ns=1;i=10002" BrowseName="Cellst" DataType="i=7">
+        <Value><uax:UInt32>10</uax:UInt32></Value>
         <DisplayName>Cellst</DisplayName>
         <Description>Status of the cell.</Description>
         <References>
@@ -414,15 +402,11 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10002</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10011" ParentNodeId="ns=1;i=10000" BrowseName="Id" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10011" ParentNodeId="ns=1;i=10000" BrowseName="Id" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Id</DisplayName>
         <Description>Model identifier</Description>
-        <Value>
-            <Value>805</Value>
-        </Value>
+        <Value><uax:UInt16>805</uax:UInt16></Value>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=1;i=1004</Reference>
             <Reference ReferenceType="HasModellingRule">i=78</Reference>
@@ -430,10 +414,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10012" ParentNodeId="ns=1;i=10000" BrowseName="L" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10012" ParentNodeId="ns=1;i=10000" BrowseName="L" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>L</DisplayName>
         <Description>Model length</Description>
         <References>
@@ -443,10 +425,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10013" ParentNodeId="ns=1;i=10000" BrowseName="Stridx" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10013" ParentNodeId="ns=1;i=10000" BrowseName="Stridx" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Stridx</DisplayName>
         <Description>Index of the string containing the module.</Description>
         <References>
@@ -456,10 +436,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10014" ParentNodeId="ns=1;i=10000" BrowseName="Modidx" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10014" ParentNodeId="ns=1;i=10000" BrowseName="Modidx" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Modidx</DisplayName>
         <Description>Index of the module within the string.</Description>
         <References>
@@ -469,10 +447,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10015" ParentNodeId="ns=1;i=10000" BrowseName="Ncell" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10015" ParentNodeId="ns=1;i=10000" BrowseName="Ncell" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Ncell</DisplayName>
         <Description>Count of all cells in the module.</Description>
         <References>
@@ -482,10 +458,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10016" ParentNodeId="ns=1;i=10000" BrowseName="Soc" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10016" ParentNodeId="ns=1;i=10000" BrowseName="Soc" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Soc</DisplayName>
         <Description>Module state of charge, expressed as a percentage.</Description>
         <EngineeringUnits>
@@ -498,10 +472,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10017" ParentNodeId="ns=1;i=10000" BrowseName="Dod" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10017" ParentNodeId="ns=1;i=10000" BrowseName="Dod" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Dod</DisplayName>
         <Description>Depth of discharge for the module.</Description>
         <EngineeringUnits>
@@ -514,10 +486,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10018" ParentNodeId="ns=1;i=10000" BrowseName="Soh" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10018" ParentNodeId="ns=1;i=10000" BrowseName="Soh" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Soh</DisplayName>
         <Description>Module state of health, expressed as a percentage.</Description>
         <EngineeringUnits>
@@ -530,10 +500,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10019" ParentNodeId="ns=1;i=10000" BrowseName="Ncyc" DataType="ns=1;i=1005">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10019" ParentNodeId="ns=1;i=10000" BrowseName="Ncyc" DataType="i=7">
+        <Value><uax:UInt32>10</uax:UInt32></Value>
         <DisplayName>Ncyc</DisplayName>
         <Description>Count of cycles executed.</Description>
         <References>
@@ -543,10 +511,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10020" ParentNodeId="ns=1;i=10000" BrowseName="V" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10020" ParentNodeId="ns=1;i=10000" BrowseName="V" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>V</DisplayName>
         <Description>Voltage of the module.</Description>
         <EngineeringUnits>
@@ -559,10 +525,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10021" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmax" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10021" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmax" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellvmax</DisplayName>
         <Description>Maximum voltage for all cells in the module.</Description>
         <EngineeringUnits>
@@ -575,10 +539,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10022" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmaxcell" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10022" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmaxcell" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellvmaxcell</DisplayName>
         <Description>Cell with the maximum voltage.</Description>
         <References>
@@ -588,10 +550,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10023" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmin" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10023" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmin" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellvmin</DisplayName>
         <Description>Minimum voltage for all cells in the module.</Description>
         <EngineeringUnits>
@@ -604,10 +564,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10024" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmincell" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10024" ParentNodeId="ns=1;i=10000" BrowseName="Cellvmincell" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellvmincell</DisplayName>
         <Description>Cell with the minimum voltage.</Description>
         <References>
@@ -617,10 +575,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10025" ParentNodeId="ns=1;i=10000" BrowseName="Cellvavg" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10025" ParentNodeId="ns=1;i=10000" BrowseName="Cellvavg" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Cellvavg</DisplayName>
         <Description>Average voltage for all cells in the module.</Description>
         <EngineeringUnits>
@@ -633,10 +589,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10026" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmax" DataType="ns=1;i=1001">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10026" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmax" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmpmax</DisplayName>
         <Description>Maximum temperature for all cells in the module.</Description>
         <EngineeringUnits>
@@ -649,10 +603,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10027" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmaxcell" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10027" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmaxcell" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Celltmpmaxcell</DisplayName>
         <Description>Cell with the maximum cell temperature.</Description>
         <References>
@@ -662,10 +614,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10028" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmin" DataType="ns=1;i=1001">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10028" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmin" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmpmin</DisplayName>
         <Description>Minimum temperature for all cells in the module.</Description>
         <EngineeringUnits>
@@ -678,10 +628,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10029" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmincell" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10029" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpmincell" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Celltmpmincell</DisplayName>
         <Description>Cell with the minimum cell temperature.</Description>
         <References>
@@ -691,10 +639,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10030" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpavg" DataType="ns=1;i=1001">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10030" ParentNodeId="ns=1;i=10000" BrowseName="Celltmpavg" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Celltmpavg</DisplayName>
         <Description>Average temperature for all cells in the module.</Description>
         <EngineeringUnits>
@@ -707,10 +653,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10031" ParentNodeId="ns=1;i=10000" BrowseName="Ncellbal" DataType="ns=1;i=1004">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10031" ParentNodeId="ns=1;i=10000" BrowseName="Ncellbal" DataType="i=5">
+        <Value><uax:UInt16>10</uax:UInt16></Value>
         <DisplayName>Ncellbal</DisplayName>
         <Description>Number of cells currently being balanced in the module.</Description>
         <References>
@@ -720,10 +664,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10032" ParentNodeId="ns=1;i=10000" BrowseName="Sn" DataType="ns=1;i=1017">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10032" ParentNodeId="ns=1;i=10000" BrowseName="Sn" DataType="i=12">
+        <Value><uax:String>10</uax:String></Value>
         <DisplayName>Sn</DisplayName>
         <Description>Serial number for the module.</Description>
         <References>
@@ -733,10 +675,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10033" ParentNodeId="ns=1;i=10000" BrowseName="Soc_sf" DataType="ns=1;i=1018">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10033" ParentNodeId="ns=1;i=10000" BrowseName="Soc_sf" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Soc_sf</DisplayName>
         <Description>Scale factor for module state of charge.</Description>
         <References>
@@ -746,10 +686,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10034" ParentNodeId="ns=1;i=10000" BrowseName="Soh_sf" DataType="ns=1;i=1018">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10034" ParentNodeId="ns=1;i=10000" BrowseName="Soh_sf" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Soh_sf</DisplayName>
         <Description>Scale factor for module state of health.</Description>
         <References>
@@ -759,10 +697,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10035" ParentNodeId="ns=1;i=10000" BrowseName="Dod_sf" DataType="ns=1;i=1018">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10035" ParentNodeId="ns=1;i=10000" BrowseName="Dod_sf" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Dod_sf</DisplayName>
         <Description>Scale factor for module depth of discharge.</Description>
         <References>
@@ -772,7 +708,7 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10036" ParentNodeId="ns=1;i=10000" BrowseName="V_sf" DataType="ns=1;i=1018">
+    <UAVariable NodeId="ns=1;i=10036" ParentNodeId="ns=1;i=10000" BrowseName="V_sf" DataType="i=4">
         <DisplayName>V_sf</DisplayName>
         <Description>Scale factor for module voltage.</Description>
         <References>
@@ -785,10 +721,8 @@
             <Value>10</Value>
         </DefaultValue>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10037" ParentNodeId="ns=1;i=10000" BrowseName="Cellv_sf" DataType="ns=1;i=1018">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10037" ParentNodeId="ns=1;i=10000" BrowseName="Cellv_sf" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Cellv_sf</DisplayName>
         <Description>Scale factor for cell voltage.</Description>
         <References>
@@ -798,10 +732,8 @@
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=10000</Reference>
         </References>
     </UAVariable>
-    <UAVariable NodeId="ns=1;i=10038" ParentNodeId="ns=1;i=10000" BrowseName="Tmp_sf" DataType="ns=1;i=1018">
-        <Value>
-            <Value>10</Value>
-        </Value>
+    <UAVariable NodeId="ns=1;i=10038" ParentNodeId="ns=1;i=10000" BrowseName="Tmp_sf" DataType="i=4">
+        <Value><uax:Int16>10</uax:Int16></Value>
         <DisplayName>Tmp_sf</DisplayName>
         <Description>Scale factor for module temperature.</Description>
         <References>
