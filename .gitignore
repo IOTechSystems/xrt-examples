@@ -1,0 +1,14 @@
+*.lic
+
+# Sparkplug node state (bdSeq) written at runtime to the mounted deployment
+Library/*/deployment/state/sparkplug/*.json
+
+# Library/ config generated from each app's deployment.pkl
+# (see Library/generate-pkl-config.sh)
+Library/*/deployment/config/
+Library/*/deployment_config.h
+Library/*/deployment/*/state/
+Library/*/deployment/state/sparkplug/.gitkeep
+
+# Link to an XRT checkout's Pkl package (see Library/generate-pkl-config.sh)
+Library/xrt-pkl

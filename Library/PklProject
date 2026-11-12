@@ -1,0 +1,7 @@
+amends "pkl:Project"
+
+// The XRT Pkl package from an XRT source checkout, through the xrt-pkl link
+// that generate-pkl-config.sh makes to its src/pkl/deploy (see README.md).
+dependencies {
+  ["XRT"] = import("xrt-pkl/PklProject")
+}
