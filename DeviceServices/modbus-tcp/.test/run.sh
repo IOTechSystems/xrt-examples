@@ -234,9 +234,13 @@ fi
 # commands in a lifecycle order rather than alphabetically:
 #   10 read/write what exists            12 read everything that exists
 #   20 remove all schedules of the device, 22 remove the device (so it can be added again)
-#   30 add the device, 31 add batch devices, 32-34 discovery
+#   24-26 discovery (trigger, scan, add the discovered device), 28 remove it again: it adds the
+#         same device name as add_device.sh but with the discovered profile, so the two exclude
+#         each other
+#   30 add the device, 31 add batch devices
 #   40 add a schedule, 41 remove it      (before the batch commands, which use the same names)
 #   50 add batch schedules, 51 read them, 52 remove them, 53 remove batch devices
+#   80 remove the device once more (the profile is "in use" while a device uses it)
 #   90 remove the device profile
 # The phase comes from the request's "op".
 
@@ -246,9 +250,9 @@ command_phase()
     NAME="$(basename "${1}")"
 
     case "${NAME}" in
-        trigger_discovery.sh)      echo 32; return ;;
-        scan_discovered_device.sh) echo 33; return ;;
-        add_discovered_device.sh)  echo 34; return ;;
+        trigger_discovery.sh)      echo 24; return ;;
+        scan_discovered_device.sh) echo 25; return ;;
+        add_discovered_device.sh)  echo 26; return ;;
         read_batch_devices_all.sh|read_batch_schedules_all.sh|read_batch_schedules_by_device.sh)
             echo 12; return ;;
         remove_batch_schedules_by_device.sh)
@@ -272,10 +276,27 @@ command_phase()
     esac
 }
 
-ORDERED_COMMANDS="$(for CMD in "${COMMANDS_DIR}"/*.sh
-do
-    printf '%s %s\n' "$(command_phase "${CMD}")" "${CMD}"
-done | sort -k1,1n -k2,2 | cut -d' ' -f2-)"
+ORDERED_COMMANDS="$(
+{
+    for CMD in "${COMMANDS_DIR}"/*.sh
+    do
+        printf '%s %s\n' "$(command_phase "${CMD}")" "${CMD}"
+    done
+    # remove_device.sh also runs as a teardown: after the discovered device was added (so that
+    # add_device.sh can add the same device with its own profile), and before the profile is
+    # removed (it cannot be while a device uses it).
+    if [ -f "${COMMANDS_DIR}/remove_device.sh" ]
+    then
+        if [ -f "${COMMANDS_DIR}/add_discovered_device.sh" ]
+        then
+            printf '28 %s\n' "${COMMANDS_DIR}/remove_device.sh"
+        fi
+        if [ -f "${COMMANDS_DIR}/remove_device_profile.sh" ]
+        then
+            printf '80 %s\n' "${COMMANDS_DIR}/remove_device.sh"
+        fi
+    fi
+} | sort -k1,1n -k2,2 | cut -d' ' -f2-)"
 
 # Run each command script
 for CMD_SCRIPT in ${ORDERED_COMMANDS}
