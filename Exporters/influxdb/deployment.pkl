@@ -60,7 +60,11 @@ system =
       })
     |> withDevices("virtual_device_service", Set(virtual_device))
     |> withSchedules("virtual_device_service", Set(
-        virtual_device.new_scheduleWithOpts("schedule1", Set("MachineState"), 500.ms, (s) -> (s) {
+        virtual_device.new_schedule(new Dynamic {
+          name = "schedule1"
+          device = virtual_device.ref()
+          resource = Set("MachineState")
+          interval = 500.ms
           tags = Map("ScheduleName", "schedule1")
         }),
       ))
