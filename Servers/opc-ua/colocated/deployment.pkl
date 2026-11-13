@@ -67,7 +67,6 @@ system =
     |> bacnet.ip_instance("", "bacnet_ip")
     |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
         publish_registered_devices = true
-        publish_attributes = true
         allowed_fails = 5
         driver = new bacnet.BACnetIPDriverOptions {
           network_interface = ""
@@ -89,7 +88,7 @@ system =
     |> opcua_server.instance("opc_ua_server")
     |> opcua_server.withOPCUAServerOptions("opc_ua_server", (s) -> (s) {
         enable_sparkplug = true
-        server_config = new opcua_server.OPCUAServerFileConfig {
+        opcua_server_config = new opcua_server.OPCUAServerConfig {
           security_policies = List(new opcua_server.OPCUAServerSecurityPolicy {})
           endpoints = List(new opcua_server.OPCUAServerEndpoint {})
           access_control = new opcua_server.OPCUAServerAccessControl {

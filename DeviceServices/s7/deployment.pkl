@@ -32,7 +32,6 @@ system =
     |> s7.instance("s7")
     |> s7.withS7Options("s7", (s) -> (s) {
         publish_registered_devices = true
-        publish_attributes = true
       })
     |> withDevices("s7", Set(s7_server))
     |> withSchedules("s7", Set(
