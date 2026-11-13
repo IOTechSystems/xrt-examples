@@ -41,12 +41,7 @@ system =
       })
     |> withDevices("bacnet_ip", Set(bacnet_ip_sim))
     |> withSchedules("bacnet_ip", Set(
-        bacnet_ip_sim.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = bacnet_ip_sim.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        bacnet_ip_sim.new_schedule("schedule1", Set(".*"), 3.s),
       ))
 
 output {

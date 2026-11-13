@@ -28,12 +28,7 @@ system =
       })
     |> withDevices("virtual", Set(virtual_device))
     |> withSchedules("virtual", Set(
-        virtual_device.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = virtual_device.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        virtual_device.new_schedule("schedule1", Set(".*"), 3.s),
       ))
 
 output {

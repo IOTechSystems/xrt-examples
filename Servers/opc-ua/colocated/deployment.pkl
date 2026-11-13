@@ -62,12 +62,7 @@ system =
       })
     |> withDevices("modbus", Set(modbus_sim))
     |> withSchedules("modbus", Set(
-        modbus_sim.new_schedule(new Dynamic {
-          name = "modbus-sim-schedule"
-          device = modbus_sim.ref()
-          resource = Set("Current")
-          interval = 1.s
-        }),
+        modbus_sim.new_schedule("modbus-sim-schedule", Set("Current"), 1.s),
       ))
     |> bacnet.ip_instance("", "bacnet_ip")
     |> bacnet.withBACnetIPOptions("bacnet_ip", (s) -> (s) {
@@ -84,22 +79,12 @@ system =
       })
     |> withDevices("bacnet_ip", Set(bacnet_ip_sim))
     |> withSchedules("bacnet_ip", Set(
-        bacnet_ip_sim.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = bacnet_ip_sim.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        bacnet_ip_sim.new_schedule("schedule1", Set(".*"), 3.s),
       ))
     |> virtual.instance("virtual")
     |> withDevices("virtual", Set(virtual_device))
     |> withSchedules("virtual", Set(
-        virtual_device.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = virtual_device.ref()
-          resource = Set(".*")
-          interval = 3.s
-        }),
+        virtual_device.new_schedule("schedule1", Set(".*"), 3.s),
       ))
     |> opcua_server.instance("opc_ua_server")
     |> opcua_server.withOPCUAServerOptions("opc_ua_server", (s) -> (s) {

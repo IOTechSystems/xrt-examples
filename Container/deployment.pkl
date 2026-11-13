@@ -31,12 +31,7 @@ system =
     |> withLogLevel("Debug")
     |> withDevices("virtual_device_service", Set(virtual_device))
     |> withSchedules("virtual_device_service", Set(
-        virtual_device.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = virtual_device.ref()
-          resource = Set("SensorOne")
-          interval = 500.ms
-        }),
+        virtual_device.new_schedule("schedule1", Set("SensorOne"), 500.ms),
       ))
 
 output {

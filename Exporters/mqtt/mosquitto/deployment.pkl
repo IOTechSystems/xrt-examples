@@ -39,12 +39,7 @@ system =
       })
     |> withDevices("virtual", Set(virtual_device))
     |> withSchedules("virtual", Set(
-        virtual_device.new_schedule(new Dynamic {
-          name = "schedule1"
-          device = virtual_device.ref()
-          resource = Set("SensorOne")
-          interval = 500.ms
-        }),
+        virtual_device.new_schedule("schedule1", Set("SensorOne"), 500.ms),
       ))
 
 output {

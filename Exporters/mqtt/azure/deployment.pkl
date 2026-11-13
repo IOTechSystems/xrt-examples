@@ -61,12 +61,7 @@ system =
     |> virtual.instance("virtual")
     |> withDevices("virtual", Set(virtual_device))
     |> withSchedules("virtual", Set(
-        virtual_device.new_schedule(new Dynamic {
-          name = "virtual-schedule1"
-          device = virtual_device.ref()
-          resource = Set("RandomInt8", "CountingUpFloat32")
-          interval = 2.s
-        }),
+        virtual_device.new_schedule("virtual-schedule1", Set("RandomInt8", "CountingUpFloat32"), 2.s),
       ))
 
 output {
