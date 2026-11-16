@@ -74,7 +74,7 @@ pick others):
 
 | Image | Default for now | Once released |
 |---|---|---|
-| XRT (`XRT_IMAGE`) | `iotechsys/xrt-server:3.4.6-deb13-headers-x86_64` | `iotechsys/xrt:4.0-deb13` |
+| XRT (`XRT_IMAGE`) | `iotechsys/xrt-server:3.4.6-deb13` | `iotechsys/xrt:4.0-deb13` |
 | OPC UA Server (`OPCUA_IMAGE`) | `iotechsys/connect-opc-ua-server:3.4.6-dev` | `iotechsys/connect-opc-ua-server:4.0` |
 
 | Dependency | Version | Why |
@@ -115,11 +115,11 @@ XRT_IMAGE=<XRT image> XRT_INCLUDE=<dir> \
   match those headers - e.g. one built from the same XRT source.
 - `OPCUA_IMAGE` is the OPC UA Server image (see above).
 
-For example, with IOTech's private registries, the XRT-4041 dev build (an
-`XRT-4041-branch` Jenkins build with `Archive=Development`, `System=debian-13`,
-`Container` and `CustomTag=headers`) publishes the
-`iotechsys/xrt-server:3.4.6-deb13-headers-x86_64` image, the current default.
-With a local build of the same `XRT-4041-branch` source and the
+For example, with IOTech's private registries, the XRT dev build (a
+`v3.4-branch` Jenkins build with `Archive=Development`, `System=debian-13` and
+`Container`) publishes the `iotechsys/xrt-server:3.4.6-deb13` image, the
+current default.
+With a local build of the same `v3.4-branch` source and the
 `iotech-iot-1.7-dev` headers:
 
 ```bash
@@ -145,7 +145,7 @@ IOTECH_APT_REPO=https://iotech.jfrog.io/iotech/debian-dev IOTECH_APT_AUTH=<auth.
 
 or to `docker build` as `--secret id=apt-auth,src=<auth.conf>`. It's a build
 secret, so it isn't kept in the images. The XRT `-dev` package is the image's XRT
-package's (e.g. `iotech-xrt-headers-3.4-dev` for the dev image), or set the
+package's (e.g. `iotech-xrt-3.4-dev` for the dev image), or set the
 `XRT_PACKAGE` build argument to pick another.
 
 ## Running it

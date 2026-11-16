@@ -1,9 +1,9 @@
 # The app image is the XRT image plus the app, built against the headers from
 # the image's XRT -dev package.
 # XRT image to build on and run: a Debian or Ubuntu XRT image (see ../README.md).
-# XRT with the XRT-4041 changes isn't released yet, so this is its dev image.
+# XRT with the XRT-4041 changes isn't released yet, so this is the v3.4-branch dev image.
 # Once released, this should be the major.minor release: iotechsys/xrt:4.0-deb13
-ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13-headers-x86_64
+ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13
 
 # Headers to build against instead of the -dev packages, given as
 # the xrt-include/iot-include build contexts (see ../README.md)
