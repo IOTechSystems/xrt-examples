@@ -1,0 +1,13 @@
+{
+  "1-xrt":"XRT::Config",
+  "2-logger":"IOT::Logger",
+  "3-pool":"IOT::ThreadPool",
+  "3-schedpool":"IOT::ThreadPool",
+  "4-sched":"IOT::Scheduler",
+  "5-bus":"XRT::Bus",
+  "6-mqtt": "XRT::MQTTBridge",
+  "7-lua-transform": "XRT::LuaTransform",
+  "8-sparkplug": "XRT::Sparkplug",
+  "9-sparkplug-node": "XRT::SparkplugNode",
+  "10-virtual":"XRT::VirtualDeviceService"
+}
