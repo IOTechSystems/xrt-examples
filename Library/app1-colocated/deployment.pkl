@@ -1,0 +1,93 @@
+extends "@XRT/core/standard_node.pkl"
+
+import "@XRT/devices/bacnet.pkl"
+import "@XRT/bridge/sparkplug_bridge.pkl"
+import "../common/spg_demo_app.pkl"
+import "@XRT/codegen/c_config.pkl"
+
+system =
+  standardSystem("app1-colocated-server", "${SPARKPLUG_NODE}")
+    |> addComponents(new Listing<Component> {
+        new Logger {
+          name = "logger_debug"
+          level = "Debug"
+        }
+        new ThreadPool {
+          name = "spgapp_pool"
+          logger = new LoggerRef { target = "logger" }
+          threads = 5
+        }
+        new spg_demo_app.SparkplugDemoApp {
+          name = "spg_demo_app"
+          logger = new LoggerRef { target = "logger" }
+          bus = new BusRef { target = "bus" }
+          thread_pool = new ThreadPoolRef { target = "spgapp_pool" }
+          app_id = "XRTLibSparkplugDemo"
+          write_device = "Dev1"
+          write_metric = "analog_output_0:present-value"
+          write_value = 456.0
+        }
+      })
+    |> sparkplug_bridge.replaceWithOpts("mqtt_bridge", new Dynamic {
+        app_topic = "spBv1.0/STATE/XRT::MQTTBridge"
+      })
+    |> withLogLevel("Info")
+    |> withSparkplugNodeOptions((n) -> (n) {
+        app_state_wait = List()
+      })
+    |> bacnet.ip_instance("", "bacnet_ip_dev1")
+    |> withOptions("bacnet_ip_dev1", new Dynamic {
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        driver = new bacnet.BACnetIPDriverOptions {
+          network_interface = ""
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+          bbmd_address = "${BACNET_IP_DEV1_ADDRESS}"
+        }
+      })
+    |> withDevices("bacnet_ip_dev1", Set(dev1))
+    |> withSchedules("bacnet_ip_dev1", Set(
+        dev1.new_schedule("schedule1", Set(".*"), 3.s),
+      ))
+    |> bacnet.mstp_instance("/tmp/dev2-mstp", "bacnet_mstp_dev2")
+    |> withOptions("bacnet_mstp_dev2", new Dynamic {
+        logger = new LoggerRef { target = "logger_debug" }
+        schedules_thread_pool = new ThreadPoolRef { target = "sched_pool" }
+        driver = new bacnet.BACnetMSTPDriverOptions {
+          serial_interface = "/tmp/dev2-mstp"
+          device_object = new bacnet.BACnetDeviceObjectType {
+            instance_id = 0
+          }
+        }
+      })
+    |> withDevices("bacnet_mstp_dev2", Set(dev2))
+    |> withSchedules("bacnet_mstp_dev2", Set(
+        dev2.new_schedule("schedule1", Set(".*"), 3.s),
+      ))
+
+/// A simulated BACnet device, polled for all its resources every 3s
+local dev1 = bacnet.device("Dev1", "bacnet-ip-sim-profile", new bacnet.IPProtocolType {
+  instance_id = 1234
+})
+
+/// A simulated BACnet device, polled for all its resources every 3s
+local dev2 = bacnet.device("Dev2", "bacnet-ip-sim-profile", new bacnet.MSTPProtocolType {
+  instance_id = 1235
+})
+
+// The component config (the "config/" entries of system.deployment()) is
+// compiled into spg_demo, as deployment_config.h, rather than written out as
+// files: the container's config loader serves it from there (see
+// ../common/main.c). Everything else (device service state, the Sparkplug
+// state dir) goes in deployment/.
+output {
+  files {
+    for (path, file in system.deployment()) {
+      when (!path.startsWith("config/")) {
+        ["deployment/\(path)"] = file
+      }
+    }
+    ["deployment_config.h"] = c_config.headerFile(system, "XRT configuration of app1-colocated (spg_demo).")
+  }
+}

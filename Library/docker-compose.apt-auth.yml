@@ -1,0 +1,26 @@
+# Builds app1/app2 with the XRT image's -dev packages from an apt repository
+# that needs credentials, such as IOTech's private debian-dev repository, for
+# an XRT that isn't released yet.
+#
+#   IOTECH_APT_REPO=<repo> IOTECH_APT_AUTH=<auth.conf> \
+#     docker compose -f docker-compose.yml -f docker-compose.apt-auth.yml up --build
+#
+# IOTECH_APT_AUTH is an apt auth.conf file (man apt_auth.conf) with the
+# repository's credentials. It's handed to the build as a secret, so it isn't
+# kept in the images.
+
+x-apt-auth-build: &apt-auth-build
+  args:
+    - IOTECH_APT_REPO
+  secrets:
+    - apt-auth
+
+services:
+  app1:
+    build: *apt-auth-build
+  app2:
+    build: *apt-auth-build
+
+secrets:
+  apt-auth:
+    file: ${IOTECH_APT_AUTH:?set IOTECH_APT_AUTH to an apt auth.conf file}
