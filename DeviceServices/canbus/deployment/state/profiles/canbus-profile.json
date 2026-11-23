@@ -175,7 +175,7 @@
         "bitLen": 2,
         "littleEndian": true
       },
-      "name": "Accelerator_Pedal_2_Low_Idle_Swi", 
+      "name": "Vehicle_Acceleration_Rate_Limit_", 
       "properties": {
         "readWrite": "R",
         "valueType": "Uint64",
