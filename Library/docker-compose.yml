@@ -71,7 +71,6 @@ services:
       dockerfile: app1-colocated/Dockerfile
       args:
         - XRT_IMAGE
-        - XRT_PACKAGE
     container_name: app1
     depends_on:
       - mosquitto
@@ -110,7 +109,6 @@ services:
       dockerfile: app2-standalone/Dockerfile
       args:
         - XRT_IMAGE
-        - XRT_PACKAGE
     container_name: app2
     depends_on:
       - mosquitto
@@ -123,9 +121,7 @@ services:
     restart: unless-stopped
 
   xrt-opc-ua-server:
-    # Not released for this XRT yet, so the dev image. Once released, this should
-    # be the major.minor release: iotechsys/connect-opc-ua-server:4.0
-    image: ${OPCUA_IMAGE:-iotechsys/connect-opc-ua-server:3.4.6-dev}
+    image: ${OPCUA_IMAGE:-iotechsys/connect-opc-ua-server:4.0}
     container_name: xrt-opc-ua-server
     depends_on:
       - mosquitto

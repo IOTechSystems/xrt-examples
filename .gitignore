@@ -9,6 +9,5 @@ Library/*/deployment/config/
 Library/*/deployment_config.h
 Library/*/deployment/*/state/
 Library/*/deployment/state/sparkplug/.gitkeep
+Library/PklProject.deps.json
 
-# Link to an XRT checkout's Pkl package (see Library/generate-pkl-config.sh)
-Library/xrt-pkl
