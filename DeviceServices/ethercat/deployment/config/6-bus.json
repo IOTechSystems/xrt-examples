@@ -1,5 +1,5 @@
 {
   "Scheduler":"5-sched",
-  "ThreadPool":"2-pool",
+  "ThreadPool":"3-pool",
   "Logger":"2-logger"
 }

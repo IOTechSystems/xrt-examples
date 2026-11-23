@@ -11,7 +11,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/${FILE_SER
     "profileName": "file-example",
     "protocols": {
       "FILE": {
-        "Directory": "${FILE_DIR_PATH}"
+        "Directory": "'"${FILE_DIR_PATH}"'"
       }
     }
   }  

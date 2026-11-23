@@ -1,0 +1,54 @@
+{
+  "apiVersion": "v2",
+  "name": "site-meter-profile",
+  "manufacturer": "IOTech",
+  "description": "Grid connection meter of a battery energy storage site",
+  "labels": [
+    "tutorial",
+    "bess"
+  ],
+  "deviceResources": [
+    {
+      "name": "grid-frequency",
+      "description": "Grid frequency",
+      "attributes": {
+        "nodeId": "ns=2;s=GridFrequency",
+        "nodeAttribute": "value",
+        "dataTypeId": "i=11"
+      },
+      "properties": {
+        "valueType": "Float64",
+        "readWrite": "R",
+        "units": "Hz"
+      }
+    },
+    {
+      "name": "grid-voltage",
+      "description": "Grid line-to-line voltage",
+      "attributes": {
+        "nodeId": "ns=2;s=GridVoltage",
+        "nodeAttribute": "value",
+        "dataTypeId": "i=11"
+      },
+      "properties": {
+        "valueType": "Float64",
+        "readWrite": "R",
+        "units": "V"
+      }
+    },
+    {
+      "name": "site-power",
+      "description": "Active power at the grid connection, positive when exporting",
+      "attributes": {
+        "nodeId": "ns=2;s=SitePower",
+        "nodeAttribute": "value",
+        "dataTypeId": "i=11"
+      },
+      "properties": {
+        "valueType": "Float64",
+        "readWrite": "R",
+        "units": "kW"
+      }
+    }
+  ]
+}

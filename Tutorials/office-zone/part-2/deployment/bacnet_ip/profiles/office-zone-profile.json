@@ -1,0 +1,36 @@
+{
+  "name": "office-zone-profile",
+  "apiVersion": "v2",
+  "description": "Office zone controller: temperature, setpoint, occupancy and fan",
+  "labels": ["tutorial"],
+  "deviceResources": [
+    {
+      "name": "zone-temperature:present-value",
+      "alias": 1,
+      "description": "Zone air temperature (°C)",
+      "attributes": { "type": 0, "instance": 0, "property": 85 },
+      "properties": { "valueType": "float32", "readWrite": "R" }
+    },
+    {
+      "name": "zone-setpoint:present-value",
+      "alias": 2,
+      "description": "Zone temperature setpoint (°C)",
+      "attributes": { "type": 2, "instance": 0, "property": 85 },
+      "properties": { "valueType": "float32", "readWrite": "RW" }
+    },
+    {
+      "name": "zone-occupancy:present-value",
+      "alias": 3,
+      "description": "Zone occupancy (0 = unoccupied, 1 = occupied)",
+      "attributes": { "type": 3, "instance": 0, "property": 85 },
+      "properties": { "valueType": "uint32", "readWrite": "R" }
+    },
+    {
+      "name": "fan-command:present-value",
+      "alias": 4,
+      "description": "Fan command (0 = off, 1 = on)",
+      "attributes": { "type": 4, "instance": 0, "property": 85 },
+      "properties": { "valueType": "uint32", "readWrite": "RW" }
+    }
+  ]
+}

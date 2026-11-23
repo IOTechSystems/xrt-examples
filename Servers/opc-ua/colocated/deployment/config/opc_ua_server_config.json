@@ -15,6 +15,7 @@
     "Users": [
       {
         "Username": "user",
+        "Email": "user@example.com",
         "Password": "pass"
       }
     ]

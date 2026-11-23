@@ -43,7 +43,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },
@@ -56,7 +56,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },
@@ -69,7 +69,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },
@@ -82,7 +82,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },
@@ -95,7 +95,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },
@@ -108,7 +108,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },
@@ -121,7 +121,7 @@
         "type": "O2T"
       },
       "properties": {
-        "readWrite": "W",
+        "readWrite": "RW",
         "valueType": "Bool"
       }
     },

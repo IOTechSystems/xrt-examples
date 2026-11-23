@@ -1,0 +1,43 @@
+{
+  "group": "tutorial",
+  "node": "xrt-node",
+  "device": "office-zone",
+  "metrics": [
+    {
+      "name": "zone-temperature:present-value",
+      "datatype": 9,
+      "alias": 1,
+      "properties": {
+        "valueType": "float32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "zone-setpoint:present-value",
+      "datatype": 9,
+      "alias": 2,
+      "properties": {
+        "valueType": "float32",
+        "readWrite": "RW"
+      }
+    },
+    {
+      "name": "zone-occupancy:present-value",
+      "datatype": 7,
+      "alias": 3,
+      "properties": {
+        "valueType": "uint32",
+        "readWrite": "R"
+      }
+    },
+    {
+      "name": "fan-command:present-value",
+      "datatype": 7,
+      "alias": 4,
+      "properties": {
+        "valueType": "uint32",
+        "readWrite": "RW"
+      }
+    }
+  ]
+}

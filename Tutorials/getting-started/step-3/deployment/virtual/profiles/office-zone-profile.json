@@ -1,0 +1,14 @@
+{
+  "name": "office-zone-profile",
+  "apiVersion": "v2",
+  "description": "A simulated office zone",
+  "labels": ["tutorial"],
+  "deviceResources": [
+    {
+      "name": "zone-temperature",
+      "description": "Zone air temperature (°C): a sine wave between 20 °C and 22 °C, with a period of 24 readings",
+      "attributes": { "sequenceType": "waveform", "shape": "sinewave", "period": 24, "amplitude": 2.0, "offset": 21.0 },
+      "properties": { "valueType": "Float32", "readWrite": "R" }
+    }
+  ]
+}

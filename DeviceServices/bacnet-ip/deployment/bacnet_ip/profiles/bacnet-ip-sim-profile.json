@@ -5,7 +5,7 @@
   "deviceResources": [
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 75,
       "type": 8
     },
@@ -17,7 +17,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 77,
       "type": 8
     },
@@ -29,7 +29,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 79,
       "type": 8
     },
@@ -41,7 +41,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 112,
       "type": 8
     },
@@ -53,7 +53,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 121,
       "type": 8
     },
@@ -65,7 +65,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 120,
       "type": 8
     },
@@ -77,7 +77,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 70,
       "type": 8
     },
@@ -89,7 +89,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 44,
       "type": 8
     },
@@ -101,7 +101,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 12,
       "type": 8
     },
@@ -113,7 +113,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 98,
       "type": 8
     },
@@ -125,7 +125,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 139,
       "type": 8
     },
@@ -137,31 +137,31 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 97,
       "type": 8
     },
     "name": "IOTech BACnet Simulator:protocol-services-supported",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 96,
       "type": 8
     },
     "name": "IOTech BACnet Simulator:protocol-object-types-supported",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 76,
       "type": 8
     },
@@ -173,7 +173,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 62,
       "type": 8
     },
@@ -185,7 +185,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 107,
       "type": 8
     },
@@ -197,7 +197,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 11,
       "type": 8
     },
@@ -209,7 +209,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 73,
       "type": 8
     },
@@ -221,7 +221,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 30,
       "raw": true,
       "type": 8
@@ -229,12 +229,12 @@
     "name": "IOTech BACnet Simulator:device-address-binding",
     "properties": {
       "readWrite": "RW",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 155,
       "type": 8
     },
@@ -246,7 +246,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 28,
       "type": 8
     },
@@ -258,7 +258,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 57,
       "type": 8
     },
@@ -270,7 +270,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 119,
       "type": 8
     },
@@ -282,7 +282,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 56,
       "type": 8
     },
@@ -294,7 +294,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 24,
       "type": 8
     },
@@ -306,7 +306,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 58,
       "type": 8
     },
@@ -318,7 +318,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 152,
       "raw": true,
       "type": 8
@@ -326,12 +326,12 @@
     "name": "IOTech BACnet Simulator:active-cov-subscriptions",
     "properties": {
       "readWrite": "RW",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 116,
       "raw": true,
       "type": 8
@@ -339,12 +339,12 @@
     "name": "IOTech BACnet Simulator:time-synchronization-recipients",
     "properties": {
       "readWrite": "RW",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 204,
       "type": 8
     },
@@ -356,7 +356,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 193,
       "type": 8
     },
@@ -368,7 +368,7 @@
   },
   {
     "attributes": {
-      "instance": 1234,
+      "instance": 4194303,
       "property": 195,
       "type": 8
     },
@@ -578,7 +578,7 @@
     },
     "name": "analog_input_0:limit-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -590,7 +590,7 @@
     },
     "name": "analog_input_0:event-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -628,7 +628,7 @@
     "name": "analog_input_0:event-time-stamps",
     "properties": {
       "readWrite": "R",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {
@@ -831,7 +831,7 @@
     },
     "name": "analog_input_1:limit-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -843,7 +843,7 @@
     },
     "name": "analog_input_1:event-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -881,7 +881,7 @@
     "name": "analog_input_1:event-time-stamps",
     "properties": {
       "readWrite": "R",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {
@@ -1336,7 +1336,7 @@
     },
     "name": "analog_value_0:limit-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -1348,7 +1348,7 @@
     },
     "name": "analog_value_0:event-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -1386,7 +1386,7 @@
     "name": "analog_value_0:event-time-stamps",
     "properties": {
       "readWrite": "R",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {
@@ -1577,7 +1577,7 @@
     },
     "name": "analog_value_1:limit-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -1589,7 +1589,7 @@
     },
     "name": "analog_value_1:event-enable",
     "properties": {
-      "readWrite": "RW",
+      "readWrite": "R",
       "valueType": "uint8array"
     }
   },
@@ -1627,7 +1627,7 @@
     "name": "analog_value_1:event-time-stamps",
     "properties": {
       "readWrite": "R",
-      "valueType": "uint8array"
+      "valueType": "binary"
     }
   },
   {

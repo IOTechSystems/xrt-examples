@@ -9,7 +9,7 @@ mosquitto_pub -t spBv1.0/${SPARKPLUG_GROUP}/REQUEST/${SPARKPLUG_NODE}/ethercat -
   "schedule": {
     "name":"ethercat-schedule1",
     "device":"XMC4800",
-    "resource":["IN_GET_BIT1","IN_GEN_BIT2"],
+    "resource":["IN_GEN_BIT1","IN_GEN_BIT2"],
     "interval": 1000000
   }
 }'
