@@ -27,6 +27,7 @@ export XRT_MODBUS_TCP_STATE_DIR=../../../DeviceServices/modbus-tcp/deployment/st
 # OPC-UA server node modelling example 
 export XRT_MODELS_DIR=$PWD/deployment/models
 export XRT_NODESET_DIR=$PWD/deployment/nodesets
+export XRT_MAPPING_DIR=$PWD/deployment/mappings
 
 # Sparkplug Vars
 export SPARKPLUG_NODE=xrt

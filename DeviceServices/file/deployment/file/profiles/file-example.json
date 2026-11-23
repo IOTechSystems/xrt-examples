@@ -8,123 +8,112 @@
   "deviceResources": [
     {
       "description": "A reource corresponds to a file in the devices property directory",
-      "attributes": {
-        "file": "string.txt"
-      },
+      "attributes": {},
       "name": "file_string",
       "properties": {
         "readWrite": "RW",
-        "valueType": "String"
+        "valueType": "String",
+        "fileName": "string.txt"
       }
     },
     {
       "description": "A float",
-      "attributes": {
-        "file": "float.txt"
-      },
+      "attributes": {},
       "name": "file_float",
       "properties": {
         "readWrite": "RW",
-        "valueType": "Float32"
+        "valueType": "Float32",
+        "fileName": "float.txt"
       }
     },
     {
       "description": "A double",
-      "attributes": {
-        "file": "double.txt"
-      },
+      "attributes": {},
       "name": "file_double",
       "properties": {
         "readWrite": "RW",
-        "valueType": "Float64"
+        "valueType": "Float64",
+        "fileName": "double.txt"
       }
     },
     {
       "description": "A int8",
-      "attributes": {
-        "file": "int8.txt"
-      },
+      "attributes": {},
       "name": "file_int8",
       "properties": {
         "readWrite": "RW",
-        "valueType": "INT8"
+        "valueType": "INT8",
+        "fileName": "int8.txt"
       }
     },
     {
       "description": "A int16",
-      "attributes": {
-        "file": "int16.txt"
-      },
+      "attributes": {},
       "name": "file_int16",
       "properties": {
         "readWrite": "RW",
-        "valueType": "INT16"
+        "valueType": "INT16",
+        "fileName": "int16.txt"
       }
     },
     {
       "description": "A int32",
-      "attributes": {
-        "file": "int32.txt"
-      },
+      "attributes": {},
       "name": "file_int32",
       "properties": {
         "readWrite": "RW",
-        "valueType": "INT32"
+        "valueType": "INT32",
+        "fileName": "int32.txt"
       }
     },
     {
       "description": "A int64",
-      "attributes": {
-        "file": "int64.txt"
-      },
+      "attributes": {},
       "name": "file_int64",
       "properties": {
         "readWrite": "RW",
-        "valueType": "INT64"
+        "valueType": "INT64",
+        "fileName": "int64.txt"
       }
     },
     {
       "description": "A uint8",
-      "attributes": {
-        "file": "uint8.txt"
-      },
+      "attributes": {},
       "name": "file_uint8",
       "properties": {
         "readWrite": "RW",
-        "valueType": "UINT8"
+        "valueType": "UINT8",
+        "fileName": "uint8.txt"
       }
     },
     {
       "description": "A uint16",
-      "attributes": {
-        "file": "uint16.txt"
-      },
+      "attributes": {},
       "name": "file_uint16",
       "properties": {
         "readWrite": "RW",
-        "valueType": "UINT16"
+        "valueType": "UINT16",
+        "fileName": "uint16.txt"
       }
     },
     {
       "description": "A uint32",
-      "attributes": {
-        "file": "uint32.txt"
-      },
+      "attributes": {},
       "name": "file_uint32",
       "properties": {
         "readWrite": "RW",
-        "valueType": "UINT32"
+        "valueType": "UINT32",
+        "fileName": "uint32.txt"
       }
     },
     {
       "description": "A uint64",
-      "attributes": {
-        "file": "uint64.txt"
-      },
+      "attributes": {},
       "name": "file_uint64",
       "properties": {
         "readWrite": "RW",
-        "valueType": "UINT64"
+        "valueType": "UINT64",
+        "fileName": "uint64.txt"
       }
     }
   ]

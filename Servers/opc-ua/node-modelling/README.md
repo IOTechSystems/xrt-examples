@@ -2,7 +2,7 @@
 
 ## Overview
 
-This example shows you how to run the OPC-UA server with a custom node model. The model uses the [EUROMAP77](https://www.euromap.org/euromap77) nodeset and creates an instance of an Injection Moulding Machines (IMM) and Manufacturings Execurtions Systems (MES) Interface. Additionally, the model maps resources from simulated s7 and virtual devices to this interface.
+This example shows you how to run the OPC-UA server with a custom node model. The model uses the [EUROMAP77](https://www.euromap.org/euromap77) nodeset and creates an instance of an Injection Moulding Machines (IMM) and Manufacturings Execurtions Systems (MES) Interface. Additionally, the model maps resources from simulated s7 and virtual devices to this interface. The S7 device is read from a simulator, and the Virtual device generates its own values, so only the S7 simulator needs to be started.
 
 For more information about the OPC-UA Server and Node Modelling please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt22/server-components/opc-ua-server-component.html) documentation.
 

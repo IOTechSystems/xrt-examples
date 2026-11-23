@@ -1,0 +1,12 @@
+{
+  "client": "tutorial",
+  "request_id": "2",
+  "type": "xrt.request:1.0",
+  "op": "schedule:add",
+  "schedule": {
+    "name": "meeting-room-schedule",
+    "device": "meeting-room",
+    "resource": [".*"],
+    "interval": 5000000
+  }
+}

@@ -229,7 +229,7 @@
       "name": "BacnetSimulator:device-address-binding",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     },
     {
@@ -326,7 +326,7 @@
       "name": "BacnetSimulator:active-cov-subscriptions",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     },
     {
@@ -339,7 +339,7 @@
       "name": "BacnetSimulator:time-synchronization-recipients",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     },
     {
@@ -628,7 +628,7 @@
       "name": "analog_input_0:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     },
     {
@@ -881,7 +881,7 @@
       "name": "analog_input_1:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     },
     {
@@ -1362,7 +1362,7 @@
       "name": "analog_value_0:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     },
     {
@@ -1603,7 +1603,7 @@
       "name": "analog_value_1:event-time-stamps",
       "properties": {
         "readWrite": "RW",
-        "valueType": "uint8array"
+        "valueType": "binary"
       }
     }
   ]

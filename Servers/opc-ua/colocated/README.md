@@ -4,11 +4,11 @@
 
 This page shows you how to setup and run the OPC-UA sever example.
 
-The example consists of an OPC-UA Server component and an S7 Device Service component with a simulated S7 device.
+The example consists of an OPC-UA Server component and four Device Service components that run in the same XRT process: S7, Modbus, BACnet/IP and Virtual. The S7, Modbus and BACnet/IP device services each read a simulated device. The Virtual device service generates its own values and needs no simulator.
 
 For more information about the OPC-UA Server please review the [OPC-UA Server](https://docs.iotechsys.com/edge-xrt21/server-components/opc-ua-server-component.html) documentation.
 
-For more information about the Device Service please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/s7-device-service-component.html) documentation.
+For more information about the Device Services please review the [S7 Device Service](https://docs.iotechsys.com/edge-xrt21/device-service-components/s7-device-service-component.html) documentation.
 
 ## Getting Started
 
@@ -43,15 +43,16 @@ _For more information about the Modbus device simulator, see [Modbus Simulator](
 We have provided a script to easily set these environment variables. Run:
 
 ```bash
-cd Servers/opc-ua/basic/
-. ./../../../set_env_vars.sh
+cd Servers/opc-ua/colocated/
+. ../../../set_env_vars.sh
 export S7_SIM_ADDRESS=0.0.0.0
-export BACNET_IP_SIM_ADDRESS=<ip_of_sim>
-export MODBUS_SIM_ADDRESS=<ip_of_sim>
-export MODBUS_SIM_PORT=1502
+export BACNET_IP_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bacnet-ip-sim)
+export MODBUS_SIM_ADDRESS=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' pymodbus-sim)
 ```
 
 _Note the dot before the path to the script, which is required to set the environment variables in the executing shell._
+
+> **Note** The simulator addresses change whenever the simulator containers are recreated, so set `BACNET_IP_SIM_ADDRESS` and `MODBUS_SIM_ADDRESS` again and restart XRT after running the `start_device_sim.sh` scripts.
 
 ### **Run XRT with the config folder:**
 

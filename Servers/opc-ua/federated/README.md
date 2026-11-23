@@ -14,7 +14,8 @@ For more information about the Modbus Device Service please review the [Modbus D
 
 - Docker must be installed on your machine. (can be checked using `docker -v`)
 - XRT 3.0 must be installed, along with a copy of this repository (can be checked using `xrt` )
-- Python 3 must also be installed. (can be checked using `python3 -v`)
+- Python 3 must also be installed. (can be checked using `python3 --version`)
+- An MQTT broker, for example Mosquitto, must be running on `localhost:1883`. Both XRT nodes use it to exchange the Sparkplug data. (can be checked using `ss -ltn | grep 1883`)
 
 ## OPC UA Browser Setup
 
@@ -31,7 +32,7 @@ This section outlines the setup process for the IOTech OPC UA browser. If you op
 2. **Run the Browser**:
 
     ```shell
-    docker run -d --name opc-ua-browser -p 8080:8080 iotechsys/opc-ua-browser:1.1.dev
+    docker run -d --name opc-ua-browser -p 8080:8080 iotechsys/opc-ua-browser:1.1
     ```
 
 3. **Verify Run**:
@@ -52,7 +53,7 @@ Now we have the Browser working we can move on to setting up XRT OPC UA Server f
 2. **Set Environment Variables**:
 
     ```shell
-    . ../../../set_env_vars.sh
+    . ../../../../set_env_vars.sh
     ```
 
     An explanation for the manual setting of common device service environment variables can be found [here](https://github.com/IOTechSystems/xrt-examples/blob/v3.0-branch/DeviceServices/interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
@@ -71,7 +72,7 @@ Now we have the Browser working we can move on to setting up XRT OPC UA Server f
 
     When the Security pop up come up just click 'SAVE AND CONNECT' as for this example no security is set.
 
-You should be able to see the model data defined by `opc-ua/deployment/models/Sunspec_Model805.json` loaded in under:
+You should be able to see the model data defined by the nodesets in `opc-ua/deployment/nodesets/` (`Sunspec.Model805.xml` and `custom_nodeset.xml`) loaded in under:
 
     Objects -> Model805
 
@@ -119,7 +120,7 @@ Now we have the simulated modbus battery we can move on to reading our battery u
 2. **Set Environment Variables**:
 
     ```shell
-    . ../../../set_env_vars.sh
+    . ../../../../set_env_vars.sh
     ```
 
     An explanation for the manual setting of common device service environment variables can be found [here](https://github.com/IOTechSystems/xrt-examples/blob/v3.0-branch/DeviceServices/interactive-walkthrough/ds-getting-started-common.md/#Device-service-configuration-setup).
@@ -139,4 +140,4 @@ Sparkplug -> xrt -> modbus-device1 -> cell_1_tmp
 
 ![How to write values](images/Opc-ua-browser2.gif)
 
-In the sparkplug/xrt/modbus-device-1 folder, if you find the variable cell_1_tmp. You can write a value to this property either by clicking the pencil icon in the value cell or by right-clicking the resource in the hierarchical menu and selecting 'Write' from the context menu.
+In the sparkplug/xrt/modbus-device1 folder, if you find the variable cell_1_tmp. You can write a value to this property either by clicking the pencil icon in the value cell or by right-clicking the resource in the hierarchical menu and selecting 'Write' from the context menu.
