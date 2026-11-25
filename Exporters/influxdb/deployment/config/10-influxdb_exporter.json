@@ -1,0 +1,15 @@
+{
+  "Name": "influxdb_exporter",
+  "Logger": "03-logger_debug",
+  "Library": "libxrt-influxdb-exporter.so",
+  "Factory": "xrt_influxdb_exporter_factory",
+  "Bus": "07-bus",
+  "InfluxVersion": 2,
+  "Bucket": "${XRT_INFLUXDB_DATABASE}",
+  "Token": "${XRT_INFLUXDB_TOKEN}",
+  "ServerURI": "${XRT_INFLUXDB_SERVICE}",
+  "ConnectTimeout": 4000,
+  "Timeout": 5000,
+  "SparkplugConfig": {},
+  "SparkplugThreadpool": "05-pool"
+}
