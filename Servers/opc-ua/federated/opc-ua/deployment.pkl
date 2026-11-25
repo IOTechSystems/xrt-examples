@@ -33,8 +33,8 @@ system =
       })
     |> opcua_server.instance("opc_ua_server")
     |> opcua_server.withOPCUAServerOptions("opc_ua_server", (s) -> (s) {
-        enable_sparkplug = true
         opcua_server_config = new opcua_server.OPCUAServerConfig {
+          enable_sparkplug = true
           port = 4840
           nodeset_paths = List(
             "${XRT_NODESET_DIR}/Sunspec.Model805.xml",
