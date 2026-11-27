@@ -50,38 +50,94 @@ typedef struct zone_monitor_t
   bool fan_on;
 } zone_monitor_t;
 
-/* Sends a DCMD to switch the fan on. Runs as a thread pool job, so that the
- * lookup and command don't run inside on_metric_value_updated: the Sparkplug
- * application runs that callback while holding the node's lock, which
- * xrt_spg_app_node_get_device also takes, so looking up the fan's device from
- * inside the callback deadlocks. */
-static void *zone_monitor_fan_on (void *arg)
+/* Records that the fan could not be switched on, so that the next update
+ * tries again. */
+static void zone_monitor_fan_on_failed (zone_monitor_t *zm, devsdk_quality_t quality)
 {
-  zone_monitor_t *zm = arg;
-  xrt_spg_app_node_t *node = xrt_spg_app_get_node (zm->spg_app, zm->node);
-  xrt_spg_app_device_t *device = node ? xrt_spg_app_node_get_device (node, zm->device) : NULL;
-  xrt_spg_app_metric_t *metric = device ? xrt_spg_app_device_get_metric (device, FAN_METRIC) : NULL;
-  devsdk_quality_t quality = DEVSDK_QUALITY_BAD;
-  if (metric)
+  iot_log_warn (zm->logger, "could not switch fan on (quality 0x%x), will retry on the next update", (unsigned) quality);
+  pthread_mutex_lock (&zm->lock);
+  zm->fan_on = false;
+  pthread_mutex_unlock (&zm->lock);
+}
+
+/* Called with the result of the fan command once its DACK is received, or with
+ * DEVSDK_QUALITY_BAD_NO_COMMUNICATION if no DACK is received in time. It runs
+ * on the thread delivering the application's Sparkplug messages, so it must
+ * not block. */
+static void zone_monitor_fan_on_result (size_t cmds_size, const devsdk_quality_t *qualities, void *ctx)
+{
+  zone_monitor_t *zm = ctx;
+  (void) cmds_size;
+  if (qualities[0] == DEVSDK_QUALITY_GOOD)
   {
-    /* The command is not sent if the fan's value is stale (DEVSDK_QUALITY_UNCERTAIN_LAST_VALUE) */
-    quality = xrt_spg_app_device_send_cmd (device, metric, iot_data_alloc_ui32 (1u));
-  }
-  if (quality == DEVSDK_QUALITY_GOOD)
-  {
-    iot_log_info (zm->logger, "switching fan on");
+    iot_log_info (zm->logger, "fan switched on");
   }
   else
   {
-    iot_log_warn (zm->logger, "could not switch fan on (quality %d), will retry on the next update", (int) quality);
-    pthread_mutex_lock (&zm->lock);
-    zm->fan_on = false;
-    pthread_mutex_unlock (&zm->lock);
+    zone_monitor_fan_on_failed (zm, qualities[0]);
+  }
+}
+
+/* A job switching the fan on: the zone monitor and a reference to the zone's
+ * device, which the job releases. */
+typedef struct zone_monitor_fan_on_job_t
+{
+  zone_monitor_t *zm;
+  xrt_spg_app_device_t *device;
+} zone_monitor_fan_on_job_t;
+
+/* Sends a DCMD to switch the fan on. Runs as a thread pool job, so that the
+ * Sparkplug application's callbacks return quickly and don't wait for the
+ * command to be sent. */
+static void *zone_monitor_fan_on (void *arg)
+{
+  zone_monitor_fan_on_job_t *job = arg;
+  zone_monitor_t *zm = job->zm;
+  xrt_spg_app_device_t *device = job->device;
+  xrt_spg_app_metric_t *metric = xrt_spg_app_device_get_metric (device, FAN_METRIC);
+  devsdk_quality_t quality = DEVSDK_QUALITY_BAD;
+  if (metric)
+  {
+    /* The command would be sent even if the fan's value is stale (the device
+     * is offline), so don't send it then */
+    xrt_spg_app_metric_lock (metric);
+    bool stale = xrt_spg_app_metric_is_stale (metric);
+    xrt_spg_app_metric_unlock (metric);
+    if (stale)
+    {
+      quality = DEVSDK_QUALITY_UNCERTAIN_LAST_VALUE;
+    }
+    else
+    {
+      xrt_spg_metric_cmd_t cmd;
+      xrt_spg_app_metric_cmd_init (&cmd, metric, iot_data_alloc_ui32 (1u));
+      iot_log_info (zm->logger, "switching fan on");
+      /* zone_monitor_fan_on_result is called exactly once if the command is sent */
+      if (xrt_spg_app_device_send_cmd_with_ack (device, 1, &cmd, XRT_SPG_APP_ACK_DEFAULT_TIMEOUT, zone_monitor_fan_on_result, zm))
+      {
+        quality = DEVSDK_QUALITY_GOOD;
+      }
+    }
+  }
+  if (quality != DEVSDK_QUALITY_GOOD)
+  {
+    zone_monitor_fan_on_failed (zm, quality);
   }
   xrt_spg_app_metric_free (metric);
   xrt_spg_app_device_free (device);
-  xrt_spg_app_node_free (node);
+  free (job);
   return NULL;
+}
+
+/* Adds a job to switch the fan on. The device is the one passed to the
+ * callback: a reference is added so that the job can use it after the
+ * callback returns. */
+static void zone_monitor_add_fan_on_job (zone_monitor_t *zm, xrt_spg_app_device_t *device)
+{
+  zone_monitor_fan_on_job_t *job = malloc (sizeof (*job));
+  job->zm = zm;
+  job->device = xrt_spg_app_device_add_ref (device);
+  iot_threadpool_add_work (zm->pool, zone_monitor_fan_on, job, -1);
 }
 
 /* Records a new value of one of the zone's metrics. Returns true if the fan
@@ -122,19 +178,17 @@ static bool zone_monitor_update (zone_monitor_t *zm, const char *name, const iot
   return switch_fan_on;
 }
 
-/* Fired for every metric value change in a DATA message, or when a metric goes
- * stale. The metric is locked by the Sparkplug application for the duration. */
-static void on_metric_value_updated (xrt_spg_app_metric_t *metric, void *app_ctx)
+/* Fired for every device metric value change in a DDATA message, and for every
+ * metric of a DBIRTH unchanged from the cached one. It is not fired when a
+ * metric goes stale. The metric is not locked, but its own value can be read
+ * without locking inside the callback. */
+static void on_device_metric_value_updated (xrt_spg_app_device_t *device, xrt_spg_app_metric_t *metric, void *app_ctx)
 {
   zone_monitor_t *zm = app_ctx;
-  if (xrt_spg_app_metric_is_stale (metric))
-  {
-    iot_log_info (zm->logger, "'%s' is stale", xrt_spg_app_metric_name (metric));
-    return;
-  }
+  if (strcmp (xrt_spg_app_device_get_node_id (device), zm->node) != 0 || strcmp (xrt_spg_app_device_name (device), zm->device) != 0) return;
   if (zone_monitor_update (zm, xrt_spg_app_metric_name (metric), xrt_spg_app_metric_get_value (metric)))
   {
-    iot_threadpool_add_work (zm->pool, zone_monitor_fan_on, zm, -1);
+    zone_monitor_add_fan_on_job (zm, device);
   }
 }
 
@@ -172,7 +226,7 @@ static void on_device_metrics_update_finish (xrt_spg_app_node_t *node, void *app
     xrt_spg_app_metric_unlock (metric);
     xrt_spg_app_metric_free (metric);
   }
-  if (switch_fan_on) iot_threadpool_add_work (zm->pool, zone_monitor_fan_on, zm, -1);
+  if (switch_fan_on) zone_monitor_add_fan_on_job (zm, device);
 }
 
 static void on_node_added (xrt_spg_app_t *app, void *app_ctx, xrt_spg_app_node_t *node)
@@ -272,7 +326,7 @@ static iot_component_t *zone_monitor_config (iot_container_t *container, const i
   app_cfg.callbacks.on_device_added = on_device_added;
   app_cfg.callbacks.on_device_removed = on_device_removed;
   app_cfg.callbacks.on_device_metrics_update_finish = on_device_metrics_update_finish;
-  app_cfg.callbacks.on_metric_value_updated = on_metric_value_updated;
+  app_cfg.callbacks.on_device_metric_value_updated = on_device_metric_value_updated;
 
   iot_log_info (logger, "%s: app '%s' monitoring '%s/%s'%s%s%s", ZONE_MONITOR_TYPE, app_cfg.app_id, zm->node, zm->device,
     app_cfg.settings.birth_cache_dir ? ", BIRTH cache enabled" : "",
