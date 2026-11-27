@@ -78,15 +78,23 @@ static void zone_monitor_fan_on_result (size_t cmds_size, const devsdk_quality_t
   }
 }
 
+/* A job switching the fan on: the zone monitor and a reference to the zone's
+ * device, which the job releases. */
+typedef struct zone_monitor_fan_on_job_t
+{
+  zone_monitor_t *zm;
+  xrt_spg_app_device_t *device;
+} zone_monitor_fan_on_job_t;
+
 /* Sends a DCMD to switch the fan on. Runs as a thread pool job, so that the
  * Sparkplug application's callbacks return quickly and don't wait for the
  * command to be sent. */
 static void *zone_monitor_fan_on (void *arg)
 {
-  zone_monitor_t *zm = arg;
-  xrt_spg_app_node_t *node = xrt_spg_app_get_node (zm->spg_app, zm->node);
-  xrt_spg_app_device_t *device = node ? xrt_spg_app_node_get_device (node, zm->device) : NULL;
-  xrt_spg_app_metric_t *metric = device ? xrt_spg_app_device_get_metric (device, FAN_METRIC) : NULL;
+  zone_monitor_fan_on_job_t *job = arg;
+  zone_monitor_t *zm = job->zm;
+  xrt_spg_app_device_t *device = job->device;
+  xrt_spg_app_metric_t *metric = xrt_spg_app_device_get_metric (device, FAN_METRIC);
   devsdk_quality_t quality = DEVSDK_QUALITY_BAD;
   if (metric)
   {
@@ -117,8 +125,19 @@ static void *zone_monitor_fan_on (void *arg)
   }
   xrt_spg_app_metric_free (metric);
   xrt_spg_app_device_free (device);
-  xrt_spg_app_node_free (node);
+  free (job);
   return NULL;
+}
+
+/* Adds a job to switch the fan on. The device is the one passed to the
+ * callback: a reference is added so that the job can use it after the
+ * callback returns. */
+static void zone_monitor_add_fan_on_job (zone_monitor_t *zm, xrt_spg_app_device_t *device)
+{
+  zone_monitor_fan_on_job_t *job = malloc (sizeof (*job));
+  job->zm = zm;
+  job->device = xrt_spg_app_device_add_ref (device);
+  iot_threadpool_add_work (zm->pool, zone_monitor_fan_on, job, -1);
 }
 
 /* Records a new value of one of the zone's metrics. Returns true if the fan
@@ -169,7 +188,7 @@ static void on_device_metric_value_updated (xrt_spg_app_device_t *device, xrt_sp
   if (strcmp (xrt_spg_app_device_get_node_id (device), zm->node) != 0 || strcmp (xrt_spg_app_device_name (device), zm->device) != 0) return;
   if (zone_monitor_update (zm, xrt_spg_app_metric_name (metric), xrt_spg_app_metric_get_value (metric)))
   {
-    iot_threadpool_add_work (zm->pool, zone_monitor_fan_on, zm, -1);
+    zone_monitor_add_fan_on_job (zm, device);
   }
 }
 
@@ -207,7 +226,7 @@ static void on_device_metrics_update_finish (xrt_spg_app_node_t *node, void *app
     xrt_spg_app_metric_unlock (metric);
     xrt_spg_app_metric_free (metric);
   }
-  if (switch_fan_on) iot_threadpool_add_work (zm->pool, zone_monitor_fan_on, zm, -1);
+  if (switch_fan_on) zone_monitor_add_fan_on_job (zm, device);
 }
 
 static void on_node_added (xrt_spg_app_t *app, void *app_ctx, xrt_spg_app_node_t *node)
