@@ -2,7 +2,7 @@ name: xrt-getting-started
 
 services:
   xrt:
-    image: iotechsys/xrt:4.0
+    image: iotechsys/xrt-server:3.4.6-deb13
     container_name: xrt
     env_file: xrt.env
     # Show Xrt's log output as soon as it is written
@@ -12,5 +12,5 @@ services:
     user: "${XRT_UID:-1000}:${XRT_GID:-1000}"
     volumes:
       # The image runs Xrt against the deployment/config directory mounted here
-      - ./deployment:/opt/iotech/xrt/4.0/deployment
-      - ./license.json:/opt/iotech/xrt/4.0/license.json:ro
+      - ./deployment:/opt/iotech/xrt/3.4/deployment
+      - ./license.json:/opt/iotech/xrt/3.4/license.json:ro
