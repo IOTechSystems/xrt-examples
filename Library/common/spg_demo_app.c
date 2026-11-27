@@ -16,6 +16,7 @@
  */
 
 #include <inttypes.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -39,16 +40,34 @@ typedef struct spg_demo_app_t
   atomic_bool device_written;
 } spg_demo_app_t;
 
-/* Fired for every metric value change on a node or device (birth, data, stale). */
-static void on_metric_value_updated (xrt_spg_app_metric_t *metric, void *app_ctx)
+/* Logs a metric's value. Called from the value updated callbacks, inside which
+ * the metric's value can be read without locking it. */
+static void log_metric_value (spg_demo_app_t *app, const char *owner, xrt_spg_app_metric_t *metric)
 {
-  spg_demo_app_t *app = app_ctx;
   const iot_data_t *value = xrt_spg_app_metric_get_value (metric);
   /* A metric can be born/updated with no value (is_null); iot_data_to_json
    * requires non-NULL input, so fall back to the literal "null" here. */
   char *json = value ? iot_data_to_json (value) : strdup ("null");
-  iot_log_info (app->logger, "metric '%s' = %s (ts=%" PRIu64 ")", xrt_spg_app_metric_name (metric), json, xrt_spg_app_metric_get_timestamp (metric));
+  iot_log_info (app->logger, "%s metric '%s' = %s (ts=%" PRIu64 ")", owner, xrt_spg_app_metric_name (metric), json, xrt_spg_app_metric_get_timestamp (metric));
   free (json);
+}
+
+/* Fired for every node metric value change in an NDATA message, and for every
+ * metric of an NBIRTH unchanged from the cached one. */
+static void on_node_metric_value_updated (xrt_spg_app_node_t *node, xrt_spg_app_metric_t *metric, void *app_ctx)
+{
+  char owner[256];
+  snprintf (owner, sizeof (owner), "node '%s'", xrt_spg_app_node_get_id (node));
+  log_metric_value (app_ctx, owner, metric);
+}
+
+/* Fired for every device metric value change in a DDATA message, and for every
+ * metric of a DBIRTH unchanged from the cached one. */
+static void on_device_metric_value_updated (xrt_spg_app_device_t *device, xrt_spg_app_metric_t *metric, void *app_ctx)
+{
+  char owner[256];
+  snprintf (owner, sizeof (owner), "device '%s/%s'", xrt_spg_app_device_get_node_id (device), xrt_spg_app_device_name (device));
+  log_metric_value (app_ctx, owner, metric);
 }
 
 static void on_device_added (xrt_spg_app_node_t *node, void *app_ctx, xrt_spg_app_device_t *device)
@@ -148,7 +167,8 @@ static iot_component_t *spg_demo_app_config (iot_container_t *container, const i
   app_cfg.app_id = app->app_id;
   app_cfg.ctx = app;
   app_cfg.callbacks.on_device_added = on_device_added;
-  app_cfg.callbacks.on_metric_value_updated = on_metric_value_updated;
+  app_cfg.callbacks.on_node_metric_value_updated = on_node_metric_value_updated;
+  app_cfg.callbacks.on_device_metric_value_updated = on_device_metric_value_updated;
   if (*app->write_device)
   {
     app_cfg.callbacks.on_device_metric_added = on_device_metric_added;
