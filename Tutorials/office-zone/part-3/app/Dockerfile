@@ -5,12 +5,16 @@ ARG XRT_IMAGE=iotechsys/xrt-server:3.4.6-deb13
 
 FROM ${XRT_IMAGE} AS builder
 
-ARG IOTECH_APT_REPO=https://iotech.jfrog.io/iotech/debian-release
+# Dev builds of the -dev packages are in the authenticated debian-dev repository. Pass your apt
+# credentials (an apt auth.conf file) as the "iotech-apt" build secret, for example:
+#   docker build --secret id=iotech-apt,src=/etc/apt/auth.conf -t zone-monitor app
+ARG IOTECH_APT_REPO=https://iotech.jfrog.io/iotech/debian-dev
 ARG IOTECH_APT_KEY=https://iotech.jfrog.io/artifactory/api/gpg/key/public
 
 # Compiler, and the XRT and IOT headers. The -dev packages must match the
 # XRT and IOT versions already installed in the image.
-RUN apt-get update \
+RUN --mount=type=secret,id=iotech-apt,target=/etc/apt/auth.conf.d/iotech.conf,required=true \
+  apt-get update \
   && apt-get install -y --no-install-recommends gcc libc6-dev curl gnupg lsb-release ca-certificates \
   && curl -fsSL "${IOTECH_APT_KEY}" | gpg --dearmor -o /usr/share/keyrings/iotech.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/iotech.gpg] ${IOTECH_APT_REPO} $(lsb_release -cs) main" > /etc/apt/sources.list.d/iotech.list \
