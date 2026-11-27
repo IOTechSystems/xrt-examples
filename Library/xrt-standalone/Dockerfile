@@ -1,0 +1,17 @@
+# The same XRT image as app1/app2 (see ../README.md).
+ARG XRT_IMAGE=iotechsys/xrt:4.0-deb13
+
+FROM ${XRT_IMAGE}
+
+# deployment/ is mounted here (see ../docker-compose.yml), rather than under
+# the image's ${XRT}, which changes with the XRT version
+ENV XRT_DEPLOYMENT_DIR=/deployment
+ENV XRT_STATE_DIR=/deployment/state
+
+# socat bridges Dev4's simulated MS/TP bus (see entrypoint.sh) in.
+RUN apt-get update && apt-get install -y --no-install-recommends socat \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

@@ -1,0 +1,6 @@
+amends "pkl:Project"
+
+// The XRT Pkl package of the XRT release these examples run (see README.md).
+dependencies {
+  ["XRT"] { uri = "package://iotech.jfrog.io/artifactory/public/PKL/XRT/XRT@4.0.0" }
+}
