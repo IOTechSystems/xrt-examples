@@ -7,7 +7,12 @@ import "@XRT/bridge/sparkplug_bridge.pkl"
 local office = virtual.device("office-zone", "office-zone-profile", new virtual.VirtualProtocolType {})
 
 /// Read every resource of the office zone every 5 seconds
-local schedule = office.new_schedule("office-zone-schedule", Set(".*"), 5.s)
+local schedule = office.new_schedule(new Dynamic {
+  name = "office-zone-schedule"
+  device = office.ref()
+  resource = Set(".*")
+  interval = 5.s
+})
 
 system =
   standardSystem("tutorial-server", "${SPARKPLUG_NODE}")

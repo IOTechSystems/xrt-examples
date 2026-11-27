@@ -17,7 +17,12 @@ local rack1 = modbusDevice("rack-01", "battery-rack-profile", 2)
 local rack2 = modbusDevice("rack-02", "battery-rack-profile", 3)
 
 /// A schedule that reads every resource of a device
-local function readAll(_device: Device, _interval: Duration) = _device.new_schedule("\(_device.name)-schedule", Set(".*"), _interval)
+local function readAll(_device: Device, _interval: Duration) = _device.new_schedule(new Dynamic {
+  name = "\(_device.name)-schedule"
+  device = _device.ref()
+  resource = Set(".*")
+  interval = _interval
+})
 
 /// The site meter, served by the OPC UA simulator
 local meter = opcua.device("site-meter", "site-meter-profile", new opcua.OPCUAProtocolType {
